@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>@ViewBag.Title - Mon application ASP.NET</title>
+	@Styles.Render("~/Content/css")
+	@Scripts.Render("~/bundles/jquery")
+	@Scripts.Render("~/bundles/modernizr")
+	@Styles.Render("~/Scripts/css/leaflet")
+	@Scripts.Render("~/Scripts/leaflet")
+	@Styles.Render("~/Scripts/css/leaflet")
+	@Scripts.Render("~/Scripts/jquerymodal")
+	@Styles.Render("~/Scripts/css/jquerymodal")
+	@Scripts.Render("~/bundles/jquery") @* Répétition double volontaire - Sinon le modal ne fonction pas *@
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+	<script type="text/javascript" src="https://vicopo.selfbuild.fr/api.js"></script>
+</head>
+<body>
+    <div id="global">
+        <header>
+            <div>
+                @Html.Partial("_NavPartial")
+            </div>
+        </header>
+		<div id="_PictureHeader">
+			@Html.Partial("_PictureHeader")
+			
+		</div>
+        <main>
+            @RenderBody()
+        </main>
+
+        <footer>
+            @Html.Partial("_FooterPartial")
+        </footer>
+
+    </div>
+
+    @Scripts.Render("~/Scripts/parallax")
+    @*@Scripts.Render("~/Scripts/waypoints")*@
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/Scripts/Script")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

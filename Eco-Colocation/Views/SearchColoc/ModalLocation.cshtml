@@ -1,0 +1,199 @@
+﻿@model  Eco_Colocation.ViewModel.AllViewModel
+@{
+    ViewBag.Title = "ModalLocation";
+}
+
+@* https://jquerymodal.com/ *@
+@*<a href="#close-modal" rel="modal:close">*@
+
+<div class="underModal col-sm-12 col-xs-12">
+    <div id="modalLocation" class="reelModal col-sm-8 col-xs-12">
+        <div id="divMessage-ml">
+            <img onclick="displayPVMessage()" src="https://img.icons8.com/material-outlined/48/000000/circled-chevron-left.png">
+            <div class="col-sm-6 col-xs-12" style="padding:0">
+                @Html.Partial("~/Views/SearchColoc/PartialViewMessage.cshtml")
+            </div>
+        </div>
+        <div id="divPhoto-ml">
+            <div id="div-photos-mpc" class="col-sm-6 col-xs-12">
+                <div class="photo-mpc mySlides" style="background: url(https://lcdcfrance-prod.s3.amazonaws.com/pictures/1fcfb11b21b7a9b1246992c16d340f7c_medium.jpg) 50% 50% no-repeat;"></div>
+                <div class="photo-mpc mySlides" style="background: url(https://lcdcfrance-prod.s3.amazonaws.com/pictures/419b0732bf01daa64a17797c482fc47a_medium.jpg) 50% 50% no-repeat;"></div>
+                <div class="photo-mpc mySlides" style="background: url(https://lcdcfrance-prod.s3.amazonaws.com/pictures/69617d56d55af3985e8ab7bb6ae947d5_medium.jpg) 50% 50% no-repeat;"></div>
+                <div id="d1-btnphoto-mpc">
+                    <div id="d1-2-btnphoto-mpc" onclick="plusDivs(-1)">
+                        <img src="../Content/Images/Icons/arrow-left.png">
+                    </div>
+                </div>
+                <div id="d2-btnphoto-mpc">
+                    <div id="d2-1-btnphoto-mpc" onclick="plusDivs(+1)">
+                        <img src="../Content/Images/Icons/arrow-right.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="div-description-mpc" class="col-sm-6 col-xs-12">
+            <div id="d1-description-mpc">
+                <div id="d1-1-description-mpc" class="col-sm-4 col-xs-4">
+                    <div id="d1-1-1-description-mpc">
+                        <h2>390€</h2>
+                        <h4>par mois</h4>
+                    </div>
+                </div>
+                <div id="d1-2-description-mpc" class="col-sm-3 col-xs-3">
+                    <div id="d1-2-1-description-mpc" style="background: url(https://lcdcfrance-prod.s3.amazonaws.com/profile_pictures/47aa8a5c7db1808139e223af6a4ab1e0_medium.jpg) 50% 50% no-repeat;"></div>
+                </div>
+                <div id="d1-3-description-mpc" class="col-sm-5 col-xs-5">
+                    <h4>Clémentine</h4>
+                    <p>25 ans, Salariée</p>
+                    <p id="p-d1-3-description-mpc">Posté il y a 3 jours</p>
+                </div>
+            </div>
+            <div class="d2-description-mpc">
+                <div class="d2-1-description-mpc col-sm-3 col-xs-3">
+                    <div class="d2-1-1-description-mpc">
+                        <div class="d2-1-1-1-description-mpc">
+                            <img src="https://img.icons8.com/ios/50/000000/building.png">
+                        </div>
+                        <p>Maison</p>
+                    </div>
+                </div>
+                <div class="d2-1-description-mpc col-sm-3 col-xs-3">
+                    <div class="d2-1-1-description-mpc">
+                        <div class="d2-1-1-1-description-mpc">
+                            <img src="https://img.icons8.com/ios/50/000000/resize-four-directions.png">
+                        </div>
+                        <p>120 m²</p>
+                    </div>
+                </div>
+                <div class="d2-1-description-mpc col-sm-3 col-xs-3">
+                    <div class="d2-1-1-description-mpc">
+                        <div class="d2-1-1-1-description-mpc">
+                            <img src="https://img.icons8.com/ios/50/000000/conference-call.png">
+                        </div>
+                        <p id="p1-d2-1-description-mpc">3 colocs</p>
+                        <p id="p2-d2-1-description-mpc">(présents)</p>
+                    </div>
+                </div>
+                <div class="d2-1-description-mpc col-sm-3 col-xs-3">
+					<div class="d2-1-1-description-mpc">
+						<div class="d2-1-1-1-description-mpc">
+							<img src="https://img.icons8.com/wired/64/000000/event-declined.png">
+						</div>
+						<p id="p1-d2-1-description-mpc">01/03/2019</p>
+						<p id="p2-d2-1-description-mpc">(Disponibilité)</p>
+					</div>
+                </div>
+            </div>
+            <div id="d3-description-mpc">
+                <div class="d3-1-description-mpc" onclick="displayPhoneNumber('#numberPhone-ml')">
+                    <img src="../Content/Images/Icons/phone.png">
+                    <span id="libelleTelephone-mpc">Afficher le numéro</span>
+                    <span id="numberPhone-ml"></span>
+                </div>
+                <div id="d3-2-description-mpc" onclick="displayPVMessage()">
+                    <a href="#divMessage-ml">
+                        <img src="../Content/Images/Icons/message.png">Envoyer un message
+                    </a>
+                </div>
+            </div>
+            <div id="d4-description-mpc">
+                <p>Nous recherchons 2 hommes pour amener une mixité dans la colocation et qui seraient interressés pour co-habiter avec nous et participer à ces démarches écologiques.</p>
+                <p>Nous sommes 3 jeunes femmes entre 22 et 26 ans. Nous vivons dans une maison dans la campagne prêt de la mer. Deux de nos colocataires partent étudier dans hors Toulouse, deux nouvelles places sont alors disponibles.</p>
+                <p>Nous respectons les tri des dechets, essayons d'être proche du 0 déchets et nous cultivons notre jardin bio. Et enfin nous ne mangeons pas de viande.</p>
+            </div>
+            <div id="d5-description-mpc">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col" colspan="2">CHAMBRE</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Loyer</td>
+                            <td>390 € (320 € + 60 € de charges)</td>
+                        </tr>
+                        <tr>
+                            <td>Caution</td>
+                            <td>250 €</td>
+                        </tr>
+                        <tr>
+                            <td>Superficie</td>
+                            <td>18 m²</td>
+                        </tr>
+                        <tr>
+                            <td>Meublée</td>
+                            <td>Oui</td>
+                        </tr>
+                        <tr>
+                            <td>Disponibilité</td>
+                            <td>24/03/2019</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col" colspan="2">LOGEMENT</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Localisation</td>
+                            <td>Rue Cambard, Toulouse</td>
+                        </tr>
+                        <tr>
+                            <td>Type</td>
+                            <td>Appartement 4 pieces</td>
+                        </tr>
+                        <tr>
+                            <td>Superficie</td>
+                            <td>120 m²</td>
+                        </tr>
+                        <tr>
+                            <td>Colocataires présents</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td>Accessibilité handicapé</td>
+                            <td>Oui</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col" colspan="2">ANNONCE</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Date de publication</td>
+                            <td>16/02/2019 à 20h00</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col" colspan="2">Tolérances</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Fumeur</td>
+                            <td>Oui</td>
+                        </tr>
+                        <tr>
+                            <td>Animaux</td>
+                            <td>Oui</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <a href="#close-modal" rel="modal:close" class="close-modal">Close</a>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+﻿@model  Eco_Colocation.ViewModel.ColocAnnounceViewModel
+@{
+    ViewBag.Title = "Index";
+}
+<div id="colocAnnounce">
+	<div id="divNbPeopleSearch-ca">
+		<a href="#peopleSearching" id="btnPeopleSearch-ca">
+			<p id="localisation-ca">Bretagne</p>
+			<p id="nbPeopleSearching-ca">Voir les 150 personnes qui recherchent</p>
+		</a>
+	</div>
+	<div id="divLibellePropose">
+		<h3 style="text-align: center;font-family: cursive;">Je propose une éco-colocation</h3>
+	</div>
+	<div id="divRubriqueRecherche">
+		<div id="sousDivRubriqueRecherche" style="width: 650px;">
+			<div id="annonceRubrique" class="col-sm-6 col-xs-12">
+				<h3 id="annonceRubrique2" onclick="annonceLocationPage();">Mes annonces de locations</h3>
+			</div>
+			<div id="creationRubrique" class="col-sm-6 col-xs-12">
+				<h3 id="creationRubrique2" onclick="projetCreationPage();">Mes projets de créations</h3>
+			</div>
+		</div>
+	</div>
+
+	<div id="annonceLocation">
+		@Html.Partial("~/Views/ColocAnnounce/AnnonceLocation.cshtml", Model)
+	</div>
+	<div id="projetCreation">
+		@Html.Partial("~/Views/ColocAnnounce/ProjetCreation.cshtml", Model)
+	</div>
+</div>

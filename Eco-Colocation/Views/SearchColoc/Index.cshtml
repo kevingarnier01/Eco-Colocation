@@ -1,0 +1,55 @@
+﻿@model  Eco_Colocation.ViewModel.SearchColocViewModel
+@{
+    /**/
+
+    ViewBag.Title = "Index";
+}
+
+<div id="searchColoc">
+	<div id="divNbPeopleSearch-ca">
+		<a href="#peopleSearching" id="btnPeopleSearch-ca">
+			<p id="localisation-ca">Bretagne</p>
+			<p id="nbPeopleSearching-ca">Voir les 150 personnes qui recherchent</p>
+		</a>
+	</div>
+	<div id="divLibelleRecherche">
+		<div>
+			<h3>Je recherche une éco-colocation</h3>
+		</div>
+	</div>
+	<div id="divRubriqueRecherche">
+		<div id="sousDivRubriqueRecherche">
+			<div id="annonceRubrique" class="col-sm-6 col-xs-12">
+				<h3 id="annonceRubrique2" onclick="annonceLocationPage();">Annonces de locations</h3>
+			</div>
+			<div id="creationRubrique" class="col-sm-6 col-xs-12">
+				<h3 id="creationRubrique2" onclick="projetCreationPage();">Projets de créations</h3>
+			</div>
+		</div>
+	</div>
+
+	@*Miniature sur la map*@
+	<div id="annonceLocation">
+		@Html.Partial("~/Views/SearchColoc/AnnonceLocation.cshtml", Model)
+	</div>
+	<div id="projetCreation">
+		@Html.Partial("~/Views/SearchColoc/ProjetCreation.cshtml", Model)
+	</div>
+</div>
+@* 1. Recherches-tu des colocataires *@
+@* 2. Recherches-tu un habitat *@
+
+@* Ceux qui recherchent des colocataires *@
+@* A preciser : *@
+@* votre logement et sa localisation *@
+@* (zone, loyer, proximité des commerces, transports, etc.) *@
+@* votre mode de vie *@
+@* Le type de partage recherché *@
+@* Profil de colocataire que vous recherchez *@
+
+<script language="javascript">
+    //Charge la map
+    window.onload = function (e) {
+        initMap();
+    }
+</script>

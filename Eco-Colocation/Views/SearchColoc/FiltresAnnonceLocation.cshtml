@@ -1,0 +1,160 @@
+﻿
+@{
+	ViewBag.Title = "FiltresLocation";
+}
+<div id="divfiltre" class="dropdown dropdown-lg">
+	<button id="btnFiltre" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span style="margin-right: 3px">Filtrer les annonces</span><span class="caret"></span></button>
+	<div id="divfiltreHome" class="dropdown-menu dropdown-menu-right" role="menu">
+		<div id="div2-filtreHome">
+			<form class="form-horizontal" role="form">
+				<div id="div1-loyer-fh" class="form-group col-xs-12">
+					<div>
+						<label for="filter">Loyer</label>
+					</div>
+					<div id="div2-1-loyer-fh" class="col-sm-12">
+						<div id="div-2-1-1-loyer-fh">
+							<select id="select1-loyer-fh" class="form-control">
+								<option value="0" selected="">Loyer min</option>
+								@for (var i = 0; i < 1000; i++)
+								{
+									<option value=@i>@i</option>
+									i += 49;
+								}
+								@for (var i = 1000; i < 2000; i++)
+								{
+									<option value=@i>@i</option>
+									i += 99;
+								}
+							</select>
+							<select id="select2-loyer-fh" class="form-control ">
+								<option value="0" selected="">Loyer max</option>
+								@for (var i = 50; i < 1000; i++)
+								{
+									<option value=@i>@i</option>
+									i += 49;
+								}
+								@for (var i = 1000; i < 2000; i++)
+								{
+									<option value=@i>@i</option>
+									i += 99;
+								}
+								<option value="2000">2000 et +</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-6 form-group dropdown">
+					<label id="lbNbColoc-filtre" for="filter">Nombre de colocs</label><br>
+					<div id="div1-multiList" onclick="displayMultiListe()" >
+						<div id="div1-1-multiList" >
+							<p>Choix multiples</p>
+						</div>
+						<div id="div1-2-multiList">
+							<span class="caret"></span>
+						</div>
+					</div>
+					<div id="div2-multiList" class="dropdown-content">
+						<div class="div2-1-multiList">
+							<div class="div2-2-multiList col-xs-2">
+								<input name="Tous_colocataires" type="checkbox" value="0">
+							</div>
+							<div class="div2-3-multiList col-xs-10">
+								<label for="Tous_colocataires">Tous colocataires</label>
+							</div>
+						</div>
+						@for (var i = 1; i < 7; i++)
+						{
+							<div class="div2-1-multiList">
+								<div class="div2-2-multiList col-xs-2">
+									<input name="@i+coloc" type="checkbox" value="@i">
+								</div>
+								<div class="div2-3-multiList col-xs-10">
+									@if (i != 6)
+									{
+										<label for="@i+coloc">@i colocataire</label>
+									}
+									else
+									{
+
+										<label for="6coloc">6 colocataires et plus</label>
+									}
+								</div>
+							</div>
+						}
+					</div>
+				</div>
+				<div class="col-xs-6 form-group">
+					<label for="filter">Types de logement</label><br />
+					<select class="form-control">
+						<option value="0" selected>Tout type</option>
+						<option value="1">Habitat alternatif</option>
+						<option value="2">Appartements</option>
+						<option value="3">Maisons</option>
+					</select>
+				</div>
+				<div class="col-xs-6 form-group">
+					<label for="filter">Nombre de pièces</label><br />
+					<select class="form-control">
+						<option value="0">Toutes pièces</option>
+						<option value="1">> 1 pièce</option>
+						@for (var i = 2; i < 9; i++)
+						{
+							<option value=@i>> @i pièces</option>
+						}
+					</select>
+				</div>
+				<div class="col-xs-6 form-group">
+					<label for="filter">Surface du logement</label><br />
+					<select class="form-control">
+						<option value="0">Toutes surfaces</option>
+						@for (var i = 20; i < 160; i++)
+						{
+							<option value=@i>> @i m²</option>
+							i += 9;
+						}
+						@for (var i = 200; i < 550; i++)
+						{
+							<option value=@i>> @i m²</option>
+							i += 49;
+						}
+					</select>
+				</div>
+				<div class="col-xs-6 form-group">
+					<label for="filter">Surface de la chambre</label><br />
+					<select class="form-control">
+						<option value="0">Toutes surfaces</option>
+						@for (var i = 5; i <= 41; i++)
+						{
+							<option value=@i>> @i m²</option>
+							i += 4;
+						}
+					</select>
+				</div>
+				<div class="col-xs-6 form-group">
+					<label for="filter">Date de publication</label><br />
+					<select class="form-control">
+						<option value="0" selected>Toutes dates</option>
+						<option value="1">Moins d'un mois</option>
+						<option value="2">Moins de 2 semaine</option>
+						<option value="3">Moins d'une semaine</option>
+						<option value="4">Moins de 3 jours</option>
+						<option value="5">Ajoutée aujourd'hui</option>
+					</select>
+				</div>
+				<div class="col-xs-6 form-group">
+					<label for="filter">Commodités</label><br />
+					<select class="form-control">
+						<option value="0" selected>Toutes commodités</option>
+						<option value="1">Chambre meublée</option>
+						<option value="2">Accessibilité handicapé</option>
+					</select>
+				</div>
+				<div class="col-xs-6 form-group" id="div1SubmitBtnFiltre-Al">
+					<div id="div2SubmitBtnFiltre-Al">
+						<a id="submitBtnFiltre-Al" href="#">Valider</a>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

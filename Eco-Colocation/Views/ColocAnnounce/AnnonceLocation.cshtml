@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "AnnonceLocation";
+}
+
+<div id="div1-annonceLocation" class="col-xs-12">
+    <div id="div1-1-al" class="col-sm-12">
+        <div id="div1-2-al">
+            <a href="@Url.Action("ModalLocation","ColocAnnounce",null)" rel="modal:open">
+                <div id="btnCreer-al">Creer une annonce de location</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="col-sm-12" style="display: flex;">
+        <div id="divDivBlocAnnonce" class="col-md-9 col-sm-12">
+            @Html.Partial("~/Views/Shared/AnnonceLocation/AnnonceLocationPV.cshtml")
+        </div>
+
+    </div>
+</div>
