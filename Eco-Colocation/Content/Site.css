@@ -119,6 +119,12 @@ main {
 		color: white;
 	}
 
+#footer h5 {
+	border-bottom: #f7be68 1px solid;
+	padding-bottom: 20px;
+	width: 50%;
+}
+
 /*** Module ***/
 
 .onoff {
@@ -1583,7 +1589,7 @@ select:-moz-focusring {
 	max-width: 230px;
 	position: unset;
 	margin-right: auto;
-	margin-bottom: -60px;
+	margin-bottom: -50px;
 	background-color: rgba(0,0,0,0.02);
 	border-radius: 5px;
 	padding: 5px 10px;
@@ -2240,3 +2246,6 @@ select:-moz-focusring {
 }
 
 /**** Fin Modal Account / Index *****/
+
+
+
