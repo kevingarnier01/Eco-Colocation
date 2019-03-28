@@ -329,14 +329,15 @@ select:-moz-focusring {
 		width: 500px;
 		margin: 0 auto;
 	}
+}
 
-	/*.dropdown.dropdown-lg {
-		position: static !important;
-	}*/
-
-	/*.dropdown.dropdown-lg .dropdown-menu {
-			min-width: 500px;
-		}*/
+@media screen and (max-width: 730px) {
+	#adv-search {
+		display: inherit;
+	}
+	#inputSearchPlace {
+		margin-bottom: 20px;
+	}
 }
 /* Fin bar de recherche */
 
@@ -431,6 +432,11 @@ select:-moz-focusring {
 
 #divBtnFiltre {
 	margin-left: 3px;
+}
+
+#div2BtnFiltre {
+	margin-left: auto;
+	margin-right: auto;
 }
 
 #btnFiltre {
@@ -828,7 +834,6 @@ select:-moz-focusring {
 
 #divDivBlocAnnonce {
 	/*display: flex;*/
-	padding: 0;
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -858,6 +863,7 @@ select:-moz-focusring {
 	display: flex;
 	margin-top: 15px;
 	margin-bottom: 5px;
+	padding: 0
 }
 
 #div2AnnonceColoc {
@@ -1961,6 +1967,7 @@ select:-moz-focusring {
 
 #div1-2-al {
 	width: 305px;
+	max-width: 100%;
 	margin-left: auto;
 	margin-right: auto
 }
