@@ -1814,6 +1814,7 @@ select:-moz-focusring {
 	background-color: white;
 	padding: 5px;
 	border-radius: 10px;
+	margin-top: 10px;
 }
 
 #div10-4-adresseLog-ca {
@@ -2264,7 +2265,8 @@ select:-moz-focusring {
 }
 
 .divImgLogo-mcar {
-	position: unset
+	position: relative;
+	height: 70px;
 }
 
 .divImgLogoHorizontal-mcar {
@@ -2331,10 +2333,71 @@ select:-moz-focusring {
 	cursor: pointer;
 	font-weight: 100;
 	margin-bottom: 0;
+	max-width: 500px;
+	margin-top: 8px;
 }
 
 #file-upload {
 	display: none;
+}
+
+#divResultFilesUpl-mcar {
+	display: flex;
+}
+
+.div2ResultFilesUpl-mcar {
+	margin-left: auto;
+	margin-right: auto;
+	display: flex;
+	flex-wrap: wrap-reverse;
+}
+
+.div3ResultFilesUpl-mcar {
+	height: 190px;
+	width: 170px;
+	box-shadow: 0 0 2px 0px black;
+	position: relative;
+	padding-top: 12px;
+	padding-bottom: 12px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 20px;
+}
+
+.labelDescFile-mcar {
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: rgba(0,0,0,0.5);
+	color: white;
+	padding: 1px 5px;
+}
+
+.resultPictureUpl-mcar {
+	background-size: 150px !important;
+	height: 150px;
+	width: 150px;
+	max-height: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.crosspictureUpl-mcar {
+	font-size: 23px;
+	position: absolute;
+	bottom: 0;
+	margin-left: 50%;
+	transform: translateX(-50%);
+	margin-bottom: 3px;
+	cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+	.divImgLogo-mcar {
+		position: relative;
+		min-height: 60px;
+		margin-bottom: 10px
+	}
 }
 
 /**** Fin Modal Account / Index *****/

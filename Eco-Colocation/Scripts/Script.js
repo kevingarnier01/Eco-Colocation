@@ -284,7 +284,7 @@ function closeChildDropDown(e) {
 window.onclick = function (e) {
 	if (!e.target.matches('#div1-multiList')) {
 		var myDropdown = document.getElementById("div2-multiList");
-		if (myDropdown.classList.contains('show')) {
+		if (myDropdown != null && myDropdown.classList.contains('show')) {
 			myDropdown.classList.remove('show');
 		}
 	}
@@ -405,8 +405,19 @@ function openSecondModal() {
 //}
 
 function showMultiplesFilesUpload(idElement) {
-	alert(idElement);
-	for (var i = 0; i < $('#' + idElement).get(0).files.length; ++i) {
-		
+	var files = $('#' + idElement)[0].files;
+
+	for (var i = 0; i < files.length; ++i) {
+		var elementHtml = 
+			'<div class="col-sm - 10 col - xs - 12 div2ResultFilesUpl - mcar">' +
+			'<div class="div3ResultFilesUpl-mcar" >' +
+			'<label class="labelDescFile-mcar">Photo de couverture</label>' +
+			'<div class="resultPictureUpl-mcar" id="pictureUpl' + i + '-mcar"' +
+			'style="background: url(' + files[i].name + ') 50% no-repeat;" ></div >' +
+			'<i class="crosspictureUpl-mcar fas fa-times-circle"></i>' +
+			'</div>' +
+			'</div >';
+
+		$("#divResultFilesUpl-mcar").append(elementHtml)
 	}
 }
