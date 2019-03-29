@@ -1,9 +1,8 @@
-﻿using System.Web;
-using System.Web.Optimization;
+﻿using System.Web.Optimization;
 
 namespace Eco_Colocation
 {
-    public class BundleConfig
+	public class BundleConfig
     {
         // Pour plus d'informations sur le regroupement, visitez https://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
@@ -46,7 +45,6 @@ namespace Eco_Colocation
             bundles.Add(new ScriptBundle("~/Scripts/css/jquerymodal").Include(
                     "~/Scripts/jquery-modal/jquery.modal.min.css"
                ));
-
         }
     }
 }

@@ -9,23 +9,25 @@ namespace Eco_Colocation.Controllers
 		// GET: ColocAnnounce
 		public ActionResult Index()
 		{
-			AllViewModel allViewModel = new AllViewModel();
-			allViewModel.ColocAnnounceViewModel = new ColocAnnounceViewModel();
+			AllViewModel allViewModel = new AllViewModel
+			{
+				ColocAnnounceViewModel = new ColocAnnounceViewModel()
+			};
 			return View("~/Views/Home/Index.cshtml", allViewModel);
 		}
 
 		public ActionResult ModalLocation()
 		{
-			bool userIsConnect = false;
-			FormsAuthentication.GetAuthCookie("User", userIsConnect);
-			if (userIsConnect)
-			{
-				return PartialView();
-			}
-			else
-			{
-				return PartialView("~/Views/Account/ModalAccount.cshtml");
-			}
+			//bool userIsConnect = false;
+			//FormsAuthentication.GetAuthCookie("User", userIsConnect);
+			//if (userIsConnect)
+			//{
+			return PartialView();
+			//}
+			//else
+			//{
+			//return PartialView("~/Views/Account/ModalAccount.cshtml");
+			//}
 		}
 
 		public ActionResult ModalProjetCreation()
