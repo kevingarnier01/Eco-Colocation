@@ -364,6 +364,8 @@ select:-moz-focusring {
 	box-shadow: 0 0 5px 0px black;
 	border: none;
 	background-color: white;
+	margin-left:auto;
+	margin-right:auto
 }
 
 	#btnCherche:hover, #btnProposition:hover {
@@ -911,9 +913,9 @@ select:-moz-focusring {
 		box-shadow: none;
 	}
 
-		#photoAnnonce div {
+		/*#photoAnnonce div {
 			background-size: inherit !important;
-		}
+		}*/
 
 	#divDescriptionAnnonce {
 		overflow: auto;
@@ -1340,7 +1342,6 @@ select:-moz-focusring {
 
 #d1-description-mpc {
 	overflow: auto;
-	margin-bottom: 10px
 }
 
 #d1-1-description-mpc {
@@ -1378,17 +1379,21 @@ select:-moz-focusring {
 }
 
 .d2-description-mpc {
-	overflow: auto;
-	margin-bottom: 10px
+	display: table;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 10px;
+	margin-top: 10px;
 }
 
 .d2-1-description-mpc {
-	display: flex
+	display: flex;
+	overflow: auto;
 }
 
 .d2-1-1-description-mpc {
-	margin-left: auto;
-	margin-right: auto
+	margin-left: 50%;
+	transform: translateX(-50%);
 }
 
 	.d2-1-1-description-mpc p {
@@ -1444,6 +1449,7 @@ select:-moz-focusring {
 	border-radius: 3px;
 	padding: 2px 6px 3px 6px;
 	cursor: pointer;
+	margin-top: 10px
 }
 
 	#d3-2-description-mpc a {
@@ -1500,7 +1506,8 @@ select:-moz-focusring {
 
 	#divTitre-pvm h2 {
 		margin-left: auto;
-		margin-right: auto
+		margin-right: auto;
+		text-align:center
 	}
 
 .div1Input-pvm {
@@ -1558,6 +1565,7 @@ select:-moz-focusring {
 	border-radius: 3px;
 	padding: 10px 50px;
 	cursor: pointer;
+	text-align:center
 }
 
 #div3InputNom-pvm {
