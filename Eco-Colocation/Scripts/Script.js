@@ -403,3 +403,10 @@ function openSecondModal() {
 //	$('.jquery-modal').css('display', 'none');
 //	$('body').css('overflow', 'auto');
 //}
+
+function showMultiplesFilesUpload(idElement) {
+	alert(idElement);
+	for (var i = 0; i < $('#' + idElement).get(0).files.length; ++i) {
+		
+	}
+}

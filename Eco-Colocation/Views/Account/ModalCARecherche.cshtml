@@ -4,31 +4,12 @@
 }
 <div class="underModal col-sm-12 col-xs-12">
 	<div id="modalCARecherche" class="reelModal">
-		@*<div id="titleForm-mcar">Inscriv
-		ez-vous et trouver votre future éco-colocation</div>*@
+		<div id="titleForm-mcar">Inscrivez-vous et trouver votre future éco-colocation</div>
 		<div class="encadrer-mcar">
-			<div class="col-sm-4" style="padding-bottom: 15px;position: unset;">
-				<div style="
-    height: 100%;
-    display: flex;
-">
-					<div style="
-    margin-left: auto;
-    margin-right: auto;
-    width: 40px;
-">
-						<div style="
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-">
-							<div style="
-    background: url(https://img.icons8.com/ultraviolet/40/000000/search.png) no-repeat;
-    background-size: 40px;
-    height: 40px;
-    width: 40px;
-"></div>
-						</div>
+			<div class="col-sm-4 divImgLogo-mcar">
+				<div class="divImgLogoHorizontal-mcar">
+					<div class="divImgLogoVertical-mcar">
+						<div class="imgLogo-mcar" id="ImgLogoSearch-mcar"></div>
 					</div>
 				</div>
 			</div>
@@ -50,7 +31,13 @@
 			</div>
 		</div>
 		<div class="encadrer-mcar">
-			<div class="col-sm-4"></div>
+			<div class="col-sm-4 divImgLogo-mcar">
+				<div class="divImgLogoHorizontal-mcar">
+					<div class="divImgLogoVertical-mcar">
+						<div class="imgLogo-mcar" id="ImgLogoProfil-mcar"></div>
+					</div>
+				</div>
+			</div>
 			<div class="col-sm-8">
 				<div class="col-sm-6">
 					<label class="lbl-mcar">Nom</label>
@@ -293,7 +280,13 @@
 			</div>
 		</div>
 		<div class="encadrer-mcar">
-			<div class="col-sm-4"></div>
+			<div class="col-sm-4 divImgLogo-mcar">
+				<div class="divImgLogoHorizontal-mcar">
+					<div class="divImgLogoVertical-mcar">
+						<div class="imgLogo-mcar" id="ImgLogoContact-mcar"></div>
+					</div>
+				</div>
+			</div>
 			<div class="col-sm-8">
 				<div class="col-sm-6">
 					<label class="lbl-mcar">Email</label>
@@ -308,56 +301,124 @@
 			</div>
 		</div>
 		<div class="encadrer-mcar">
-			<div class="col-sm-4"></div>
-			<div class="col-sm-8">
-				<div class="col-sm-6">
-					<label class="lbl-mcar">Mot de passe</label>
-					<input type="password" placeholder="Entrer un mot de passe" class="input-mcar">
-					<div class="lineinput-mcar"></div>
+			<div class="col-sm-4 divImgLogo-mcar">
+				<div class="divImgLogoHorizontal-mcar">
+					<div class="divImgLogoVertical-mcar">
+						<div class="imgLogo-mcar" id="ImgLogoPhoto-mcar"></div>
+					</div>
 				</div>
-				<div class="col-sm-6">
-					<label class="lbl-mcar">Mot de passe</label>
-					<input type="password" placeholder="Confirmer le mot de passe" class="input-mcar">
-					<div class="lineinput-mcar"></div>
+			</div>
+			<div class="col-sm-8">
+				<div id="divGlobalMsgPhoto-mcar">
+					<i class="fas fa-info" id="iconMsgPhoto-mcar"></i>
+					<div>
+						<p>Les profils accompagnées de photos sont 7 fois plus consultés que les autres.</p>
+					</div>
+				</div>
+				<div id="divGlobalBtnUplFile-mcar">
+					<label id="btnUplFile-mcar" for="file-upload">Ajouter des photos de vous</label>
+					<input id="file-upload" type="file" multiple="multiple" onchange="showMultiplesFilesUpload(this)">
 				</div>
 			</div>
 		</div>
+		<div style="
+    display: flex;
+">
+			<div class="col-sm-10 col-xs-12" style="
+    margin-left: auto;
+    margin-right: auto;
+">
+
+				<div style="
+    height: 190px;
+    width: 170px;
+    box-shadow: 0 0 2px 0px black;
+    position: relative;
+    padding-top: 12px;
+    padding-bottom: 12px;
+">
+					<label style="
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    padding: 1px 5px;
+">Photo principal</label>
+
+					<div style="
+    background: url(https://graph.facebook.com/v2.10/10219431751811345/picture?width=300&amp;height=225) 50% no-repeat;
+    background-size: 150px;
+    height: 150px;
+    width: 150px;
+    max-height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+"></div>
+					<i class="fas fa-times-circle" style="
+    font-size: 23px;
+    position: absolute;
+    bottom: 0;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 3px;
+    cursor: pointer;
+"></i>
+				</div>
+			</div>
+		</div>
+		@*
+				<div class="encadrer-mcar">
+					<div class="col-sm-4"></div>
+					<div class="col-sm-8">
+						<div class="col-sm-6">
+							<label class="lbl-mcar">Mot de passe</label>
+							<input type="password" placeholder="Entrer un mot de passe" class="input-mcar">
+							<div class="lineinput-mcar"></div>
+						</div>
+						<div class="col-sm-6">
+							<label class="lbl-mcar">Mot de passe</label>
+							<input type="password" placeholder="Confirmer le mot de passe" class="input-mcar">
+							<div class="lineinput-mcar"></div>
+						</div>
+					</div>
+				</div>
+			</div>*@
 	</div>
-</div>
 
-@*
-	https://colorlib.com/wp/free-html5-contact-form-templates/
-	https://colorlib.com/etc/cf/ContactFrom_v6/index.html
+	@*
+		https://colorlib.com/wp/free-html5-contact-form-templates/
+		https://colorlib.com/etc/cf/ContactFrom_v6/index.html
 
-	Je recherche une éco-colocation
-	Je propose une éco-colocation (annonce
+		Je recherche une éco-colocation
+		Je propose une éco-colocation (annonce
 
-	Je recherche :
+		Je recherche :
 
-	Nom
-	Prenom
-	Numéro
-	Date de naissance
-	Civilité (Monsieurs - Madame)
-	Activités (Salarié(e), Etudient(e), Indépendant(e), Sans activité, Retraité(e), Autre)
-	Pays
+		Nom
+		Prenom
+		Numéro
+		Date de naissance
+		Civilité (Monsieurs - Madame)
+		Activités (Salarié(e), Etudient(e), Indépendant(e), Sans activité, Retraité(e), Autre)
+		Pays
 
-	Email
-	Mot de passe
-	Mot de passe confirm
+		Email
+		Mot de passe
+		Mot de passe confirm
 
-	Photos (Les profils accompagnées de photos sont 7 fois plus consultés que les autres.)
+		Photos (Les profils accompagnées de photos sont 7 fois plus consultés que les autres.)
 
-	Je recherche une éco-colocation (Case a cocher)
-	Budget maximum
-	Ville de recherche
-	Rayon de ... Km
-	Message (Présentez-vous en quelques lignes...)
+		Je recherche une éco-colocation (Case a cocher)
+		Budget maximum
+		Ville de recherche
+		Rayon de ... Km
+		Message (Présentez-vous en quelques lignes...)
 
-	Accepter les Termes de l'utilisateur
+		Accepter les Termes de l'utilisateur
 
-	S'inscription (btn)
-	S'identifier (btn)
+		S'inscription (btn)
+		S'identifier (btn)
 
-	Je propose :
-*@
+		Je propose :
+	*@

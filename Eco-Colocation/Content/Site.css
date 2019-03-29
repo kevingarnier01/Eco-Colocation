@@ -216,6 +216,10 @@ input, textarea {
 	outline: 0;
 }
 
+p {
+	margin: 0
+}
+
 /*** attribute boostrap ***/
 
 select:-moz-focusring {
@@ -1803,7 +1807,6 @@ select:-moz-focusring {
 	border: none;
 	box-shadow: 0 0 2px 0 black;
 	border-radius: 5px;
-	margin-bottom: 10px;
 }
 
 #div10-3-adresseLog-ca {
@@ -2211,9 +2214,9 @@ select:-moz-focusring {
 	overflow: auto;
 	box-shadow: 0 0 5px 0 #d9d9d9;
 	padding: 15px 5px;
-	padding-bottom: 0px;
 	border-radius: 5px;
 	margin-bottom: 40px;
+	position: relative;
 }
 
 #divBudgMax-mcar {
@@ -2258,6 +2261,80 @@ select:-moz-focusring {
 .input-mcar + .lineinput-mcar {
 	border-bottom: 2px solid #d9d9d9;
 	margin-bottom: 25px;
+}
+
+.divImgLogo-mcar {
+	position: unset
+}
+
+.divImgLogoHorizontal-mcar {
+	margin-left: auto;
+	margin-right: auto;
+	width: 40px;
+}
+
+.divImgLogoVertical-mcar {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.imgLogo-mcar {
+	background-size: 40px;
+	width: 60px;
+	height: 60px;
+}
+
+#ImgLogoSearch-mcar {
+	background: url(https://img.icons8.com/ios/60/000000/search.png) no-repeat;
+}
+
+#ImgLogoProfil-mcar {
+	background: url(https://img.icons8.com/ios/60/000000/gender-neutral-user.png) no-repeat;
+}
+
+#ImgLogoContact-mcar {
+	background: url(https://img.icons8.com/ios/60/000000/phone.png) no-repeat;
+}
+
+#ImgLogoPhoto-mcar {
+	background: url(https://img.icons8.com/ios/60/000000/camera.png) no-repeat;
+}
+
+#divGlobalMsgPhoto-mcar {
+	display: flex;
+	padding: 5px 10px;
+	background-color: rgba(0,0,0,0.05);
+	border-radius: 8px;
+	font-family: cursive;
+	margin-bottom: 10px;
+}
+
+#iconMsgPhoto-mcar {
+	width: 20px;
+	font-size: 20px;
+}
+
+#divGlobalBtnUplFile-mcar {
+	display: flex;
+}
+
+#btnUplFile-mcar {
+	padding: 7px;
+	box-shadow: 0 0 10px 0px black;
+	text-align: center;
+	border-radius: 8px;
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+	font-family: cursive;
+	cursor: pointer;
+	font-weight: 100;
+	margin-bottom: 0;
+}
+
+#file-upload {
+	display: none;
 }
 
 /**** Fin Modal Account / Index *****/

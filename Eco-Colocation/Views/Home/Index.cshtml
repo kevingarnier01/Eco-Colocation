@@ -2,11 +2,11 @@
 @{
 	ViewBag.Title = "Home Page";
 }
-@*<div>
+<div>
 	<a href="@Url.Action("ModalAccount","Account",null)" rel="modal:open">
 		<div id="btnCreer-al">Creer un projet de création</div>
 	</a>
-</div>*@
+</div>
 <div id="home">
 	@if (Model != null && Model.HomeViewModel.TypeRecherche == "searching")
 	{
