@@ -119,6 +119,12 @@ main {
 		color: white;
 	}
 
+#footer h5 {
+	border-bottom: #f7be68 1px solid;
+	padding-bottom: 20px;
+	width: 50%;
+}
+
 /*** Module ***/
 
 .onoff {
@@ -323,14 +329,15 @@ select:-moz-focusring {
 		width: 500px;
 		margin: 0 auto;
 	}
+}
 
-	/*.dropdown.dropdown-lg {
-		position: static !important;
-	}*/
-
-	/*.dropdown.dropdown-lg .dropdown-menu {
-			min-width: 500px;
-		}*/
+@media screen and (max-width: 730px) {
+	#adv-search {
+		display: inherit;
+	}
+	#inputSearchPlace {
+		margin-bottom: 20px;
+	}
 }
 /* Fin bar de recherche */
 
@@ -357,6 +364,8 @@ select:-moz-focusring {
 	box-shadow: 0 0 5px 0px black;
 	border: none;
 	background-color: white;
+	margin-left:auto;
+	margin-right:auto
 }
 
 	#btnCherche:hover, #btnProposition:hover {
@@ -425,6 +434,11 @@ select:-moz-focusring {
 
 #divBtnFiltre {
 	margin-left: 3px;
+}
+
+#div2BtnFiltre {
+	margin-left: auto;
+	margin-right: auto;
 }
 
 #btnFiltre {
@@ -822,7 +836,6 @@ select:-moz-focusring {
 
 #divDivBlocAnnonce {
 	/*display: flex;*/
-	padding: 0;
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -852,6 +865,7 @@ select:-moz-focusring {
 	display: flex;
 	margin-top: 15px;
 	margin-bottom: 5px;
+	padding: 0
 }
 
 #div2AnnonceColoc {
@@ -899,9 +913,9 @@ select:-moz-focusring {
 		box-shadow: none;
 	}
 
-		#photoAnnonce div {
+		/*#photoAnnonce div {
 			background-size: inherit !important;
-		}
+		}*/
 
 	#divDescriptionAnnonce {
 		overflow: auto;
@@ -1328,7 +1342,6 @@ select:-moz-focusring {
 
 #d1-description-mpc {
 	overflow: auto;
-	margin-bottom: 10px
 }
 
 #d1-1-description-mpc {
@@ -1366,17 +1379,21 @@ select:-moz-focusring {
 }
 
 .d2-description-mpc {
-	overflow: auto;
-	margin-bottom: 10px
+	display: table;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 10px;
+	margin-top: 10px;
 }
 
 .d2-1-description-mpc {
-	display: flex
+	display: flex;
+	overflow: auto;
 }
 
 .d2-1-1-description-mpc {
-	margin-left: auto;
-	margin-right: auto
+	margin-left: 50%;
+	transform: translateX(-50%);
 }
 
 	.d2-1-1-description-mpc p {
@@ -1432,6 +1449,7 @@ select:-moz-focusring {
 	border-radius: 3px;
 	padding: 2px 6px 3px 6px;
 	cursor: pointer;
+	margin-top: 10px
 }
 
 	#d3-2-description-mpc a {
@@ -1488,7 +1506,8 @@ select:-moz-focusring {
 
 	#divTitre-pvm h2 {
 		margin-left: auto;
-		margin-right: auto
+		margin-right: auto;
+		text-align:center
 	}
 
 .div1Input-pvm {
@@ -1546,6 +1565,7 @@ select:-moz-focusring {
 	border-radius: 3px;
 	padding: 10px 50px;
 	cursor: pointer;
+	text-align:center
 }
 
 #div3InputNom-pvm {
@@ -1583,7 +1603,7 @@ select:-moz-focusring {
 	max-width: 230px;
 	position: unset;
 	margin-right: auto;
-	margin-bottom: -60px;
+	margin-bottom: -50px;
 	background-color: rgba(0,0,0,0.02);
 	border-radius: 5px;
 	padding: 5px 10px;
@@ -1955,6 +1975,7 @@ select:-moz-focusring {
 
 #div1-2-al {
 	width: 305px;
+	max-width: 100%;
 	margin-left: auto;
 	margin-right: auto
 }
@@ -2240,3 +2261,6 @@ select:-moz-focusring {
 }
 
 /**** Fin Modal Account / Index *****/
+
+
+
