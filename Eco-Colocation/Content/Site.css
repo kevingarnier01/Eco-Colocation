@@ -2357,6 +2357,7 @@ select:-moz-focusring {
 	margin-right: auto;
 	display: flex;
 	flex-wrap: wrap-reverse;
+	padding: 0 5px 0;
 }
 
 .div3ResultFilesUpl-mcar {
@@ -2389,7 +2390,7 @@ select:-moz-focusring {
 	margin-right: auto;
 }
 
-.crosspictureUpl-mcar {
+.crossPictureUpl-mcar {
 	font-size: 23px;
 	position: absolute;
 	bottom: 0;

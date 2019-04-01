@@ -425,12 +425,12 @@ function showMultiplesFilesUpload() {
 				var picFile = event.target;
 
 				var elementHtml =
-					'<div class="div2ResultFilesUpl-mcar">' +
+					'<div class="div2ResultFilesUpl-mcar" class="slide">' +
 					'<div class="div3ResultFilesUpl-mcar" >' +
 					'<label class="labelDescFile-mcar">Photo de couverture</label>' +
 					'<div class="resultPictureUpl-mcar" id="pictureUpl' + i + '-mcar"' +
 					'style="background: url(' + picFile.result + ') 50% no-repeat;" ></div >' +
-					'<i class="crosspictureUpl-mcar fas fa-times-circle"></i>' +
+					'<i class="crossPictureUpl-mcar fas fa-times-circle"></i>' +
 					'</div>' +
 					'</div >';
 
@@ -438,25 +438,44 @@ function showMultiplesFilesUpload() {
 			});
 
 			//Read the image
-			picReader.readAsDataURL(file);	
-		}		
+			picReader.readAsDataURL(file);
+		}
 	});
 }
 
 function trierIdLesIdDesImages() {
-	//var allListImgUpload = $('.labelDescFile-mcar');
+	$('.div2ResultFilesUpl-mcar').each(function (index, element) {
+		$(element).attr('id', 'div2ResultFilesUpl' + (index + 1) + '-mcar');
+	});
 
-	//for (i = 0; i < allListImgUpload.length; i++) {
-	//	if (i == 0) {
-	//		allListImgUpload[i].val('Photo de couverture')
-	//	}
-	//	else {
-	//		allListImgUpload[i].val('photo n°' + i)
-	//	}		
-	//}
-	//var i = 0;
-	debugger;
+	$('.crossPictureUpl-mcar').each(function (index, element) {
+		$(element).attr("onclick", "removeUploadPicture('#div2ResultFilesUpl" + (index + 1) + "-mcar')");
+	});
+
 	$('.labelDescFile-mcar').each(function (index, element) {
-		element.val('photo n°' + element)
+		if (index == 0) {
+			$(element).text('Photo de couverture')
+		}
+		else {
+			$(element).text('photo n°' + (index + 1))
+		}
+	});
+
+	//$('.resultPictureUpl-mcar').each(function (index, element) {
+	//	$(element).attr('id', 'pictureUpl' + (index + 1) + '-mcar')
+	//});
+}
+
+function removeUploadPicture(element) {
+	$(element).remove();
+	trierIdLesIdDesImages();
+}
+
+function initSlidepicture() {
+	$(".all-slides").sortable({
+
+		change: function (e, ui) {
+			trierIdLesIdDesImages();
+		}
 	});
 }

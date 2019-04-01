@@ -317,18 +317,18 @@
 				</div>
 				<div id="divGlobalBtnUplFile-mcar">
 					<label id="btnUplFile-mcar" for="file-upload">Ajouter des photos de vous</label>
-					<input id="file-upload" type="file" multiple="multiple">
+					<input id="file-upload" type="file" multiple="multiple">					
 				</div>
+				<div onclick="trierIdLesIdDesImages()">BtnTest</div>
 			</div>
 		</div>
 		<div id="divGlobalResultFilesUpl-mcar">
-			<div id="divResultFilesUpl-mcar">
-				<output id="result" />
+			<div id="divResultFilesUpl-mcar" class='all-slides'>
 				@*<div class="div2ResultFilesUpl-mcar">
 			<div class="div3ResultFilesUpl-mcar">
 				<label class="labelDescFile-mcar">Photo de couverture</label>
 				<div class="resultPictureUpl-mcar" id="OneOfPictureYpl-mcar"></div>
-				<i class="crosspictureUpl-mcar fas fa-times-circle"></i>
+				<i class="crossPictureUpl-mcar fas fa-times-circle"></i>
 			</div>
 		</div>*@
 			</div>
@@ -338,6 +338,7 @@
 	<script type="text/javascript">
 		$(document).ready(function () {
 			showMultiplesFilesUpload();
+			initSlidepicture();
 		});
 	</script>
 
