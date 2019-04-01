@@ -404,20 +404,59 @@ function openSecondModal() {
 //	$('body').css('overflow', 'auto');
 //}
 
-function showMultiplesFilesUpload(idElement) {
-	var files = $('#' + idElement)[0].files;
+function showMultiplesFilesUpload() {
+	var filesInput = document.getElementById("file-upload");
 
-	for (var i = 0; i < files.length; ++i) {
-		var elementHtml = 
-			'<div class="col-sm - 10 col - xs - 12 div2ResultFilesUpl - mcar">' +
-			'<div class="div3ResultFilesUpl-mcar" >' +
-			'<label class="labelDescFile-mcar">Photo de couverture</label>' +
-			'<div class="resultPictureUpl-mcar" id="pictureUpl' + i + '-mcar"' +
-			'style="background: url(' + files[i].name + ') 50% no-repeat;" ></div >' +
-			'<i class="crosspictureUpl-mcar fas fa-times-circle"></i>' +
-			'</div>' +
-			'</div >';
+	filesInput.addEventListener("change", function (event) {
 
-		$("#divResultFilesUpl-mcar").append(elementHtml)
-	}
+		var files = event.target.files; //FileList object
+
+		for (var i = 0; i < files.length; i++) {
+			var file = files[i];
+
+			//Only pics
+			if (!file.type.match('image'))
+				continue;
+
+			var picReader = new FileReader();
+
+			picReader.addEventListener("load", function (event) {
+
+				var picFile = event.target;
+
+				var elementHtml =
+					'<div class="div2ResultFilesUpl-mcar">' +
+					'<div class="div3ResultFilesUpl-mcar" >' +
+					'<label class="labelDescFile-mcar">Photo de couverture</label>' +
+					'<div class="resultPictureUpl-mcar" id="pictureUpl' + i + '-mcar"' +
+					'style="background: url(' + picFile.result + ') 50% no-repeat;" ></div >' +
+					'<i class="crosspictureUpl-mcar fas fa-times-circle"></i>' +
+					'</div>' +
+					'</div >';
+
+				$("#divResultFilesUpl-mcar").append(elementHtml)
+			});
+
+			//Read the image
+			picReader.readAsDataURL(file);	
+		}		
+	});
+}
+
+function trierIdLesIdDesImages() {
+	//var allListImgUpload = $('.labelDescFile-mcar');
+
+	//for (i = 0; i < allListImgUpload.length; i++) {
+	//	if (i == 0) {
+	//		allListImgUpload[i].val('Photo de couverture')
+	//	}
+	//	else {
+	//		allListImgUpload[i].val('photo n°' + i)
+	//	}		
+	//}
+	//var i = 0;
+	debugger;
+	$('.labelDescFile-mcar').each(function (index, element) {
+		element.val('photo n°' + element)
+	});
 }

@@ -2218,6 +2218,7 @@ select:-moz-focusring {
 	border-radius: 5px;
 	margin-bottom: 40px;
 	position: relative;
+	display:flex;
 }
 
 #divBudgMax-mcar {
@@ -2266,7 +2267,6 @@ select:-moz-focusring {
 
 .divImgLogo-mcar {
 	position: relative;
-	height: 70px;
 }
 
 .divImgLogoHorizontal-mcar {
@@ -2341,8 +2341,15 @@ select:-moz-focusring {
 	display: none;
 }
 
+#divGlobalResultFilesUpl-mcar {
+	display:flex;
+}
+
 #divResultFilesUpl-mcar {
 	display: flex;
+	flex-wrap: wrap-reverse;
+	margin-left: auto;
+	margin-right: auto
 }
 
 .div2ResultFilesUpl-mcar {
