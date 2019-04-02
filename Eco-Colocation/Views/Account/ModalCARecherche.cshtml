@@ -6,39 +6,40 @@
 	<div id="modalCARecherche" class="reelModal">
 		<div id="titleForm-mcar">Inscrivez-vous et trouver votre future éco-colocation</div>
 		<div class="encadrer-mcar">
-			<div class="col-sm-4 divImgLogo-mcar">
+			<div class="col-sm-4 divLeftSideEncadrer-mcar divImgLogo-mcar">
 				<div class="divImgLogoHorizontal-mcar">
 					<div class="divImgLogoVertical-mcar">
 						<div class="imgLogo-mcar" id="ImgLogoSearch-mcar"></div>
 					</div>
 				</div>
 			</div>
-			<div class="col-sm-8">
+			<div class="col-sm-8 divRightSideEncadrer-mcar">
 				<div class="col-sm-12">
 					<div id="divBudgMax-mcar" class="col-sm-4">
 						<label class="lbl-mcar">Budget maximum</label>
 					</div>
-					<div class="col-sm-7">
+					<div id="divInputBudgMax" class="col-sm-7">
 						<input type="number" class="input-mcar" placeholder="Entrer le buget max">
 						<div class="lineinput-mcar"></div>
 						<div id="euroSignBudgetMax-mcar">€</div>
 					</div>
 				</div>
 				<div class="col-sm-12">
+					<label class="lbl-mcar">Ville de recherche</label>
 					<input id="inputAddresseMapMCAR" type="text" oninput="addr_search('inputAddresseMapMCAR','listAutoCompletePlaceMCAR');" list="listAutoCompletePlaceMCAR" autocomplete="off" class="inputAdresseLog-ca">
 					<datalist id="listAutoCompletePlaceMCAR"><br><option data-value="0"></option></datalist>
 				</div>
 			</div>
 		</div>
 		<div class="encadrer-mcar">
-			<div class="col-sm-4 divImgLogo-mcar">
+			<div class="col-sm-4 divLeftSideEncadrer-mcar divImgLogo-mcar">
 				<div class="divImgLogoHorizontal-mcar">
 					<div class="divImgLogoVertical-mcar">
 						<div class="imgLogo-mcar" id="ImgLogoProfil-mcar"></div>
 					</div>
 				</div>
 			</div>
-			<div class="col-sm-8">
+			<div class="col-sm-8 divRightSideEncadrer-mcar">
 				<div class="col-sm-6">
 					<label class="lbl-mcar">Nom</label>
 					<input type="text" placeholder="Entrer votre nom" class="input-mcar">
@@ -280,14 +281,14 @@
 			</div>
 		</div>
 		<div class="encadrer-mcar">
-			<div class="col-sm-4 divImgLogo-mcar">
+			<div class="col-sm-4 divLeftSideEncadrer-mcar divImgLogo-mcar">
 				<div class="divImgLogoHorizontal-mcar">
 					<div class="divImgLogoVertical-mcar">
 						<div class="imgLogo-mcar" id="ImgLogoContact-mcar"></div>
 					</div>
 				</div>
 			</div>
-			<div class="col-sm-8">
+			<div class="col-sm-8 divRightSideEncadrer-mcar">
 				<div class="col-sm-6">
 					<label class="lbl-mcar">Email</label>
 					<input type="email" placeholder="Entrer votre email" class="input-mcar">
@@ -301,14 +302,14 @@
 			</div>
 		</div>
 		<div class="encadrer-mcar">
-			<div class="col-sm-4 divImgLogo-mcar">
+			<div class="col-sm-4 col-xs-12 divImgLogo-mcar">
 				<div class="divImgLogoHorizontal-mcar">
 					<div class="divImgLogoVertical-mcar">
 						<div class="imgLogo-mcar" id="ImgInformationSup-mcar"></div>
 					</div>
 				</div>
 			</div>
-			<div class="col-sm-8">
+			<div class="col-sm-8 col-xs-12">
 				<div class="col-sm-12">
 					<label class="lbl-mcar">Présentation de votre personnalité</label>
 					<textarea class="txtareaDesc-mcar input-mcar" id="txtareaPersoP-mcar" placeholder="Présentez-vous en quelque ligne..."></textarea>
@@ -322,14 +323,14 @@
 			</div>
 		</div>
 		<div class="encadrer-mcar">
-			<div class="col-sm-4 divImgLogo-mcar">
+			<div class="col-sm-4 divLeftSideEncadrer-mcar divImgLogo-mcar">
 				<div class="divImgLogoHorizontal-mcar">
 					<div class="divImgLogoVertical-mcar">
 						<div class="imgLogo-mcar" id="ImgLogoPhoto-mcar"></div>
 					</div>
 				</div>
 			</div>
-			<div class="col-sm-8">
+			<div class="col-sm-8 divRightSideEncadrer-mcar">
 				<div id="divGlobalMsgPhoto-mcar">
 					<i class="fas fa-info" id="iconMsgPhoto-mcar"></i>
 					<div>
@@ -343,6 +344,21 @@
 				<div onclick="trierLesImagesUpl()">BtnTest</div>
 			</div>
 		</div>
+		@*<div class="encadrer-mcar">
+				<div class="col-sm-4"></div>
+				<div class="col-sm-8">
+					<div class="col-sm-6">
+						<label class="lbl-mcar">Mot de passe</label>
+						<input type="password" placeholder="Entrer un mot de passe" class="input-mcar">
+						<div class="lineinput-mcar"></div>
+					</div>
+					<div class="col-sm-6">
+						<label class="lbl-mcar">Mot de passe</label>
+						<input type="password" placeholder="Confirmer le mot de passe" class="input-mcar">
+						<div class="lineinput-mcar"></div>
+					</div>
+				</div>
+			</div>*@
 		<div id="divGlobalResultFilesUpl-mcar">
 			<ul id="divResultFilesUpl-mcar" class='all-slides'>
 				@* Html généré par javascript dans la fonction showMultiplesFilesUpload() *@
@@ -356,10 +372,29 @@
 
 			<div class="div2InscriptionBtn-mcar" id="div2InscriptionBtnMail-mcar">
 				<i class="iconInscriptionBtn-mcar fas fa-envelope"></i>
-				<p class="textInscriptionBtn-mcar">Créer le profil en s'inscrivant avec un e-mail</p>
+				<p class="textInscriptionBtn-mcar" onclick="openDivCreateProfil('#createProfilWindow')" >Créer le profil en s'inscrivant avec un e-mail</p>
 			</div>
-			<div>
-
+			<div id="createProfilWindow">
+				<div id="divCreateProfil-mcar">
+					<div class="col-xs-10 sousDivCreateProfil-mcar">
+						<label class="lbl-mcar">Utilisateur</label>
+						<input type="email" placeholder="Addresse mail" class="input-mcar">
+						<div class="lineinput-mcar"></div>
+					</div>
+					<div class="col-xs-10 sousDivCreateProfil-mcar">
+						<label class="lbl-mcar">Mot de passe</label>
+						<input type="password" placeholder="Entrer un mot de passe" class="input-mcar">
+						<div class="lineinput-mcar"></div>
+					</div>
+					<div class="col-xs-10 sousDivCreateProfil-mcar">
+						<label class="lbl-mcar">Mot de passe</label>
+						<input type="password" placeholder="Confirmer le mot de passe" class="input-mcar">
+						<div class="lineinput-mcar"></div>
+					</div>
+					<div class="col-xs-12" id="divBtnCreateProfil-mcar">
+						<div id="btnCreateProfil-mcar">Creer mon profil</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

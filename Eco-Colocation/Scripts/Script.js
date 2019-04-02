@@ -472,3 +472,12 @@ function initSlidepicture() {
 		}
 	});
 }
+
+function openDivCreateProfil(element) {
+	if ($(element).css('display') == 'block') {
+		$(element).css('display', 'none')
+	}
+	else {
+		$(element).css('display', 'block')
+	}
+}

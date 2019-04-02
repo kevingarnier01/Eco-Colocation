@@ -2205,6 +2205,7 @@ select:-moz-focusring {
 }
 
 #titleForm-mcar {
+	text-align:center;
 	font-family: cursive;
 	font-size: 27px;
 	color: #333333;
@@ -2221,22 +2222,53 @@ select:-moz-focusring {
 	margin-bottom: 40px;
 	position: relative;
 	display: flex;
+	flex-wrap: wrap;
 }
+
+.divLeftSideEncadrer-mcar {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.divRightSideEncadrer-mcar {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+@media screen and (max-width: 768px) {
+	/*.encadrer-mcar {
+		display: inherit;
+	}*/
+	/*.divRightSideEncadrer-mcar {
+		max-width: 400px;
+		margin-left: auto;
+		margin-right: auto;
+	}*/
+}
+
 
 #divBudgMax-mcar {
-	padding: 0
-}
-
-#euroSignBudgetMax-mcar {
-	position: absolute;
-	top: 0;
-	right: 29px;
-}
-
-#divBudgMax-mcar label {
-	text-align: center;
 	padding: 0;
-	text-align: left;
+	margin-right: 10px;
+}
+
+#divInputBudgMax {
+	padding: 0;
+	width: 170px;
+}
+
+	#divInputBudgMax input {
+		width: 160px;
+	}
+
+	#euroSignBudgetMax-mcar {
+		position: absolute;
+		top: 0;
+		right: 4px;
+	}
+
+#inputAddresseMapMCAR {
+	padding: 5px 10px;
 }
 
 .lbl-mcar {
@@ -2259,7 +2291,8 @@ select:-moz-focusring {
 	padding: 0 5px;
 	padding-bottom: 13px;
 	width: 100%;
-	color: #999999;
+	/*color: #999999;*/
+	color: #6b6a6a;
 	font-weight: 100;
 }
 
@@ -2283,7 +2316,7 @@ select:-moz-focusring {
 .divImgLogoHorizontal-mcar {
 	margin-left: auto;
 	margin-right: auto;
-	width: 40px;
+	width: 60px;
 }
 
 .divImgLogoVertical-mcar {
@@ -2464,6 +2497,17 @@ select:-moz-focusring {
 	padding: 5px 15px;
 	border-radius: 3px;
 	margin-bottom: 20px;
+	width: 365px;
+	cursor: pointer;
+	text-align: center;
+}
+
+@media only screen and (max-width: 395px) {
+	.div2InscriptionBtn-mcar, #divCreateProfil-mcar {
+		max-width: 335px;
+		margin-left: auto !important;
+		margin-right: auto !important;
+	}
 }
 
 #div2InscriptionBtnFb-mcar {
@@ -2471,6 +2515,7 @@ select:-moz-focusring {
 }
 
 #div2InscriptionBtnMail-mcar {
+	margin:0;
 	display: flex;
 	box-shadow: 0 0 5px 0px black;
 	padding: 5px 15px;
@@ -2490,5 +2535,38 @@ select:-moz-focusring {
 	font-size: 15px;
 }
 
+#createProfilWindow {
+	display:none
+}
+
+#divCreateProfil-mcar {
+	width: 365px;
+	box-shadow: 0 0 5px 0px black;
+	padding: 15px 5px;
+	overflow: auto;
+	display: inline-grid;
+}
+
+.sousDivCreateProfil-mcar {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#divBtnCreateProfil-mcar {
+	display: flex;
+}
+
+#btnCreateProfil-mcar {
+	margin-left: auto;
+	margin-right: auto;
+	box-shadow: 0 0 5px 0px black;
+	border-radius: 5px;
+	height: 40px;
+	width: 150px;
+	line-height: 40px;
+	text-align: center;
+	font-size: 15px;
+	cursor: pointer;
+}
 
 /**** Fin Modal Account / Index *****/
