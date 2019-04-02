@@ -289,7 +289,6 @@ select:-moz-focusring {
 /* Debut bar de recherche */
 .dropdown.dropdown-lg .dropdown-menu {
 	margin-top: -1px;
-	padding: 6px 20px;
 }
 
 .input-group-btn .btn-group {
@@ -1269,6 +1268,8 @@ select:-moz-focusring {
 		position: absolute;
 		margin-top: 5px;
 		margin-left: 5px;
+		left: -5px;
+		top: -5px;
 	}
 
 #divPhoto-ml {
@@ -2256,6 +2257,7 @@ select:-moz-focusring {
 	padding: 0;
 	width: 170px;
 }
+
 
 	#divInputBudgMax input {
 		width: 160px;
