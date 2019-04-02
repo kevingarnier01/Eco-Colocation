@@ -49,7 +49,7 @@
 					<input type="text" placeholder="Entrer votre prénom" class="input-mcar">
 					<div class="lineinput-mcar"></div>
 				</div>
-				<div class="col-sm-6">
+				<div class="col-sm-6" id="civiliteDiv-mcar">
 					<label class="lbl-mcar">Civilité</label>
 					<select class="form-control select-mcar">
 						<option value="0">Monsieur</option>
@@ -304,6 +304,27 @@
 			<div class="col-sm-4 divImgLogo-mcar">
 				<div class="divImgLogoHorizontal-mcar">
 					<div class="divImgLogoVertical-mcar">
+						<div class="imgLogo-mcar" id="ImgInformationSup-mcar"></div>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-8">
+				<div class="col-sm-12">
+					<label class="lbl-mcar">Présentation de votre personnalité</label>
+					<textarea class="txtareaDesc-mcar input-mcar" id="txtareaPersoP-mcar" placeholder="Présentez-vous en quelque ligne..."></textarea>
+				</div>
+				<div class="col-sm-12">
+					<label class="lbl-mcar" id="lblCritereRecherche-mcar">Information sur vos critères de recherche</label>
+					<p class="lbl-mcar">[Recommandé]</p>
+					<textarea class="txtareaDesc-mcar input-mcar" placeholder="Présenter le type d'éco-colocation recherchée..."></textarea>
+					<textarea class="txtareaDesc-mcar input-mcar" placeholder="Présenter les pratiques écologiques envisagées..."></textarea>
+				</div>
+			</div>
+		</div>
+		<div class="encadrer-mcar">
+			<div class="col-sm-4 divImgLogo-mcar">
+				<div class="divImgLogoHorizontal-mcar">
+					<div class="divImgLogoVertical-mcar">
 						<div class="imgLogo-mcar" id="ImgLogoPhoto-mcar"></div>
 					</div>
 				</div>
@@ -317,64 +338,72 @@
 				</div>
 				<div id="divGlobalBtnUplFile-mcar">
 					<label id="btnUplFile-mcar" for="file-upload">Ajouter des photos de vous</label>
-					<input id="file-upload" type="file" multiple="multiple">					
+					<input id="file-upload" type="file" multiple="multiple">
 				</div>
-				<div onclick="trierIdLesIdDesImages()">BtnTest</div>
+				<div onclick="trierLesImagesUpl()">BtnTest</div>
 			</div>
 		</div>
 		<div id="divGlobalResultFilesUpl-mcar">
-			<div id="divResultFilesUpl-mcar" class='all-slides'>
-				@*<div class="div2ResultFilesUpl-mcar">
-			<div class="div3ResultFilesUpl-mcar">
-				<label class="labelDescFile-mcar">Photo de couverture</label>
-				<div class="resultPictureUpl-mcar" id="OneOfPictureYpl-mcar"></div>
-				<i class="crossPictureUpl-mcar fas fa-times-circle"></i>
+			<ul id="divResultFilesUpl-mcar" class='all-slides'>
+				@* Html généré par javascript dans la fonction showMultiplesFilesUpload() *@
+			</ul>
+		</div>
+		<div id="divInscriptionButtons-mcar">
+			<div class="div2InscriptionBtn-mcar" id="div2InscriptionBtnFb-mcar">
+				<i class="iconInscriptionBtn-mcar fab fa-facebook"></i>
+				<p class="textInscriptionBtn-mcar">Créer le profil en s'inscrivant avec Facebook</p>
 			</div>
-		</div>*@
+
+			<div class="div2InscriptionBtn-mcar" id="div2InscriptionBtnMail-mcar">
+				<i class="iconInscriptionBtn-mcar fas fa-envelope"></i>
+				<p class="textInscriptionBtn-mcar">Créer le profil en s'inscrivant avec un e-mail</p>
 			</div>
-		</div>		
+			<div>
+
+			</div>
+		</div>
 	</div>
+</div>
+<script type="text/javascript">
+	$(document).ready(function () {
+		showMultiplesFilesUpload();
+		initSlidepicture();
+	});
+</script>
 
-	<script type="text/javascript">
-		$(document).ready(function () {
-			showMultiplesFilesUpload();
-			initSlidepicture();
-		});
-	</script>
+@*
+	https://colorlib.com/wp/free-html5-contact-form-templates/
+	https://colorlib.com/etc/cf/ContactFrom_v6/index.html
 
-	@*
-		https://colorlib.com/wp/free-html5-contact-form-templates/
-		https://colorlib.com/etc/cf/ContactFrom_v6/index.html
+	Je recherche une éco-colocation
+	Je propose une éco-colocation (annonce
 
-		Je recherche une éco-colocation
-		Je propose une éco-colocation (annonce
+	Je recherche :
 
-		Je recherche :
+	Nom
+	Prenom
+	Numéro
+	Date de naissance
+	Civilité (Monsieurs - Madame)
+	Activités (Salarié(e), Etudient(e), Indépendant(e), Sans activité, Retraité(e), Autre)
+	Pays
 
-		Nom
-		Prenom
-		Numéro
-		Date de naissance
-		Civilité (Monsieurs - Madame)
-		Activités (Salarié(e), Etudient(e), Indépendant(e), Sans activité, Retraité(e), Autre)
-		Pays
+	Email
+	Mot de passe
+	Mot de passe confirm
 
-		Email
-		Mot de passe
-		Mot de passe confirm
+	Photos (Les profils accompagnées de photos sont 7 fois plus consultés que les autres.)
 
-		Photos (Les profils accompagnées de photos sont 7 fois plus consultés que les autres.)
+	Je recherche une éco-colocation (Case a cocher)
+	Budget maximum
+	Ville de recherche
+	Rayon de ... Km
+	Message (Présentez-vous en quelques lignes...)
 
-		Je recherche une éco-colocation (Case a cocher)
-		Budget maximum
-		Ville de recherche
-		Rayon de ... Km
-		Message (Présentez-vous en quelques lignes...)
+	Accepter les Termes de l'utilisateur
 
-		Accepter les Termes de l'utilisateur
+	S'inscription (btn)
+	S'identifier (btn)
 
-		S'inscription (btn)
-		S'identifier (btn)
-
-		Je propose :
-	*@
+	Je propose :
+*@

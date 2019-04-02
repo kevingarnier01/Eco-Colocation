@@ -16,8 +16,8 @@
 	@Scripts.Render("~/bundles/jquery") @* Répétition double volontaire - Sinon le modal ne fonction pas *@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 	<script type="text/javascript" src="https://vicopo.selfbuild.fr/api.js"></script>
-	@Scripts.Render("~/Scripts/css/jqueryui")
-	@Scripts.Render("~/Scripts/js/jqueryui")
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
 <body>
     <div id="global">
@@ -28,7 +28,7 @@
         </header>
 		<div id="_PictureHeader">
 			@Html.Partial("_PictureHeader")
-			
+
 		</div>
         <main>
             @RenderBody()

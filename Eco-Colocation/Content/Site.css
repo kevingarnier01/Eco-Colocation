@@ -265,6 +265,7 @@ select:-moz-focusring {
 	top: 50%;
 	transform: translateY(-50%);
 	max-height: 100%;
+	margin: 0;
 }
 
 .reelModal {
@@ -339,6 +340,7 @@ select:-moz-focusring {
 	#adv-search {
 		display: inherit;
 	}
+
 	#inputSearchPlace {
 		margin-bottom: 20px;
 	}
@@ -368,8 +370,8 @@ select:-moz-focusring {
 	box-shadow: 0 0 5px 0px black;
 	border: none;
 	background-color: white;
-	margin-left:auto;
-	margin-right:auto
+	margin-left: auto;
+	margin-right: auto
 }
 
 	#btnCherche:hover, #btnProposition:hover {
@@ -917,7 +919,7 @@ select:-moz-focusring {
 		box-shadow: none;
 	}
 
-		/*#photoAnnonce div {
+	/*#photoAnnonce div {
 			background-size: inherit !important;
 		}*/
 
@@ -1511,7 +1513,7 @@ select:-moz-focusring {
 	#divTitre-pvm h2 {
 		margin-left: auto;
 		margin-right: auto;
-		text-align:center
+		text-align: center
 	}
 
 .div1Input-pvm {
@@ -1569,7 +1571,7 @@ select:-moz-focusring {
 	border-radius: 3px;
 	padding: 10px 50px;
 	cursor: pointer;
-	text-align:center
+	text-align: center
 }
 
 #div3InputNom-pvm {
@@ -2218,7 +2220,7 @@ select:-moz-focusring {
 	border-radius: 5px;
 	margin-bottom: 40px;
 	position: relative;
-	display:flex;
+	display: flex;
 }
 
 #divBudgMax-mcar {
@@ -2238,22 +2240,27 @@ select:-moz-focusring {
 }
 
 .lbl-mcar {
-	display: block;
+	padding-left: 5px;
+	font-size: 18px;
+	color: #555555;
+	font-weight: 100;
+}
+
+.descTxt-mcar {
 	font-size: 15px;
 	color: #999999;
-	line-height: 1.5;
-	padding-left: 5px;
+	font-weight: 100;
 }
 
 .input-mcar {
 	border: none;
-	font-family: cursive;
-	font-size: 18px;
-	color: #555555;
+	font-size: 15px;
 	line-height: 1.2;
 	padding: 0 5px;
 	padding-bottom: 13px;
 	width: 100%;
+	color: #999999;
+	font-weight: 100;
 }
 
 .select-mcar {
@@ -2263,6 +2270,10 @@ select:-moz-focusring {
 .input-mcar + .lineinput-mcar {
 	border-bottom: 2px solid #d9d9d9;
 	margin-bottom: 25px;
+}
+
+#civiliteDiv-mcar {
+	height: 91px;
 }
 
 .divImgLogo-mcar {
@@ -2301,6 +2312,10 @@ select:-moz-focusring {
 
 #ImgLogoPhoto-mcar {
 	background: url(https://img.icons8.com/ios/60/000000/camera.png) no-repeat;
+}
+
+#ImgInformationSup-mcar {
+	background: url(https://img.icons8.com/ios/60/000000/ball-point-pen.png) no-repeat;
 }
 
 #divGlobalMsgPhoto-mcar {
@@ -2342,22 +2357,26 @@ select:-moz-focusring {
 }
 
 #divGlobalResultFilesUpl-mcar {
-	display:flex;
+	display: flex;
 }
 
 #divResultFilesUpl-mcar {
 	display: flex;
 	flex-wrap: wrap-reverse;
 	margin-left: auto;
-	margin-right: auto
+	margin-right: auto;
+	list-style-type: none;
+	padding: 0;
 }
 
 .div2ResultFilesUpl-mcar {
 	margin-left: auto;
 	margin-right: auto;
-	display: flex;
-	flex-wrap: wrap-reverse;
+	/*display: flex;
+	flex-wrap: wrap-reverse;*/
 	padding: 0 5px 0;
+	float: left;
+	cursor: move
 }
 
 .div3ResultFilesUpl-mcar {
@@ -2370,6 +2389,7 @@ select:-moz-focusring {
 	margin-left: auto;
 	margin-right: auto;
 	margin-bottom: 20px;
+	background-color: white;
 }
 
 .labelDescFile-mcar {
@@ -2408,7 +2428,67 @@ select:-moz-focusring {
 	}
 }
 
+#txtareaPersoP-mcar {
+	margin-bottom: 10px
+}
+
+.txtareaDesc-mcar {
+	width: 100%;
+	margin: 0px;
+	height: 100px;
+	border: none;
+	box-shadow: 0 0 2px 0px black;
+	border-radius: 5px;
+	margin-top: 2px;
+	padding: 5px 10px;
+}
+
+#lblCritereRecherche-mcar {
+	margin: 0;
+}
+
+	#lblCritereRecherche-mcar + p {
+		margin-bottom: 5px;
+		font-size: 12px;
+	}
+
+#divInscriptionButtons-mcar {
+	display: table;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.div2InscriptionBtn-mcar {
+	display: flex;
+	box-shadow: 0 0 5px 0px black;
+	padding: 5px 15px;
+	border-radius: 3px;
+	margin-bottom: 20px;
+}
+
+#div2InscriptionBtnFb-mcar {
+	background-color: #4c66a4;
+}
+
+#div2InscriptionBtnMail-mcar {
+	display: flex;
+	box-shadow: 0 0 5px 0px black;
+	padding: 5px 15px;
+	border-radius: 3px;
+	background-color: #43b37f;
+}
+
+.iconInscriptionBtn-mcar {
+	font-size: 28px;
+	color: white;
+}
+
+.textInscriptionBtn-mcar {
+	line-height: 28px;
+	margin-left: 15px;
+	color: white;
+	font-size: 15px;
+}
+
+
 /**** Fin Modal Account / Index *****/
-
-
-

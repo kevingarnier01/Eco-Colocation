@@ -45,14 +45,6 @@ namespace Eco_Colocation
 			bundles.Add(new ScriptBundle("~/Scripts/css/jquerymodal").Include(
 					"~/Scripts/jquery-modal/jquery.modal.min.css"
 			   ));
-
-			bundles.Add(new StyleBundle("~/Scripts/css/jqueryui").Include(
-				"~/Scripts/jquery-ui/jquery-ui.min.css"
-		   ));
-
-			bundles.Add(new ScriptBundle("~/Scripts/js/jqueryui").Include(
-				"~/Scripts/jquery-ui/jquery-ui.min.js"
-			));
 		}
 	}
 }

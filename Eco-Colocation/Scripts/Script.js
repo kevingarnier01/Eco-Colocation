@@ -75,6 +75,7 @@ $(document).ready(function () {
 			$('#rowTerrain').css('display', 'table-row');
 		}
 	});
+
 });
 function modalResize() {
 	var pourcent = $("#modalProjetCreation").width() / $(".modal").width() * 100;
@@ -398,17 +399,10 @@ function openSecondModal() {
 	}, 1000);
 }
 
-////function temporary to delete
-//function closeModal() {
-//	$('.jquery-modal').css('display', 'none');
-//	$('body').css('overflow', 'auto');
-//}
-
 function showMultiplesFilesUpload() {
 	var filesInput = document.getElementById("file-upload");
 
 	filesInput.addEventListener("change", function (event) {
-
 		var files = event.target.files; //FileList object
 
 		for (var i = 0; i < files.length; i++) {
@@ -425,14 +419,14 @@ function showMultiplesFilesUpload() {
 				var picFile = event.target;
 
 				var elementHtml =
-					'<div class="div2ResultFilesUpl-mcar" class="slide">' +
+					'<li class="div2ResultFilesUpl-mcar">' +
 					'<div class="div3ResultFilesUpl-mcar" >' +
 					'<label class="labelDescFile-mcar">Photo de couverture</label>' +
 					'<div class="resultPictureUpl-mcar" id="pictureUpl' + i + '-mcar"' +
 					'style="background: url(' + picFile.result + ') 50% no-repeat;" ></div >' +
 					'<i class="crossPictureUpl-mcar fas fa-times-circle"></i>' +
 					'</div>' +
-					'</div >';
+					'</li >';
 
 				$("#divResultFilesUpl-mcar").append(elementHtml)
 			});
@@ -443,7 +437,7 @@ function showMultiplesFilesUpload() {
 	});
 }
 
-function trierIdLesIdDesImages() {
+function trierLesImagesUpl() {
 	$('.div2ResultFilesUpl-mcar').each(function (index, element) {
 		$(element).attr('id', 'div2ResultFilesUpl' + (index + 1) + '-mcar');
 	});
@@ -468,14 +462,13 @@ function trierIdLesIdDesImages() {
 
 function removeUploadPicture(element) {
 	$(element).remove();
-	trierIdLesIdDesImages();
+	trierLesImagesUpl();
 }
 
 function initSlidepicture() {
 	$(".all-slides").sortable({
-
-		change: function (e, ui) {
-			trierIdLesIdDesImages();
+		update: function () {
+			trierLesImagesUpl()
 		}
 	});
 }
