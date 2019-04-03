@@ -61,10 +61,18 @@
 					</div>
 					<div id="div10-1-adresseLog-ca" class="col-sm-9 col-xs-12">
 						<div id="div10-2-adresseLog-ca" style="position:relative">
-							<div onclick="addNewPlace('listAutoCompletePlace2Hidden')" style="position: absolute;right: 6%;cursor:pointer;font-size: 16px;margin-top: 5px;">| Entrer</div>
-							<input oninput="addr_search('inputLocalisation-cpc','listAutoCompletePlace2');" list="listAutoCompletePlace2" autocomplete="off" type="text" class="inputAdresseLog-ca" id="inputLocalisation-cpc" style="padding: 5px 8px;padding-right: 65px;">
-							<datalist id="listAutoCompletePlace2"></datalist>
-							<input id="listAutoCompletePlace2Hidden" name="listAutoCompletePlace2Hidden" type="hidden" value="">
+							<div onclick="addNewPlace('address-input')" style="position: absolute;right: 6%;cursor:pointer;font-size: 16px;margin-top: 5px;">| Entrer</div>
+							@*<input oninput="addr_search('inputLocalisation-cpc','listAutoCompletePlace2');" list="listAutoCompletePlace2" autocomplete="off" type="text" class="inputAdresseLog-ca" id="inputLocalisation-cpc" style="padding: 5px 8px;padding-right: 65px;">
+								<datalist id="listAutoCompletePlace2"></datalist>*@
+							<input type="search" id="address-input-mpc" placeholder="Localisation de l'endroit" />
+							@for (int i = 0; i < 4; i++)
+							{
+								@Html.Hidden("adresseVille", null, new { @id = "addresseVille" + i})
+								@Html.Hidden("adresseRegion", null, new { @id = "adresseRegion" + i })
+								@Html.Hidden("adressePays", null, new { @id = "adressePays" + i })
+								@Html.Hidden("adresseLatLng", null, new { @id = "adresseLatLng" + i })
+							}
+							@*<input id="listAutoCompletePlace2Hidden" name="listAutoCompletePlace2Hidden" type="hidden" value="">*@
 							<div id="placeSaved-cpc" style="margin-bottom: 5px;">
 								<div id="place-cpc" style="display: flex;flex-wrap: wrap;">
 								</div>
@@ -72,8 +80,7 @@
 							<div id="div10-3-adresseLog-ca" class="col-sm-12">
 								<div id="div10-4-adresseLog-ca" class="col-sm-2"></div>
 								<p class="col-sm-12" style="margin: auto;">
-									Saisissez ville, département ou region selon votre niveau de précision. <br>
-									(Cela permettra aux utilisateurs de vous trouvez selon vos locations choisis.)
+									Il vous est possible d'indiquer plusieurs lieux concernant votre projet de création d'éco-colocation
 								</p>
 							</div>
 						</div>
@@ -82,7 +89,7 @@
 			</div>
 		</div>
 		<div id="div1-descInform-ca" class="col-sm-12" style="">
-			<div id="div2-descInform-ca" class="col-sm-10 col-xs-12">				
+			<div id="div2-descInform-ca" class="col-sm-10 col-xs-12">
 				<div class="div20-descInform-ca">
 					<div class="div2-1-descInform-ca">
 						<div class="col-sm-4 div2-2-descInform-ca">
@@ -235,3 +242,9 @@
 		<a href="#close-modal" rel="modal:close" class="close-modal">Close</a>
 	</div>
 </div>
+
+<script type="text/javascript">
+	$(document).ready(function () {
+		initAutoComplete("#address-input-mpc");
+	});
+</script>

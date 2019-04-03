@@ -26,8 +26,9 @@
 				</div>
 				<div class="col-sm-12">
 					<label class="lbl-mcar">Ville de recherche</label>
-					<input id="inputAddresseMapMCAR" type="text" oninput="addr_search('inputAddresseMapMCAR','listAutoCompletePlaceMCAR');" list="listAutoCompletePlaceMCAR" autocomplete="off" class="inputAdresseLog-ca">
-					<datalist id="listAutoCompletePlaceMCAR"><br><option data-value="0"></option></datalist>
+					@*<input id="inputAddresseMapMCAR" type="text" oninput="addr_search('inputAddresseMapMCAR','listAutoCompletePlaceMCAR');" list="listAutoCompletePlaceMCAR" autocomplete="off" class="inputAdresseLog-ca">
+					<datalist id="listAutoCompletePlaceMCAR"><br><option data-value="0"></option></datalist>*@
+					<input type="search" id="address-input" placeholder="Ou recherches-tu ?" />
 				</div>
 			</div>
 		</div>
@@ -401,6 +402,7 @@
 </div>
 <script type="text/javascript">
 	$(document).ready(function () {
+		initAutoComplete();
 		showMultiplesFilesUpload();
 		initSlidepicture();
 	});

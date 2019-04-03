@@ -340,8 +340,8 @@ select:-moz-focusring {
 		display: inherit;
 	}
 
-	#inputSearchPlace {
-		margin-bottom: 20px;
+	#btnSearch {
+		margin-top: 20px;
 	}
 }
 /* Fin bar de recherche */
@@ -418,7 +418,8 @@ select:-moz-focusring {
 	width: 225px;
 }
 
-#inputSearchPlace {
+.inputSearchPlace {
+	height:35px;
 	border-radius: 5px
 }
 
@@ -1710,7 +1711,7 @@ select:-moz-focusring {
 	#div2-1DescAnn-ca textarea {
 		padding: 5px;
 		border: none;
-		border-radius: 10px;
+		border-radius: 5px;
 		box-shadow: black 0px 0px 2px 0px;
 		min-height: 150px;
 		min-width: 100%;
@@ -1755,7 +1756,7 @@ select:-moz-focusring {
 		padding: 5px;
 		margin: 0px;
 		border: none;
-		border-radius: 10px;
+		border-radius: 5px;
 		box-shadow: black 0px 0px 2px 0px;
 		min-width: 100%;
 		max-width: 100%;
@@ -2216,7 +2217,6 @@ select:-moz-focusring {
 }
 
 .encadrer-mcar {
-	overflow: auto;
 	box-shadow: 0 0 5px 0 #d9d9d9;
 	padding: 15px 5px;
 	border-radius: 5px;
