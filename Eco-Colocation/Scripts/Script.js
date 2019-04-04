@@ -167,16 +167,16 @@ function showAnnonce(numeroMarker) {
 		posy = e.clientY;
 	}
 
-	$('.onHoverMarker' + numeroMarker).css("display", "block");
-	$('.onHoverMarker' + numeroMarker).css("position", "absolute");
-	$('.onHoverMarker' + numeroMarker).css('left', posx + 20);
-	$('.onHoverMarker' + numeroMarker).css('top', posy - 5);
+	$('#onHoverMarker' + numeroMarker).css("display", "block");
+	$('#onHoverMarker' + numeroMarker).css("position", "absolute");
+	$('#onHoverMarker' + numeroMarker).css('left', posx + 20);
+	$('#onHoverMarker' + numeroMarker).css('top', posy - 5);
 }
 
 function hideAnnonce(numeroMarker) {
-	$(".onHoverMarker" + numeroMarker).css("display", "none");
-	$('.onHoverMarker' + numeroMarker).css('left', 'inherit');
-	$('.onHoverMarker' + numeroMarker).css('top', 'inherit');
+	$("#onHoverMarker" + numeroMarker).css("display", "none");
+	$('#onHoverMarker' + numeroMarker).css('left', 'inherit');
+	$('#onHoverMarker' + numeroMarker).css('top', 'inherit');
 }
 
 function selectSwitcher(element) {
@@ -504,4 +504,17 @@ function initAutoComplete(elementId) {
 		$("#adressePays").val(e.suggestion.country || '');
 		$("#adresseLatLng").val(e.suggestion.latlng.lat + "," + e.suggestion.latlng.lng || '');
 	});
+}
+
+function switcherMcap(elementToEnable, elementToDisable) {
+	$(elementToEnable).css('background-color', 'background-color: rgba(0, 0, 0, 0.2)');
+	$(elementToDisable).css('background-color', 'inherit');
+		
+	if (elementToEnable == '#btnSwitcherPropose-mcap') {
+		$('#resultSwitcher-mcap').load('../ColocAnnounce/ModalProjetCreation #htmlBlockModalCreationProjet-mpc');
+	}	
+	else {
+		$('#resultSwitcher-mcap').load('../ColocAnnounce/ModalLocation #htmlBlockModalLocation-ml');
+	}
+	
 }

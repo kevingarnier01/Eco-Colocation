@@ -6,18 +6,23 @@
 <h2>ModalCAPropose</h2>
 
 <div class="underModal col-sm-12 col-xs-12">
-	<div id="ModalCAPropose" class="reelModal">
+	<div id="modalCAPropose" class="reelModal">
 		<div class="titleForm-mcar">Inscrivez-vous et proposer une éco-colocation</div>
-		<div class="encadrer-mcap">
-			<div id="divSwitcherTypeProposition-mcap">
-				<p id="txtSw1-mcap">Je propose</p>
-				<div id="divBtnSwitcher-mcap">
-					<div id="btnSwitcherPropose-mcap">une location</div>
-					<div id="separationSwitcherPropose-mcap">|</div>
-					<div id="btnSwitcherProjet-mcap">un projet de création</div>
+		<div class="divEncadrer-mcap">
+			<div class="encadrer-mcap col-sm-11 col-xs-12">
+				<div id="divSwitcherTypeProposition-mcap">
+					<p id="txtSw1-mcap">Je propose</p>
+					<div id="divBtnSwitcher-mcap">
+						<div id="btnSwitcherPropose-mcap" onclick="switcherMcap('#btnSwitcherPropose-mcap','#btnSwitcherProjet-mcap')">une location</div>
+						<div id="separationSwitcherPropose-mcap">|</div>
+						<div id="btnSwitcherProjet-mcap" onclick="switcherMcap('#btnSwitcherProjet-mcap','#btnSwitcherPropose-mcap')">un projet de création</div>
+					</div>
+					<div id="txtSw2-mcap">d'éco-colocation.</div>
 				</div>
-				<div id="txtSw2-mcap">d'éco-colocation.</div>
 			</div>
+		</div>
+		<div id="resultSwitcher-mcap">
+
 		</div>
 	</div>
 </div>

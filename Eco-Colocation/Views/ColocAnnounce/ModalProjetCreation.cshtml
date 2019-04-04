@@ -17,223 +17,225 @@
 	Tolerances : Fumeur / Animaux *@
 
 <div class="underModal col-sm-12 col-xs-12">
-	<div id="modalCreationProjet-ColocAnnounce" class="reelModal col-sm-8 col-xs-12">
+	<div id="modalCreationProjet-ColocAnnounce" class="reelModal">
 		<div style="margin-bottom: 30px;">
 			<h2 style="text-align: center;">
 				Creer un projet de création
 			</h2>
 		</div>
-		<div id="div1-contenu-ca" class="col-sm-12">
-			<div id="div1-1-contenu-ca" class="col-sm-10 col-xs-12">
-				<div id="divDescAnn-ca" class="col-sm-12 col-xs-12">
-					<div id="div1DescAnn-ca" class="col-sm-12 col-xs-12">
-						<div id="div1-1DescAnn-ca" class="col-sm-12 col-xs-12">
-							<label for="Description_de_l_annonce">Description de l'annonce</label>
-						</div>
-					</div>
-					<div id="div2DescAnn-ca" class="col-sm-12 col-xs-12">
-						<div id="div2-1DescAnn-ca" class="col-sm-12 col-xs-12">
-							<textarea id="descAnnonce" name="descAnnonce"></textarea>
-						</div>
-					</div>
-				</div>
-				<div id="divEcoPratic-ca" class="col-sm-12 col-xs-12">
-					<div id="div1-ecoPratic-ca" class="col-sm-12 col-xs-12">
-						<div id="div1-1-ecoPratic-ca" class="col-sm-12 col-xs-12">
-							<label for="Pratiques__cologiques_exerc_es_par_la_colocation">Pratiques écologiques souhaitées</label>
-						</div>
-					</div>
-					<div id="div2-ecoPratic-ca" class="col-sm-12 col-xs-12">
-						<div id="div2-1-ecoPratic-ca" class="col-sm-12 col-xs-12">
-							<textarea id="descEcoPratique" name="descEcoPratique"></textarea>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div id="div-adresseLog-ca" class="col-sm-12" style="">
-			<div id="div1-adresseLog-ca" class="col-sm-10 col-xs-12">
-				<div style="width: 100%;">
-					<div id="div1-1-adresseLog-ca" class="col-sm-3 col-xs-12">
-						<div id="div1-2-adresseLog-ca">
-							<div id="div1-3-adresseLog-ca"></div>
-						</div>
-					</div>
-					<div id="div10-1-adresseLog-ca" class="col-sm-9 col-xs-12">
-						<div id="div10-2-adresseLog-ca" style="position:relative">
-							<div onclick="addNewPlace('address-input')" style="position: absolute;right: 6%;cursor:pointer;font-size: 16px;margin-top: 5px;">| Entrer</div>
-							@*<input oninput="addr_search('inputLocalisation-cpc','listAutoCompletePlace2');" list="listAutoCompletePlace2" autocomplete="off" type="text" class="inputAdresseLog-ca" id="inputLocalisation-cpc" style="padding: 5px 8px;padding-right: 65px;">
-								<datalist id="listAutoCompletePlace2"></datalist>*@
-							<input type="search" id="address-input-mpc" class="address-input" placeholder="Localisation de l'endroit" />
-							@for (int i = 0; i < 4; i++)
-							{
-								@Html.Hidden("adresseVille", null, new { @id = "addresseVille" + i})
-								@Html.Hidden("adresseRegion", null, new { @id = "adresseRegion" + i })
-								@Html.Hidden("adressePays", null, new { @id = "adressePays" + i })
-								@Html.Hidden("adresseLatLng", null, new { @id = "adresseLatLng" + i })
-							}
-							@*<input id="listAutoCompletePlace2Hidden" name="listAutoCompletePlace2Hidden" type="hidden" value="">*@
-							<div id="placeSaved-cpc" style="margin-bottom: 5px;">
-								<div id="place-cpc" style="display: flex;flex-wrap: wrap;">
-								</div>
+		<div id="htmlBlockModalCreationProjet-mpc">
+			<div id="div1-contenu-ca" class="col-sm-12">
+				<div id="div1-1-contenu-ca" class="col-sm-11 col-xs-12">
+					<div id="divDescAnn-ca" class="col-sm-12 col-xs-12">
+						<div id="div1DescAnn-ca" class="col-sm-12 col-xs-12">
+							<div id="div1-1DescAnn-ca" class="col-sm-12 col-xs-12">
+								<label for="Description_de_l_annonce">Description de l'annonce</label>
 							</div>
-							<div id="div10-3-adresseLog-ca" class="col-sm-12">
-								<div id="div10-4-adresseLog-ca" class="col-sm-2"></div>
-								<p class="col-sm-12" style="margin: auto;">
-									Il vous est possible d'indiquer plusieurs lieux concernant votre projet de création d'éco-colocation
-								</p>
+						</div>
+						<div id="div2DescAnn-ca" class="col-sm-12 col-xs-12">
+							<div id="div2-1DescAnn-ca" class="col-sm-12 col-xs-12">
+								<textarea id="descAnnonce" name="descAnnonce"></textarea>
+							</div>
+						</div>
+					</div>
+					<div id="divEcoPratic-ca" class="col-sm-12 col-xs-12">
+						<div id="div1-ecoPratic-ca" class="col-sm-12 col-xs-12">
+							<div id="div1-1-ecoPratic-ca" class="col-sm-12 col-xs-12">
+								<label for="Pratiques__cologiques_exerc_es_par_la_colocation">Pratiques écologiques souhaitées</label>
+							</div>
+						</div>
+						<div id="div2-ecoPratic-ca" class="col-sm-12 col-xs-12">
+							<div id="div2-1-ecoPratic-ca" class="col-sm-12 col-xs-12">
+								<textarea id="descEcoPratique" name="descEcoPratique"></textarea>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-		<div id="div1-descInform-ca" class="col-sm-12" style="">
-			<div id="div2-descInform-ca" class="col-sm-10 col-xs-12">
-				<div class="div20-descInform-ca">
-					<div class="div2-1-descInform-ca">
-						<div class="col-sm-4 div2-2-descInform-ca">
-							<div class="div2-3-descInform-ca" style="width: 114px;">
-								<div class="div2-4-descInform-ca">
-									<div id="imgLogement-ca" class="div2-5-descInform-ca"></div>
-									<p>LOGEMENT</p>
-								</div>
+			<div id="div-adresseLog-ca" class="col-sm-12" style="">
+				<div id="div1-adresseLog-ca" class="col-sm-11 col-xs-12">
+					<div style="width: 100%;">
+						<div id="div1-1-adresseLog-ca" class="col-sm-3 col-xs-12">
+							<div id="div1-2-adresseLog-ca">
+								<div id="div1-3-adresseLog-ca"></div>
 							</div>
 						</div>
-						<div class="col-sm-8">
-							<table class="table table-striped">
-								<tbody>
-									<tr>
-										<td class="col-xs-6">
-											<label for="Tarif_loyer">Engagement</label>
-										</td>
-										<td class="col-xs-6">
-											<select id="select-engagementType-mpc" class="form-control ">
-												<option value="1">Achat</option>
-												<option value="2">Location</option>
-												<option value="3">Creation</option>
-											</select>
-										</td>
-									</tr>
-									<tr>
-										<td class="col-xs-6"><label for="Charges">Type d'habitat</label></td>
-										<td class="col-xs-6">
-											<select id="select2-loyer-fh" class="form-control ">
-												<option value="0">Tout type d'habitat</option>
-												<option value="1">Maison</option>
-												<option value="2">Appartement</option>
-												<option value="3">Habitat alternatif</option>
-											</select>
-										</td>
-									</tr>
-									<tr>
-										<td class="col-xs-6"><label for="Caution">Localisation</label></td>
-										<td class="col-xs-6">
-											<select id="select2-loyer-fh" class="form-control">
-												<option value="0">Toutes localisations</option>
-												<option value="1">Campagne</option>
-												<option value="2">Village</option>
-												<option value="3">Ville</option>
-											</select>
-										</td>
-									</tr>
-									<tr>
-										<td class="col-xs-6"><label for="Caution">Surface du logement</label></td>
-										<td>
-											<select id="select2-loyer-fh" class="form-control">
-												<option value="0">Toutes surfaces</option>
-												@for (var i = 20; i < 110; i++)
-												{
-													<option value=@i>~ @i m²</option>
-													i += 9;
-												}
-												@for (var i = 125; i < 550; i++)
-												{
-													<option value=@i>~ @i m²</option>
-													i += 24;
-												}
-											</select>
-										</td>
-									</tr>
-									<tr id="rowCreation" class="rowByEngagement">
-										<td class="col-xs-6"><label for="Loyer">Cout de création</label></td>
-										<td class="col-xs-6">
-											<input id="coutCreationMoy" name="coutCreationMoy" type="text" class="inputtable-ca" placeholder="Cout de création moyen" style="width: 150px;padding: 5px 8px;">
-										</td>
-									</tr>
-									<tr id="rowTerrain" class="rowByEngagement">
-										<td class="col-xs-6"><label for="Loyer">Cout du terrain</label></td>
-										<td class="col-xs-6">
-											<input id="coutTerrainMoy" name="coutTerrainMoy" type="text" class="inputtable-ca" placeholder="Cout de terrain moyen" style="width: 150px;padding: 5px 8px;">
-										</td>
-									</tr>
-									<tr id="rowAchat" class="rowByEngagement">
-										<td class="col-xs-6"><label for="Loyer">Cout de l'achat</label></td>
-										<td class="col-xs-6">
-											<input id="coutAchatMoy" name="coutAchatMoy" type="text" class="inputtable-ca" placeholder="Cout d'achat moyen" style="width: 150px;padding: 5px 8px;">
-										</td>
-									</tr>
-									<tr id="rowLoyer" class="rowByEngagement">
-										<td class="col-xs-6"><label for="Loyer">Loyer / personne</label></td>
-										<td class="col-xs-6">
-											<div id="div-2-1-1-loyer-fh">
-												<input id="loyerMoy" name="loyerMoy" type="text" class="inputtable-ca" placeholder="Loyer moyen" style="width: 150px;padding: 5px 10px;">
-											</div>
-										</td>
-									</tr>
-								</tbody>
-							</table>
+						<div id="div10-1-adresseLog-ca" class="col-sm-9 col-xs-12">
+							<div id="div10-2-adresseLog-ca" style="position:relative">
+								@*<div onclick="addNewPlace('address-input')" style="position: absolute;right: 6%;cursor:pointer;font-size: 16px;margin-top: 5px;">| Entrer</div>*@
+								@*<input oninput="addr_search('inputLocalisation-cpc','listAutoCompletePlace2');" list="listAutoCompletePlace2" autocomplete="off" type="text" class="inputAdresseLog-ca" id="inputLocalisation-cpc" style="padding: 5px 8px;padding-right: 65px;">
+							<datalist id="listAutoCompletePlace2"></datalist>*@
+								<input type="search" id="address-input-mpc" class="address-input" placeholder="Localisation de l'endroit" onload="initAutoComplete('#address-input-mpc')" />
+								@for (int i = 0; i < 4; i++)
+								{
+									@Html.Hidden("adresseVille", null, new { @id = "addresseVille" + i })
+									@Html.Hidden("adresseRegion", null, new { @id = "adresseRegion" + i })
+									@Html.Hidden("adressePays", null, new { @id = "adressePays" + i })
+									@Html.Hidden("adresseLatLng", null, new { @id = "adresseLatLng" + i })
+								}
+								@*<input id="listAutoCompletePlace2Hidden" name="listAutoCompletePlace2Hidden" type="hidden" value="">*@
+								<div id="placeSaved-cpc" style="margin-bottom: 5px;">
+									<div id="place-cpc" style="display: flex;flex-wrap: wrap;">
+									</div>
+								</div>
+								<div id="div10-3-adresseLog-ca" class="col-sm-12">
+									<div id="div10-4-adresseLog-ca" class="col-sm-2"></div>
+									<p class="col-sm-12" style="margin: auto;">
+										Il vous est possible d'indiquer plusieurs lieux concernant votre projet de création d'éco-colocation
+									</p>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
-				<div class="div20-descInform-ca">
-					<div class="div2-1-descInform-ca">
-						<div class="col-sm-4 div2-2-descInform-ca">
-							<div class="div2-3-descInform-ca" style="width: 132px;">
-								<div class="div2-4-descInform-ca">
-									<div id="imgChambre-ca" class="div2-5-descInform-ca"></div>
-									<p>COLOCATION</p>
+			</div>
+			<div id="div1-descInform-ca" class="col-sm-12" style="">
+				<div id="div2-descInform-ca" class="col-sm-11 col-xs-12">
+					<div class="div20-descInform-ca">
+						<div class="div2-1-descInform-ca">
+							<div class="col-sm-4 div2-2-descInform-ca">
+								<div class="div2-3-descInform-ca" style="width: 114px;">
+									<div class="div2-4-descInform-ca">
+										<div id="imgLogement-ca" class="div2-5-descInform-ca"></div>
+										<p>LOGEMENT</p>
+									</div>
 								</div>
 							</div>
+							<div class="col-sm-8">
+								<table class="table table-striped">
+									<tbody>
+										<tr>
+											<td class="col-xs-6">
+												<label for="Tarif_loyer">Engagement</label>
+											</td>
+											<td class="col-xs-6">
+												<select id="select-engagementType-mpc" class="form-control ">
+													<option value="1">Achat</option>
+													<option value="2">Location</option>
+													<option value="3">Creation</option>
+												</select>
+											</td>
+										</tr>
+										<tr>
+											<td class="col-xs-6"><label for="Charges">Type d'habitat</label></td>
+											<td class="col-xs-6">
+												<select id="select2-loyer-fh" class="form-control ">
+													<option value="0">Tout type d'habitat</option>
+													<option value="1">Maison</option>
+													<option value="2">Appartement</option>
+													<option value="3">Habitat alternatif</option>
+												</select>
+											</td>
+										</tr>
+										<tr>
+											<td class="col-xs-6"><label for="Caution">Localisation</label></td>
+											<td class="col-xs-6">
+												<select id="select2-loyer-fh" class="form-control">
+													<option value="0">Toutes localisations</option>
+													<option value="1">Campagne</option>
+													<option value="2">Village</option>
+													<option value="3">Ville</option>
+												</select>
+											</td>
+										</tr>
+										<tr>
+											<td class="col-xs-6"><label for="Caution">Surface du logement</label></td>
+											<td>
+												<select id="select2-loyer-fh" class="form-control">
+													<option value="0">Toutes surfaces</option>
+													@for (var i = 20; i < 110; i++)
+													{
+														<option value=@i>~ @i m²</option>
+														i += 9;
+													}
+													@for (var i = 125; i < 550; i++)
+													{
+														<option value=@i>~ @i m²</option>
+														i += 24;
+													}
+												</select>
+											</td>
+										</tr>
+										<tr id="rowCreation" class="rowByEngagement">
+											<td class="col-xs-6"><label for="Loyer">Cout de création</label></td>
+											<td class="col-xs-6">
+												<input id="coutCreationMoy" name="coutCreationMoy" type="text" class="inputtable-ca" placeholder="Cout de création moyen" style="width: 150px;padding: 5px 8px;">
+											</td>
+										</tr>
+										<tr id="rowTerrain" class="rowByEngagement">
+											<td class="col-xs-6"><label for="Loyer">Cout du terrain</label></td>
+											<td class="col-xs-6">
+												<input id="coutTerrainMoy" name="coutTerrainMoy" type="text" class="inputtable-ca" placeholder="Cout de terrain moyen" style="width: 150px;padding: 5px 8px;">
+											</td>
+										</tr>
+										<tr id="rowAchat" class="rowByEngagement">
+											<td class="col-xs-6"><label for="Loyer">Cout de l'achat</label></td>
+											<td class="col-xs-6">
+												<input id="coutAchatMoy" name="coutAchatMoy" type="text" class="inputtable-ca" placeholder="Cout d'achat moyen" style="width: 150px;padding: 5px 8px;">
+											</td>
+										</tr>
+										<tr id="rowLoyer" class="rowByEngagement">
+											<td class="col-xs-6"><label for="Loyer">Loyer / personne</label></td>
+											<td class="col-xs-6">
+												<div id="div-2-1-1-loyer-fh">
+													<input id="loyerMoy" name="loyerMoy" type="text" class="inputtable-ca" placeholder="Loyer moyen" style="width: 150px;padding: 5px 10px;">
+												</div>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
 						</div>
-						<div class="col-sm-8">
-							<table class="table table-striped">
-								<tbody>
-									<tr>
-										<td class="col-xs-6">
-											<label for="NbColocTotal">Nombre de colocataire total</label>
-										</td>
-										<td class="col-xs-6">
-											<input id="NbColocTotal" name="NbColocTotal" type="number" class="inputtable-ca" style="width: 50px;">
-										</td>
-									</tr>
-									<tr>
-										<td class="col-xs-6"><label for="NbColocResearch">Nombre de colocataire recherchés</label></td>
-										<td class="col-xs-6">
-											<input id="NbColocResearch" name="NbColocResearch" type="number" class="inputtable-ca" style="width: 50px;">
-										</td>
-									</tr>
-									<tr>
-										<td class="col-xs-6"><label for="Caution">Tolerances</label></td>
-										<td>
-											<div style="display:inline-block;margin-right: 10px;">
-												<label>Fumeur</label><br>
-												<p class="onoff">
-													<input type="checkbox" value="1" id="fumeur-cb">
-													<label for="fumeur-cb"></label>
-												</p>
-											</div>
-											<div style="display:inline-block">
-												<label>Animaux</label><br>
-												<p class="onoff">
-													<input type="checkbox" value="1" id="animaux-cb">
-													<label for="animaux-cb"></label>
-												</p>
-											</div>
-										</td>
-									</tr>
-								</tbody>
-							</table>
+					</div>
+					<div class="div20-descInform-ca">
+						<div class="div2-1-descInform-ca">
+							<div class="col-sm-4 div2-2-descInform-ca">
+								<div class="div2-3-descInform-ca" style="width: 132px;">
+									<div class="div2-4-descInform-ca">
+										<div id="imgChambre-ca" class="div2-5-descInform-ca"></div>
+										<p>COLOCATION</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-8">
+								<table class="table table-striped">
+									<tbody>
+										<tr>
+											<td class="col-xs-6">
+												<label for="NbColocTotal">Nombre de colocataire total</label>
+											</td>
+											<td class="col-xs-6">
+												<input id="NbColocTotal" name="NbColocTotal" type="number" class="inputtable-ca" style="width: 50px;">
+											</td>
+										</tr>
+										<tr>
+											<td class="col-xs-6"><label for="NbColocResearch">Nombre de colocataire recherchés</label></td>
+											<td class="col-xs-6">
+												<input id="NbColocResearch" name="NbColocResearch" type="number" class="inputtable-ca" style="width: 50px;">
+											</td>
+										</tr>
+										<tr>
+											<td class="col-xs-6"><label for="Caution">Tolerances</label></td>
+											<td>
+												<div style="display:inline-block;margin-right: 10px;">
+													<label>Fumeur</label><br>
+													<p class="onoff">
+														<input type="checkbox" value="1" id="fumeur-cb">
+														<label for="fumeur-cb"></label>
+													</p>
+												</div>
+												<div style="display:inline-block">
+													<label>Animaux</label><br>
+													<p class="onoff">
+														<input type="checkbox" value="1" id="animaux-cb">
+														<label for="animaux-cb"></label>
+													</p>
+												</div>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
 						</div>
 					</div>
 				</div>

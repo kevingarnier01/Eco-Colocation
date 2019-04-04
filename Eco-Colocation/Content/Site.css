@@ -629,11 +629,15 @@ select:-moz-focusring {
 
 #divPanelPl {
 	overflow: hidden;
+	display: flex;
+	flex-wrap: wrap;
 }
 
 	#divPanelPl a {
 		text-decoration: none;
 		color: black;
+		width: 225px;
+		position: relative;
 	}
 
 #divPeoplesSearching {
@@ -642,7 +646,10 @@ select:-moz-focusring {
 	padding-bottom: 5px;
 	padding-top: 5px;
 	margin-top: 15px;
-	margin-bottom: 15px
+	margin-bottom: 15px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 240px;
 }
 
 @media only screen and (max-width: 500px) {
@@ -810,7 +817,7 @@ select:-moz-focusring {
 	}
 }
 
-#onHoverMarker {
+.onHoverMarker {
 	z-index: 500;
 	display: none;
 	box-shadow: black 0px 0px 20px 0px;
@@ -819,16 +826,16 @@ select:-moz-focusring {
 	background-color: white
 }
 
-	#onHoverMarker #markerPhoto {
+	.onHoverMarker #markerPhoto {
 		padding: 0;
 		background-color: black;
 	}
 
-	#onHoverMarker #description {
+	.onHoverMarker #description {
 		padding: 0;
 	}
 
-	#onHoverMarker h5 {
+	.onHoverMarker h5 {
 		margin: 0;
 		margin-top: 2px;
 		margin-bottom: 1px;
@@ -836,12 +843,12 @@ select:-moz-focusring {
 		font-weight: bold;
 	}
 
-	#onHoverMarker p {
+	.onHoverMarker p {
 		margin: 0;
 		margin-left: 5px;
 	}
 
-		#onHoverMarker p:last-child {
+		.onHoverMarker p:last-child {
 			font-size: 11px;
 		}
 
@@ -989,7 +996,7 @@ select:-moz-focusring {
 	display: grid;
 }
 
-	#div1PC a:first-child {
+	#div1PC a {
 		text-decoration: none;
 	}
 
@@ -1033,11 +1040,15 @@ select:-moz-focusring {
 #divIdentitePC {
 	padding: 0 !important;
 	overflow: auto;
+	display: flex;
+	flex-wrap: wrap;
 }
 
 #divPhotoProfilPC {
 	display: flex;
 	padding: 0;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 #photoProfilPC {
@@ -1047,6 +1058,11 @@ select:-moz-focusring {
 	width: 80px;
 	height: 80px;
 	border-radius: 50%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#div0DecriptionIdentitePC {
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -1064,6 +1080,8 @@ select:-moz-focusring {
 
 #div2DecriptionIdentitePC {
 	margin-right: auto;
+	margin-left: 50%;
+	transform: translateX(-50%);
 }
 
 	#div2DecriptionIdentitePC p {
@@ -1105,13 +1123,17 @@ select:-moz-focusring {
 	width: 200px;
 	padding: 0;
 	margin-left: auto;
-	margin-right: auto
+	margin-right: auto;
+	display: flex;
+	flex-wrap: wrap;
 }
 
 #div2InscriptionPC {
 	display: flex;
 	padding: 0;
 	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 @media only screen and (max-width: 767px) {
@@ -1176,17 +1198,10 @@ select:-moz-focusring {
 	}
 }
 
-@media only screen and (max-width: 960px) {
-	#div2DecriptionIdentitePC {
-		margin-left: auto
-	}
-
-		#div2DecriptionIdentitePC p {
-			text-align: center
-		}
-}
-
 @media only screen and (max-width: 767px) {
+	#div2DecriptionIdentitePC p {
+		text-align: center
+	}
 	#div1ProfilPC {
 		height: auto;
 	}
@@ -1256,12 +1271,40 @@ select:-moz-focusring {
 		background-color: #ddd;
 	}
 
+/* modalPeopleSearch*/
+#modalPeopleSearch {
+	overflow: auto;
+	width: 900px;
+	position: relative;
+	height: 348px;
+}
+
+@media only screen and (max-width: 767px) {
+	#modalPeopleSearch {
+		height: inherit !important;
+	}
+}
+
+
+/**** modalCreationProjet-SearchColoc ****/
+#modalCreationProjet-SearchColoc {
+	overflow: auto;
+	height: 348px;
+	width: 900px;
+	position: relative;
+}
+@media only screen and (max-width: 767px) {
+	#modalCreationProjet-SearchColoc {
+		height: inherit !important;
+	}
+}
 
 /*** ModalLocation ***/
 #modalLocation {
 	height: 348px;
-	min-width: 755px;
-	overflow: auto
+	width: 900px;
+	overflow: auto;
+	position: relative;
 }
 
 #divMessage-ml {
@@ -1648,6 +1691,9 @@ select:-moz-focusring {
 /*** ModalLocation ***/
 #modalLocation-ColocAnnounce {
 	overflow: auto;
+	width: 900px;
+	padding: 15px;
+	position: relative;
 }
 
 #div-title-ca {
@@ -1665,14 +1711,16 @@ select:-moz-focusring {
 #div1-contenu-ca {
 	overflow: auto;
 	display: flex;
-	margin-bottom: 20px
+	margin-bottom: 20px;
+	padding:0
 }
 
 #div1-1-contenu-ca {
 	margin-left: auto;
 	margin-right: auto;
 	padding: 10px;
-	background-color: rgba(0,0,0,0.04);
+	background-color: rgba(0,0,0,0.01);
+	box-shadow: 0 0 5px 0 #d9d9d9;
 	border-radius: 10px;
 }
 
@@ -1766,12 +1814,14 @@ select:-moz-focusring {
 		min-width: 100%;
 		max-width: 100%;
 		height: 48px;
+		min-height: 48px;
 		width: 600px;
 	}
 
 #div-adresseLog-ca {
 	display: flex;
-	margin-bottom: 20px
+	margin-bottom: 20px;
+	padding:0
 }
 
 #div1-adresseLog-ca {
@@ -1779,7 +1829,8 @@ select:-moz-focusring {
 	margin-left: auto;
 	margin-right: auto;
 	padding: 10px;
-	background-color: rgba(0,0,0,0.04);
+	background-color: rgba(0,0,0,0.01);
+	box-shadow: 0 0 5px 0 #d9d9d9;
 	border-radius: 10px;
 }
 
@@ -1835,7 +1886,8 @@ select:-moz-focusring {
 }
 
 #div1-descInform-ca {
-	display: flex
+	display: flex;
+	padding:0
 }
 
 #div2-descInform-ca {
@@ -1846,7 +1898,8 @@ select:-moz-focusring {
 
 .div20-descInform-ca {
 	display: flex;
-	background-color: rgba(0,0,0,0.04);
+	background-color: rgba(0,0,0,0.01);
+	box-shadow: 0 0 5px 0 #d9d9d9;
 	border-radius: 10px;
 	margin-bottom: 20px;
 }
@@ -2019,8 +2072,10 @@ select:-moz-focusring {
 /*** modalCreationProjet-ColocAnnounce ***/
 #modalCreationProjet-ColocAnnounce {
 	overflow: auto;
+	width: 900px;
+	position: relative;
 }
-/*** Fin modalCreationProjet-ColocAnnounce ***/
+/*** Fin div-photos-mpc-ColocAnnounce ***/
 
 /**** Modal Account / Index *****/
 #modalAccount {
@@ -2206,29 +2261,37 @@ select:-moz-focusring {
 
 /**** ModalCARecherche ****/
 #modalCARecherche {
-	width: 800px;
+	width: 900px;
 	padding: 15px;
 	overflow: auto;
 }
 
 .titleForm-mcar {
-	text-align:center;
+	text-align: center;
 	font-family: cursive;
 	font-size: 27px;
 	color: #333333;
 	line-height: 1.2;
-	padding-bottom: 20px;
+	margin-top: 15px;
+	margin-bottom: 45px;
 	padding-left: 10px;
+}
+
+.divEncadrer-mcar {
+	display:flex
 }
 
 .encadrer-mcar {
 	box-shadow: 0 0 5px 0 #d9d9d9;
+	background-color: rgba(0,0,0,0.01);
 	padding: 15px 5px;
-	border-radius: 5px;
+	border-radius: 10px;
 	margin-bottom: 40px;
 	position: relative;
 	display: flex;
 	flex-wrap: wrap;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .divLeftSideEncadrer-mcar {
@@ -2240,18 +2303,6 @@ select:-moz-focusring {
 	margin-left: auto;
 	margin-right: auto;
 }
-
-@media screen and (max-width: 768px) {
-	/*.encadrer-mcar {
-		display: inherit;
-	}*/
-	/*.divRightSideEncadrer-mcar {
-		max-width: 400px;
-		margin-left: auto;
-		margin-right: auto;
-	}*/
-}
-
 
 #divBudgMax-mcar {
 	padding: 0;
@@ -2578,30 +2629,27 @@ select:-moz-focusring {
 
 /***** ModalCARecherche *****/
 #modalCAPropose {
-	width: 800px;
+	width: 900px;
 	padding: 15px;
 	overflow: auto;
 }
 
-.encadrer-mcap {
-	box-shadow: 0 0 5px 0 #d9d9d9;
-	padding: 15px 5px;
-	border-radius: 5px;
-	margin-bottom: 40px;
-	position: relative;
-	display: flex;
-	flex-wrap: wrap;
+.divEncadrer-mcap {
+	display:flex;
 }
 
 .encadrer-mcap {
 	box-shadow: 0 0 5px 0 #d9d9d9;
+	background-color: rgba(0,0,0,0.01);
 	padding: 15px 5px;
-	border-radius: 5px;
+	border-radius: 10px;
 	margin-bottom: 40px;
 	position: relative;
 	display: flex;
 	flex-wrap: wrap;
 	margin-top: 35px;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 #divSwitcherTypeProposition-mcap {
@@ -2622,7 +2670,6 @@ select:-moz-focusring {
 #btnSwitcherPropose-mcap {
 	padding: 5px 10px;
 	border-radius: 5px;
-	background-color: rgba(0,0,0,0.2);
 	box-shadow: 0 0 3px 0px black;
 	font-size: 18px;
 	cursor: pointer;
@@ -2632,6 +2679,7 @@ select:-moz-focusring {
 	padding: 3px 10px;
 	margin-left: 5px;
 	margin-right: 5px;
+	font-size: 19px;
 }
 
 #btnSwitcherProjet-mcap {

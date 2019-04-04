@@ -6,211 +6,213 @@
 }
 
 <div class="underModal col-sm-12 col-xs-12">
-	<div id="modalLocation-ColocAnnounce" class="reelModal col-sm-8 col-xs-12">
+	<div id="modalLocation-ColocAnnounce" class="reelModal">
 		<div id="div-title-ca">
 			<h2>Création d'une annonce de location</h2>
 		</div>
-		<div id="div1-contenu-ca" class="col-sm-12">
-			<div id="div1-1-contenu-ca" class="col-sm-10 col-xs-12">
-				<div id="divDescAnn-ca" class="col-sm-12 col-xs-12">
-					<div id="div1DescAnn-ca" class="col-sm-12 col-xs-12">
-						<div id="div1-1DescAnn-ca" class="col-sm-12 col-xs-12">
-							<label for="Description_de_l_annonce">Description de l'annonce</label>
+		<div id="htmlBlockModalLocation-ml">
+			<div id="div1-contenu-ca" class="col-sm-12">
+				<div id="div1-1-contenu-ca" class="col-sm-11 col-xs-12">
+					<div id="divDescAnn-ca" class="col-sm-12 col-xs-12">
+						<div id="div1DescAnn-ca" class="col-sm-12 col-xs-12">
+							<div id="div1-1DescAnn-ca" class="col-sm-12 col-xs-12">
+								<label for="Description_de_l_annonce">Description de l'annonce</label>
+							</div>
+						</div>
+						<div id="div2DescAnn-ca" class="col-sm-12 col-xs-12">
+							<div id="div2-1DescAnn-ca" class="col-sm-12 col-xs-12">
+								<textarea id="descAnnonce" name="descAnnonce"></textarea>
+							</div>
 						</div>
 					</div>
-					<div id="div2DescAnn-ca" class="col-sm-12 col-xs-12">
-						<div id="div2-1DescAnn-ca" class="col-sm-12 col-xs-12">
-							<textarea id="descAnnonce" name="descAnnonce"></textarea>
+					<div id="divEcoPratic-ca" class="col-sm-12 col-xs-12">
+						<div id="div1-ecoPratic-ca" class="col-sm-12 col-xs-12">
+							<div id="div1-1-ecoPratic-ca" class="col-sm-12 col-xs-12">
+								<label for="Pratiques__cologiques_exerc_es_par_la_colocation">Pratiques écologiques souhaitées</label>
+							</div>
 						</div>
-					</div>
-				</div>
-				<div id="divEcoPratic-ca" class="col-sm-12 col-xs-12">
-					<div id="div1-ecoPratic-ca" class="col-sm-12 col-xs-12">
-						<div id="div1-1-ecoPratic-ca" class="col-sm-12 col-xs-12">
-							<label for="Pratiques__cologiques_exerc_es_par_la_colocation">Pratiques écologiques souhaitées</label>
-						</div>
-					</div>
-					<div id="div2-ecoPratic-ca" class="col-sm-12 col-xs-12">
-						<div id="div2-1-ecoPratic-ca" class="col-sm-12 col-xs-12">
-							<textarea id="descEcoPratique" name="descEcoPratique"></textarea>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div id="div-adresseLog-ca" class="col-sm-12" style="">
-			<div id="div1-adresseLog-ca" class="col-sm-10 col-xs-12">
-				<div style="width: 100%;">
-					<div id="div1-1-adresseLog-ca" class="col-sm-3 col-xs-12">
-						<div id="div1-2-adresseLog-ca">
-							<div id="div1-3-adresseLog-ca"></div>
-						</div>
-					</div>
-					<div id="div10-1-adresseLog-ca" class="col-sm-9 col-xs-12">
-						<div id="div10-2-adresseLog-ca">
-							@*<input id="inputAddresseMap-ML" type="text" oninput="addr_search('inputAddresseMap-ML','listAutoCompletePlaceML');" list="listAutoCompletePlaceML" autocomplete="off" class="inputAdresseLog-ca">
-								<datalist id="listAutoCompletePlaceML"></datalist>*@
-							<input type="search" id="address-input-ml" class="address-input" placeholder="Localisation de l'endroit" />
-							@for (int i = 0; i < 4; i++)
-							{
-								@Html.Hidden("adresseVille", null, new { @id = "addresseVille" + i })
-								@Html.Hidden("adresseRegion", null, new { @id = "adresseRegion" + i })
-								@Html.Hidden("adressePays", null, new { @id = "adressePays" + i })
-								@Html.Hidden("adresseLatLng", null, new { @id = "adresseLatLng" + i })
-							}
-							<div id="div10-3-adresseLog-ca" class="col-sm-12">
-								<div id="div10-4-adresseLog-ca" class="col-sm-2"></div>
-								<p class="col-sm-12" style="margin: auto;">
-									L'addresse est nécessaire pour localiser votre logement sur la carte.
-								</p>
+						<div id="div2-ecoPratic-ca" class="col-sm-12 col-xs-12">
+							<div id="div2-1-ecoPratic-ca" class="col-sm-12 col-xs-12">
+								<textarea id="descEcoPratique" name="descEcoPratique"></textarea>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-		<div id="div1-descInform-ca" class="col-sm-12">
-			<div id="div2-descInform-ca" class="col-sm-10 col-xs-12">
-				<div class="div20-descInform-ca">
-					<div class="div2-1-descInform-ca">
-						<div class="col-sm-4 div2-2-descInform-ca">
-							<div class="div2-3-descInform-ca" style="width: 101px;">
-								<div class="div2-4-descInform-ca">
-									<div id="imgChambre-ca" class="div2-5-descInform-ca"></div>
-									<p>CHAMBRE</p>
-								</div>
+			<div id="div-adresseLog-ca" class="col-sm-12" style="">
+				<div id="div1-adresseLog-ca" class="col-sm-11 col-xs-12">
+					<div style="width: 100%;">
+						<div id="div1-1-adresseLog-ca" class="col-sm-3 col-xs-12">
+							<div id="div1-2-adresseLog-ca">
+								<div id="div1-3-adresseLog-ca"></div>
 							</div>
 						</div>
-						<div class="col-sm-8">
-							<table class="table table-striped">
-								<tbody>
-									<tr>
-										<td class="col-xs-6">
-											<label for="Tarif_loyer">Loyer (sans charges)</label>
-										</td>
-										<td class="col-xs-6">
-											<input id="Loyer" name="Loyer" type="text" value="" class="inputtable-ca">
-										</td>
-									</tr>
-									<tr>
-										<td class="col-xs-6"><label for="Charges">Charges</label></td>
-										<td class="col-xs-6">
-											<input id="Charges" name="Charges" type="text" value="" class="inputtable-ca">
-										</td>
-									</tr>
-									<tr>
-										<td class="col-xs-6"><label for="Caution">Caution</label></td>
-										<td class="col-xs-6">
-											<input id="Caution" name="Caution" type="text" value="" class="inputtable-ca">
-										</td>
-									</tr>
-									<tr>
-										<td class="col-xs-6"><label for="Superficie">Superficie</label></td>
-										<td class="col-xs-6">
-											<input id="Superficie" name="Superficie" type="text" value="" class="inputtable-ca">
-										</td>
-									</tr>
-									<tr>
-										<td class="col-xs-6"><label for="Meublee">Meublée</label></td>
-										<td style="padding: 0;padding-top: 4px;padding-left: 8px;">
-											<p class="onoff">
-												<input type="checkbox" value="1" id="meuble-cb">
-												<label for="meuble-cb"></label>
-											</p>
-										</td>
-									</tr>
-									<tr>
-										<td class="col-xs-6"><label for="Disponibilit_">Disponibilité</label></td>
-										<td class="col-xs-6">
-											<input id="Disponibilite" name="Disponibilite" type="date" value="" style="border: none;border-radius: 8px;box-shadow: 0 0 2px 0px black;">
-										</td>
-									</tr>
-								</tbody>
-							</table>
+						<div id="div10-1-adresseLog-ca" class="col-sm-9 col-xs-12">
+							<div id="div10-2-adresseLog-ca">
+								@*<input id="inputAddresseMap-ML" type="text" oninput="addr_search('inputAddresseMap-ML','listAutoCompletePlaceML');" list="listAutoCompletePlaceML" autocomplete="off" class="inputAdresseLog-ca">
+									<datalist id="listAutoCompletePlaceML"></datalist>*@
+								<input type="search" id="address-input-ml" class="address-input" placeholder="Localisation de l'endroit" />
+								@for (int i = 0; i < 4; i++)
+								{
+									@Html.Hidden("adresseVille", null, new { @id = "addresseVille" + i })
+									@Html.Hidden("adresseRegion", null, new { @id = "adresseRegion" + i })
+									@Html.Hidden("adressePays", null, new { @id = "adressePays" + i })
+									@Html.Hidden("adresseLatLng", null, new { @id = "adresseLatLng" + i })
+								}
+								<div id="div10-3-adresseLog-ca" class="col-sm-12">
+									<div id="div10-4-adresseLog-ca" class="col-sm-2"></div>
+									<p class="col-sm-12" style="margin: auto;">
+										L'addresse est nécessaire pour localiser votre logement sur la carte.
+									</p>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
-				<div class="div20-descInform-ca">
-					<div class="div2-1-descInform-ca">
-						<div class="col-sm-4 div2-2-descInform-ca">
-							<div class="div2-3-descInform-ca" style="width: 113px;">
-								<div class="div2-4-descInform-ca">
-									<div id="imgLogement-ca" class="div2-5-descInform-ca"></div>
-									<p>LOGEMENT</p>
+			</div>
+			<div id="div1-descInform-ca" class="col-sm-12">
+				<div id="div2-descInform-ca" class="col-sm-11 col-xs-12">
+					<div class="div20-descInform-ca">
+						<div class="div2-1-descInform-ca">
+							<div class="col-sm-4 div2-2-descInform-ca">
+								<div class="div2-3-descInform-ca" style="width: 101px;">
+									<div class="div2-4-descInform-ca">
+										<div id="imgChambre-ca" class="div2-5-descInform-ca"></div>
+										<p>CHAMBRE</p>
+									</div>
 								</div>
 							</div>
-						</div>
-						<div class="col-sm-8">
-							<table class="table table-striped">
-								<tbody>
-									<tr>
-										<td class="col-xs-6"><label for="Localisation">Localisation</label></td>
-										<td class="col-xs-6">
-											<input id="Localisation" name="Localisation" type="text" value="" style="border: none;border-radius: 8px;box-shadow: 0 0 2px 0px black;">
-										</td>
-									</tr>
-									<tr>
-										<td class="col-xs-6"><label for="Type">Type</label></td>
-										<td class="col-xs-6">
-											<input id="Type" name="Type" type="text" value="" style="border: none;border-radius: 8px;box-shadow: 0 0 2px 0px black;">
-										</td>
-									</tr>
-									<tr>
-										<td class="col-xs-6"><label for="Superficie">Superficie</label></td>
-										<td class="col-xs-6">
-											<input id="Superficie" name="Superficie" type="text" value="" style="border: none;border-radius: 8px;box-shadow: 0 0 2px 0px black;">
-										</td>
-									</tr>
-									<tr>
-										<td class="col-xs-6"><label for="Coloc_d_j__pr_sents">Coloc déjà présents</label></td>
-										<td class="col-xs-6">
-											<input id="ColocationresPresents" name="ColocationresPresents" type="text" value="" style="border: none;border-radius: 8px;box-shadow: 0 0 2px 0px black;">
-										</td>
-									</tr>
-									<tr>
-										<td class="col-xs-6"><label for="Accessibilit__handicap_">Accessibilité handicapé</label></td>
-										<td class="col-xs-6">
-											<input id="AccessibiliteHandicape" name="AccessibiliteHandicape" type="text" value="" style="border: none;border-radius: 8px;box-shadow: 0 0 2px 0px black;">
-										</td>
-									</tr>
-								</tbody>
-							</table>
+							<div class="col-sm-8">
+								<table class="table table-striped">
+									<tbody>
+										<tr>
+											<td class="col-xs-6">
+												<label for="Tarif_loyer">Loyer (sans charges)</label>
+											</td>
+											<td class="col-xs-6">
+												<input id="Loyer" name="Loyer" type="text" value="" class="inputtable-ca">
+											</td>
+										</tr>
+										<tr>
+											<td class="col-xs-6"><label for="Charges">Charges</label></td>
+											<td class="col-xs-6">
+												<input id="Charges" name="Charges" type="text" value="" class="inputtable-ca">
+											</td>
+										</tr>
+										<tr>
+											<td class="col-xs-6"><label for="Caution">Caution</label></td>
+											<td class="col-xs-6">
+												<input id="Caution" name="Caution" type="text" value="" class="inputtable-ca">
+											</td>
+										</tr>
+										<tr>
+											<td class="col-xs-6"><label for="Superficie">Superficie</label></td>
+											<td class="col-xs-6">
+												<input id="Superficie" name="Superficie" type="text" value="" class="inputtable-ca">
+											</td>
+										</tr>
+										<tr>
+											<td class="col-xs-6"><label for="Meublee">Meublée</label></td>
+											<td style="padding: 0;padding-top: 4px;padding-left: 8px;">
+												<p class="onoff">
+													<input type="checkbox" value="1" id="meuble-cb">
+													<label for="meuble-cb"></label>
+												</p>
+											</td>
+										</tr>
+										<tr>
+											<td class="col-xs-6"><label for="Disponibilit_">Disponibilité</label></td>
+											<td class="col-xs-6">
+												<input id="Disponibilite" name="Disponibilite" type="date" value="" style="border: none;border-radius: 8px;box-shadow: 0 0 2px 0px black;">
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
 						</div>
 					</div>
-				</div>
-				<div class="div20-descInform-ca">
-					<div class="div2-1-descInform-ca">
-						<div class="col-sm-4 div2-2-descInform-ca">
-							<div class="div2-3-descInform-ca" style="width: 135px;">
-								<div class="div2-4-descInform-ca">
-									<div id="imgTolerances-ca" class="div2-5-descInform-ca"></div>
-									<p>TOLERANCES</p>
+					<div class="div20-descInform-ca">
+						<div class="div2-1-descInform-ca">
+							<div class="col-sm-4 div2-2-descInform-ca">
+								<div class="div2-3-descInform-ca" style="width: 113px;">
+									<div class="div2-4-descInform-ca">
+										<div id="imgLogement-ca" class="div2-5-descInform-ca"></div>
+										<p>LOGEMENT</p>
+									</div>
 								</div>
 							</div>
+							<div class="col-sm-8">
+								<table class="table table-striped">
+									<tbody>
+										<tr>
+											<td class="col-xs-6"><label for="Localisation">Localisation</label></td>
+											<td class="col-xs-6">
+												<input id="Localisation" name="Localisation" type="text" value="" style="border: none;border-radius: 8px;box-shadow: 0 0 2px 0px black;">
+											</td>
+										</tr>
+										<tr>
+											<td class="col-xs-6"><label for="Type">Type</label></td>
+											<td class="col-xs-6">
+												<input id="Type" name="Type" type="text" value="" style="border: none;border-radius: 8px;box-shadow: 0 0 2px 0px black;">
+											</td>
+										</tr>
+										<tr>
+											<td class="col-xs-6"><label for="Superficie">Superficie</label></td>
+											<td class="col-xs-6">
+												<input id="Superficie" name="Superficie" type="text" value="" style="border: none;border-radius: 8px;box-shadow: 0 0 2px 0px black;">
+											</td>
+										</tr>
+										<tr>
+											<td class="col-xs-6"><label for="Coloc_d_j__pr_sents">Coloc déjà présents</label></td>
+											<td class="col-xs-6">
+												<input id="ColocationresPresents" name="ColocationresPresents" type="text" value="" style="border: none;border-radius: 8px;box-shadow: 0 0 2px 0px black;">
+											</td>
+										</tr>
+										<tr>
+											<td class="col-xs-6"><label for="Accessibilit__handicap_">Accessibilité handicapé</label></td>
+											<td class="col-xs-6">
+												<input id="AccessibiliteHandicape" name="AccessibiliteHandicape" type="text" value="" style="border: none;border-radius: 8px;box-shadow: 0 0 2px 0px black;">
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
 						</div>
-						<div class="col-sm-8">
-							<table class="table table-striped">
-								<tbody>
-									<tr>
-										<td class="col-xs-6"><label for="Fumeur">Fumeur</label></td>
-										<td style="padding: 0;padding-top: 4px;padding-left: 8px;">
-											<p class="onoff">
-												<input type="checkbox" value="1" id="fumeur-cb">
-												<label for="fumeur-cb"></label>
-											</p>
-										</td>
-									</tr>
-									<tr>
-										<td class="col-xs-6"><label for="Animaux">Animaux</label></td>
-										<td style="padding: 0;padding-top: 4px;padding-left: 8px;">
-											<p class="onoff">
-												<input type="checkbox" value="1" id="animaux-cb">
-												<label for="animaux-cb"></label>
-											</p>
-										</td>
-									</tr>
-								</tbody>
-							</table>
+					</div>
+					<div class="div20-descInform-ca">
+						<div class="div2-1-descInform-ca">
+							<div class="col-sm-4 div2-2-descInform-ca">
+								<div class="div2-3-descInform-ca" style="width: 135px;">
+									<div class="div2-4-descInform-ca">
+										<div id="imgTolerances-ca" class="div2-5-descInform-ca"></div>
+										<p>TOLERANCES</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-8">
+								<table class="table table-striped">
+									<tbody>
+										<tr>
+											<td class="col-xs-6"><label for="Fumeur">Fumeur</label></td>
+											<td style="padding: 0;padding-top: 4px;padding-left: 8px;">
+												<p class="onoff">
+													<input type="checkbox" value="1" id="fumeur-cb">
+													<label for="fumeur-cb"></label>
+												</p>
+											</td>
+										</tr>
+										<tr>
+											<td class="col-xs-6"><label for="Animaux">Animaux</label></td>
+											<td style="padding: 0;padding-top: 4px;padding-left: 8px;">
+												<p class="onoff">
+													<input type="checkbox" value="1" id="animaux-cb">
+													<label for="animaux-cb"></label>
+												</p>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
 						</div>
 					</div>
 				</div>
