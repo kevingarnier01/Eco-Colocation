@@ -64,7 +64,7 @@
 							<div onclick="addNewPlace('address-input')" style="position: absolute;right: 6%;cursor:pointer;font-size: 16px;margin-top: 5px;">| Entrer</div>
 							@*<input oninput="addr_search('inputLocalisation-cpc','listAutoCompletePlace2');" list="listAutoCompletePlace2" autocomplete="off" type="text" class="inputAdresseLog-ca" id="inputLocalisation-cpc" style="padding: 5px 8px;padding-right: 65px;">
 								<datalist id="listAutoCompletePlace2"></datalist>*@
-							<input type="search" id="address-input-mpc" placeholder="Localisation de l'endroit" />
+							<input type="search" id="address-input-mpc" class="address-input" placeholder="Localisation de l'endroit" />
 							@for (int i = 0; i < 4; i++)
 							{
 								@Html.Hidden("adresseVille", null, new { @id = "addresseVille" + i})

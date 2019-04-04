@@ -50,7 +50,7 @@
 						<div id="div10-2-adresseLog-ca">
 							@*<input id="inputAddresseMap-ML" type="text" oninput="addr_search('inputAddresseMap-ML','listAutoCompletePlaceML');" list="listAutoCompletePlaceML" autocomplete="off" class="inputAdresseLog-ca">
 								<datalist id="listAutoCompletePlaceML"></datalist>*@
-							<input type="search" id="address-input-ml" placeholder="Localisation de l'endroit" />
+							<input type="search" id="address-input-ml" class="address-input" placeholder="Localisation de l'endroit" />
 							@for (int i = 0; i < 4; i++)
 							{
 								@Html.Hidden("adresseVille", null, new { @id = "addresseVille" + i })

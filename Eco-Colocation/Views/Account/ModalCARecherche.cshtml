@@ -4,7 +4,7 @@
 }
 <div class="underModal col-sm-12 col-xs-12">
 	<div id="modalCARecherche" class="reelModal">
-		<div id="titleForm-mcar">Inscrivez-vous et trouver votre future éco-colocation</div>
+		<div class="titleForm-mcar">Inscrivez-vous et trouver votre future éco-colocation</div>
 		<div class="encadrer-mcar">
 			<div class="col-sm-4 divLeftSideEncadrer-mcar divImgLogo-mcar">
 				<div class="divImgLogoHorizontal-mcar">
@@ -28,7 +28,7 @@
 					<label class="lbl-mcar">Ville de recherche</label>
 					@*<input id="inputAddresseMapMCAR" type="text" oninput="addr_search('inputAddresseMapMCAR','listAutoCompletePlaceMCAR');" list="listAutoCompletePlaceMCAR" autocomplete="off" class="inputAdresseLog-ca">
 					<datalist id="listAutoCompletePlaceMCAR"><br><option data-value="0"></option></datalist>*@
-					<input type="search" id="address-input" placeholder="Ou recherches-tu ?" />
+					<input type="search" id="address-input-mcar" class="address-input" placeholder="Ou recherches-tu ?" />
 				</div>
 			</div>
 		</div>
@@ -317,7 +317,7 @@
 				</div>
 				<div class="col-sm-12">
 					<label class="lbl-mcar" id="lblCritereRecherche-mcar">Information sur vos critères de recherche</label>
-					<p class="lbl-mcar">[Recommandé]</p>
+					<p class="lbl-mcar">[Facultatif]</p>
 					<textarea class="txtareaDesc-mcar input-mcar" placeholder="Présenter le type d'éco-colocation recherchée..."></textarea>
 					<textarea class="txtareaDesc-mcar input-mcar" placeholder="Présenter les pratiques écologiques envisagées..."></textarea>
 				</div>
@@ -402,7 +402,7 @@
 </div>
 <script type="text/javascript">
 	$(document).ready(function () {
-		initAutoComplete();
+		initAutoComplete("#address-input-mcar");
 		showMultiplesFilesUpload();
 		initSlidepicture();
 	});

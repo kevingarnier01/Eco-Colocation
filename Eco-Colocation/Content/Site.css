@@ -286,6 +286,11 @@ select:-moz-focusring {
 	height: 45px !important;
 	z-index: 5
 }
+
+/* Attribute plugin */
+.address-input {
+	width:100%
+}
 /* Debut bar de recherche */
 .dropdown.dropdown-lg .dropdown-menu {
 	margin-top: -1px;
@@ -2206,7 +2211,7 @@ select:-moz-focusring {
 	overflow: auto;
 }
 
-#titleForm-mcar {
+.titleForm-mcar {
 	text-align:center;
 	font-family: cursive;
 	font-size: 27px;
@@ -2570,5 +2575,77 @@ select:-moz-focusring {
 	font-size: 15px;
 	cursor: pointer;
 }
+
+/***** ModalCARecherche *****/
+#modalCAPropose {
+	width: 800px;
+	padding: 15px;
+	overflow: auto;
+}
+
+.encadrer-mcap {
+	box-shadow: 0 0 5px 0 #d9d9d9;
+	padding: 15px 5px;
+	border-radius: 5px;
+	margin-bottom: 40px;
+	position: relative;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.encadrer-mcap {
+	box-shadow: 0 0 5px 0 #d9d9d9;
+	padding: 15px 5px;
+	border-radius: 5px;
+	margin-bottom: 40px;
+	position: relative;
+	display: flex;
+	flex-wrap: wrap;
+	margin-top: 35px;
+}
+
+#divSwitcherTypeProposition-mcap {
+	display: flex;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#txtSw1-mcap {
+	margin-right: 10px;
+	font-size: 21px;
+}
+
+#divBtnSwitcher-mcap {
+	display: inline-flex;
+}
+
+#btnSwitcherPropose-mcap {
+	padding: 5px 10px;
+	border-radius: 5px;
+	background-color: rgba(0,0,0,0.2);
+	box-shadow: 0 0 3px 0px black;
+	font-size: 18px;
+	cursor: pointer;
+}
+
+#separationSwitcherPropose-mcap {
+	padding: 3px 10px;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+#btnSwitcherProjet-mcap {
+	padding: 5px 10px;
+	border-radius: 5px;
+	box-shadow: 0 0 3px 0px black;
+	font-size: 18px;
+	cursor: pointer;
+}
+
+#txtSw2-mcap {
+	margin-left: 10px;
+	font-size: 21px;
+}
+
 
 /**** Fin Modal Account / Index *****/
