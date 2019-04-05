@@ -507,14 +507,26 @@ function initAutoComplete(elementId) {
 }
 
 function switcherMcap(elementToEnable, elementToDisable) {
+	$('body').addClass('waiting');
+	$(elementToEnable).css("cursor", "inherit");
+	$(elementToDisable).css("cursor", "inherit");
+
+
 	$(elementToEnable).css('background-color', 'background-color: rgba(0, 0, 0, 0.2)');
 	$(elementToDisable).css('background-color', 'inherit');
-		
+
 	if (elementToEnable == '#btnSwitcherPropose-mcap') {
 		$('#resultSwitcher-mcap').load('../ColocAnnounce/ModalProjetCreation #htmlBlockModalCreationProjet-mpc');
-	}	
+		initAutoComplete("#address-input-mpc");
+	}
 	else {
 		$('#resultSwitcher-mcap').load('../ColocAnnounce/ModalLocation #htmlBlockModalLocation-ml');
+		initAutoComplete("#address-input-ml");
 	}
-	
+
+	$('body').removeClass('waiting');
+	$(elementToEnable).css("cursor", "pointer");
+	$(elementToDisable).css("cursor", "pointer");
+
+
 }

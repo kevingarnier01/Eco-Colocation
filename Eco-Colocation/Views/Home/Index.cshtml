@@ -2,6 +2,7 @@
 @{
 	ViewBag.Title = "Home Page";
 }
+
 <div>
 	<a href="@Url.Action("ModalAccount","Account",null)" rel="modal:open">
 		<div id="btnCreer-al">Creer un projet de création</div>
@@ -24,6 +25,8 @@
 
 <script language="javascript">
 	$(document).ready(function () {
+		$('#_PictureHeader').css('display', "block")
+		
 		if ($("#typeRecherche").val() != "") {
 			updateSwitcher();
 		}

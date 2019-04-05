@@ -35,5 +35,20 @@ namespace Eco_Colocation.Controllers
 		{
 			return PartialView();
 		}
+
+		public ActionResult ForgetAccount()
+		{
+			return View("~/Views/Account/ForgetAccount/ForgetAccount.cshtml");
+		}
+
+		public ActionResult ChangePassword()
+		{
+			return View("~/Views/Account/ForgetAccount/ChangePassword.cshtml");
+		}
+
+		public ActionResult CheckCodeSend()
+		{
+			return View("~/Views/Account/ForgetAccount/CheckCodeSend.cshtml");
+		}
 	}
 }

@@ -102,6 +102,7 @@ main {
 }
 
 /* Footer */
+
 .upper-footer {
 	padding-top: 10px;
 	padding-bottom: 40px;
@@ -220,6 +221,10 @@ p {
 	margin: 0
 }
 
+.waiting {
+	cursor: progress;
+}
+
 /*** attribute boostrap ***/
 
 select:-moz-focusring {
@@ -289,7 +294,7 @@ select:-moz-focusring {
 
 /* Attribute plugin */
 .address-input {
-	width:100%
+	width: 100%
 }
 /* Debut bar de recherche */
 .dropdown.dropdown-lg .dropdown-menu {
@@ -352,6 +357,10 @@ select:-moz-focusring {
 /* Fin bar de recherche */
 
 /**** PictureHeader ****/
+#_PictureHeader {
+	display:none;
+}
+
 #switcher-wrapper {
 	display: flex;
 	margin-top: 50px;
@@ -424,7 +433,7 @@ select:-moz-focusring {
 }
 
 .inputSearchPlace {
-	height:35px;
+	height: 35px;
 	border-radius: 5px
 }
 
@@ -632,14 +641,7 @@ select:-moz-focusring {
 	display: flex;
 	flex-wrap: wrap;
 }
-
-	#divPanelPl a {
-		text-decoration: none;
-		color: black;
-		width: 225px;
-		position: relative;
-	}
-
+	
 #divPeoplesSearching {
 	display: flex;
 	padding: 0;
@@ -662,6 +664,10 @@ select:-moz-focusring {
 	padding: 0;
 	margin-left: auto;
 	margin-right: auto;
+	text-decoration: none;
+	color: black;
+	width: 225px;
+	position: relative;
 }
 
 #divImgPlSch {
@@ -1202,6 +1208,7 @@ select:-moz-focusring {
 	#div2DecriptionIdentitePC p {
 		text-align: center
 	}
+
 	#div1ProfilPC {
 		height: auto;
 	}
@@ -1293,6 +1300,7 @@ select:-moz-focusring {
 	width: 900px;
 	position: relative;
 }
+
 @media only screen and (max-width: 767px) {
 	#modalCreationProjet-SearchColoc {
 		height: inherit !important;
@@ -1712,7 +1720,7 @@ select:-moz-focusring {
 	overflow: auto;
 	display: flex;
 	margin-bottom: 20px;
-	padding:0
+	padding: 0
 }
 
 #div1-1-contenu-ca {
@@ -1821,7 +1829,7 @@ select:-moz-focusring {
 #div-adresseLog-ca {
 	display: flex;
 	margin-bottom: 20px;
-	padding:0
+	padding: 0
 }
 
 #div1-adresseLog-ca {
@@ -1887,7 +1895,7 @@ select:-moz-focusring {
 
 #div1-descInform-ca {
 	display: flex;
-	padding:0
+	padding: 0
 }
 
 #div2-descInform-ca {
@@ -2144,7 +2152,8 @@ select:-moz-focusring {
 }
 
 #divMdpForget-acc {
-	display: flex
+	display: flex;
+	text-decoration:none;
 }
 
 	#divMdpForget-acc p {
@@ -2278,7 +2287,7 @@ select:-moz-focusring {
 }
 
 .divEncadrer-mcar {
-	display:flex
+	display: flex
 }
 
 .encadrer-mcar {
@@ -2319,11 +2328,11 @@ select:-moz-focusring {
 		width: 160px;
 	}
 
-	#euroSignBudgetMax-mcar {
-		position: absolute;
-		top: 0;
-		right: 4px;
-	}
+#euroSignBudgetMax-mcar {
+	position: absolute;
+	top: 0;
+	right: 4px;
+}
 
 #inputAddresseMapMCAR {
 	padding: 5px 10px;
@@ -2573,7 +2582,7 @@ select:-moz-focusring {
 }
 
 #div2InscriptionBtnMail-mcar {
-	margin:0;
+	margin: 0;
 	display: flex;
 	box-shadow: 0 0 5px 0px black;
 	padding: 5px 15px;
@@ -2594,7 +2603,7 @@ select:-moz-focusring {
 }
 
 #createProfilWindow {
-	display:none
+	display: none
 }
 
 #divCreateProfil-mcar {
@@ -2635,7 +2644,7 @@ select:-moz-focusring {
 }
 
 .divEncadrer-mcap {
-	display:flex;
+	display: flex;
 }
 
 .encadrer-mcap {
@@ -2695,5 +2704,9 @@ select:-moz-focusring {
 	font-size: 21px;
 }
 
+/*** forgetAccount ***/
+#forgetAccount {
+	height: 400px
+}
 
 /**** Fin Modal Account / Index *****/
