@@ -68,10 +68,10 @@
 								<input type="search" id="address-input-mpc" class="address-input" placeholder="Localisation de l'endroit" onload="initAutoComplete('#address-input-mpc')" />
 								@for (int i = 0; i < 4; i++)
 								{
-									@Html.Hidden("adresseVille", null, new { @id = "addresseVille" + i })
-									@Html.Hidden("adresseRegion", null, new { @id = "adresseRegion" + i })
-									@Html.Hidden("adressePays", null, new { @id = "adressePays" + i })
-									@Html.Hidden("adresseLatLng", null, new { @id = "adresseLatLng" + i })
+									@Html.Hidden("adresseVille", null, new { @class = "addresseVille" + i })
+									@Html.Hidden("adresseRegion", null, new { @class = "adresseRegion" + i })
+									@Html.Hidden("adressePays", null, new { @class = "adressePays" + i })
+									@Html.Hidden("adresseLatLng", null, new { @class = "adresseLatLng" + i })
 								}
 								@*<input id="listAutoCompletePlace2Hidden" name="listAutoCompletePlace2Hidden" type="hidden" value="">*@
 								<div id="placeSaved-cpc" style="margin-bottom: 5px;">

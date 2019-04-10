@@ -3,27 +3,30 @@ using System.Web.Security;
 
 namespace Eco_Colocation.Controllers
 {
-    public class AccountController : Controller
-    {
-        // GET: Account
-        public ActionResult Index()
-        {
-            return View();
-        }
+	public class AccountController : Controller
+	{
+		// GET: Account
+		public ActionResult Index()
+		{
+			FormsAuthentication.SetAuthCookie("User", true);
+			return Redirect(Request.UrlReferrer.PathAndQuery);
+
+			//return RedirectToAction("Index", "Home", null);
+		}
 
 		public ActionResult ModalAccount()
 		{
 			return PartialView();
 		}
 
-		public void Connection()
+		public ActionResult Deconnection()
 		{
 			FormsAuthentication.SignOut();
 			HttpContext.User =
 				new System.Security.Principal.GenericPrincipal(new System.Security.Principal.GenericIdentity(string.Empty), null);
-			FormsAuthentication.SetAuthCookie("User", true);
 
-			//return View("~/Views/Home/Index.cshtml");
+			return RedirectToAction("Index", "Home", null);
+			//return View("~/Views/Home/Index.csthml");
 		}
 
 		public ActionResult ModalCreateAccount()

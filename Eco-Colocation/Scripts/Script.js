@@ -296,11 +296,11 @@ function deletePlace(element) {
 	$(element).remove();
 }
 
-function updateSwitcher() {
-	if ($('#typeRecherche').val() == "searching") {
+function updateSwitcher(typeRecherche) {
+	if (typeRecherche == "searching") {
 		changeCssSwitcher('#btnCherche', '#btnProposition')
 	}
-	else if ($('#typeRecherche').val() == "offering") {
+	else if (typeRecherche == "offering") {
 		changeCssSwitcher('#btnProposition', '#btnCherche')
 	}
 }
@@ -503,10 +503,10 @@ function initAutoComplete(elementId) {
 	});
 
 	placesAutocomplete.on('change', function resultSelected(e) {
-		$("#adresseVille").val(e.suggestion.name || '');
-		$("#adresseRegion").val(e.suggestion.administrative || '');
-		$("#adressePays").val(e.suggestion.country || '');
-		$("#adresseLatLng").val(e.suggestion.latlng.lat + "," + e.suggestion.latlng.lng || '');
+		$(".adresseVille").val(e.suggestion.name || '');
+		$(".adresseRegion").val(e.suggestion.administrative || '');
+		$(".adressePays").val(e.suggestion.country || '');
+		$(".adresseLatLng").val(e.suggestion.latlng.lat + "," + e.suggestion.latlng.lng || '');
 	});
 }
 
@@ -517,30 +517,26 @@ function switcherMcap(elementToEnable, elementToDisable) {
 
 	$(elementToEnable).css('background-color', 'background-color: rgba(0, 0, 0, 0.2)');
 	$(elementToDisable).css('background-color', 'inherit');
-
+	
 	if (elementToEnable == '#btnSwitcherPropose-mcap') {
-		$('#resultSwitcher-mcap').load('../ColocAnnounce/ModalLocation #htmlBlockModalLocation-ml');
-		//initAutoComplete("#address-input-mpc");
+		$('#resultSwitcher-mcap').load('../ColocAnnounce/ModalLocation #htmlBlockModalLocation-ml', function () {
+			initAutoComplete("#address-input-ml");
+		});
 	}
 	else {
-		$('#resultSwitcher-mcap').load('../ColocAnnounce/ModalProjetCreation #htmlBlockModalCreationProjet-mpc');
-		//initAutoComplete("#address-input-ml");
+		$('#resultSwitcher-mcap').load('../ColocAnnounce/ModalProjetCreation #htmlBlockModalCreationProjet-mpc', function () {
+			initAutoComplete("#address-input-mpc");
+		});
 	}
 
 	$('#divPersonnaliteInfo-mcap').load('../Account/ModalCARecherche #divPersonnaliteInfo-mcar');
 	$('#divContactInfo-mcap').load('../Account/ModalCARecherche #divContactInfo-mcar');
-	$('#divDesciptionInfo-mcap').load('../Account/ModalCARecherche #divDesciptionInfo-mcar');
-
-	setTimeout(function () {
-		initAutoComplete("#address-input-ml");
-		$('#infoPerso-mcap').css('display', 'block')
-	}, 1000)
-
-	//$(document).on('load', '#divPersonnaliteInfo-mcap #divPersonnaliteInfo-mcar', function (e) {
-	//	$('#infoPerso-mcap').css('display', 'block')
-	//});
-
-	$('body').removeClass('waiting');
-	$(elementToEnable).css("cursor", "pointer");
-	$(elementToDisable).css("cursor", "pointer")
+	$('#divDesciptionInfo-mcap').load('../Account/ModalCARecherche #divDesciptionInfo-mcar', function () {
+		$('#divCritereRecherche-mcar').remove();
+		$('#infoPerso-mcap').css('display', 'block');
+		$('body').removeClass('waiting');
+		$(elementToEnable).css("cursor", "pointer");
+		$(elementToDisable).css("cursor", "pointer")
+	});
+	
 }

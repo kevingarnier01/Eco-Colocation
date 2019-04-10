@@ -3,20 +3,15 @@
 	ViewBag.Title = "Home Page";
 }
 
-<div>
-	<a href="@Url.Action("ModalAccount","Account",null)" rel="modal:open">
-		<div id="btnCreer-al">Creer un projet de création</div>
-	</a>
-</div>
 <div id="home">
-	@if (Model != null && Model.HomeViewModel.TypeRecherche == "searching")
+	@*@if (Model != null && Model.HomeViewModel.TypeRecherche == "searching")
 	{
 		@Html.Partial("~/Views/SearchColoc/Index.cshtml", Model.SearchColocViewModel)
 	}
 	else if (Model != null && Model.HomeViewModel.TypeRecherche == "offering")
 	{
 		@Html.Partial("~/Views/ColocAnnounce/Index.cshtml", Model.ColocAnnounceViewModel)
-	}
+	}*@
 
 	<div id="partialViewPeopleSearching">
 		@Html.Partial("~/Views/PeopleSearching/Index.cshtml")
@@ -27,8 +22,8 @@
 	$(document).ready(function () {
 		$('#_PictureHeader').css('display', "block")
 		
-		if ($("#typeRecherche").val() != "") {
-			updateSwitcher();
-		}
+		//if ($("#typeRecherche").val() != "") {
+		//	updateSwitcher();
+		//}
 	});
 </script>
