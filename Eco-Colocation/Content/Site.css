@@ -2361,6 +2361,7 @@ select:-moz-focusring {
 	/*color: #999999;*/
 	color: #6b6a6a;
 	font-weight: 100;
+	background-color: transparent;
 }
 
 .select-mcar {
@@ -2534,13 +2535,20 @@ select:-moz-focusring {
 
 .txtareaDesc-mcar {
 	width: 100%;
+	min-width:100%;
+	max-width:100%;
 	margin: 0px;
 	height: 100px;
+	min-height:100px;
 	border: none;
 	box-shadow: 0 0 2px 0px black;
 	border-radius: 5px;
 	margin-top: 2px;
 	padding: 5px 10px;
+}
+
+#divCritereRecherche-mcar {
+	display:none;
 }
 
 #lblCritereRecherche-mcar {
@@ -2704,9 +2712,29 @@ select:-moz-focusring {
 	font-size: 21px;
 }
 
+#resultSwitcher-mcap {
+	overflow: auto;
+}
 /*** forgetAccount ***/
-#forgetAccount {
+#FindAccountByEmail {
 	height: 400px
+}
+
+#infoPerso-mcap {
+	display: none
+}
+
+#btnValider-mcap {
+	background-color: #57b846;
+	width: 200px;
+	padding: 10px 20px;
+	border-radius: 30px;
+	text-align: center;
+	color: white;
+	font-size: 18px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 15px;
 }
 
 /**** Fin Modal Account / Index *****/

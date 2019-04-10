@@ -23,10 +23,12 @@
                         <a class="nav-link" title="L'éco-colocation" href="">L'éco-colocation</a>
                     </li>
                     <li class="menu-item menu-item-type-post_type menu-item-object-page">
-                        <a class="nav-link" title="Se connecter" href="">Se connecter</a>
+                        <a class="nav-link" title="Se connecter" 
+						   href="@Url.Action("ModalAccount", "Account", null)" rel="modal:open" >Se connecter</a>
                     </li>                    
                     <li class="menu-item menu-item-type-post_type menu-item-object-page">
-                        <a class="nav-link" title="Inscription" href="">Inscription</a>
+                        <a class="nav-link" title="Inscription" 
+						   href="@Url.Action("ModalCreateAccount", "Account", null)" rel="modal:open" >Inscription</a>
                     </li>
                     <li class="menu-item menu-item-type-post_type menu-item-object-page">
                         <a class="nav-link" title="Nous contacter" href="">Nous contacter</a>

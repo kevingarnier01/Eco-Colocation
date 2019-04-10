@@ -480,6 +480,10 @@ function initSlidepicture() {
 	});
 }
 
+function showDivCritereRecherche() {
+	$('#divCritereRecherche-mcar').css('display', 'block')
+}
+
 function openDivCreateProfil(element) {
 	if ($(element).css('display') == 'block') {
 		$(element).css('display', 'none')
@@ -511,22 +515,32 @@ function switcherMcap(elementToEnable, elementToDisable) {
 	$(elementToEnable).css("cursor", "inherit");
 	$(elementToDisable).css("cursor", "inherit");
 
-
 	$(elementToEnable).css('background-color', 'background-color: rgba(0, 0, 0, 0.2)');
 	$(elementToDisable).css('background-color', 'inherit');
 
 	if (elementToEnable == '#btnSwitcherPropose-mcap') {
-		$('#resultSwitcher-mcap').load('../ColocAnnounce/ModalProjetCreation #htmlBlockModalCreationProjet-mpc');
-		initAutoComplete("#address-input-mpc");
+		$('#resultSwitcher-mcap').load('../ColocAnnounce/ModalLocation #htmlBlockModalLocation-ml');
+		//initAutoComplete("#address-input-mpc");
 	}
 	else {
-		$('#resultSwitcher-mcap').load('../ColocAnnounce/ModalLocation #htmlBlockModalLocation-ml');
-		initAutoComplete("#address-input-ml");
+		$('#resultSwitcher-mcap').load('../ColocAnnounce/ModalProjetCreation #htmlBlockModalCreationProjet-mpc');
+		//initAutoComplete("#address-input-ml");
 	}
+
+	$('#divPersonnaliteInfo-mcap').load('../Account/ModalCARecherche #divPersonnaliteInfo-mcar');
+	$('#divContactInfo-mcap').load('../Account/ModalCARecherche #divContactInfo-mcar');
+	$('#divDesciptionInfo-mcap').load('../Account/ModalCARecherche #divDesciptionInfo-mcar');
+
+	setTimeout(function () {
+		initAutoComplete("#address-input-ml");
+		$('#infoPerso-mcap').css('display', 'block')
+	}, 1000)
+
+	//$(document).on('load', '#divPersonnaliteInfo-mcap #divPersonnaliteInfo-mcar', function (e) {
+	//	$('#infoPerso-mcap').css('display', 'block')
+	//});
 
 	$('body').removeClass('waiting');
 	$(elementToEnable).css("cursor", "pointer");
-	$(elementToDisable).css("cursor", "pointer");
-
-
+	$(elementToDisable).css("cursor", "pointer")
 }

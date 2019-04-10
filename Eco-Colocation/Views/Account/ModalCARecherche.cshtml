@@ -34,7 +34,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="divEncadrer-mcar">
+		<div class="divEncadrer-mcar" id="divPersonnaliteInfo-mcar">
 			<div class="encadrer-mcar  col-sm-11 col-xs-12">
 				<div class="col-sm-4 divLeftSideEncadrer-mcar divImgLogo-mcar">
 					<div class="divImgLogoHorizontal-mcar">
@@ -285,7 +285,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="divEncadrer-mcar">
+		<div class="divEncadrer-mcar" id="divContactInfo-mcar">
 			<div class="encadrer-mcar  col-sm-11 col-xs-12">
 				<div class="col-sm-4 divLeftSideEncadrer-mcar divImgLogo-mcar">
 					<div class="divImgLogoHorizontal-mcar">
@@ -308,7 +308,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="divEncadrer-mcar">
+		<div class="divEncadrer-mcar" id="divDesciptionInfo-mcar">
 			<div class="encadrer-mcar col-sm-11 col-xs-12">
 				<div class="col-sm-4 col-xs-12 divImgLogo-mcar">
 					<div class="divImgLogoHorizontal-mcar">
@@ -317,12 +317,12 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-sm-8 col-xs-12">
-					<div class="col-sm-12">
+				<div class="col-sm-8 col-xs-12" id="divGlobalPresent-mcar">
+					<div class="col-sm-12"  id="divDesciptionInfo2-mcar">
 						<label class="lbl-mcar">Présentation de votre personnalité</label>
 						<textarea class="txtareaDesc-mcar input-mcar" id="txtareaPersoP-mcar" placeholder="Présentez-vous en quelque ligne..."></textarea>
 					</div>
-					<div class="col-sm-12">
+					<div class="col-sm-12" id="divCritereRecherche-mcar">
 						<label class="lbl-mcar" id="lblCritereRecherche-mcar">Information sur vos critères de recherche</label>
 						<p class="lbl-mcar">[Facultatif]</p>
 						<textarea class="txtareaDesc-mcar input-mcar" placeholder="Présenter le type d'éco-colocation recherchée..."></textarea>
@@ -400,6 +400,7 @@
 		initAutoComplete("#address-input-mcar");
 		showMultiplesFilesUpload();
 		initSlidepicture();
+		showDivCritereRecherche();
 	});
 </script>
 

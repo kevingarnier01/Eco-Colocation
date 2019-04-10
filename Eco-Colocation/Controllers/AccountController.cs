@@ -18,7 +18,12 @@ namespace Eco_Colocation.Controllers
 
 		public void Connection()
 		{
-			FormsAuthentication.SetAuthCookie("User", false);
+			FormsAuthentication.SignOut();
+			HttpContext.User =
+				new System.Security.Principal.GenericPrincipal(new System.Security.Principal.GenericIdentity(string.Empty), null);
+			FormsAuthentication.SetAuthCookie("User", true);
+
+			//return View("~/Views/Home/Index.cshtml");
 		}
 
 		public ActionResult ModalCreateAccount()
@@ -36,19 +41,23 @@ namespace Eco_Colocation.Controllers
 			return PartialView();
 		}
 
-		public ActionResult ForgetAccount()
+		public ActionResult FindAccountByEmail()
 		{
-			return View("~/Views/Account/ForgetAccount/ForgetAccount.cshtml");
+			return View("~/Views/Account/ForgetAccount/FindAccountByEmail.cshtml");
 		}
 
-		public ActionResult ChangePassword()
+		public ActionResult SendCode()
 		{
-			return View("~/Views/Account/ForgetAccount/ChangePassword.cshtml");
+			return View("~/Views/Account/ForgetAccount/SendCode.cshtml");
 		}
 
 		public ActionResult CheckCodeSend()
 		{
 			return View("~/Views/Account/ForgetAccount/CheckCodeSend.cshtml");
+		}
+		public ActionResult ChangePassword()
+		{
+			return View("~/Views/Home/Index.cshtml");
 		}
 	}
 }

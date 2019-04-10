@@ -28,7 +28,7 @@
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
+    <DebugType>pdbonly</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
@@ -250,6 +250,8 @@
     <Content Include="bin\roslyn\VBCSCompiler.exe.config" />
     <None Include="Properties\PublishProfiles\Eco-Colocation - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\jquery-1.5.1.js" />
+    <Content Include="Scripts\jquery-1.5.1.min.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
@@ -410,9 +412,10 @@
     <Content Include="Views\Account\ModalForgetLoginName.cshtml" />
     <Content Include="Views\Account\ModalCARecherche.cshtml" />
     <Content Include="Views\Account\ModalCAPropose.cshtml" />
-    <Content Include="Views\Account\ForgetAccount\ForgetAccount.cshtml" />
+    <Content Include="Views\Account\ForgetAccount\FindAccountByEmail.cshtml" />
     <Content Include="Views\Account\ForgetAccount\CheckCodeSend.cshtml" />
     <Content Include="Views\Account\ForgetAccount\ChangePassword.cshtml" />
+    <Content Include="Views\Account\ForgetAccount\SendCode.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

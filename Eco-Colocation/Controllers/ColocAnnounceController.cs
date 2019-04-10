@@ -19,14 +19,16 @@ namespace Eco_Colocation.Controllers
 		public ActionResult ModalLocation()
 		{
 			//bool userIsConnect = false;
-			//FormsAuthentication.GetAuthCookie("User", userIsConnect);
-			//if (userIsConnect)
+			//FormsAuthentication.GetAuthCookie("User", true);
+			//if (HttpContext.Current.User.Identity.Name)		
+
+			//if (User.Identity.IsAuthenticated)
 			//{
 			return PartialView();
 			//}
 			//else
 			//{
-			//return PartialView("~/Views/Account/ModalAccount.cshtml");
+			//	return PartialView("~/Views/Account/ModalAccount.cshtml");
 			//}
 		}
 
