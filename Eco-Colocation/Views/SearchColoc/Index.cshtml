@@ -1,8 +1,8 @@
 ﻿@model  Eco_Colocation.ViewModel.AllViewModel
 @{
-    /**/
+	/**/
 
-    ViewBag.Title = "Index";
+	ViewBag.Title = "Index";
 }
 
 <div id="searchColoc">
@@ -36,16 +36,10 @@
 		@Html.Partial("~/Views/SearchColoc/ProjetCreation.cshtml", Model.SearchColocViewModel)
 	</div>
 </div>
-@* 1. Recherches-tu des colocataires *@
-@* 2. Recherches-tu un habitat *@
 
-@* Ceux qui recherchent des colocataires *@
-@* A preciser : *@
-@* votre logement et sa localisation *@
-@* (zone, loyer, proximité des commerces, transports, etc.) *@
-@* votre mode de vie *@
-@* Le type de partage recherché *@
-@* Profil de colocataire que vous recherchez *@
+<div id="partialViewPeopleSearching">
+	@Html.Partial("~/Views/PeopleSearching/Index.cshtml")
+</div>
 
 <script language="javascript">
 	$(document).ready(function () {
@@ -54,9 +48,9 @@
 		updateSwitcher('searching');
 	});
 
-    //Charge la map
-    window.onload = function (e) {
-        initMap();
-    }
+	//Charge la map
+	window.onload = function (e) {
+		initMap();
+	}
 </script>
 

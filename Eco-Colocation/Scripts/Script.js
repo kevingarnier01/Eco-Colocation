@@ -410,6 +410,8 @@ function showMultiplesFilesUpload() {
 	var filesInput = document.getElementById("file-upload");
 
 	filesInput.addEventListener("change", function (event) {
+		$('body').addClass('waiting');
+
 		var files = event.target.files; //FileList object
 
 		for (var i = 0; i < files.length; i++) {
@@ -440,6 +442,15 @@ function showMultiplesFilesUpload() {
 
 			//Read the image
 			picReader.readAsDataURL(file);
+
+			setTimeout(function () {
+				trierLesImagesUpl();
+				setTimeout(function () {
+
+					$('body').removeClass('waiting');
+				}, 2000);
+				$('.labelDescFile-mcar').css('display', 'block');
+			}, 500);
 		}
 	});
 }

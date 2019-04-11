@@ -5,77 +5,21 @@
 	ViewBag.Title = "FindAccountByEmail";
 }
 
-<div id="forgetAccount" style="
-    position: relative;
-">
-	<div style="
-    box-shadow: 0 0 5px 0px black;
-    border-radius: 5px;
-    padding: 15px;
-    position: absolute;
-    left:0;
-    right:0;
-    top:0;
-    bottom:0;
-    margin: auto;
-    width: 800px;
-    height: 180px;
+<div id="findAccountByEmail">
+	<div id="divFindAccountByEmail-fabe" class="col-xs-12">
+		<div id="div2FindAccountByEmail-fabe" style="margin-bottom: 20px;">
+			<p id="title-fabe">Retrouver votre compte</p>
 
-">
-		<div style="
-">
-			<p style="
-    font-size: 22px;
-    padding-bottom: 8px;
-    border-bottom: 1px solid #ccc;
-    margin-bottom: 20px;
-">Retrouver votre compte</p>
-			<div style="
-    display: flex;
-">
-				<div style="
-    margin-left: 20px;
-    margin-right: auto;
-">
-					<p style="margin-bottom: 10px;">Veuillez saisir votre adresse e-mail pour rechercher votre compte.</p>
-					<input id="identifyEmail" name="identifyEmail" type="email" value="" style="
-    border: none;
-    border-radius: 5px;
-    box-shadow: 0 0 3px black;
-    padding: 5px 10px;
-    width: 350px;
-">
-
-				</div>
+			<div id="divSearchAccount-fabe">
+				<p id="searchAccountText-fabe">Veuillez saisir votre adresse e-mail pour rechercher votre compte.</p>
+				<input id="inputSearchAccount-fabe" name="identifyEmail" type="email">
 			</div>
-
 		</div>
-		<div style="
-    display: flex;
-">
-			<div style="
-    display: inline-flex;
-    margin-left: auto;
-">
-				<a href="@Url.Action("SendCode","Account", null)" style="
-    box-shadow: 0 0 2px black;
-    padding: 5px 15px;
-    border-radius: 5px;
-    margin-right: 15px;
-    background-color: #57b846ab;
-    color: white;
-    text-decoration: none;
-">Continuer</a>
-				<a href="@Url.Action("Index","Home", null)" style="
-    box-shadow: 0 0 2px black;
-    padding: 5px 15px;
-    border-radius: 5px;
-    margin-right: 15px;
-    text-decoration: none;
-	color:black
-">Annuler</a>
+		<div class="divBtnBottom-fa">
+			<div class="div2BtnBottom-fa">
+				<a class="btnNext-fa" href="@Url.Action("SendCode","Account", null)">Continuer</a>
+				<a class="btnCancel-fa" href="@Url.Action("Index","Home", null)">Annuler</a>
 			</div>
 		</div>
 	</div>
-
 </div>

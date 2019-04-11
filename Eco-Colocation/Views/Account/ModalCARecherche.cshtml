@@ -28,7 +28,7 @@
 					<div class="col-sm-12">
 						<label class="lbl-mcar">Ville de recherche</label>
 						@*<input id="inputAddresseMapMCAR" type="text" oninput="addr_search('inputAddresseMapMCAR','listAutoCompletePlaceMCAR');" list="listAutoCompletePlaceMCAR" autocomplete="off" class="inputAdresseLog-ca">
-							<datalist id="listAutoCompletePlaceMCAR"><br><option data-value="0"></option></datalist>*@
+						<datalist id="listAutoCompletePlaceMCAR"><br><option data-value="0"></option></datalist>*@
 						<input type="search" id="address-input-mcar" class="address-input" placeholder="Ou recherches-tu ?" />
 					</div>
 				</div>
@@ -130,7 +130,7 @@
 							<option value="Éthiopie">Éthiopie</option>
 							<option value="Fidji">Fidji</option>
 							<option value="Finlande">Finlande</option>
-							<option value="France">France</option>
+							<option selected value="France">France</option>
 							<option value="Gabon">Gabon</option>
 							<option value="Gambie">Gambie</option>
 							<option value="Géorgie">Géorgie</option>
@@ -318,7 +318,7 @@
 					</div>
 				</div>
 				<div class="col-sm-8 col-xs-12" id="divGlobalPresent-mcar">
-					<div class="col-sm-12"  id="divDesciptionInfo2-mcar">
+					<div class="col-sm-12" id="divDesciptionInfo2-mcar">
 						<label class="lbl-mcar">Présentation de votre personnalité</label>
 						<textarea class="txtareaDesc-mcar input-mcar" id="txtareaPersoP-mcar" placeholder="Présentez-vous en quelque ligne..."></textarea>
 					</div>
@@ -351,7 +351,6 @@
 						<label id="btnUplFile-mcar" for="file-upload">Ajouter des photos de vous</label>
 						<input id="file-upload" type="file" multiple="multiple">
 					</div>
-					<div onclick="trierLesImagesUpl()">BtnTest</div>
 				</div>
 			</div>
 		</div>
@@ -393,6 +392,7 @@
 				</div>
 			</div>
 		</div>
+		<a href="#close-modal" rel="modal:close" class="close-modal">Close</a>
 	</div>
 </div>
 <script type="text/javascript">
@@ -403,40 +403,3 @@
 		showDivCritereRecherche();
 	});
 </script>
-
-@*
-	https://colorlib.com/wp/free-html5-contact-form-templates/
-	https://colorlib.com/etc/cf/ContactFrom_v6/index.html
-
-	Je recherche une éco-colocation
-	Je propose une éco-colocation (annonce
-
-	Je recherche :
-
-	Nom
-	Prenom
-	Numéro
-	Date de naissance
-	Civilité (Monsieurs - Madame)
-	Activités (Salarié(e), Etudient(e), Indépendant(e), Sans activité, Retraité(e), Autre)
-	Pays
-
-	Email
-	Mot de passe
-	Mot de passe confirm
-
-	Photos (Les profils accompagnées de photos sont 7 fois plus consultés que les autres.)
-
-	Je recherche une éco-colocation (Case a cocher)
-	Budget maximum
-	Ville de recherche
-	Rayon de ... Km
-	Message (Présentez-vous en quelques lignes...)
-
-	Accepter les Termes de l'utilisateur
-
-	S'inscription (btn)
-	S'identifier (btn)
-
-	Je propose :
-*@

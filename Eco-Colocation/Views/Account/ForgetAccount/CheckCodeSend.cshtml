@@ -2,74 +2,20 @@
 @{
 	ViewBag.Title = "CheckCodeSend";
 }
+<div id="checkCodeSend">
+	<div id="divCheckCodeSend-ccs" class="col-xs-12">
+		<div id="title-ccs">Réinitialiser votre mot de passe</div>
+		<p id="textResultAccount-ccs">Nous avons envoyé votre code à : +33688616453 | kevin.garnier01@gmail.com</p>
 
-<div style="
-    box-shadow: 0 0 5px 0px black;
-    border-radius: 5px;
-    padding: 15px;
-    position: absolute;
-    left:0;
-    right:0;
-    top:0;
-    bottom:0;
-    margin: auto;
-    width: 800px;
-    height: min-content;
-    /* height: 316px; */
-">
-	<div style="
-    font-size: 22px;
-    padding-bottom: 8px;
-    border-bottom: 1px solid #ccc;
-    margin-bottom: 20px;
-">Réinitialiser votre mot de passe</div>
-
-
-	<p style="
-    margin-bottom: 15px;
-">Nous avons envoyé votre code à : +33688616453 | kevin.garnier01@gmail.com</p>
-
-	<div style="
-    display: flex;
-">
-		<p style="
-    margin-right: 15px;
-    line-height: 28px;
-">Entrer le code de sécurité :</p>
-		<input id="codeSend-mla" name="codeSend-mla" type="text" value="" style="
-    border: none;
-    border-radius: 5px;
-    box-shadow: 0 0 3px black;
-    padding: 5px 10px;
-    width: 150px;
-">
-	</div>
-	<div style="
-    display: flex;
-    margin-top: 5px;
-    margin-bottom: 5px;
-">
-		<div style="
-    display: inline-flex;
-    margin-left: auto;
-">
-			<a href="@Url.Action("ChangePassword","account", null)" style="
-    box-shadow: 0 0 2px black;
-    padding: 5px 15px;
-    border-radius: 5px;
-    margin-right: 15px;
-    background-color: #57b846ab;
-    color: white;
-    text-decoration: none;
-">Continuer</a>
-			<a href="/home/%20index" style="
-    box-shadow: 0 0 2px black;
-    padding: 5px 15px;
-    border-radius: 5px;
-    margin-right: 15px;
-    text-decoration: none;
-	color:black
-">Annuler</a>
+		<div id="divSecurityCode-ccs">
+			<p id="securityCodeTxt-ccs">Entrer le code de sécurité :</p>
+			<input id="inputCodeSend-ccs" name="codeSend-mla" type="text">
+		</div>
+		<div id="divBtnBottom-ccs">
+			<div class="div2BtnBottom-fa">
+				<a class="btnNext-fa" href="@Url.Action("ChangePassword","Account", null)">Continuer</a>
+				<a class="btnCancel-fa" href="@Url.Action("Index","Home", null)">Annuler</a>
+			</div>
 		</div>
 	</div>
 </div>

@@ -60,6 +60,11 @@ namespace Eco_Colocation.Controllers
 		}
 		public ActionResult ChangePassword()
 		{
+			return View("~/Views/Account/ForgetAccount/ChangePassword.cshtml");
+		}
+
+		public ActionResult ChangePasswordFinish()
+		{
 			return View("~/Views/Home/Index.cshtml");
 		}
 	}
