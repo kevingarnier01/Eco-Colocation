@@ -1,0 +1,37 @@
+﻿
+@{
+	ViewBag.Title = "SendCode";
+}
+
+<div id="sendCode">
+	<div id="divSendCode-sc" class="col-xs-12">
+			<div id="title-sc">Réinitialiser votre mot de passe</div>
+			<div id="divBlock1-sc">
+				<div id="divAccount-sc" class="col-sm-2 col-xs-12">
+					<div id="div2Account-sc">
+						<p>Kévin</p>
+						<p>Garnier</p>
+						<div id="photoAccunt-sc">
+						</div>
+					</div>
+				</div>
+				<div id="divTypeSendCode-sc" class="col-sm-10">
+					<p id="labelTypeSendCode-sc">Comment voulez-vous recevoir votre code de réinitialisation du mot de passe ?</p>
+					<div id="divInputTypeSendCode-sc">
+						<input class="btnTypeSendCode-sc" name="radioEmail-mla" type="radio" value="Email">
+						<p class="txtType-sc">Envoyer le code par e-mail</p>
+					</div>
+					<div>
+						<input class="btnTypeSendCode-sc" name="radioPhone-mla" type="radio" value="Phone">
+						<p class="txtType-sc">Envoyer le code par texto</p>
+					</div>
+				</div>
+			</div>
+		<div class="divBtnBottom-fa">
+			<div class="div2BtnBottom-fa">
+				<a class="btnNext-fa" href="@Url.Action("checkcodesend","Account", null)">Continuer</a>
+				<a class="btnCancel-fa" href="@Url.Action("Index","Home", null)">Annuler</a>
+			</div>
+		</div>
+	</div>
+</div>

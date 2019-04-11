@@ -1,8 +1,8 @@
-﻿@model  Eco_Colocation.ViewModel.SearchColocViewModel
+﻿@model  Eco_Colocation.ViewModel.AllViewModel
 @{
-    /**/
+	/**/
 
-    ViewBag.Title = "Index";
+	ViewBag.Title = "Index";
 }
 
 <div id="searchColoc">
@@ -30,26 +30,27 @@
 
 	@*Miniature sur la map*@
 	<div id="annonceLocation">
-		@Html.Partial("~/Views/SearchColoc/AnnonceLocation.cshtml", Model)
+		@Html.Partial("~/Views/SearchColoc/AnnonceLocation.cshtml", Model.SearchColocViewModel)
 	</div>
 	<div id="projetCreation">
-		@Html.Partial("~/Views/SearchColoc/ProjetCreation.cshtml", Model)
+		@Html.Partial("~/Views/SearchColoc/ProjetCreation.cshtml", Model.SearchColocViewModel)
 	</div>
 </div>
-@* 1. Recherches-tu des colocataires *@
-@* 2. Recherches-tu un habitat *@
 
-@* Ceux qui recherchent des colocataires *@
-@* A preciser : *@
-@* votre logement et sa localisation *@
-@* (zone, loyer, proximité des commerces, transports, etc.) *@
-@* votre mode de vie *@
-@* Le type de partage recherché *@
-@* Profil de colocataire que vous recherchez *@
+<div id="partialViewPeopleSearching">
+	@Html.Partial("~/Views/PeopleSearching/Index.cshtml")
+</div>
 
 <script language="javascript">
-    //Charge la map
-    window.onload = function (e) {
-        initMap();
-    }
+	$(document).ready(function () {
+		$('#_PictureHeader').css('display', "block")
+
+		updateSwitcher('searching');
+	});
+
+	//Charge la map
+	window.onload = function (e) {
+		initMap();
+	}
 </script>
+

@@ -3,18 +3,22 @@ using System.Web.Mvc;
 
 namespace Eco_Colocation.Controllers
 {
-    public class SearchColocController : Controller
-    {
-        // GET: SearchColoc
-        public ActionResult Index(AllViewModel allViewModel)
-        {
-            return View("~/Views/Home/Index.cshtml", allViewModel);
-        }
-        
-        public PartialViewResult ModalLocation()
-        {
-            return PartialView();
-        }
+	public class SearchColocController : Controller
+	{
+		// GET: SearchColoc
+		public ActionResult Index(/*AllViewModel allViewModel*/)
+		{
+			AllViewModel allViewModel = new AllViewModel();
+
+			return View(allViewModel);
+
+			//return View("~/Views/Home/Index.cshtml", allViewModel);
+		}
+
+		public PartialViewResult ModalLocation()
+		{
+			return PartialView();
+		}
 
 		public PartialViewResult ModalSendMessage()
 		{
@@ -22,8 +26,8 @@ namespace Eco_Colocation.Controllers
 		}
 
 		public PartialViewResult ModalProjetCreation()
-        {
-            return PartialView();
-        }
-    }
+		{
+			return PartialView();
+		}
+	}
 }

@@ -11,11 +11,13 @@
 	@Styles.Render("~/Scripts/css/leaflet")
 	<script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"></script>
 	@Scripts.Render("~/Scripts/jquerymodal")
-	@*@Styles.Render("~/Scripts/css/jquerymodal")*@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 	@Scripts.Render("~/bundles/jquery") @* Répétition double volontaire - Sinon le modal ne fonction pas *@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 	<script type="text/javascript" src="https://vicopo.selfbuild.fr/api.js"></script>
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/places.js@1.16.3"></script>
 </head>
 <body>
     <div id="global">
@@ -26,7 +28,6 @@
         </header>
 		<div id="_PictureHeader">
 			@Html.Partial("_PictureHeader")
-			
 		</div>
         <main>
             @RenderBody()

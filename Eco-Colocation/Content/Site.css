@@ -102,6 +102,7 @@ main {
 }
 
 /* Footer */
+
 .upper-footer {
 	padding-top: 10px;
 	padding-bottom: 40px;
@@ -216,6 +217,14 @@ input, textarea {
 	outline: 0;
 }
 
+p {
+	margin: 0
+}
+
+.waiting {
+	cursor: progress;
+}
+
 /*** attribute boostrap ***/
 
 select:-moz-focusring {
@@ -261,6 +270,7 @@ select:-moz-focusring {
 	top: 50%;
 	transform: translateY(-50%);
 	max-height: 100%;
+	margin: 0;
 }
 
 .reelModal {
@@ -281,10 +291,14 @@ select:-moz-focusring {
 	height: 45px !important;
 	z-index: 5
 }
+
+/* Attribute plugin */
+.address-input {
+	width: 100%
+}
 /* Debut bar de recherche */
 .dropdown.dropdown-lg .dropdown-menu {
 	margin-top: -1px;
-	padding: 6px 20px;
 }
 
 .input-group-btn .btn-group {
@@ -335,22 +349,30 @@ select:-moz-focusring {
 	#adv-search {
 		display: inherit;
 	}
-	#inputSearchPlace {
-		margin-bottom: 20px;
+
+	#btnSearch {
+		margin-top: 20px;
 	}
 }
 /* Fin bar de recherche */
 
 /**** PictureHeader ****/
+#_PictureHeader {
+	display: none;
+}
+
 #switcher-wrapper {
 	display: flex;
-	margin-top: 50px;
-	margin-bottom: 30px
+	/*margin-top: 50px;*/
+	margin-bottom: 30px;
+	margin-top: initial;
+	padding-top: 75px
 }
 
 #sous-switcher-wrapper {
 	margin-left: auto;
 	margin-right: auto;
+	margin-bottom: 25px;
 }
 
 #btnCherche, #btnProposition {
@@ -364,8 +386,8 @@ select:-moz-focusring {
 	box-shadow: 0 0 5px 0px black;
 	border: none;
 	background-color: white;
-	margin-left:auto;
-	margin-right:auto
+	margin-left: auto;
+	margin-right: auto
 }
 
 	#btnCherche:hover, #btnProposition:hover {
@@ -384,6 +406,20 @@ select:-moz-focusring {
 
 #btnProposition {
 	border-radius: 0 10px 10px 0px;
+}
+
+#divGlobal1-sw {
+	display: flex;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 55px;
+	background-color: rgba(255,255,255,0.98);
+	border-radius: 15px;
+}
+
+#divGlobal2-sw {
+	margin-left: auto;
+	margin-right: auto
 }
 
 @media only screen and (max-width: 730px) {
@@ -413,7 +449,8 @@ select:-moz-focusring {
 	width: 225px;
 }
 
-#inputSearchPlace {
+.inputSearchPlace {
+	height: 35px;
 	border-radius: 5px
 }
 
@@ -618,12 +655,9 @@ select:-moz-focusring {
 
 #divPanelPl {
 	overflow: hidden;
+	display: flex;
+	flex-wrap: wrap;
 }
-
-	#divPanelPl a {
-		text-decoration: none;
-		color: black;
-	}
 
 #divPeoplesSearching {
 	display: flex;
@@ -631,7 +665,10 @@ select:-moz-focusring {
 	padding-bottom: 5px;
 	padding-top: 5px;
 	margin-top: 15px;
-	margin-bottom: 15px
+	margin-bottom: 15px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 240px;
 }
 
 @media only screen and (max-width: 500px) {
@@ -644,6 +681,10 @@ select:-moz-focusring {
 	padding: 0;
 	margin-left: auto;
 	margin-right: auto;
+	text-decoration: none;
+	color: black;
+	width: 225px;
+	position: relative;
 }
 
 #divImgPlSch {
@@ -799,7 +840,7 @@ select:-moz-focusring {
 	}
 }
 
-#onHoverMarker {
+.onHoverMarker {
 	z-index: 500;
 	display: none;
 	box-shadow: black 0px 0px 20px 0px;
@@ -808,16 +849,16 @@ select:-moz-focusring {
 	background-color: white
 }
 
-	#onHoverMarker #markerPhoto {
+	.onHoverMarker #markerPhoto {
 		padding: 0;
 		background-color: black;
 	}
 
-	#onHoverMarker #description {
+	.onHoverMarker #description {
 		padding: 0;
 	}
 
-	#onHoverMarker h5 {
+	.onHoverMarker h5 {
 		margin: 0;
 		margin-top: 2px;
 		margin-bottom: 1px;
@@ -825,12 +866,12 @@ select:-moz-focusring {
 		font-weight: bold;
 	}
 
-	#onHoverMarker p {
+	.onHoverMarker p {
 		margin: 0;
 		margin-left: 5px;
 	}
 
-		#onHoverMarker p:last-child {
+		.onHoverMarker p:last-child {
 			font-size: 11px;
 		}
 
@@ -913,7 +954,7 @@ select:-moz-focusring {
 		box-shadow: none;
 	}
 
-		/*#photoAnnonce div {
+	/*#photoAnnonce div {
 			background-size: inherit !important;
 		}*/
 
@@ -978,7 +1019,7 @@ select:-moz-focusring {
 	display: grid;
 }
 
-	#div1PC a:first-child {
+	#div1PC a {
 		text-decoration: none;
 	}
 
@@ -1022,11 +1063,15 @@ select:-moz-focusring {
 #divIdentitePC {
 	padding: 0 !important;
 	overflow: auto;
+	display: flex;
+	flex-wrap: wrap;
 }
 
 #divPhotoProfilPC {
 	display: flex;
 	padding: 0;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 #photoProfilPC {
@@ -1036,6 +1081,11 @@ select:-moz-focusring {
 	width: 80px;
 	height: 80px;
 	border-radius: 50%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#div0DecriptionIdentitePC {
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -1053,6 +1103,8 @@ select:-moz-focusring {
 
 #div2DecriptionIdentitePC {
 	margin-right: auto;
+	margin-left: 50%;
+	transform: translateX(-50%);
 }
 
 	#div2DecriptionIdentitePC p {
@@ -1094,13 +1146,17 @@ select:-moz-focusring {
 	width: 200px;
 	padding: 0;
 	margin-left: auto;
-	margin-right: auto
+	margin-right: auto;
+	display: flex;
+	flex-wrap: wrap;
 }
 
 #div2InscriptionPC {
 	display: flex;
 	padding: 0;
 	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 @media only screen and (max-width: 767px) {
@@ -1165,17 +1221,11 @@ select:-moz-focusring {
 	}
 }
 
-@media only screen and (max-width: 960px) {
-	#div2DecriptionIdentitePC {
-		margin-left: auto
+@media only screen and (max-width: 767px) {
+	#div2DecriptionIdentitePC p {
+		text-align: center
 	}
 
-		#div2DecriptionIdentitePC p {
-			text-align: center
-		}
-}
-
-@media only screen and (max-width: 767px) {
 	#div1ProfilPC {
 		height: auto;
 	}
@@ -1245,12 +1295,41 @@ select:-moz-focusring {
 		background-color: #ddd;
 	}
 
+/* modalPeopleSearch*/
+#modalPeopleSearch {
+	overflow: auto;
+	width: 900px;
+	position: relative;
+	height: 348px;
+}
+
+@media only screen and (max-width: 767px) {
+	#modalPeopleSearch {
+		height: inherit !important;
+	}
+}
+
+
+/**** modalCreationProjet-SearchColoc ****/
+#modalCreationProjet-SearchColoc {
+	overflow: auto;
+	height: 348px;
+	width: 900px;
+	position: relative;
+}
+
+@media only screen and (max-width: 767px) {
+	#modalCreationProjet-SearchColoc {
+		height: inherit !important;
+	}
+}
 
 /*** ModalLocation ***/
 #modalLocation {
 	height: 348px;
-	min-width: 755px;
-	overflow: auto
+	width: 900px;
+	overflow: auto;
+	position: relative;
 }
 
 #divMessage-ml {
@@ -1263,6 +1342,8 @@ select:-moz-focusring {
 		position: absolute;
 		margin-top: 5px;
 		margin-left: 5px;
+		left: -5px;
+		top: -5px;
 	}
 
 #divPhoto-ml {
@@ -1507,7 +1588,7 @@ select:-moz-focusring {
 	#divTitre-pvm h2 {
 		margin-left: auto;
 		margin-right: auto;
-		text-align:center
+		text-align: center
 	}
 
 .div1Input-pvm {
@@ -1565,7 +1646,7 @@ select:-moz-focusring {
 	border-radius: 3px;
 	padding: 10px 50px;
 	cursor: pointer;
-	text-align:center
+	text-align: center
 }
 
 #div3InputNom-pvm {
@@ -1635,6 +1716,9 @@ select:-moz-focusring {
 /*** ModalLocation ***/
 #modalLocation-ColocAnnounce {
 	overflow: auto;
+	width: 900px;
+	padding: 15px;
+	position: relative;
 }
 
 #div-title-ca {
@@ -1652,14 +1736,16 @@ select:-moz-focusring {
 #div1-contenu-ca {
 	overflow: auto;
 	display: flex;
-	margin-bottom: 20px
+	margin-bottom: 20px;
+	padding: 0
 }
 
 #div1-1-contenu-ca {
 	margin-left: auto;
 	margin-right: auto;
 	padding: 10px;
-	background-color: rgba(0,0,0,0.04);
+	background-color: rgba(0,0,0,0.01);
+	box-shadow: 0 0 5px 0 #d9d9d9;
 	border-radius: 10px;
 }
 
@@ -1703,7 +1789,7 @@ select:-moz-focusring {
 	#div2-1DescAnn-ca textarea {
 		padding: 5px;
 		border: none;
-		border-radius: 10px;
+		border-radius: 5px;
 		box-shadow: black 0px 0px 2px 0px;
 		min-height: 150px;
 		min-width: 100%;
@@ -1748,17 +1834,19 @@ select:-moz-focusring {
 		padding: 5px;
 		margin: 0px;
 		border: none;
-		border-radius: 10px;
+		border-radius: 5px;
 		box-shadow: black 0px 0px 2px 0px;
 		min-width: 100%;
 		max-width: 100%;
 		height: 48px;
+		min-height: 48px;
 		width: 600px;
 	}
 
 #div-adresseLog-ca {
 	display: flex;
-	margin-bottom: 20px
+	margin-bottom: 20px;
+	padding: 0
 }
 
 #div1-adresseLog-ca {
@@ -1766,7 +1854,8 @@ select:-moz-focusring {
 	margin-left: auto;
 	margin-right: auto;
 	padding: 10px;
-	background-color: rgba(0,0,0,0.04);
+	background-color: rgba(0,0,0,0.01);
+	box-shadow: 0 0 5px 0 #d9d9d9;
 	border-radius: 10px;
 }
 
@@ -1803,7 +1892,6 @@ select:-moz-focusring {
 	border: none;
 	box-shadow: 0 0 2px 0 black;
 	border-radius: 5px;
-	margin-bottom: 10px;
 }
 
 #div10-3-adresseLog-ca {
@@ -1811,6 +1899,7 @@ select:-moz-focusring {
 	background-color: white;
 	padding: 5px;
 	border-radius: 10px;
+	margin-top: 10px;
 }
 
 #div10-4-adresseLog-ca {
@@ -1822,7 +1911,8 @@ select:-moz-focusring {
 }
 
 #div1-descInform-ca {
-	display: flex
+	display: flex;
+	padding: 0
 }
 
 #div2-descInform-ca {
@@ -1833,7 +1923,8 @@ select:-moz-focusring {
 
 .div20-descInform-ca {
 	display: flex;
-	background-color: rgba(0,0,0,0.04);
+	background-color: rgba(0,0,0,0.01);
+	box-shadow: 0 0 5px 0 #d9d9d9;
 	border-radius: 10px;
 	margin-bottom: 20px;
 }
@@ -2006,13 +2097,16 @@ select:-moz-focusring {
 /*** modalCreationProjet-ColocAnnounce ***/
 #modalCreationProjet-ColocAnnounce {
 	overflow: auto;
+	width: 900px;
+	position: relative;
 }
-/*** Fin modalCreationProjet-ColocAnnounce ***/
+/*** Fin div-photos-mpc-ColocAnnounce ***/
 
 /**** Modal Account / Index *****/
 #modalAccount {
 	overflow: auto;
 	padding: 20px 35px;
+	position: relative
 }
 
 #divAccesMembre-acc h2 {
@@ -2047,6 +2141,7 @@ select:-moz-focusring {
 		margin-right: auto;
 		border-radius: 30px;
 		background-color: rgba(0,0,0,0.1);
+		width: 100%
 	}
 
 	.divInputWrite-acc input {
@@ -2076,7 +2171,8 @@ select:-moz-focusring {
 }
 
 #divMdpForget-acc {
-	display: flex
+	display: flex;
+	text-decoration: none;
 }
 
 	#divMdpForget-acc p {
@@ -2168,8 +2264,24 @@ select:-moz-focusring {
 
 /*ModalCreateAccount*/
 #modalCreateAccount {
+	overflow: auto;
 	padding: 15px;
 	width: 400px;
+	position: relative;
+}
+
+#divInscriptionTitle-mca {
+	display: flex;
+	margin-bottom: 20px;
+}
+
+#title-mca {
+	margin-left: auto;
+	margin-right: auto;
+	font-family: Poppins-Bold;
+	font-weight: bold;
+	font-size: 24px;
+	color: #333;
 }
 
 .divParentTypeInterest-mca {
@@ -2193,62 +2305,99 @@ select:-moz-focusring {
 
 /**** ModalCARecherche ****/
 #modalCARecherche {
-	width: 800px;
+	width: 900px;
 	padding: 15px;
 	overflow: auto;
+	position: relative;
 }
 
-#titleForm-mcar {
+.titleForm-mcar {
+	text-align: center;
 	font-family: cursive;
 	font-size: 27px;
 	color: #333333;
 	line-height: 1.2;
-	padding-bottom: 20px;
+	margin-top: 15px;
+	margin-bottom: 45px;
 	padding-left: 10px;
 }
 
+.divEncadrer-mcar {
+	display: flex
+}
+
 .encadrer-mcar {
-	overflow: auto;
 	box-shadow: 0 0 5px 0 #d9d9d9;
+	background-color: rgba(0,0,0,0.01);
 	padding: 15px 5px;
-	padding-bottom: 0px;
-	border-radius: 5px;
+	border-radius: 10px;
 	margin-bottom: 40px;
+	position: relative;
+	display: flex;
+	flex-wrap: wrap;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.divLeftSideEncadrer-mcar {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.divRightSideEncadrer-mcar {
+	margin-left: auto;
+	margin-right: auto;
 }
 
 #divBudgMax-mcar {
-	padding: 0
+	padding: 0;
+	margin-right: 10px;
 }
+
+#divInputBudgMax {
+	padding: 0;
+	width: 170px;
+}
+
+
+	#divInputBudgMax input {
+		width: 160px;
+	}
 
 #euroSignBudgetMax-mcar {
 	position: absolute;
 	top: 0;
-	right: 29px;
+	right: 4px;
 }
 
-#divBudgMax-mcar label {
-	text-align: center;
-	padding: 0;
-	text-align: left;
+#inputAddresseMapMCAR {
+	padding: 5px 10px;
 }
 
 .lbl-mcar {
-	display: block;
+	padding-left: 5px;
+	font-size: 18px;
+	color: #555555;
+	font-weight: 100;
+}
+
+.descTxt-mcar {
 	font-size: 15px;
 	color: #999999;
-	line-height: 1.5;
-	padding-left: 5px;
+	font-weight: 100;
 }
 
 .input-mcar {
 	border: none;
-	font-family: cursive;
-	font-size: 18px;
-	color: #555555;
+	font-size: 15px;
 	line-height: 1.2;
 	padding: 0 5px;
 	padding-bottom: 13px;
 	width: 100%;
+	/*color: #999999;*/
+	color: #6b6a6a;
+	font-weight: 100;
+	background-color: transparent;
 }
 
 .select-mcar {
@@ -2260,7 +2409,665 @@ select:-moz-focusring {
 	margin-bottom: 25px;
 }
 
+#civiliteDiv-mcar {
+	height: 91px;
+}
+
+.divImgLogo-mcar {
+	position: relative;
+}
+
+.divImgLogoHorizontal-mcar {
+	margin-left: auto;
+	margin-right: auto;
+	width: 60px;
+}
+
+.divImgLogoVertical-mcar {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.imgLogo-mcar {
+	background-size: 40px;
+	width: 60px;
+	height: 60px;
+}
+
+#ImgLogoSearch-mcar {
+	background: url(https://img.icons8.com/ios/60/000000/search.png) no-repeat;
+}
+
+#ImgLogoProfil-mcar {
+	background: url(https://img.icons8.com/ios/60/000000/gender-neutral-user.png) no-repeat;
+}
+
+#ImgLogoContact-mcar {
+	background: url(https://img.icons8.com/ios/60/000000/phone.png) no-repeat;
+}
+
+#ImgLogoPhoto-mcar {
+	background: url(https://img.icons8.com/ios/60/000000/camera.png) no-repeat;
+}
+
+#ImgInformationSup-mcar {
+	background: url(https://img.icons8.com/ios/60/000000/ball-point-pen.png) no-repeat;
+}
+
+#divGlobalMsgPhoto-mcar {
+	display: flex;
+	padding: 5px 10px;
+	background-color: rgba(0,0,0,0.05);
+	border-radius: 8px;
+	font-family: cursive;
+	margin-bottom: 10px;
+}
+
+#iconMsgPhoto-mcar {
+	width: 20px;
+	font-size: 20px;
+}
+
+#divGlobalBtnUplFile-mcar {
+	display: flex;
+}
+
+#btnUplFile-mcar {
+	padding: 7px;
+	box-shadow: 0 0 10px 0px black;
+	text-align: center;
+	border-radius: 8px;
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+	font-family: cursive;
+	cursor: pointer;
+	font-weight: 100;
+	margin-bottom: 0;
+	max-width: 500px;
+	margin-top: 8px;
+}
+
+#file-upload {
+	display: none;
+}
+
+#divGlobalResultFilesUpl-mcar {
+	display: flex;
+}
+
+#divResultFilesUpl-mcar {
+	display: flex;
+	flex-wrap: wrap;
+	margin-left: auto;
+	margin-right: auto;
+	list-style-type: none;
+	padding: 0;
+}
+
+.div2ResultFilesUpl-mcar {
+	margin-left: auto;
+	margin-right: auto;
+	/*display: flex;
+	flex-wrap: wrap-reverse;*/
+	padding: 0 5px 0;
+	float: left;
+	cursor: move
+}
+
+.div3ResultFilesUpl-mcar {
+	height: 190px;
+	width: 170px;
+	box-shadow: 0 0 2px 0px black;
+	position: relative;
+	padding-top: 12px;
+	padding-bottom: 12px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 20px;
+	background-color: white;
+}
+
+.labelDescFile-mcar {
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: rgba(0,0,0,0.5);
+	color: white;
+	padding: 1px 5px;
+}
+
+.resultPictureUpl-mcar {
+	background-size: 150px !important;
+	height: 150px;
+	width: 150px;
+	max-height: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.crossPictureUpl-mcar {
+	font-size: 23px;
+	position: absolute;
+	bottom: 0;
+	margin-left: 50%;
+	transform: translateX(-50%);
+	margin-bottom: 3px;
+	cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+	.divImgLogo-mcar {
+		position: relative;
+		min-height: 60px;
+		margin-bottom: 10px
+	}
+}
+
+#txtareaPersoP-mcar {
+	margin-bottom: 10px
+}
+
+.txtareaDesc-mcar {
+	width: 100%;
+	min-width: 100%;
+	max-width: 100%;
+	margin: 0px;
+	height: 100px;
+	min-height: 100px;
+	border: none;
+	box-shadow: 0 0 2px 0px black;
+	border-radius: 5px;
+	margin-top: 2px;
+	padding: 5px 10px;
+}
+
+#lblCritereRecherche-mcar {
+	margin: 0;
+}
+
+	#lblCritereRecherche-mcar + p {
+		margin-bottom: 5px;
+		font-size: 12px;
+	}
+
+#divInscriptionButtons-mcar {
+	display: table;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.div2InscriptionBtn-mcar {
+	display: flex;
+	box-shadow: 0 0 5px 0px black;
+	padding: 5px 15px;
+	border-radius: 3px;
+	margin-bottom: 20px;
+	width: 365px;
+	cursor: pointer;
+	text-align: center;
+}
+
+@media only screen and (max-width: 395px) {
+	.div2InscriptionBtn-mcar, #divCreateProfil-mcar {
+		max-width: 335px;
+		margin-left: auto !important;
+		margin-right: auto !important;
+	}
+}
+
+#div2InscriptionBtnFb-mcar {
+	background-color: #4c66a4;
+}
+
+#div2InscriptionBtnMail-mcar {
+	margin: 0;
+	display: flex;
+	box-shadow: 0 0 5px 0px black;
+	padding: 5px 15px;
+	border-radius: 3px;
+	background-color: #43b37f;
+}
+
+.iconInscriptionBtn-mcar {
+	font-size: 28px;
+	color: white;
+}
+
+.textInscriptionBtn-mcar {
+	line-height: 28px;
+	margin-left: 15px;
+	color: white;
+	font-size: 15px;
+}
+
+#createProfilWindow {
+	display: none
+}
+
+#divCreateProfil-mcar {
+	width: 365px;
+	box-shadow: 0 0 5px 0px black;
+	padding: 15px 5px;
+	overflow: auto;
+	display: inline-grid;
+}
+
+.sousDivCreateProfil-mcar {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#divBtnCreateProfil-mcar {
+	display: flex;
+}
+
+#btnCreateProfil-mcar {
+	margin-left: auto;
+	margin-right: auto;
+	box-shadow: 0 0 5px 0px black;
+	border-radius: 5px;
+	height: 40px;
+	width: 150px;
+	line-height: 40px;
+	text-align: center;
+	font-size: 15px;
+	cursor: pointer;
+}
+
+/***** ModalCARecherche *****/
+#modalCAPropose {
+	width: 900px;
+	padding: 15px;
+	overflow: auto;
+	position: relative
+}
+
+.divEncadrer-mcap {
+	display: flex;
+}
+
+.encadrer-mcap {
+	box-shadow: 0 0 5px 0 #d9d9d9;
+	background-color: rgba(0,0,0,0.01);
+	padding: 15px 5px;
+	border-radius: 10px;
+	margin-bottom: 40px;
+	position: relative;
+	display: flex;
+	flex-wrap: wrap;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#divSwitcherTypeProposition-mcap {
+	display: initial;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#divTxtPropose-mcap {
+	display: flex;
+}
+
+@media only screen and (max-width: 565px) {
+	#btnSwitcherProjet-mcap {
+		line-height: 23px !important;
+	}
+}
+
+#txtSw1-mcap {
+	margin-left: auto;
+	margin-right: auto;
+	font-size: 25px;
+	margin-bottom: 15px;
+}
+
+#blockdivBtnSwitcher-mcap {
+	display: flex;
+}
+
+#divBtnSwitcher-mcap {
+	display: inline-flex;
+	margin-left: auto;
+	margin-right: auto;
+	width: 80%;
+}
+
+#btnSwitcherPropose-mcap {
+	padding: 5px 10px;
+	border-radius: 5px;
+	box-shadow: 0 0 3px 0px black;
+	font-size: 18px;
+	cursor: pointer;
+	text-align: center;
+	width: 50%;
+	line-height: 45px;
+	max-height: 55px;
+}
+
+#separationSwitcherPropose-mcap {
+	padding: 3px 10px;
+	margin-left: 5px;
+	margin-right: 5px;
+	font-size: 30px;
+}
+
+#btnSwitcherProjet-mcap {
+	padding: 5px 10px;
+	border-radius: 5px;
+	box-shadow: 0 0 3px 0px black;
+	font-size: 18px;
+	cursor: pointer;
+	text-align: center;
+	width: 50%;
+	line-height: 45px;
+	max-height: 55px;
+}
+
+#txtSw2-mcap {
+	margin-left: 10px;
+	font-size: 21px;
+}
+
+#resultSwitcher-mcap {
+	overflow: auto;
+}
+
+#infoPerso-mcap {
+	display: none
+}
+
+#btnValider-mcap {
+	background-color: #57b846;
+	width: 200px;
+	padding: 10px 20px;
+	border-radius: 30px;
+	text-align: center;
+	color: white;
+	font-size: 18px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 15px;
+}
+
+
+/****************** ForgetAccount  ******************/
+
+.divBtnBottom-fa {
+	display: flex;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.div2BtnBottom-fa {
+	display: inline-flex;
+	margin-left: auto;
+}
+
+.btnNext-fa {
+	box-shadow: 0 0 2px black;
+	padding: 5px 15px;
+	border-radius: 5px;
+	margin-right: 15px;
+	background-color: #57b846ab;
+	color: white;
+	text-decoration: none;
+}
+
+.btnCancel-fa {
+	box-shadow: 0 0 2px black;
+	padding: 5px 15px;
+	border-radius: 5px;
+	margin-right: 15px;
+	text-decoration: none;
+	color: black
+}
+
+/******* ChangePassword *******/
+#changePassword {
+	position: relative;
+	height: 400px;
+	margin: 15px;
+}
+
+#divChangePassword-cp02 {
+	box-shadow: 0 0 5px 0px black;
+	border-radius: 5px;
+	padding: 15px;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+	max-width: 800px;
+	height: min-content;
+}
+
+#title-cp02 {
+	font-size: 22px;
+	padding-bottom: 8px;
+	border-bottom: 1px solid #ccc;
+	margin-bottom: 20px;
+}
+
+#divInputPassword-cp02 {
+	flex-wrap: wrap;
+	display: flex;
+}
+
+#divPasw1-cp02 {
+	width: 255px;
+	margin-right: 40px;
+}
+
+.labelPasw-cp02 {
+	display: block;
+	padding-left: 5px;
+	font-size: 18px;
+	font-weight: 100;
+}
+
+.divInput-cp02 {
+	width: 250px;
+}
+
+.inputPasw-cp02 {
+	border: none;
+	font-size: 15px;
+	line-height: 1.2;
+	padding: 0 5px;
+	padding-bottom: 13px;
+	width: 100%;
+	color: #6b6a6a;
+	font-weight: 100;
+	background-color: transparent;
+}
+
+.underInputPasw-cp02 {
+	border-bottom: 2px solid #d9d9d9;
+	margin-bottom: 25px;
+}
+
+#divPasw1-cp02 {
+	width: 255px;
+}
+
+/******** CheckCodeSend ********/
+#checkCodeSend {
+	position: relative;
+	height: 400px;
+	margin: 15px;
+}
+
+#divCheckCodeSend-ccs {
+	box-shadow: 0 0 5px 0px black;
+	border-radius: 5px;
+	padding: 15px;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+	max-width: 800px;
+	height: min-content;
+}
+
+#title-ccs {
+	font-size: 22px;
+	padding-bottom: 8px;
+	border-bottom: 1px solid #ccc;
+	margin-bottom: 20px;
+}
+
+#textResultAccount-ccs {
+	margin-bottom: 15px;
+}
+
+#divSecurityCode-ccs {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+#securityCodeTxt-ccs {
+	margin-right: 15px;
+	line-height: 28px;
+	min-width: 160px;
+}
+
+#inputCodeSend-ccs {
+	border: none;
+	border-radius: 5px;
+	box-shadow: 0 0 3px black;
+	padding: 5px 10px;
+	width: 150px;
+	height: 30px;
+}
+
+#divBtnBottom-ccs {
+	display: flex;
+	margin-top: 20px;
+}
+
+/******** FindAccountByEmail ********/
+#findAccountByEmail {
+	position: relative;
+	margin: 15px;
+	height: 400px
+}
+
+#divFindAccountByEmail-fabe {
+	box-shadow: 0 0 5px 0px black;
+	border-radius: 5px;
+	padding: 15px;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+	max-width: 800px;
+	height: min-content;
+}
+
+#title-fabe {
+	font-size: 22px;
+	padding-bottom: 8px;
+	border-bottom: 1px solid #ccc;
+	margin-bottom: 20px;
+}
+
+#searchAccountText-fabe {
+	margin-bottom: 10px;
+	width: 100%;
+}
+
+#inputSearchAccount-fabe {
+	border: none;
+	border-radius: 5px;
+	box-shadow: 0 0 3px black;
+	padding: 5px 10px;
+	width: 350px;
+	max-width: 100%;
+}
+
+/********* SendCode *********/
+#sendCode {
+	position: relative;
+	height: 400px;
+	margin: 15px
+}
+
+#divSendCode-sc {
+	box-shadow: 0 0 5px 0px black;
+	border-radius: 5px;
+	padding: 15px;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+	max-width: 800px;
+	height: min-content;
+}
+
+#title-sc {
+	font-size: 22px;
+	padding-bottom: 8px;
+	border-bottom: 1px solid #ccc;
+	margin-bottom: 20px;
+}
+
+#divBlock1-sc {
+	display: flow-root;
+}
+
+#divAccount-sc {
+	display: flex;
+	margin-bottom: 20px;
+}
+
+#div2Account-sc {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	font-size: 20px;
+}
+
+#photoAccunt-sc {
+	background: url(https://www.facebook.com/profile/pic.php?cuid=AYguhR9h46l2o1GnZryUws-SzSQqZvhDDKcHuJ4lJdA4kNFOpk5T81wlRBY9TIwayVamzoAXplVSVw5OcmoF-eyvg8yoiM047wyFN0Suq6TklXooC8Gz1t4BsQ0Tq3dgqoQwyCcnydLP3GNp_FMqEpHJQG4i24Zi3VKUO3ClSbzMQmBTWS207sJHUlqGwg__PCIdH-vFNSCviExh8Q076_xqBdPbOHoeGWJA6Yx66l9rHg&amp;square_px=50) 50% no-repeat;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#divTypeSendCode-sc {
+	overflow: auto;
+	margin-bottom: 20px;
+}
+
+#labelTypeSendCode-sc {
+	margin-bottom: 10px;
+}
+
+#divInputTypeSendCode-sc {
+	margin-bottom: 5px;
+}
+
+.btnTypeSendCode-sc {
+	display: inline-block;
+	margin-right: 15px !important;
+}
+
+.txtType-sc {
+	display: inline-block;
+}
 /**** Fin Modal Account / Index *****/
-
-
-

@@ -1,6 +1,6 @@
-﻿@model  Eco_Colocation.ViewModel.ColocAnnounceViewModel
+﻿@model  Eco_Colocation.ViewModel.AllViewModel
 @{
-    ViewBag.Title = "Index";
+	ViewBag.Title = "Index";
 }
 <div id="colocAnnounce">
 	<div id="divNbPeopleSearch-ca">
@@ -24,9 +24,21 @@
 	</div>
 
 	<div id="annonceLocation">
-		@Html.Partial("~/Views/ColocAnnounce/AnnonceLocation.cshtml", Model)
+		@Html.Partial("~/Views/ColocAnnounce/AnnonceLocation.cshtml", Model.ColocAnnounceViewModel)
 	</div>
 	<div id="projetCreation">
-		@Html.Partial("~/Views/ColocAnnounce/ProjetCreation.cshtml", Model)
+		@Html.Partial("~/Views/ColocAnnounce/ProjetCreation.cshtml", Model.ColocAnnounceViewModel)
 	</div>
 </div>
+
+<div id="partialViewPeopleSearching">
+	@Html.Partial("~/Views/PeopleSearching/Index.cshtml")
+</div>
+
+<script language="javascript">
+	$(document).ready(function () {
+		$('#_PictureHeader').css('display', "block")
+
+		updateSwitcher('offering');
+	});
+</script>

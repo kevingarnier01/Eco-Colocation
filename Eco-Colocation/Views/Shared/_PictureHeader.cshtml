@@ -3,20 +3,21 @@
 	ViewBag.Title = "_PictureHeader";
 }
 <div class="parallax-window" data-parallax="scroll" data-image-src="http://www.ecocolocs.fr/bundles/app/images/image1.png">
-	@using (Html.BeginForm("SearchColoc", "Home"))
+	@using (Html.BeginForm("TypeRecherche", "Home"))
 	{
-		<div id="switcher-wrapper" style="margin-top: initial; padding-top:75px">
-			<div id="divGlobal1-sw" style="display:flex;margin-left: auto;margin-right: auto;padding: 55px;background-color: rgba(255,255,255,0.98);border-radius: 15px;">
-				<div style="margin-left:auto;margin-right:auto">
-					<div id="sous-switcher-wrapper" style="margin-bottom: 25px;">
+		<div id="switcher-wrapper">
+			<div id="divGlobal1-sw">
+				<div id="divGlobal2-sw">
+					<div id="sous-switcher-wrapper">
 						<input id="btnCherche" type="button" value="Je recherche une éco-colocation" onclick="selectSwitcher(this);">
 						<input id="btnProposition" type="button" value="Je propose une éco-colocation" onclick="selectSwitcher(this);">
 					</div>
 					@Html.HiddenFor(m => Model.HomeViewModel.TypeRecherche, new { @id = "typeRecherche" })
 					<div class="input-group" id="adv-search">
-						<input id="inputSearchPlace" oninput="addr_search('inputSearchPlace','listAutoCompletePlace');" list="listAutoCompletePlace" autocomplete="off" type="text" class="form-control" placeholder="Saisir un lieu. Ex: Ville, Département, Région">
-						<datalist id="listAutoCompletePlace"></datalist>
-						<input id="listAutoCompletePlaceHidden" name="listAutoCompletePlaceHidden" type="hidden" value="">
+						@*<input id="inputSearchPlace" oninput="addr_search('inputSearchPlace','listAutoCompletePlace');" list="listAutoCompletePlace" autocomplete="off" type="text" class="form-control" placeholder="Saisir un lieu. Ex: Ville, Département, Région">
+							<datalist id="listAutoCompletePlace"></datalist>*@
+						<input type="search" id="address-input-ph" class="address-input inputSearchPlace" placeholder="Saisir un lieu. Ex: Ville, Département, Région" />
+						@*<input id="listAutoCompletePlaceHidden" name="listAutoCompletePlaceHidden" type="hidden" value="">*@
 						<div class="input-group-btn">
 							<div id="divBtnFiltre" class="btn-group" role="group">
 								<div id="div2BtnFiltre" class="dropdown dropdown-lg">
@@ -33,3 +34,9 @@
 		</div>
 	}
 </div>
+
+<script type="text/javascript">
+	$(document).ready(function () {
+		initAutoComplete('#address-input-ph');
+	});
+</script>

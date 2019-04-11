@@ -75,6 +75,7 @@ $(document).ready(function () {
 			$('#rowTerrain').css('display', 'table-row');
 		}
 	});
+
 });
 function modalResize() {
 	var pourcent = $("#modalProjetCreation").width() / $(".modal").width() * 100;
@@ -166,16 +167,16 @@ function showAnnonce(numeroMarker) {
 		posy = e.clientY;
 	}
 
-	$('.onHoverMarker' + numeroMarker).css("display", "block");
-	$('.onHoverMarker' + numeroMarker).css("position", "absolute");
-	$('.onHoverMarker' + numeroMarker).css('left', posx + 20);
-	$('.onHoverMarker' + numeroMarker).css('top', posy - 5);
+	$('#onHoverMarker' + numeroMarker).css("display", "block");
+	$('#onHoverMarker' + numeroMarker).css("position", "absolute");
+	$('#onHoverMarker' + numeroMarker).css('left', posx + 20);
+	$('#onHoverMarker' + numeroMarker).css('top', posy - 5);
 }
 
 function hideAnnonce(numeroMarker) {
-	$(".onHoverMarker" + numeroMarker).css("display", "none");
-	$('.onHoverMarker' + numeroMarker).css('left', 'inherit');
-	$('.onHoverMarker' + numeroMarker).css('top', 'inherit');
+	$("#onHoverMarker" + numeroMarker).css("display", "none");
+	$('#onHoverMarker' + numeroMarker).css('left', 'inherit');
+	$('#onHoverMarker' + numeroMarker).css('top', 'inherit');
 }
 
 function selectSwitcher(element) {
@@ -284,55 +285,22 @@ function closeChildDropDown(e) {
 window.onclick = function (e) {
 	if (!e.target.matches('#div1-multiList')) {
 		var myDropdown = document.getElementById("div2-multiList");
-		if (myDropdown.classList.contains('show')) {
+		if (myDropdown != null && myDropdown.classList.contains('show')) {
 			myDropdown.classList.remove('show');
 		}
 	}
 }
 //Fin de la fermeture list checkBox
 
-var compteurPlace = 1;
-function addNewPlace(elementId) {
-	debugger;
-	elementIdvalue = $('#' + elementId).val();
-	if (elementIdvalue != null) {
-		var nameElementId = JSON.parse(elementIdvalue)['display_name'];
-	}
-
-	console.log(nameElementId);
-	if (elementIdvalue != null && nameElementId == $("#inputLocalisation-cpc").val()) {
-		if (/[a-zA-Z]/.test($.trim($("#inputLocalisation-cpc").val()))) {
-			var htmlPlace =
-				'<div id="place' + compteurPlace + '" style="margin: auto;margin-left: initial;margin-right: 5px;margin-bottom:10px;padding-left: 5px;padding-right: 30px;padding-top: 3px;padding-bottom: 3px;background-color: rgba(0,0,0,0.15);border-radius: 15px;">' +
-				'<div style="display: inline-block;height: 100%;">' +
-				'<p id="placeName-cpc" style="margin: 0;">' + $("#inputLocalisation-cpc").val() + '</p>' +
-				'</div>' +
-				'<div style="display: inline-block;position:absolute">' +
-				'<div onclick="deletePlace(place' + compteurPlace + ')" style="background: url(https://www.gstatic.com/images/icons/material/system/1x/close_black_16dp.png) no-repeat;height: 15px;width: 17px;display: inline-block;margin-left: 5px;cursor: pointer;"></div>' +
-				'</div>' +
-				'</div>';
-
-			$("#place-cpc").append(htmlPlace);
-
-			$("#inputLocalisation-cpc").val("");
-
-			compteurPlace++;
-		}
-	}
-	else {
-		alert('S\'il vous plait, veuillez selectionner une localisation suggérer par les propositions.')
-	}
-}
-
 function deletePlace(element) {
 	$(element).remove();
 }
 
-function updateSwitcher() {
-	if ($('#typeRecherche').val() == "searching") {
+function updateSwitcher(typeRecherche) {
+	if (typeRecherche == "searching") {
 		changeCssSwitcher('#btnCherche', '#btnProposition')
 	}
-	else if ($('#typeRecherche').val() == "offering") {
+	else if (typeRecherche == "offering") {
 		changeCssSwitcher('#btnProposition', '#btnCherche')
 	}
 }
@@ -350,42 +318,82 @@ function chooseAddr(lat1, lng1) {
 	myMarker.bindPopup("Lat " + lat + "<br />Lon " + lon).openPopup();
 }
 
-function myFunction(arr, inputId, listId) {
-	var out = "<br />";
-	var i;
-	if (arr.length > 0) {
-		$("#listAutoCompletePlaceHidden").val("");
-		for (i = 0; i < arr.length; i++) {
-			//out += "<div class='address' title='Show Location and Coordinates' onclick='chooseAddr(" + arr[i].lat + ", " + arr[i].lon + ");return false;'>" + arr[i].display_name + "</div>";
-			//out += "<div class='address' title='Show Location and Coordinates'>" + arr[i].display_name + "</div>";
-			out += "<option data-value='" + i + "'>" + arr[i].display_name + "</option>";
 
-			if ($('#' + inputId).val().replace(/\s/g, "") == arr[i].display_name.replace(/\s/g, "")) {
-				$("#" + listId + "Hidden").val(JSON.stringify(arr[i]));
-				//document.getElementById(listId + "Hidden").value = arr[i].lat + "," + arr[i].lon;
-			}
-		}
-		document.getElementById(listId).innerHTML = out;
-	}
-	else {
-		document.getElementById(listId).innerHTML = "";
-		$("#listAutoCompletePlaceHidden").val("");
-	}
-}
+// -------------- nominatim.openstreetmap.org  ---------------
 
-function addr_search(inputId, listId) {
-	var inp = document.getElementById(inputId);
-	var xmlhttp = new XMLHttpRequest();
-	var url = "https://nominatim.openstreetmap.org/search?format=json&limit=3&q=" + inp.value;
-	xmlhttp.onreadystatechange = function () {
-		if (this.readyState == 4 && this.status == 200) {
-			var myArr = JSON.parse(this.responseText);
-			myFunction(myArr, inputId, listId);
-		}
-	};
-	xmlhttp.open("GET", url, true);
-	xmlhttp.send();
-}
+//Garder cette fonction en commentaire - cette utilisation concerne nominatim.openstreetmap.org 
+//(Si algolia ne fonctionne plus, utiliser lui)
+
+//var compteurPlace = 1;
+//function addNewPlace(elementId) {
+//	elementIdvalue = $('#' + elementId).val();
+//	if (elementIdvalue != null) {
+//		var nameElementId = JSON.parse(elementIdvalue)['display_name'];
+//	}
+
+//	console.log(nameElementId);
+//	if (elementIdvalue != null && nameElementId == $("#inputLocalisation-cpc").val()) {
+//		if (/[a-zA-Z]/.test($.trim($("#inputLocalisation-cpc").val()))) {
+//			var htmlPlace =
+//				'<div id="place' + compteurPlace + '" style="margin: auto;margin-left: initial;margin-right: 5px;margin-bottom:10px;padding-left: 5px;padding-right: 30px;padding-top: 3px;padding-bottom: 3px;background-color: rgba(0,0,0,0.15);border-radius: 15px;">' +
+//				'<div style="display: inline-block;height: 100%;">' +
+//				'<p id="placeName-cpc" style="margin: 0;">' + $("#inputLocalisation-cpc").val() + '</p>' +
+//				'</div>' +
+//				'<div style="display: inline-block;position:absolute">' +
+//				'<div onclick="deletePlace(place' + compteurPlace + ')" style="background: url(https://www.gstatic.com/images/icons/material/system/1x/close_black_16dp.png) no-repeat;height: 15px;width: 17px;display: inline-block;margin-left: 5px;cursor: pointer;"></div>' +
+//				'</div>' +
+//				'</div>';
+
+//			$("#place-cpc").append(htmlPlace);
+
+//			$("#inputLocalisation-cpc").val("");
+
+//			compteurPlace++;
+//		}
+//	}
+//	else {
+//		alert('S\'il vous plait, veuillez selectionner une localisation suggérer par les propositions.')
+//	}
+//}
+
+//function myFunction(arr, inputId, listId) {
+//	var out = "<br />";
+//	var i;
+//	if (arr.length > 0) {
+//		$("#listAutoCompletePlaceHidden").val("");
+//		for (i = 0; i < arr.length; i++) {
+//			//out += "<div class='address' title='Show Location and Coordinates' onclick='chooseAddr(" + arr[i].lat + ", " + arr[i].lon + ");return false;'>" + arr[i].display_name + "</div>";
+//			//out += "<div class='address' title='Show Location and Coordinates'>" + arr[i].display_name + "</div>";
+//			out += "<option data-value='" + i + "'>" + arr[i].display_name + "</option>";
+
+//			if ($('#' + inputId).val().replace(/\s/g, "") == arr[i].display_name.replace(/\s/g, "")) {
+//				$("#" + listId + "Hidden").val(JSON.stringify(arr[i]));
+//				//document.getElementById(listId + "Hidden").value = arr[i].lat + "," + arr[i].lon;
+//			}
+//		}
+//		document.getElementById(listId).innerHTML = out;
+//	}
+//	else {
+//		document.getElementById(listId).innerHTML = "";
+//		$("#listAutoCompletePlaceHidden").val("");
+//	}
+//}
+
+//function addr_search(inputId, listId) {
+//	var inp = document.getElementById(inputId);
+//	var xmlhttp = new XMLHttpRequest();
+//	var url = "https://nominatim.openstreetmap.org/search?format=json&limit=3&q=" + inp.value;
+//	xmlhttp.onreadystatechange = function () {
+//		if (this.readyState == 4 && this.status == 200) {
+//			var myArr = JSON.parse(this.responseText);
+//			myFunction(myArr, inputId, listId);
+//		}
+//	};
+//	xmlhttp.open("GET", url, true);
+//	xmlhttp.send();
+//}
+
+// -------------- Fin nominatim.openstreetmap.org  ---------------
 
 function openSecondModal() {
 
@@ -398,8 +406,148 @@ function openSecondModal() {
 	}, 1000);
 }
 
-////function temporary to delete
-//function closeModal() {
-//	$('.jquery-modal').css('display', 'none');
-//	$('body').css('overflow', 'auto');
-//}
+function showMultiplesFilesUpload() {
+	var filesInput = document.getElementById("file-upload");
+
+	filesInput.addEventListener("change", function (event) {
+		$('body').addClass('waiting');
+
+		var files = event.target.files; //FileList object
+
+		for (var i = 0; i < files.length; i++) {
+			var file = files[i];
+
+			//Only pics
+			if (!file.type.match('image'))
+				continue;
+
+			var picReader = new FileReader();
+
+			picReader.addEventListener("load", function (event) {
+
+				var picFile = event.target;
+
+				var elementHtml =
+					'<li class="div2ResultFilesUpl-mcar">' +
+					'<div class="div3ResultFilesUpl-mcar" >' +
+					'<label class="labelDescFile-mcar">Photo de couverture</label>' +
+					'<div class="resultPictureUpl-mcar" id="pictureUpl' + i + '-mcar"' +
+					'style="background: url(' + picFile.result + ') 50% no-repeat;" ></div >' +
+					'<i class="crossPictureUpl-mcar fas fa-times-circle"></i>' +
+					'</div>' +
+					'</li >';
+
+				$("#divResultFilesUpl-mcar").append(elementHtml)
+			});
+
+			//Read the image
+			picReader.readAsDataURL(file);
+
+			setTimeout(function () {
+				trierLesImagesUpl();
+				setTimeout(function () {
+
+					$('body').removeClass('waiting');
+				}, 2000);
+				$('.labelDescFile-mcar').css('display', 'block');
+			}, 500);
+		}
+	});
+}
+
+function trierLesImagesUpl() {
+	$('.div2ResultFilesUpl-mcar').each(function (index, element) {
+		$(element).attr('id', 'div2ResultFilesUpl' + (index + 1) + '-mcar');
+	});
+
+	$('.crossPictureUpl-mcar').each(function (index, element) {
+		$(element).attr("onclick", "removeUploadPicture('#div2ResultFilesUpl" + (index + 1) + "-mcar')");
+	});
+
+	$('.labelDescFile-mcar').each(function (index, element) {
+		if (index == 0) {
+			$(element).text('Photo de couverture')
+		}
+		else {
+			$(element).text('photo n°' + (index + 1))
+		}
+	});
+
+	//$('.resultPictureUpl-mcar').each(function (index, element) {
+	//	$(element).attr('id', 'pictureUpl' + (index + 1) + '-mcar')
+	//});
+}
+
+function removeUploadPicture(element) {
+	$(element).remove();
+	trierLesImagesUpl();
+}
+
+function initSlidepicture() {
+	$(".all-slides").sortable({
+		update: function () {
+			trierLesImagesUpl()
+		}
+	});
+}
+
+function showDivCritereRecherche() {
+	$('#divCritereRecherche-mcar').css('display', 'block')
+}
+
+function openDivCreateProfil(element) {
+	if ($(element).css('display') == 'block') {
+		$(element).css('display', 'none')
+	}
+	else {
+		$(element).css('display', 'block')
+	}
+}
+
+//Initialisation de l'input AutoCompletion des villes - algolia plugin
+
+function initAutoComplete(elementId) {
+	var placesAutocomplete = places({
+		appId: 'plG5RW55OE5Z',
+		apiKey: '093af2800668c4b5a7d69e84e6a36b65',
+		container: document.querySelector(elementId)
+	});
+
+	placesAutocomplete.on('change', function resultSelected(e) {
+		$(".adresseVille").val(e.suggestion.name || '');
+		$(".adresseRegion").val(e.suggestion.administrative || '');
+		$(".adressePays").val(e.suggestion.country || '');
+		$(".adresseLatLng").val(e.suggestion.latlng.lat + "," + e.suggestion.latlng.lng || '');
+	});
+}
+
+function switcherMcap(elementToEnable, elementToDisable) {
+	$('body').addClass('waiting');
+	$(elementToEnable).css("cursor", "inherit");
+	$(elementToDisable).css("cursor", "inherit");
+
+	$(elementToEnable).css('background-color', 'background-color: rgba(0, 0, 0, 0.2)');
+	$(elementToDisable).css('background-color', 'inherit');
+	
+	if (elementToEnable == '#btnSwitcherPropose-mcap') {
+		$('#resultSwitcher-mcap').load('../ColocAnnounce/ModalLocation #htmlBlockModalLocation-ml', function () {
+			initAutoComplete("#address-input-ml");
+		});
+	}
+	else {
+		$('#resultSwitcher-mcap').load('../ColocAnnounce/ModalProjetCreation #htmlBlockModalCreationProjet-mpc', function () {
+			initAutoComplete("#address-input-mpc");
+		});
+	}
+
+	$('#divPersonnaliteInfo-mcap').load('../Account/ModalCARecherche #divPersonnaliteInfo-mcar');
+	$('#divContactInfo-mcap').load('../Account/ModalCARecherche #divContactInfo-mcar');
+	$('#divDesciptionInfo-mcap').load('../Account/ModalCARecherche #divDesciptionInfo-mcar', function () {
+		$('#divCritereRecherche-mcar').remove();
+		$('#infoPerso-mcap').css('display', 'block');
+		$('body').removeClass('waiting');
+		$(elementToEnable).css("cursor", "pointer");
+		$(elementToDisable).css("cursor", "pointer")
+	});
+	
+}
