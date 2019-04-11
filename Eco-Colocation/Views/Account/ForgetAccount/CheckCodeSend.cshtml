@@ -1,0 +1,21 @@
+﻿
+@{
+	ViewBag.Title = "CheckCodeSend";
+}
+<div id="checkCodeSend">
+	<div id="divCheckCodeSend-ccs" class="col-xs-12">
+		<div id="title-ccs">Réinitialiser votre mot de passe</div>
+		<p id="textResultAccount-ccs">Nous avons envoyé votre code à : +33688616453 | kevin.garnier01@gmail.com</p>
+
+		<div id="divSecurityCode-ccs">
+			<p id="securityCodeTxt-ccs">Entrer le code de sécurité :</p>
+			<input id="inputCodeSend-ccs" name="codeSend-mla" type="text">
+		</div>
+		<div id="divBtnBottom-ccs">
+			<div class="div2BtnBottom-fa">
+				<a class="btnNext-fa" href="@Url.Action("ChangePassword","Account", null)">Continuer</a>
+				<a class="btnCancel-fa" href="@Url.Action("Index","Home", null)">Annuler</a>
+			</div>
+		</div>
+	</div>
+</div>

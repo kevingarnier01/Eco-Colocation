@@ -3,10 +3,38 @@
 	ViewBag.Title = "ModalCAPropose";
 }
 
-<h2>ModalCAPropose</h2>
-
 <div class="underModal col-sm-12 col-xs-12">
-	<div id="ModalCAPropose" class="reelModal">
-		<h2>ModalCAPropose</h2>
+	<div id="modalCAPropose" class="reelModal">
+		<div class="titleForm-mcar">Inscrivez-vous et proposer une éco-colocation</div>
+		<div class="divEncadrer-mcap">
+			<div class="encadrer-mcap col-sm-11 col-xs-12">
+				<div id="divSwitcherTypeProposition-mcap">
+					<div id="divTxtPropose-mcap">
+						<p id="txtSw1-mcap">Je propose</p>
+					</div>
+					<div id="blockdivBtnSwitcher-mcap">
+						<div id="divBtnSwitcher-mcap">
+							<div id="btnSwitcherPropose-mcap" onclick="switcherMcap('#btnSwitcherPropose-mcap','#btnSwitcherProjet-mcap')">une location</div>
+							<div id="separationSwitcherPropose-mcap">|</div>
+							<div id="btnSwitcherProjet-mcap" onclick="switcherMcap('#btnSwitcherProjet-mcap','#btnSwitcherPropose-mcap')">un projet de création</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<div id="resultSwitcher-mcap">
+		</div>
+
+		<div id="infoPerso-mcap">
+			<div id="divPersonnaliteInfo-mcap"></div>
+			<div id="divContactInfo-mcap"></div>
+			<div id="divDesciptionInfo-mcap"></div>
+
+
+			<div id="btnValider-mcap">Valider</div>
+		</div>
+
+		<a href="#close-modal" rel="modal:close" class="close-modal">Close</a>
 	</div>
 </div>

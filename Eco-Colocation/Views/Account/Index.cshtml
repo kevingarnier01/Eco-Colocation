@@ -20,11 +20,11 @@
 		</div>
 	</div>
 	<div id="divbtnConnexion-acc">
-		<a href="@Url.Action("Connection", "Account",null)" onclick="closeModal()"><div id="btnConnexion-acc">CONNEXION</div></a>
+		<a href="@Url.Action("Index", "Account",null)" onclick="closeModal()"><div id="btnConnexion-acc">CONNEXION</div></a>
 	</div>
-	<div id="divMdpForget-acc">
+	<a id="divMdpForget-acc" href="@Url.Action("FindAccountByEmail","Account" ,null)">
 		<p>[Nom d'utilisateur / Mot de passe] Oublié ?</p>
-	</div>
+	</a>
 	<div id="divConexionExterne-acc">
 		<div>
 			<div><p>Ou connexion avec</p></div>
