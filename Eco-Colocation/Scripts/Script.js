@@ -77,6 +77,11 @@ $(document).ready(function () {
 	});
 
 });
+
+function closeMenuNavbar() {
+	$('#btnNavBar').click();
+}
+
 function modalResize() {
 	var pourcent = $("#modalProjetCreation").width() / $(".modal").width() * 100;
 	$('.modal').css('cssText', $('.modal').attr('style') + 'width: ' + (pourcent) + '% !IMPORTANT;');
@@ -528,7 +533,7 @@ function switcherMcap(elementToEnable, elementToDisable) {
 
 	$(elementToEnable).css('background-color', 'background-color: rgba(0, 0, 0, 0.2)');
 	$(elementToDisable).css('background-color', 'inherit');
-	
+
 	if (elementToEnable == '#btnSwitcherPropose-mcap') {
 		$('#resultSwitcher-mcap').load('../ColocAnnounce/ModalLocation #htmlBlockModalLocation-ml', function () {
 			initAutoComplete("#address-input-ml");
@@ -549,5 +554,5 @@ function switcherMcap(elementToEnable, elementToDisable) {
 		$(elementToEnable).css("cursor", "pointer");
 		$(elementToDisable).css("cursor", "pointer")
 	});
-	
+
 }
