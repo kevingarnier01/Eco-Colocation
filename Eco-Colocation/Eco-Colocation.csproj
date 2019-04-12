@@ -130,6 +130,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ColocAnnounceController.cs" />
+    <Compile Include="Controllers\EcoRoommateExistingController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PeopleSearchingController.cs" />
     <Compile Include="Controllers\SearchColocController.cs" />
@@ -415,6 +416,9 @@
     <Content Include="Views\Account\ForgetAccount\CheckCodeSend.cshtml" />
     <Content Include="Views\Account\ForgetAccount\ChangePassword.cshtml" />
     <Content Include="Views\Account\ForgetAccount\SendCode.cshtml" />
+    <Content Include="Views\EcoRoommateExisting\EcoRoommateExisting_OnMap.cshtml" />
+    <Content Include="Views\EcoRoommateExisting\AddYourEcoRoommate.cshtml" />
+    <Content Include="Views\EcoRoommateExisting\EcoRoommateExistingVisual.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

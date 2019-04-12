@@ -554,5 +554,52 @@ function switcherMcap(elementToEnable, elementToDisable) {
 		$(elementToEnable).css("cursor", "pointer");
 		$(elementToDisable).css("cursor", "pointer")
 	});
+}
 
+function loadEcoRoommateExistingMap() {
+	var mymap = L.map('leafletMap_ere').setView([46.89, 2.67], 5);
+
+	L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+		maxZoom: 18,
+		id: 'mapbox.streets',
+		accessToken: 'pk.eyJ1Ijoia2dhcm5pZXIiLCJhIjoiY2pyajlmOW1nMDlmNDQ5bzAwemRoNTNpeSJ9.7Evwr47aOCoVYOAnds_WZA'
+	}).addTo(mymap);
+
+	var leafIcon = L.icon({
+		iconUrl: '../Content/Images/Logos/mapLocalisation.png',
+
+		iconSize: [20, 20], // size of the icon
+		//popupAnchor: [30, -76]  // point from which the popup should open relative to the iconAnchor
+	});
+
+	var leafIconOver = L.icon({
+		iconUrl: '../Content/Images/Logos/mapLocalisation2.png',
+
+		iconSize: [20, 20], // size of the icon
+		//popupAnchor: [30, -76]  // point from which the popup should open relative to the iconAnchor
+	});
+
+	var data = [
+		{
+			name: 'Marker1',
+			latLng: [48.89, 2.67],
+			id: '1'
+		},
+		{
+			name: 'Marker2',
+			latLng: [46.89, 2.67],
+			id: '2'
+		},
+	];
+
+	for (var i = 0; i < data.length; i++) {
+		(function () {
+			var ii = i;
+			var marker = data[ii];
+
+			var markerObject = L.marker(marker.latLng, { icon: leafIcon }).addTo(mymap).on("click", function () {
+				
+			});
+		})();
+	}
 }

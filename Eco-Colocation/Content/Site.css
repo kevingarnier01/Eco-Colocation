@@ -439,6 +439,13 @@ select:-moz-focusring {
 }
 
 /*** Home ***/
+#home {
+	overflow: auto;
+}
+
+#partialViewEcoRoommateExisting_OnMap {
+	padding:5px;
+}
 
 #1div-filtreHome div {
 	margin-left: auto;
