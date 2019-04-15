@@ -14,12 +14,12 @@ namespace Eco_Colocation.Controllers
             return View();
         }
 
-		public ActionResult AddYourEcoRoomate()
+		public ActionResult AddYourEcoRoommate()
 		{
 			return View();
 		}
 
-		public ActionResult EcoRoomateExistingVisual()
+		public ActionResult EcoRoommateExistingVisual()
 		{
 			return View();
 		}

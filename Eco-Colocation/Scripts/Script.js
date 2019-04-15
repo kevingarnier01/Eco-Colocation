@@ -510,7 +510,8 @@ function openDivCreateProfil(element) {
 }
 
 //Initialisation de l'input AutoCompletion des villes - algolia plugin
-
+//Si probleme utiliser l'api gratuit de valentin Eni : https://api-adresse.data.gouv.fr/search/?type=housenumber&q=
+//https://notemoncoin.renard-valentin.fr/
 function initAutoComplete(elementId) {
 	var placesAutocomplete = places({
 		appId: 'plG5RW55OE5Z',
@@ -565,19 +566,17 @@ function loadEcoRoommateExistingMap() {
 		accessToken: 'pk.eyJ1Ijoia2dhcm5pZXIiLCJhIjoiY2pyajlmOW1nMDlmNDQ5bzAwemRoNTNpeSJ9.7Evwr47aOCoVYOAnds_WZA'
 	}).addTo(mymap);
 
-	var leafIcon = L.icon({
-		iconUrl: '../Content/Images/Logos/mapLocalisation.png',
+	var markerIcon = L.icon({
+		iconUrl: '../Content/Images/Logos/markerColocExisting.png',
 
-		iconSize: [20, 20], // size of the icon
-		//popupAnchor: [30, -76]  // point from which the popup should open relative to the iconAnchor
+		iconSize: [22, 22], // size of the icon
 	});
 
-	var leafIconOver = L.icon({
-		iconUrl: '../Content/Images/Logos/mapLocalisation2.png',
+	//var markerIconClick = L.icon({
+	//	iconUrl: '../Content/Images/Logos/markerColocExisting2.png',
 
-		iconSize: [20, 20], // size of the icon
-		//popupAnchor: [30, -76]  // point from which the popup should open relative to the iconAnchor
-	});
+	//	iconSize: [22, 22], // size of the icon
+	//});
 
 	var data = [
 		{
@@ -597,8 +596,20 @@ function loadEcoRoommateExistingMap() {
 			var ii = i;
 			var marker = data[ii];
 
-			var markerObject = L.marker(marker.latLng, { icon: leafIcon }).addTo(mymap).on("click", function () {
-				
+			var customPopup = $('.ecoRommateExisting-ereom').html();
+
+			// specify popup options 
+			var customOptions =
+			{
+				'className': 'leafletDivEcoRommateExisting'
+			}
+
+			var markerObject = L.marker(marker.latLng, { icon: markerIcon }).bindPopup(customPopup, customOptions).addTo(mymap).on("click", function () {
+				//markerObject.setIcon(markerIconClick);
+				showEcoRoommateExisting(ii);
+
+				//markerObject.setPopupContent();
+				//markerObject.openPopup();
 			});
 		})();
 	}
