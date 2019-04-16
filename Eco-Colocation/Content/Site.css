@@ -1669,15 +1669,16 @@ select:-moz-focusring {
 	margin-left: auto;
 	margin-right: auto;
 	display: inline-block;
-	background-color: rgba(0,0,0,0.4);
-	box-shadow: 0 0 5px 0px black;
-	background-color: rgba(0,0,0,0.4);
 	box-shadow: 0 0 5px 0px black;
 	color: white;
 	border-radius: 3px;
 	padding: 10px 50px;
 	cursor: pointer;
-	text-align: center
+	text-align: center;
+	background-color: #C4D102;
+	font-family: 'Noteworthy';
+	font-size: 20px;
+	font-weight: bold;
 }
 
 #div3InputNom-pvm {
@@ -3166,4 +3167,8 @@ select:-moz-focusring {
 	font-size: 25px;
 	color: #C4D102;
 	margin-right: 15px;
+}
+
+#divSendMessage-erev {
+	display: none;
 }
