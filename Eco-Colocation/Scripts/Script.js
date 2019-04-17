@@ -614,3 +614,24 @@ function loadEcoRoommateExistingMap() {
 		})();
 	}
 }
+
+function openThisColocRow_eyer(elementTitle, elementBlockIdToOPen) {	
+	if ($(elementBlockIdToOPen).css('max-height') == '0px') {
+		close_eyer(elementTitle);
+
+		setTimeout(function () {
+			$(elementBlockIdToOPen).css('max-height', '500px');
+			$(elementTitle).css('background-color', '#C4D102');
+			$(elementTitle).css('color', 'white');
+		}, 100)
+	}
+	else {
+		close_eyer(elementTitle);
+	}
+
+	function close_eyer(elementTitle) {
+		$(elementTitle).css('background-color', 'initial');
+		$(elementTitle).css('color', '#555555');
+		$('.infoColoc-eyer').css('max-height', '0');
+	}
+}
