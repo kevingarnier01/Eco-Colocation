@@ -3162,7 +3162,7 @@ select:-moz-focusring {
 }
 
 
-/* EcoRoommateExistingVisual */
+/**** EcoRoommateExistingVisual ****/
 .iconTopPage-erev {
 	font-size: 25px;
 	color: #C4D102;
@@ -3171,4 +3171,38 @@ select:-moz-focusring {
 
 #divSendMessage-erev {
 	display: none;
+}
+
+/**** AddYourEcoRoommate ****/
+.label-ayer {
+	padding-left: 5px;
+	font-size: 18px;
+	color: #555555;
+	font-weight: 100;
+}
+
+.input-ayer {
+	border: none;
+	font-size: 15px;
+	line-height: 1.2;
+	padding: 0 5px;
+	padding-bottom: 13px;
+	width: 100%;
+	color: #6b6a6a;
+	font-weight: 100;
+	background-color: transparent;
+}
+
+.underInput-ayer {
+	border-bottom: 2px solid #d9d9d9;
+	margin-bottom: 25px;
+}
+
+.sousDivFormColoc-ayer {
+	padding: 0;
+	margin-right: 30px;
+}
+
+input.radioFibreEco-ayer {
+	margin-right: 15px;
 }

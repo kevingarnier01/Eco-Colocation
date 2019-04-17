@@ -11,6 +11,7 @@
 		font-size: 45px;
 		margin-top: 10px;
 		margin-bottom: 15px;
+    font-family: 'Noteworthy';
 	">Colokitri</p>
 	<div id="divTopInfoEcoColoc" style="display:flex;margin-top: 25px;margin-bottom: 15px;">
 		<div id="divTopInfoEcoColoc2" style="margin-left:auto;margin-right:auto;display:flex;flex-wrap: wrap;width: 100%;">
@@ -71,7 +72,7 @@
     font-size: 16px;
     font-family: 'Noteworthy';
 ">
-		Une maison paille, un potager, 5 poules et deux chats et 4 colocataires pour une vie écologique. Au cœur de Romanier-pondir, notre éco-colocation a vu le jour en Juillet 2016. Elle s'est fondée sur l’envie de vivre ensemble en ayant le minimun d’impacts négatifs possibles sur notre environnement. Nous nous nourrissons essentiellement de produits bio et locaux pour une alimentation majoritairement végétarienne. Le point fort : le jardin ! De plus nos poules offrent quotidiennement des œufs. Nous partons faire nos courses avec sacs en vrac et bocaux que nous nous empressons de remplir dans notre cuisine commune. Qui dit cuisine commune, dit courses communes : nous achetons pour l’ensemble de la colocation et partageons les frais sur un compte commun ou chaque coloc verse sa part du mois. Et qui dit mutualisation dit réduction des coûts, réduction accentuée par la volonté de faire par exemple des économies d’énergie. (Par exemple nous avons troqué notre gros frigo contre un petit et nous envisageons de nous en passer définitivement). Nous avons bien sûr remplacé le maximum d’ampoules possible par des lampes basse consommation et nous tentons de garder au mieux la chaleur pour ne pas allumer les radiateurs. Enfin, notre colocation se fonde sur le vivre ensemble. Nous ne comptons pas ce que nous faisonsou donnons (notamment d’un point devue pécuniaire), chaque personne étant libre de son implication. L’essentiel est de s'assurer que tout le monde trouve sa place pour bien vivre ensemble.
+		Une maison paille, un potager, 5 poules et deux chats et 4 colocataires pour une vie écologique. Au cœur de Romanier-pondir, notre éco-colocation a vu le jour en Juillet 2016. Elle s'est fondée sur l’envie de vivre ensemble en ayant le minimun d’impacts négatifs possibles sur notre environnement. Nous nous nourrissons essentiellement de produits bio et locaux pour une alimentation majoritairement végétarienne. Le point fort : le jardin ! De plus nos poules offrent quotidiennement des œufs. Nous partons faire nos courses avec sacs en vrac et bocaux que nous nous empressons de remplir dans notre cuisine commune. Qui dit cuisine commune, dit courses communes : nous achetons pour l’ensemble de la colocation et partageons les frais sur un compte commun ou chaque coloc verse sa part du mois. Et qui dit mutualisation dit réduction des coûts, réduction accentuée par la volonté de faire par exemple des économies d’énergie. (Par exemple nous avons troqué notre gros frigo contre un petit et nous envisageons de nous en passer définitivement). Nous avons bien sûr remplacé le maximum d’ampoules possible par des lampes basse consommation et nous tentons de garder au mieux la chaleur pour ne pas allumer les radiateurs. Enfin, notre colocation se fonde sur le vivre ensemble. Nous ne comptons pas ce que nous faisons ou donnons. Ici chaque personne étant libre de son implication,l ’essentiel est de s'assurer que tout le monde trouve sa place pour bien vivre ensemble.
 	</div>
 
 	<div style="
@@ -82,7 +83,7 @@
     color: #00C2D6;
     font-family: Noteworthy;
     font-weight: bold;
-    margin-bottom: 15px;
+    margin-bottom: 25px;
 ">
 				Notre fibre écologique
 			</h2>
@@ -100,7 +101,7 @@
     font-weight: bold;
     margin-bottom: 25px;
 ">
-				Ce qu'on y fait
+				Ce que l'on y fait
 			</h2>
 
 			<div style="
@@ -605,27 +606,21 @@
 					}
 					else
 					{
-
-					}
-				</div>
-
-				@if (User.Identity.IsAuthenticated)
-				{
-					<h2 style="
+						<h2 style="
     color: #00C2D6;
     font-family: Noteworthy;
     font-weight: bold;
     margin-bottom: 25px;
 ">
-						Contacter cette éco-colocation
-					</h2>
+							Contacter cette éco-colocation
+						</h2>
 
-					<div id="divSendMessage-erev" style="
+						<div id="divSendMessage-erev" style="
     display: flex;
     margin-top: 2px;
     margin-bottom: 25px;
 ">
-						<div style="
+							<div style="
     margin-left: auto;
     margin-right: auto;
     width: 800px;
@@ -633,10 +628,12 @@
     background-color: white;
     border-radius: 5px;
 ">
-							@Html.Partial("~/Views/SearchColoc/PartialViewMessage.cshtml")
+								@Html.Partial("~/Views/SearchColoc/PartialViewMessage.cshtml")
+							</div>
 						</div>
-					</div>
-				}
+					}
+				</div>
+					
 				<div style="
     display: flex;
 ">

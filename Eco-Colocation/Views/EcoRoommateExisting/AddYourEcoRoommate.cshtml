@@ -1,7 +1,622 @@
 ﻿
 @{
-    ViewBag.Title = "AddYourEcoRoommate";
+	ViewBag.Title = "AddYourEcoRoommate";
 }
 
-<h2>AddYourEcoRoommate</h2>
+<div id="addYourEcoRoommate">
+	<p style="
+		text-align: center;
+		font-size: 45px;
+		margin-top: 10px;
+		font-family: 'Noteworthy';
+		margin-bottom: 35px;
+		">Ajout d'une nouvelle Eco-Colocation</p>
+	<div style="
+    overflow: auto;
+">
+		<div class="col-sm-3 sousDivFormColoc-ayer" style="
+">
+			<label class="label-ayer">Nom</label>
+			<input class="input-ayer" placeholder="Determiner un nom à votre colocation">
+			<div class="underInput-ayer"></div>
+		</div>
+		<div class="col-sm-3 sousDivFormColoc-ayer">
+			<label class="label-ayer">Nombre de colocataires</label>
+			<input class="input-ayer" placeholder="Entrer le nombre de colocataires">
+			<div class="underInput-ayer"></div>
+		</div>
+		<div class="col-sm-3 sousDivFormColoc-ayer">
+			<label class="label-ayer">Date de création</label>
+			<input class="input-ayer" type="date" style="
+    height: 30px;
+">
+			<div class="underInput-ayer"></div>
+		</div>
+		<div class="col-xs-12 sousDivFormColoc-ayer" style="margin-bottom: 25px;">
+			<label class="label-ayer">Description de votre éco-colocation</label>
+			<textarea style="
+    display: block;
+    width: 99%;
+    min-width: 99%;
+    max-width: 99%;
+    margin: 0px;
+    height: 100px;
+    min-height: 100px;
+    border: none;
+    box-shadow: 0 0 2px 0px black;
+    border-radius: 5px;
+    margin-top: 2px;
+    padding: 5px 10px;
+    margin-left: 2px;
+"></textarea>
+		</div>
+		<div class="col-sm-3 sousDivFormColoc-ayer">
+			<label class="label-ayer">Adresse</label>
+			<input class="input-ayer" placeholder="Entrer votre adresse">
+			<div class="underInput-ayer"></div>
+		</div>
+		<div class="col-sm-3 sousDivFormColoc-ayer">
+			<label class="label-ayer">Code postal</label>
+			<input class="input-ayer" placeholder="Entrer le code postal">
+			<div class="underInput-ayer"></div>
+		</div>
+		<div class="col-sm-3 sousDivFormColoc-ayer">
+			<label class="label-ayer">Ville</label>
+			<input class="input-ayer" placeholder="Entrer le nom de la ville">
+			<div class="underInput-ayer"></div>
+		</div>
+		<div class="col-xs-12 sousDivFormColoc-ayer" style="
+">
+			<label class="label-ayer">Ajouter une photo à l'image de votre éco-colocation</label>
+			<div style="
+    padding: 7px;
+    box-shadow: 0 0 5px 0px black;
+    text-align: center;
+    border-radius: 8px;
+    width: 230px;
+    cursor: pointer;
+    font-weight: 100;
+    max-width: 500px;
+    margin-top: 8px;
+    margin-left: 5px;
+    background-color: #C4D102;
+    font-family: 'Noteworthy';
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    margin-bottom: 5px;
+">Ajouter une photo</div>
+		</div>
+	</div>
 
+
+
+
+	<div style="
+">
+		<h2 style="
+    color: #00C2D6;
+    font-family: Noteworthy;
+    font-weight: bold;
+    margin-bottom: 25px;
+">
+			Notre fibre écologique
+		</h2>
+		<div style="
+">
+			<div style="
+    display: flex;
+">
+				<input type="radio" name="fibreEco" value="1" class="radioFibreEco-ayer">
+				<p style="
+    font-size: 18px;
+    color: #555555;
+    font-family: Noteworthy;
+">Donner le meilleur de nous-même pour réduire au maximum notre impact écologique</p>
+			</div>
+			<div style="
+    display: flex;
+">
+				<input type="radio" name="fibreEco" value="2" class="radioFibreEco-ayer" style="
+" checked="">
+				<p style="
+    font-size: 18px;
+    color: #555555;
+    font-family: Noteworthy;
+">Tenter notre possible pour réduire notre impact écologique</p>
+			</div>
+			<div style="
+    display: flex;
+">
+				<input type="radio" name="fibreEco" value="3" class="radioFibreEco-ayer">
+				<p style="
+    font-size: 18px;
+    color: #555555;
+    font-family: Noteworthy;
+">Essayer de réduire un minimum notre impact écologique</p>
+			</div>
+		</div>
+	</div>
+	<div>
+		<h2 style="
+    color: #00C2D6;
+    font-family: Noteworthy;
+    font-weight: bold;
+    margin-bottom: 25px;
+">
+			Ce que l'on y fait
+		</h2>
+		<div>
+			<div style="
+    display: flex;
+    flex-wrap: wrap;
+">
+				<div style="
+    padding: 5px 15px;
+    border-radius: 5px;
+    box-shadow: 0 0 3px 0 black;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 25px;
+">
+					<p style="
+    text-align: center;
+    margin-bottom: 15px;
+    font-weight: bold;
+    color: #555555;
+    font-family: Noteworthy;
+    font-size: 18px;
+">Production alimentaire</p>
+					<div></div>
+					<div style="
+    display: flex;
+    margin-bottom: 10px;
+">
+						<input placeholder="Entrer un mot clé. Ex: Bio" style="
+    border: none;
+    border-radius: 3px;
+    padding: 5px;
+    box-shadow: 0 0 2px black;
+    height: 30px;
+    font-family: Noteworthy;
+    width: 175px;
+">
+						<div style="
+    background-color: #C4D102;
+    font-family: 'Noteworthy';
+    text-decoration: none;
+    color: white;
+    margin-left: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    height: 30px;
+    line-height: 11px;
+">Ajouter</div>
+					</div>
+					<div>
+						<div style="
+    display: flex;
+">
+							<input type="checkbox" name="Bio" style="
+    margin-right: 15px;
+">
+							<p name="Bio" style="
+    font-size: 18px;
+    color: #555555;
+    font-family: Noteworthy;
+">Bio</p>
+						</div>
+						<div style="
+    display: flex;
+">
+							<input type="checkbox" name="Permaculture" style="
+    margin-right: 15px;
+">
+							<p name="Permaculture" style="
+    font-size: 18px;
+    color: #555555;
+    font-family: Noteworthy;
+">Permaculture</p>
+						</div>
+					</div>
+				</div>
+				<div style="
+    padding: 5px 15px;
+    border-radius: 5px;
+    box-shadow: 0 0 3px 0 black;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 25px;
+">
+					<p style="
+    text-align: center;
+    margin-bottom: 15px;
+    font-weight: bold;
+    color: #555555;
+    font-family: Noteworthy;
+    font-size: 18px;
+">Consommation</p>
+					<div></div>
+					<div style="
+    display: flex;
+    margin-bottom: 10px;
+">
+						<input placeholder="Entrer un mot clé. Ex: Local" style="
+    border: none;
+    border-radius: 3px;
+    padding: 5px;
+    box-shadow: 0 0 2px black;
+    height: 30px;
+    font-family: Noteworthy;
+    width: 175px;
+">
+						<div style="
+    background-color: #C4D102;
+    font-family: 'Noteworthy';
+    text-decoration: none;
+    color: white;
+    margin-left: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    height: 30px;
+    line-height: 11px;
+">Ajouter</div>
+					</div>
+					<div>
+						<div style="
+    display: flex;
+">
+							<input type="checkbox" name="Bio" style="
+    margin-right: 15px;
+">
+							<p name="local" style="
+    font-size: 18px;
+    color: #555555;
+    font-family: Noteworthy;
+">local</p>
+						</div>
+						<div style="
+    display: flex;
+">
+							<input type="checkbox" name="Permaculture" style="
+    margin-right: 15px;
+">
+							<p name="Végétarienne" style="
+    font-size: 18px;
+    color: #555555;
+    font-family: Noteworthy;
+">Végétarienne</p>
+						</div>
+					</div>
+				</div>
+				<div style="
+    padding: 5px 15px;
+    border-radius: 5px;
+    box-shadow: 0 0 3px 0 black;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 25px;
+">
+					<p style="
+    text-align: center;
+    margin-bottom: 15px;
+    font-weight: bold;
+    color: #555555;
+    font-family: Noteworthy;
+    font-size: 18px;
+">Déplacement</p>
+					<div></div>
+					<div style="
+    display: flex;
+    margin-bottom: 10px;
+">
+						<input placeholder="Entrer un mot clé. Ex: Bus" style="
+    border: none;
+    border-radius: 3px;
+    padding: 5px;
+    box-shadow: 0 0 2px black;
+    height: 30px;
+    font-family: Noteworthy;
+    width: 175px;
+">
+						<div style="
+    background-color: #C4D102;
+    font-family: 'Noteworthy';
+    text-decoration: none;
+    color: white;
+    margin-left: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    height: 30px;
+    line-height: 11px;
+">Ajouter</div>
+					</div>
+					<div>
+						<div style="
+    display: flex;
+">
+							<input type="checkbox" name="Bio" style="
+    margin-right: 15px;
+">
+							<p name="Bus" style="
+    font-size: 18px;
+    color: #555555;
+    font-family: Noteworthy;
+">Bus</p>
+						</div>
+						<div style="
+    display: flex;
+">
+							<input type="checkbox" name="Permaculture" style="
+    margin-right: 15px;
+">
+							<p name="Permaculture" style="
+    font-size: 18px;
+    color: #555555;
+    font-family: Noteworthy;
+">Vélo</p>
+						</div>
+					</div>
+				</div>
+				<div style="
+    padding: 5px 15px;
+    border-radius: 5px;
+    box-shadow: 0 0 3px 0 black;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 25px;
+">
+					<p style="
+    text-align: center;
+    margin-bottom: 15px;
+    font-weight: bold;
+    color: #555555;
+    font-family: Noteworthy;
+    font-size: 18px;
+">Vie en communauté</p>
+					<div></div>
+					<div style="
+    display: flex;
+    margin-bottom: 10px;
+">
+						<input placeholder="Entrer un mot clé. Ex: Repas" style="
+    border: none;
+    border-radius: 3px;
+    padding: 5px;
+    box-shadow: 0 0 2px black;
+    height: 30px;
+    font-family: Noteworthy;
+    width: 175px;
+">
+						<div style="
+    background-color: #C4D102;
+    font-family: 'Noteworthy';
+    text-decoration: none;
+    color: white;
+    margin-left: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    height: 30px;
+    line-height: 11px;
+">Ajouter</div>
+					</div>
+					<div>
+						<div style="
+    display: flex;
+">
+							<input type="checkbox" name="Bio" style="
+    margin-right: 15px;
+">
+							<p name="Repas" style="
+    font-size: 18px;
+    color: #555555;
+    font-family: Noteworthy;
+">Repas</p>
+						</div>
+						<div style="
+    display: flex;
+">
+							<input type="checkbox" name="Permaculture" style="
+    margin-right: 15px;
+">
+							<p name="Partage des tâches" style="
+    font-size: 18px;
+    color: #555555;
+    font-family: Noteworthy;
+">Partage des tâches</p>
+						</div>
+					</div>
+				</div>
+				<div style="
+    padding: 5px 15px;
+    border-radius: 5px;
+    box-shadow: 0 0 3px 0 black;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 25px;
+">
+					<p style="
+    text-align: center;
+    margin-bottom: 15px;
+    font-weight: bold;
+    color: #555555;
+    font-family: Noteworthy;
+    font-size: 18px;
+">Atelier</p>
+					<div></div>
+					<div style="
+    display: flex;
+    margin-bottom: 10px;
+">
+						<input placeholder="Entrer un mot clé. Ex: Peinture" style="
+    border: none;
+    border-radius: 3px;
+    padding: 5px;
+    box-shadow: 0 0 2px black;
+    height: 30px;
+    font-family: Noteworthy;
+    width: 175px;
+">
+						<div style="
+    background-color: #C4D102;
+    font-family: 'Noteworthy';
+    text-decoration: none;
+    color: white;
+    margin-left: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    height: 30px;
+    line-height: 11px;
+">Ajouter</div>
+					</div>
+					<div>
+						<div style="
+    display: flex;
+">
+							<input type="checkbox" name="Bio" style="
+    margin-right: 15px;
+">
+							<p name="Peinture" style="
+    font-size: 18px;
+    color: #555555;
+    font-family: Noteworthy;
+">Peinture</p>
+						</div>
+						<div style="
+    display: flex;
+">
+							<input type="checkbox" name="Permaculture" style="
+    margin-right: 15px;
+">
+							<p name="Sculture" style="
+    font-size: 18px;
+    color: #555555;
+    font-family: Noteworthy;
+">Fabrication low tech</p>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+			<div>
+				<p style="
+    padding-left: 5px;
+    font-size: 18px;
+    color: #555555;
+    font-weight: 100;
+    margin-bottom: 10px;
+">Ajouter une description</p>
+				<textarea style="display: block;min-width: 100%;max-width: 100%;margin: 2px 0px 0px 2px;height: 50px;min-height: 50px;border: none;box-shadow: black 0px 0px 2px 0px;border-radius: 5px;padding: 5px 10px;"></textarea>
+			</div>
+		</div>
+	</div>
+	<div>
+		<h2 style="
+    color: #00C2D6;
+    font-family: Noteworthy;
+    font-weight: bold;
+    margin-bottom: 25px;
+">
+			Ce que l'on a d'écologique chez nous
+		</h2>
+
+
+		<div>
+			<div style="
+    display: flex;
+">
+				<div></div>
+				<input type="checkbox" name="Jardin" style="
+    margin-right: 15px;
+    margin-top: 6px;
+">
+				<p style="
+    font-size: 18px;
+    color: #555555;
+    font-family: Noteworthy;
+">Jardin</p>
+			</div>
+			<div style="
+    display: flex;
+">
+				<div></div>
+				<input type="checkbox" name="Potager" style="
+    margin-right: 15px;
+    margin-top: 6px;
+">
+				<p style="
+    font-size: 18px;
+    color: #555555;
+    font-family: Noteworthy;
+">Potager</p>
+			</div>
+			<div>
+				---- Ajouter les autres elements -----
+			</div>
+			<div>
+				<p>Ajouter une description</p>
+				<textarea></textarea>
+			</div>
+		</div>
+	</div>
+	<div>
+		<h2 style="
+    color: #00C2D6;
+    font-family: Noteworthy;
+    font-weight: bold;
+    margin-bottom: 25px;
+">
+			Ce que l'on réduit grâce à nos attitudes
+		</h2>
+		<div>
+			<input type="checkbox" name="Jardin">
+			<p>Notre Consommation d'eau</p>
+			<div></div>
+		</div>
+		<div>
+			<input type="checkbox" name="Potager">
+			<p>Notre consommation d'électricité</p>
+			<div></div>
+		</div>
+		<div>
+			<p>Ajouter une description</p>
+			<textarea></textarea>
+		</div>
+		<div>
+			----- Ajouter les autres bloc -----
+		</div>
+		<div>
+			<a href="/" rel="modal:open" style="
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #C4D102;
+    font-family: 'Noteworthy';
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 800;
+    color: white;
+    box-shadow: 0 0 3px 0px black;
+    padding: 2px 12px;
+    border-radius: 3px;
+    "></a>
+			<a style="
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #C4D102;
+    font-family: 'Noteworthy';
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 800;
+    color: white;
+    box-shadow: 0 0 3px 0px black;
+    padding: 2px 12px;
+    border-radius: 3px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    min-width: 150px;
+    text-align: center;
+    " href="/EcoRoommateExisting/EcoRoommateExisting_OnMap">Retour</a>
+		</div>
+	</div>
+</div>
