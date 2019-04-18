@@ -615,6 +615,8 @@ function loadEcoRoommateExistingMap() {
 	}
 }
 
+//********* EcoRoommateExisting *************//
+// ---- Page AddYourEcoRoommate ---- //
 function openThisColocRow_ayer(elementTitle, elementBlockIdToOpen) {
 	if ($(elementBlockIdToOpen).css('max-height') == '0px') {
 		close_ayer();
@@ -638,8 +640,6 @@ function openThisColocRow_ayer(elementTitle, elementBlockIdToOpen) {
 	}
 }
 
-//********* EcoRoommateExisting *************//
-// ---- Page AddYourEcoRoommate ---- //
 function modifyMinValueToNbInfoColoc(element) {
 	if ($(element).val() > 2) {
 		$('#valueNbColocInfo').attr("min", $(element).val());
@@ -651,6 +651,19 @@ function removeOneColoc_ayer() {
 		$('#valueNbColocInfo').val(parseInt($('#valueNbColocInfo').val()) - 1)
 		if ($('#valueNbColocInfo').val() != 2) {
 			$('#buttonMinusOne-ayer').attr("disabled", false);
+		}
+
+		//divColocInfo => Ajouter dans jquery lors de la création	
+		if ($('.divColocInfo').length > 0) {
+			var prenom = $('.divColocInfo:last-child .input-ayer:first-of-type').val();
+			if (prenom != "") {
+				if (confirm("L'enregistrement de \"" + prenom + "\" va être supprimé.")) {
+					$('.divColocInfo:last-child').remove();
+				}
+			}
+			else {
+				$('.divColocInfo:last-child').remove();
+			}
 		}
 		else {
 			$('#buttonMinusOne-ayer').attr("disabled", true);
@@ -672,23 +685,73 @@ function addOneColoc_ayer() {
 
 	//-1 de titleInfoColocs-ayer représente celui que sert de copie
 	//-1 de valueNbColocInfo représente la valeur dont l'utilisateur vient d'ajouter
-	if ($('.titleInfoColocs-ayer').length -1 == (parseInt($('#valueNbColocInfo').val() - 1))) { 
+	if ($('.titleInfoColocs-ayer').length - 1 == (parseInt($('#valueNbColocInfo').val() - 1))) {
 		var idName = "divColocInfo" + newValueNbBlockColocInfo;
 
 		if ($(idName).length != 0) {
 			$(idName).remove();
 		}
 
-		var newblock = "<div id='" + idName + "'></div>"
+		var newblock = "<div id='" + idName + "' class='divColocInfo'></div>"
 		$('#addOthersColoc').append(newblock);
 
 		var oneOfBlock = $('#colocCopie-ayer').html();
 		$("#" + idName).append(oneOfBlock);
-				
+
+		$("#" + idName + ' #titleInfoColocCopie-ayer').attr("id", "titleInfoColoc" + newValueNbBlockColocInfo + "-ayer")
 		$("#" + idName + ' .titleInfoColocs-ayer').attr('onclick',
-			'openThisColocRow_ayer(this,"#infoColoc' + newValueNbBlockColocInfo + '-ayer")')
-		$("#" + idName + ' .titleInfoColocs-ayer').text("Colocataire " + newValueNbBlockColocInfo)
+			'openThisColocRow_ayer("#titleInfoColoc' + newValueNbBlockColocInfo + '-ayer","#infoColoc' + newValueNbBlockColocInfo + '-ayer")')
+		$("#" + idName + ' .titleInfoColocs-ayer p').text("Colocataire " + newValueNbBlockColocInfo)
 		$("#" + idName + ' #infoColocCopie-ayer').attr('id', 'infoColoc' + newValueNbBlockColocInfo + '-ayer')
-		
+
+	}
+}
+
+function uploadPhotoEcoColocationExisting() {
+	var filesInput = document.getElementById("file-upload-ayer");
+
+	filesInput.addEventListener("change", function (event) {
+		$('body').addClass('waiting');
+
+		var files = event.target.files; //FileList object
+
+		for (var i = 0; i < files.length; i++) {
+			var file = files[i];
+
+			//Only pics
+			if (!file.type.match('image'))
+				continue;
+
+			var picReader = new FileReader();
+
+			picReader.addEventListener("load", function (event) {
+
+				var picFile = event.target;
+
+				var elementHtml =
+					'<li class="div2ResultFilesUpl-mcar">' +
+					'<div class="div3ResultFilesUpl-mcar" >' +
+					'<label class="labelDescFile-mcar">Photo de couverture</label>' +
+					'<div class="resultPictureUpl-mcar" id="pictureUpl' + i + '-mcar"' +
+					'style="background: url(' + picFile.result + ') 50% no-repeat;" ></div >' +
+					'<i class="crossPictureUpl-mcar fas fa-times-circle"></i>' +
+					'</div>' +
+					'</li >';
+
+				$("#divResultFilesUpl-ayer").append(elementHtml)
+			});
+
+			//Read the image
+			picReader.readAsDataURL(file);
+
+			setTimeout(function () {
+				trierLesImagesUpl();
+				setTimeout(function () {
+
+					$('body').removeClass('waiting');
+				}, 2000);
+				$('.labelDescFile-mcar').css('display', 'block');
+			}, 500);
+		}
 	}
 }

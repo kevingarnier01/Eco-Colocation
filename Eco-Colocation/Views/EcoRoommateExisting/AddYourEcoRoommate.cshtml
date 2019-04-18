@@ -68,7 +68,8 @@
 		<div class="col-xs-12 sousDivFormColoc-ayer" style="
 ">
 			<label class="label-ayer">Ajouter une photo à l'image de votre éco-colocation</label>
-			<div style="
+
+			<label id="file-upload-ayer" style="
     padding: 7px;
     box-shadow: 0 0 5px 0px black;
     text-align: center;
@@ -85,7 +86,10 @@
     color: white;
     font-size: 18px;
     margin-bottom: 5px;
-">Ajouter une photo</div>
+	display:block
+">Ajouter une photo</label>
+			<input id="file-upload-ayer" type="file" />
+			<div id="divResultFilesUpl-ayer"></div>
 		</div>
 	</div>
 
@@ -1227,7 +1231,7 @@
 ">
 						<div id="coloc1-ayer" style="
 ">
-							<div class="titleInfoColocs-ayer" onclick="openThisColocRow_ayer(this,'#infoColoc1-ayer')" style="
+							<div id="titleInfoColoc1-ayer" class="titleInfoColocs-ayer" onclick="openThisColocRow_ayer('#titleInfoColoc1-ayer','#infoColoc1-ayer')" style="
     box-shadow: 0 0 3px black;
     padding: 10px;
     margin-bottom: 1px;
@@ -1246,13 +1250,13 @@
 							<div id="infoColoc1-ayer" class="infoColoc-ayer" style="overflow: hidden;max-height:500px;transition: max-height 1000ms;">
 								<div style="padding: 10px 0">
 									<div class="col-sm-6">
-										<label class="label-ayer">Nom</label>
-										<input type="text" placeholder="Entrer votre nom" class="input-ayer">
+										<label class="label-ayer">Prénom</label>
+										<input type="text" placeholder="Entrer votre prénom" class="input-ayer">
 										<div class="underInput-ayer"></div>
 									</div>
 									<div class="col-sm-6">
-										<label class="label-ayer">Prénom</label>
-										<input type="text" placeholder="Entrer votre prénom" class="input-ayer">
+										<label class="label-ayer">Nom</label>
+										<input type="text" placeholder="Entrer votre nom" class="input-ayer">
 										<div class="underInput-ayer"></div>
 									</div>
 									<div class="col-sm-6">
@@ -1289,7 +1293,7 @@
 							</div>
 						</div>
 						<div id="coloc2-ayer">
-							<div class="titleInfoColocs-ayer" onclick="openThisColocRow_ayer(this,'#infoColoc2-ayer')" style="
+							<div id="titleInfoColoc2-ayer" class="titleInfoColocs-ayer" onclick="openThisColocRow_ayer('#titleInfoColoc2-ayer','#infoColoc2-ayer')" style="
     box-shadow: 0 0 3px black;
     padding: 10px;
     margin-bottom: 1px;
@@ -1306,13 +1310,13 @@
 							<div id="infoColoc2-ayer" class="infoColoc-ayer" style="overflow: hidden;max-height:0;transition: max-height 1000ms;">
 								<div style="padding: 10px 0">
 									<div class="col-sm-6">
-										<label class="label-ayer">Nom</label>
-										<input type="text" placeholder="Entrer votre nom" class="input-ayer">
+										<label class="label-ayer">Prénom</label>
+										<input type="text" placeholder="Entrer votre prénom" class="input-ayer">
 										<div class="underInput-ayer"></div>
 									</div>
 									<div class="col-sm-6">
-										<label class="label-ayer">Prénom</label>
-										<input type="text" placeholder="Entrer votre prénom" class="input-ayer">
+										<label class="label-ayer">Nom</label>
+										<input type="text" placeholder="Entrer votre nom" class="input-ayer">
 										<div class="underInput-ayer"></div>
 									</div>
 									<div class="col-sm-6">
@@ -1351,7 +1355,7 @@
 						</div>
 						<div id="addOthersColoc">
 							<div id="colocCopie-ayer" style="display:none">
-								<div class="titleInfoColocs-ayer" onclick="openThisColocRow_ayer(this,'#infoColocCopie-ayer')" style="
+								<div id="titleInfoColocCopie-ayer" class="titleInfoColocs-ayer" onclick="openThisColocRow_ayer('#titleInfoColocCopie-ayer','#infoColocCopie-ayer')" style="
     box-shadow: 0 0 3px black;
     padding: 10px;
     margin-bottom: 1px;
@@ -1368,13 +1372,13 @@
 								<div id="infoColocCopie-ayer" class="infoColoc-ayer" style="overflow: hidden;max-height:0;transition: max-height 1000ms;">
 									<div style="padding: 10px 0">
 										<div class="col-sm-6">
-											<label class="label-ayer">Nom</label>
-											<input type="text" placeholder="Entrer votre nom" class="input-ayer">
+											<label class="label-ayer">Prénom</label>
+											<input type="text" placeholder="Entrer votre prénom" class="input-ayer">
 											<div class="underInput-ayer"></div>
 										</div>
 										<div class="col-sm-6">
-											<label class="label-ayer">Prénom</label>
-											<input type="text" placeholder="Entrer votre prénom" class="input-ayer">
+											<label class="label-ayer">Nom</label>
+											<input type="text" placeholder="Entrer votre nom" class="input-ayer">
 											<div class="underInput-ayer"></div>
 										</div>
 										<div class="col-sm-6">
@@ -1463,3 +1467,9 @@
 		</div>
 	</div>
 </div>
+
+<script type="text/javascript">
+	$(document).ready(function () {
+		uploadPhotoEcoColocationExisting()
+	});
+</script>
