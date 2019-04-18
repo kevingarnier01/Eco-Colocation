@@ -22,7 +22,7 @@
 		</div>
 		<div class="col-sm-3 sousDivFormColoc-ayer">
 			<label class="label-ayer">Nombre de colocataires</label>
-			<input class="input-ayer" placeholder="Entrer le nombre de colocataires">
+			<input class="input-ayer" placeholder="Entrer le nombre de colocataires" oninput="modifyMinValueToNbInfoColoc(this)">
 			<div class="underInput-ayer"></div>
 		</div>
 		<div class="col-sm-3 sousDivFormColoc-ayer">
@@ -1197,6 +1197,25 @@
 ">
 						Enregistrement des colocataires
 					</h2>
+					<div id="divAddOthersColoc" style="
+    width: 130px;
+    margin-bottom: 15px;
+">
+						<div class="input-group">
+							<span class="input-group-btn">
+								<button id="buttonMinusOne-ayer" disabled onclick="removeOneColoc_ayer()" type="button" class="btn btn-default btn-number" data-type="minus" data-field="quant[1]">
+									<span class="glyphicon glyphicon-minus"></span>
+								</button>
+							</span>
+							<input id="valueNbColocInfo" style="
+    text-align: center;" type="text" readonly name="quant[1]" class="form-control input-number" value="2" min="2">
+							<span class="input-group-btn">
+								<button onclick="addOneColoc_ayer()" type="button" class="btn btn-default btn-number" data-type="plus" data-field="quant[1]">
+									<span class="glyphicon glyphicon-plus"></span>
+								</button>
+							</span>
+						</div>
+					</div>
 					<div id="tableColocInfo-ayer" style="
     border-radius: 9px;
     overflow: auto;
@@ -1204,10 +1223,11 @@
     box-shadow: 0 0 3px black;
     width: 380px;
     max-width: 100%;
+    margin-bottom: 2px;
 ">
-						<div id="coloc1-eyer" style="
+						<div id="coloc1-ayer" style="
 ">
-							<div onclick="openThisColocRow_eyer(this,'#infoColoc1-eyer')" style="
+							<div class="titleInfoColocs-ayer" onclick="openThisColocRow_ayer(this,'#infoColoc1-ayer')" style="
     box-shadow: 0 0 3px black;
     padding: 10px;
     margin-bottom: 1px;
@@ -1215,8 +1235,15 @@
     color: #555555;
     font-weight: 100;
     padding-left: 25px;
-">Colocataire 1</div>
-							<div id="infoColoc1-eyer" class="infoColoc-eyer" style="overflow: hidden;max-height:0;transition: max-height 1000ms;">
+	background-color: #C4D102;
+	color: white;
+	cursor: pointer;
+    display: flex;
+    position: relative;
+"><p style="user-select: none;">Colocataire 1</p>
+  <i class="fas fa-long-arrow-alt-down" style="position: absolute;right: 20px;line-height: 27px;"></i>
+							</div>
+							<div id="infoColoc1-ayer" class="infoColoc-ayer" style="overflow: hidden;max-height:500px;transition: max-height 1000ms;">
 								<div style="padding: 10px 0">
 									<div class="col-sm-6">
 										<label class="label-ayer">Nom</label>
@@ -1261,8 +1288,8 @@
 								</div>
 							</div>
 						</div>
-						<div id="coloc2-eyer">
-							<div onclick="openThisColocRow_eyer(this,'#infoColoc2-eyer')" style="
+						<div id="coloc2-ayer">
+							<div class="titleInfoColocs-ayer" onclick="openThisColocRow_ayer(this,'#infoColoc2-ayer')" style="
     box-shadow: 0 0 3px black;
     padding: 10px;
     margin-bottom: 1px;
@@ -1270,8 +1297,13 @@
     color: #555555;
     font-weight: 100;
     padding-left: 25px;
-">Colocataire 2</div>
-							<div id="infoColoc2-eyer" class="infoColoc-eyer" style="overflow: hidden;max-height:0;transition: max-height 1000ms;">
+	cursor: pointer;
+    display: flex;
+    position: relative;
+"><p style="user-select: none;">Colocataire 2</p>
+  <i class="fas fa-long-arrow-alt-right" style="position: absolute;right: 20px;line-height: 27px;"></i>
+							</div>
+							<div id="infoColoc2-ayer" class="infoColoc-ayer" style="overflow: hidden;max-height:0;transition: max-height 1000ms;">
 								<div style="padding: 10px 0">
 									<div class="col-sm-6">
 										<label class="label-ayer">Nom</label>
@@ -1317,8 +1349,9 @@
 							</div>
 
 						</div>
-						<div id="coloc3">
-							<div onclick="openThisColocRow_eyer('#coloc3-eyer','#infoColoc3-eyer')" style="
+						<div id="addOthersColoc">
+							<div id="colocCopie-ayer" style="display:none">
+								<div class="titleInfoColocs-ayer" onclick="openThisColocRow_ayer(this,'#infoColocCopie-ayer')" style="
     box-shadow: 0 0 3px black;
     padding: 10px;
     margin-bottom: 1px;
@@ -1326,13 +1359,60 @@
     color: #555555;
     font-weight: 100;
     padding-left: 25px;
-">colocataire 3</div>
-							<div>
-
+	cursor: pointer;
+    display: flex;
+    position: relative;
+"><p style="user-select: none;">Colocataire exemple</p>
+  <i class="fas fa-long-arrow-alt-right" style="position: absolute;right: 20px;line-height: 27px;"></i>
+								</div>
+								<div id="infoColocCopie-ayer" class="infoColoc-ayer" style="overflow: hidden;max-height:0;transition: max-height 1000ms;">
+									<div style="padding: 10px 0">
+										<div class="col-sm-6">
+											<label class="label-ayer">Nom</label>
+											<input type="text" placeholder="Entrer votre nom" class="input-ayer">
+											<div class="underInput-ayer"></div>
+										</div>
+										<div class="col-sm-6">
+											<label class="label-ayer">Prénom</label>
+											<input type="text" placeholder="Entrer votre prénom" class="input-ayer">
+											<div class="underInput-ayer"></div>
+										</div>
+										<div class="col-sm-6">
+											<label class="label-ayer">Email</label>
+											<input type="text" placeholder="Entrer votre prénom" class="input-ayer">
+											<div class="underInput-ayer"></div>
+										</div>
+										<div class="col-sm-6">
+											<label class="label-ayer">Date de naissance</label>
+											<input type="date" class="input-ayer">
+											<div class="underInput-ayer"></div>
+										</div>
+										<div class="col-sm-6" style="height: 91px;">
+											<label class="label-ayer">Civilité</label>
+											<select class="form-control" style="
+    margin-bottom: 33px;">
+												<option value="0">Monsieur</option>
+												<option value="1">Madame</option>
+											</select>
+										</div>
+										<div class="col-sm-6">
+											<label class="label-ayer">Activités</label>
+											<select class="form-control" style="
+    margin-bottom: 33px;">
+												<option value="0">Salarié(e)</option>
+												<option value="1">Etudient(e)</option>
+												<option value="2">Indépendant(e)</option>
+												<option value="3">Sans activité</option>
+												<option value="4">Retraité(e)</option>
+												<option value="5">Autre</option>
+											</select>
+										</div>
+									</div>
+								</div>
 							</div>
+
 						</div>
 					</div>
-
 				</div>
 			</div>
 

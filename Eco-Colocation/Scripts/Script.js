@@ -615,23 +615,80 @@ function loadEcoRoommateExistingMap() {
 	}
 }
 
-function openThisColocRow_eyer(elementTitle, elementBlockIdToOPen) {	
-	if ($(elementBlockIdToOPen).css('max-height') == '0px') {
-		close_eyer(elementTitle);
+function openThisColocRow_ayer(elementTitle, elementBlockIdToOpen) {
+	if ($(elementBlockIdToOpen).css('max-height') == '0px') {
+		close_ayer();
 
 		setTimeout(function () {
-			$(elementBlockIdToOPen).css('max-height', '500px');
+			$(elementBlockIdToOpen).css('max-height', '500px');
 			$(elementTitle).css('background-color', '#C4D102');
 			$(elementTitle).css('color', 'white');
+			$(elementTitle + " i").attr("class", "fas fa-long-arrow-alt-down")
 		}, 100)
 	}
 	else {
-		close_eyer(elementTitle);
+		close_ayer();
 	}
 
-	function close_eyer(elementTitle) {
-		$(elementTitle).css('background-color', 'initial');
-		$(elementTitle).css('color', '#555555');
-		$('.infoColoc-eyer').css('max-height', '0');
+	function close_ayer() {
+		$('.titleInfoColocs-ayer').css('background-color', 'initial');
+		$('.titleInfoColocs-ayer').css('color', '#555555');
+		$('.infoColoc-ayer').css('max-height', '0');
+		$("i").attr("class", "fas fa-long-arrow-alt-right")
+	}
+}
+
+//********* EcoRoommateExisting *************//
+// ---- Page AddYourEcoRoommate ---- //
+function modifyMinValueToNbInfoColoc(element) {
+	if ($(element).val() > 2) {
+		$('#valueNbColocInfo').attr("min", $(element).val());
+	}
+}
+
+function removeOneColoc_ayer() {
+	if ($('#valueNbColocInfo').val() > 2) {
+		$('#valueNbColocInfo').val(parseInt($('#valueNbColocInfo').val()) - 1)
+		if ($('#valueNbColocInfo').val() != 2) {
+			$('#buttonMinusOne-ayer').attr("disabled", false);
+		}
+		else {
+			$('#buttonMinusOne-ayer').attr("disabled", true);
+		}
+	}
+	else {
+		$('#buttonMinusOne-ayer').attr("disabled", true);
+	}
+}
+
+function addOneColoc_ayer() {
+	var newValueNbBlockColocInfo = parseInt($('#valueNbColocInfo').val()) + 1;
+
+	$('#valueNbColocInfo').val(newValueNbBlockColocInfo)
+
+	if ($('#valueNbColocInfo').val() > 2) {
+		$('#buttonMinusOne-ayer').attr("disabled", false);
+	}
+
+	//-1 de titleInfoColocs-ayer représente celui que sert de copie
+	//-1 de valueNbColocInfo représente la valeur dont l'utilisateur vient d'ajouter
+	if ($('.titleInfoColocs-ayer').length -1 == (parseInt($('#valueNbColocInfo').val() - 1))) { 
+		var idName = "divColocInfo" + newValueNbBlockColocInfo;
+
+		if ($(idName).length != 0) {
+			$(idName).remove();
+		}
+
+		var newblock = "<div id='" + idName + "'></div>"
+		$('#addOthersColoc').append(newblock);
+
+		var oneOfBlock = $('#colocCopie-ayer').html();
+		$("#" + idName).append(oneOfBlock);
+				
+		$("#" + idName + ' .titleInfoColocs-ayer').attr('onclick',
+			'openThisColocRow_ayer(this,"#infoColoc' + newValueNbBlockColocInfo + '-ayer")')
+		$("#" + idName + ' .titleInfoColocs-ayer').text("Colocataire " + newValueNbBlockColocInfo)
+		$("#" + idName + ' #infoColocCopie-ayer').attr('id', 'infoColoc' + newValueNbBlockColocInfo + '-ayer')
+		
 	}
 }
