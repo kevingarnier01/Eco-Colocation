@@ -3,699 +3,205 @@
 	ViewBag.Title = "EcoRoommateVisual";
 }
 
-<div id="ecoRoommateExistingVisual" style="
-    padding: 0 10px;
-">
-	<p style="
-		text-align: center;
-		font-size: 45px;
-		margin-top: 10px;
-		margin-bottom: 15px;
-    font-family: 'Noteworthy';
-	">Colokitri</p>
-	<div id="divTopInfoEcoColoc" style="display:flex;margin-top: 25px;margin-bottom: 15px;">
-		<div id="divTopInfoEcoColoc2" style="margin-left:auto;margin-right:auto;display:flex;flex-wrap: wrap;width: 100%;">
-			<div style="display:flex;margin-bottom:10px;" class="col-sm-4 col-xs-12">
-				<div style="
-    display: flex;
-    margin-left: auto;
-    margin-right: auto;
-">
+<div id="ecoRoommateExistingVisual">
+	<p id="titleTop-erev">Colokitri</p>
+
+	@if (User.Identity.IsAuthenticated)
+	{
+		<div id="divBtnModifierEcoRoom-erev">
+			<a id="btnModifierEcoRoom-erev" href="@Url.Action("AddYourEcoRoommate", "EcoRoommateExisting", null)">Modifier nos informations</a>
+		</div>
+	}
+	<div id="divTopInfoEcoColoc-erev">
+		<div id="divTopInfoEcoColoc2-erev">
+			<div class="divRoom-erev col-sm-4 col-xs-12">
+				<div class="divTopInfoRoom2-erev">
 					<i class="iconTopPage-erev fas fa-users"></i>
-					<p style="
-		font-size: 18px;
-	">4 Personnes</p>
+					<p class="responseRoom-erev">4 Personnes</p>
 				</div>
 			</div>
-			<div style="display:flex;margin-bottom:10px;" class="col-sm-4 col-xs-12">
-				<div style="
-    display: flex;
-    margin-left: auto;
-    margin-right: auto;
-">
+			<div class="divRoom-erev col-sm-4 col-xs-12">
+				<div class="divTopInfoRoom2-erev">
 					<i class="iconTopPage-erev fas fa-map-marker-alt"></i>
-					<p style="
-		font-size: 18px;
-	">Romanier-pondir</p>
+					<p class="responseRoom-erev">Romanier-pondir</p>
 				</div>
 			</div>
-			<div style="display:flex;margin-bottom:10px;" class="col-sm-4 col-xs-12">
-				<div style="
-    display: flex;
-    margin-left: auto;
-    margin-right: auto;
-">
+			<div class="divRoom-erev col-sm-4 col-xs-12">
+				<div class="divTopInfoRoom2-erev">
 					<i class="iconTopPage-erev fas fa-calendar-alt"></i>
-					<p style="
-		font-size: 18px;
-	">20/07/2016</p>
+					<p class="responseRoom-erev">20/07/2016</p>
 				</div>
 			</div>
 		</div>
 	</div>
-	<div style="
-    text-align: center;
-    margin-bottom: 15px;
-    font-size: 22px;
-    font-family: cursive;
-">Une maison paille, un potager, 5 poules et deux chats</div>
+	@* Valider -Asup *@
 	<div>
-		<img src="https://www.domoskit.com/wp-content/uploads/2017/05/matheus-ferrero-228716-unsplash-thegem-blog-default.jpg" style="
-    width: 100%;
-">
+		<img id="imgCoverEcoRoommate-erev" src="https://www.domoskit.com/wp-content/uploads/2017/05/matheus-ferrero-228716-unsplash-thegem-blog-default.jpg">
 	</div>
-	<div style="
-    margin-top: 15px;
-    width: 98%;
-    margin-left: auto;
-    margin-right: auto;
-    font-size: 16px;
-    font-family: 'Noteworthy';
-">
+	<div id="divDescriptionEcoRoom-erev">
 		Une maison paille, un potager, 5 poules et deux chats et 4 colocataires pour une vie écologique. Au cœur de Romanier-pondir, notre éco-colocation a vu le jour en Juillet 2016. Elle s'est fondée sur l’envie de vivre ensemble en ayant le minimun d’impacts négatifs possibles sur notre environnement. Nous nous nourrissons essentiellement de produits bio et locaux pour une alimentation majoritairement végétarienne. Le point fort : le jardin ! De plus nos poules offrent quotidiennement des œufs. Nous partons faire nos courses avec sacs en vrac et bocaux que nous nous empressons de remplir dans notre cuisine commune. Qui dit cuisine commune, dit courses communes : nous achetons pour l’ensemble de la colocation et partageons les frais sur un compte commun ou chaque coloc verse sa part du mois. Et qui dit mutualisation dit réduction des coûts, réduction accentuée par la volonté de faire par exemple des économies d’énergie. (Par exemple nous avons troqué notre gros frigo contre un petit et nous envisageons de nous en passer définitivement). Nous avons bien sûr remplacé le maximum d’ampoules possible par des lampes basse consommation et nous tentons de garder au mieux la chaleur pour ne pas allumer les radiateurs. Enfin, notre colocation se fonde sur le vivre ensemble. Nous ne comptons pas ce que nous faisons ou donnons. Ici chaque personne étant libre de son implication,l ’essentiel est de s'assurer que tout le monde trouve sa place pour bien vivre ensemble.
 	</div>
 
-	<div style="
-    margin-top: 20px;
-">
+	<div id="divGlobalBlogInfo-erev">
 		<div>
-			<h2 style="
-    color: #00C2D6;
-    font-family: Noteworthy;
-    font-weight: bold;
-    margin-bottom: 25px;
-">
+			<h2 class="titleLevel2-erev">
 				Notre fibre écologique
 			</h2>
-			<p style="
-    text-align: center;
-    font-size: 22px;
-    font-family: cursive;
-">"Tenter notre possible pour un bon impact sur l'environnement"</p>
+			<p id="txtFibreEco-erev">"Tenter notre possible pour un bon impact sur l'environnement"</p>
 		</div>
-		<div style="
-">
-			<h2 style="
-    color: #00C2D6;
-    font-family: Noteworthy;
-    font-weight: bold;
-    margin-bottom: 25px;
-">
+		<div>
+			<h2 class="titleLevel2-erev">
 				Ce que l'on y fait
 			</h2>
 
-			<div style="
-    display: flex;
-    flex-wrap: wrap;
-">
-				<div style="
-    margin-bottom: 30px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 190px;
-    padding-left: 5px;
-    padding-right: 5px;
-">
-					<p style="
-    text-align: center;
-    font-size: 18px;
-    margin-bottom: 5px;
-">Production alimentaire</p>
-					<div style="
-    background: url(../../content/images/logos/agriculture.png) no-repeat;
-    height: 100px;
-    width: 100px;
-    background-size: 100px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 10px;
-"></div>
-
-					<p style="
-    text-align: center;
-    font-family: Noteworthy;
-">Bio</p>
-					<p style="
-    text-align: center;
-    font-family: Noteworthy;
-">Permaculture</p>
+			<div class="divGlobalToCenter-erev">
+				<div class="divContenantImgInfo-erev">
+					<p class="underTitlePratique-erev">Production alimentaire</p>
+					<div class="imgLogoRepresentation-erev" style="background: url(../../content/images/logos/agriculture.png) no-repeat;"></div>
+					<div>
+						<p class="textLevel2ProdAlim-erev">Bio</p>
+						<p class="textLevel2ProdAlim-erev">Permaculture</p>
+					</div>
 				</div>
-				<div style="
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 30px;
-    width: 190px;
-    padding-left: 5px;
-    padding-right: 5px;
-">
-					<p style="
-    font-size: 18px;
-    text-align: center;
-    margin-bottom: 5px;
-">Consommation</p>
-					<div style="
-    background: url(../../content/images/logos/food.png) no-repeat;
-    height: 100px;
-    width: 100px;
-    background-size: 100px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 10px;
-"></div>
-					<p style="
-    text-align: center;
-    font-family: Noteworthy;
-">Bio</p>
-					<p style="
-    text-align: center;
-    font-family: Noteworthy;
-">Végétarien</p>
-					<p style="
-    text-align: center;
-    font-family: Noteworthy;
-">Local</p>
+				<div class="divContenantImgInfo-erev">
+					<p class="underTitlePratique-erev">Consommation</p>
+					<div class="imgLogoRepresentation-erev" style="background: url(../../content/images/logos/food.png) no-repeat;"></div>
+					<p class="textLevel2ProdAlim-erev">Bio</p>
+					<p class="textLevel2ProdAlim-erev">Végétarien</p>
+					<p class="textLevel2ProdAlim-erev">Local</p>
 				</div>
-				<div style="
-    width: 190px;
-    padding-left: 5px;
-    padding-right: 5px;
-    margin-bottom: 30px;
-    margin-left: auto;
-    margin-right: auto;
-">
-					<p style="
-    font-size: 18px;
-    text-align: center;
-    margin-bottom: 5px;
-">Déplacement</p>
-					<div style="
-    background: url(../../content/images/logos/direction.png) no-repeat;
-    height: 100px;
-    width: 100px;
-    background-size: 100px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 10px;
-"></div>
-					<p style="
-    text-align: center;
-    font-family: Noteworthy;
-">Bus</p>
-					<p style="
-    text-align: center;
-    font-family: Noteworthy;
-">Vélo</p>
-					<p style="
-    text-align: center;
-    font-family: Noteworthy;
-">Marche</p>
+				<div class="divContenantImgInfo-erev">
+					<p class="underTitlePratique-erev">Déplacement</p>
+					<div class="imgLogoRepresentation-erev" style="background: url(../../content/images/logos/direction.png) no-repeat;"></div>
+					<p class="textLevel2ProdAlim-erev">Bus</p>
+					<p class="textLevel2ProdAlim-erev">Vélo</p>
+					<p class="textLevel2ProdAlim-erev">Marche</p>
 				</div>
 
-				<div style="
-    width: 190px;
-    padding-left: 5px;
-    padding-right: 5px;
-    margin-bottom: 30px;
-    margin-left: auto;
-    margin-right: auto;
-">
-					<p style="
-    font-size: 18px;
-    text-align: center;
-    margin-bottom: 5px;
-">Vie en communauté</p>
-					<div style="
-    background: url(../../content/images/logos/people.png) no-repeat;
-    height: 100px;
-    width: 100px;
-    background-size: 100px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 10px;
-"></div>
-					<p style="
-    text-align: center;
-    font-family: Noteworthy;
-">Repas</p>
-					<p style="
-    text-align: center;
-    font-family: Noteworthy;
-">Partage des tâches</p>
+				<div class="divContenantImgInfo-erev">
+					<p class="underTitlePratique-erev">Vie en communauté</p>
+					<div class="imgLogoRepresentation-erev" style="background: url(../../content/images/logos/people.png) no-repeat;"></div>
+					<p class="textLevel2ProdAlim-erev">Repas</p>
+					<p class="textLevel2ProdAlim-erev">Partage des tâches</p>
 				</div>
 			</div>
-
-			<p style="
-    color: #555555;
-    font-family: Noteworthy;
-    font-size: 16px;
-    text-align: center;
-    margin-bottom: 35px;
-">Nous essayons tous de prêter attention du mieux possible à ces différents éléments pour réduire notre impact environnemental</p>
-			<h2 style="
-    color: #00C2D6;
-    font-family: Noteworthy;
-    font-weight: bold;
-    margin-bottom: 25px;
-">
+			<p class="descriptionSuplementaire-erev">Nous essayons tous de prêter attention du mieux possible à ces différents éléments pour réduire notre impact environnemental</p>
+			<h2 class="titleLevel2-erev">
 				Ce que l'on a d'écologie chez nous
 			</h2>
-
-			<div style="
-    display: flex;
-    flex-wrap: wrap;
-">
-
-				<div style="
-    width: 190px;
-    padding-left: 5px;
-    padding-right: 5px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 30px;
-    text-align: center;
-">
-					<div style="
-    background: url(../../content/images/logos/garden.png) no-repeat;
-    height: 100px;
-    width: 100px;
-    background-size: 100px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 10px;
-"></div>
-					<p style="
-    text-align: center;
-    font-size: 18px;
-">Potager</p>
+			<div class="divGlobalToCenter-erev">
+				<div class="divContenantImgInfo-erev">
+					<div class="imgLogoRepresentation-erev" style="background: url(../../content/images/logos/seed.png) no-repeat;"></div>
+					<p class="underTitle-erev">Potager</p>
 				</div>
-				<div style="
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 30px;
-    width: 190px;
-    padding-left: 5px;
-    padding-right: 5px;
-    text-align: center;
-">
-					<div style="
-    background: url(../../content/images/logos/recyclingBin.png) no-repeat;
-    height: 100px;
-    width: 100px;
-    background-size: 100px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 10px;
-"></div>
-					<p style="
-    text-align: center;
-    font-size: 18px;
-">Poubelles de recyclage</p>
+				<div class="divContenantImgInfo-erev">
+					<div class="imgLogoRepresentation-erev" style="background: url(../../content/images/logos/recyclingBin.png) no-repeat;"></div>
+					<p class="underTitle-erev">Poubelles de recyclage</p>
 				</div>
-
-				<div style="
-    margin-left: auto;
-    margin-right: auto;
-    width: 190px;
-    margin-bottom: 30px;
-    padding-left: 5px;
-    padding-right: 5px;
-    text-align: center;
-">
-					<div style="
-    background: url(../../content/images/logos/compost.png) no-repeat;
-    height: 100px;
-    width: 100px;
-    background-size: 100px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 10px;
-"></div>
-					<p style="
-    text-align: center;
-    font-size: 18px;
-">compost</p>
-				</div><div style="
-    margin-left: auto;
-    margin-right: auto;
-    width: 190px;
-    margin-bottom: 30px;
-    padding-left: 5px;
-    padding-right: 5px;
-    text-align: center;
-">
-					<div style="
-    background: url(../../content/images/logos/toilet.png) no-repeat;
-    height: 100px;
-    width: 100px;
-    background-size: 100px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 10px;
-"></div>
-					<p style="
-    text-align: center;
-    font-size: 18px;
-">Toilette seches</p>
+				<div class="divContenantImgInfo-erev">
+					<div class="imgLogoRepresentation-erev" style="background: url(../../content/images/logos/compost.png) no-repeat;"></div>
+					<p class="underTitle-erev">compost</p>
 				</div>
-				<div style="
-    margin-left: auto;
-    margin-right: auto;
-    width: 190px;
-    margin-bottom: 30px;
-    padding-left: 5px;
-    padding-right: 5px;
-    text-align: center;
-">
-					<div style="
-    background: url(../../content/images/logos/naturalhouse.png) no-repeat;
-    height: 100px;
-    width: 100px;
-    background-size: 100px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 10px;
-"></div>
-					<p style="
-    text-align: center;
-    font-size: 18px;
-">Habitat en matériaux écologique ou recyclable</p>
+				<div class="divContenantImgInfo-erev">
+					<div class="imgLogoRepresentation-erev" style="background: url(../../content/images/logos/toilet.png) no-repeat;"></div>
+					<p class="underTitle-erev">Toilette seches</p>
 				</div>
-				<div style="
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 30px;
-    width: 190px;
-    padding-left: 5px;
-    padding-right: 5px;
-    text-align: center;
-">
-					<div style="
-    background: url(../../content/images/logos/heater.png) no-repeat;
-    height: 100px;
-    width: 100px;
-    background-size: 100px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 10px;
-"></div>
-					<p style="
-    text-align: center;
-    font-size: 18px;
-">Chauffage écologique</p>
+				<div class="divContenantImgInfo-erev">
+					<div class="imgLogoRepresentation-erev" style="background: url(../../content/images/logos/naturalhouse.png) no-repeat;"></div>
+					<p class="underTitle-erev">Habitat en matériaux écologique ou recyclable</p>
 				</div>
-				<div style="
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 30px;
-    width: 190px;
-    padding-left: 5px;
-    padding-right: 5px;
-    text-align: center;
-">
-					<div style="
-    background: url(../../content/images/logos/waterRecycling.png) no-repeat;
-    height: 100px;
-    width: 100px;
-    background-size: 100px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 10px;
-"></div>
-					<p style="
-    text-align: center;
-    font-size: 18px;
-">Outils de recyclage des eaux</p>
+				<div class="divContenantImgInfo-erev">
+					<div class="imgLogoRepresentation-erev" style="background: url(../../content/images/logos/heater.png) no-repeat;"></div>
+					<p class="underTitle-erev">Chauffage écologique</p>
+				</div>
+				<div class="divContenantImgInfo-erev">
+					<div class="imgLogoRepresentation-erev" style="background: url(../../content/images/logos/waterRecycling.png) no-repeat;"></div>
+					<p class="underTitle-erev">Outils de recyclage des eaux</p>
 				</div>
 
 			</div>
-			<p style="
-    color: #555555;
-    font-family: Noteworthy;
-    font-size: 16px;
-    text-align: center;
-    margin-bottom: 35px;
-">Concernant le chauffage et l'électricité nous utilisons l'énergie produite par les panneaux solaires ainsi que les deux éloliennes installées au fond du jardin.</p>
-			<h2 style="
-    color: #00C2D6;
-    font-family: Noteworthy;
-    font-weight: bold;
-    margin-bottom: 25px;
-">
+			<p class="descriptionSuplementaire-erev">Concernant le chauffage et l'électricité nous utilisons l'énergie produite par les panneaux solaires ainsi que les deux éloliennes installées au fond du jardin.</p>
+			<h2 class="titleLevel2-erev">
 				Ce que l'on réduit grâce à nos attitudes
 			</h2>
-			<div style="
-    display: flex;
-    flex-wrap: wrap;
-">
-				<div style="
-    margin-left: auto;
-    margin-right: auto;
-    width: 190px;
-    padding-left: 5px;
-    padding-right: 5px;
-    margin-bottom: 30px;
-">
-					<div style="
-    background: url(../../content/images/logos/waterConsommation.png) no-repeat;
-    height: 100px;
-    width: 100px;
-    background-size: 100px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 10px;
-"></div>
-					<p style="
-    text-align: center;
-    font-size: 18px;
-">Notre consommation d'eau</p>
+			<div class="divGlobalToCenter-erev">
+				<div class="divContenantImgInfo-erev">
+					<div class="imgLogoRepresentation-erev" style="background: url(../../content/images/logos/waterConsommation.png) no-repeat;"></div>
+					<p class="underTitle-erev">Notre consommation d'eau</p>
 				</div>
-				<div style="
-    margin-left: auto;
-    margin-right: auto;
-    width: 190px;
-    padding-left: 5px;
-    padding-right: 5px;
-    margin-bottom: 30px;
-">
-					<div style="
-    background: url(../../content/images/logos/electricity.png) no-repeat;
-    height: 100px;
-    width: 100px;
-    background-size: 100px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 10px;
-"></div>
-					<p style="
-    text-align: center;
-    font-size: 18px;
-">Notre consommation d'électricité</p>
+				<div class="divContenantImgInfo-erev">
+					<div class="imgLogoRepresentation-erev" style="background: url(../../content/images/logos/electricity.png) no-repeat;"></div>
+					<p class="underTitle-erev">Notre consommation d'électricité</p>
 				</div>
-				<div style="
-    margin-left: auto;
-    margin-right: auto;
-    width: 190px;
-    padding-left: 5px;
-    padding-right: 5px;
-    margin-bottom: 30px;
-">
-					<div style="
-    background: url(../../content/images/logos/wastConsommation.png) no-repeat;
-    height: 100px;
-    width: 100px;
-    background-size: 100px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 10px;
-"></div>
-					<p style="
-    text-align: center;
-    font-size: 18px;
-">Nos déchets</p>
+				<div class="divContenantImgInfo-erev">
+					<div class="imgLogoRepresentation-erev" style="background: url(../../content/images/logos/wastConsommation.png) no-repeat;"></div>
+					<p class="underTitle-erev">Nos déchets</p>
 				</div>
-				<div style="
-    margin-left: auto;
-    margin-right: auto;
-    width: 190px;
-    padding-left: 5px;
-    padding-right: 5px;
-    margin-bottom: 30px;
-">
-					<div style="
-    background: url(../../content/images/logos/consomationCarburant.png) no-repeat;
-    height: 100px;
-    width: 100px;
-    background-size: 100px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 10px;
-"></div>
-					<p style="
-    text-align: center;
-    font-size: 18px;
-">Notre consommation de carburant</p>
+				<div class="divContenantImgInfo-erev">
+					<div class="imgLogoRepresentation-erev" style="background: url(../../content/images/logos/consomationCarburant.png) no-repeat;"></div>
+					<p class="underTitle-erev">Notre consommation de carburant</p>
 				</div>
 
 			</div>
-			<p style="
-    color: #555555;
-    font-family: Noteworthy;
-    font-size: 16px;
-    text-align: center;
-    margin-bottom: 35px;
-">Nous essayons tous de prêter attention du mieux possible à ces différents éléments pour réduire notre impact environnemental</p>
-			<h2 style="
-    color: #00C2D6;
-    font-family: Noteworthy;
-    font-weight: bold;
-    margin-bottom: 25px;
-">
+			<p class="descriptionSuplementaire-erev">Nous essayons tous de prêter attention du mieux possible à ces différents éléments pour réduire notre impact environnemental</p>
+			<h2 class="titleLevel2-erev">
 				Comment est notre habitat
 			</h2>
-			<div style="
-    display: flex;
-">
-				<div style="
-    display: flex;
-    min-width: 500px;
-    max-width: 100%;
-">
-					<div style="display:flex;/* margin-left: auto; */margin-right: auto;">
-						<p style="
-    text-align: center;
-    font-size: 18px;
-    margin-right: 15px;
-">Surface du terrain</p>
-						<p style="
-    font-family: Noteworthy;
-">400 m²</p>
+			<div id="divGlobalSurfaceHabitat-erev">
+				<div id="divGlobalSurfaceHabitat2-erev">
+					<div id="divSurfaceTerrain-erev">
+						<p class="txtSurface-erev">Surface du terrain</p>
+						<p class="responseSurface-erev">400 m²</p>
 					</div>
-					<div style="display:flex;margin-left: auto;margin-right: auto;">
-						<p style="
-    text-align: center;
-    font-size: 18px;
-    margin-right: 15px;
-">Surface habitable</p>
-						<p style="
-    font-family: Noteworthy;
-">400 m²</p>
+					<div id="divSurfaceHabitat-erev">
+						<p class="txtSurface-erev">Surface de l'habitat</p>
+						<p class="responseSurface-erev">400 m²</p>
 					</div>
 
 				</div>
 			</div>
-			<p style="
-    font-size: 20px;
-    margin-top: 20px;
-    margin-bottom: 10px;
-">Les différentes pièces</p>
-
-			<div style="
-    overflow: auto;
-    display: flex;
-    margin-bottom: 15px;
-">
-				<div style="
-    margin-right: auto;
-    width: 500px;
-">
-					<p style="
-	color: #555555;
-    font-family: Noteworthy;
-    font-size: 17px;" class="col-xs-6">1 cuisine</p>
-					<p style="
-	color: #555555;
-    font-family: Noteworthy;
-    font-size: 17px;" class="col-xs-6">1 salle à manger</p>
-					<p style="
-	color: #555555;
-    font-family: Noteworthy;
-    font-size: 17px;" class="col-xs-6">1 salon</p>
-					<p style="
-	color: #555555;
-    font-family: Noteworthy;
-    font-size: 17px;" class="col-xs-6">4 chambre</p>
-					<p style="
-	color: #555555;
-    font-family: Noteworthy;
-    font-size: 17px;" class="col-xs-6">1 wc </p>
-					<p style="
-	color: #555555;
-    font-family: Noteworthy;
-    font-size: 17px;" class="col-xs-6">1 salle de bain</p>
-					<p style="
-	color: #555555;
-    font-family: Noteworthy;
-    font-size: 17px;" class="col-xs-6">1 bureau</p>
-					<p style="
-	color: #555555;
-    font-family: Noteworthy;
-    font-size: 17px;" class="col-xs-6">1 openSpace</p>
-					<p style="
-	color: #555555;
-    font-family: Noteworthy;
-    font-size: 17px;" class="col-xs-6">1 garage</p>
-					<p style="
-	color: #555555;
-    font-family: Noteworthy;
-    font-size: 17px;" class="col-xs-6">1 jardin</p>
-					<p style="
-	color: #555555;
-    font-family: Noteworthy;
-    font-size: 17px;" class="col-xs-6">1 poulaller</p>
-					<p style="
-	color: #555555;
-    font-family: Noteworthy;
-    font-size: 17px;" class="col-xs-6">1 terrasse</p>
-					<p style="
-	color: #555555;
-    font-family: Noteworthy;
-    font-size: 17px;" class="col-xs-6">2 balcon</p>
+			<p id="txtDiversPieces">Les différentes pièces</p>
+			<div id="divAllPlace-erev">
+				<div id="divAllPlace2-erev">
+					<p class="col-xs-6">1 cuisine</p>
+					<p class="col-xs-6">1 salle à manger</p>
+					<p class="col-xs-6">1 salon</p>
+					<p class="col-xs-6">4 chambre</p>
+					<p class="col-xs-6">1 toilettes</p>
+					<p class="col-xs-6">1 salle de bain</p>
+					<p class="col-xs-6">1 bureau</p>
+					<p class="col-xs-6">1 jardin</p>
+					<p class="col-xs-6">1 terrasse</p>
+					<p class="col-xs-6">2 balcon</p>
+					<p class="col-xs-6">1 openSpace</p>
+					<p class="col-xs-6">1 garage</p>
 				</div>
 			</div>
 			<div>
-				<div style="
-    display: flex;
-">
+				@if (!User.Identity.IsAuthenticated)
+				{
+					<div class="divBtnBottom-erev">
+						<a id="btnContacter-erev" href="/Account/ModalAccount" rel="modal:open">
+							Contacter cette éco-colocation
+						</a>
+					</div>
+				}
+				else {
+						<h2 class="titleLevel2-erev">
+							Contacter cette éco-colocation
+						</h2>
 
-					<a href="/Account/ModalAccount" rel="modal:open" style="
-    margin-left: auto;
-    margin-right: auto;
-    background-color: #C4D102;
-    font-family: 'Noteworthy';
-    text-decoration: none;
-    font-size: 20px;
-    font-weight: 800;
-    color: white;
-    box-shadow: 0 0 3px 0px black;
-    padding: 2px 12px;
-    border-radius: 3px;
-    ">
-						Contacter cette éco-colocation
-					</a>
-				</div>
+						<div id="divSendMessage-erev">
+							<div id="divSendMessage2-erev">
+								@Html.Partial("~/Views/SearchColoc/PartialViewMessage.cshtml")
+							</div>
+						</div>
+					}
 
-				<div style="
-    display: flex;
-">
-					<a style="
-    margin-left: auto;
-    margin-right: auto;
-    background-color: #C4D102;
-    font-family: 'Noteworthy';
-    text-decoration: none;
-    font-size: 20px;
-    font-weight: 800;
-    color: white;
-    box-shadow: 0 0 3px 0px black;
-    padding: 2px 12px;
-    border-radius: 3px;
-    margin-top: 15px;
-    margin-bottom: 15px;
-    min-width: 150px;
-    text-align: center;
-    " href="/EcoRoommateExisting/EcoRoommateExisting_OnMap">Retour</a>
+					<div class="divBtnBottom-erev">
+						<a id="btnRetour-erev" href="/EcoRoommateExisting/EcoRoommateExisting_OnMap">Retour</a>
+					</div>
 				</div>
-			</div>
 
 		</div>
 	</div>

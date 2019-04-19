@@ -69,7 +69,7 @@
 ">
 			<label class="label-ayer">Ajouter une photo à l'image de votre éco-colocation</label>
 
-			<label id="file-upload-ayer" style="
+			<label for="fileUpload-ayer" style="
     padding: 7px;
     box-shadow: 0 0 5px 0px black;
     text-align: center;
@@ -88,8 +88,30 @@
     margin-bottom: 5px;
 	display:block
 ">Ajouter une photo</label>
-			<input id="file-upload-ayer" type="file" />
-			<div id="divResultFilesUpl-ayer"></div>
+			<input id="fileUpload-ayer" type="file" onchange="uploadImgEcoRoommate();" style="
+	display:none">
+			<div id="divResultFilesUpl-ayer" style="
+    display: inline-flex;
+    position: relative;
+    box-shadow: 0 0 5px 0 black;
+    margin: 6px;
+	display:none;
+">
+				<img src="" id="resultImgUpl-ayer" style="
+    height: 170px;
+    margin: 10px;
+    margin-bottom: 30px;
+">
+				<i class="fas fa-times-circle" onclick="removeUploadPicture_ayer()" style="
+    font-size: 25px;
+    position: absolute;
+    bottom: 0;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 3px;
+    cursor: pointer;
+"></i>
+			</div>
 		</div>
 	</div>
 
@@ -332,7 +354,9 @@
     padding: 5px 15px;
     border-radius: 5px;
     box-shadow: 0 0 3px 0 black;
+    margin-left: auto;
     margin-right: auto;
+    margin-bottom: 25px;
     max-width: 275px;
     max-height: 220px;
     overflow: hidden;
@@ -593,7 +617,8 @@
 		<div>
 			<div style="display: flex;flex-wrap: wrap;">
 				<div style="
-    margin-right: 30px;
+	margin-left:auto;
+    margin-right: auto;
     padding: 10px;
     width: 200px;
 ">
@@ -634,7 +659,8 @@
 				</div>
 
 				<div style="
-    margin-right: 30px;
+	margin-left:auto;
+    margin-right: auto;
     padding: 10px;
     width: 200px;
 ">
@@ -642,7 +668,7 @@
     display: flex;
 ">
 						<div style="
-    background: url(../../content/images/logos/garden.png) no-repeat;
+    background: url(../../content/images/logos/seed.png) no-repeat;
     height: 60px;
     background-size: 60px;
     margin-bottom: 10px;
@@ -674,7 +700,8 @@
 					</div>
 				</div>
 				<div style="
-    margin-right: 30px;
+	margin-left:auto;
+    margin-right: auto;
     padding: 10px;
     width: 200px;
 ">
@@ -715,7 +742,8 @@
 					</div>
 				</div>
 				<div style="
-    margin-right: 30px;
+	margin-left:auto;
+    margin-right: auto;
     padding: 10px;
     width: 200px;
 ">
@@ -740,7 +768,7 @@
     margin-left: auto;
     margin-right: auto;
 ">
-							<input type="checkbox" name="Potager" style="
+							<input type="checkbox" name="Poubelles de recyclage" style="
     margin-right: 15px;
     margin-top: 6px;
 ">
@@ -754,7 +782,8 @@
 					</div>
 				</div>
 				<div style="
-    margin-right: 30px;
+	margin-left:auto;
+    margin-right: auto;
     padding: 10px;
     width: 200px;
 ">
@@ -793,7 +822,8 @@
 					</div>
 				</div>
 				<div style="
-    margin-right: 30px;
+	margin-left:auto;
+    margin-right: auto;
     padding: 10px;
     width: 200px;
 ">
@@ -818,7 +848,7 @@
     margin-left: auto;
     margin-right: auto;
 ">
-							<input type="checkbox" name="Potager" style="
+							<input type="checkbox" name="Habitat en matériaux écologiques ou recyclables" style="
     margin-right: 15px;
     margin-top: 6px;
 ">
@@ -832,8 +862,10 @@
 					</div>
 				</div>
 				<div style="
-    margin-right: 30px;
+	margin-left:auto;
+    margin-right: auto;
     padding: 10px;
+    width: 200px;
 ">
 					<div style="
     display: flex;
@@ -856,7 +888,7 @@
     margin-left: auto;
     margin-right: auto;
 ">
-							<input type="checkbox" name="Potager" style="
+							<input type="checkbox" name="Chauffage écologique" style="
     margin-right: 15px;
     margin-top: 6px;
 ">
@@ -870,7 +902,8 @@
 					</div>
 				</div>
 				<div style="
-    margin-right: 30px;
+	margin-left:auto;
+    margin-right: auto;
     padding: 10px;
     width: 200px;
 ">
@@ -895,7 +928,7 @@
     margin-left: auto;
     margin-right: auto;
 ">
-							<input type="checkbox" name="Potager" style="
+							<input type="checkbox" name="Outils de recyclage des eaux" style="
     margin-right: 15px;
     margin-top: 6px;
 ">
@@ -946,7 +979,8 @@
     flex-wrap: wrap;
 ">
 			<div style="
-    margin-right: 30px;
+	margin-left:auto;
+    margin-right: auto;
     padding: 10px;
     width: 200px;
 ">
@@ -987,7 +1021,8 @@
 			</div>
 
 			<div style="
-    margin-right: 30px;
+	margin-left:auto;
+    margin-right: auto;
     padding: 10px;
     width: 200px;
 ">
@@ -1027,7 +1062,8 @@
 				</div>
 			</div>
 			<div style="
-    margin-right: 30px;
+	margin-left:auto;
+    margin-right: auto;
     padding: 10px;
     width: 200px;
 ">
@@ -1065,8 +1101,10 @@
 ">Nos déchets</p>
 					</div>
 				</div>
-			</div><div style="
-    margin-right: 30px;
+			</div>
+			<div style="
+	margin-left:auto;
+    margin-right: auto;
     padding: 10px;
     width: 200px;
 ">
@@ -1127,6 +1165,115 @@
     border-radius: 5px;
     padding: 5px 10px;
 "></textarea>
+		</div>
+		<div>
+			<h2 style="
+    color: #00C2D6;
+    font-family: Noteworthy;
+    font-weight: bold;
+    margin-bottom: 25px;
+">
+				Comment est notre habitat
+			</h2>
+			<div>
+				<div style="
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 690px;
+">
+					<div style="
+    margin-left: auto;
+    margin-right: auto;
+">
+						<label style="
+    font-size: 18px;
+    color: #555555;
+    font-weight: 100;
+    padding: 0;
+    margin-right: 15px;
+">Surface du terrain</label>
+						<input type="text" style="
+    border: none;
+    border-radius: 3px;
+    padding: 5px;
+    box-shadow: 0 0 2px black;
+    height: 23px;
+    width: 150px;
+    font-family: Noteworthy;
+">
+					</div>
+					<div class="" style="
+    margin-left: auto;
+    margin-right: auto;
+">
+						<label style="
+    margin-right: 15px;
+    font-size: 18px;
+    color: #555555;
+    font-weight: 100;
+">Surface de l'habitat</label>
+						<input type="text" style="
+    border: none;
+    border-radius: 3px;
+    padding: 5px;
+    box-shadow: 0 0 2px black;
+    height: 23px;
+    width: 150px;
+    font-family: Noteworthy;
+">
+					</div>
+				</div>
+				<p style="
+    font-size: 19px;
+    color: #555555;
+    font-weight: 100;
+    padding: 0;
+    margin-top: 20px;
+    margin-bottom: 15px;
+">Completer le nombre de pièces présentes</p>
+				<div id="divPlaceResponsive-ayer">
+					<div id="divPlace-ayer">
+						<div>
+							<div class="divTxtPlace-ayer"><input type="number"><p>Cuisine(s)</p></div>
+							<div class="divTxtPlace-ayer"><input type="number"><p>Salle(s) à manger</p></div>
+							<div class="divTxtPlace-ayer"><input type="number"><p>Salon(s)</p></div>
+							<div class="divTxtPlace-ayer"><input type="number"><p>Chambre(s)</p></div>
+							<div class="divTxtPlace-ayer"><input type="number"><p>Toilettes</p></div>
+							<div class="divTxtPlace-ayer"><input type="number"><p>Salle(s) de bain</p></div>
+						</div>
+						<div>
+							<div class="divTxtPlace-ayer"><input type="number"><p>Garage(s)</p></div>
+							<div class="divTxtPlace-ayer"><input type="number"><p>Jardin(s)</p></div>
+							<div class="divTxtPlace-ayer"><input type="number"><p>Terrasse(s)</p></div>
+							<div class="divTxtPlace-ayer"><input type="number"><p>Balcon(s)</p></div>
+							<div class="divTxtPlace-ayer"><input type="number"><p>Bureau(s)</p></div>
+							<div class="divTxtPlace-ayer"><input type="number"><p>OpenSpace(s)</p></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div>
+				<p style="
+    padding-left: 5px;
+    font-size: 18px;
+    color: #555555;
+    font-weight: 100;
+    margin-bottom: 10px;
+    margin-top: 10px;
+">Ajouter une description supplémentaire (facultatif)</p>
+				<textarea style="
+    display: block;
+    min-width: 100%;
+    max-width: 100%;
+    margin: 2px 0px 0px 2px;
+    height: 50px;
+    min-height: 50px;
+    border: none;
+    box-shadow: black 0px 0px 2px 0px;
+    border-radius: 5px;
+    padding: 5px 10px;
+"></textarea>
+			</div>
 		</div>
 
 		<div style="
@@ -1207,12 +1354,12 @@
 ">
 						<div class="input-group">
 							<span class="input-group-btn">
-								<button id="buttonMinusOne-ayer" disabled onclick="removeOneColoc_ayer()" type="button" class="btn btn-default btn-number" data-type="minus" data-field="quant[1]">
+								<button id="buttonMinusOne-ayer" disabled="" onclick="removeOneColoc_ayer()" type="button" class="btn btn-default btn-number" data-type="minus" data-field="quant[1]">
 									<span class="glyphicon glyphicon-minus"></span>
 								</button>
 							</span>
 							<input id="valueNbColocInfo" style="
-    text-align: center;" type="text" readonly name="quant[1]" class="form-control input-number" value="2" min="2">
+    text-align: center;" type="text" readonly="" name="quant[1]" class="form-control input-number" value="2" min="2">
 							<span class="input-group-btn">
 								<button onclick="addOneColoc_ayer()" type="button" class="btn btn-default btn-number" data-type="plus" data-field="quant[1]">
 									<span class="glyphicon glyphicon-plus"></span>
@@ -1244,10 +1391,12 @@
 	cursor: pointer;
     display: flex;
     position: relative;
-"><p style="user-select: none;">Colocataire 1</p>
-  <i class="fas fa-long-arrow-alt-down" style="position: absolute;right: 20px;line-height: 27px;"></i>
+">
+								<p style="user-select: none;
+		font-family: Noteworthy;">Colocataire 1</p>
+								<i class="fas fa-long-arrow-alt-down" style="position: absolute;right: 20px;line-height: 27px;"></i>
 							</div>
-							<div id="infoColoc1-ayer" class="infoColoc-ayer" style="overflow: hidden;max-height:500px;transition: max-height 1000ms;">
+							<div id="infoColoc1-ayer" class="infoColoc-ayer" style="overflow: hidden;max-height:1000px;transition: max-height 1000ms;">
 								<div style="padding: 10px 0">
 									<div class="col-sm-6">
 										<label class="label-ayer">Prénom</label>
@@ -1304,8 +1453,10 @@
 	cursor: pointer;
     display: flex;
     position: relative;
-"><p style="user-select: none;">Colocataire 2</p>
-  <i class="fas fa-long-arrow-alt-right" style="position: absolute;right: 20px;line-height: 27px;"></i>
+">
+								<p style="user-select: none;
+		font-family: Noteworthy;">Colocataire 2</p>
+								<i class="fas fa-long-arrow-alt-right" style="position: absolute;right: 20px;line-height: 27px;"></i>
 							</div>
 							<div id="infoColoc2-ayer" class="infoColoc-ayer" style="overflow: hidden;max-height:0;transition: max-height 1000ms;">
 								<div style="padding: 10px 0">
@@ -1366,8 +1517,10 @@
 	cursor: pointer;
     display: flex;
     position: relative;
-"><p style="user-select: none;">Colocataire exemple</p>
-  <i class="fas fa-long-arrow-alt-right" style="position: absolute;right: 20px;line-height: 27px;"></i>
+">
+									<p style="user-select: none;
+		font-family: Noteworthy;">Colocataire exemple</p>
+									<i class="fas fa-long-arrow-alt-right" style="position: absolute;right: 20px;line-height: 27px;"></i>
 								</div>
 								<div id="infoColocCopie-ayer" class="infoColoc-ayer" style="overflow: hidden;max-height:0;transition: max-height 1000ms;">
 									<div style="padding: 10px 0">
@@ -1430,7 +1583,7 @@
 		<div style="
     display: flex;
 ">
-			<a href="/" rel="modal:open" style="
+			<a href="@Url.Action("Index", "Home", null)" style="
     margin-left: auto;
     margin-right: auto;
     background-color: #C4D102;
@@ -1463,13 +1616,7 @@
     margin-bottom: 15px;
     min-width: 150px;
     text-align: center;
-    " href="/EcoRoommateExisting/EcoRoommateExisting_OnMap">Retour</a>
+    " href="@Url.Action("Index", "Home", null)">Retour</a>
 		</div>
 	</div>
 </div>
-
-<script type="text/javascript">
-	$(document).ready(function () {
-		uploadPhotoEcoColocationExisting()
-	});
-</script>
