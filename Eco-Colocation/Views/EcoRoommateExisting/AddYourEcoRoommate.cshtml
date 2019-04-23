@@ -1,0 +1,593 @@
+﻿
+@{
+	ViewBag.Title = "AddYourEcoRoommate";
+}
+
+<div id="addYourEcoRoommate">
+	<p id="titleTop-ayer">Ajout d'une nouvelle Eco-Colocation</p>
+	<div id="divDescEco-Coloc-ayer">
+		<div class="col-sm-3 sousDivFormColoc-ayer">
+			<label class="label-ayer">Nom</label>
+			<input class="input-ayer" placeholder="Determiner un nom à votre colocation">
+			<div class="underInput-ayer"></div>
+		</div>
+		<div class="col-sm-3 sousDivFormColoc-ayer" id="divLabelDateColoc-ayer">
+			<label class="label-ayer">Date de création</label>
+			<input class="input-ayer" type="date" id="inputDateCréation-ayer">
+			<div class="underInput-ayer"></div>
+		</div>
+		<div class="col-sm-3 sousDivFormColoc-ayer" id="divLabelNbColoc-ayer">
+			<label class="label-ayer">Nombre de colocataires</label>
+			<input class="input-ayer" placeholder="Entrer le nombre" oninput="modifyMinValueToNbInfoColoc(this)">
+			<div class="underInput-ayer"></div>
+		</div>
+		<div class="col-xs-12 sousDivFormColoc-ayer" style="margin-bottom: 25px;">
+			<label class="label-ayer">Description de votre éco-colocation</label>
+			<textarea id="txtareaDescColoc-ayer"></textarea>
+		</div>
+		<div class="col-sm-3 sousDivFormColoc-ayer">
+			<label class="label-ayer">Adresse</label>
+			<input class="input-ayer" placeholder="Entrer votre adresse">
+			<div class="underInput-ayer"></div>
+		</div>
+		<div class="col-sm-3 sousDivFormColoc-ayer" id="divLabelCodePostal-ayer">
+			<label class="label-ayer">Code postal</label>
+			<input class="input-ayer" placeholder="Entrer le code postal">
+			<div class="underInput-ayer"></div>
+		</div>
+		<div class="col-sm-3 sousDivFormColoc-ayer">
+			<label class="label-ayer">Ville</label>
+			<input class="input-ayer" placeholder="Entrer le nom de la ville">
+			<div class="underInput-ayer"></div>
+		</div>
+		<div class="col-xs-12 sousDivFormColoc-ayer">
+			<label class="label-ayer">Ajouter une photo à l'image de votre éco-colocation</label>
+
+			<label id="btnAddPicture-ayer" for="fileUpload-ayer">Ajouter une photo</label>
+			<input id="fileUpload-ayer" type="file" onchange="uploadImgEcoRoommate();">
+			<div id="divResultFilesUpl-ayer">
+				<img src="" id="resultImgUpl-ayer">
+				<i id="icondeletePicture-ayer" class="fas fa-times-circle" onclick="removeUploadPicture_ayer()"></i>
+			</div>
+		</div>
+	</div>
+	<div>
+		<h2 class="titleH2-ayer">
+			Notre fibre écologique
+		</h2>
+		<div>
+			<div class="divFibreEco-ayer">
+				<input type="radio" name="fibreEco" value="1" class="radioFibreEco-ayer">
+				<p class="txtFibreEco-ayer">Donner le meilleur de nous-même pour réduire au maximum notre impact écologique</p>
+			</div>
+			<div class="divFibreEco-ayer">
+				<input type="radio" name="fibreEco" value="2" class="radioFibreEco-ayer" checked="">
+				<p class="txtFibreEco-ayer">Tenter notre possible pour réduire notre impact écologique</p>
+			</div>
+			<div class="divFibreEco-ayer">
+				<input type="radio" name="fibreEco" value="3" class="radioFibreEco-ayer">
+				<p class="txtFibreEco-ayer">Essayer de réduire un minimum notre impact écologique</p>
+			</div>
+		</div>
+	</div>
+	<div>
+		<h2 class="titleH2-ayer">Ce que l'on y fait</h2>
+		<div>
+			<div class="divParentFlexWrap-ayer">
+				<div class="divChildFlexWrap-ayer">
+					<div class="encadrePratice-ayer">
+						<p class="txtPratice-ayer">Production alimentaire</p>
+						<div class="divEnterPraticeWord-ayer">
+							<input class="inputPraticeWord-ayer" placeholder="Entrer un mot clé. Ex: Bio">
+							<div class="btnAddPraticeWord-ayer">Ajouter</div>
+						</div>
+						<div class="divDisplayPraticeWord-ayer">
+							<div class="flex">
+								<input class="ckboxPratice-ayer" type="checkbox" name="Bio">
+								<p class="showTxt-ayer" name="Bio">Bio</p>
+							</div>
+							<div class="flex">
+								<input class="ckboxPratice-ayer" type="checkbox" name="Permaculture">
+								<p class="showTxt-ayer" name="Permaculture">Permaculture</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="divChildFlexWrap-ayer">
+					<div class="encadrePratice-ayer">
+						<p class="txtPratice-ayer">Consommation</p>
+						<div class="divEnterPraticeWord-ayer">
+							<input class="inputPraticeWord-ayer" placeholder="Entrer un mot clé. Ex: Local">
+							<div class="btnAddPraticeWord-ayer">Ajouter</div>
+						</div>
+						<div class="divDisplayPraticeWord-ayer">
+							<div class="flex">
+								<input class="ckboxPratice-ayer" type="checkbox" name="Bio">
+								<p name="local" class="showTxt-ayer">local</p>
+							</div>
+							<div class="flex">
+								<input class="ckboxPratice-ayer" type="checkbox" name="Permaculture">
+								<p name="Végétarienne" class="showTxt-ayer">Végétarienne</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="divChildFlexWrap-ayer">
+					<div class="encadrePratice-ayer">
+						<p class="txtPratice-ayer">Déplacement</p>
+						<div class="divEnterPraticeWord-ayer">
+							<input class="inputPraticeWord-ayer" placeholder="Entrer un mot clé. Ex: Bus">
+							<div class="btnAddPraticeWord-ayer">Ajouter</div>
+						</div>
+						<div class="divDisplayPraticeWord-ayer">
+							<div class="flex">
+								<input class="ckboxPratice-ayer" type="checkbox" name="Bio">
+								<p name="Bus" class="showTxt-ayer">Bus</p>
+							</div>
+							<div class="flex">
+								<input class="ckboxPratice-ayer" type="checkbox" name="Permaculture">
+								<p name="Permaculture" class="showTxt-ayer">Vélo</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="divChildFlexWrap-ayer">
+					<div class="encadrePratice-ayer">
+						<p class="txtPratice-ayer">Vie en communauté</p>
+						<div class="divEnterPraticeWord-ayer">
+							<input class="inputPraticeWord-ayer" placeholder="Entrer un mot clé. Ex: Repas">
+							<div class="btnAddPraticeWord-ayer">Ajouter</div>
+						</div>
+						<div class="divDisplayPraticeWord-ayer">
+							<div class="flex">
+								<input class="ckboxPratice-ayer" type="checkbox" name="Bio">
+								<p name="Repas" class="showTxt-ayer">Repas</p>
+							</div>
+							<div class="flex">
+								<input class="ckboxPratice-ayer" type="checkbox" name="Permaculture">
+								<p name="Partage des tâches" class="showTxt-ayer">Partage des tâches</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="divChildFlexWrap-ayer">
+					<div class="encadrePratice-ayer">
+						<p class="txtPratice-ayer">Atelier</p>
+						<div></div>
+						<div class="divEnterPraticeWord-ayer">
+							<input class="inputPraticeWord-ayer" placeholder="Entrer un mot clé. Ex: Peinture">
+							<div class="btnAddPraticeWord-ayer">Ajouter</div>
+						</div>
+						<div class="divDisplayPraticeWord-ayer">
+							<div class="flex">
+								<input class="ckboxPratice-ayer" type="checkbox" name="Bio">
+								<p name="Peinture" class="showTxt-ayer">Peinture</p>
+							</div>
+							<div class="flex">
+								<input class="ckboxPratice-ayer" type="checkbox" name="Permaculture">
+								<p name="Sculture" class="showTxt-ayer">Fabrication low tech</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div>
+				<p class="labelDescSup-ayer">Ajouter une description supplémentaire (facultatif)</p>
+				<textarea class="txtareaDescSup-ayer"></textarea>
+			</div>
+		</div>
+	</div>
+	<div>
+		<h2 class="titleH2-ayer">Ce que l'on a d'écologique chez nous</h2>
+		<div>
+			<div class="divParentFlexWrap-ayer">
+				<div class="divIconCkbox">
+					<div class="flex">
+						<div class="iconCkbox-ayer" style="background: url(../../content/images/logos/garden.png) no-repeat;"></div>
+					</div>
+					<div class="flex">
+						<div class="divParentCkbox-ayer">
+							<input class="ckBoxIcon-ayer" type="checkbox" name="Jardin">
+							<p class="iconConnectToCkBox-ayer">Jardin</p>
+						</div>
+					</div>
+				</div>
+				<div class="divIconCkbox">
+					<div class="flex">
+						<div class="iconCkbox-ayer" style="background: url(../../content/images/logos/seed.png) no-repeat;"></div>
+					</div>
+					<div class="flex">
+						<div class="divParentCkbox-ayer">
+							<input class="ckBoxIcon-ayer" type="checkbox" name="Potager">
+							<p class="txtIcon-ayer">Potager</p>
+						</div>
+					</div>
+				</div>
+				<div class="divIconCkbox">
+					<div class="flex">
+						<div class="iconCkbox-ayer" style="background: url(../../content/images/logos/compost.png) no-repeat;"></div>
+					</div>
+					<div class="flex">
+						<div class="divParentCkbox-ayer">
+							<input type="checkbox" name="Toilette seche" class="ckBoxIcon-ayer">
+							<p class="txtIcon-ayer">Toilettes sèches</p>
+						</div>
+					</div>
+				</div>
+				<div class="divIconCkbox">
+					<div class="flex">
+						<div class="iconCkbox-ayer" style="background: url(../../content/images/logos/recyclingBin.png) no-repeat;"></div>
+					</div>
+
+					<div class="flex">
+						<div class="divParentCkbox-ayer">
+							<input type="checkbox" name="Poubelles de recyclage" class="ckBoxIcon-ayer">
+							<p class="txtIcon-ayer">Poubelles de recyclage</p>
+						</div>
+					</div>
+				</div>
+				<div class="divIconCkbox">
+					<div class="flex">
+						<div class="iconCkbox-ayer" style="background: url(../../content/images/logos/compost.png) no-repeat;"></div>
+					</div>
+					<div class="flex">
+						<div class="divParentCkbox-ayer">
+							<input type="checkbox" name="Compost" class="ckBoxIcon-ayer">
+							<p class="txtIcon-ayer">Compost</p>
+						</div>
+					</div>
+				</div>
+				<div class="divIconCkbox">
+					<div class="flex">
+						<div class="iconCkbox-ayer" style="background: url(../../content/images/logos/naturalhouse.png) no-repeat;"></div>
+					</div>
+					<div class="flex">
+						<div class="divParentCkbox-ayer">
+							<input type="checkbox" name="Habitat en matériaux écologiques ou recyclables" class="ckBoxIcon-ayer">
+							<p class="txtIcon-ayer">Habitat en matériaux écologiques ou recyclables</p>
+						</div>
+					</div>
+				</div>
+				<div class="divIconCkbox">
+					<div class="flex">
+						<div class="iconCkbox-ayer" style="background: url(../../content/images/logos/heater.png) no-repeat;"></div>
+					</div>
+					<div class="flex">
+						<div class="divParentCkbox-ayer">
+							<input type="checkbox" name="Chauffage écologique" class="ckBoxIcon-ayer">
+							<p class="txtIcon-ayer">Chauffage écologique</p>
+						</div>
+					</div>
+				</div>
+				<div class="divIconCkbox">
+					<div class="flex">
+						<div class="iconCkbox-ayer" style="background: url(../../content/images/logos/waterRecycling.png) no-repeat;"></div>
+					</div>
+					<div class="flex">
+						<div class="divParentCkbox-ayer">
+							<input type="checkbox" name="Outils de recyclage des eaux" class="ckBoxIcon-ayer">
+							<p class="txtIcon-ayer">Outils de recyclage des eaux</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div>
+				<p class="labelDescSup-ayer">Ajouter une description supplémentaire (facultatif)</p>
+				<textarea class="txtareaDescSup-ayer"></textarea>
+			</div>
+		</div>
+	</div>
+	<div>
+		<h2 class="titleH2-ayer">
+			Ce que l'on réduit grâce à nos attitudes
+		</h2>
+		<div class="flex flexWrap">
+			<div class="divIconCkbox">
+				<div class="flex">
+					<div class="iconCkbox-ayer" style="background: url(../../content/images/logos/waterConsommation.png) no-repeat;"></div>
+				</div>
+
+				<div class="flex">
+					<div class="divParentCkbox-ayer">
+						<input type="checkbox" name="Notre Consommation d'eau" class="ckBoxIcon-ayer">
+						<p class="txtIcon-ayer">Notre Consommation d'eau</p>
+					</div>
+				</div>
+			</div>
+			<div class="divIconCkbox">
+				<div class="flex">
+					<div class="iconCkbox-ayer" style="background: url(../../content/images/logos/electricity.png) no-repeat;"></div>
+				</div>
+
+				<div class="flex">
+					<div class="divParentCkbox-ayer">
+						<input type="checkbox" name="Notre consommation d'électricité" class="ckBoxIcon-ayer">
+						<p class="txtIcon-ayer">Notre consommation d'électricité</p>
+					</div>
+				</div>
+			</div>
+			<div class="divIconCkbox">
+				<div class="flex">
+					<div class="iconCkbox-ayer" style="background: url(../../content/images/logos/wastConsommation.png) no-repeat;"></div>
+				</div>
+
+				<div class="flex">
+					<div class="divParentCkbox-ayer">
+						<input type="checkbox" name="Notre consommation d'électricité" class="ckBoxIcon-ayer">
+						<p class="txtIcon-ayer">Nos déchets</p>
+					</div>
+				</div>
+			</div>
+			<div class="divIconCkbox">
+				<div class="flex">
+					<div class="iconCkbox-ayer" style="background: url(../../content/images/logos/consomationCarburant.png) no-repeat;"></div>
+				</div>
+
+				<div class="flex">
+					<div class="divParentCkbox-ayer">
+						<input type="checkbox" name="Notre consommation d'électricité" class="ckBoxIcon-ayer">
+						<p class="txtIcon-ayer">Notre consommation de carburant</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div>
+			<p class="labelDescSup-ayer">Ajouter une description supplémentaire (facultatif)</p>
+			<textarea class="txtareaDescSup-ayer"></textarea>
+		</div>
+		<div>
+			<h2 class="titleH2-ayer">Comment est notre habitat</h2>
+			<div>
+				<div id="divHabitatDesc-ayer">
+					<div class="childFlex">
+						<label id="labelSurfaceTer-ayer">Surface du terrain</label>
+						<input class="inputSurface-ayer" type="text">
+					</div>
+					<div class="childFlex">
+						<label id="labelSurfaceHab-ayer">Surface de l'habitat</label>
+						<input class="inputSurface-ayer" type="text">
+					</div>
+				</div>
+				<p id="txtTitlePlace-ayer">Completer le nombre de pièces présentes</p>
+				<div id="divPlaceResponsive-ayer">
+					<div id="divPlace-ayer">
+						<div>
+							<div class="divTxtPlace-ayer"><input type="number"><p>Cuisine(s)</p></div>
+							<div class="divTxtPlace-ayer"><input type="number"><p>Salle(s) à manger</p></div>
+							<div class="divTxtPlace-ayer"><input type="number"><p>Salon(s)</p></div>
+							<div class="divTxtPlace-ayer"><input type="number"><p>Chambre(s)</p></div>
+							<div class="divTxtPlace-ayer"><input type="number"><p>Toilettes</p></div>
+							<div class="divTxtPlace-ayer"><input type="number"><p>Salle(s) de bain</p></div>
+						</div>
+						<div>
+							<div class="divTxtPlace-ayer"><input type="number"><p>Garage(s)</p></div>
+							<div class="divTxtPlace-ayer"><input type="number"><p>Jardin(s)</p></div>
+							<div class="divTxtPlace-ayer"><input type="number"><p>Terrasse(s)</p></div>
+							<div class="divTxtPlace-ayer"><input type="number"><p>Balcon(s)</p></div>
+							<div class="divTxtPlace-ayer"><input type="number"><p>Bureau(s)</p></div>
+							<div class="divTxtPlace-ayer"><input type="number"><p>OpenSpace(s)</p></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div>
+				<p class="labelDescSup-ayer">Ajouter une description supplémentaire (facultatif)</p>
+				<textarea class="txtareaDescSup-ayer"></textarea>
+			</div>
+		</div>
+		<div class="overflow">
+			<div class="flexWrap">
+				<div class="col-sm-6 col-xs-12">
+					<h2 class="titleH2-ayer">Création d'un compte éco-colocation</h2>
+					<div class="flex">
+						<div id="divInfoUserMdp-ayer">
+							<i id="iconInfoUserMdp-ayer" class="fas fa-info"></i>
+							<p>L'identifiant et le mot de passe sera diffusé à chaque colocataire par email.</p>
+						</div>
+					</div>
+					<div class="overflow">
+						<div class="col-xs-10 rowLabelMdp-ayer">
+							<label class="label-ayer">Utilisateur</label>
+							<input type="email" placeholder="Addresse mail" class="input-ayer">
+							<div class="underInput-ayer"></div>
+						</div>
+						<div class="col-xs-10 rowLabelMdp-ayer">
+							<label class="label-ayer">Mot de passe</label>
+							<input type="password" placeholder="Entrer un mot de passe" class="input-ayer">
+							<div class="underInput-ayer"></div>
+						</div>
+						<div class="col-xs-10 rowLabelMdp-ayer">
+							<label class="label-ayer">Mot de passe</label>
+							<input type="password" placeholder="Confirmer le mot de passe" class="input-ayer">
+							<div class="underInput-ayer"></div>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-6 col-xs-12">
+					<h2 class="titleH2-ayer">
+						Enregistrement des colocataires
+					</h2>
+					<div id="divAddOthersColoc-ayer">
+						<div class="input-group">
+							<span class="input-group-btn">
+								<button id="buttonMinusOne-ayer" disabled="" onclick="removeOneColoc_ayer()" type="button" class="btn btn-default btn-number" data-type="minus" data-field="quant[1]">
+									<span class="glyphicon glyphicon-minus"></span>
+								</button>
+							</span>
+							<input id="valueNbColocInfo-ayer" type="text" readonly="" name="quant[1]" class="form-control input-number" value="2" min="2">
+							<span class="input-group-btn">
+								<button onclick="addOneColoc_ayer()" type="button" class="btn btn-default btn-number" data-type="plus" data-field="quant[1]">
+									<span class="glyphicon glyphicon-plus"></span>
+								</button>
+							</span>
+						</div>
+					</div>
+					<div id="tableColocInfo-ayer">
+						<div id="coloc1-ayer">
+							<div id="titleInfoColoc1-ayer" class="titleInfoColocs-ayer" onclick="openThisColocRow_ayer('#titleInfoColoc1-ayer','#infoColoc1-ayer')">
+								<p class="txtColocTable-ayer">Colocataire 1</p>
+								<i class="fas fa-long-arrow-alt-down iconTxtColocTable-ayer"></i>
+							</div>
+							<div id="infoColoc1-ayer" class="infoColoc-ayer">
+								<div class="enterColocTable-ayer">
+									<div class="col-sm-6">
+										<label class="label-ayer">Prénom</label>
+										<input type="text" placeholder="Entrer votre prénom" class="input-ayer">
+										<div class="underInput-ayer"></div>
+									</div>
+									<div class="col-sm-6">
+										<label class="label-ayer">Nom</label>
+										<input type="text" placeholder="Entrer votre nom" class="input-ayer">
+										<div class="underInput-ayer"></div>
+									</div>
+									<div class="col-sm-6">
+										<label class="label-ayer">Email</label>
+										<input type="text" placeholder="Entrer votre prénom" class="input-ayer">
+										<div class="underInput-ayer"></div>
+									</div>
+									<div class="col-sm-6">
+										<label class="label-ayer">Date de naissance</label>
+										<input type="date" class="input-ayer">
+										<div class="underInput-ayer"></div>
+									</div>
+									<div class="col-sm-6" style="height: 91px;">
+										<label class="label-ayer">Civilité</label>
+										<select class="selectColocTable-ayer form-control">
+											<option value="0">Monsieur</option>
+											<option value="1">Madame</option>
+										</select>
+									</div>
+									<div class="col-sm-6">
+										<label class="label-ayer">Activités</label>
+										<select class="selectColocTable-ayer form-control">
+											<option value="0">Salarié(e)</option>
+											<option value="1">Etudient(e)</option>
+											<option value="2">Indépendant(e)</option>
+											<option value="3">Sans activité</option>
+											<option value="4">Retraité(e)</option>
+											<option value="5">Autre</option>
+										</select>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="coloc2-ayer">
+							<div id="titleInfoColoc2-ayer" class="titleInfoColocs-ayer" onclick="openThisColocRow_ayer('#titleInfoColoc2-ayer','#infoColoc2-ayer')">
+								<p class="txtColocTable-ayer">Colocataire 2</p>
+								<i class="fas fa-long-arrow-alt-right iconTxtColocTable-ayer"></i>
+							</div>
+							<div id="infoColoc2-ayer" class="infoColoc-ayer infoColoc-ayer">
+								<div class="enterColocTable-ayer">
+									<div class="col-sm-6">
+										<label class="label-ayer">Prénom</label>
+										<input type="text" placeholder="Entrer votre prénom" class="input-ayer">
+										<div class="underInput-ayer"></div>
+									</div>
+									<div class="col-sm-6">
+										<label class="label-ayer">Nom</label>
+										<input type="text" placeholder="Entrer votre nom" class="input-ayer">
+										<div class="underInput-ayer"></div>
+									</div>
+									<div class="col-sm-6">
+										<label class="label-ayer">Email</label>
+										<input type="text" placeholder="Entrer votre prénom" class="input-ayer">
+										<div class="underInput-ayer"></div>
+									</div>
+									<div class="col-sm-6">
+										<label class="label-ayer">Date de naissance</label>
+										<input type="date" class="input-ayer">
+										<div class="underInput-ayer"></div>
+									</div>
+									<div class="col-sm-6" style="height: 91px;">
+										<label class="label-ayer">Civilité</label>
+										<select class="selectColocTable-ayer form-control">
+											<option value="0">Monsieur</option>
+											<option value="1">Madame</option>
+										</select>
+									</div>
+									<div class="col-sm-6">
+										<label class="label-ayer">Activités</label>
+										<select class="selectColocTable-ayer form-control">
+											<option value="0">Salarié(e)</option>
+											<option value="1">Etudient(e)</option>
+											<option value="2">Indépendant(e)</option>
+											<option value="3">Sans activité</option>
+											<option value="4">Retraité(e)</option>
+											<option value="5">Autre</option>
+										</select>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="addOthersColoc">
+							<div id="colocCopie-ayer" style="display:none">
+								<div id="titleInfoColocCopie-ayer" class="titleInfoColocs-ayer" onclick="openThisColocRow_ayer('#titleInfoColocCopie-ayer','#infoColocCopie-ayer')">
+									<p class="txtColocTable-ayer">Colocataire exemple</p>
+									<i class="fas fa-long-arrow-alt-right iconTxtColocTable-ayer"></i>
+								</div>
+								<div id="infoColocCopie-ayer" class="infoColoc-ayer infoColoc-ayer">
+									<div class="enterColocTable-ayer">
+										<div class="col-sm-6">
+											<label class="label-ayer">Prénom</label>
+											<input type="text" placeholder="Entrer votre prénom" class="input-ayer">
+											<div class="underInput-ayer"></div>
+										</div>
+										<div class="col-sm-6">
+											<label class="label-ayer">Nom</label>
+											<input type="text" placeholder="Entrer votre nom" class="input-ayer">
+											<div class="underInput-ayer"></div>
+										</div>
+										<div class="col-sm-6">
+											<label class="label-ayer">Email</label>
+											<input type="text" placeholder="Entrer votre prénom" class="input-ayer">
+											<div class="underInput-ayer"></div>
+										</div>
+										<div class="col-sm-6">
+											<label class="label-ayer">Date de naissance</label>
+											<input type="date" class="input-ayer">
+											<div class="underInput-ayer"></div>
+										</div>
+										<div class="col-sm-6" style="height: 91px;">
+											<label class="label-ayer">Civilité</label>
+											<select class="form-control selectColocTable-ayer">
+												<option value="0">Monsieur</option>
+												<option value="1">Madame</option>
+											</select>
+										</div>
+										<div class="col-sm-6">
+											<label class="label-ayer">Activités</label>
+											<select class="form-control selectColocTable-ayer">
+												<option value="0">Salarié(e)</option>
+												<option value="1">Etudient(e)</option>
+												<option value="2">Indépendant(e)</option>
+												<option value="3">Sans activité</option>
+												<option value="4">Retraité(e)</option>
+												<option value="5">Autre</option>
+											</select>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="divBottomBtn-ayer">
+		<div class="flex">
+			<a id="btnValidateInfo-ayer" href="@Url.Action("Index", "Home", null)">Valider mes informations</a>
+		</div>
+		<div class="flex">
+			<a id="btnCancelInfo-ayer" href="@Url.Action("Index", "Home", null)">Retour</a>
+		</div>
+
+		@* Rajouter des conditions d'affichage *@
+		@if (User.Identity.IsAuthenticated)
+		{
+			<div class="flex">
+				<a id="btnSupColoc-ayer" href="@Url.Action("ModalDeleteEcoRoommate", "EcoRoommateExisting", null)" rel="modal:open">Supprimer notre éco-colocation</a>
+			</div>
+		}
+	</div>
+</div>
