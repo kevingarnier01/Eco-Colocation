@@ -625,7 +625,7 @@ function openThisColocRow_ayer(elementTitle, elementBlockIdToOpen) {
 			$(elementBlockIdToOpen).css('max-height', '1000px');
 			$(elementTitle).css('background-color', '#C4D102');
 			$(elementTitle).css('color', 'white');
-			$(elementTitle + " i").attr("class", "fas fa-long-arrow-alt-down")
+			$(elementTitle + " i").attr("class", "fas fa-long-arrow-alt-down iconTxtColocTable-ayer")
 		}, 100)
 	}
 	else {
@@ -636,20 +636,20 @@ function openThisColocRow_ayer(elementTitle, elementBlockIdToOpen) {
 		$('.titleInfoColocs-ayer').css('background-color', 'initial');
 		$('.titleInfoColocs-ayer').css('color', '#555555');
 		$('.infoColoc-ayer').css('max-height', '0');
-		$("i").attr("class", "fas fa-long-arrow-alt-right")
+		$(".iconTxtColocTable-ayer").attr("class", "fas fa-long-arrow-alt-right iconTxtColocTable-ayer")
 	}
 }
 
 function modifyMinValueToNbInfoColoc(element) {
 	if ($(element).val() > 2) {
-		$('#valueNbColocInfo').attr("min", $(element).val());
+		$('#valueNbColocInfo-ayer').attr("min", $(element).val());
 	}
 }
 
 function removeOneColoc_ayer() {
-	if ($('#valueNbColocInfo').val() > 2) {
-		$('#valueNbColocInfo').val(parseInt($('#valueNbColocInfo').val()) - 1)
-		if ($('#valueNbColocInfo').val() != 2) {
+	if ($('#valueNbColocInfo-ayer').val() > 2) {
+		$('#valueNbColocInfo-ayer').val(parseInt($('#valueNbColocInfo-ayer').val()) - 1)
+		if ($('#valueNbColocInfo-ayer').val() != 2) {
 			$('#buttonMinusOne-ayer').attr("disabled", false);
 		}
 
@@ -661,7 +661,7 @@ function removeOneColoc_ayer() {
 					$('.divColocInfo:last-child').remove();
 				}
 				else {
-					$('#valueNbColocInfo').val(parseInt($('#valueNbColocInfo').val()) + 1)
+					$('#valueNbColocInfo-ayer').val(parseInt($('#valueNbColocInfo-ayer').val()) + 1)
 				}
 			}
 			else {
@@ -678,17 +678,18 @@ function removeOneColoc_ayer() {
 }
 
 function addOneColoc_ayer() {
-	var newValueNbBlockColocInfo = parseInt($('#valueNbColocInfo').val()) + 1;
+	debugger
+	var newValueNbBlockColocInfo = parseInt($('#valueNbColocInfo-ayer').val()) + 1;
 
-	$('#valueNbColocInfo').val(newValueNbBlockColocInfo)
+	$('#valueNbColocInfo-ayer').val(newValueNbBlockColocInfo)
 
-	if ($('#valueNbColocInfo').val() > 2) {
+	if ($('#valueNbColocInfo-ayer').val() > 2) {
 		$('#buttonMinusOne-ayer').attr("disabled", false);
 	}
 
 	//-1 de titleInfoColocs-ayer représente celui que sert de copie
-	//-1 de valueNbColocInfo représente la valeur dont l'utilisateur vient d'ajouter
-	if ($('.titleInfoColocs-ayer').length - 1 == (parseInt($('#valueNbColocInfo').val() - 1))) {
+	//-1 de valueNbColocInfo-ayer représente la valeur dont l'utilisateur vient d'ajouter
+	if ($('.titleInfoColocs-ayer').length - 1 == (parseInt($('#valueNbColocInfo-ayer').val() - 1))) {
 		var idName = "divColocInfo" + newValueNbBlockColocInfo;
 
 		if ($(idName).length != 0) {
@@ -706,7 +707,6 @@ function addOneColoc_ayer() {
 			'openThisColocRow_ayer("#titleInfoColoc' + newValueNbBlockColocInfo + '-ayer","#infoColoc' + newValueNbBlockColocInfo + '-ayer")')
 		$("#" + idName + ' .titleInfoColocs-ayer p').text("Colocataire " + newValueNbBlockColocInfo)
 		$("#" + idName + ' #infoColocCopie-ayer').attr('id', 'infoColoc' + newValueNbBlockColocInfo + '-ayer')
-
 	}
 }
 

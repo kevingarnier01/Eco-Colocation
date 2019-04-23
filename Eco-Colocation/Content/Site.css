@@ -232,8 +232,31 @@ p {
 	cursor: progress;
 }
 
-/*** attribute boostrap ***/
+/*** Attribute CSS style ***/
+.flex {
+	display: flex;
+}
 
+.childFlex {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.flexWrap {
+	flex-wrap: wrap
+}
+
+.overflow {
+	overflow: auto;
+}
+
+/*** style family ***/
+.fontFamilyNote {
+	font-family: Noteworthy;
+}
+
+
+/*** attribute boostrap ***/
 select:-moz-focusring {
 	color: transparent;
 	text-shadow: 0 0 0 #000;
@@ -3141,6 +3164,8 @@ select:-moz-focusring {
 	font-size: 18px;
 	text-align: center;
 	padding-bottom: 6px;
+	font-family: Noteworthy;
+	font-weight: bold;
 }
 
 .infoPrimaire-ereom {
@@ -3156,6 +3181,7 @@ select:-moz-focusring {
 	font-weight: initial;
 	padding-top: 5px;
 	text-align: center;
+	font-size: 15px;
 }
 
 #title-ereom {
@@ -3414,9 +3440,11 @@ select:-moz-focusring {
 .divBtnBottom-erev {
 	display: flex;
 }
+
 #divGlobalSurfaceHabitat-erev {
 	display: flex;
 }
+
 #divGlobalSurfaceHabitat2-erev {
 	display: flex;
 	min-width: 500px;
@@ -3425,125 +3453,527 @@ select:-moz-focusring {
 
 @media only screen and (max-width: 520px) {
 	#divGlobalSurfaceHabitat2-erev {
-		display:initial;
+		display: initial;
 	}
 }
 
-	#btnContacter-erev {
-		margin-left: auto;
-		margin-right: auto;
-		background-color: #C4D102;
-		font-family: 'Noteworthy';
-		text-decoration: none;
-		font-size: 20px;
-		font-weight: 800;
-		color: white;
-		box-shadow: 0 0 3px 0px black;
-		padding: 2px 12px;
-		border-radius: 3px;
-	}
+#btnContacter-erev {
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #C4D102;
+	font-family: 'Noteworthy';
+	text-decoration: none;
+	font-size: 20px;
+	font-weight: 800;
+	color: white;
+	box-shadow: 0 0 3px 0px black;
+	padding: 2px 12px;
+	border-radius: 3px;
+}
 
-	#btnRetour-erev {
-		margin-left: auto;
-		margin-right: auto;
-		background-color: #C4D102;
-		font-family: 'Noteworthy';
-		text-decoration: none;
-		font-size: 20px;
-		font-weight: 800;
-		color: white;
-		box-shadow: 0 0 3px 0px black;
-		padding: 2px 12px;
-		border-radius: 3px;
-		margin-top: 15px;
-		margin-bottom: 15px;
-		min-width: 150px;
-		text-align: center;
-	}
-	/**** AddYourEcoRoommate ****/
-	#addYourEcoRoommate {
-		padding: 10px
-	}
+#btnRetour-erev {
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #C4D102;
+	font-family: 'Noteworthy';
+	text-decoration: none;
+	font-size: 20px;
+	font-weight: 800;
+	color: white;
+	box-shadow: 0 0 3px 0px black;
+	padding: 2px 12px;
+	border-radius: 3px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	min-width: 150px;
+	text-align: center;
+}
+/**** AddYourEcoRoommate ****/
+#addYourEcoRoommate {
+	padding: 10px
+}
 
-	.label-ayer {
-		padding-left: 5px;
-		font-size: 18px;
+#titleTop-ayer {
+	text-align: center;
+	font-size: 45px;
+	margin-top: 10px;
+	font-family: 'Noteworthy';
+	margin-bottom: 35px;
+}
+
+#divDescEco-Coloc-ayer {
+	overflow: auto;
+}
+
+.label-ayer {
+	padding-left: 5px;
+	font-size: 18px;
+	color: #555555;
+	font-weight: 100;
+}
+
+.input-ayer {
+	border: none;
+	font-size: 15px;
+	line-height: 1.2;
+	padding: 0 5px;
+	padding-bottom: 13px;
+	width: 100%;
+	color: #6b6a6a;
+	font-weight: 100;
+	background-color: transparent;
+}
+
+.underInput-ayer {
+	border-bottom: 2px solid #d9d9d9;
+	margin-bottom: 25px;
+}
+
+.sousDivFormColoc-ayer {
+	padding: 0;
+	margin-right: 30px;
+}
+
+input.radioFibreEco-ayer {
+	margin-right: 15px;
+}
+
+#divPlace-ayer {
+	margin-left: auto;
+	margin-right: auto;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.divTxtPlace-ayer {
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 10px;
+	display: flex;
+}
+
+	.divTxtPlace-ayer p {
+		font-size: 17px;
 		color: #555555;
 		font-weight: 100;
-	}
-
-	.input-ayer {
-		border: none;
-		font-size: 15px;
-		line-height: 1.2;
-		padding: 0 5px;
-		padding-bottom: 13px;
-		width: 100%;
-		color: #6b6a6a;
-		font-weight: 100;
-		background-color: transparent;
-	}
-
-	.underInput-ayer {
-		border-bottom: 2px solid #d9d9d9;
-		margin-bottom: 25px;
-	}
-
-	.sousDivFormColoc-ayer {
 		padding: 0;
-		margin-right: 30px;
+		margin-right: 15px;
+		width: 135px;
+		font-family: Noteworthy;
 	}
 
-	input.radioFibreEco-ayer {
-		margin-right: 15px;
+	.divTxtPlace-ayer input {
+		border: none;
+		border-radius: 3px;
+		padding: 5px;
+		box-shadow: 0 0 2px black;
+		height: 23px;
+		width: 70px;
+		margin-right: 20px;
+		text-align: center
+	}
+
+#divPlace-ayer div {
+	margin-left: 8px;
+	margin-right: 8px;
+}
+
+#divLabelDateColoc-ayer {
+	width: 175px;
+}
+
+#divLabelNbColoc-ayer {
+	width: 200px;
+}
+
+@media only screen and (max-width: 600px) {
+	#divPlaceResponsive-ayer {
+		display: flex;
 	}
 
 	#divPlace-ayer {
-		margin-left: auto;
-		margin-right: auto;
-		display: flex;
-		flex-wrap: wrap;
+		display: initial
 	}
+}
 
-	.divTxtPlace-ayer {
-		margin-left: auto;
-		margin-right: auto;
-		margin-bottom: 10px;
-		display: flex;
-	}
+#inputDateCréation-ayer {
+	height: 30px;
+}
 
-		.divTxtPlace-ayer p {
-			font-size: 17px;
-			color: #555555;
-			font-weight: 100;
-			padding: 0;
-			margin-right: 15px;
-			width: 135px;
-			font-family: Noteworthy;
-		}
+#txtareaDescColoc-ayer {
+	display: block;
+	width: 99%;
+	min-width: 99%;
+	max-width: 99%;
+	margin: 0px;
+	height: 100px;
+	min-height: 100px;
+	border: none;
+	box-shadow: 0 0 2px 0px black;
+	border-radius: 5px;
+	margin-top: 2px;
+	padding: 5px 10px;
+	margin-left: 2px;
+}
 
-		.divTxtPlace-ayer input {
-			border: none;
-			border-radius: 3px;
-			padding: 5px;
-			box-shadow: 0 0 2px black;
-			height: 23px;
-			width: 70px;
-			margin-right: 20px;
-			text-align: center
-		}
+#btnAddPicture-ayer {
+	padding: 7px;
+	box-shadow: 0 0 5px 0px black;
+	text-align: center;
+	border-radius: 8px;
+	width: 230px;
+	cursor: pointer;
+	font-weight: 100;
+	max-width: 500px;
+	margin-top: 8px;
+	margin-left: 5px;
+	background-color: #C4D102;
+	font-family: 'Noteworthy';
+	text-decoration: none;
+	color: white;
+	font-size: 18px;
+	margin-bottom: 5px;
+	display: block
+}
 
-	#divPlace-ayer div {
-		margin-left: 8px;
-		margin-right: 8px;
-	}
+#fileUpload-ayer {
+	display: none
+}
 
-	@media only screen and (max-width: 600px) {
-		#divPlaceResponsive-ayer {
-			display: flex;
-		}
+#divResultFilesUpl-ayer {
+	display: inline-flex;
+	position: relative;
+	box-shadow: 0 0 5px 0 black;
+	margin: 6px;
+	display: none;
+}
 
-		#divPlace-ayer {
-			display: initial
-		}
-	}
+#resultImgUpl-ayer {
+	height: 170px;
+	margin: 10px;
+	margin-bottom: 30px;
+}
+
+#icondeletePicture-ayer {
+	font-size: 25px;
+	position: absolute;
+	bottom: 0;
+	margin-left: 50%;
+	transform: translateX(-50%);
+	margin-bottom: 3px;
+	cursor: pointer;
+}
+
+.titleH2-ayer {
+	color: #00C2D6;
+	font-family: Noteworthy;
+	font-weight: bold;
+	margin-bottom: 25px;
+}
+
+.divFibreEco-ayer {
+	display: flex;
+}
+
+.txtFibreEco-ayer {
+	font-size: 18px;
+	color: #555555;
+	font-family: Noteworthy;
+}
+
+.divParentFlexWrap-ayer {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.divChildFlexWrap-ayer {
+	padding: 0px 10px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.encadrePratice-ayer {
+	padding: 5px 15px;
+	border-radius: 5px;
+	box-shadow: 0 0 3px 0 black;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 25px;
+	max-width: 275px;
+	max-height: 220px;
+	overflow: hidden;
+}
+
+.txtPratice-ayer {
+	text-align: center;
+	margin-bottom: 15px;
+	font-weight: bold;
+	color: #555555;
+	font-family: Noteworthy;
+	font-size: 18px;
+}
+
+.divEnterPraticeWord-ayer {
+	display: flex;
+	margin-bottom: 10px;
+}
+
+.inputPraticeWord-ayer {
+	border: none;
+	border-radius: 3px;
+	padding: 5px;
+	box-shadow: 0 0 2px black;
+	height: 30px;
+	font-family: Noteworthy;
+	width: 175px;
+}
+
+.btnAddPraticeWord-ayer {
+	background-color: #C4D102;
+	font-family: 'Noteworthy';
+	text-decoration: none;
+	color: white;
+	margin-left: 10px;
+	padding: 10px;
+	border-radius: 5px;
+	height: 30px;
+	line-height: 11px;
+}
+
+.divDisplayPraticeWord-ayer {
+	max-height: 128px;
+	overflow: auto;
+}
+
+.ckboxPratice-ayer {
+	margin-right: 15px !important;
+}
+
+.showTxt-ayer {
+	font-size: 18px;
+	color: #555555;
+	font-family: Noteworthy;
+}
+
+.divIconCkbox {
+	margin-left: auto;
+	margin-right: auto;
+	padding: 10px;
+	width: 200px;
+}
+
+.iconCkbox-ayer {
+	height: 60px;
+	background-size: 60px !important;
+	margin-bottom: 10px;
+	width: 60px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.divParentCkbox-ayer {
+	display: flex;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.ckBoxIcon-ayer {
+	margin-right: 15px !important;
+	margin-top: 6px !important;
+}
+
+.iconConnectToCkBox-ayer {
+	font-size: 18px;
+	color: #555555;
+	font-family: Noteworthy;
+	text-align: center;
+}
+
+.txtIcon-ayer {
+	font-size: 18px;
+	color: #555555;
+	font-family: Noteworthy;
+	text-align: center;
+}
+
+.labelDescSup-ayer {
+	padding-left: 5px;
+	font-size: 18px;
+	color: #555555;
+	font-weight: 100;
+	margin-bottom: 10px;
+	margin-top: 10px;
+}
+
+.txtareaDescSup-ayer {
+	display: block;
+	min-width: 100%;
+	max-width: 100%;
+	margin: 2px 0px 0px 2px;
+	height: 50px;
+	min-height: 50px;
+	border: none;
+	box-shadow: black 0px 0px 2px 0px;
+	border-radius: 5px;
+	padding: 5px 10px;
+}
+
+#divHabitatDesc-ayer {
+	display: flex;
+	flex-wrap: wrap;
+	max-width: 690px;
+}
+
+#labelSurfaceTer-ayer {
+	font-size: 18px;
+	color: #555555;
+	font-weight: 100;
+	padding: 0;
+	margin-right: 15px;
+}
+
+#labelSurfaceHab-ayer {
+	margin-right: 15px;
+	font-size: 18px;
+	color: #555555;
+	font-weight: 100;
+}
+
+.inputSurface-ayer {
+	border: none;
+	border-radius: 3px;
+	padding: 5px;
+	box-shadow: 0 0 2px black;
+	height: 23px;
+	width: 150px;
+	font-family: Noteworthy;
+}
+
+#txtTitlePlace-ayer {
+	font-size: 19px;
+	color: #555555;
+	font-weight: 100;
+	padding: 0;
+	margin-top: 20px;
+	margin-bottom: 15px;
+}
+
+#divInfoUserMdp-ayer {
+	display: flex;
+	padding: 8px 10px;
+	box-shadow: 0 0 2px 0px black;
+	border-radius: 5px;
+	margin-left: 2px;
+	margin-bottom: 15px;
+}
+
+#iconInfoUserMdp-ayer {
+	width: 20px;
+	font-size: 20px;
+}
+
+.rowLabelMdp-ayer {
+	padding: 0;
+}
+
+#divAddOthersColoc-ayer {
+	width: 130px;
+	margin-bottom: 15px;
+}
+
+#valueNbColocInfo-ayer {
+	text-align: center;
+}
+
+#tableColocInfo-ayer {
+	border-radius: 9px;
+	overflow: auto;
+	padding: 0 1px;
+	box-shadow: 0 0 3px black;
+	width: 380px;
+	max-width: 100%;
+	margin-bottom: 2px;
+}
+
+#titleInfoColoc1-ayer {
+	background-color: #C4D102;
+	color: white;
+}
+
+.titleInfoColocs-ayer {
+	box-shadow: 0 0 3px black;
+	padding: 10px;
+	margin-bottom: 1px;
+	font-size: 18px;
+	color: #555555;
+	font-weight: 100;
+	padding-left: 25px;
+	cursor: pointer;
+	display: flex;
+	position: relative;
+}
+
+.txtColocTable-ayer {
+	user-select: none;
+	font-family: Noteworthy;
+}
+
+.iconTxtColocTable-ayer {
+	position: absolute;
+	right: 20px;
+	line-height: 27px !important;
+}
+
+.infoColoc-ayer {
+	overflow: hidden;
+	max-height: 0;
+	transition: max-height 1000ms;
+}
+
+#infoColoc1-ayer {
+	max-height: 1000px;
+}
+
+.selectColocTable-ayer {
+	margin-bottom: 33px;
+}
+
+.enterColocTable-ayer {
+	padding: 10px 0
+}
+
+#divBottomBtn-ayer {
+	margin-top: 30px;
+}
+
+#btnValidateInfo-ayer {
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #C4D102;
+	font-family: 'Noteworthy';
+	text-decoration: none;
+	font-size: 20px;
+	font-weight: 800;
+	color: white;
+	box-shadow: 0 0 3px 0px black;
+	padding: 2px 12px;
+	border-radius: 3px;
+}
+
+#btnCancelInfo-ayer {
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #C4D102;
+	font-family: 'Noteworthy';
+	text-decoration: none;
+	font-size: 20px;
+	font-weight: 800;
+	color: white;
+	box-shadow: 0 0 3px 0px black;
+	padding: 2px 12px;
+	border-radius: 3px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	min-width: 150px;
+	text-align: center;
+}
