@@ -3963,7 +3963,25 @@ input.radioFibreEco-ayer {
 #btnCancelInfo-ayer {
 	margin-left: auto;
 	margin-right: auto;
-	background-color: #C4D102;
+	background-color: white;
+	font-family: 'Noteworthy';
+	text-decoration: none;
+	font-size: 20px;
+	font-weight: 800;
+	color: #555555;
+	box-shadow: 0 0 3px 0px black;
+	padding: 2px 12px;
+	border-radius: 3px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	min-width: 150px;
+	text-align: center;
+}
+
+#btnSupColoc-ayer {
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #f26969;
 	font-family: 'Noteworthy';
 	text-decoration: none;
 	font-size: 20px;
@@ -3972,8 +3990,66 @@ input.radioFibreEco-ayer {
 	box-shadow: 0 0 3px 0px black;
 	padding: 2px 12px;
 	border-radius: 3px;
-	margin-top: 15px;
+	margin-top: 35px;
 	margin-bottom: 15px;
 	min-width: 150px;
 	text-align: center;
+}
+
+/***** ModalDeleteEcoRoommate *****/
+#modalDeleteEcoRoommate {
+	overflow: auto;
+	width: 900px;
+	padding: 15px;
+	position: relative;
+}
+
+#titleTop-mder {
+	color: #555555;
+	font-family: Noteworthy;
+	font-weight: bold;
+	margin-bottom: 25px;
+}
+
+.divBtn-mder {
+	margin-left: auto;
+	flex-wrap: wrap;
+	display: flex;
+	margin-right: auto;
+}
+
+#btnCancelInfo-mder {
+	margin-left: 10px;
+	margin-right: 10px;
+	background-color: white;
+	font-family: 'Noteworthy';
+	text-decoration: none;
+	font-size: 20px;
+	font-weight: 800;
+	color: #555555;
+	box-shadow: 0 0 3px 0px black;
+	padding: 2px 50px;
+	border-radius: 3px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	min-width: 200px;
+	text-align: center;
+}
+
+#btnDeleteInfo-mder {
+	margin-left: 10px;
+	margin-right: 10px;
+	background-color: indianred;
+	font-family: 'Noteworthy';
+	text-decoration: none;
+	font-size: 20px;
+	font-weight: 800;
+	color: white;
+	box-shadow: 0 0 3px 0px black;
+	padding: 2px 50px;
+	border-radius: 3px;
+	min-width: 200px;
+	text-align: center;
+	margin-top: 5px;
+	margin-bottom: 5px;
 }

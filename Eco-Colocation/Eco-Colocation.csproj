@@ -419,6 +419,7 @@
     <Content Include="Views\EcoRoommateExisting\EcoRoommateExisting_OnMap.cshtml" />
     <Content Include="Views\EcoRoommateExisting\AddYourEcoRoommate.cshtml" />
     <Content Include="Views\EcoRoommateExisting\EcoRoommateExistingVisual.cshtml" />
+    <Content Include="Views\EcoRoommateExisting\ModalDeleteEcoRoommate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

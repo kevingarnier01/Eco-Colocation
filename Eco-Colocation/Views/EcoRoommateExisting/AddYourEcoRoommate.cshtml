@@ -581,5 +581,13 @@
 		<div class="flex">
 			<a id="btnCancelInfo-ayer" href="@Url.Action("Index", "Home", null)">Retour</a>
 		</div>
+
+		@* Rajouter des conditions d'affichage *@
+		@if (User.Identity.IsAuthenticated)
+		{
+			<div class="flex">
+				<a id="btnSupColoc-ayer" href="@Url.Action("ModalDeleteEcoRoommate", "EcoRoommateExisting", null)" rel="modal:open">Supprimer notre éco-colocation</a>
+			</div>
+		}
 	</div>
 </div>

@@ -23,5 +23,9 @@ namespace Eco_Colocation.Controllers
 		{
 			return View();
 		}
-    }
+		public ActionResult ModalDeleteEcoRoommate()
+		{
+			return PartialView();
+		}
+	}
 }
