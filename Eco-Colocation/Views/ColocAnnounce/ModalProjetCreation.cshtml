@@ -2,20 +2,6 @@
 @{
 	ViewBag.Title = "ModalProjetCreation";
 }
-
-@* Localisation [Plusieurs choix possible] [Region ou Ville]
-
-	Logement
-	Type de projet [Achat/Location/Creation]
-	Type d'habitat [Maison/Appartement/Yourte] (Saisir a la main)
-	Type de localisation Campagne/Ville/Commune
-	Superficie global souhaitée : Etendu approximatif/Non définit
-
-	Colocataire recherché :
-	Nombre de colocataire déja intéréssé
-	Nombre de colocataire recherchés
-	Tolerances : Fumeur / Animaux *@
-
 <div class="underModal col-sm-12 col-xs-12">
 	<div id="modalCreationProjet-ColocAnnounce" class="reelModal">
 		<div style="margin-bottom: 30px;">
@@ -64,7 +50,7 @@
 							<div id="div10-2-adresseLog-ca" style="position:relative">
 								@*<div onclick="addNewPlace('address-input')" style="position: absolute;right: 6%;cursor:pointer;font-size: 16px;margin-top: 5px;">| Entrer</div>*@
 								@*<input oninput="addr_search('inputLocalisation-cpc','listAutoCompletePlace2');" list="listAutoCompletePlace2" autocomplete="off" type="text" class="inputAdresseLog-ca" id="inputLocalisation-cpc" style="padding: 5px 8px;padding-right: 65px;">
-							<datalist id="listAutoCompletePlace2"></datalist>*@
+								<datalist id="listAutoCompletePlace2"></datalist>*@
 								<input type="search" id="address-input-mpc" class="address-input" placeholder="Localisation de l'endroit" onload="initAutoComplete('#address-input-mpc')" />
 								@for (int i = 0; i < 4; i++)
 								{
@@ -239,6 +225,11 @@
 						</div>
 					</div>
 				</div>
+			</div>
+		</div>
+		<div id="divBtn-mpc" class="col-sm-12">
+			<div id="div1Btn-mpc">
+				<p id="txtBtn-mpc">Creer cette annonce</p>
 			</div>
 		</div>
 		<a href="#close-modal" rel="modal:close" class="close-modal">Close</a>
