@@ -40,7 +40,7 @@ $(document).ready(function () {
 
 	//Si le button close-modal à été cliqué, alors nous l'indiquons et l'evenement au dessus  (click sur modal)
 	//se charge de ne pas faire disparaitre le scroll bar du body
-	$(document).on('click', '.close-modal', function () {
+	$(document).on('click', '.close-modal, .closeModal', function () {
 		closeModalHasBeenClicked = true;
 		// Entre les deux : ouvre l'evenement click du modal //
 		setTimeout(function () {
@@ -616,7 +616,7 @@ function loadEcoRoommateExistingMap() {
 }
 
 //********* EcoRoommateExisting *************//
-// ---- Page AddYourEcoRoommate ---- //
+// ---- Page AddYourEcoRoommateExisting ---- //
 function openThisColocRow_ayer(elementTitle, elementBlockIdToOpen) {
 	if ($(elementBlockIdToOpen).css('max-height') == '0px') {
 		close_ayer();
@@ -678,7 +678,6 @@ function removeOneColoc_ayer() {
 }
 
 function addOneColoc_ayer() {
-	debugger
 	var newValueNbBlockColocInfo = parseInt($('#valueNbColocInfo-ayer').val()) + 1;
 
 	$('#valueNbColocInfo-ayer').val(newValueNbBlockColocInfo)

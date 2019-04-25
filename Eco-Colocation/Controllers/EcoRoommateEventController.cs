@@ -6,24 +6,23 @@ using System.Web.Mvc;
 
 namespace Eco_Colocation.Controllers
 {
-    public class EcoRoommateExistingController : Controller
+    public class EcoRoommateEventController : Controller
     {
-        // GET: EcoRoommateExisting
+        // GET: EcoRoommateEvent
         public ActionResult Index()
         {
             return View();
         }
-
-		public ActionResult AddYourEcoRoommateExisting()
+		public ActionResult AddYourEcoRoommateEvent()
 		{
 			return View();
 		}
 
-		public ActionResult EcoRoommateExistingVisual()
+		public ActionResult EcoRoommateEventVisual()
 		{
 			return View();
 		}
-		public ActionResult ModalDeleteEcoRoommateExisting()
+		public ActionResult ModalDeleteEcoRoommateEvent()
 		{
 			return PartialView();
 		}

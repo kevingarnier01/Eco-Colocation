@@ -9,7 +9,7 @@
 	@if (User.Identity.IsAuthenticated)
 	{
 		<div id="divBtnModifierEcoRoom-erev">
-			<a id="btnModifierEcoRoom-erev" href="@Url.Action("AddYourEcoRoommate", "EcoRoommateExisting", null)">Modifier nos informations</a>
+			<a id="btnModifierEcoRoom-erev" href="@Url.Action("AddYourEcoRoommateExisting", "EcoRoommateExisting", null)">Modifier nos informations</a>
 		</div>
 	}
 	<div id="divTopInfoEcoColoc-erev">
@@ -39,7 +39,7 @@
 		<img id="imgCoverEcoRoommate-erev" src="https://www.domoskit.com/wp-content/uploads/2017/05/matheus-ferrero-228716-unsplash-thegem-blog-default.jpg">
 	</div>
 	<div id="divDescriptionEcoRoom-erev">
-		Une maison paille, un potager, 5 poules et deux chats et 4 colocataires pour une vie écologique. Au cœur de Romanier-pondir, notre éco-colocation a vu le jour en Juillet 2016. Elle s'est fondée sur l’envie de vivre ensemble en ayant le minimun d’impacts négatifs possibles sur notre environnement. Nous nous nourrissons essentiellement de produits bio et locaux pour une alimentation majoritairement végétarienne. Le point fort : le jardin ! De plus nos poules offrent quotidiennement des œufs. Nous partons faire nos courses avec sacs en vrac et bocaux que nous nous empressons de remplir dans notre cuisine commune. Qui dit cuisine commune, dit courses communes : nous achetons pour l’ensemble de la colocation et partageons les frais sur un compte commun ou chaque coloc verse sa part du mois. Et qui dit mutualisation dit réduction des coûts, réduction accentuée par la volonté de faire par exemple des économies d’énergie. (Par exemple nous avons troqué notre gros frigo contre un petit et nous envisageons de nous en passer définitivement). Nous avons bien sûr remplacé le maximum d’ampoules possible par des lampes basse consommation et nous tentons de garder au mieux la chaleur pour ne pas allumer les radiateurs. Enfin, notre colocation se fonde sur le vivre ensemble. Nous ne comptons pas ce que nous faisons ou donnons. Ici chaque personne étant libre de son implication,l ’essentiel est de s'assurer que tout le monde trouve sa place pour bien vivre ensemble.
+		Une maison paille, un potager, 5 poules et deux chats et 4 colocataires pour une vie écologique. Au cœur de Romanier-pondir, notre éco-colocation a vu le jour en Juillet 2016. Elle s'est fondée sur l’envie de vivre ensemble en ayant le minimun d’impacts négatifs possibles sur notre environnement. Nous nous nourrissons essentiellement de produits bio et locaux pour une alimentation majoritairement végétarienne. Le point fort : le jardin ! De plus nos poules offrent quotidiennement des œufs. Nous partons faire nos courses avec sacs en vrac et bocaux que nous nous empressons de remplir dans notre cuisine commune. Qui dit cuisine commune, dit courses communes : nous achetons pour l’ensemble de la colocation et partageons les frais sur un compte commun ou chaque coloc verse sa part du mois. Et qui dit mutualisation dit réduction des coûts, réduction accentuée par la volonté de faire par exemple des économies d’énergie. (Par exemple nous avons troqué notre gros frigo contre un petit et nous envisageons de nous en passer définitivement). Nous avons bien sûr remplacé le maximum d’ampoules possible par des lampes basse consommation et nous tentons de garder au mieux la chaleur pour ne pas allumer les radiateurs. Enfin, notre colocation se fonde sur le vivre ensemble. Nous ne comptons pas ce que nous faisons ou donnons. Ici chaque personne étant libre de son implication, l’essentiel est de s'assurer que tout le monde trouve sa place pour bien vivre ensemble.
 	</div>
 
 	<div id="divGlobalBlogInfo-erev">
@@ -199,7 +199,7 @@
 					}
 
 					<div class="divBtnBottom-erev">
-						<a id="btnRetour-erev" href="/EcoRoommateExisting/EcoRoommateExisting_OnMap">Retour</a>
+						<a id="btnRetour-erev" href="@Url.Action("Index", "Home", null)">Retour</a>
 					</div>
 				</div>
 

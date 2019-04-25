@@ -130,6 +130,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ColocAnnounceController.cs" />
+    <Compile Include="Controllers\EcoRoommateEventController.cs" />
     <Compile Include="Controllers\EcoRoommateExistingController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PeopleSearchingController.cs" />
@@ -228,9 +229,33 @@
     <Content Include="Content\Images\Icons\logoEcoColoc.gif" />
     <Content Include="Content\Images\Icons\message.png" />
     <Content Include="Content\Images\Icons\phone.png" />
+    <Content Include="Content\Images\Logos\agriculture.png" />
+    <Content Include="Content\Images\Logos\alimentation.png" />
+    <Content Include="Content\Images\Logos\bike.png" />
+    <Content Include="Content\Images\Logos\compost.png" />
+    <Content Include="Content\Images\Logos\consomationCarburant.png" />
+    <Content Include="Content\Images\Logos\direction.png" />
+    <Content Include="Content\Images\Logos\electricity.png" />
+    <Content Include="Content\Images\Logos\food.png" />
+    <Content Include="Content\Images\Logos\garden.png" />
+    <Content Include="Content\Images\Logos\heater%282%29.png" />
+    <Content Include="Content\Images\Logos\heater.png" />
+    <Content Include="Content\Images\Logos\icons8-gears-100.png" />
+    <Content Include="Content\Images\Logos\icons8-plus-100.png" />
     <Content Include="Content\Images\Logos\Loupe.png" />
     <Content Include="Content\Images\Logos\mapLocalisation.png" />
     <Content Include="Content\Images\Logos\mapLocalisation2.png" />
+    <Content Include="Content\Images\Logos\markerColocExisting.png" />
+    <Content Include="Content\Images\Logos\markerColocExisting2.png" />
+    <Content Include="Content\Images\Logos\naturalHouse.png" />
+    <Content Include="Content\Images\Logos\people.png" />
+    <Content Include="Content\Images\Logos\recyclingBin.png" />
+    <Content Include="Content\Images\Logos\seed.png" />
+    <Content Include="Content\Images\Logos\SolarPanel.png" />
+    <Content Include="Content\Images\Logos\toilet.png" />
+    <Content Include="Content\Images\Logos\wastConsommation.png" />
+    <Content Include="Content\Images\Logos\waterConsommation.png" />
+    <Content Include="Content\Images\Logos\waterRecycling.png" />
     <Content Include="Content\Images\Personnes\Profil1.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -417,9 +442,13 @@
     <Content Include="Views\Account\ForgetAccount\ChangePassword.cshtml" />
     <Content Include="Views\Account\ForgetAccount\SendCode.cshtml" />
     <Content Include="Views\EcoRoommateExisting\EcoRoommateExisting_OnMap.cshtml" />
-    <Content Include="Views\EcoRoommateExisting\AddYourEcoRoommate.cshtml" />
+    <Content Include="Views\EcoRoommateExisting\AddYourEcoRoommateExisting.cshtml" />
     <Content Include="Views\EcoRoommateExisting\EcoRoommateExistingVisual.cshtml" />
-    <Content Include="Views\EcoRoommateExisting\ModalDeleteEcoRoommate.cshtml" />
+    <Content Include="Views\EcoRoommateExisting\ModalDeleteEcoRoommateExisting.cshtml" />
+    <Content Include="Views\EcoRoommateEvent\EcoRoommateEvent_OnMap.cshtml" />
+    <Content Include="Views\EcoRoommateEvent\EcoRoommateEventVisual.cshtml" />
+    <Content Include="Views\EcoRoommateEvent\AddYourEcoRoommateEvent.cshtml" />
+    <Content Include="Views\EcoRoommateEvent\ModalDeleteEcoRommateEvent.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

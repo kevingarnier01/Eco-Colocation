@@ -2800,6 +2800,12 @@ select:-moz-focusring {
 	max-height: 55px;
 }
 
+@media only screen and (max-width: 379px) {
+	#btnSwitcherPropose-mcap {
+		line-height: 21px;
+	}
+}
+
 #separationSwitcherPropose-mcap {
 	padding: 3px 10px;
 	margin-left: 5px;
@@ -3327,6 +3333,7 @@ select:-moz-focusring {
 	margin-right: auto;
 	font-size: 16px;
 	font-family: 'Noteworthy';
+	text-align: justify
 }
 
 #divGlobalBlogInfo-erev {
@@ -3447,7 +3454,7 @@ select:-moz-focusring {
 
 #divGlobalSurfaceHabitat2-erev {
 	display: flex;
-	min-width: 500px;
+	width: 500px;
 	max-width: 100%;
 }
 
@@ -3488,8 +3495,8 @@ select:-moz-focusring {
 	min-width: 150px;
 	text-align: center;
 }
-/**** AddYourEcoRoommate ****/
-#addYourEcoRoommate {
+/**** AddYourEcoRoommateExisting ****/
+#AddYourEcoRoommateExisting {
 	padding: 10px
 }
 
@@ -3939,12 +3946,18 @@ input.radioFibreEco-ayer {
 }
 
 .enterColocTable-ayer {
-	padding: 10px 0
+	padding: 10px 0;
+	flex-wrap: wrap
 }
 
-#divBottomBtn-ayer {
-	margin-top: 30px;
-}
+	.enterColocTable-ayer .divLabelInfoColoc-ayer {
+		min-width: 185px;
+		max-width: 100%;
+	}
+
+	#divBottomBtn-ayer {
+		margin-top: 30px;
+	}
 
 #btnValidateInfo-ayer {
 	margin-left: auto;
@@ -3996,8 +4009,8 @@ input.radioFibreEco-ayer {
 	text-align: center;
 }
 
-/***** ModalDeleteEcoRoommate *****/
-#modalDeleteEcoRoommate {
+/***** ModalDeleteEcoRoommateExisting *****/
+#ModalDeleteEcoRoommateExisting {
 	overflow: auto;
 	width: 900px;
 	padding: 15px;
@@ -4034,6 +4047,7 @@ input.radioFibreEco-ayer {
 	margin-bottom: 5px;
 	min-width: 200px;
 	text-align: center;
+	cursor: pointer;
 }
 
 #btnDeleteInfo-mder {
