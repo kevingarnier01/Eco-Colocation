@@ -4,14 +4,9 @@
 }
 
 <div id="home">
-	@*@if (Model != null && Model.HomeViewModel.TypeRecherche == "searching")
-	{
-		@Html.Partial("~/Views/SearchColoc/Index.cshtml", Model.SearchColocViewModel)
-	}
-	else if (Model != null && Model.HomeViewModel.TypeRecherche == "offering")
-	{
-		@Html.Partial("~/Views/ColocAnnounce/Index.cshtml", Model.ColocAnnounceViewModel)
-	}*@
+	<div id="partialViewEcoRoommateEvent_OnMap" class="col-sm-6 col-xs-12">
+		@Html.Partial("~/Views/EcoRoommateEvent/EcoRoommateEvent_OnMap.cshtml")
+	</div>
 	<div id="partialViewEcoRoommateExisting_OnMap" class="col-sm-6 col-xs-12">
 		@Html.Partial("~/Views/EcoRoommateExisting/EcoRoommateExisting_OnMap.cshtml")
 	</div>
@@ -24,9 +19,5 @@
 <script language="javascript">
 	$(document).ready(function () {
 		$('#_PictureHeader').css('display', "block")
-		
-		//if ($("#typeRecherche").val() != "") {
-		//	updateSwitcher();
-		//}
 	});
 </script>

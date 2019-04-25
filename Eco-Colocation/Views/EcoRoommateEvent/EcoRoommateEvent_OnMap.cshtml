@@ -1,7 +1,79 @@
 ﻿
 @{
-    ViewBag.Title = "EcoRoommateEvent_OnMap";
+	ViewBag.Title = "EcoRoommateEvent_OnMap";
 }
 
-<h2>EcoRoommateEvent_OnMap</h2>
+<div>
+	<div id="title-ereom">Les événements organisés</div>
+	<div id="descEcoRoom-ereom" class="fontFamilyNote">
+		C'est ici que tout commence ! Venez découvrir, partager et
+		rencontrer d'autres personnes intéressées par l'éco-colocation.
+	</div>
+</div>
+<div>
+	<select class="form-control fontFamilyNote" style="
+" id="selectEvent-erevom">
+		<option value="0" selected="">A venir</option>
+		<option value="1">Passés</option>
+	</select>
+</div>
+<div>
+	<div id="divBlocAnnonce1">
+		<div id="divBlocAnnonce2" class="col-sm-12 col-xs-12">
+			<a href="/SearchColoc/ModalLocation" onclick="showAnnonce(event)" rel="modal:open">
+				<div id="divAnnonceColoc" class="col-md-12 col-sm-12 annonce1">
+					<div id="div2AnnonceColoc" class="col-md-12 col-sm-12 col-xs-12">
+						<input id="valueGps10" name="valueGps10" type="hidden" value="46.89, 2.67">
+						<div id="annonceColoc" class="col-md-12" style="">
+							<div id="annonceColoc" class="col-md-4 col-sm-4 col-xs-12">
+								<div id="photoAnnonce" class="col-md-12 col-sm-12 col-xs-12">
+									<div id="photoAnnonce" style="background: url(https://lcdcfrance-prod.s3.amazonaws.com/pictures/1fcfb11b21b7a9b1246992c16d340f7c_medium.jpg) 50% 50% no-repeat;"></div>
+								</div>
+							</div>
+							<div id="divContenDescriptionAnnonce" class="col-md-8 col-sm-8 col-xs-12">
+								<div id="descriptionAnnonce" class="col-md-12 col-sm-12 col-xs-12">
+									<h4>Apéro Eco-colocation Rennes</h4>
+									<p id="textTopDescriptionArt" class="fontFamilyNote">Jeudi 18h30, Rennes</p>
+									<p id="textDescriptionArt" class="fontFamilyNote">
+										Pour les personnes qui cherchent une colocation et celles qui recherchent quelqu'un·e, c'est l'occasion de se rencontrer...
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</a>
+		</div>
+	</div>
+	<div id="divBlocAnnonce1">
+		<div id="divBlocAnnonce2" class="col-sm-12 col-xs-12">
+			<a href="/SearchColoc/ModalLocation" onclick="showAnnonce(event)" rel="modal:open">
+				<div id="divAnnonceColoc" class="col-md-12 col-sm-12 annonce1">
+					<div id="div2AnnonceColoc" class="col-md-12 col-sm-12 col-xs-12">
+						<input id="valueGps10" name="valueGps10" type="hidden" value="46.89, 2.67">
+						<div id="annonceColoc" class="col-md-12" style="">
+							<div id="annonceColoc" class="col-md-4 col-sm-4 col-xs-12">
+								<div id="photoAnnonce" class="col-md-12 col-sm-12 col-xs-12">
+									<div id="photoAnnonce" style="background: url(https://lcdcfrance-prod.s3.amazonaws.com/pictures/1fcfb11b21b7a9b1246992c16d340f7c_medium.jpg) 50% 50% no-repeat;"></div>
+								</div>
+							</div>
+							<div id="divContenDescriptionAnnonce" class="col-md-8 col-sm-8 col-xs-12">
+								<div id="descriptionAnnonce" class="col-md-12 col-sm-12 col-xs-12">
+									<h4>Apéro Eco-colocation Rennes</h4>
+									<p id="textTopDescriptionArt" class="fontFamilyNote">Jeudi 18h30, Rennes</p>
+									<p id="textDescriptionArt" class="fontFamilyNote">
+										Pour les personnes qui cherchent une colocation et celles qui recherchent quelqu'un·e, c'est l'occasion de se rencontrer...
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</a>
+		</div>
+	</div>
+</div>
 
+<div id="divBtnAddOurEcoRoom-ereom">
+	<a id="btnAddOurEcoRoom-ereom" class="btn waves-light waves-effect" href="@Url.Action("AddYourEcoRoommateEvent","EcoRoommateExisting")">Creer un événement</a>
+</div>

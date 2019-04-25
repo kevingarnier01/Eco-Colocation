@@ -220,6 +220,14 @@ main {
 		}
 
 /** elements html **/
+a {
+	color: inherit;
+}
+
+	a:hover {
+		color: inherit;
+	}
+
 input, textarea {
 	outline: 0;
 }
@@ -488,6 +496,12 @@ select:-moz-focusring {
 
 #partialViewEcoRoommateExisting_OnMap {
 	padding: 5px;
+	padding-left: 20px
+}
+
+#partialViewEcoRoommateEvent_OnMap {
+	padding: 5px;
+	padding-right: 20px
 }
 
 #1div-filtreHome div {
@@ -956,7 +970,7 @@ select:-moz-focusring {
 	display: flex;
 	margin-top: 15px;
 	margin-bottom: 5px;
-	padding: 0
+	padding: 1px;
 }
 
 #div2AnnonceColoc {
@@ -968,7 +982,7 @@ select:-moz-focusring {
 }
 
 #annonceColoc {
-	padding: 0
+	padding: 1px;
 }
 
 #annonce2Coloc {
@@ -982,6 +996,7 @@ select:-moz-focusring {
 	position: relative;
 	margin-left: auto;
 	margin-right: auto;
+	border-radius: 10px
 }
 
 	#photoAnnonce div {
@@ -989,6 +1004,12 @@ select:-moz-focusring {
 		width: 100%;
 		height: 100%;
 	}
+
+#divContenDescriptionAnnonce {
+	padding: 0;
+	display: flex;
+	overflow: auto;
+}
 
 #divDescriptionAnnonce {
 	padding: 0;
@@ -1031,12 +1052,25 @@ select:-moz-focusring {
 
 
 #descriptionAnnonce h4 {
+	margin-bottom: 5px;
+	font-size: 18px;
 	text-align: center;
-	margin-bottom: 1px;
+	padding-bottom: 6px;
+	font-family: Noteworthy;
+	font-weight: bold;
 }
 
-#descriptionAnnonce p {
+#textTopDescriptionArt {
 	text-align: center;
+	margin-bottom: 10px;
+	font-weight: bold;
+}
+
+#textDescriptionArt {
+	text-align: center;
+	font-weight: initial;
+	text-align: center;
+	font-size: 15px;
 }
 
 #divPrixAnnonce {
@@ -3955,9 +3989,9 @@ input.radioFibreEco-ayer {
 		max-width: 100%;
 	}
 
-	#divBottomBtn-ayer {
-		margin-top: 30px;
-	}
+#divBottomBtn-ayer {
+	margin-top: 30px;
+}
 
 #btnValidateInfo-ayer {
 	margin-left: auto;
@@ -4066,4 +4100,15 @@ input.radioFibreEco-ayer {
 	text-align: center;
 	margin-top: 5px;
 	margin-bottom: 5px;
+}
+
+/********** EcoRoommateEvent **********/
+#selectEvent-erevom {
+	background-color: #C4D102;
+	color: white;
+	font-size: 16px;
+	font-weight: bold;
+	width: 100px;
+	height: 27px;
+	padding: 0;
 }
