@@ -102,14 +102,14 @@ function initMap() {
 	}).addTo(mymap);
 
 	var leafIcon = L.icon({
-		iconUrl: '../Content/Images/Logos/mapLocalisation.png',
+		iconUrl: '../Content/Images/Logos/markerColocExisting.png',
 
 		iconSize: [20, 20], // size of the icon
 		//popupAnchor: [30, -76]  // point from which the popup should open relative to the iconAnchor
 	});
 
 	var leafIconOver = L.icon({
-		iconUrl: '../Content/Images/Logos/mapLocalisation2.png',
+		iconUrl: '../Content/Images/Logos/mapLocalisationOVer.png',
 
 		iconSize: [20, 20], // size of the icon
 		//popupAnchor: [30, -76]  // point from which the popup should open relative to the iconAnchor
@@ -134,16 +134,16 @@ function initMap() {
 				var marker = data[ii];
 
 				var markerObject = L.marker(marker.latLng, { icon: leafIcon }).addTo(mymap).on("mouseover", function () {
-					showAnnonce(ii + 1)
+					showAnnonce("#onHoverMarker", ii + 1)
 				}).on("mouseout", function () {
-					hideAnnonce(ii + 1);
+					hideAnnonce("#onHoverMarker", ii + 1);
 				});
 
-				$(".annonce" + (ii + 1)).on("mouseover", function (e) {
+				$("#annonce" + (ii + 1) + "-alpv").on("mouseover", function (e) {
 					markerObject.setIcon(leafIconOver);
 				});
 
-				$(".annonce" + (ii + 1)).on("mouseout", function (e) {
+				$("#annonce" + (ii + 1) + "-alpv").on("mouseout", function (e) {
 					markerObject.setIcon(leafIcon);
 				});
 
@@ -160,7 +160,7 @@ function initMap() {
 	}
 }
 
-function showAnnonce(numeroMarker) {
+function showAnnonce(idElement, numeroMarker) {
 	var posx = 0;
 	var posy = 0;
 	if (!e) var e = window.event;
@@ -172,16 +172,16 @@ function showAnnonce(numeroMarker) {
 		posy = e.clientY;
 	}
 
-	$('#onHoverMarker' + numeroMarker).css("display", "block");
-	$('#onHoverMarker' + numeroMarker).css("position", "absolute");
-	$('#onHoverMarker' + numeroMarker).css('left', posx + 20);
-	$('#onHoverMarker' + numeroMarker).css('top', posy - 5);
+	$(idElement + numeroMarker).css("display", "block");
+	$(idElement + numeroMarker).css("position", "absolute");
+	$(idElement + numeroMarker).css('left', posx + 20);
+	$(idElement + numeroMarker).css('top', posy - 5);
 }
 
-function hideAnnonce(numeroMarker) {
-	$("#onHoverMarker" + numeroMarker).css("display", "none");
-	$('#onHoverMarker' + numeroMarker).css('left', 'inherit');
-	$('#onHoverMarker' + numeroMarker).css('top', 'inherit');
+function hideAnnonce(idElement, numeroMarker) {
+	$(idElement + numeroMarker).css("display", "none");
+	$(idElement + numeroMarker).css('left', 'inherit');
+	$(idElement + numeroMarker).css('top', 'inherit');
 }
 
 function selectSwitcher(element) {
@@ -572,12 +572,6 @@ function loadEcoRoommateExistingMap() {
 		iconSize: [22, 22], // size of the icon
 	});
 
-	//var markerIconClick = L.icon({
-	//	iconUrl: '../Content/Images/Logos/markerColocExisting2.png',
-
-	//	iconSize: [22, 22], // size of the icon
-	//});
-
 	var data = [
 		{
 			name: 'Marker1',
@@ -605,13 +599,58 @@ function loadEcoRoommateExistingMap() {
 			}
 
 			var markerObject = L.marker(marker.latLng, { icon: markerIcon }).bindPopup(customPopup, customOptions).addTo(mymap).on("click", function () {
-				//markerObject.setIcon(markerIconClick);
-				showEcoRoommateExisting(ii);
-
-				//markerObject.setPopupContent();
-				//markerObject.openPopup();
 			});
 		})();
+
+		var markerIcon = L.icon({
+			iconUrl: '../Content/Images/Logos/markerEvenement.png',
+
+			iconSize: [22, 22], // size of the icon
+		});
+
+		var markerIconOver = L.icon({
+			iconUrl: '../Content/Images/Logos/markerEvenementOver.png',
+
+			iconSize: [22, 22],
+		});
+
+		var data2 = [
+			{
+				name: 'Marker1',
+				latLng: [48.10, 2.10],
+				id: '1'
+			},
+			{
+				name: 'Marker2',
+				latLng: [46.10, 2.10],
+				id: '2'
+			},
+		];
+
+		for (var i = 0; i < data2.length; i++) {
+			(function () {
+				var ii = i;
+				var marker = data2[ii];
+
+				var customPopup = $('.ecoRommateExisting-ereom').html();
+
+				// specify popup options 
+				var customOptions =
+				{
+					'className': 'leafletDivEcoRommateExisting'
+				}
+
+				var markerObject = L.marker(marker.latLng, { icon: markerIcon }).bindPopup(customPopup, customOptions).addTo(mymap).on("click");
+				
+				$("#annonce" + (ii + 1) + "-ereom").on("mouseover", function (e) {
+					markerObject.setIcon(markerIconOver);
+				});
+
+				$("#annonce" + (ii + 1) + "-ereom").on("mouseout", function (e) {
+					markerObject.setIcon(markerIcon);
+				});
+			})();
+		}
 	}
 }
 
@@ -736,4 +775,31 @@ function removeUploadPicture_ayer() {
 	$('#resultImgUpl-ayer').attr('src', '')
 	$('#divResultFilesUpl-ayer').css('display', 'none');
 	$("#fileUpload-ayer").val('')
+}
+
+function showListEvenementInterested_erevom() {
+	var optionSelected = $(".txtResultEventListChooseErevom").text();
+	$("#listEvenementInterested-erevom").val(optionSelected);
+
+	$('.btnInterestedErevom').css('display', 'none');
+	$('.divListInterestedErevom').css('display', 'flex');	
+}
+
+function validateListEventChoose() {
+	var result = $('.listEvenementInterestedErevom').find(":selected").text();
+	var resultVal = $('.listEvenementInterestedErevom').find(":selected").val();
+	$(".txtResultEventListChooseErevom").text(result);
+	
+	if (resultVal == 1) {
+		$("#iconInterestedErevom").attr('class', 'fas fa-check');
+	}
+	else if (resultVal == 2) {
+		$("#iconInterestedErevom").attr('class', 'fas fa-star');
+	}
+	else {
+		$("#iconInterestedErevom").attr('class', 'fas fa-times');
+	}
+
+	$('.btnInterestedErevom').css('display', 'flex');
+	$('.divListInterestedErevom').css('display', 'none');	
 }

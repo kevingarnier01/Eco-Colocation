@@ -956,17 +956,24 @@ select:-moz-focusring {
 		color: rgba(0,0,0,0.8);
 	}
 
-#divBlocAnnonce1 {
+#divBlocsAnnonces-erevom {
+	height: 348px;
+	overflow: auto;
+}
+
+.divBlocAnnonce1-ereom {
 	display: flex
 }
 
 #divBlocAnnonce2 {
 	padding: 0;
+	padding-left: 3px;
+	padding-right: 3px;
 	margin-left: auto;
 	margin-right: auto;
 }
 
-#divAnnonceColoc {
+.divAnnonceColoc {
 	display: flex;
 	margin-top: 15px;
 	margin-bottom: 5px;
@@ -1033,7 +1040,7 @@ select:-moz-focusring {
 		overflow: auto;
 	}
 
-	#divBlocAnnonce1 {
+	.divBlocAnnonce1-ereom {
 		margin-bottom: 20px
 	}
 }
@@ -3165,7 +3172,7 @@ select:-moz-focusring {
 
 
 /********************************* Eco-Roommate ********************************/
-/**** EcoRoommateExistingVisual_OnMap ****/
+/**** EcoRoommateExistingVisual ****/
 .leafletDivEcoRommateExisting {
 	width: 300px;
 }
@@ -3237,13 +3244,30 @@ select:-moz-focusring {
 	font-size: 15px;
 }
 
+.txtSommaireLogo-ereom {
+	margin-left: 5px;
+	font-weight: bold;
+}
+
+.imgSommaireLogo-ereom {
+	width: 22px;
+	height: 22px
+}
+
+.divSommaireLogo-ereom {
+	margin-right: 25px;
+	display: flex;
+	margin-bottom: 6px;
+}
+
 #divMapEcoRoom-ereom {
 	display: flex;
+	margin-bottom: 28px;
 }
 
 #leafletMap_ereo {
 	position: relative;
-	height: 300px;
+	height: 326px;
 	width: 100%;
 	margin-left: auto;
 	margin-right: auto;
@@ -4102,7 +4126,8 @@ input.radioFibreEco-ayer {
 	margin-bottom: 5px;
 }
 
-/********** EcoRoommateEvent **********/
+/********************************* Eco-Roommate ********************************/
+/**** EcoRoommateExistingVisual****/
 #selectEvent-erevom {
 	background-color: #C4D102;
 	color: white;
@@ -4111,4 +4136,65 @@ input.radioFibreEco-ayer {
 	width: 100px;
 	height: 27px;
 	padding: 0;
+}
+
+.leafletDivEcoRommateExisting {
+	width: 300px;
+}
+
+#btnInterested-erevom {
+	display: flex;
+	background-color: #C4D102;
+	color: white;
+	font-size: 16px;
+	font-weight: bold;
+	width: max-content;
+	height: 27px;
+	padding-top: 3px !important;
+	border-radius: 5px;
+	cursor: pointer;
+	padding: 0 5px;
+}
+
+	#btnInterested-erevom i {
+		margin-right: 5px;
+		font-size: 15px;
+		margin-top: 2px;
+	}
+
+#underDivBtnInterested-erevom {
+	display: flex;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.divListInterestedErevom {
+	display: none;
+}
+
+#listEvenementInterested-erevom {
+	background-color: #C4D102;
+	color: white;
+	font-size: 16px;
+	font-weight: bold;
+	width: max-content;
+	height: 27px;
+	padding: 0;
+}
+
+#divBtnValidListEvent-erevom {
+	background-color: #C4D102;
+	color: white;
+	font-size: 16px;
+	border-radius: 5px;
+	margin-left: 5px;
+	width: 30px;
+	display: flex;
+	cursor: pointer;
+}
+
+#btnValidListEvent-erevom {
+	margin-left: auto;
+	margin-right: auto;
+	line-height: 26px;
 }
