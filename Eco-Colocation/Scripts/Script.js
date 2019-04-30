@@ -632,12 +632,12 @@ function loadEcoRoommateExistingMap() {
 				var ii = i;
 				var marker = data2[ii];
 
-				var customPopup = $('.ecoRommateExisting-ereom').html();
+				var customPopup = $('.ecoRommateEvent-ereom').html();
 
 				// specify popup options 
 				var customOptions =
 				{
-					'className': 'leafletDivEcoRommateExisting'
+					'className': 'leafletDivEcoRommateEvent'
 				}
 
 				var markerObject = L.marker(marker.latLng, { icon: markerIcon }).bindPopup(customPopup, customOptions).addTo(mymap).on("click");
@@ -777,29 +777,53 @@ function removeUploadPicture_ayer() {
 	$("#fileUpload-ayer").val('')
 }
 
+function checkIfBtnInteretIsNotEmpty_erevom() {	
+	if (!$('#txtResultEventListChoose-erevom').text()) {
+		ChangeBtnStillNotChoose();
+	}
+}
+
 function showListEvenementInterested_erevom() {
-	var optionSelected = $(".txtResultEventListChooseErevom").text();
+	var optionSelected = $("#txtResultEventListChoose-erevom").text();
 	$("#listEvenementInterested-erevom").val(optionSelected);
 
 	$('.btnInterestedErevom').css('display', 'none');
 	$('.divListInterestedErevom').css('display', 'flex');	
+
 }
 
 function validateListEventChoose() {
-	var result = $('.listEvenementInterestedErevom').find(":selected").text();
 	var resultVal = $('.listEvenementInterestedErevom').find(":selected").val();
+	var result = $('.listEvenementInterestedErevom').find(":selected").text();	
 	$(".txtResultEventListChooseErevom").text(result);
 	
 	if (resultVal == 1) {
-		$("#iconInterestedErevom").attr('class', 'fas fa-check');
+		$(".iconInterestedErevom").attr('class', 'fas fa-check iconInterestedErevom');
+		ChangeBtnChoose();
 	}
 	else if (resultVal == 2) {
-		$("#iconInterestedErevom").attr('class', 'fas fa-star');
+		$(".iconInterestedErevom").attr('class', 'fas fa-star iconInterestedErevom');
+		ChangeBtnChoose();
 	}
 	else {
-		$("#iconInterestedErevom").attr('class', 'fas fa-times');
+		ChangeBtnStillNotChoose()
 	}
-
+	
 	$('.btnInterestedErevom').css('display', 'flex');
 	$('.divListInterestedErevom').css('display', 'none');	
+}
+
+function ChangeBtnChoose() {
+	$('.btnInterestedErevom').css('background-color', '#C4D102')
+	$('.btnInterestedErevom').css('border', 'initial')
+	$('.btnInterestedErevom').css('color', 'white')
+}
+
+function ChangeBtnStillNotChoose() {
+	$(".iconInterestedErevom").attr('class', 'fas fa-star iconInterestedErevom');
+	$('.btnInterestedErevom').css('background-color', 'white')
+	$('.btnInterestedErevom').css('border', 'solid 1px #C4D102')
+	$('.btnInterestedErevom').css('color', '#c4d10285')
+	$('.txtResultEventListChooseErevom').text('Intéressé(e)')
+	$('.listEvenementInterestedErevom').val(2).change();
 }

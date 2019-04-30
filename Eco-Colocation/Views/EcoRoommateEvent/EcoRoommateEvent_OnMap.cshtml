@@ -1,8 +1,8 @@
 ﻿
 @{
-				/**/
+	/**/
 
-				ViewBag.Title = "EcoRoommateEvent_OnMap";
+	ViewBag.Title = "EcoRoommateEvent_OnMap";
 }
 
 <div>
@@ -77,8 +77,8 @@
 </div>
 
 
-<div class="ecoRommateExisting-ereom">
-	<a href="@Url.Action("EcoRoommateExistingVisual","EcoRoommateExisting", new {  })" class="ecoRommateExisting2-ereom">
+<div class="ecoRommateEvent-ereom">
+	<a href="@Url.Action("EcoRoommateExistingVisual","EcoRoommateExisting", new {  })" class="ecoRommateEvent2-ereom">
 		<div class="divMarkerPhoto-ereom col-md-5 col-xs-5">
 			<div class="markerPhoto-ereom"
 				 style="background: url(https://www.domoskit.com/wp-content/uploads/2017/05/matheus-ferrero-228716-unsplash-thegem-blog-default.jpg) 50% no-repeat">
@@ -96,18 +96,20 @@
 	</a>
 	<div id="btnInterested-erevom" onclick="showListEvenementInterested_erevom()" class="fontFamilyNote btnInterestedErevom">
 		<div id="underDivBtnInterested-erevom">
-			<i class="fas fa-star" id="iconInterestedErevom"></i>
-			<p id="txtResultEventListChoose-erevom" class="txtResultEventListChooseErevom">Intéressé(e)</p>
+			<i class="fas fa-star iconInterestedErevom"></i>
+			<p id="txtResultEventListChoose-erevom" class="txtResultEventListChooseErevom"></p>
 		</div>
 	</div>
 
 	<div class="divListInterestedErevom">
 		<select class="form-control fontFamilyNote listEvenementInterestedErevom" id="listEvenementInterested-erevom">
 			<option value="1">Participe</option>
-			<option value="2">Intéressé(e)</option>
-			<option value="3">Pas intéressé</option>
+			<option value="2" selected>Intéressé(e)</option>
+			@*<option value="2">Intéressé(e)</option> Si txtResultEventListChoose n'est pas empty *@
+			<option value="3">Pas intéressé(e)</option>
 		</select>
-		<div id="divBtnValidListEvent-erevom" onclick="validateListEventChoose()">
+		<div id="divBtnValidListEvent-erevom"
+			 onclick="validateListEventChoose()">
 			<i class="fas fa-check" id="btnValidListEvent-erevom"></i>
 		</div>
 	</div>
@@ -116,3 +118,9 @@
 <div id="divBtnAddOurEcoRoom-ereom">
 	<a id="btnAddOurEcoRoom-ereom" class="btn waves-light waves-effect" href="@Url.Action("AddYourEcoRoommateEvent","EcoRoommateExisting")">Creer un événement</a>
 </div>
+
+<script language="javascript">
+	$(document).ready(function () {
+		checkIfBtnInteretIsNotEmpty_erevom();
+	});
+</script>
