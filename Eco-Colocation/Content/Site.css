@@ -222,7 +222,12 @@ main {
 /** elements html **/
 a {
 	color: inherit;
+	text-decoration: none;
 }
+
+	a :hover {
+		text-decoration: none;
+	}
 
 	a:hover {
 		color: inherit;
@@ -328,6 +333,11 @@ select:-moz-focusring {
 .modal-spinner {
 	height: 45px !important;
 	z-index: 1000
+}
+
+/* Attribute leaflet */
+.leaflet-popup-content {
+	width: inherit !important;
 }
 
 /* Attribute plugin */
@@ -3177,15 +3187,6 @@ select:-moz-focusring {
 	width: 300px;
 }
 
-.ecoRommateExisting-ereom {
-	z-index: 500;
-	display: none;
-	box-shadow: black 0px 0px 20px 0px;
-	width: 300px;
-	height: 94px;
-	background-color: white
-}
-
 .ecoRommateExisting2-ereom {
 	display: flex;
 	color: black !important;
@@ -4129,22 +4130,37 @@ input.radioFibreEco-ayer {
 /********************************* Eco-Roommate ********************************/
 /**** EcoRoommateExistingVisual****/
 .leafletDivEcoRommateEvent {
-	width: 300px;
+	width: 400px;
 }
 
 .ecoRommateEvent-ereom {
-	z-index: 500;
 	display: none;
-	box-shadow: black 0px 0px 20px 0px;
-	width: 300px;
-	height: 94px;
-	background-color: white
 }
 
 .ecoRommateEvent2-ereom {
-	display:flex;
+	display: flex;
 	color: black !important;
 	text-decoration: none !important;
+}
+
+#divLinkDetailEvent-erevom {
+	display: flex;
+}
+
+#linkDetailEvent-erevom {
+	display: flex;
+	margin-left: auto;
+	margin-right: auto;
+	font-size: 15px;
+	margin-top: 13px;
+	margin-bottom: 10px;
+	color: inherit;
+	text-decoration: none;
+}
+
+#iconDetailEvent-erevom {
+	line-height: 20px;
+	margin-right: 6px;
 }
 
 #selectEvent-erevom {
@@ -4158,7 +4174,11 @@ input.radioFibreEco-ayer {
 }
 
 .leafletDivEcoRommateExisting {
-	width: 300px;
+	width: 400px;
+}
+
+.ecoRommateExisting-ereom {
+	display: none;
 }
 
 #btnInterested-erevom {
@@ -4207,9 +4227,14 @@ input.radioFibreEco-ayer {
 	font-size: 16px;
 	border-radius: 5px;
 	margin-left: 5px;
-	width: 30px;
 	display: flex;
 	cursor: pointer;
+	padding: 0px 5px
+}
+
+#txtBtnValidEvent-erevom {
+	line-height: 27px;
+	margin-left: 3px !important;
 }
 
 #btnValidListEvent-erevom {

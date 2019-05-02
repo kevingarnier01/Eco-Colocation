@@ -78,7 +78,7 @@
 
 
 <div class="ecoRommateEvent-ereom">
-	<a href="@Url.Action("EcoRoommateExistingVisual","EcoRoommateExisting", new {  })" class="ecoRommateEvent2-ereom">
+	<div class="ecoRommateEvent2-ereom">
 		<div class="divMarkerPhoto-ereom col-md-5 col-xs-5">
 			<div class="markerPhoto-ereom"
 				 style="background: url(https://www.domoskit.com/wp-content/uploads/2017/05/matheus-ferrero-228716-unsplash-thegem-blog-default.jpg) 50% no-repeat">
@@ -93,7 +93,15 @@
 			</div>
 			<p class="descriptionHabitat-ereom fontFamilyNote">C'est l'occasion de s'échanger des bons plans et imaginer d’éventuels projets</p>
 		</div>
-	</a>
+	</div>
+	<div id="divLinkDetailEvent-erevom">
+		<a id="linkDetailEvent-erevom" href="@Url.Action("EcoRoommateExistingVisual","EcoRoommateExisting", null)">
+			<i id="iconDetailEvent-erevom" class="fas fa-angle-double-right"></i>
+			<p class="fontFamilyNote">En savoir plus</p>
+		</a>
+	</div>
+
+
 	<div id="btnInterested-erevom" onclick="showListEvenementInterested_erevom()" class="fontFamilyNote btnInterestedErevom">
 		<div id="underDivBtnInterested-erevom">
 			<i class="fas fa-star iconInterestedErevom"></i>
@@ -104,13 +112,12 @@
 	<div class="divListInterestedErevom">
 		<select class="form-control fontFamilyNote listEvenementInterestedErevom" id="listEvenementInterested-erevom">
 			<option value="1">Participe</option>
-			<option value="2" selected>Intéressé(e)</option>
+			<option value="2" selected="">Intéressé(e)</option>
 			@*<option value="2">Intéressé(e)</option> Si txtResultEventListChoose n'est pas empty *@
 			<option value="3">Pas intéressé(e)</option>
 		</select>
-		<div id="divBtnValidListEvent-erevom"
-			 onclick="validateListEventChoose()">
-			<i class="fas fa-check" id="btnValidListEvent-erevom"></i>
+		<div id="divBtnValidListEvent-erevom" onclick="validateListEventChoose()">
+			<p id="txtBtnValidEvent-erevom">Valider</p>
 		</div>
 	</div>
 </div>
