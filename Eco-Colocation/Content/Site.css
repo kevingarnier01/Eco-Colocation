@@ -226,11 +226,8 @@ a {
 }
 
 	a :hover {
-		text-decoration: none;
-	}
-
-	a:hover {
 		color: inherit;
+		text-decoration: none;
 	}
 
 input, textarea {
@@ -243,6 +240,10 @@ p {
 
 .waiting {
 	cursor: progress;
+}
+
+h2 {
+	margin-bottom: 25px;
 }
 
 /*** Attribute CSS style ***/
@@ -263,9 +264,40 @@ p {
 	overflow: auto;
 }
 
-/*** style family ***/
 .fontFamilyNote {
 	font-family: Noteworthy;
+}
+
+.title {
+	color: #00C2D6;
+	font-family: Noteworthy;
+	font-weight: bold;
+}
+
+greyColor {
+	color: #555555;
+}
+
+.btnGreen {
+	background-color: #C4D102;
+	font-family: 'Noteworthy';
+	text-decoration: none;
+	font-size: 20px;
+	font-weight: 800;
+	color: white;
+	box-shadow: 0 0 3px 0px black;
+	padding: 2px 12px;
+	border-radius: 3px;
+	cursor: pointer;
+}
+
+	.btnGreen:hover {
+		text-decoration: none;
+		color: white;
+	}
+
+.overflow {
+	overflow: auto;
 }
 
 
@@ -983,12 +1015,16 @@ select:-moz-focusring {
 	margin-right: auto;
 }
 
-.divAnnonceColoc {
-	display: flex;
-	margin-top: 15px;
-	margin-bottom: 5px;
-	padding: 1px;
-}
+	#divBlocAnnonce2 a {
+		color: inherit !important;
+	}
+
+	.divAnnonceColoc {
+		display: flex;
+		margin-top: 15px;
+		margin-bottom: 5px;
+		padding: 1px;
+	}
 
 #div2AnnonceColoc {
 	padding: 0;
@@ -1427,7 +1463,7 @@ select:-moz-focusring {
 
 /*** ModalLocation ***/
 #modalLocation {
-	height: 348px;
+	height: 400px;
 	width: 900px;
 	overflow: auto;
 	position: relative;
@@ -1452,9 +1488,8 @@ select:-moz-focusring {
 }
 
 #div-photos-mpc {
-	height: 348px;
-	padding: 0;
-	background-color: black
+	height: 100%;
+	padding: 10px;
 }
 
 .photo-mpc {
@@ -1486,6 +1521,7 @@ select:-moz-focusring {
 	}
 
 #d2-btnphoto-mpc {
+	width: 10px;
 	position: absolute;
 	top: 0;
 	right: 0;
@@ -1514,7 +1550,6 @@ select:-moz-focusring {
 	overflow: auto;
 	padding: 10px
 }
-
 
 @media only screen and (min-width: 767px) {
 	#div-description-mpc {
@@ -4229,7 +4264,8 @@ input.radioFibreEco-ayer {
 	margin-left: 5px;
 	display: flex;
 	cursor: pointer;
-	padding: 0px 5px
+	padding: 0px 5px;
+	text-decoration: none;
 }
 
 #txtBtnValidEvent-erevom {
@@ -4241,4 +4277,163 @@ input.radioFibreEco-ayer {
 	margin-left: auto;
 	margin-right: auto;
 	line-height: 26px;
+}
+
+/***** ModalGoingOrInterested *****/
+
+#modalGoingOrInterested {
+	overflow: auto;
+	width: 420px;
+	padding: 15px;
+	position: relative;
+}
+
+.label-mgoi {
+	padding-left: 5px;
+	font-size: 18px;
+	color: #555555;
+	font-weight: 100;
+}
+
+.input-mgoi {
+	border: none;
+	font-size: 15px;
+	line-height: 1.2;
+	padding: 0 5px;
+	padding-bottom: 13px;
+	width: 100%;
+	color: #6b6a6a;
+	font-weight: 100;
+	background-color: transparent;
+}
+
+.enterColocTable-ayer {
+	padding: 10px 0;
+	flex-wrap: wrap;
+}
+
+#title-mgoi {
+	text-align: center;
+}
+
+#divEmail-mgoi {
+	overflow: auto;
+	padding-bottom: 15px;
+}
+
+.underInput-mgoi {
+	border-bottom: 2px solid #d9d9d9;
+	margin-bottom: 25px;
+}
+
+.select-mgoi {
+	margin-bottom: 33px;
+}
+
+#titleAfterEmail-mgoi {
+	padding-left: 15px;
+	font-size: 18px;
+	margin-bottom: 15px;
+}
+
+#infoSup-mgoi {
+	display: none;
+}
+
+#divBtnSave-mgoi {
+	padding-bottom: 3px;
+}
+
+#divCGU-mgoi {
+	margin-bottom: 20px;
+}
+
+#cbxConditionGeneral-mgoi {
+	margin-right: 15px
+}
+
+#btnCGU-mgoi {
+	color: darkcyan;
+	border-bottom: 1.3px solid darkcyan;
+	text-decoration: none;
+}
+
+/**** ModalEcoRoommateEventVisual ****/
+#modalEcoRoommateEventVisual {
+	overflow: auto;
+	width: 900px;
+	padding: 15px;
+	position: relative;
+	height: 400px;
+}
+
+.divOtherLinkEvent-merev {
+	box-shadow: 0 0 3px black;
+	padding: 5px 10px;
+	width: 160px;
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-bottom: 15px;
+	max-height: 220px;
+}
+
+.titleOtherLinkEvent-merev {
+	font-weight: bold;
+	margin-bottom: 6px;
+	text-align: center;
+}
+
+.underTitleOLinkEvent-merev {
+	text-align: center;
+	margin-bottom: 5px;
+}
+
+#titleAperoEvent-merev {
+	text-align: center;
+	margin-top: 0;
+	margin-bottom: 6px;
+}
+
+#divOrganisateur-merev {
+	margin-bottom: 18px;
+}
+
+div#txtNbPartInter-merev {
+}
+
+#txtNbPartInter-merev {
+	white-space: nowrap;
+}
+
+#txtDateCalendar-merev {
+	white-space: nowrap;
+}
+
+.sousTitle-merev {
+	font-size: 16px;
+	margin-top: 17px;
+	margin-bottom: 12px;
+}
+
+.divNewsPosts-merev {
+	margin-bottom: 20px;
+}
+
+.txtDateJour-merev {
+	font-weight: bold;
+	margin-bottom: 6px;
+}
+
+.txtDescNewPost-merev {
+	margin-left: 10px;
+}
+
+#divOtherLinkEvent0-merev {
+	padding: 5px 0;
+}
+
+.imgOtherLink-merev {
+	background-size: 100% !important;
+	width: 150px;
+	height: 100px;
 }

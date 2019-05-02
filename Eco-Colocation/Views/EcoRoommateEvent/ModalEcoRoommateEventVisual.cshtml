@@ -1,0 +1,162 @@
+﻿
+@{
+	ViewBag.Title = "ModalEcoRoommateEventVisual";
+}
+
+<div class="underModal col-sm-12 col-xs-12">
+	<div id="modalEcoRoommateEventVisual" class="reelModal">
+		<div id="divMessage-ml">
+			<img onclick="displayPVMessage()" src="https://img.icons8.com/material-outlined/40/000000/circled-chevron-left.png">
+			<div class="col-sm-6 col-xs-12" style="padding:0">
+				<div id="partialViewMessage">
+					<div id="divTitre-pvm">
+						<h2>Envoyer un message</h2>
+					</div>
+					<div id="divInput-pvml">
+						<div class="div1Input-pvm col-sm-12">
+							<div class="div2Input-pvm">
+								<div id="div3InputNom-pvm" class="div3Input-pvm col-sm-6">
+									<input id="Nom" name="Nom" placeholder="Votre nom" type="text">
+								</div>
+								<div class="div3Input-pvm col-sm-6">
+									<input id="Prenom" name="Prenom" placeholder="Votre prénom" type="text">
+								</div>
+							</div>
+						</div>
+						<div class="div1Input-pvm col-sm-12">
+							<div class="div2Input-pvm">
+								<input id="Email" name="Email" placeholder="Votre Email" type="text" value="">
+							</div>
+						</div>
+						<div class="div1Input-pvm col-sm-12">
+							<div class="div2Input-pvm">
+								<input id="Sujet" name="Sujet" placeholder="Sujet" type="text" value="">
+							</div>
+						</div>
+						<div class="div1Input-pvm col-sm-12">
+							<div class="div2Input-pvm">
+								<textarea placeholder="Message"></textarea>
+							</div>
+						</div>
+					</div>
+					<div class="div1Input-pvm col-sm-12" style="margin-top: 20px;">
+						<div class="div2Input-pvm">
+							<div id="btnSendMsg-pvm">Envoyer l'email</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<div id="divPhoto-ml">
+			<div id="div-photos-mpc" class="col-sm-6 col-xs-12">
+				<div class="photo-mpc mySlides" style="background: url(https://www.izroom.com/blog/wp-content/uploads/2017/06/ap%C3%A9ro-2.jpg) 50% 50% no-repeat;"></div>
+				<div class="photo-mpc mySlides" style="background: url(https://www.euro-assurance.com/sites/default/files/styles/editorial_page__field_ed_image__full/public/da76fb63fef40245e2e506d287b24c18_L.jpg?itok=LsjbRV5O) 50% 50% no-repeat;"></div>
+				<div id="d1-btnphoto-mpc">
+					<div id="d1-2-btnphoto-mpc" onclick="plusDivs(-1)">
+						<img src="../Content/Images/Icons/arrow-left.png">
+					</div>
+				</div>
+				<div id="d2-btnphoto-mpc">
+					<div id="d2-1-btnphoto-mpc" onclick="plusDivs(+1)">
+						<img src="../Content/Images/Icons/arrow-right.png">
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="div-description-mpc" class="col-sm-6 col-xs-12">
+			<h2 class="title" id="titleAperoEvent-merev">Apéro Eco-colocation Rennes</h2>
+			<div class="flex" id="divOrganisateur-merev">
+				<div class="flex childFlex fontFamilyNote">
+					<p>Organisateur : &nbsp;</p>
+					<p>Collectif Eco-Colocation</p>
+				</div>
+			</div>
+			<div class="overflow">
+				<div class="d2-1-description-mpc col-sm-4 col-xs-4">
+					<div class="d2-1-1-description-mpc">
+						<div class="d2-1-1-1-description-mpc">
+							<img src="../../content/images/logos/people.png">
+						</div>
+						<div class="fontFamilyNote" id="txtNbPartInter-merev">
+							<p>113 participant(s)</p>
+							<p>55 intéressés</p>
+						</div>
+					</div>
+				</div>
+				<div class="d2-1-description-mpc col-sm-4 col-xs-4">
+					<div style="text-align: center;">
+						<div class="d2-1-1-1-description-mpc">
+							<img src="../../content/images/logos/markerColocExisting.png">
+						</div>
+						<p class="fontFamilyNote">Rennes, café la bascule</p>
+					</div>
+				</div>
+				<div class="d2-1-description-mpc col-sm-4 col-xs-4">
+					<div class="d2-1-1-description-mpc">
+						<div class="d2-1-1-1-description-mpc">
+							<img src="../../content/images/logos/calendar.png">
+						</div>
+						<div class="fontFamilyNote" id="txtDateCalendar-merev">
+							<p>Jeudi 2 Mai 2019</p>
+							<p>De 18h30 à 21h30</p>
+						</div>
+					</div>
+				</div>
+			</div>			
+			<div>
+				<p class="title sousTitle-merev">Nouvelles publications</p>
+				<div class="divNewsPosts-merev">
+					<p class="fontFamilyNote txtDateJour-merev">Jeudi 20 Avril</p>
+					<p class="fontFamilyNote txtDescNewPost-merev">Bonjour, dans une semaine c'est l'apéro éco-colocation et nous sommes nombreux !!! Rappel : Le début de l'apéro est à 18h30.</p>
+				</div>
+				<div class="divNewsPosts-merev">
+					<p class="fontFamilyNote txtDateJour-merev">Mercredi 10 Avril</p>
+					<p class="fontFamilyNote txtDescNewPost-merev">Déja 30 personnes interessées. A bientôt !</p>
+				</div>
+			</div>
+			<div>
+				<p class="title sousTitle-merev">Evénements associées</p><div class="flex" id="divOtherLinkEvent0-merev">
+					<div class="flex flexWrap">
+
+						<div class="divOtherLinkEvent-merev">
+
+							<div>
+								<p class="titleOtherLinkEvent-merev">Apero Eco-Colocation Strasbourg</p>
+								<p class="fontFamilyNote underTitleOLinkEvent-merev">Jeudi 2 Mai 2019</p>
+							</div>
+
+							<div class="flex">
+								<div style="background: url(https://www.izroom.com/blog/wp-content/uploads/2017/06/ap%C3%A9ro-2.jpg) 50% 50% no-repeat;" class="imgOtherLink-merev"></div>
+							</div>
+						</div>
+
+						<div class="divOtherLinkEvent-merev">
+
+							<div>
+								<p class="titleOtherLinkEvent-merev">Apero Eco-Colocation Lille</p>
+								<p class="fontFamilyNote underTitleOLinkEvent-merev">02 Mai - 04 Mai 2019</p>
+							</div>
+
+							<div class="flex">
+								<div style="background: url(http://img.over-blog-kiwi.com/1/95/94/45/20160405/ob_f9b13f_apero3.jpg) 50% 50% no-repeat;" class="imgOtherLink-merev"></div>
+							</div>
+						</div><div class="divOtherLinkEvent-merev">
+
+							<div>
+								<p class="titleOtherLinkEvent-merev">Apero Eco-Colocation Lion</p>
+								<p class="fontFamilyNote underTitleOLinkEvent-merev">Jeudi 2 Mai 2019</p>
+							</div>
+
+							<div class="flex">
+								<div style="background: url(https://gentlemanmoderne.com/wp-content/uploads/2017/06/Idee-apero.jpg) 50% 50% no-repeat;" class="imgOtherLink-merev"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<a href="#close-modal" rel="modal:close" class="close-modal">Close</a>
+	</div>
+</div>

@@ -22,14 +22,14 @@
 <div id="divBlocsAnnonces-erevom">
 	<div class="divBlocAnnonce1-ereom">
 		<div id="divBlocAnnonce2" class="col-sm-12 col-xs-12">
-			<a href="/SearchColoc/ModalLocation" onclick="showAnnonce(event)" rel="modal:open">
+			<a href="@Url.Action("ModalEcoRoommateEventVisual", "EcoRoommateEvent", null)" rel="modal:open">
 				<div id="annonce1-ereom" class="col-md-12 col-sm-12 divAnnonceColoc">
 					<div id="div2AnnonceColoc" class="col-md-12 col-sm-12 col-xs-12">
 						<input id="valueGps10" name="valueGps10" type="hidden" value="46.89, 2.67">
 						<div id="annonceColoc" class="col-md-12" style="">
 							<div id="annonceColoc" class="col-md-4 col-sm-4 col-xs-12">
 								<div id="photoAnnonce" class="col-md-12 col-sm-12 col-xs-12">
-									<div id="photoAnnonce" style="background: url(https://lcdcfrance-prod.s3.amazonaws.com/pictures/1fcfb11b21b7a9b1246992c16d340f7c_medium.jpg) 50% 50% no-repeat;"></div>
+									<div id="photoAnnonce" style="background: url(https://www.izroom.com/blog/wp-content/uploads/2017/06/ap%C3%A9ro-2.jpg) 50% 50% no-repeat;"></div>
 								</div>
 							</div>
 							<div id="divContenDescriptionAnnonce" class="col-md-8 col-sm-8 col-xs-12">
@@ -49,14 +49,14 @@
 	</div>
 	<div class="divBlocAnnonce1-ereom">
 		<div id="divBlocAnnonce2" class="col-sm-12 col-xs-12">
-			<a href="/SearchColoc/ModalLocation" onclick="showAnnonce(event)" rel="modal:open">
+			<a href="@Url.Action("ModalEcoRoommateEventVisual", "EcoRoommateEvent", null)" rel="modal:open">
 				<div id="annonce2-ereom" class="col-md-12 col-sm-12 divAnnonceColoc">
 					<div id="div2AnnonceColoc" class="col-md-12 col-sm-12 col-xs-12">
 						<input id="valueGps10" name="valueGps10" type="hidden" value="46.89, 2.67">
 						<div id="annonceColoc" class="col-md-12" style="">
 							<div id="annonceColoc" class="col-md-4 col-sm-4 col-xs-12">
 								<div id="photoAnnonce" class="col-md-12 col-sm-12 col-xs-12">
-									<div id="photoAnnonce" style="background: url(https://lcdcfrance-prod.s3.amazonaws.com/pictures/1fcfb11b21b7a9b1246992c16d340f7c_medium.jpg) 50% 50% no-repeat;"></div>
+									<div id="photoAnnonce" style="background: url(https://www.izroom.com/blog/wp-content/uploads/2017/06/ap%C3%A9ro-2.jpg) 50% 50% no-repeat;"></div>
 								</div>
 							</div>
 							<div id="divContenDescriptionAnnonce" class="col-md-8 col-sm-8 col-xs-12">
@@ -81,7 +81,7 @@
 	<div class="ecoRommateEvent2-ereom">
 		<div class="divMarkerPhoto-ereom col-md-5 col-xs-5">
 			<div class="markerPhoto-ereom"
-				 style="background: url(https://www.domoskit.com/wp-content/uploads/2017/05/matheus-ferrero-228716-unsplash-thegem-blog-default.jpg) 50% no-repeat">
+				 style="background: url(https://www.izroom.com/blog/wp-content/uploads/2017/06/ap%C3%A9ro-2.jpg) 50% no-repeat">
 			</div>
 		</div>
 		<div class="description-ereom col-md-7 col-xs-7">
@@ -116,9 +116,19 @@
 			@*<option value="2">Intéressé(e)</option> Si txtResultEventListChoose n'est pas empty *@
 			<option value="3">Pas intéressé(e)</option>
 		</select>
-		<div id="divBtnValidListEvent-erevom" onclick="validateListEventChoose()">
-			<p id="txtBtnValidEvent-erevom">Valider</p>
-		</div>
+		@if (User.Identity.IsAuthenticated)
+		{
+			<div id="divBtnValidListEvent-erevom" onclick="validateListEventChoose()">
+				<p id="txtBtnValidEvent-erevom">Valider</p>
+			</div>
+		}
+		else
+		{
+			<a id="divBtnValidListEvent-erevom"
+			   href="@Url.Action("ModalGoingOrInterested", "EcoRoommateEvent", null)" rel="modal:open">
+				<p id="txtBtnValidEvent-erevom">Valider</p>
+			</a>
+		}
 	</div>
 </div>
 

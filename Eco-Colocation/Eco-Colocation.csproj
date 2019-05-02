@@ -238,15 +238,17 @@
     <Content Include="Content\Images\Logos\electricity.png" />
     <Content Include="Content\Images\Logos\food.png" />
     <Content Include="Content\Images\Logos\garden.png" />
-    <Content Include="Content\Images\Logos\heater%282%29.png" />
     <Content Include="Content\Images\Logos\heater.png" />
     <Content Include="Content\Images\Logos\icons8-gears-100.png" />
     <Content Include="Content\Images\Logos\icons8-plus-100.png" />
     <Content Include="Content\Images\Logos\Loupe.png" />
     <Content Include="Content\Images\Logos\mapLocalisation.png" />
     <Content Include="Content\Images\Logos\mapLocalisation2.png" />
+    <Content Include="Content\Images\Logos\mapLocalisationOVer.png" />
     <Content Include="Content\Images\Logos\markerColocExisting.png" />
     <Content Include="Content\Images\Logos\markerColocExisting2.png" />
+    <Content Include="Content\Images\Logos\markerEvenement.png" />
+    <Content Include="Content\Images\Logos\markerEvenementOver.png" />
     <Content Include="Content\Images\Logos\naturalHouse.png" />
     <Content Include="Content\Images\Logos\people.png" />
     <Content Include="Content\Images\Logos\recyclingBin.png" />
@@ -446,9 +448,10 @@
     <Content Include="Views\EcoRoommateExisting\EcoRoommateExistingVisual.cshtml" />
     <Content Include="Views\EcoRoommateExisting\ModalDeleteEcoRoommateExisting.cshtml" />
     <Content Include="Views\EcoRoommateEvent\EcoRoommateEvent_OnMap.cshtml" />
-    <Content Include="Views\EcoRoommateEvent\EcoRoommateEventVisual.cshtml" />
+    <Content Include="Views\EcoRoommateEvent\ModalEcoRoommateEventVisual.cshtml" />
     <Content Include="Views\EcoRoommateEvent\AddYourEcoRoommateEvent.cshtml" />
     <Content Include="Views\EcoRoommateEvent\ModalDeleteEcoRommateEvent.cshtml" />
+    <Content Include="Views\EcoRoommateEvent\ModalGoingOrInterested.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

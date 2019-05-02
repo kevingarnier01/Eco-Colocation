@@ -46,7 +46,7 @@ $(document).ready(function () {
 		setTimeout(function () {
 			closeModalHasBeenClicked = false; //puis réinitialise la variable à false
 		}, 1000)
-	});
+	});	
 	// Fin modal //
 
 	//ModalProjetCreation. Can use enter button to valid a location place
@@ -790,6 +790,20 @@ function showListEvenementInterested_erevom() {
 	$('.btnInterestedErevom').css('display', 'none');
 	$('.divListInterestedErevom').css('display', 'flex');	
 
+}
+
+function checkIfEmailExistingInDB() {
+	// Ajouter l'appel à la base de données
+
+	//Si son email n'est pas enregistré
+	// - L'enregistrer
+	$('#infoSup-mgoi').css('display', 'block');
+
+	//Sinon valider son interessement ou participation dans le cas où :
+	// - son email n'existe pas
+	//- son email existe mais les autres informations ne sont pas décrites (nom, prénom, date naissance, civilité)
+
+	//validateListEventChoose(); <= pour valider son choix
 }
 
 function validateListEventChoose() {
