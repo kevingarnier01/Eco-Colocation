@@ -450,7 +450,7 @@
     <Content Include="Views\EcoRoommateEvent\EcoRoommateEvent_OnMap.cshtml" />
     <Content Include="Views\EcoRoommateEvent\ModalEcoRoommateEventVisual.cshtml" />
     <Content Include="Views\EcoRoommateEvent\AddYourEcoRoommateEvent.cshtml" />
-    <Content Include="Views\EcoRoommateEvent\ModalDeleteEcoRommateEvent.cshtml" />
+    <Content Include="Views\EcoRoommateEvent\ModalDeleteEcoRoommateEvent.cshtml" />
     <Content Include="Views\EcoRoommateEvent\ModalGoingOrInterested.cshtml" />
   </ItemGroup>
   <ItemGroup>

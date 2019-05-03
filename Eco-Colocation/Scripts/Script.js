@@ -46,7 +46,7 @@ $(document).ready(function () {
 		setTimeout(function () {
 			closeModalHasBeenClicked = false; //puis réinitialise la variable à false
 		}, 1000)
-	});	
+	});
 	// Fin modal //
 
 	//ModalProjetCreation. Can use enter button to valid a location place
@@ -557,7 +557,7 @@ function switcherMcap(elementToEnable, elementToDisable) {
 	});
 }
 
-function loadEcoRoommateExistingMap() {
+function loadEcoRoommateExistingAndEventMap() {
 	var mymap = L.map('leafletMap_ereo').setView([46.89, 2.67], 5);
 
 	L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
@@ -580,7 +580,7 @@ function loadEcoRoommateExistingMap() {
 		},
 		{
 			name: 'Marker2',
-			latLng: [46.89, 2.67],
+			latLng: [46.91, 2.67],
 			id: '2'
 		},
 	];
@@ -601,56 +601,59 @@ function loadEcoRoommateExistingMap() {
 			var markerObject = L.marker(marker.latLng, { icon: markerIcon }).bindPopup(customPopup, customOptions).addTo(mymap).on("click", function () {
 			});
 		})();
+	}
 
-		var markerIcon = L.icon({
-			iconUrl: '../Content/Images/Logos/markerEvenement.png',
+	var markerIcon2 = L.icon({
+		iconUrl: '../Content/Images/Logos/markerEvenement.png',
 
-			iconSize: [22, 22], // size of the icon
-		});
+		iconSize: [22, 22], // size of the icon
+	});
 
-		var markerIconOver = L.icon({
-			iconUrl: '../Content/Images/Logos/markerEvenementOver.png',
+	var markerIconOver = L.icon({
+		iconUrl: '../Content/Images/Logos/markerEvenementOver.png',
 
-			iconSize: [22, 22],
-		});
+		iconSize: [22, 22],
+	});
 
-		var data2 = [
+	var data2 = [
+		{
+			name: 'Marker1',
+			latLng: [48.10, 2.10],
+			id: '1'
+		},
+		{
+			name: 'Marker2',
+			latLng: [46.10, 2.10],
+			id: '2'
+		},
+	];
+
+	for (var i = 0; i < data2.length; i++) {
+		(function () {
+			var ii = i;
+			var marker = data2[ii];
+
+			var customPopup = $('.ecoRommateEvent-ereom').html();
+			//Pour le charge via une autre page : https://stackoverflow.com/questions/6203502/jquery-load-to-variable
+
+			// specify popup options 
+			var customOptions =
 			{
-				name: 'Marker1',
-				latLng: [48.10, 2.10],
-				id: '1'
-			},
-			{
-				name: 'Marker2',
-				latLng: [46.10, 2.10],
-				id: '2'
-			},
-		];
+				'className': 'leafletDivEcoRommateEvent'
+			}
 
-		for (var i = 0; i < data2.length; i++) {
-			(function () {
-				var ii = i;
-				var marker = data2[ii];
+			var markerObject = L.marker(marker.latLng, { icon: markerIcon2 }).bindPopup(customPopup, customOptions).addTo(mymap).on("click", function () {
+				checkIfBtnInteretIsNotEmpty_erevom();
+			});
 
-				var customPopup = $('.ecoRommateEvent-ereom').html();
+			$("#annonce" + (ii + 1) + "-ereom").on("mouseover", function (e) {
+				markerObject.setIcon(markerIconOver);
+			});
 
-				// specify popup options 
-				var customOptions =
-				{
-					'className': 'leafletDivEcoRommateEvent'
-				}
-
-				var markerObject = L.marker(marker.latLng, { icon: markerIcon }).bindPopup(customPopup, customOptions).addTo(mymap).on("click");
-				
-				$("#annonce" + (ii + 1) + "-ereom").on("mouseover", function (e) {
-					markerObject.setIcon(markerIconOver);
-				});
-
-				$("#annonce" + (ii + 1) + "-ereom").on("mouseout", function (e) {
-					markerObject.setIcon(markerIcon);
-				});
-			})();
-		}
+			$("#annonce" + (ii + 1) + "-ereom").on("mouseout", function (e) {
+				markerObject.setIcon(markerIcon2);
+			});
+		})();
 	}
 }
 
@@ -761,8 +764,8 @@ function uploadImgEcoRoommate() {
 
 		$('#divResultFilesUpl-ayer').css('display', 'inline-flex');
 
-		
-			$('body').removeClass('waiting');
+
+		$('body').removeClass('waiting');
 
 	}, false);
 
@@ -777,19 +780,15 @@ function removeUploadPicture_ayer() {
 	$("#fileUpload-ayer").val('')
 }
 
-function checkIfBtnInteretIsNotEmpty_erevom() {	
-	if (!$('#txtResultEventListChoose-erevom').text()) {
+function checkIfBtnInteretIsNotEmpty_erevom() {
+	if (!$('.leafletDivEcoRommateEvent #txtResultEventListChoose-erevom').text()) {
 		ChangeBtnStillNotChoose();
 	}
 }
 
 function showListEvenementInterested_erevom() {
-	var optionSelected = $("#txtResultEventListChoose-erevom").text();
-	$("#listEvenementInterested-erevom").val(optionSelected);
-
-	$('.btnInterestedErevom').css('display', 'none');
-	$('.divListInterestedErevom').css('display', 'flex');	
-
+	$('.leafletDivEcoRommateEvent .btnInterestedErevom').css('display', 'none');
+	$('.leafletDivEcoRommateEvent .divListInterestedErevom').css('display', 'flex');
 }
 
 function checkIfEmailExistingInDB() {
@@ -807,37 +806,38 @@ function checkIfEmailExistingInDB() {
 }
 
 function validateListEventChoose() {
-	var resultVal = $('.listEvenementInterestedErevom').find(":selected").val();
-	var result = $('.listEvenementInterestedErevom').find(":selected").text();	
-	$(".txtResultEventListChooseErevom").text(result);
-	
+	var resultVal = $('.leafletDivEcoRommateEvent .listEvenementInterestedErevom').find(":selected").val();
+	var result = $('.leafletDivEcoRommateEvent .listEvenementInterestedErevom').find(":selected").text();
+	$(".leafletDivEcoRommateEvent .txtResultEventListChooseErevom").text(result);
+
 	if (resultVal == 1) {
-		$(".iconInterestedErevom").attr('class', 'fas fa-check iconInterestedErevom');
+		$(".leafletDivEcoRommateEvent .iconInterestedErevom").attr('class', 'fas fa-check iconInterestedErevom');
 		ChangeBtnChoose();
 	}
 	else if (resultVal == 2) {
-		$(".iconInterestedErevom").attr('class', 'fas fa-star iconInterestedErevom');
+		$(".leafletDivEcoRommateEvent .iconInterestedErevom").attr('class', 'fas fa-star iconInterestedErevom');
 		ChangeBtnChoose();
 	}
 	else {
 		ChangeBtnStillNotChoose()
 	}
-	
-	$('.btnInterestedErevom').css('display', 'flex');
-	$('.divListInterestedErevom').css('display', 'none');	
+
+	$('.leafletDivEcoRommateEvent .btnInterestedErevom').css('display', 'flex');
+	$('.leafletDivEcoRommateEvent .divListInterestedErevom').css('display', 'none');
 }
 
 function ChangeBtnChoose() {
-	$('.btnInterestedErevom').css('background-color', '#C4D102')
-	$('.btnInterestedErevom').css('border', 'initial')
-	$('.btnInterestedErevom').css('color', 'white')
+	$('.leafletDivEcoRommateEvent .btnInterestedErevom').css('background-color', '#C4D102')
+	$('.leafletDivEcoRommateEvent .btnInterestedErevom').css('border', 'initial')
+	$('.leafletDivEcoRommateEvent .btnInterestedErevom').css('color', 'white')
 }
 
 function ChangeBtnStillNotChoose() {
-	$(".iconInterestedErevom").attr('class', 'fas fa-star iconInterestedErevom');
-	$('.btnInterestedErevom').css('background-color', 'white')
-	$('.btnInterestedErevom').css('border', 'solid 1px #C4D102')
-	$('.btnInterestedErevom').css('color', '#c4d10285')
-	$('.txtResultEventListChooseErevom').text('Intéressé(e)')
+	$(".leafletDivEcoRommateEvent .iconInterestedErevom").attr('class', 'fas fa-star iconInterestedErevom');
+	$('.leafletDivEcoRommateEvent .btnInterestedErevom').css('background-color', 'white')
+	$('.leafletDivEcoRommateEvent .btnInterestedErevom').css('border', 'solid 1px #C4D102')
+	$('.leafletDivEcoRommateEvent .btnInterestedErevom').css('color', '#c4d10285')
 	$('.listEvenementInterestedErevom').val(2).change();
+	var selectedElement = $('.leafletDivEcoRommateEvent .listEvenementInterestedErevom').find(":selected").text();
+	$('.leafletDivEcoRommateEvent .txtResultEventListChooseErevom').text(selectedElement)
 }
