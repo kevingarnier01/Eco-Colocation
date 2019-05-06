@@ -38,6 +38,10 @@ $(document).ready(function () {
 		});
 	});
 
+
+	//if ($('.blockerCenterToHideWindows').css('display') == 'none') {
+
+
 	//Si le button close-modal à été cliqué, alors nous l'indiquons et l'evenement au dessus  (click sur modal)
 	//se charge de ne pas faire disparaitre le scroll bar du body
 	$(document).on('click', '.close-modal, .closeModal', function () {
@@ -643,7 +647,7 @@ function loadEcoRoommateExistingAndEventMap() {
 			}
 
 			var markerObject = L.marker(marker.latLng, { icon: markerIcon2 }).bindPopup(customPopup, customOptions).addTo(mymap).on("click", function () {
-				checkIfBtnInteretIsNotEmpty_erevom();
+				checkIfBtnInteretIsNotEmpty_erevom('.leafletDivEcoRommateEvent');
 			});
 
 			$("#annonce" + (ii + 1) + "-ereom").on("mouseover", function (e) {
@@ -780,15 +784,15 @@ function removeUploadPicture_ayer() {
 	$("#fileUpload-ayer").val('')
 }
 
-function checkIfBtnInteretIsNotEmpty_erevom() {
-	if (!$('.leafletDivEcoRommateEvent #txtResultEventListChoose-erevom').text()) {
-		ChangeBtnStillNotChoose();
+function checkIfBtnInteretIsNotEmpty_erevom(targetElement) {
+	if (!$(targetElement + ' #txtResultEventListChoose-erevom').text()) {
+		ChangeBtnStillNotChoose(targetElement);
 	}
 }
 
-function showListEvenementInterested_erevom() {
-	$('.leafletDivEcoRommateEvent .btnInterestedErevom').css('display', 'none');
-	$('.leafletDivEcoRommateEvent .divListInterestedErevom').css('display', 'flex');
+function showListEvenementInterested_erevom(targetElement) {
+	$(targetElement + ' .btnInterestedErevom').css('display', 'none');
+	$(targetElement + ' .divListInterestedErevom').css('display', 'flex');
 }
 
 function checkIfEmailExistingInDB() {
@@ -796,7 +800,14 @@ function checkIfEmailExistingInDB() {
 
 	//Si son email n'est pas enregistré
 	// - L'enregistrer
+	
 	$('#infoSup-mgoi').css('display', 'block');
+	if ($('#modalGoingOrInterested').length != 0) {
+		$('#divBtnSave-mgoi').css('display', 'flex');
+	}
+	else {
+		$('#divBtnSaveNoModal-mgoi').css('display', 'flex');
+	}
 
 	//Sinon valider son interessement ou participation dans le cas où :
 	// - son email n'existe pas
@@ -805,39 +816,70 @@ function checkIfEmailExistingInDB() {
 	//validateListEventChoose(); <= pour valider son choix
 }
 
-function validateListEventChoose() {
-	var resultVal = $('.leafletDivEcoRommateEvent .listEvenementInterestedErevom').find(":selected").val();
-	var result = $('.leafletDivEcoRommateEvent .listEvenementInterestedErevom').find(":selected").text();
-	$(".leafletDivEcoRommateEvent .txtResultEventListChooseErevom").text(result);
+function validateListEventChoose(targetElement) {
+	var resultVal = $(targetElement + ' .listEvenementInterestedErevom').find(":selected").val();
+	var result = $(targetElement + ' .listEvenementInterestedErevom').find(":selected").text();
+	$(targetElement + " .txtResultEventListChooseErevom").text(result);
 
 	if (resultVal == 1) {
-		$(".leafletDivEcoRommateEvent .iconInterestedErevom").attr('class', 'fas fa-check iconInterestedErevom');
-		ChangeBtnChoose();
+		$(targetElement + " .iconInterestedErevom").attr('class', 'fas fa-check iconInterestedErevom');
+		ChangeBtnChoose(targetElement);
 	}
 	else if (resultVal == 2) {
-		$(".leafletDivEcoRommateEvent .iconInterestedErevom").attr('class', 'fas fa-star iconInterestedErevom');
+		$(targetElement + " .iconInterestedErevom").attr('class', 'fas fa-star iconInterestedErevom');
 		ChangeBtnChoose();
 	}
 	else {
 		ChangeBtnStillNotChoose()
 	}
 
-	$('.leafletDivEcoRommateEvent .btnInterestedErevom').css('display', 'flex');
-	$('.leafletDivEcoRommateEvent .divListInterestedErevom').css('display', 'none');
+	$(targetElement + ' .btnInterestedErevom').css('display', 'flex');
+	$(targetElement + ' .divListInterestedErevom').css('display', 'none');
+
+
+	if ($('#modalGoingOrInterested').length == 0) {
+		closeWindow()
+	}
 }
 
-function ChangeBtnChoose() {
-	$('.leafletDivEcoRommateEvent .btnInterestedErevom').css('background-color', '#C4D102')
-	$('.leafletDivEcoRommateEvent .btnInterestedErevom').css('border', 'initial')
-	$('.leafletDivEcoRommateEvent .btnInterestedErevom').css('color', 'white')
+function ChangeBtnChoose(targetElement) {
+	$(targetElement + ' .btnInterestedErevom').css('background-color', '#C4D102')
+	$(targetElement + ' .btnInterestedErevom').css('border', 'initial')
+	$(targetElement + ' .btnInterestedErevom').css('color', 'white')
 }
 
-function ChangeBtnStillNotChoose() {
-	$(".leafletDivEcoRommateEvent .iconInterestedErevom").attr('class', 'fas fa-star iconInterestedErevom');
-	$('.leafletDivEcoRommateEvent .btnInterestedErevom').css('background-color', 'white')
-	$('.leafletDivEcoRommateEvent .btnInterestedErevom').css('border', 'solid 1px #C4D102')
-	$('.leafletDivEcoRommateEvent .btnInterestedErevom').css('color', '#c4d10285')
-	$('.listEvenementInterestedErevom').val(2).change();
-	var selectedElement = $('.leafletDivEcoRommateEvent .listEvenementInterestedErevom').find(":selected").text();
-	$('.leafletDivEcoRommateEvent .txtResultEventListChooseErevom').text(selectedElement)
+function ChangeBtnStillNotChoose(targetElement) {
+	$(targetElement + " .iconInterestedErevom").attr('class', 'fas fa-star iconInterestedErevom');
+	$(targetElement + ' .btnInterestedErevom').css('background-color', 'white')
+	$(targetElement + ' .btnInterestedErevom').css('border', 'solid 1px #C4D102')
+	$(targetElement + ' .btnInterestedErevom').css('color', '#c4d10285')
+	$(targetElement + ' .listEvenementInterestedErevom').val(2).change();
+	var selectedElement = $(targetElement + ' .listEvenementInterestedErevom').find(":selected").text();
+	$(targetElement + ' .txtResultEventListChooseErevom').text(selectedElement)
+}
+
+function OpenMessageWindow_merev() {
+
+	if ($('#divMessage-ml').css('display') == 'none') {
+		$('#divPhoto-ml').css('display', 'none');
+		$('#divInterestedEmail-merev').css('display', 'none')
+		$('#divMessage-ml').css('display', 'unset');
+	}
+	else {
+		$('#divPhoto-ml').css('display', 'unset');
+		$('#divMessage-ml').css('display', 'none');
+	}
+}
+
+function OpenInterestedWindow_merev()  {
+	$('#divPhoto-ml').css('display', 'none');
+	$('#divMessage-ml').css('display', 'none');
+	$('#divInterestedEmail-merev').css('display', 'unset')
+}
+
+function closeWindow() {
+	$('#divPhoto-ml').css('display', 'unset');
+	$('#divMessage-ml').css('display', 'none');
+	$('#divInterestedEmail-merev').css('display', 'none');
+	$('#infoSup-mgoi').css('display', 'none')
 }

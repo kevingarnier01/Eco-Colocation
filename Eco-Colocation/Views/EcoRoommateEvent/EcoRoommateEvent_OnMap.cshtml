@@ -76,16 +76,64 @@
 		</div>
 	</div>
 </div>
-<div id="result"></div>
+<div class="ecoRommateEvent-ereom">
+	<div class="ecoRommateEvent2-ereom">
+		<div class="divMarkerPhoto-ereom col-md-5 col-xs-5">
+			<div class="markerPhoto-ereom"
+				 style="background: url(https://www.izroom.com/blog/wp-content/uploads/2017/06/ap%C3%A9ro-2.jpg) 50% no-repeat">
+			</div>
+		</div>
+		<div class="description-ereom col-md-7 col-xs-7">
+			<p class="nameColoc-ereom">Apéro Eco-colocation</p>
+			<div class="infoPrimaire-ereom">
+				<p class="fontFamilyNote">Jeudi à 18h30</p>
+				@* Uniquement s'il y a plusieurs jours : *@
+				@*<p class="fontFamilyNote">24 Avril - 28 Avril</p>*@
+			</div>
+			<p class="descriptionHabitat-ereom fontFamilyNote">C'est l'occasion de s'échanger des bons plans et imaginer d’éventuels projets</p>
+		</div>
+	</div>
+	<div id="divLinkDetailEvent-erevom">
+		<a id="linkDetailEvent-erevom" href="@Url.Action("EcoRoommateExistingVisual","EcoRoommateExisting", null)">
+			<i id="iconDetailEvent-erevom" class="fas fa-angle-double-right"></i>
+			<p class="fontFamilyNote">En savoir plus</p>
+		</a>
+	</div>
 
+	<div id="divInterested-ereom">
+		<div id="btnInterested-erevom"
+			 onclick="showListEvenementInterested_erevom('.leafletDivEcoRommateEvent')" class="fontFamilyNote btnInterestedErevom">
+			<div id="underDivBtnInterested-erevom">
+				<i class="fas fa-star iconInterestedErevom"></i>
+				<p id="txtResultEventListChoose-erevom" class="txtResultEventListChooseErevom"></p>
+			</div>
+		</div>
+
+		<div class="divListInterestedErevom">
+			<select class="form-control fontFamilyNote listEvenementInterestedErevom" id="listEvenementInterested-erevom">
+				<option value="1">Participe</option>
+				<option value="2">Intéressé(e)</option>
+				@*
+					<option value="2">Intéressé(e)</option> Si txtResultEventListChoose n'est pas empty *@
+				<option value="3">Pas intéressé(e)</option>
+			</select>
+			@if (User.Identity.IsAuthenticated)
+			{
+				<div id="divBtnValidListEvent-erevom" onclick="validateListEventChoose('.leafletDivEcoRommateEvent')">
+					<p id="txtBtnValidEvent-erevom">Valider</p>
+				</div>
+			}
+			else
+			{
+				<a id="divBtnValidListEvent-erevom"
+				   href="@Url.Action("ModalGoingOrInterested", "EcoRoommateEvent" , null)" rel="modal:open">
+					<p id="txtBtnValidEvent-erevom">Valider</p>
+				</a>
+			}
+		</div>
+	</div>
+</div>
 
 <div id="divBtnAddOurEcoRoom-ereom">
 	<a id="btnAddOurEcoRoom-ereom" class="btn waves-light waves-effect" href="@Url.Action("AddYourEcoRoommateEvent","EcoRoommateExisting")">Creer un événement</a>
 </div>
-
-
-<script language="javascript">
-	$(document).ready(function () {
-		checkIfBtnInteretIsNotEmpty_erevom();
-	});
-</script>

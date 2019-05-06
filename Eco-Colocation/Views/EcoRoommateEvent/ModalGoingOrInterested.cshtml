@@ -5,55 +5,6 @@
 
 <div class="underModal col-sm-12 col-xs-12">
 	<div id="modalGoingOrInterested" class="reelModal">
-		<h2 class="title" id="title-mgoi">Valider votre intéret ou votre participation</h2>
-		<div>
-			<div id="divEmail-mgoi">
-				<div class="col-sm-12 divLabelInfoColoc-ayer">
-					<label class="label-mgoi">Email</label>
-					<input type="text" placeholder="Entrer votre mail" class="input-mgoi">
-					<div class="underInput-mgoi"></div>
-					<div id="divCGU-mgoi" class="flex">
-						@Html.CheckBox("cbxConditionGeneral-mgoi")
-						<a href="#" id="btnCGU-mgoi">Accepter les conditions générales d'utilisation</a>
-					</div>
-					<div class="flex">
-						<div class="btnGreen childFlex" onclick="checkIfEmailExistingInDB()">Valider</div>
-					</div>
-				</div>
-			</div>
-			<div class="enterColocTable-mgoi overflow" id="infoSup-mgoi">
-				<div class="overflow">
-					<p class="title" id="titleAfterEmail-mgoi">Merci de faire connaitre votre identité :</p>
-					<div class="col-sm-6 divLabelInterestedEvent-mgoi">
-						<label class="label-ayer">Prénom</label>
-						<input type="text" placeholder="Entrer votre prénom" class="input-mgoi">
-						<div class="underInput-mgoi"></div>
-					</div>
-					<div class="col-sm-6 divLabelInterestedEvent-mgoi">
-						<label class="label-ayer">Nom</label>
-						<input type="text" placeholder="Entrer votre nom" class="input-mgoi">
-						<div class="underInput-mgoi"></div>
-					</div>
-					<div class="col-sm-6 divLabelInterestedEvent-mgoi">
-						<label class="label-ayer">Date de naissance</label>
-						<input type="date" class="input-mgoi">
-						<div class="underInput-mgoi"></div>
-					</div>
-					<div class="col-sm-6 divLabelInterestedEvent-mgoi">
-						<label class="label-mgoi">Civilité</label>
-						<select class="form-control select-mgoi">
-							<option value="0">Monsieur</option>
-							<option value="1">Madame</option>
-						</select>
-					</div>
-				</div>
-				<div class="flex" id="divBtnSave-mgoi">
-					<a id="btnSave-mgoi" class="btnGreen childFlex closeModal" rel="modal:close" href="#close-modal"
-					   onclick="validateListEventChoose()">Enregistrer</a>
-				</div>
-			</div>
-		</div>
-		<a href="#close-modal" rel="modal:close" class="close-modal">Close</a>
+		@Html.Partial("~/Views/EcoRoommateEvent/PartialGoingOrInterested.cshtml")
 	</div>
 </div>
-

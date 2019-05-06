@@ -452,6 +452,7 @@
     <Content Include="Views\EcoRoommateEvent\AddYourEcoRoommateEvent.cshtml" />
     <Content Include="Views\EcoRoommateEvent\ModalDeleteEcoRoommateEvent.cshtml" />
     <Content Include="Views\EcoRoommateEvent\ModalGoingOrInterested.cshtml" />
+    <Content Include="Views\EcoRoommateEvent\PartialGoingOrInterested.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
