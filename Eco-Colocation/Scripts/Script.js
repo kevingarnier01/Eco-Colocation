@@ -800,8 +800,10 @@ function checkIfEmailExistingInDB() {
 
 	//Si son email n'est pas enregistré
 	// - L'enregistrer
-	
+
+	$('#divEmail-mgoi').css('display', 'none');
 	$('#infoSup-mgoi').css('display', 'block');
+
 	if ($('#modalGoingOrInterested').length != 0) {
 		$('#divBtnSave-mgoi').css('display', 'flex');
 	}

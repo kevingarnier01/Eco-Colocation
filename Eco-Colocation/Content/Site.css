@@ -256,9 +256,14 @@ h2 {
 	margin-right: auto;
 }
 
-.flexWrap {
-	flex-wrap: wrap
+.childFlexVertical {
+	margin-top: auto;
+	margin-bottom: auto;
 }
+
+	.flexWrap {
+		flex-wrap: wrap
+	}
 
 .overflow {
 	overflow: auto;
@@ -4224,6 +4229,11 @@ input.radioFibreEco-ayer {
 	padding: 0;
 }
 
+#nbEvenement-erevom {
+	margin-left: 10px;
+	line-height: 26px;
+	font-style: italic;
+}
 .leafletDivEcoRommateExisting {
 	width: 400px;
 }
@@ -4330,6 +4340,7 @@ input.radioFibreEco-ayer {
 
 #title-mgoi {
 	text-align: center;
+	margin-top: 10px;
 }
 
 #divEmail-mgoi {
@@ -4348,7 +4359,7 @@ input.radioFibreEco-ayer {
 
 #titleAfterEmail-mgoi {
 	padding-left: 15px;
-	font-size: 18px;
+	font-size: 17px;
 	margin-bottom: 15px;
 }
 
@@ -4410,7 +4421,8 @@ input.radioFibreEco-ayer {
 	width: 160px;
 	margin-left: 10px;
 	margin-right: 10px;
-	margin-bottom: 15px;
+	margin-bottom: 7px;
+	margin-top: 7px;
 	max-height: 220px;
 }
 
@@ -4496,4 +4508,27 @@ div#txtNbPartInter-merev {
 
 #divModalGoingOrInterested-merev {
 	display:none;
+}
+
+/*********** AddYourEcoRoommateEvent ************/
+#divContenerOtherEvents-ayere {
+	margin-left: 55px;
+	margin-right: 55px;
+	width: 540px;
+	max-width: 100%;
+	overflow: hidden;
+}
+
+#d2-btnphoto-ayere {
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: 100%;
+}
+
+#divContener0OtherEvents-ayere {
+	width: min-content;
+	max-width: 100%;
+	overflow: hidden;
+	position: relative;
 }
