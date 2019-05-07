@@ -294,6 +294,7 @@ greyColor {
 	padding: 2px 12px;
 	border-radius: 3px;
 	cursor: pointer;
+	width: max-content;
 }
 
 	.btnGreen:hover {
@@ -1711,7 +1712,7 @@ select:-moz-focusring {
 
 
 @media only screen and (max-width: 767px) {
-	#modalLocation, #modalCreationProjet {
+	#modalLocation, #modalCreationProjet, #modalEcoRoommateEventVisual {
 		min-width: 360px;
 		height: inherit !important;
 	}
@@ -3627,6 +3628,22 @@ select:-moz-focusring {
 	overflow: auto;
 }
 
+#divLabelNomColoc-ayer {
+	width: 270px;
+}
+
+#divLabelAdresse-ayer {
+	width: 290px;
+}
+
+#divLabelCodePostal-ayer {
+	width: 150px;
+}
+
+#divLabelVille-ayer {
+	width: 240px;
+}
+
 .label-ayer {
 	padding-left: 5px;
 	font-size: 18px;
@@ -3653,7 +3670,8 @@ select:-moz-focusring {
 
 .sousDivFormColoc-ayer {
 	padding: 0;
-	margin-right: 30px;
+	margin-right: 15px;
+	margin-left: 15px;
 }
 
 input.radioFibreEco-ayer {
@@ -3724,9 +3742,9 @@ input.radioFibreEco-ayer {
 
 #txtareaDescColoc-ayer {
 	display: block;
-	width: 99%;
-	min-width: 99%;
-	max-width: 99%;
+	width: 95%;
+	min-width: 95%;
+	max-width: 95%;
 	margin: 0px;
 	height: 100px;
 	min-height: 100px;
@@ -4511,12 +4529,14 @@ div#txtNbPartInter-merev {
 }
 
 /*********** AddYourEcoRoommateEvent ************/
+#addYourEcoRoommateEvent {
+	padding: 10px;
+}
+
 #divContenerOtherEvents-ayere {
-	margin-left: 55px;
-	margin-right: 55px;
 	width: 540px;
 	max-width: 100%;
-	overflow: hidden;
+	overflow: auto;
 }
 
 #d2-btnphoto-ayere {
@@ -4531,4 +4551,35 @@ div#txtNbPartInter-merev {
 	max-width: 100%;
 	overflow: hidden;
 	position: relative;
+}
+
+.btnDivOtherEvent-eyere {
+	display: none;
+}
+
+.sousDivFormColoc-ayere {
+	width: 230px;
+	margin-left: 15px;
+	margin-right: 15px;
+}
+
+#btnValidPublication-merev {
+	width: max-content;
+}
+
+#validPublication-merev {
+	margin-bottom: 5px;
+	font-size: 16px;
+	background-color: #adb810;
+}
+
+#btnAddNewPublication-merev {
+	font-size: 15px;
+	margin-bottom: 15px;
+	background-color: #adb810;
+}
+
+#divInputNewPublication-merev {
+	display: none;
+	width: 100%;
 }

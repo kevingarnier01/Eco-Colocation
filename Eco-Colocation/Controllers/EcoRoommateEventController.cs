@@ -27,5 +27,10 @@ namespace Eco_Colocation.Controllers
 		{
 			return PartialView();
 		}
+
+		public ActionResult AddPublication()
+		{
+			return PartialView("~/Views/EcoRoommateEvent/ModalEcoRoommateEventVisual.cshtml");
+		}
 	}
 }

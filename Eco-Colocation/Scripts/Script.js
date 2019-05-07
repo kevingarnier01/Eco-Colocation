@@ -873,7 +873,7 @@ function OpenMessageWindow_merev() {
 	}
 }
 
-function OpenInterestedWindow_merev()  {
+function OpenInterestedWindow_merev() {
 	$('#divPhoto-ml').css('display', 'none');
 	$('#divMessage-ml').css('display', 'none');
 	$('#divInterestedEmail-merev').css('display', 'unset')
@@ -884,4 +884,44 @@ function closeWindow() {
 	$('#divMessage-ml').css('display', 'none');
 	$('#divInterestedEmail-merev').css('display', 'none');
 	$('#infoSup-mgoi').css('display', 'none')
+}
+
+//Si le nombre de divEvent visbles n'est pas plus grand en taille que son conteneur alors enlever les fleches
+function checkToShowArrowDivEvents() {	
+	var sizeContenerEvents = parseInt($('#divContenerOtherEvents-ayere').css('width'));
+	var sizeDivEvent = parseInt($('.divElementEvent-ayer:first').css('width'), 10);
+
+	var nbDivEvent = $('.divElementEvent-ayer').length;
+
+	if ((sizeContenerEvents) < (sizeDivEvent * nbDivEvent)) {
+		$('.btnDivOtherEvent-eyere').css('display', 'flex');
+		$('#divContenerOtherEvents-ayere').css('margin-left', '55px');
+		$('#divContenerOtherEvents-ayere').css('margin-right', '55px');
+		$('#divContenerOtherEvents-ayere').css('overflow', 'hidden');
+	}
+}
+
+function turnLeftOthersEvents(parentContener) {
+	var sizeDivEvent = parseInt($('.divElementEvent-ayer:first').css('width'), 10);
+	var currentPosition = parseInt($(parentContener + ' .divElementEvent-ayer:first').css('margin-left'), 10);
+
+	if (currentPosition < 0) {
+		$(parentContener + ' .divElementEvent-ayer:first').css('margin-left', currentPosition + sizeDivEvent + 'px')
+	}
+}
+
+function turnRightOthersEvents(parentContener) {
+	var sizeDivEvent = parseInt($('.divElementEvent-ayer:first').css('width'), 10);
+	var currentPosition = parseInt($(parentContener + ' .divElementEvent-ayer:first').css('margin-left'), 10);
+
+	var nbDivEvent = $('.divElementEvent-ayer').length;
+	
+	//Calcul du nombre de divEvent qui sont visbles sur l'écran
+	var sizeContenerEvents = parseInt($('#divContenerOtherEvents-ayere').css('width'));
+	var nbDivEventVisible = parseInt(((sizeContenerEvents / sizeDivEvent).toString().split(".")[0]));
+	
+	//sizeDivEvent * (nbDivEvent - 3); 3 étant le nombre de event visible
+	if (currentPosition > '-' + (sizeDivEvent * (nbDivEvent - nbDivEventVisible))) {
+		$(parentContener + ' .divElementEvent-ayer:first').css('margin-left', currentPosition - sizeDivEvent + 'px')
+	}
 }

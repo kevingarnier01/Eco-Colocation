@@ -148,6 +148,23 @@
 			</div>
 			<div>
 				<p class="title sousTitle-merev">Nouvelles publications</p>
+				@if (User.Identity.IsAuthenticated)
+				{
+					<div id="divAddNewPublication-merev">
+						<div class="btnGreen childFlexVertical" id="btnAddNewPublication-merev"
+							 onclick="$('#divInputNewPublication-merev').css('display','inline-grid')">Ajouter une publication</div>
+						<div id="divInputNewPublication-merev" class="overflow">
+							<div class="col-xs-12" style="margin-bottom: 15px;">
+								<label class="label-ayer">Entrer votre description</label>
+								<textarea id="txtareaDescColoc-ayer"></textarea>
+							</div>
+							<div class="flex">
+								<a href="@Url.Action("AddPublication", "EcoRoommateEvent", null)" rel="modal:open"
+								   class="btnGreen childFlex overflow" id="validPublication-merev">Valider</a>
+							</div>
+						</div>
+					</div>
+				}
 				<div class="divNewsPosts-merev">
 					<p class="fontFamilyNote txtDateJour-merev">Jeudi 20 Avril</p>
 					<p class="fontFamilyNote txtDescNewPost-merev">Bonjour, dans une semaine c'est l'apéro éco-colocation et nous sommes nombreux !!! Rappel : Le début de l'apéro est à 18h30.</p>
