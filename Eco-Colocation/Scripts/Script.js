@@ -786,7 +786,7 @@ function removeUploadPicture_ayer() {
 
 function checkIfBtnInteretIsNotEmpty_erevom(targetElement) {
 	if (!$(targetElement + ' #txtResultEventListChoose-erevom').text()) {
-		ChangeBtnStillNotChoose(targetElement);
+		changeBtnStillNotChoose(targetElement);
 	}
 }
 
@@ -825,14 +825,14 @@ function validateListEventChoose(targetElement) {
 
 	if (resultVal == 1) {
 		$(targetElement + " .iconInterestedErevom").attr('class', 'fas fa-check iconInterestedErevom');
-		ChangeBtnChoose(targetElement);
+		changeBtnChoose(targetElement);
 	}
 	else if (resultVal == 2) {
 		$(targetElement + " .iconInterestedErevom").attr('class', 'fas fa-star iconInterestedErevom');
-		ChangeBtnChoose();
+		changeBtnChoose();
 	}
 	else {
-		ChangeBtnStillNotChoose()
+		changeBtnStillNotChoose()
 	}
 
 	$(targetElement + ' .btnInterestedErevom').css('display', 'flex');
@@ -844,13 +844,14 @@ function validateListEventChoose(targetElement) {
 	}
 }
 
-function ChangeBtnChoose(targetElement) {
+function changeBtnChoose(targetElement) {
 	$(targetElement + ' .btnInterestedErevom').css('background-color', '#C4D102')
 	$(targetElement + ' .btnInterestedErevom').css('border', 'initial')
 	$(targetElement + ' .btnInterestedErevom').css('color', 'white')
 }
 
-function ChangeBtnStillNotChoose(targetElement) {
+function changeBtnStillNotChoose(targetElement) {
+	debugger;
 	$(targetElement + " .iconInterestedErevom").attr('class', 'fas fa-star iconInterestedErevom');
 	$(targetElement + ' .btnInterestedErevom').css('background-color', 'white')
 	$(targetElement + ' .btnInterestedErevom').css('border', 'solid 1px #C4D102')
@@ -860,7 +861,7 @@ function ChangeBtnStillNotChoose(targetElement) {
 	$(targetElement + ' .txtResultEventListChooseErevom').text(selectedElement)
 }
 
-function OpenMessageWindow_merev() {
+function openMessageWindow_merev() {
 
 	if ($('#divMessage-ml').css('display') == 'none') {
 		$('#divPhoto-ml').css('display', 'none');
@@ -873,7 +874,7 @@ function OpenMessageWindow_merev() {
 	}
 }
 
-function OpenInterestedWindow_merev() {
+function openInterestedWindow_merev() {
 	$('#divPhoto-ml').css('display', 'none');
 	$('#divMessage-ml').css('display', 'none');
 	$('#divInterestedEmail-merev').css('display', 'unset')
