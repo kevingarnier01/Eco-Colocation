@@ -261,9 +261,9 @@ h2 {
 	margin-bottom: auto;
 }
 
-	.flexWrap {
-		flex-wrap: wrap
-	}
+.flexWrap {
+	flex-wrap: wrap
+}
 
 .overflow {
 	overflow: auto;
@@ -295,6 +295,10 @@ greyColor {
 	border-radius: 3px;
 	cursor: pointer;
 	width: max-content;
+	user-select: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
 }
 
 	.btnGreen:hover {
@@ -559,13 +563,11 @@ select:-moz-focusring {
 }
 
 #partialViewEcoRoommateExisting_OnMap {
-	padding: 5px;
-	padding-left: 20px
+	padding: 5px 10px;
 }
 
 #partialViewEcoRoommateEvent_OnMap {
-	padding: 5px;
-	padding-right: 20px
+	padding: 5px 10px;
 }
 
 #1div-filtreHome div {
@@ -1009,6 +1011,20 @@ select:-moz-focusring {
 	margin-right: auto;
 }
 
+#divBlocsAnnonces-erevom {
+	overflow: auto;
+	padding-bottom: 5px;
+	height: 345px;
+	margin: 5px 0px;
+}
+
+@media only screen and (max-width: 768px) {
+	#divBlocsAnnonces-erevom {
+		margin: 10px 20px;
+		height: 660px;
+	}
+}
+
 #divBlocAnnonce {
 	padding: 0;
 	/*overflow: auto;*/
@@ -1019,11 +1035,6 @@ select:-moz-focusring {
 	#divBlocAnnonce a {
 		color: rgba(0,0,0,0.8);
 	}
-
-#divBlocsAnnonces-erevom {
-	height: 348px;
-	overflow: auto;
-}
 
 .divBlocAnnonce1-ereom {
 	display: flex
@@ -1041,12 +1052,12 @@ select:-moz-focusring {
 		color: inherit !important;
 	}
 
-	.divAnnonceColoc {
-		display: flex;
-		margin-top: 15px;
-		margin-bottom: 5px;
-		padding: 1px;
-	}
+.divAnnonceColoc {
+	display: flex;
+	margin-top: 15px;
+	margin-bottom: 5px;
+	padding: 1px;
+}
 
 #div2AnnonceColoc {
 	padding: 0;
@@ -1146,6 +1157,25 @@ select:-moz-focusring {
 	font-weight: initial;
 	text-align: center;
 	font-size: 15px;
+}
+
+#divOthersEvents-ereom {
+	overflow: auto;
+}
+
+#btnOtherAnnonceLocation-alpv {
+	background-color: white;
+	margin-top: 15px;
+	color: #636161 !important;
+}
+
+#iconShowNewEvent-alpv {
+	margin-top: -9px;
+	margin-bottom: 2px;
+}
+
+#txtShowNewEvent-alpv {
+	font-size: 19px;
 }
 
 #divPrixAnnonce {
@@ -4252,6 +4282,7 @@ input.radioFibreEco-ayer {
 	line-height: 26px;
 	font-style: italic;
 }
+
 .leafletDivEcoRommateExisting {
 	width: 400px;
 }
@@ -4386,7 +4417,7 @@ input.radioFibreEco-ayer {
 }
 
 #divBtnSave-mgoi {
-	display:none;
+	display: none;
 	padding-bottom: 3px;
 }
 
@@ -4465,12 +4496,20 @@ input.radioFibreEco-ayer {
 	margin-bottom: 18px;
 }
 
+#btnModifyEvent-merev {
+	font-size: 15px;
+	margin-bottom: 15px;
+}
+
 #divInterested-merev {
 	margin-top: 10px;
 	margin-bottom: -5px;
 }
 
-div#txtNbPartInter-merev {
+#divLocalisationEvent-merev {
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 #txtNbPartInter-merev {
@@ -4525,7 +4564,7 @@ div#txtNbPartInter-merev {
 }
 
 #divModalGoingOrInterested-merev {
-	display:none;
+	display: none;
 }
 
 /*********** AddYourEcoRoommateEvent ************/

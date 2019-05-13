@@ -51,7 +51,6 @@
 						</div>
 					</div>
 				</div>
-
 			</div>
 		</div>
 		<div id="divPhoto-ml">
@@ -79,6 +78,12 @@
 					<p>Collectif Eco-Colocation</p>
 				</div>
 			</div>
+			@if (User.Identity.IsAuthenticated)
+			{
+				<div class="flex">
+					<a href="/EcoRoommateEvent" class="btnGreen childFlex" id="btnModifyEvent-merev">Modifier mon événement</a>
+				</div>
+			}
 			<div class="overflow">
 				<div class="d2-1-description-mpc col-sm-4 col-xs-4">
 					<div class="d2-1-1-description-mpc">
@@ -92,7 +97,7 @@
 					</div>
 				</div>
 				<div class="d2-1-description-mpc col-sm-4 col-xs-4">
-					<div style="text-align: center;">
+					<div id="divLocalisationEvent-merev">
 						<div class="d2-1-1-1-description-mpc">
 							<img src="../../content/images/logos/markerColocExisting.png">
 						</div>

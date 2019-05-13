@@ -19,6 +19,11 @@ namespace Eco_Colocation.Controllers
 			return View();
 		}
 
+		public ActionResult ModifiyYourEcoRoommateExisting()
+		{
+			return View("~/Views/EcoRoommateExisting/AddYourEcoRoommateExisting.cshtml");
+		}
+
 		public ActionResult EcoRoommateExistingVisual()
 		{
 			return View();

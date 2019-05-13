@@ -926,3 +926,11 @@ function turnRightOthersEvents(parentContener) {
 		$(parentContener + ' .divElementEvent-ayer:first').css('margin-left', currentPosition - sizeDivEvent + 'px')
 	}
 }
+
+function showOthersEvents() {
+	// Appelé controller pour recuperer quelques événements et les afficher
+	var event = $('#divBlocAnnonce2').html();
+	$("#divOthersEvents-ereom").append(event);
+
+	//Afficher ces événements sur la carte
+}

@@ -75,6 +75,12 @@
 			</a>
 		</div>
 	</div>
+	<div id="divOthersEvents-ereom"></div>
+	@* Afficher ce bouton s'il y a d'autre événement non affiché *@
+	<div class="btnGreen childFlex" id="btnOtherAnnonceLocation-alpv" onclick="showOthersEvents()">
+		<p id="txtShowNewEvent-alpv">Afficher la suite des événements</p>
+		<div class="flex"><i class="fas fa-sort-down childFlex" id="iconShowNewEvent-alpv"></i></div>
+	</div>
 </div>
 <div class="ecoRommateEvent-ereom">
 	<div class="ecoRommateEvent2-ereom">
@@ -94,7 +100,7 @@
 		</div>
 	</div>
 	<div id="divLinkDetailEvent-erevom">
-		<a id="linkDetailEvent-erevom" href="@Url.Action("EcoRoommateExistingVisual","EcoRoommateExisting", null)">
+		<a id="linkDetailEvent-erevom" rel="modal:open" href="@Url.Action("ModalEcoRoommateEventVisual","EcoRoommateEvent", null)">
 			<i id="iconDetailEvent-erevom" class="fas fa-angle-double-right"></i>
 			<p class="fontFamilyNote">En savoir plus</p>
 		</a>
