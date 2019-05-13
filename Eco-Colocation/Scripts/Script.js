@@ -822,17 +822,17 @@ function validateListEventChoose(targetElement) {
 	var resultVal = $(targetElement + ' .listEvenementInterestedErevom').find(":selected").val();
 	var result = $(targetElement + ' .listEvenementInterestedErevom').find(":selected").text();
 	$(targetElement + " .txtResultEventListChooseErevom").text(result);
-
+	
 	if (resultVal == 1) {
 		$(targetElement + " .iconInterestedErevom").attr('class', 'fas fa-check iconInterestedErevom');
 		changeBtnChoose(targetElement);
 	}
 	else if (resultVal == 2) {
 		$(targetElement + " .iconInterestedErevom").attr('class', 'fas fa-star iconInterestedErevom');
-		changeBtnChoose();
+		changeBtnChoose(targetElement);
 	}
 	else {
-		changeBtnStillNotChoose()
+		changeBtnStillNotChoose(targetElement)
 	}
 
 	$(targetElement + ' .btnInterestedErevom').css('display', 'flex');
@@ -851,7 +851,6 @@ function changeBtnChoose(targetElement) {
 }
 
 function changeBtnStillNotChoose(targetElement) {
-	debugger;
 	$(targetElement + " .iconInterestedErevom").attr('class', 'fas fa-star iconInterestedErevom');
 	$(targetElement + ' .btnInterestedErevom').css('background-color', 'white')
 	$(targetElement + ' .btnInterestedErevom').css('border', 'solid 1px #C4D102')
@@ -878,6 +877,7 @@ function openInterestedWindow_merev() {
 	$('#divPhoto-ml').css('display', 'none');
 	$('#divMessage-ml').css('display', 'none');
 	$('#divInterestedEmail-merev').css('display', 'unset')
+	$('#divEmail-mgoi').css('display', 'block');
 }
 
 function closeWindow() {
