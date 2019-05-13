@@ -1,16 +1,15 @@
 ﻿
 @{
-	ViewBag.Title = "ModalDeleteEcoRoommate";
+	ViewBag.Title = "ModalDeleteEcoRoommateExistingExisting";
 }
 
 <div class="underModal col-sm-12 col-xs-12">
-	<div id="modalDeleteEcoRoommate" class="reelModal">
+	<div id="ModalDeleteEcoRoommateExisting" class="reelModal">
 		<h2 id="titleTop-mder">Vous êtes sur le point de supprimer votre eco-colocation "Colokitri" de la carte. Confirmez-vous ?</h2>		
 		<div class="flex">
 			<div style="margin-left:auto;flex-wrap: wrap;display: flex;">
 				<div class="divBtn-mder">
-					<a id="btnCancelInfo-mder" href="@Url.Action("AddYourEcoRoommate", "EcoRoommateExisting", null)">Annuler</a>
-				</div>
+					<a href="#close-modal" rel="modal:close" class="closeModal" id="btnCancelInfo-mder" >Annuler</a></div>
 				<div class="divBtn-mder">
 					<a id="btnDeleteInfo-mder" href="@Url.Action("Index", "Home", null)">Oui, supprimer</a>
 				</div>

@@ -1,0 +1,154 @@
+﻿
+@{
+	/**/
+
+	ViewBag.Title = "EcoRoommateEvent_OnMap";
+}
+
+
+<div>
+	<div id="title-ereom">Les événements organisés</div>
+	<div id="descEcoRoom-ereom" class="fontFamilyNote">
+		C'est ici que tout commence ! Venez découvrir, partager et
+		rencontrer d'autres personnes intéressées par l'éco-colocation.
+	</div>
+</div>
+<div id="divFiltreEvenement-erevom" class="flex">
+	<select class="form-control fontFamilyNote" id="selectEvent-erevom">
+		<option value="0" selected="">A venir</option>
+		<option value="1">Passés</option>
+	</select>
+	<div id="nbEvenement-erevom" class="fontFamilyNote">10 événements à venir.</div>
+</div>
+<div id="divBlocsAnnonces-erevom">
+	<div class="divBlocAnnonce1-ereom">
+		<div id="divBlocAnnonce2" class="col-sm-12 col-xs-12">
+			<a href="@Url.Action("ModalEcoRoommateEventVisual", "EcoRoommateEvent", null)" rel="modal:open">
+				<div id="annonce1-ereom" class="col-md-12 col-sm-12 divAnnonceColoc">
+					<div id="div2AnnonceColoc" class="col-md-12 col-sm-12 col-xs-12">
+						<input id="valueGps10" name="valueGps10" type="hidden" value="46.89, 2.67">
+						<div id="annonceColoc" class="col-md-12" style="">
+							<div id="annonceColoc" class="col-md-4 col-sm-4 col-xs-12">
+								<div id="photoAnnonce" class="col-md-12 col-sm-12 col-xs-12">
+									<div id="photoAnnonce" style="background: url(https://www.izroom.com/blog/wp-content/uploads/2017/06/ap%C3%A9ro-2.jpg) 50% 50% no-repeat;"></div>
+								</div>
+							</div>
+							<div id="divContenDescriptionAnnonce" class="col-md-8 col-sm-8 col-xs-12">
+								<div id="descriptionAnnonce" class="col-md-12 col-sm-12 col-xs-12">
+									<h4>Apéro Eco-colocation Rennes</h4>
+									<p id="textTopDescriptionArt" class="fontFamilyNote">Jeudi 18h30, Rennes</p>
+									<p id="textDescriptionArt" class="fontFamilyNote">
+										Pour les personnes qui cherchent une colocation et celles qui recherchent quelqu'un·e, c'est l'occasion de se rencontrer...
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</a>
+		</div>
+	</div>
+	<div class="divBlocAnnonce1-ereom">
+		<div id="divBlocAnnonce2" class="col-sm-12 col-xs-12">
+			<a href="@Url.Action("ModalEcoRoommateEventVisual", "EcoRoommateEvent", null)" rel="modal:open">
+				<div id="annonce2-ereom" class="col-md-12 col-sm-12 divAnnonceColoc">
+					<div id="div2AnnonceColoc" class="col-md-12 col-sm-12 col-xs-12">
+						<input id="valueGps10" name="valueGps10" type="hidden" value="46.89, 2.67">
+						<div id="annonceColoc" class="col-md-12" style="">
+							<div id="annonceColoc" class="col-md-4 col-sm-4 col-xs-12">
+								<div id="photoAnnonce" class="col-md-12 col-sm-12 col-xs-12">
+									<div id="photoAnnonce" style="background: url(https://www.izroom.com/blog/wp-content/uploads/2017/06/ap%C3%A9ro-2.jpg) 50% 50% no-repeat;"></div>
+								</div>
+							</div>
+							<div id="divContenDescriptionAnnonce" class="col-md-8 col-sm-8 col-xs-12">
+								<div id="descriptionAnnonce" class="col-md-12 col-sm-12 col-xs-12">
+									<h4>Apéro Eco-colocation Rennes</h4>
+									<p id="textTopDescriptionArt" class="fontFamilyNote">Jeudi 18h30, Rennes</p>
+									<p id="textDescriptionArt" class="fontFamilyNote">
+										Pour les personnes qui cherchent une colocation et celles qui recherchent quelqu'un·e, c'est l'occasion de se rencontrer...
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</a>
+		</div>
+	</div>
+	<div id="divOthersEvents-ereom"></div>
+	@* Afficher ce bouton s'il y a d'autre événement non affiché *@
+	<div class="btnGreen childFlex" id="btnOtherAnnonceLocation-alpv" onclick="showOthersEvents()">
+		<p id="txtShowNewEvent-alpv">Afficher la suite des événements</p>
+		<div class="flex"><i class="fas fa-sort-down childFlex" id="iconShowNewEvent-alpv"></i></div>
+	</div>
+</div>
+<div class="ecoRommateEvent-ereom">
+	<div class="ecoRommateEvent2-ereom">
+		<div class="divMarkerPhoto-ereom col-md-5 col-xs-5">
+			<div class="markerPhoto-ereom"
+				 style="background: url(https://www.izroom.com/blog/wp-content/uploads/2017/06/ap%C3%A9ro-2.jpg) 50% no-repeat">
+			</div>
+		</div>
+		<div class="description-ereom col-md-7 col-xs-7">
+			<p class="nameColoc-ereom">Apéro Eco-colocation</p>
+			<div class="infoPrimaire-ereom">
+				<p class="fontFamilyNote">Jeudi à 18h30</p>
+				@* Uniquement s'il y a plusieurs jours : *@
+				@*<p class="fontFamilyNote">24 Avril - 28 Avril</p>*@
+			</div>
+			<p class="descriptionHabitat-ereom fontFamilyNote">C'est l'occasion de s'échanger des bons plans et imaginer d’éventuels projets</p>
+		</div>
+	</div>
+	<div id="divLinkDetailEvent-erevom">
+		<a id="linkDetailEvent-erevom" rel="modal:open" href="@Url.Action("ModalEcoRoommateEventVisual","EcoRoommateEvent", null)">
+			<i id="iconDetailEvent-erevom" class="fas fa-angle-double-right"></i>
+			<p class="fontFamilyNote">En savoir plus</p>
+		</a>
+	</div>
+
+	<div id="divInterested-ereom">
+		<div id="btnInterested-erevom"
+			 onclick="showListEvenementInterested_erevom('.leafletDivEcoRommateEvent')" class="fontFamilyNote btnInterestedErevom">
+			<div id="underDivBtnInterested-erevom">
+				<i class="fas fa-star iconInterestedErevom"></i>
+				<p id="txtResultEventListChoose-erevom" class="txtResultEventListChooseErevom"></p>
+			</div>
+		</div>
+
+		<div class="divListInterestedErevom">
+			<select class="form-control fontFamilyNote listEvenementInterestedErevom" id="listEvenementInterested-erevom">
+				<option value="1">Participe</option>
+				<option value="2">Intéressé(e)</option>
+				@*
+					<option value="2">Intéressé(e)</option> Si txtResultEventListChoose n'est pas empty *@
+				<option value="3">Pas intéressé(e)</option>
+			</select>
+			@if (User.Identity.IsAuthenticated)
+			{
+				<div id="divBtnValidListEvent-erevom" onclick="validateListEventChoose('.leafletDivEcoRommateEvent')">
+					<p id="txtBtnValidEvent-erevom">Valider</p>
+				</div>
+			}
+			else
+			{
+				<a id="divBtnValidListEvent-erevom"
+				   href="@Url.Action("ModalGoingOrInterested", "EcoRoommateEvent" , null)" rel="modal:open">
+					<p id="txtBtnValidEvent-erevom">Valider</p>
+				</a>
+			}
+		</div>
+	</div>
+</div>
+
+@if (User.Identity.IsAuthenticated)
+{
+	<div id="divBtnAddOurEcoRoom-ereom">
+		<a id="btnAddOurEcoRoom-ereom" class="btn waves-light waves-effect" href="@Url.Action("AddYourEcoRoommateEvent", "EcoRoommateEvent")">Creer un événement</a>
+	</div>
+}
+else
+{
+	<div id="divBtnAddOurEcoRoom-ereom">
+		<a id="btnAddOurEcoRoom-ereom" class="btn waves-light waves-effect" rel="modal:open" href="@Url.Action("ModalAccount", "Account")">Creer un événement</a>
+	</div>
+}
