@@ -1,0 +1,20 @@
+﻿
+@{
+	ViewBag.Title = "ModalDeleteEcoRoommateEvent";
+}
+
+<div class="underModal col-sm-12 col-xs-12">
+	<div id="ModalDeleteEcoRoommateExisting" class="reelModal">
+		<h2 id="titleTop-mder">Vous êtes sur le point de supprimer l'événement "NOM_DE_LEVENEMENT" de la carte. Confirmez-vous ?</h2>
+		<div class="flex">
+			<div style="margin-left:auto;flex-wrap: wrap;display: flex;">
+				<div class="divBtn-mder">
+					<a href="#close-modal" rel="modal:close" class="closeModal" id="btnCancelInfo-mder">Annuler</a>
+				</div>
+				<div class="divBtn-mder">
+					<a id="btnDeleteInfo-mder" href="@Url.Action("Index", "Home", null)">Oui, supprimer</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

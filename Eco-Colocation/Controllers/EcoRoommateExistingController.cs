@@ -14,16 +14,21 @@ namespace Eco_Colocation.Controllers
             return View();
         }
 
-		public ActionResult AddYourEcoRoommate()
+		public ActionResult AddYourEcoRoommateExisting()
 		{
 			return View();
+		}
+
+		public ActionResult ModifiyYourEcoRoommateExisting()
+		{
+			return View("~/Views/EcoRoommateExisting/AddYourEcoRoommateExisting.cshtml");
 		}
 
 		public ActionResult EcoRoommateExistingVisual()
 		{
 			return View();
 		}
-		public ActionResult ModalDeleteEcoRoommate()
+		public ActionResult ModalDeleteEcoRoommateExisting()
 		{
 			return PartialView();
 		}

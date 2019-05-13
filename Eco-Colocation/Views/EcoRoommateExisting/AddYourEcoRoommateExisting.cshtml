@@ -1,41 +1,41 @@
 ﻿
 @{
-	ViewBag.Title = "AddYourEcoRoommate";
+	ViewBag.Title = "AddYourEcoRoommateExisting";
 }
 
-<div id="addYourEcoRoommate">
+<div id="AddYourEcoRoommateExisting">
 	<p id="titleTop-ayer">Ajout d'une nouvelle Eco-Colocation</p>
-	<div id="divDescEco-Coloc-ayer">
-		<div class="col-sm-3 sousDivFormColoc-ayer">
+	<div id="divDescEco-Coloc-ayer" class="flex flexWrap">
+		<div class="sousDivFormColoc-ayer" id="divLabelNomColoc-ayer">
 			<label class="label-ayer">Nom</label>
 			<input class="input-ayer" placeholder="Determiner un nom à votre colocation">
 			<div class="underInput-ayer"></div>
 		</div>
-		<div class="col-sm-3 sousDivFormColoc-ayer" id="divLabelDateColoc-ayer">
+		<div class="sousDivFormColoc-ayer" id="divLabelDateColoc-ayer">
 			<label class="label-ayer">Date de création</label>
 			<input class="input-ayer" type="date" id="inputDateCréation-ayer">
 			<div class="underInput-ayer"></div>
 		</div>
-		<div class="col-sm-3 sousDivFormColoc-ayer" id="divLabelNbColoc-ayer">
+		<div class="sousDivFormColoc-ayer" id="divLabelNbColoc-ayer">
 			<label class="label-ayer">Nombre de colocataires</label>
 			<input class="input-ayer" placeholder="Entrer le nombre" oninput="modifyMinValueToNbInfoColoc(this)">
 			<div class="underInput-ayer"></div>
 		</div>
-		<div class="col-xs-12 sousDivFormColoc-ayer" style="margin-bottom: 25px;">
-			<label class="label-ayer">Description de votre éco-colocation</label>
-			<textarea id="txtareaDescColoc-ayer"></textarea>
-		</div>
-		<div class="col-sm-3 sousDivFormColoc-ayer">
+			<div class="col-xs-12 sousDivFormColoc-ayer" style="margin-bottom: 25px;">
+				<label class="label-ayer">Description de votre éco-colocation</label>
+				<textarea id="txtareaDescColoc-ayer"></textarea>
+			</div>
+		<div class="sousDivFormColoc-ayer" id="divLabelAdresse-ayer">
 			<label class="label-ayer">Adresse</label>
 			<input class="input-ayer" placeholder="Entrer votre adresse">
 			<div class="underInput-ayer"></div>
 		</div>
-		<div class="col-sm-3 sousDivFormColoc-ayer" id="divLabelCodePostal-ayer">
+		<div class="sousDivFormColoc-ayer" id="divLabelCodePostal-ayer">
 			<label class="label-ayer">Code postal</label>
 			<input class="input-ayer" placeholder="Entrer le code postal">
 			<div class="underInput-ayer"></div>
 		</div>
-		<div class="col-sm-3 sousDivFormColoc-ayer">
+		<div class="sousDivFormColoc-ayer" id="divLabelVille-ayer">
 			<label class="label-ayer">Ville</label>
 			<input class="input-ayer" placeholder="Entrer le nom de la ville">
 			<div class="underInput-ayer"></div>
@@ -425,47 +425,36 @@
 					<div id="tableColocInfo-ayer">
 						<div id="coloc1-ayer">
 							<div id="titleInfoColoc1-ayer" class="titleInfoColocs-ayer" onclick="openThisColocRow_ayer('#titleInfoColoc1-ayer','#infoColoc1-ayer')">
-								<p class="txtColocTable-ayer">Colocataire 1</p>
+								<p class="txtColocTable-ayer">Colocataire 1 (Vous)</p>
 								<i class="fas fa-long-arrow-alt-down iconTxtColocTable-ayer"></i>
 							</div>
 							<div id="infoColoc1-ayer" class="infoColoc-ayer">
 								<div class="enterColocTable-ayer">
-									<div class="col-sm-6">
+									<div class="col-sm-6 divLabelInfoColoc-ayer">
 										<label class="label-ayer">Prénom</label>
 										<input type="text" placeholder="Entrer votre prénom" class="input-ayer">
 										<div class="underInput-ayer"></div>
 									</div>
-									<div class="col-sm-6">
+									<div class="col-sm-6 divLabelInfoColoc-ayer">
 										<label class="label-ayer">Nom</label>
 										<input type="text" placeholder="Entrer votre nom" class="input-ayer">
 										<div class="underInput-ayer"></div>
 									</div>
-									<div class="col-sm-6">
+									<div class="col-sm-12 divLabelInfoColoc-ayer">
 										<label class="label-ayer">Email</label>
-										<input type="text" placeholder="Entrer votre prénom" class="input-ayer">
+										<input type="text" placeholder="Entrer votre mail" class="input-ayer">
 										<div class="underInput-ayer"></div>
 									</div>
-									<div class="col-sm-6">
+									<div class="col-sm-6 divLabelInfoColoc-ayer">
 										<label class="label-ayer">Date de naissance</label>
 										<input type="date" class="input-ayer">
 										<div class="underInput-ayer"></div>
 									</div>
-									<div class="col-sm-6" style="height: 91px;">
+									<div class="col-sm-6 divLabelInfoColoc-ayer">
 										<label class="label-ayer">Civilité</label>
-										<select class="selectColocTable-ayer form-control">
+										<select class="form-control select-mcar">
 											<option value="0">Monsieur</option>
 											<option value="1">Madame</option>
-										</select>
-									</div>
-									<div class="col-sm-6">
-										<label class="label-ayer">Activités</label>
-										<select class="selectColocTable-ayer form-control">
-											<option value="0">Salarié(e)</option>
-											<option value="1">Etudient(e)</option>
-											<option value="2">Indépendant(e)</option>
-											<option value="3">Sans activité</option>
-											<option value="4">Retraité(e)</option>
-											<option value="5">Autre</option>
 										</select>
 									</div>
 								</div>
@@ -478,42 +467,31 @@
 							</div>
 							<div id="infoColoc2-ayer" class="infoColoc-ayer infoColoc-ayer">
 								<div class="enterColocTable-ayer">
-									<div class="col-sm-6">
+									<div class="col-sm-6 divLabelInfoColoc-ayer">
 										<label class="label-ayer">Prénom</label>
 										<input type="text" placeholder="Entrer votre prénom" class="input-ayer">
 										<div class="underInput-ayer"></div>
 									</div>
-									<div class="col-sm-6">
+									<div class="col-sm-6 divLabelInfoColoc-ayer">
 										<label class="label-ayer">Nom</label>
 										<input type="text" placeholder="Entrer votre nom" class="input-ayer">
 										<div class="underInput-ayer"></div>
 									</div>
-									<div class="col-sm-6">
+									<div class="col-sm-12 divLabelInfoColoc-ayer">
 										<label class="label-ayer">Email</label>
-										<input type="text" placeholder="Entrer votre prénom" class="input-ayer">
+										<input type="text" placeholder="Entrer votre mail" class="input-ayer">
 										<div class="underInput-ayer"></div>
 									</div>
-									<div class="col-sm-6">
+									<div class="col-sm-6 divLabelInfoColoc-ayer">
 										<label class="label-ayer">Date de naissance</label>
 										<input type="date" class="input-ayer">
 										<div class="underInput-ayer"></div>
 									</div>
-									<div class="col-sm-6" style="height: 91px;">
+									<div class="col-sm-6 divLabelInfoColoc-ayer">
 										<label class="label-ayer">Civilité</label>
-										<select class="selectColocTable-ayer form-control">
+										<select class="form-control select-mcar">
 											<option value="0">Monsieur</option>
 											<option value="1">Madame</option>
-										</select>
-									</div>
-									<div class="col-sm-6">
-										<label class="label-ayer">Activités</label>
-										<select class="selectColocTable-ayer form-control">
-											<option value="0">Salarié(e)</option>
-											<option value="1">Etudient(e)</option>
-											<option value="2">Indépendant(e)</option>
-											<option value="3">Sans activité</option>
-											<option value="4">Retraité(e)</option>
-											<option value="5">Autre</option>
 										</select>
 									</div>
 								</div>
@@ -527,42 +505,31 @@
 								</div>
 								<div id="infoColocCopie-ayer" class="infoColoc-ayer infoColoc-ayer">
 									<div class="enterColocTable-ayer">
-										<div class="col-sm-6">
+										<div class="col-sm-6 divLabelInfoColoc-ayer">
 											<label class="label-ayer">Prénom</label>
 											<input type="text" placeholder="Entrer votre prénom" class="input-ayer">
 											<div class="underInput-ayer"></div>
 										</div>
-										<div class="col-sm-6">
+										<div class="col-sm-6 divLabelInfoColoc-ayer">
 											<label class="label-ayer">Nom</label>
 											<input type="text" placeholder="Entrer votre nom" class="input-ayer">
 											<div class="underInput-ayer"></div>
 										</div>
-										<div class="col-sm-6">
+										<div class="col-sm-12 divLabelInfoColoc-ayer">
 											<label class="label-ayer">Email</label>
-											<input type="text" placeholder="Entrer votre prénom" class="input-ayer">
+											<input type="text" placeholder="Entrer votre mail" class="input-ayer">
 											<div class="underInput-ayer"></div>
 										</div>
-										<div class="col-sm-6">
+										<div class="col-sm-6 divLabelInfoColoc-ayer">
 											<label class="label-ayer">Date de naissance</label>
 											<input type="date" class="input-ayer">
 											<div class="underInput-ayer"></div>
 										</div>
-										<div class="col-sm-6" style="height: 91px;">
+										<div class="col-sm-6 divLabelInfoColoc-ayer">
 											<label class="label-ayer">Civilité</label>
-											<select class="form-control selectColocTable-ayer">
+											<select class="form-control select-mcar">
 												<option value="0">Monsieur</option>
 												<option value="1">Madame</option>
-											</select>
-										</div>
-										<div class="col-sm-6">
-											<label class="label-ayer">Activités</label>
-											<select class="form-control selectColocTable-ayer">
-												<option value="0">Salarié(e)</option>
-												<option value="1">Etudient(e)</option>
-												<option value="2">Indépendant(e)</option>
-												<option value="3">Sans activité</option>
-												<option value="4">Retraité(e)</option>
-												<option value="5">Autre</option>
 											</select>
 										</div>
 									</div>
@@ -586,7 +553,7 @@
 		@if (User.Identity.IsAuthenticated)
 		{
 			<div class="flex">
-				<a id="btnSupColoc-ayer" href="@Url.Action("ModalDeleteEcoRoommate", "EcoRoommateExisting", null)" rel="modal:open">Supprimer notre éco-colocation</a>
+				<a id="btnSupColoc-ayer" href="@Url.Action("ModalDeleteEcoRoommateExisting", "EcoRoommateExisting", null)" rel="modal:open">Supprimer notre éco-colocation</a>
 			</div>
 		}
 	</div>

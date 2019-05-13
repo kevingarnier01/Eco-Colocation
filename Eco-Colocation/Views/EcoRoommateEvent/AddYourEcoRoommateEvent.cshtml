@@ -1,0 +1,143 @@
+﻿
+@{
+	ViewBag.Title = "AddYourEcoRoommateExistingEvent";
+}
+<div id="addYourEcoRoommateEvent">
+	<h2 id="titleTop-ayer">Ajout d'un nouvel événement</h2>
+	<div class="overflow flex flexWrap">
+		<div class="sousDivFormColoc-ayere">
+			<label class="label-ayer">Nom</label>
+			<input class="input-ayer" placeholder="Entrer un nom d'événement">
+			<div class="underInput-ayer"></div>
+		</div>
+		<div class="sousDivFormColoc-ayere">
+			<label class="label-ayer">Lieu</label>
+			<input class="input-ayer" placeholder="Entrer l'adresse du lieu">
+			<div class="underInput-ayer"></div>
+		</div>
+		<div class="sousDivFormColoc-ayere">
+			<label class="label-ayer">Date et Heure de début</label>
+			<input class="input-ayer" type="datetime-local">
+			<div class="underInput-ayer"></div>
+		</div>
+		<div class="sousDivFormColoc-ayere">
+			<label class="label-ayer">Date et Heure de fin</label>
+			<input class="input-ayer" type="datetime-local">
+			<div class="underInput-ayer"></div>
+		</div>
+		<div class="sousDivFormColoc-ayere">
+			<label class="label-ayer">Email</label><input class="input-ayer" placeholder="Email a joindre">
+			<div class="underInput-ayer"></div>
+		</div>
+		<div class="col-xs-12 sousDivFormColoc-ayer" style="margin-bottom: 25px;">
+			<label class="label-ayer">Description de votre événement</label>
+			<textarea id="txtareaDescColoc-ayer"></textarea>
+		</div>
+	</div>
+	<div class="overflow">
+		<div class="col-xs-12">
+			<label class="label-ayer">Ajouter une photo à l'image de votre éco-colocation</label>
+
+			<label id="btnAddPicture-ayer" for="fileUpload-ayer">Ajouter une photo</label>
+			<input id="fileUpload-ayer" type="file" onchange="uploadImgEcoRoommate();">
+			<div id="divResultFilesUpl-ayer">
+				<img src="" id="resultImgUpl-ayer">
+				<i id="icondeletePicture-ayer" class="fas fa-times-circle" onclick="removeUploadPicture_ayer()"></i>
+			</div>
+		</div>
+	</div>
+	<h3 class="title" id="titleOtherEvents-ayere">Selectionner les événements associés au votre</h3>
+
+	<div class="flex" id="divContener0OtherEvents-ayere">
+		<div id="d1-btnphoto-mpc" class="btnDivOtherEvent-eyere flex">
+			<div id="d1-2-btnphoto-mpc" onclick="turnLeftOthersEvents('#divContenerOtherEvents-ayere')">
+				<img src="../Content/Images/Icons/arrow-left.png">
+			</div>
+		</div>
+		<div id="d2-btnphoto-ayere" class="btnDivOtherEvent-eyere flex">
+			<div id="d2-1-btnphoto-mpc" onclick="turnRightOthersEvents('#divContenerOtherEvents-ayere')">
+				<img src="../Content/Images/Icons/arrow-right.png">
+			</div>
+		</div>
+		<div class="flex childFlex" id="divContenerOtherEvents-ayere">
+			<div class="flex divElementEvent-ayer">
+				<div>
+					<div class="divOtherLinkEvent-merev">
+						<div>
+							<p class="titleOtherLinkEvent-merev">Apero Eco-Colocation Strasbourg</p>
+							<p class="fontFamilyNote underTitleOLinkEvent-merev">Jeudi 2 Mai 2019</p>
+						</div>
+						<div class="flex">
+							<div style="background: url(https://www.izroom.com/blog/wp-content/uploads/2017/06/ap%C3%A9ro-2.jpg) 50% 50% no-repeat;" class="imgOtherLink-merev"></div>
+						</div>
+						<div class="flex">
+							<div class="childFlex">
+								<input id="CbxEvenement" name="CbxEvenement" type="checkbox" value="true"><input name="CbxEvenement" type="hidden" value="false">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="flex divElementEvent-ayer">
+				<div>
+					<div class="divOtherLinkEvent-merev">
+						<div>
+							<p class="titleOtherLinkEvent-merev">Apero Eco-Colocation Lille</p>
+							<p class="fontFamilyNote underTitleOLinkEvent-merev">02 Mai - 04 Mai 2019</p>
+						</div>
+
+						<div class="flex">
+							<div style="background: url(http://img.over-blog-kiwi.com/1/95/94/45/20160405/ob_f9b13f_apero3.jpg) 50% 50% no-repeat;" class="imgOtherLink-merev"></div>
+						</div>
+						<div class="flex">
+							<div class="childFlex">
+								<input id="CbxEvenement" name="CbxEvenement" type="checkbox" value="true"><input name="CbxEvenement" type="hidden" value="false">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="flex divElementEvent-ayer">
+				<div class="centerOtherEvent-ayere">
+					<div class="divOtherLinkEvent-merev">
+						<div>
+							<p class="titleOtherLinkEvent-merev">Apero Eco-Colocation Lion</p>
+							<p class="fontFamilyNote underTitleOLinkEvent-merev">Jeudi 2 Mai 2019</p>
+						</div>
+
+						<div class="flex">
+							<div style="background: url(https://gentlemanmoderne.com/wp-content/uploads/2017/06/Idee-apero.jpg) 50% 50% no-repeat;" class="imgOtherLink-merev"></div>
+						</div>
+						<div class="flex">
+							<div class="childFlex">
+								<input id="CbxEvenement" name="CbxEvenement" type="checkbox" value="true"><input name="CbxEvenement" type="hidden" value="false">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="divBottomBtn-ayer">
+		<div class="flex">
+			<a id="btnValidateInfo-ayer" href="@Url.Action("Index", "Home", null)">Valider mes informations</a>
+		</div>
+		<div class="flex">
+			<a id="btnCancelInfo-ayer" href="@Url.Action("Index", "Home", null)">Retour</a>
+		</div>
+	</div>
+
+	@* Rajouter des conditions d'affichage *@
+	@if (User.Identity.IsAuthenticated)
+	{
+		<div class="flex">
+			<a id="btnSupColoc-ayer" href="@Url.Action("ModalDeleteEcoRoommateEvent", "EcoRoommateEvent", null)" rel="modal:open">Supprimer l'événement</a>
+		</div>
+	}
+</div>
+
+<script language="javascript">
+	$(document).ready(function () {
+		checkToShowArrowDivEvents('#divContenerOtherEvents-ayere');
+	});
+</script>
