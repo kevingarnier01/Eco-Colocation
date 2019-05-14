@@ -131,14 +131,23 @@ function initMap() {
 			id: '2'
 		},
 	];
+
 	for (var i = 0; i < data.length; i++) {
 		(function () {
 			var ii = i;
 			setTimeout(function () {
 				var marker = data[ii];
+							
+				// specify popup options 
+				var customOptions =
+				{
+					'className': 'leafletDivAnnounce'
+				}
 
 				var markerObject = L.marker(marker.latLng, { icon: leafIcon }).addTo(mymap).on("mouseover", function () {
-					showAnnonce("#onHoverMarker", ii + 1)
+					var numberId = ii + 1;
+					var idElement = $("#onHoverMarker" + numberId);
+					markerObject.bindPopup(idElement.html(), customOptions)
 				}).on("mouseout", function () {
 					hideAnnonce("#onHoverMarker", ii + 1);
 				});
@@ -151,41 +160,9 @@ function initMap() {
 					markerObject.setIcon(leafIcon);
 				});
 
-				markerObject.on("mouseover", function (e) {
-					markerObject.setIcon(leafIconOver);
-				});
-
-				markerObject.on("mouseout", function (e) {
-					markerObject.setIcon(leafIcon);
-				});
-
 			}, 1000);
 		})();
 	}
-}
-
-function showAnnonce(idElement, numeroMarker) {
-	var posx = 0;
-	var posy = 0;
-	if (!e) var e = window.event;
-	if (e.pageX || e.pageY) {
-		posx = e.pageX;
-		posy = e.pageY;
-	} else if (e.clientX || e.clientY) {
-		posx = e.clientX;
-		posy = e.clientY;
-	}
-
-	$(idElement + numeroMarker).css("display", "block");
-	$(idElement + numeroMarker).css("position", "absolute");
-	$(idElement + numeroMarker).css('left', posx + 20);
-	$(idElement + numeroMarker).css('top', posy - 5);
-}
-
-function hideAnnonce(idElement, numeroMarker) {
-	$(idElement + numeroMarker).css("display", "none");
-	$(idElement + numeroMarker).css('left', 'inherit');
-	$(idElement + numeroMarker).css('top', 'inherit');
 }
 
 function selectSwitcher(element) {

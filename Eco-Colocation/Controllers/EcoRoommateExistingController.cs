@@ -19,6 +19,12 @@ namespace Eco_Colocation.Controllers
 			return View();
 		}
 
+		public ActionResult ValidAddYourEcoRoommateExisting()
+		{
+			//faire en sort que si l'admin est connecté. Alors nul besoin de remplir de compte eco-coloc.
+			return View();
+		}
+
 		public ActionResult ModifiyYourEcoRoommateExisting()
 		{
 			return View("~/Views/EcoRoommateExisting/AddYourEcoRoommateExisting.cshtml");
