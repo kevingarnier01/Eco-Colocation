@@ -32,5 +32,15 @@ namespace Eco_Colocation.Controllers
 		{
 			return PartialView();
 		}
+
+		public ActionResult AddSimplyEcoRoommateExisting()
+		{
+			return View();
+		}
+
+		public ActionResult ModalChooseExistingVisual()
+		{
+			return PartialView();
+		}
 	}
 }

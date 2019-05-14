@@ -4629,3 +4629,29 @@ input.radioFibreEco-ayer {
 	display: none;
 	width: 100%;
 }
+
+/****** Add Simply Eco Roommate Existing ******/
+#divLocalisation-asere {
+	width: 500px;
+	max-width: 100%;
+}
+
+#conteneurChamps-asere {
+	padding: 0 15px;
+	padding-bottom: 40px;
+}
+
+#divLabelLink-asere {
+	width: 500px;
+	max-width: 100%;
+}
+
+#divBottomBtn-asere {
+	margin-top: -20px;
+}
+
+.sousDivFormColoc-asere {
+	padding: 0 15px;
+	display: inline-block;
+	max-width: 100%;
+}

@@ -453,6 +453,8 @@
     <Content Include="Views\EcoRoommateEvent\ModalDeleteEcoRoommateEvent.cshtml" />
     <Content Include="Views\EcoRoommateEvent\ModalGoingOrInterested.cshtml" />
     <Content Include="Views\EcoRoommateEvent\PartialGoingOrInterested.cshtml" />
+    <Content Include="Views\EcoRoommateExisting\ModalChooseAddingERExisting.cshtml" />
+    <Content Include="Views\EcoRoommateExisting\AddSimplyEcoRoommateExisting.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

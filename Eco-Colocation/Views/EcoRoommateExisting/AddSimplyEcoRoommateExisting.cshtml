@@ -1,0 +1,40 @@
+﻿
+@{
+	ViewBag.Title = "AddSimplyEcoRoommateExisting";
+}
+
+<div id="addSimplyEcoRoommateExisting">
+	<p id="titleTop-ayer">Ajout d'une nouvelle Eco-Colocation</p>
+
+	<div id="conteneurChamps-asere">
+		<div class="sousDivFormColoc-asere" style="margin-bottom: 25px;">
+			<label class="label-ayer">Description de votre éco-colocation</label>
+			<textarea id="txtareaDescColoc-ayer" style="margin: 2px 57.3594px 0px 2px; width: 1133px; height: 100px;"></textarea>
+		</div>
+		<div class="sousDivFormColoc-asere" id="divLabelLink-asere">
+			<label class="label-ayer">Lien</label>
+			<input class="input-ayer" placeholder="Entrer un lien">
+			<div class="underInput-ayer"></div>
+		</div>
+		<div class="sousDivFormColoc-asere" id="divLocalisation-asere">
+			<label class="label-ayer">Localisation</label>
+			<input type="search" id="address-input-asere" class="address-input inputSearchPlace"
+				   placeholder="Saisir un lieu le plus précis possible." />
+		</div>
+	</div>
+	<div id="divBottomBtn-asere">
+		<div class="flex">
+			<a id="btnValidateInfo-ayer" href="/">Valider mes informations</a>
+		</div>
+		<div class="flex">
+			<a id="btnCancelInfo-ayer" href="/">Retour</a>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	$(document).ready(function () {
+		initAutoComplete('#address-input-asere');
+	});
+</script>
+
