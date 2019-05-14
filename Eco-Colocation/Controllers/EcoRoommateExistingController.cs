@@ -28,15 +28,6 @@ namespace Eco_Colocation.Controllers
 		{
 			return View();
 		}
-		public ActionResult ModalDeleteEcoRoommateExisting()
-		{
-			return PartialView();
-		}
-
-		public ActionResult AddSimplyEcoRoommateExisting()
-		{
-			return View();
-		}
 
 		public ActionResult ModalChooseExistingVisual()
 		{

@@ -561,7 +561,7 @@ function switcherMcap(elementToEnable, elementToDisable) {
 	});
 }
 
-function loadEcoRoommateExistingAndEventMap() {
+function loadEcoRoommateMap() {
 	var mymap = L.map('leafletMap_ereo').setView([46.89, 2.67], 5);
 
 	L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
@@ -570,6 +570,11 @@ function loadEcoRoommateExistingAndEventMap() {
 		accessToken: 'pk.eyJ1Ijoia2dhcm5pZXIiLCJhIjoiY2pyajlmOW1nMDlmNDQ5bzAwemRoNTNpeSJ9.7Evwr47aOCoVYOAnds_WZA'
 	}).addTo(mymap);
 
+	loadEcoRoommateExistingMap(mymap);
+	loadEcoRoommateEventMap(mymap);
+}
+
+function loadEcoRoommateExistingMap(mymap) {
 	var markerIcon = L.icon({
 		iconUrl: '../Content/Images/Logos/markerColocExisting.png',
 
@@ -606,7 +611,9 @@ function loadEcoRoommateExistingAndEventMap() {
 			});
 		})();
 	}
+}
 
+function loadEcoRoommateEventMap(mymap) {
 	var markerIcon2 = L.icon({
 		iconUrl: '../Content/Images/Logos/markerEvenement.png',
 
