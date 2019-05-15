@@ -158,7 +158,7 @@ function initMap() {
 
 				$("#annonce" + (ii + 1) + "-alpv").on("mouseout", function (e) {
 					markerObject.setIcon(leafIcon);
-				});
+				}); showOthersEvents()
 
 			}, 1000);
 		})();
@@ -917,4 +917,9 @@ function showOthersEvents() {
 	$("#divOthersEvents-ereom").append(event);
 
 	//Afficher ces événements sur la carte
+}
+
+function showOthersAnnounces() {
+	var event = '<div id="annonce2-alpv" class="divBlocAnnonce1-ereom">' + $('#annonce1-alpv').html() + '</div>';
+	$("#divOthersAnnounces-alpv").append(event);
 }

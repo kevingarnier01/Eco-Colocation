@@ -1053,7 +1053,7 @@ select:-moz-focusring {
 	margin-bottom: 15px;
 }
 
-#divBlocsAnnonces-erevom {
+#divBlocsEvents-erevom {
 	overflow: auto;
 	padding-bottom: 5px;
 	height: 345px;
@@ -1061,7 +1061,7 @@ select:-moz-focusring {
 }
 
 @media only screen and (max-width: 768px) {
-	#divBlocsAnnonces-erevom {
+	#divBlocsEvents-erevom {
 		margin: 10px 20px;
 		height: 660px;
 	}
