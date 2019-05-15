@@ -137,7 +137,7 @@ function initMap() {
 			var ii = i;
 			setTimeout(function () {
 				var marker = data[ii];
-							
+
 				// specify popup options 
 				var customOptions =
 				{
@@ -310,74 +310,77 @@ function chooseAddr(lat1, lng1) {
 //Garder cette fonction en commentaire - cette utilisation concerne nominatim.openstreetmap.org 
 //(Si algolia ne fonctionne plus, utiliser lui)
 
-//var compteurPlace = 1;
-//function addNewPlace(elementId) {
-//	elementIdvalue = $('#' + elementId).val();
-//	if (elementIdvalue != null) {
-//		var nameElementId = JSON.parse(elementIdvalue)['display_name'];
-//	}
+var compteurPlace = 1;
+function addNewPlace(elementId) {
+	elementIdvalue = $('#' + elementId).val();
+	if (elementIdvalue != null) {
+		var nameElementId = JSON.parse(elementIdvalue)['display_name'];
+	}
 
-//	console.log(nameElementId);
-//	if (elementIdvalue != null && nameElementId == $("#inputLocalisation-cpc").val()) {
-//		if (/[a-zA-Z]/.test($.trim($("#inputLocalisation-cpc").val()))) {
-//			var htmlPlace =
-//				'<div id="place' + compteurPlace + '" style="margin: auto;margin-left: initial;margin-right: 5px;margin-bottom:10px;padding-left: 5px;padding-right: 30px;padding-top: 3px;padding-bottom: 3px;background-color: rgba(0,0,0,0.15);border-radius: 15px;">' +
-//				'<div style="display: inline-block;height: 100%;">' +
-//				'<p id="placeName-cpc" style="margin: 0;">' + $("#inputLocalisation-cpc").val() + '</p>' +
-//				'</div>' +
-//				'<div style="display: inline-block;position:absolute">' +
-//				'<div onclick="deletePlace(place' + compteurPlace + ')" style="background: url(https://www.gstatic.com/images/icons/material/system/1x/close_black_16dp.png) no-repeat;height: 15px;width: 17px;display: inline-block;margin-left: 5px;cursor: pointer;"></div>' +
-//				'</div>' +
-//				'</div>';
+	console.log(nameElementId);
+	if (elementIdvalue != null && nameElementId == $("#inputLocalisation-cpc").val()) {
+		if (/[a-zA-Z]/.test($.trim($("#inputLocalisation-cpc").val()))) {
+			var htmlPlace =
+				'<div id="place' + compteurPlace + '" style="margin: auto;margin-left: initial;margin-right: 5px;margin-bottom:10px;padding-left: 5px;padding-right: 30px;padding-top: 3px;padding-bottom: 3px;background-color: rgba(0,0,0,0.15);border-radius: 15px;">' +
+				'<div style="display: inline-block;height: 100%;">' +
+				'<p id="placeName-cpc" style="margin: 0;">' + $("#inputLocalisation-cpc").val() + '</p>' +
+				'</div>' +
+				'<div style="display: inline-block;position:absolute">' +
+				'<div onclick="deletePlace(place' + compteurPlace + ')" style="background: url(https://www.gstatic.com/images/icons/material/system/1x/close_black_16dp.png) no-repeat;height: 15px;width: 17px;display: inline-block;margin-left: 5px;cursor: pointer;"></div>' +
+				'</div>' +
+				'</div>';
 
-//			$("#place-cpc").append(htmlPlace);
+			$("#place-cpc").append(htmlPlace);
 
-//			$("#inputLocalisation-cpc").val("");
+			$("#inputLocalisation-cpc").val("");
 
-//			compteurPlace++;
-//		}
-//	}
-//	else {
-//		alert('S\'il vous plait, veuillez selectionner une localisation suggérer par les propositions.')
-//	}
-//}
+			compteurPlace++;
+		}
+	}
+	else {
+		alert('S\'il vous plait, veuillez selectionner une localisation suggérer par les propositions.')
+	}
+}
 
-//function myFunction(arr, inputId, listId) {
-//	var out = "<br />";
-//	var i;
-//	if (arr.length > 0) {
-//		$("#listAutoCompletePlaceHidden").val("");
-//		for (i = 0; i < arr.length; i++) {
-//			//out += "<div class='address' title='Show Location and Coordinates' onclick='chooseAddr(" + arr[i].lat + ", " + arr[i].lon + ");return false;'>" + arr[i].display_name + "</div>";
-//			//out += "<div class='address' title='Show Location and Coordinates'>" + arr[i].display_name + "</div>";
-//			out += "<option data-value='" + i + "'>" + arr[i].display_name + "</option>";
+function myFunction(arr, inputId, listId) {
 
-//			if ($('#' + inputId).val().replace(/\s/g, "") == arr[i].display_name.replace(/\s/g, "")) {
-//				$("#" + listId + "Hidden").val(JSON.stringify(arr[i]));
-//				//document.getElementById(listId + "Hidden").value = arr[i].lat + "," + arr[i].lon;
-//			}
-//		}
-//		document.getElementById(listId).innerHTML = out;
-//	}
-//	else {
-//		document.getElementById(listId).innerHTML = "";
-//		$("#listAutoCompletePlaceHidden").val("");
-//	}
-//}
+	debugger;
+	var out = "<br />";
+	var i;
+	if (arr.features.length > 0) {
+		$("#listAutoCompletePlaceHidden").val("");
+		for (i = 0; i < arr.features.length; i++) {
+			//out += "<div class='address' title='Show Location and Coordinates' onclick='chooseAddr(" + arr[i].lat + ", " + arr[i].lon + ");return false;'>" + arr[i].display_name + "</div>";
+			//out += "<div class='address' title='Show Location and Coordinates'>" + arr[i].display_name + "</div>";
+			out += "<option data-value='" + i + "'>" + arr.features[i].properties.city + "</option>";
 
-//function addr_search(inputId, listId) {
-//	var inp = document.getElementById(inputId);
-//	var xmlhttp = new XMLHttpRequest();
-//	var url = "https://nominatim.openstreetmap.org/search?format=json&limit=3&q=" + inp.value;
-//	xmlhttp.onreadystatechange = function () {
-//		if (this.readyState == 4 && this.status == 200) {
-//			var myArr = JSON.parse(this.responseText);
-//			myFunction(myArr, inputId, listId);
-//		}
-//	};
-//	xmlhttp.open("GET", url, true);
-//	xmlhttp.send();
-//}
+			//if ($('#' + inputId).val().replace(/\s/g, "") == arr[i].display_name.replace(/\s/g, "")) {
+			//	$("#" + listId + "Hidden").val(JSON.stringify(arr[i]));
+			document.getElementById(listId + "Hidden").value = arr.features[i].properties.y + "," + arr.features[i].properties.x;
+		//}
+	}
+	document.getElementById(listId).innerHTML = out;
+}
+	else {
+	document.getElementById(listId).innerHTML = "";
+	$("#listAutoCompletePlaceHidden").val("");
+}
+}
+
+function addr_search(inputId, listId) {
+	var inp = document.getElementById(inputId);
+	var xmlhttp = new XMLHttpRequest();
+	//var url = "https://nominatim.openstreetmap.org/search?format=json&limit=3&q=" + inp.value;
+	var url = "https://api-adresse.data.gouv.fr/search/?type=housenumber&q=" + inp.value;
+	xmlhttp.onreadystatechange = function () {
+		if (this.readyState == 4 && this.status == 200) {
+			var myArr = JSON.parse(this.responseText);
+			myFunction(myArr, inputId, listId);
+		}
+	};
+	xmlhttp.open("GET", url, true);
+	xmlhttp.send();
+}
 
 // -------------- Fin nominatim.openstreetmap.org  ---------------
 
@@ -806,7 +809,7 @@ function validateListEventChoose(targetElement) {
 	var resultVal = $(targetElement + ' .listEvenementInterestedErevom').find(":selected").val();
 	var result = $(targetElement + ' .listEvenementInterestedErevom').find(":selected").text();
 	$(targetElement + " .txtResultEventListChooseErevom").text(result);
-	
+
 	if (resultVal == 1) {
 		$(targetElement + " .iconInterestedErevom").attr('class', 'fas fa-check iconInterestedErevom');
 		changeBtnChoose(targetElement);
@@ -872,7 +875,7 @@ function closeWindow() {
 }
 
 //Si le nombre de divEvent visbles n'est pas plus grand en taille que son conteneur alors enlever les fleches
-function checkToShowArrowDivEvents() {	
+function checkToShowArrowDivEvents() {
 	var sizeContenerEvents = parseInt($('#divContenerOtherEvents-ayere').css('width'));
 	var sizeDivEvent = parseInt($('.divElementEvent-ayer:first').css('width'), 10);
 
@@ -900,11 +903,11 @@ function turnRightOthersEvents(parentContener) {
 	var currentPosition = parseInt($(parentContener + ' .divElementEvent-ayer:first').css('margin-left'), 10);
 
 	var nbDivEvent = $('.divElementEvent-ayer').length;
-	
+
 	//Calcul du nombre de divEvent qui sont visbles sur l'écran
 	var sizeContenerEvents = parseInt($('#divContenerOtherEvents-ayere').css('width'));
 	var nbDivEventVisible = parseInt(((sizeContenerEvents / sizeDivEvent).toString().split(".")[0]));
-	
+
 	//sizeDivEvent * (nbDivEvent - 3); 3 étant le nombre de event visible
 	if (currentPosition > '-' + (sizeDivEvent * (nbDivEvent - nbDivEventVisible))) {
 		$(parentContener + ' .divElementEvent-ayer:first').css('margin-left', currentPosition - sizeDivEvent + 'px')
@@ -920,6 +923,11 @@ function showOthersEvents() {
 }
 
 function showOthersAnnounces() {
-	var event = '<div id="annonce2-alpv" class="divBlocAnnonce1-ereom">' + $('#annonce1-alpv').html() + '</div>';
-	$("#divOthersAnnounces-alpv").append(event);
+	var announce = '<div id="annonce2-alpv" class="divBlocAnnonce1-ereom">' + $('#annonce1-alpv').html() + '</div>';
+	$("#divOthersAnnounces-alpv").append(announce);
+}
+
+function showOthersPeople() {
+	var people = '<div id="divPeoplesSearching" class="col-lg-3 col-sm-4 col-xs-6">' + $('#divPeoplesSearching:last-child').html() + '</div>';
+	$("#divPanelPl").append(people);
 }

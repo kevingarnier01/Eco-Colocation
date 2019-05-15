@@ -15,9 +15,9 @@ namespace Eco_Colocation.Controllers
 			return PartialView();
 		}
 
-		public ActionResult ModificationProfilData()
+		public ActionResult ModalUpdateDataProfil()
 		{
-			return PartialView("~/Views/Account/ModalCARecherche.cshtml");
+			return PartialView("~/Views/PeopleSearching/ModalUpdateDataProfil.cshtml");
 		}
 
 	}

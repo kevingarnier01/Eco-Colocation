@@ -1,0 +1,28 @@
+﻿
+@{
+	ViewBag.Title = "ModalUpdateDataProfil";
+}
+
+<div class="underModal col-sm-12 col-xs-12">
+	<div id="modalUpdatePeopleSearch" class="reelModal">
+		<div class="titleForm-mcar">Modifier mes informations personnelles</div>
+		@* Affiche ce bouton ci-desous que si l'annonce n'est pas desactivé. 
+			Sinon si elle l'est, alors le bouton de fin est modifier par => "mettre à jour" *@
+		<a href="@Url.Action("", "", null)" class="btnGreen flex childFlex" id="btnDisableProfilInterested">Désactiver mon intérêt de recherche</a>
+		<div id="updatePeopleSearch">
+			@Html.Partial("~/Views/Account/CARecherche.cshtml")
+		</div>
+
+		@* Afficher cela ci-dessous que si l'annonce n'est pas activé *@
+		@*<div class="flex childFlex btnGreen">Mettre à jour</div>*@
+		<a href="#close-modal" rel="modal:close" class="close-modal">Close</a>
+	</div>
+</div>
+
+<script>
+	$(document).ready(function () {
+		$('#updatePeopleSearch .titleForm-mcar').css('display', 'none');
+		@* Afficher cela ci-dessous que si l'annonce n'est pas activé *@
+		//$('#updatePeopleSearch #divInscriptionButtons-mcar').css('display', 'none');
+	});
+</script>

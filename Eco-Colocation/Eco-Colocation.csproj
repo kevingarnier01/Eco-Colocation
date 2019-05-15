@@ -453,6 +453,8 @@
     <Content Include="Views\EcoRoommateEvent\ModalDeleteEcoRoommateEvent.cshtml" />
     <Content Include="Views\EcoRoommateEvent\ModalGoingOrInterested.cshtml" />
     <Content Include="Views\EcoRoommateEvent\PartialGoingOrInterested.cshtml" />
+    <Content Include="Views\PeopleSearching\ModalUpdateDataProfil.cshtml" />
+    <Content Include="Views\Account\CARecherche.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

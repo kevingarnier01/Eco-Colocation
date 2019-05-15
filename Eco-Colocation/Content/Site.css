@@ -637,7 +637,6 @@ select:-moz-focusring {
 	margin-top: 20px;
 	border-radius: 10px;
 	max-height: 1200px;
-	overflow: auto;
 }
 
 /** Filtres **/
@@ -776,7 +775,8 @@ select:-moz-focusring {
 
 /** people searching **/
 #peopleSearching {
-	overflow: hidden
+	overflow: hidden;
+	padding-bottom: 10px;
 }
 
 #peopleSearching {
@@ -788,9 +788,14 @@ select:-moz-focusring {
 	}
 
 #divPanelPl {
-	overflow: hidden;
+	overflow: auto;
+	max-height: 760px;
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
 	display: flex;
 	flex-wrap: wrap;
+	padding-bottom: 10px
 }
 
 #divPeoplesSearching {
@@ -808,6 +813,10 @@ select:-moz-focusring {
 @media only screen and (max-width: 500px) {
 	#divPeoplesSearching {
 		width: 100%
+	}
+
+	#divPanelPl {
+		width: 300px;
 	}
 }
 
@@ -846,6 +855,7 @@ select:-moz-focusring {
 	background-color: white;
 	max-height: 280px;
 	overflow: auto;
+	height: 195px;
 }
 
 	#divContenuPlSch div:first-child p {
@@ -859,6 +869,23 @@ select:-moz-focusring {
 		width: 15px;
 		display: inline-block
 	}
+
+div#divContenuPlSchDisable {
+	padding: 5px;
+	border-radius: 0 0 10px 10px;
+	box-shadow: 0 0 2px 0px black;
+	max-height: 280px;
+	overflow: auto;
+	height: 195px;
+	background-color: rgba(0,0,0,0.03);
+	display: flow-root;
+}
+
+#txt1ContenuDisable {
+	font-size: 18px;
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
 
 #statutPl {
 	margin-bottom: 0
@@ -883,6 +910,14 @@ select:-moz-focusring {
 	#logoPl img {
 		width: 20px
 	}
+
+#btnModifyEvent-mps {
+	font-size: 15px;
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: -23px;
+}
 /*** Search colocation ***/
 #searchColoc {
 	border-radius: 10px;
@@ -1065,6 +1100,7 @@ select:-moz-focusring {
 		margin: 10px 20px;
 		height: 660px;
 	}
+
 	#divDivBlocAnnonce2 {
 		margin-top: 15px;
 		margin-bottom: 0;
@@ -1085,6 +1121,10 @@ select:-moz-focusring {
 		margin: 10px 20px;
 		height: 660px;
 	}
+}
+
+#divContenerBlocAnnonce {
+	width: 100%;
 }
 
 #divBlocAnnonce a {
@@ -1172,6 +1212,13 @@ select:-moz-focusring {
 
 	#divDescriptionAnnonce {
 		overflow: auto;
+	}
+
+	#divBlocAnnonce {
+		max-width: 500px;
+		max-width: 85%;
+		margin-left: auto;
+		margin-right: auto;
 	}
 
 	.divBlocAnnonce1-ereom {
@@ -4729,4 +4776,22 @@ input.radioFibreEco-ayer {
 	padding: 0 15px;
 	display: inline-block;
 	max-width: 100%;
+}
+
+/***** ModalUpdatePeopleSearch *****/
+
+#modalUpdatePeopleSearch {
+	overflow: auto;
+	width: 900px;
+	position: relative;
+	padding: 15px 30px;
+}
+
+#btnDisableProfilInterested {
+	margin-bottom: 20px;
+	background-color: #bc7e7c;
+}
+
+#btnEnableProfilInterested {
+	margin-bottom: 20px;
 }
