@@ -15,5 +15,10 @@ namespace Eco_Colocation.Controllers
 			return PartialView();
 		}
 
+		public ActionResult ModificationProfilData()
+		{
+			return PartialView("~/Views/Account/ModalCARecherche.cshtml");
+		}
+
 	}
 }

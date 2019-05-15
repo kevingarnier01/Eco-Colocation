@@ -24,31 +24,38 @@
 							<h4 style="text-align:center">Victoire</h4>
 							<p style="text-align:center;margin: 0;">22 ans, Salariée</p>
 							<p style="text-align:center">Budjet max de 450 €</p>
-							<p id="p-d1-3-description-mpc" >Membre depuis 3 jours</p>
+							<p id="p-d1-3-description-mpc">Membre depuis 3 jours</p>
 						</div>
 					</div>
 				</div>
-				<div style="display:flex; margin-bottom:10px">
-					<div style="margin-left:auto;margin-right:auto">
-						<div class="d3-1-description-mpc" onclick="displayPhoneNumber('#numberPhone-mps')">
-							<img src="../Content/Images/Icons/phone.png">
-							<span id="libelleTelephone-mpc">Afficher le numéro</span>
-							<span id="numberPhone-mps"></span>
+				@if (User.Identity.IsAuthenticated)
+				{
+					<a href="@Url.Action("ModificationProfilData", "PeopleSearching", null)" rel="modal:open"
+					   class="btnGreen flex childFlex" id="btnModifyEvent-merev">Mettre à jour mon profil</a>
+				}
+					<div style="display:flex; margin-bottom:10px">
+						<div style="margin-left:auto;margin-right:auto">
+							<div class="d3-1-description-mpc" onclick="displayPhoneNumber('#numberPhone-mps')">
+								<img src="../Content/Images/Icons/phone.png">
+								<span id="libelleTelephone-mpc">Afficher le numéro</span>
+								<span id="numberPhone-mps"></span>
+							</div>
+							<div id="d3-2-description-mpc" onclick="displayPVMessage()">
+								<a href="#divMessage-ml">
+									<img src="../Content/Images/Icons/message.png">Envoyer un message
+								</a>
+							</div>
 						</div>
-						<div id="d3-2-description-mpc" onclick="displayPVMessage()">
-							<a href="#divMessage-ml">
-								<img src="../Content/Images/Icons/message.png">Envoyer un message
-							</a>
+					</div>
+					<div id="div1PersonnalitePC" class="col-sm-12">
+						<div id="div2PersonnalitePC" style="width: initial;">
+							<p style="text-align: center;">
+								Salarié à Hipoco dans la décoration. J'envisage aujourd'hui de faire une eco-colocation pour être davantage au contact de la nature mais
+								également des animaux. Mon métier est également une passion pour moi, je construis de nombreux objets de décoration. Je souhaiterais donc pouvoir avoir un atelier. En espérant pouvoir partager celui-ci avec mes futures eco-coloc.
+							</p>
 						</div>
 					</div>
 				</div>
-				<div id="div1PersonnalitePC" class="col-sm-12">
-					<div id="div2PersonnalitePC" style="width: initial;">
-						<p style="text-align: center;">Salarié à Hipoco dans la décoration. J'envisage aujourd'hui de faire une eco-colocation pour être davantage au contact de la nature mais
-						également des animaux. Mon métier est également une passion pour moi, je construis de nombreux objets de décoration. Je souhaiterais donc pouvoir avoir un atelier. En espérant pouvoir partager celui-ci avec mes futures eco-coloc.</p>
-					</div>
-				</div>
-			</div>
 		</div>
 		<a href="#close-modal" rel="modal:close" class="close-modal ">Close</a>
 	</div>
