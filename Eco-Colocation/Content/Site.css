@@ -477,7 +477,39 @@ select:-moz-focusring {
 		margin-top: 20px;
 	}
 }
+
+#inputSearchPlace {
+	padding: 15px;
+	border-radius: 5px;
+}
+
+input#inputSearchPlace:focus {
+	border: none;
+	box-shadow: 0 0 5px black;
+}
 /* Fin bar de recherche */
+
+/**** AutoComplete ****/
+#lblInputAutoComplete {
+	font-weight: bold;
+	font-family: Noteworthy;
+}
+
+#ctxInputAutoComplete {
+	color: #d9d9d9;
+	font-family: Noteworthy;
+}
+
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active, a.ui-button:active, .ui-button:active, .ui-state-active.ui-button:hover {
+	border-color: transparent !important;
+	background: rgba(0,0,0,0.1) !important;
+	color: #555 !important;
+}
+
+.ui-autocomplete {
+	color: #555 !important;
+	font-size: 17px !important
+}
 
 /**** PictureHeader ****/
 #_PictureHeader {

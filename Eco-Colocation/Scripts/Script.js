@@ -1,5 +1,6 @@
 ﻿var closeModalHasBeenClicked;
 $(document).ready(function () {
+
 	//http://pixelcog.github.io/parallax.js/
 	$('.parallax-window').parallax({
 		imageSrc: "http://www.ecocolocs.fr/bundles/app/images/image1.png"
@@ -344,34 +345,50 @@ function addNewPlace(elementId) {
 
 function myFunction(arr, inputId, listId) {
 
-	debugger;
-	var out = "<br />";
-	var i;
 	if (arr.features.length > 0) {
 		$("#listAutoCompletePlaceHidden").val("");
+
+		//Supprime les doublons		
+		var labelThing; var labelT;
+		arr.features = arr.features.filter((thing, index, self) =>
+			index === self.findIndex((t) => (
+				labelT = t.properties.label + t.properties.city + t.properties.context,
+				labelThing = thing.properties.label + thing.properties.city + thing.properties.context,
+				labelT === labelThing
+			))
+		)
+
+		var availableTags = new Array();
 		for (i = 0; i < arr.features.length; i++) {
-			//out += "<div class='address' title='Show Location and Coordinates' onclick='chooseAddr(" + arr[i].lat + ", " + arr[i].lon + ");return false;'>" + arr[i].display_name + "</div>";
-			//out += "<div class='address' title='Show Location and Coordinates'>" + arr[i].display_name + "</div>";
-			out += "<option data-value='" + i + "'>" + arr.features[i].properties.city + "</option>";
+			var label = arr.features[i].properties.label;
+			var context = arr.features[i].properties.context;
 
-			//if ($('#' + inputId).val().replace(/\s/g, "") == arr[i].display_name.replace(/\s/g, "")) {
-			//	$("#" + listId + "Hidden").val(JSON.stringify(arr[i]));
+			availableTags.push(label + " " + context);
+
 			document.getElementById(listId + "Hidden").value = arr.features[i].properties.y + "," + arr.features[i].properties.x;
-		//}
+
+		}
+
+		$("#" + inputId).autocomplete({
+			source: availableTags,
+			autoFocus: true
+		});
 	}
-	document.getElementById(listId).innerHTML = out;
-}
-	else {
-	document.getElementById(listId).innerHTML = "";
-	$("#listAutoCompletePlaceHidden").val("");
-}
+	//else {
+	//	document.getElementById(listId).innerHTML = "";
+	//	$("#listAutoCompletePlaceHidden").val("");
+	//}
 }
 
-function addr_search(inputId, listId) {
+function addr_searchCity(inputId, listId) {
 	var inp = document.getElementById(inputId);
+	var url = "https://api-adresse.data.gouv.fr/search/?q=" + inp.value + "&type=municipality";
+	addr_search(url, inputId, listId)
+}
+
+//anciennement : var url = "https://nominatim.openstreetmap.org/search?format=json&limit=3&q=" + inp.value;
+function addr_search(url, inputId, listId) {
 	var xmlhttp = new XMLHttpRequest();
-	//var url = "https://nominatim.openstreetmap.org/search?format=json&limit=3&q=" + inp.value;
-	var url = "https://api-adresse.data.gouv.fr/search/?type=housenumber&q=" + inp.value;
 	xmlhttp.onreadystatechange = function () {
 		if (this.readyState == 4 && this.status == 200) {
 			var myArr = JSON.parse(this.responseText);
@@ -380,8 +397,8 @@ function addr_search(inputId, listId) {
 	};
 	xmlhttp.open("GET", url, true);
 	xmlhttp.send();
-}
 
+}
 // -------------- Fin nominatim.openstreetmap.org  ---------------
 
 function openSecondModal() {
