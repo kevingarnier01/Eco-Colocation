@@ -481,6 +481,8 @@ select:-moz-focusring {
 #inputSearchPlace {
 	padding: 15px;
 	border-radius: 5px;
+	font-family: Noteworthy;
+	font-weight: bold;
 }
 
 input#inputSearchPlace:focus {
@@ -506,11 +508,44 @@ input#inputSearchPlace:focus {
 	color: #555 !important;
 }
 
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active, a.ui-button:active, .ui-button:active, .ui-button.ui-state-active:hover {
+	border: inherit !important;
+}
+
 .ui-autocomplete {
 	color: #555 !important;
 	font-size: 17px !important
 }
 
+body .ui-autocomplete a {
+	display: flex;
+	text-decoration: none;
+	height: 30px;
+}
+
+.ui-state-active {
+	margin: initial !important;
+}
+
+.iconAutoComplete {
+	font-size: 17px;
+	color: #999;
+	margin-right: 7px;
+	line-height: 21px !important;
+}
+
+#txtLabelAutoCompletion {
+	font-family: Noteworthy;
+	text-decoration: none;
+}
+
+#txtContextAutoCompletion {
+	font-size: 13px;
+	display: inline-block;
+	font-family: Noteworthy;
+	margin-left: 7px;
+	line-height: 28px;
+}
 /**** PictureHeader ****/
 #_PictureHeader {
 	display: none;

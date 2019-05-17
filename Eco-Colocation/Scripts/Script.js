@@ -343,7 +343,7 @@ function addNewPlace(elementId) {
 	}
 }
 
-function myFunction(arr, inputId, listId) {
+function myFunction(arr, inputId, listId, typeResearch) {
 
 	if (arr.features.length > 0) {
 		$("#listAutoCompletePlaceHidden").val("");
@@ -358,46 +358,110 @@ function myFunction(arr, inputId, listId) {
 			))
 		)
 
-		var availableTags = new Array();
+		//var availabletags = new array();
+		var availableTags = [
+			{ label: 'Apple1', value: 'ValApple1' },
+			{ label: '<strong>Apple </strong> 2', value: 'ValApple2' },
+			{ label: 'Apple3', value: 'ValApple3' }
+		];
+
+
 		for (i = 0; i < arr.features.length; i++) {
 			var label = arr.features[i].properties.label;
 			var context = arr.features[i].properties.context;
+			
+			availableTags[i] = {
+				label: ((typeResearch == "city") ?
+					"<i class='iconAutoComplete fas fa-city'></i>" :
+					"<i class='iconAutoComplete fas fa-map-marker-alt'></i>") +
+					"<strong id='txtLabelAutoCompletion'>" + label + "</strong>" +
+					"<p id='txtContextAutoCompletion'>" + context + "</p>",
+				value: label + " " + context
+			},
 
-			availableTags.push(label + " " + context);
-
-			document.getElementById(listId + "Hidden").value = arr.features[i].properties.y + "," + arr.features[i].properties.x;
+				document.getElementById(listId + "Hidden").value = arr.features[i].properties.y + "," + arr.features[i].properties.x;
 
 		}
 
 		$("#" + inputId).autocomplete({
 			source: availableTags,
-			autoFocus: true
+			autoFocus: true,
+			html: 'html'
 		});
 	}
-	//else {
-	//	document.getElementById(listId).innerHTML = "";
-	//	$("#listAutoCompletePlaceHidden").val("");
-	//}
 }
+
+// Permet d'avoir toujours la list autocompletion ouverte
+
+//var availableTags = [
+//	{ label: 'Apple1', value: 'ValApple1' },
+//	{ label: '<strong>Apple </strong> 2', value: 'ValApple2' },
+//	{ label: 'Apple3', value: 'ValApple3' }
+//]; $("#inputSearchPlace").autocomplete({
+//	source: availableTags,
+
+//	close: function (event, ui) {
+//		val = $("#inputSearchPlace").val();
+//		$("#inputSearchPlace").autocomplete("search", val); //keep autocomplete open by 
+
+//		$("#inputSearchPlace").focus();
+//		return false;
+//	}
+//});
 
 function addr_searchCity(inputId, listId) {
 	var inp = document.getElementById(inputId);
 	var url = "https://api-adresse.data.gouv.fr/search/?q=" + inp.value + "&type=municipality";
-	addr_search(url, inputId, listId)
+	addr_search(url, inputId, listId, "city")
 }
 
 //anciennement : var url = "https://nominatim.openstreetmap.org/search?format=json&limit=3&q=" + inp.value;
-function addr_search(url, inputId, listId) {
+function addr_search(url, inputId, listId, typeResearch) {
+	initHtmlTagToAutoComplete();
 	var xmlhttp = new XMLHttpRequest();
 	xmlhttp.onreadystatechange = function () {
 		if (this.readyState == 4 && this.status == 200) {
 			var myArr = JSON.parse(this.responseText);
-			myFunction(myArr, inputId, listId);
+			myFunction(myArr, inputId, listId, typeResearch);
 		}
 	};
 	xmlhttp.open("GET", url, true);
 	xmlhttp.send();
 
+}
+
+function initHtmlTagToAutoComplete() {
+
+	(function ($) {
+		var proto = $.ui.autocomplete.prototype,
+			initSource = proto._initSource;
+
+		function filter(array, term) {
+			var matcher = new RegExp($.ui.autocomplete.escapeRegex(term), "i");
+			return $.grep(array, function (value) {
+				return matcher.test($("<div>").html(value.label || value.value || value).text());
+			});
+		}
+
+		$.extend(proto, {
+			_initSource: function () {
+				if (this.options.html && $.isArray(this.options.source)) {
+					this.source = function (request, response) {
+						response(filter(this.options.source, request.term));
+					};
+				} else {
+					initSource.call(this);
+				}
+			},
+
+			_renderItem: function (ul, item) {
+				return $("<li></li>")
+					.data("item.autocomplete", item)
+					.append($("<a></a>")[this.options.html ? "html" : "text"](item.label))
+					.appendTo(ul);
+			}
+		});
+	})(jQuery);
 }
 // -------------- Fin nominatim.openstreetmap.org  ---------------
 
