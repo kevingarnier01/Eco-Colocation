@@ -26,9 +26,9 @@
 			</div>
 			<div class="col-sm-12">
 				<label class="lbl-mcar">Ville de recherche</label>
-				@*<input id="inputAddresseMapMCAR" type="text" oninput="addr_search('inputAddresseMapMCAR','listAutoCompletePlaceMCAR');" list="listAutoCompletePlaceMCAR" autocomplete="off" class="inputAdresseLog-ca">
-					<datalist id="listAutoCompletePlaceMCAR"><br><option data-value="0"></option></datalist>*@
-				<input type="search" id="address-input-mcar" class="address-input" placeholder="Ou recherches-tu ?" />
+				@*<input type="search" id="address-input-mcar" class="address-input" placeholder="Ou recherches-tu ?" />*@
+				<input id="inputSearchPlace-car" oninput="addr_searchCity(this);" autocomplete="none" type="text" class="inputSearchPlace form-control" placeholder="Où recherchez-vous ?">
+				<div class="listAutoCompleteToModal"></div>
 			</div>
 		</div>
 	</div>
@@ -394,7 +394,7 @@
 
 <script type="text/javascript">
 	$(document).ready(function () {
-		initAutoComplete("#address-input-mcar");
+		//initAutoComplete("#address-input-mcar");
 		showMultiplesFilesUpload();
 		initSlidepicture();
 		showDivCritereRecherche();

@@ -343,7 +343,7 @@ function addNewPlace(elementId) {
 	}
 }
 
-function myFunction(arr, inputId, listId, typeResearch) {
+function getLstAutoCompletion(arr, inputId, typeResearch) {
 
 	if (arr.features.length > 0) {
 		$("#listAutoCompletePlaceHidden").val("");
@@ -357,15 +357,8 @@ function myFunction(arr, inputId, listId, typeResearch) {
 				labelT === labelThing
 			))
 		)
-
-		//var availabletags = new array();
-		var availableTags = [
-			{ label: 'Apple1', value: 'ValApple1' },
-			{ label: '<strong>Apple </strong> 2', value: 'ValApple2' },
-			{ label: 'Apple3', value: 'ValApple3' }
-		];
-
-
+		
+		var availableTags = new Array();
 		for (i = 0; i < arr.features.length; i++) {
 			var label = arr.features[i].properties.label;
 			var context = arr.features[i].properties.context;
@@ -377,59 +370,40 @@ function myFunction(arr, inputId, listId, typeResearch) {
 					"<strong id='txtLabelAutoCompletion'>" + label + "</strong>" +
 					"<p id='txtContextAutoCompletion'>" + context + "</p>",
 				value: label + " " + context
-			},
-
-				document.getElementById(listId + "Hidden").value = arr.features[i].properties.y + "," + arr.features[i].properties.x;
-
+			}
 		}
 
-		$("#" + inputId).autocomplete({
+		$(inputId).autocomplete({
 			source: availableTags,
 			autoFocus: true,
-			html: 'html'
+			html: 'html'			
 		});
 	}
 }
 
-// Permet d'avoir toujours la list autocompletion ouverte
-
-//var availableTags = [
-//	{ label: 'Apple1', value: 'ValApple1' },
-//	{ label: '<strong>Apple </strong> 2', value: 'ValApple2' },
-//	{ label: 'Apple3', value: 'ValApple3' }
-//]; $("#inputSearchPlace").autocomplete({
-//	source: availableTags,
-
-//	close: function (event, ui) {
-//		val = $("#inputSearchPlace").val();
-//		$("#inputSearchPlace").autocomplete("search", val); //keep autocomplete open by 
-
-//		$("#inputSearchPlace").focus();
-//		return false;
-//	}
-//});
-
-function addr_searchCity(inputId, listId) {
-	var inp = document.getElementById(inputId);
-	var url = "https://api-adresse.data.gouv.fr/search/?q=" + inp.value + "&type=municipality";
-	addr_search(url, inputId, listId, "city")
+function addr_searchCity(inputId) {
+	var inp = $(inputId);
+	var url = "https://api-adresse.data.gouv.fr/search/?q=" + inp.val() + "&type=municipality";
+	addr_search(url, inputId, "city")	
 }
 
 //anciennement : var url = "https://nominatim.openstreetmap.org/search?format=json&limit=3&q=" + inp.value;
-function addr_search(url, inputId, listId, typeResearch) {
+function addr_search(url, inputId, typeResearch) {
 	initHtmlTagToAutoComplete();
 	var xmlhttp = new XMLHttpRequest();
 	xmlhttp.onreadystatechange = function () {
 		if (this.readyState == 4 && this.status == 200) {
 			var myArr = JSON.parse(this.responseText);
-			myFunction(myArr, inputId, listId, typeResearch);
+			getLstAutoCompletion(myArr, inputId, typeResearch);
 		}
 	};
+	$(".inputSearchPlace").removeAttr("autocomplete").attr("autocomplete", "none");
+
 	xmlhttp.open("GET", url, true);
 	xmlhttp.send();
-
 }
 
+//Permet de valider les valider que je creer dans la list d'autocompletion
 function initHtmlTagToAutoComplete() {
 
 	(function ($) {
@@ -463,6 +437,43 @@ function initHtmlTagToAutoComplete() {
 		});
 	})(jQuery);
 }
+
+
+//Autocompletion avec algolia
+//Si probleme utiliser l'api gratuit de valentin Eni : https://api-adresse.data.gouv.fr/search/
+//https://notemoncoin.renard-valentin.fr/
+//function initAutoComplete(elementId) {
+//	var placesAutocomplete = places({
+//		appId: 'plG5RW55OE5Z',
+//		apiKey: '093af2800668c4b5a7d69e84e6a36b65',
+//		container: document.querySelector(elementId)
+//	});
+
+//	placesAutocomplete.on('change', function resultSelected(e) {
+//		$(".adresseVille").val(e.suggestion.name || '');
+//		$(".adresseRegion").val(e.suggestion.administrative || '');
+//		$(".adressePays").val(e.suggestion.country || '');
+//		$(".adresseLatLng").val(e.suggestion.latlng.lat + "," + e.suggestion.latlng.lng || '');
+//	});
+//}
+
+// Permet d'avoir toujours la list autocompletion gouv qui reste ouverte (permet de travailler sur le css en debug)
+
+//var availableTags = [
+//	{ label: 'Apple1', value: 'ValApple1' },
+//	{ label: '<strong>Apple </strong> 2', value: 'ValApple2' },
+//	{ label: 'Apple3', value: 'ValApple3' }
+//]; $("#inputSearchPlace").autocomplete({
+//	source: availableTags,
+
+//	close: function (event, ui) {
+//		val = $("#inputSearchPlace").val();
+//		$("#inputSearchPlace").autocomplete("search", val); //keep autocomplete open by 
+
+//		$("#inputSearchPlace").focus();
+//		return false;
+//	}
+//});
 // -------------- Fin nominatim.openstreetmap.org  ---------------
 
 function openSecondModal() {
@@ -572,24 +583,6 @@ function openDivCreateProfil(element) {
 	else {
 		$(element).css('display', 'block')
 	}
-}
-
-//Initialisation de l'input AutoCompletion des villes - algolia plugin
-//Si probleme utiliser l'api gratuit de valentin Eni : https://api-adresse.data.gouv.fr/search/?type=housenumber&q=
-//https://notemoncoin.renard-valentin.fr/
-function initAutoComplete(elementId) {
-	var placesAutocomplete = places({
-		appId: 'plG5RW55OE5Z',
-		apiKey: '093af2800668c4b5a7d69e84e6a36b65',
-		container: document.querySelector(elementId)
-	});
-
-	placesAutocomplete.on('change', function resultSelected(e) {
-		$(".adresseVille").val(e.suggestion.name || '');
-		$(".adresseRegion").val(e.suggestion.administrative || '');
-		$(".adressePays").val(e.suggestion.country || '');
-		$(".adresseLatLng").val(e.suggestion.latlng.lat + "," + e.suggestion.latlng.lng || '');
-	});
 }
 
 function switcherMcap(elementToEnable, elementToDisable) {

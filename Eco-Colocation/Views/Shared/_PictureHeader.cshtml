@@ -14,17 +14,13 @@
 					</div>
 					@Html.HiddenFor(m => Model.HomeViewModel.TypeRecherche, new { @id = "typeRecherche" })
 					<div class="input-group" id="adv-search">
-						<input id="inputSearchPlace" oninput="addr_searchCity('inputSearchPlace','listAutoCompletePlace');" autocomplete="off" type="text" class="form-control" placeholder="Entrer le nom de la ville concernée" >
-						@*<div class="ui-widget">
-			<label for="tags">Tags: </label>
-			<input id="tags">
-		</div>*@
+						<input id="inputSearchPlace-ph" oninput="addr_searchCity(this);" autocomplete="none" type="text"
+							   class="form-control inputSearchPlace " placeholder="Où recherchez-vous ?" >
 						@*<input type="search" id="address-input-ph" class="address-input inputSearchPlace" placeholder="Saisir un lieu. Ex: Ville, Département, Région" />*@
-						<input id="listAutoCompletePlaceHidden" name="listAutoCompletePlaceHidden" type="hidden" value="">
 						<div class="input-group-btn">
 							<div id="divBtnFiltre" class="btn-group" role="group">
 								<div id="div2BtnFiltre" class="dropdown dropdown-lg">
-									<button id="btnSearch" type="submit" class="btn btn-primary" disabled>
+									<button id="btnSearch" type="submit" class="btn btn-primary">
 										<p>Rechercher</p>
 										<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
 									</button>
