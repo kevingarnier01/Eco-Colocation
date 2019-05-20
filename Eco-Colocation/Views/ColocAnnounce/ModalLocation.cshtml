@@ -50,16 +50,18 @@
 						<div id="div10-1-adresseLog-ca" class="col-sm-9 col-xs-12">
 							<div id="div10-2-adresseLog-ca">
 								@*<input id="inputAddresseMap-ML" type="text" oninput="addr_search('inputAddresseMap-ML','listAutoCompletePlaceML');" list="listAutoCompletePlaceML" autocomplete="off" class="inputAdresseLog-ca">
-									<datalist id="listAutoCompletePlaceML"></datalist>*@
-								<input type="search" id="address-input-ml" class="address-input" 
-									   placeholder="Localisation de l'endroit" />
-								@for (int i = 0; i < 4; i++)
+		<datalist id="listAutoCompletePlaceML"></datalist>*@
+								@*<input type="search" id="address-input-ml" class="address-input"
+		placeholder="Localisation de l'endroit" />*@
+								<input id="inputSearchPlace-car" oninput="addr_searchCity(this);" autocomplete="none" type="text" class="inputSearchPlace form-control" placeholder="Où recherchez-vous ?">
+								<div class="listAutoCompleteToModal"></div>
+								@*@for (int i = 0; i < 4; i++)
 								{
 									@Html.Hidden("adresseVille", null, new { @class = "addresseVille" + i })
 									@Html.Hidden("adresseRegion", null, new { @class = "adresseRegion" + i })
 									@Html.Hidden("adressePays", null, new { @class = "adressePays" + i })
 									@Html.Hidden("adresseLatLng", null, new { @class = "adresseLatLng" + i })
-								}
+								}*@
 								<div id="div10-3-adresseLog-ca" class="col-sm-12">
 									<div id="div10-4-adresseLog-ca" class="col-sm-2"></div>
 									<p class="col-sm-12" style="margin: auto;">
@@ -224,7 +226,7 @@
 				<p>Creer cette annonce</p>
 			</div>
 		</div>
-		<a href="#close-modal" rel="modal:close" class="close-modal">Close</a>
+		<a href="#close-modal" rel="modal:close" class="close-modal" onclick="autoCompletePrepend()">Close</a>
 	</div>
 </div>
 

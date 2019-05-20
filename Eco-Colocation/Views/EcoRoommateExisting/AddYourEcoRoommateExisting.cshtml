@@ -21,17 +21,17 @@
 		</div>
 		<div class="sousDivFormColoc-ayer" id="divLabelNbColoc-ayer">
 			<label class="label-ayer">Nombre de colocataires</label>
-			<input class="input-ayer" placeholder="Entrer le nombre" type="number" oninput="modifyMinValueToNbInfoColoc(this)">
+			<input class="input-ayer" placeholder="Entrez le nombre" type="number" oninput="modifyMinValueToNbInfoColoc(this)">
 			<div class="underInput-ayer"></div>
 		</div>
 		<div class="col-xs-12 sousDivFormColoc-ayer" id="divLocalisation-ayer">
 			<label class="label-ayer">Adresse</label>
 			<input type="search" id="address-input-ayer" class="address-input inputSearchPlace"
-				   placeholder="Entrer votre adresse de résidence." />
+				   placeholder="Entrez votre adresse de résidence." />
 			<div id="divInfoUserMdp-ayer" class="divGlobalMsgPhoto-ayer">
 				<i class="fas fa-info" id="iconMsgPhoto-mcar"></i>
 				<div>
-					<p class="fontFamilyNote">Seul le nom de la ville sera visible publiquement.</p>
+					<p class="fontFamilyNote">Votre eco-cocation apparaitra sur la carte à l'adresse fournie ce dessus. Toutefois seul le nom de la ville sera publiquement diffusée sur l'annonce..</p>
 				</div>
 			</div>
 		</div>
@@ -86,7 +86,7 @@
 					<div class="encadrePratice-ayer">
 						<p class="txtPratice-ayer">Production alimentaire</p>
 						<div class="divEnterPraticeWord-ayer">
-							<input class="inputPraticeWord-ayer" placeholder="Entrer un mot clé. Ex: Bio">
+							<input class="inputPraticeWord-ayer" placeholder="Entrez un mot clé. Ex: Bio">
 							<div class="btnAddPraticeWord-ayer">Ajouter</div>
 						</div>
 						<div class="divDisplayPraticeWord-ayer">
@@ -105,7 +105,7 @@
 					<div class="encadrePratice-ayer">
 						<p class="txtPratice-ayer">Consommation</p>
 						<div class="divEnterPraticeWord-ayer">
-							<input class="inputPraticeWord-ayer" placeholder="Entrer un mot clé. Ex: Local">
+							<input class="inputPraticeWord-ayer" placeholder="Entrez un mot clé. Ex: Local">
 							<div class="btnAddPraticeWord-ayer">Ajouter</div>
 						</div>
 						<div class="divDisplayPraticeWord-ayer">
@@ -124,7 +124,7 @@
 					<div class="encadrePratice-ayer">
 						<p class="txtPratice-ayer">Déplacement</p>
 						<div class="divEnterPraticeWord-ayer">
-							<input class="inputPraticeWord-ayer" placeholder="Entrer un mot clé. Ex: Bus">
+							<input class="inputPraticeWord-ayer" placeholder="Entrez un mot clé. Ex: Bus">
 							<div class="btnAddPraticeWord-ayer">Ajouter</div>
 						</div>
 						<div class="divDisplayPraticeWord-ayer">
@@ -143,7 +143,7 @@
 					<div class="encadrePratice-ayer">
 						<p class="txtPratice-ayer">Vie en communauté</p>
 						<div class="divEnterPraticeWord-ayer">
-							<input class="inputPraticeWord-ayer" placeholder="Entrer un mot clé. Ex: Repas">
+							<input class="inputPraticeWord-ayer" placeholder="Entrez un mot clé. Ex: Repas">
 							<div class="btnAddPraticeWord-ayer">Ajouter</div>
 						</div>
 						<div class="divDisplayPraticeWord-ayer">
@@ -163,7 +163,7 @@
 						<p class="txtPratice-ayer">Atelier</p>
 						<div></div>
 						<div class="divEnterPraticeWord-ayer">
-							<input class="inputPraticeWord-ayer" placeholder="Entrer un mot clé. Ex: Peinture">
+							<input class="inputPraticeWord-ayer" placeholder="Entrez un mot clé. Ex: Peinture">
 							<div class="btnAddPraticeWord-ayer">Ajouter</div>
 						</div>
 						<div class="divDisplayPraticeWord-ayer">
@@ -387,6 +387,7 @@
 				<textarea class="txtareaDescSup-ayer"></textarea>
 			</div>
 		</div>
+		@* si admin connecté : Ne pas demander la création d'un compte eco-colocation et l'enregistrement des colocataires *@
 		<div class="overflow">
 			<div class="flexWrap">
 				<div class="col-sm-6 col-xs-12">
@@ -405,12 +406,12 @@
 						</div>
 						<div class="col-xs-10 rowLabelMdp-ayer">
 							<label class="label-ayer">Mot de passe</label>
-							<input type="password" placeholder="Entrer un mot de passe" class="input-ayer">
+							<input type="password" placeholder="Entrez un mot de passe" class="input-ayer">
 							<div class="underInput-ayer"></div>
 						</div>
 						<div class="col-xs-10 rowLabelMdp-ayer">
 							<label class="label-ayer">Mot de passe</label>
-							<input type="password" placeholder="Confirmer le mot de passe" class="input-ayer">
+							<input type="password" placeholder="Confirmez le mot de passe" class="input-ayer">
 							<div class="underInput-ayer"></div>
 						</div>
 					</div>
@@ -444,17 +445,17 @@
 								<div class="enterColocTable-ayer">
 									<div class="col-sm-6 divLabelInfoColoc-ayer">
 										<label class="label-ayer">Prénom</label>
-										<input type="text" placeholder="Entrer votre prénom" class="input-ayer">
+										<input type="text" placeholder="Entrez votre prénom" class="input-ayer">
 										<div class="underInput-ayer"></div>
 									</div>
 									<div class="col-sm-6 divLabelInfoColoc-ayer">
 										<label class="label-ayer">Nom</label>
-										<input type="text" placeholder="Entrer votre nom" class="input-ayer">
+										<input type="text" placeholder="Entrez votre nom" class="input-ayer">
 										<div class="underInput-ayer"></div>
 									</div>
 									<div class="col-sm-12 divLabelInfoColoc-ayer">
 										<label class="label-ayer">Email</label>
-										<input type="text" placeholder="Entrer votre mail" class="input-ayer">
+										<input type="text" placeholder="Entrez votre mail" class="input-ayer">
 										<div class="underInput-ayer"></div>
 									</div>
 									<div class="col-sm-6 divLabelInfoColoc-ayer">
@@ -481,17 +482,17 @@
 								<div class="enterColocTable-ayer">
 									<div class="col-sm-6 divLabelInfoColoc-ayer">
 										<label class="label-ayer">Prénom</label>
-										<input type="text" placeholder="Entrer votre prénom" class="input-ayer">
+										<input type="text" placeholder="Entrez votre prénom" class="input-ayer">
 										<div class="underInput-ayer"></div>
 									</div>
 									<div class="col-sm-6 divLabelInfoColoc-ayer">
 										<label class="label-ayer">Nom</label>
-										<input type="text" placeholder="Entrer votre nom" class="input-ayer">
+										<input type="text" placeholder="Entrez votre nom" class="input-ayer">
 										<div class="underInput-ayer"></div>
 									</div>
 									<div class="col-sm-12 divLabelInfoColoc-ayer">
 										<label class="label-ayer">Email</label>
-										<input type="text" placeholder="Entrer votre mail" class="input-ayer">
+										<input type="text" placeholder="Entrez votre mail" class="input-ayer">
 										<div class="underInput-ayer"></div>
 									</div>
 									<div class="col-sm-6 divLabelInfoColoc-ayer">
@@ -519,17 +520,17 @@
 									<div class="enterColocTable-ayer">
 										<div class="col-sm-6 divLabelInfoColoc-ayer">
 											<label class="label-ayer">Prénom</label>
-											<input type="text" placeholder="Entrer votre prénom" class="input-ayer">
+											<input type="text" placeholder="Entrez votre prénom" class="input-ayer">
 											<div class="underInput-ayer"></div>
 										</div>
 										<div class="col-sm-6 divLabelInfoColoc-ayer">
 											<label class="label-ayer">Nom</label>
-											<input type="text" placeholder="Entrer votre nom" class="input-ayer">
+											<input type="text" placeholder="Entrez votre nom" class="input-ayer">
 											<div class="underInput-ayer"></div>
 										</div>
 										<div class="col-sm-12 divLabelInfoColoc-ayer">
 											<label class="label-ayer">Email</label>
-											<input type="text" placeholder="Entrer votre mail" class="input-ayer">
+											<input type="text" placeholder="Entrez votre mail" class="input-ayer">
 											<div class="underInput-ayer"></div>
 										</div>
 										<div class="col-sm-6 divLabelInfoColoc-ayer">

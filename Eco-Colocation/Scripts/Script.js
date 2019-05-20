@@ -18,10 +18,22 @@ $(document).ready(function () {
 		$('.modal').on('click', '.underModal', function (e) {
 			$('.jquery-modal').css('display', 'none');
 			$('body').css('overflow', 'auto');
+			setTimeout(function () {
+				if ($('.jquery-modal').css('display') == 'none') {
+					$(".ui-autocomplete").prependTo("body");
+					$('.jquery-modal').remove();
+				}
+			}, 1000)
 		});
 		$(document).on('click', '.modal', function (e) {
 			$('.jquery-modal').css('display', 'none');
 			$('body').css('overflow', 'auto');
+			setTimeout(function () {
+				if ($('.jquery-modal').css('display') == 'none') {
+					$(".ui-autocomplete").prependTo("body");
+					$('.jquery-modal').remove();
+				}
+			}, 1000)
 		});
 	});
 
@@ -38,18 +50,17 @@ $(document).ready(function () {
 			}
 		});
 	});
-
-
 	//if ($('.blockerCenterToHideWindows').css('display') == 'none') {
 
 
 	//Si le button close-modal à été cliqué, alors nous l'indiquons et l'evenement au dessus  (click sur modal)
 	//se charge de ne pas faire disparaitre le scroll bar du body
-	$(document).on('click', '.close-modal, .closeModal', function () {
-		closeModalHasBeenClicked = true;
-		// Entre les deux : ouvre l'evenement click du modal //
-		setTimeout(function () {
-			closeModalHasBeenClicked = false; //puis réinitialise la variable à false
+	$(document).on('click', '.close-modal, .closeModal', function (e) {
+		$('body').css('overflow', 'auto');
+		closemodalhasbeenclicked = true;
+		// entre les deux : ouvre l'evenement click du modal //
+		settimeout(function () {
+			closemodalhasbeenclicked = false; //puis réinitialise la variable à false
 		}, 1000)
 	});
 	// Fin modal //
@@ -357,12 +368,12 @@ function getLstAutoCompletion(arr, inputId, typeResearch) {
 				labelT === labelThing
 			))
 		)
-		
+
 		var availableTags = new Array();
 		for (i = 0; i < arr.features.length; i++) {
 			var label = arr.features[i].properties.label;
 			var context = arr.features[i].properties.context;
-			
+
 			availableTags[i] = {
 				label: ((typeResearch == "city") ?
 					"<i class='iconAutoComplete fas fa-city'></i>" :
@@ -376,15 +387,17 @@ function getLstAutoCompletion(arr, inputId, typeResearch) {
 		$(inputId).autocomplete({
 			source: availableTags,
 			autoFocus: true,
-			html: 'html'			
+			html: 'html'
 		});
 	}
 }
 
 function addr_searchCity(inputId) {
-	var inp = $(inputId);
-	var url = "https://api-adresse.data.gouv.fr/search/?q=" + inp.val() + "&type=municipality";
-	addr_search(url, inputId, "city")	
+	if ($(inputId).val() != "") {
+		var inp = $(inputId);
+		var url = "https://api-adresse.data.gouv.fr/search/?q=" + inp.val() + "&type=municipality";
+		addr_search(url, inputId, "city")
+	}
 }
 
 //anciennement : var url = "https://nominatim.openstreetmap.org/search?format=json&limit=3&q=" + inp.value;
@@ -397,10 +410,21 @@ function addr_search(url, inputId, typeResearch) {
 			getLstAutoCompletion(myArr, inputId, typeResearch);
 		}
 	};
-	$(".inputSearchPlace").removeAttr("autocomplete").attr("autocomplete", "none");
+	$(inputId).removeAttr("autocomplete").attr("autocomplete", "none");
 
 	xmlhttp.open("GET", url, true);
 	xmlhttp.send();
+
+	if ($('.listAutoCompleteToModal').length != 0) {
+		$(".ui-autocomplete").prependTo(".listAutoCompleteToModal")
+		i = 1;
+	}
+}
+
+function autoCompletePrepend() {
+	if ($('.listAutoCompleteToModal').length != 0) {
+		$(".ui-autocomplete").prependTo("body");
+	}
 }
 
 //Permet de valider les valider que je creer dans la list d'autocompletion
@@ -463,14 +487,14 @@ function initHtmlTagToAutoComplete() {
 //	{ label: 'Apple1', value: 'ValApple1' },
 //	{ label: '<strong>Apple </strong> 2', value: 'ValApple2' },
 //	{ label: 'Apple3', value: 'ValApple3' }
-//]; $("#inputSearchPlace").autocomplete({
+//]; $(".inputSearchPlace").autocomplete({
 //	source: availableTags,
 
 //	close: function (event, ui) {
-//		val = $("#inputSearchPlace").val();
-//		$("#inputSearchPlace").autocomplete("search", val); //keep autocomplete open by 
+//		val = $(".inputSearchPlace").val();
+//		$(".inputSearchPlace").autocomplete("search", val); //keep autocomplete open by 
 
-//		$("#inputSearchPlace").focus();
+//		$(".inputSearchPlace").focus();
 //		return false;
 //	}
 //});

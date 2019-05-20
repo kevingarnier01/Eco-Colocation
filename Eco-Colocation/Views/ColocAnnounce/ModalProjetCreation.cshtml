@@ -48,17 +48,17 @@
 						</div>
 						<div id="div10-1-adresseLog-ca" class="col-sm-9 col-xs-12">
 							<div id="div10-2-adresseLog-ca" style="position:relative">
-								@*<div onclick="addNewPlace('address-input')" style="position: absolute;right: 6%;cursor:pointer;font-size: 16px;margin-top: 5px;">| Entrer</div>*@
-								@*<input oninput="addr_search('inputLocalisation-cpc','listAutoCompletePlace2');" list="listAutoCompletePlace2" autocomplete="off" type="text" class="inputAdresseLog-ca" id="inputLocalisation-cpc" style="padding: 5px 8px;padding-right: 65px;">
-								<datalist id="listAutoCompletePlace2"></datalist>*@
-								<input type="search" id="address-input-mpc" class="address-input" placeholder="Localisation de l'endroit" onload="initAutoComplete('#address-input-mpc')" />
-								@for (int i = 0; i < 4; i++)
-								{
-									@Html.Hidden("adresseVille", null, new { @class = "addresseVille" + i })
-									@Html.Hidden("adresseRegion", null, new { @class = "adresseRegion" + i })
-									@Html.Hidden("adressePays", null, new { @class = "adressePays" + i })
-									@Html.Hidden("adresseLatLng", null, new { @class = "adresseLatLng" + i })
-								}
+								<input id="inputSearchPlace-car" oninput="addr_searchCity(this);" autocomplete="none" type="text" class="inputSearchPlace form-control" placeholder="Où recherchez-vous ?">
+								<div class="listAutoCompleteToModal"></div>
+								@*<input type="search" id="address-input-mpc" class="address-input" placeholder="Localisation de l'endroit" onload="initAutoComplete('#address-input-mpc')" />*@
+								@*@for (int i = 0; i < 4; i++)
+		{
+			@Html.Hidden("adresseVille", null, new { @class = "addresseVille" + i })
+			@Html.Hidden("adresseRegion", null, new { @class = "adresseRegion" + i })
+			@Html.Hidden("adressePays", null, new { @class = "adressePays" + i })
+			@Html.Hidden("adresseLatLng", null, new { @class = "adresseLatLng" + i })
+		}*@
+
 								@*<input id="listAutoCompletePlace2Hidden" name="listAutoCompletePlace2Hidden" type="hidden" value="">*@
 								<div id="placeSaved-cpc" style="margin-bottom: 5px;">
 									<div id="place-cpc" style="display: flex;flex-wrap: wrap;">
@@ -232,7 +232,7 @@
 				<p id="txtBtn-mpc">Creer cette annonce</p>
 			</div>
 		</div>
-		<a href="#close-modal" rel="modal:close" class="close-modal">Close</a>
+		<a href="#close-modal" rel="modal:close" class="close-modal" onclick="autoCompletePrepend()">Close</a>
 	</div>
 </div>
 

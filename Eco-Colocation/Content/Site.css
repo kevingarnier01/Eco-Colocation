@@ -492,7 +492,7 @@ select:-moz-focusring {
 }
 
 body .ui-autocomplete {
-	z-index: 10000 !important
+	z-index: 1000 !important
 }
 
 .ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active, a.ui-button:active, .ui-button:active, .ui-state-active.ui-button:hover {
@@ -507,7 +507,7 @@ body .ui-autocomplete {
 
 .ui-autocomplete {
 	color: #555 !important;
-	font-size: 17px !important
+	font-size: 17px !important;
 }
 
 body .ui-autocomplete a {
@@ -3965,7 +3965,9 @@ input.radioFibreEco-ayer {
 #divLocalisation-ayer {
 	width: 500px;
 	max-width: 100%;
-	margin-bottom: 25px
+	margin-bottom: 25px;
+	overflow: auto;
+	padding: 5px 0;
 }
 
 .divGlobalMsgPhoto-ayer {
@@ -4235,6 +4237,7 @@ input.radioFibreEco-ayer {
 	border-radius: 5px;
 	margin-left: 2px;
 	margin-bottom: 15px;
+	max-width: 99%;
 }
 
 #iconInfoUserMdp-ayer {
@@ -4794,6 +4797,11 @@ input.radioFibreEco-ayer {
 
 .btnDivOtherEvent-eyere {
 	display: none;
+}
+
+#inputlieu-ayere {
+	width: 450px;
+	margin-bottom: 25px !important;
 }
 
 .sousDivFormColoc-ayere {

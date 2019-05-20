@@ -81,7 +81,7 @@
 			@if (User.Identity.IsAuthenticated)
 			{
 				<div class="flex">
-					<a href="/EcoRoommateEvent" class="btnGreen childFlex" id="btnModifyEvent-merev">Modifier mon événement</a>
+					<a href="@Url.Action("AddYourEcoRoommateEvent", "EcoRoommateEvent", null)" class="btnGreen childFlex" id="btnModifyEvent-merev">Modifier mon événement</a>
 				</div>
 			}
 			<div class="overflow">
@@ -160,7 +160,7 @@
 							 onclick="$('#divInputNewPublication-merev').css('display','inline-grid')">Ajouter une publication</div>
 						<div id="divInputNewPublication-merev" class="overflow">
 							<div class="col-xs-12" style="margin-bottom: 15px;">
-								<label class="label-ayer">Entrer votre description</label>
+								<label class="label-ayer">Entrez votre description</label>
 								<textarea id="txtareaDescColoc-ayer"></textarea>
 							</div>
 							<div class="flex">
