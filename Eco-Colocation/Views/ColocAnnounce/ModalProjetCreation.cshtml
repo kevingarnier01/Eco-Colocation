@@ -48,8 +48,18 @@
 						</div>
 						<div id="div10-1-adresseLog-ca" class="col-sm-9 col-xs-12">
 							<div id="div10-2-adresseLog-ca" style="position:relative">
-								<input id="inputSearchPlace-car" oninput="addr_searchCity(this);" autocomplete="none" type="text" class="inputSearchPlace form-control" placeholder="Où recherchez-vous ?">
+								<div onclick="addNewPlace('#inputSearchPlace-mpc')" style="position: absolute;right: 20px;line-height: 37px;cursor: pointer;font-size: 16px;">| Entrer</div>
+								<input id="inputSearchPlace-mpc" oninput="addr_searchCity(this);" autocomplete="none" type="text" class="inputSearchPlace form-control" placeholder="Où recherchez-vous ?">
 								<div class="listAutoCompleteToModal"></div>
+							
+								@*<input oninput="addr_search('inputLocalisation-cpc','listAutoCompletePlace2');" list="listAutoCompletePlace2" autocomplete="off" type="text" class="inputAdresseLog-ca" id="inputLocalisation-cpc" style="padding: 5px 8px;padding-right: 65px;">*@
+								@*<datalist id="listAutoCompletePlace2"></datalist>*@
+								<input id="listAutoCompletePlaceHidden" name="listAutoCompletePlace2Hidden" type="hidden" value="">
+								<div id="placeSaved-cpc" style="margin-bottom: 5px;">
+									<div id="place-cpc" style="display: flex;flex-wrap: wrap;">
+									</div>
+								</div>
+
 								@*<input type="search" id="address-input-mpc" class="address-input" placeholder="Localisation de l'endroit" onload="initAutoComplete('#address-input-mpc')" />*@
 								@*@for (int i = 0; i < 4; i++)
 		{
@@ -229,7 +239,7 @@
 		</div>
 		<div id="divBtn-mpc" class="col-sm-12">
 			<div id="div1Btn-mpc">
-				<p id="txtBtn-mpc">Creer cette annonce</p>
+				<a href="#" id="txtBtn-mpc" class="btnGreen flex childFlex">Creer cette annonce</a>
 			</div>
 		</div>
 		<a href="#close-modal" rel="modal:close" class="close-modal" onclick="autoCompletePrepend()">Close</a>
@@ -237,7 +247,14 @@
 </div>
 
 <script type="text/javascript">
-	$(document).ready(function () {
-		initAutoComplete("#address-input-mpc");
+	$(document).ready(function () {		
+		//ModalProjetCreation. Can use enter button to valid one of location place
+		$(document).on('keypress', '#inputSearchPlace-mpc', function (e) {
+			var key = e.which;
+			if (key == 13)  // the enter key code
+			{
+				addNewPlace("#inputSearchPlace-mpc");
+			}
+		});
 	});
 </script>

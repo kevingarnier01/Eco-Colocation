@@ -63,16 +63,7 @@ $(document).ready(function () {
 			closemodalhasbeenclicked = false; //puis réinitialise la variable à false
 		}, 1000)
 	});
-	// Fin modal //
-
-	//ModalProjetCreation. Can use enter button to valid a location place
-	$(document).on('keypress', '#inputLocalisation-cpc', function (e) {
-		var key = e.which;
-		if (key == 13)  // the enter key code
-		{
-			addNewPlace();
-		}
-	});
+	// Fin modal //	
 
 	//ModalProjetCreation, when option 'Type d'engagement' list change.
 	$(document).on('change', 'select#select-engagementType-mpc', function () {
@@ -323,19 +314,18 @@ function chooseAddr(lat1, lng1) {
 //(Si algolia ne fonctionne plus, utiliser lui)
 
 var compteurPlace = 1;
-function addNewPlace(elementId) {
-	elementIdvalue = $('#' + elementId).val();
-	if (elementIdvalue != null) {
-		var nameElementId = JSON.parse(elementIdvalue)['display_name'];
+function addNewPlace(inputId) {
+	debugger;
+	var t = $('#listAutoCompletePlaceHidden').val();
+	if ($('#listAutoCompletePlaceHidden').val() == inputId.val()) {
+		alert($('#listAutoCompletePlaceHidden').val())
 	}
-
-	console.log(nameElementId);
-	if (elementIdvalue != null && nameElementId == $("#inputLocalisation-cpc").val()) {
-		if (/[a-zA-Z]/.test($.trim($("#inputLocalisation-cpc").val()))) {
+	if (elementIdvalue != null && nameElementId == $(inputId).val()) {
+		if (/[a-zA-Z]/.test($.trim($(inputId).val()))) {
 			var htmlPlace =
 				'<div id="place' + compteurPlace + '" style="margin: auto;margin-left: initial;margin-right: 5px;margin-bottom:10px;padding-left: 5px;padding-right: 30px;padding-top: 3px;padding-bottom: 3px;background-color: rgba(0,0,0,0.15);border-radius: 15px;">' +
 				'<div style="display: inline-block;height: 100%;">' +
-				'<p id="placeName-cpc" style="margin: 0;">' + $("#inputLocalisation-cpc").val() + '</p>' +
+				'<p id="placeName-cpc" style="margin: 0;">' + $("#inputSearchPlace-mpc").val() + '</p>' +
 				'</div>' +
 				'<div style="display: inline-block;position:absolute">' +
 				'<div onclick="deletePlace(place' + compteurPlace + ')" style="background: url(https://www.gstatic.com/images/icons/material/system/1x/close_black_16dp.png) no-repeat;height: 15px;width: 17px;display: inline-block;margin-left: 5px;cursor: pointer;"></div>' +
@@ -344,7 +334,7 @@ function addNewPlace(elementId) {
 
 			$("#place-cpc").append(htmlPlace);
 
-			$("#inputLocalisation-cpc").val("");
+			$(inputId).val("");
 
 			compteurPlace++;
 		}
@@ -355,9 +345,7 @@ function addNewPlace(elementId) {
 }
 
 function getLstAutoCompletion(arr, inputId, typeResearch) {
-
 	if (arr.features.length > 0) {
-		$("#listAutoCompletePlaceHidden").val("");
 
 		//Supprime les doublons		
 		var labelThing; var labelT;
@@ -382,6 +370,10 @@ function getLstAutoCompletion(arr, inputId, typeResearch) {
 					"<p id='txtContextAutoCompletion'>" + context + "</p>",
 				value: label + " " + context
 			}
+			
+			//if (i == 0 && $('#listAutoCompletePlaceHidden').length != 0 && arr.features[0] == 1) {
+			//	$('#listAutoCompletePlaceHidden').val() = availableTags[i];
+			//}
 		}
 
 		$(inputId).autocomplete({
@@ -404,12 +396,14 @@ function addr_searchCity(inputId) {
 function addr_search(url, inputId, typeResearch) {
 	initHtmlTagToAutoComplete();
 	var xmlhttp = new XMLHttpRequest();
+
 	xmlhttp.onreadystatechange = function () {
 		if (this.readyState == 4 && this.status == 200) {
 			var myArr = JSON.parse(this.responseText);
 			getLstAutoCompletion(myArr, inputId, typeResearch);
 		}
 	};
+
 	$(inputId).removeAttr("autocomplete").attr("autocomplete", "none");
 
 	xmlhttp.open("GET", url, true);

@@ -2106,8 +2106,7 @@ div#divContenuPlSchDisable {
 }
 
 #div1-1-contenu-ca {
-	margin-left: auto;
-	margin-right: auto;
+	margin: 3px auto;
 	padding: 10px;
 	background-color: rgba(0,0,0,0.01);
 	box-shadow: 0 0 5px 0 #d9d9d9;
@@ -2278,6 +2277,10 @@ div#divContenuPlSchDisable {
 #div1-descInform-ca {
 	display: flex;
 	padding: 0
+}
+
+#txtBtn-mpc {
+	margin-bottom: 15px;
 }
 
 #div2-descInform-ca {
