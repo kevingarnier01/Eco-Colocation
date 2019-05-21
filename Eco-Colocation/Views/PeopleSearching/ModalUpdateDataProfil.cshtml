@@ -12,7 +12,7 @@
 		<div id="updatePeopleSearch">
 			@Html.Partial("~/Views/Account/CARecherche.cshtml")
 		</div>
-
+		<a href="@Url.Action("Index", "Home", null)" class="btnGreen flex childFlex">Mettre à jour</a>
 		@* Afficher cela ci-dessous que si l'annonce n'est pas activé *@
 		@*<div class="flex childFlex btnGreen">Mettre à jour</div>*@
 		<a href="#close-modal" rel="modal:close" class="close-modal">Close</a>
@@ -22,7 +22,8 @@
 <script>
 	$(document).ready(function () {
 		$('#updatePeopleSearch .titleForm-mcar').css('display', 'none');
-		@* Afficher cela ci-dessous que si l'annonce n'est pas activé *@
+		$('#divInscriptionButtons-mcar').css('display', 'none')
+		@* Changer le bouton "Desactiver mon intéret" si l'annonce est déja désactivé. Voir si dessous*@
 		//$('#updatePeopleSearch #divInscriptionButtons-mcar').css('display', 'none');
 	});
 </script>

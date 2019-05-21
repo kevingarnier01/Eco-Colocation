@@ -20,5 +20,7 @@ namespace Eco_Colocation.Controllers
 			return PartialView("~/Views/PeopleSearching/ModalUpdateDataProfil.cshtml");
 		}
 
+		
+
 	}
 }

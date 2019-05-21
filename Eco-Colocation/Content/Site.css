@@ -26,7 +26,8 @@ html {
 /* Body */
 body {
 	background-color: rgba(0,0,0,0.02);
-	min-width: 330px
+	min-width: 330px;
+	padding: inherit !important;
 }
 
 .parallax-window {
@@ -4812,7 +4813,7 @@ input.radioFibreEco-ayer {
 
 #btnValidPublication-merev {
 	width: max-content;
-}
+} 
 
 #validPublication-merev {
 	margin-bottom: 5px;
