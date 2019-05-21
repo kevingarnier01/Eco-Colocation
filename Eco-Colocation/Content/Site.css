@@ -2251,11 +2251,68 @@ div#divContenuPlSchDisable {
 	max-width: 450px
 }
 
+#btnEnterNewPlace-mpc {
+	position: absolute;
+	right: 20px;
+	line-height: 35px;
+	cursor: pointer;
+	font-size: 16px;
+}
+
+#inputSearchPlace-mpc {
+	padding-right: 80px;
+}
+
 .inputAdresseLog-ca {
 	width: 100%;
 	border: none;
 	box-shadow: 0 0 2px 0 black;
 	border-radius: 5px;
+}
+
+#placeSaved-cpc {
+	margin-bottom: 5px;
+	display: none
+}
+
+#place-cpc {
+	display: flex;
+	flex-wrap: wrap;
+	border-radius: 5px;
+	box-shadow: 0 0 3px black;
+	padding: 10px 5px;
+	margin: 10px;
+}
+
+.divPlace-cpc {
+	margin: 4px;
+	padding: 5px 10px;
+	border-radius: 8px;
+	display: flex;
+	position: relative;
+	background-color: #dde474;
+	font-weight: bold;
+	font-family: 'Noteworthy';
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 100%;
+}
+
+.placeName-cpc {
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	max-width: 97%;
+}
+
+.crossPlace-cpc {
+	margin-left: 3px;
+}
+
+i.fas.fa-times.crossPlace-cpc {
+	font-size: 15px;
+	color: #555;
+	cursor: pointer;
 }
 
 #div10-3-adresseLog-ca {
@@ -4816,7 +4873,7 @@ input.radioFibreEco-ayer {
 
 #btnValidPublication-merev {
 	width: max-content;
-} 
+}
 
 #validPublication-merev {
 	margin-bottom: 5px;

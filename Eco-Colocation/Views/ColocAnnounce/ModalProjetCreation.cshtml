@@ -48,15 +48,16 @@
 						</div>
 						<div id="div10-1-adresseLog-ca" class="col-sm-9 col-xs-12">
 							<div id="div10-2-adresseLog-ca" style="position:relative">
-								<div onclick="addNewPlace('#inputSearchPlace-mpc')" style="position: absolute;right: 20px;line-height: 37px;cursor: pointer;font-size: 16px;">| Entrer</div>
+								<div onclick="addNewPlace('#inputSearchPlace-mpc')" id="btnEnterNewPlace-mpc" class="fontFamilyNote" >| Entrer</div>
 								<input id="inputSearchPlace-mpc" oninput="addr_searchCity(this);" autocomplete="none" type="text" class="inputSearchPlace form-control" placeholder="Où recherchez-vous ?">
+								<input id="inputSearchPlace-mpcHidden" name="inputSearchPlace-mpcHidden" type="hidden" value="">
 								<div class="listAutoCompleteToModal"></div>
-							
 								@*<input oninput="addr_search('inputLocalisation-cpc','listAutoCompletePlace2');" list="listAutoCompletePlace2" autocomplete="off" type="text" class="inputAdresseLog-ca" id="inputLocalisation-cpc" style="padding: 5px 8px;padding-right: 65px;">*@
 								@*<datalist id="listAutoCompletePlace2"></datalist>*@
-								<input id="listAutoCompletePlaceHidden" name="listAutoCompletePlace2Hidden" type="hidden" value="">
-								<div id="placeSaved-cpc" style="margin-bottom: 5px;">
-									<div id="place-cpc" style="display: flex;flex-wrap: wrap;">
+
+								@* C'est ici que les villes qu'ils valident seront affichées *@
+								<div id="placeSaved-cpc">
+									<div id="place-cpc">
 									</div>
 								</div>
 
@@ -70,10 +71,7 @@
 		}*@
 
 								@*<input id="listAutoCompletePlace2Hidden" name="listAutoCompletePlace2Hidden" type="hidden" value="">*@
-								<div id="placeSaved-cpc" style="margin-bottom: 5px;">
-									<div id="place-cpc" style="display: flex;flex-wrap: wrap;">
-									</div>
-								</div>
+
 								<div id="div10-3-adresseLog-ca" class="col-sm-12">
 									<div id="div10-4-adresseLog-ca" class="col-sm-2"></div>
 									<p class="col-sm-12" style="margin: auto;">

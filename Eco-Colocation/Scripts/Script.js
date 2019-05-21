@@ -281,10 +281,6 @@ window.onclick = function (e) {
 }
 //Fin de la fermeture list checkBox
 
-function deletePlace(element) {
-	$(element).remove();
-}
-
 function updateSwitcher(typeRecherche) {
 	if (typeRecherche == "searching") {
 		changeCssSwitcher('#btnCherche', '#btnProposition')
@@ -315,24 +311,18 @@ function chooseAddr(lat1, lng1) {
 
 var compteurPlace = 1;
 function addNewPlace(inputId) {
-	debugger;
-	var t = $('#listAutoCompletePlaceHidden').val();
-	if ($('#listAutoCompletePlaceHidden').val() == inputId.val()) {
-		alert($('#listAutoCompletePlaceHidden').val())
-	}
-	if (elementIdvalue != null && nameElementId == $(inputId).val()) {
+	if ($(inputId + 'Hidden').val() == $(inputId).val()) {
 		if (/[a-zA-Z]/.test($.trim($(inputId).val()))) {
 			var htmlPlace =
-				'<div id="place' + compteurPlace + '" style="margin: auto;margin-left: initial;margin-right: 5px;margin-bottom:10px;padding-left: 5px;padding-right: 30px;padding-top: 3px;padding-bottom: 3px;background-color: rgba(0,0,0,0.15);border-radius: 15px;">' +
-				'<div style="display: inline-block;height: 100%;">' +
-				'<p id="placeName-cpc" style="margin: 0;">' + $("#inputSearchPlace-mpc").val() + '</p>' +
-				'</div>' +
-				'<div style="display: inline-block;position:absolute">' +
-				'<div onclick="deletePlace(place' + compteurPlace + ')" style="background: url(https://www.gstatic.com/images/icons/material/system/1x/close_black_16dp.png) no-repeat;height: 15px;width: 17px;display: inline-block;margin-left: 5px;cursor: pointer;"></div>' +
-				'</div>' +
+				'<div id="place' + compteurPlace + '" class="divPlace-cpc">' +
+				'<p id="placeName-cpc" class="placeName-cpc">' + $("#inputSearchPlace-mpc").val() + '</p>' +
+				'<div class="crossPlace-cpc"><i onclick="deletePlace(place' + compteurPlace + ')" class="fas fa-times crossPlace-cpc"></i></div>' +
 				'</div>';
 
 			$("#place-cpc").append(htmlPlace);
+
+			if ($("#placeSaved-cpc").css('display') == 'none')
+				$("#placeSaved-cpc").css('display', 'block');
 
 			$(inputId).val("");
 
@@ -340,8 +330,15 @@ function addNewPlace(inputId) {
 		}
 	}
 	else {
-		alert('S\'il vous plait, veuillez selectionner une localisation suggérer par les propositions.')
+		alert('Veuillez selectionner une des villes proposées par la liste d\'auto completion des villes.')
 	}
+}
+
+function deletePlace(element) {
+	$(element).remove();
+
+	if ($('#placeSaved-cpc .divPlace-cpc').length == 0)
+		$("#placeSaved-cpc").css('display', 'none');
 }
 
 function getLstAutoCompletion(arr, inputId, typeResearch) {
@@ -370,7 +367,7 @@ function getLstAutoCompletion(arr, inputId, typeResearch) {
 					"<p id='txtContextAutoCompletion'>" + context + "</p>",
 				value: label + " " + context
 			}
-			
+
 			//if (i == 0 && $('#listAutoCompletePlaceHidden').length != 0 && arr.features[0] == 1) {
 			//	$('#listAutoCompletePlaceHidden').val() = availableTags[i];
 			//}
@@ -379,9 +376,17 @@ function getLstAutoCompletion(arr, inputId, typeResearch) {
 		$(inputId).autocomplete({
 			source: availableTags,
 			autoFocus: true,
-			html: 'html'
+			html: 'html',
+			select: function (event, ui) {
+				saveValueSelected(event, ui, this)
+			}
 		});
 	}
+}
+
+function saveValueSelected(event, ui, input) {
+	var selectedObj = ui.item;
+	$("#" + input.id + "Hidden").val(selectedObj.value)
 }
 
 function addr_searchCity(inputId) {
