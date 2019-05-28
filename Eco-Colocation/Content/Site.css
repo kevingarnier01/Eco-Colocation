@@ -770,7 +770,7 @@ body .ui-autocomplete a {
 
 	#div1-1-multiList p {
 		margin-top: 5px;
-		margin-left: 16px;
+		margin-left: 5px;
 		margin-bottom: 0
 	}
 
@@ -869,6 +869,10 @@ body .ui-autocomplete a {
 	display: flex;
 	flex-wrap: wrap;
 	padding-bottom: 10px
+}
+
+#divOthersPeople-ps {
+	display: contents;
 }
 
 #divPeoplesSearching {
@@ -1216,7 +1220,7 @@ div#divContenuPlSchDisable {
 	margin-right: auto;
 }
 
-	#divBlocAnnonce2 a {
+	#divBlocAnnonce2 a, #divOthersEvents-ereom a {
 		color: inherit !important;
 	}
 

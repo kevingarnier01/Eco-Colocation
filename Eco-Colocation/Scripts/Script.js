@@ -374,7 +374,9 @@ function getLstAutoCompletion(arr, inputId, typeResearch) {
 		}
 
 		$(inputId).autocomplete({
-			source: availableTags,
+			source: function (request, response) {
+				response(availableTags);
+			},
 			autoFocus: true,
 			html: 'html',
 			select: function (event, ui) {
@@ -397,6 +399,14 @@ function addr_searchCity(inputId) {
 	}
 }
 
+function addr_searchStreet(inputId) {
+	if ($(inputId).val() != "") {
+		var inp = $(inputId);
+		var url = "https://api-adresse.data.gouv.fr/search/?q=" + inp.val() + "&type=street";
+		addr_search(url, inputId, "street")
+	}
+}
+
 //anciennement : var url = "https://nominatim.openstreetmap.org/search?format=json&limit=3&q=" + inp.value;
 function addr_search(url, inputId, typeResearch) {
 	initHtmlTagToAutoComplete();
@@ -410,7 +420,7 @@ function addr_search(url, inputId, typeResearch) {
 	};
 
 	$(inputId).removeAttr("autocomplete").attr("autocomplete", "none");
-
+	//debugger;
 	xmlhttp.open("GET", url, true);
 	xmlhttp.send();
 
@@ -426,7 +436,7 @@ function autoCompletePrepend() {
 	}
 }
 
-//Permet de valider les valider que je creer dans la list d'autocompletion
+//Permet d'activer les element html (comme l'image) que je creer dans la list d'autocompletion
 function initHtmlTagToAutoComplete() {
 
 	(function ($) {
@@ -1012,7 +1022,7 @@ function turnRightOthersEvents(parentContener) {
 }
 
 function showOthersEvents() {
-	// Appelé controller pour recuperer quelques événements et les afficher
+	// Appeler le controller pour recuperer quelques événements et les afficher
 	var event = $('#divBlocAnnonce2').html();
 	$("#divOthersEvents-ereom").append(event);
 
@@ -1020,11 +1030,11 @@ function showOthersEvents() {
 }
 
 function showOthersAnnounces() {
-	var announce = '<div id="annonce2-alpv" class="divBlocAnnonce1-ereom">' + $('#annonce1-alpv').html() + '</div>';
+	var announce = $("#annonce2-alpv")[0].outerHTML;
 	$("#divOthersAnnounces-alpv").append(announce);
 }
 
 function showOthersPeople() {
-	var people = '<div id="divPeoplesSearching" class="col-lg-3 col-sm-4 col-xs-6">' + $('#divPeoplesSearching:last-child').html() + '</div>';
-	$("#divPanelPl").append(people);
+	var people = $("#divPeoplesSearching")[0].outerHTML;
+	$("#divOthersPeople-ps").append(people);
 }
