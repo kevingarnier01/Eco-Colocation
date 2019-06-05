@@ -1445,7 +1445,7 @@ div#divContenuPlSchDisable {
 
 #photoProfilPC {
 	padding: 0;
-	background: url(../Content/Images/Personnes/Profil1.jpg) 50% 50% no-repeat; /* 50% 50% centers image in div */
+	background: url(/Content/Images/Personnes/Profil1.jpg) 50% 50% no-repeat; /* 50% 50% centers image in div */
 	background-size: 120px;
 	width: 80px;
 	height: 80px;
@@ -2679,7 +2679,7 @@ i.fas.fa-times.crossPlace-cpc {
 }
 
 #btnGoogle-acc {
-	background: url(../Content/images/icons/google.png) no-repeat center;
+	background: url(/Content/images/icons/google.png) no-repeat center;
 	background-size: 25px;
 	width: 50px;
 	height: 50px;

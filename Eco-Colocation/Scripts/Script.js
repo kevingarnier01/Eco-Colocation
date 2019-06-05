@@ -22,8 +22,9 @@ $(document).ready(function () {
 				if ($('.jquery-modal').css('display') == 'none') {
 					$(".ui-autocomplete").prependTo("body");
 					$('.jquery-modal').remove();
+					updateUrlModalAfterClosing();
 				}
-			}, 1000)
+			}, 50)
 		});
 		$(document).on('click', '.modal', function (e) {
 			$('.jquery-modal').css('display', 'none');
@@ -32,8 +33,9 @@ $(document).ready(function () {
 				if ($('.jquery-modal').css('display') == 'none') {
 					$(".ui-autocomplete").prependTo("body");
 					$('.jquery-modal').remove();
+					updateUrlModalAfterClosing();
 				}
-			}, 1000)
+			}, 50)
 		});
 	});
 
@@ -58,12 +60,22 @@ $(document).ready(function () {
 	$(document).on('click', '.close-modal, .closeModal', function (e) {
 		$('body').css('overflow', 'auto');
 		closemodalhasbeenclicked = true;
+		
+		updateUrlModalAfterClosing();
+
 		// entre les deux : ouvre l'evenement click du modal //
 		settimeout(function () {
 			closemodalhasbeenclicked = false; //puis réinitialise la variable à false
 		}, 1000)
 	});
 	// Fin modal //	
+
+	//change de l'url quand le modal se ferme
+	function updateUrlModalAfterClosing() {
+		window.history.replaceState("", $("#urlCurrentPage").val(), $("#urlCurrentPage").val());
+	}
+
+	
 
 	//ModalProjetCreation, when option 'Type d'engagement' list change.
 	$(document).on('change', 'select#select-engagementType-mpc', function () {

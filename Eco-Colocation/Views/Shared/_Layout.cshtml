@@ -4,7 +4,8 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>@ViewBag.Title - Mon application ASP.NET</title>
+	<title>@ViewBag.Title</title>	
+	@Html.Hidden("urlCurrentPage", (object)ViewBag.urlCurrentPage)
 	@Styles.Render("~/Content/css")
 	@Scripts.Render("~/bundles/jquery")
 	@Scripts.Render("~/bundles/modernizr")
@@ -25,29 +26,41 @@
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
 <body>
-    <div id="global">
-        <header>
-            <div>
-                @Html.Partial("_NavPartial")
-            </div>
-        </header>
+	<div id="global">
+		<header>
+			<div>
+				@Html.Partial("_NavPartial")
+			</div>
+		</header>
 		<div id="_PictureHeader">
 			@Html.Partial("_PictureHeader")
 		</div>
-        <main>
-            @RenderBody()
-        </main>
+		<main>
+			@RenderBody()
+		</main>
 
-        <footer>
-            @Html.Partial("_FooterPartial")
-        </footer>
+		<footer>
+			@Html.Partial("_FooterPartial")
+		</footer>
 
-    </div>
+	</div>
 
-    @Scripts.Render("~/Scripts/parallax")
-    @*@Scripts.Render("~/Scripts/waypoints")*@
-    @Scripts.Render("~/bundles/bootstrap")
-    @Scripts.Render("~/Scripts/Script")
-    @RenderSection("scripts", required: false)
+	@Scripts.Render("~/Scripts/parallax")
+	@*@Scripts.Render("~/Scripts/waypoints")*@
+	@Scripts.Render("~/bundles/bootstrap")
+	@Scripts.Render("~/Scripts/Script")
+	@RenderSection("scripts", required: false)
 </body>
 </html>
+
+<script language="javascript/te">
+	$(document).ready(function () {
+		// Si elementIdToTrigger n'est pas vide c'est que l'utilisateur à saisi l'url du modal.  
+		var elementIdToTrigger = "@ViewData["elementIdToTrigger"]";
+		if (elementIdToTrigger != null) {
+			//Simule l'appel au modal qui est en lien avec l'url saisi
+			
+			$(elementIdToTrigger)[0].click();
+		}
+	});
+</script>

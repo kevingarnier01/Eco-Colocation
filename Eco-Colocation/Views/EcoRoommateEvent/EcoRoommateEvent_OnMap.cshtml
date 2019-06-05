@@ -4,8 +4,6 @@
 
 	ViewBag.Title = "EcoRoommateEvent_OnMap";
 }
-
-
 <div>
 	<div id="title-ereom">Les événements organisés</div>
 	<div id="descEcoRoom-ereom" class="fontFamilyNote">
@@ -23,7 +21,8 @@
 <div id="divBlocsEvents-erevom">
 	<div class="divBlocAnnonce1-ereom">
 		<div id="divBlocAnnonce2" class="col-sm-12 col-xs-12">
-			<a href="@Url.Action("ModalEcoRoommateEventVisual", "EcoRoommateEvent", null)" rel="modal:open">
+			@* this.Request.Url.Scheme *@
+			<a id="ecoRoommateEventLink-1020" href="@Url.Action("ModalEcoRoommateEventVisual", "EcoRoommateEvent", new { @id = 1020 }, null)" rel="modal:open">
 				<div id="annonce1-ereom" class="col-md-12 col-sm-12 divAnnonceColoc">
 					<div id="div2AnnonceColoc" class="col-md-12 col-sm-12 col-xs-12">
 						<input id="valueGps10" name="valueGps10" type="hidden" value="46.89, 2.67">

@@ -15,7 +15,7 @@ namespace Eco_Colocation.Controllers
 			//return View("~/Views/Home/Index.cshtml", allViewModel);
 		}
 
-		public PartialViewResult ModalLocation()
+		public PartialViewResult ModalLocation(string id)
 		{
 			return PartialView();
 		}

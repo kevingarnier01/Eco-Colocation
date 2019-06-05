@@ -59,12 +59,12 @@
 				<div class="photo-mpc mySlides" style="background: url(https://www.euro-assurance.com/sites/default/files/styles/editorial_page__field_ed_image__full/public/da76fb63fef40245e2e506d287b24c18_L.jpg?itok=LsjbRV5O) 50% 50% no-repeat;"></div>
 				<div id="d1-btnphoto-mpc">
 					<div id="d1-2-btnphoto-mpc" onclick="plusDivs(-1)">
-						<img src="../Content/Images/Icons/arrow-left.png">
+						<img src="/Content/Images/Icons/arrow-left.png">
 					</div>
 				</div>
 				<div id="d2-btnphoto-mpc">
 					<div id="d2-1-btnphoto-mpc" onclick="plusDivs(+1)">
-						<img src="../Content/Images/Icons/arrow-right.png">
+						<img src="/Content/Images/Icons/arrow-right.png">
 					</div>
 				</div>
 			</div>
@@ -88,7 +88,7 @@
 				<div class="d2-1-description-mpc col-sm-4 col-xs-4">
 					<div class="d2-1-1-description-mpc">
 						<div class="d2-1-1-1-description-mpc">
-							<img src="../../content/images/logos/people.png">
+							<img src="..//Content/images/logos/people.png">
 						</div>
 						<div class="fontFamilyNote" id="txtNbPartInter-merev">
 							<p>113 participant(s)</p>
@@ -99,7 +99,7 @@
 				<div class="d2-1-description-mpc col-sm-4 col-xs-4">
 					<div id="divLocalisationEvent-merev">
 						<div class="d2-1-1-1-description-mpc">
-							<img src="../../content/images/logos/markerColocExisting.png">
+							<img src="..//Content/images/logos/markerColocExisting.png">
 						</div>
 						<p class="fontFamilyNote">Rennes, café la bascule</p>
 					</div>
@@ -107,7 +107,7 @@
 				<div class="d2-1-description-mpc col-sm-4 col-xs-4">
 					<div class="d2-1-1-description-mpc">
 						<div class="d2-1-1-1-description-mpc">
-							<img src="../../content/images/logos/calendar.png">
+							<img src="..//Content/images/logos/calendar.png">
 						</div>
 						<div class="fontFamilyNote" id="txtDateCalendar-merev">
 							<p>Jeudi 2 Mai 2019</p>
@@ -227,6 +227,7 @@
 
 <script language="javascript">
 	$(document).ready(function () {
+		window.history.replaceState('data to be passed', 'Title of the page', '/Modal/ModalEcoRoommateEventVisual/1020');
 		checkIfBtnInteretIsNotEmpty_erevom('#divInterested-merev');
 	});
 </script>
