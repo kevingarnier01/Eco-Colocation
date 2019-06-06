@@ -15,12 +15,14 @@ namespace Eco_Colocation.Controllers
 			return View();
 		}
 		
-		public ActionResult ModalEcoRoommateEventVisual(string id)
+		public ActionResult ModalEcoRoommateEventVisual(string idModal)
 		{
 			EcoRoommateEventViewModel EcoRoommateEventViewModel = new EcoRoommateEventViewModel();
 			EcoRoommateEventViewModel.Id = 2;
-			
-			return PartialView(EcoRoommateEventViewModel.Id);
+
+			ViewData["idModal"] = idModal;
+
+			return PartialView();
 		}
 
 		public ActionResult ModalDeleteEcoRoommateEvent()

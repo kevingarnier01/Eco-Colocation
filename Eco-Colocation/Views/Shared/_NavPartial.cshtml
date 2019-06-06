@@ -7,7 +7,7 @@
 		<div class="container">
 			<div id="logo">
 				<a class="logo" href="@Url.Action("Index","Home", null)">
-					<img class="fixed-logo lazyloading" src="..//Content/Images/Icons/logoEcoColoc.gif" width="179" alt="Eco-Colocation" data-was-processed="true">
+					<img class="fixed-logo lazyloading" src="/Content/Images/Icons/logoEcoColoc.gif" width="179" alt="Eco-Colocation" data-was-processed="true">
 				</a>
 			</div>
 			<div class="navbar-header page-scroll">
@@ -36,10 +36,13 @@
 							   href="@Url.Action("Deconnection", "Account", null)">Se déconnecter</a>
 						</li>
 					}
-					<li class="menu-item menu-item-type-post_type menu-item-object-page">
-						<a class="nav-link" title="Inscription"
-						   href="@Url.Action("ModalCreateAccount", "Account", null)" rel="modal:open">Inscription</a>
-					</li>
+					@if (!User.Identity.IsAuthenticated)
+					{
+						<li class="menu-item menu-item-type-post_type menu-item-object-page">
+							<a class="nav-link" title="Inscription"
+							   href="@Url.Action("ModalCreateAccount", "Account", null)" rel="modal:open">Inscription</a>
+						</li>
+					}
 					<li class="menu-item menu-item-type-post_type menu-item-object-page">
 						<a class="nav-link" title="Nous contacter" href="">Nous contacter</a>
 					</li>

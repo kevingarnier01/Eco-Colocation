@@ -7,7 +7,7 @@
 	<div id="divBlocAnnonce" class="col-xs-12">
 		<div id="annonce1-alpv" class="divBlocAnnonce1-ereom">
 			<div id="divBlocAnnonce2" class="col-sm-12 col-xs-12">
-				<a id="annonceLocationPVLink-1000" href="@Url.Action("ModalLocation","SearchColoc", new { @id = "1000" })" rel="modal:open">
+				<a id="annonceLocationPVLink-1" href="@Url.Action("ModalLocation","SearchColoc", new { @idModal = "1" })" rel="modal:open">
 					<div id="underAnnonce2-alpv" class="col-md-12 col-sm-12 divAnnonceColoc">
 						<div id="div2AnnonceColoc" class="col-md-12 col-sm-12 col-xs-12">
 							<input id="valueGps10" name="valueGps10" type="hidden" value="46.89, 2.67">
@@ -37,7 +37,7 @@
 		</div>
 		<div id="annonce2-alpv" class="divBlocAnnonce1-ereom">
 			<div id="divBlocAnnonce2" class="col-sm-12 col-xs-12">
-				<a href="/SearchColoc/ModalLocation" onclick="showAnnonce(event)" rel="modal:open">
+				<a id="annonceLocationPVLink-2" href="@Url.Action("ModalLocation","SearchColoc", new { @idModal = "2" })" rel="modal:open">
 					<div id="underAnnonce2-alpv" class="col-md-12 col-sm-12 divAnnonceColoc">
 						<div id="div2AnnonceColoc" class="col-md-12 col-sm-12 col-xs-12">
 							<input id="valueGps10" name="valueGps10" type="hidden" value="46.89, 2.67">

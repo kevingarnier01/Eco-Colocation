@@ -88,7 +88,7 @@
 				<div class="d2-1-description-mpc col-sm-4 col-xs-4">
 					<div class="d2-1-1-description-mpc">
 						<div class="d2-1-1-1-description-mpc">
-							<img src="..//Content/images/logos/people.png">
+							<img src="/Content/images/logos/people.png">
 						</div>
 						<div class="fontFamilyNote" id="txtNbPartInter-merev">
 							<p>113 participant(s)</p>
@@ -99,7 +99,7 @@
 				<div class="d2-1-description-mpc col-sm-4 col-xs-4">
 					<div id="divLocalisationEvent-merev">
 						<div class="d2-1-1-1-description-mpc">
-							<img src="..//Content/images/logos/markerColocExisting.png">
+							<img src="/Content/images/logos/markerColocExisting.png">
 						</div>
 						<p class="fontFamilyNote">Rennes, café la bascule</p>
 					</div>
@@ -107,7 +107,7 @@
 				<div class="d2-1-description-mpc col-sm-4 col-xs-4">
 					<div class="d2-1-1-description-mpc">
 						<div class="d2-1-1-1-description-mpc">
-							<img src="..//Content/images/logos/calendar.png">
+							<img src="/Content/images/logos/calendar.png">
 						</div>
 						<div class="fontFamilyNote" id="txtDateCalendar-merev">
 							<p>Jeudi 2 Mai 2019</p>
@@ -227,7 +227,7 @@
 
 <script language="javascript">
 	$(document).ready(function () {
-		window.history.replaceState('data to be passed', 'Title of the page', '/Modal/ModalEcoRoommateEventVisual/1020');
+		window.history.replaceState('data to be passed', 'Title of the page', '/Modal/ModalEcoRoommateEventVisual/?idModal=' + @ViewData["idModal"]);
 		checkIfBtnInteretIsNotEmpty_erevom('#divInterested-merev');
 	});
 </script>

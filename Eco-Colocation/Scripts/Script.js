@@ -53,8 +53,7 @@ $(document).ready(function () {
 		});
 	});
 	//if ($('.blockerCenterToHideWindows').css('display') == 'none') {
-
-
+	
 	//Si le button close-modal à été cliqué, alors nous l'indiquons et l'evenement au dessus  (click sur modal)
 	//se charge de ne pas faire disparaitre le scroll bar du body
 	$(document).on('click', '.close-modal, .closeModal', function (e) {
@@ -74,8 +73,6 @@ $(document).ready(function () {
 	function updateUrlModalAfterClosing() {
 		window.history.replaceState("", $("#urlCurrentPage").val(), $("#urlCurrentPage").val());
 	}
-
-	
 
 	//ModalProjetCreation, when option 'Type d'engagement' list change.
 	$(document).on('change', 'select#select-engagementType-mpc', function () {
@@ -121,14 +118,14 @@ function initMap() {
 	}).addTo(mymap);
 
 	var leafIcon = L.icon({
-		iconUrl: '../Content/Images/Logos/markerColocExisting.png',
+		iconUrl: '/Content/Images/Logos/markerColocExisting.png',
 
 		iconSize: [20, 20], // size of the icon
 		//popupAnchor: [30, -76]  // point from which the popup should open relative to the iconAnchor
 	});
 
 	var leafIconOver = L.icon({
-		iconUrl: '../Content/Images/Logos/mapLocalisationOVer.png',
+		iconUrl: '/Content/Images/Logos/mapLocalisationOVer.png',
 
 		iconSize: [20, 20], // size of the icon
 		//popupAnchor: [30, -76]  // point from which the popup should open relative to the iconAnchor
@@ -675,7 +672,7 @@ function loadEcoRoommateMap() {
 
 function loadEcoRoommateExistingMap(mymap) {
 	var markerIcon = L.icon({
-		iconUrl: '../Content/Images/Logos/markerColocExisting.png',
+		iconUrl: '/Content/Images/Logos/markerColocExisting.png',
 
 		iconSize: [22, 22], // size of the icon
 	});
@@ -714,13 +711,13 @@ function loadEcoRoommateExistingMap(mymap) {
 
 function loadEcoRoommateEventMap(mymap) {
 	var markerIcon2 = L.icon({
-		iconUrl: '../Content/Images/Logos/markerEvenement.png',
+		iconUrl: '/Content/Images/Logos/markerEvenement.png',
 
 		iconSize: [22, 22], // size of the icon
 	});
 
 	var markerIconOver = L.icon({
-		iconUrl: '../Content/Images/Logos/markerEvenementOver.png',
+		iconUrl: '/Content/Images/Logos/markerEvenementOver.png',
 
 		iconSize: [22, 22],
 	});

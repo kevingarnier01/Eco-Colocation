@@ -15,8 +15,11 @@ namespace Eco_Colocation.Controllers
 			//return View("~/Views/Home/Index.cshtml", allViewModel);
 		}
 
-		public PartialViewResult ModalLocation(string id)
+		public PartialViewResult ModalLocation(string idModal)
 		{
+			ViewData["targetCity"] = "Rennes";
+			ViewData["IdModal"] = idModal;
+
 			return PartialView();
 		}
 
@@ -25,8 +28,11 @@ namespace Eco_Colocation.Controllers
 			return PartialView();
 		}
 
-		public PartialViewResult ModalProjetCreation()
+		public PartialViewResult ModalProjetCreation(string idModal)
 		{
+			ViewData["targetCity"] = "Rennes";
+			ViewData["IdModal"] = idModal;
+
 			return PartialView();
 		}
 	}

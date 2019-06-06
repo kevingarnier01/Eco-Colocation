@@ -21,8 +21,7 @@
 <div id="divBlocsEvents-erevom">
 	<div class="divBlocAnnonce1-ereom">
 		<div id="divBlocAnnonce2" class="col-sm-12 col-xs-12">
-			@* this.Request.Url.Scheme *@
-			<a id="ecoRoommateEventLink-1020" href="@Url.Action("ModalEcoRoommateEventVisual", "EcoRoommateEvent", new { @id = 1020 }, null)" rel="modal:open">
+			<a id="ecoRoommateEventLink-1020" href="@Url.Action("ModalEcoRoommateEventVisual", "EcoRoommateEvent", new { @idModal = "1020" })" rel="modal:open">
 				<div id="annonce1-ereom" class="col-md-12 col-sm-12 divAnnonceColoc">
 					<div id="div2AnnonceColoc" class="col-md-12 col-sm-12 col-xs-12">
 						<input id="valueGps10" name="valueGps10" type="hidden" value="46.89, 2.67">
@@ -49,7 +48,7 @@
 	</div>
 	<div class="divBlocAnnonce1-ereom">
 		<div id="divBlocAnnonce2" class="col-sm-12 col-xs-12">
-			<a href="@Url.Action("ModalEcoRoommateEventVisual", "EcoRoommateEvent", null)" rel="modal:open">
+			<a id="ecoRoommateEventLink-1021" href="@Url.Action("ModalEcoRoommateEventVisual", "EcoRoommateEvent", new { @idModal = "1021" })" rel="modal:open">
 				<div id="annonce2-ereom" class="col-md-12 col-sm-12 divAnnonceColoc">
 					<div id="div2AnnonceColoc" class="col-md-12 col-sm-12 col-xs-12">
 						<input id="valueGps10" name="valueGps10" type="hidden" value="46.89, 2.67">
@@ -99,7 +98,7 @@
 		</div>
 	</div>
 	<div id="divLinkDetailEvent-erevom">
-		<a id="linkDetailEvent-erevom" rel="modal:open" href="@Url.Action("ModalEcoRoommateEventVisual","EcoRoommateEvent", null)">
+		<a id="ecoRoommateEventLink-1020" class="linkDetailEvent-erevom" rel="modal:open" href="@Url.Action("ModalEcoRoommateEventVisual", "EcoRoommateEvent", new { @idModal = "1020" })">
 			<i id="iconDetailEvent-erevom" class="fas fa-angle-double-right"></i>
 			<p class="fontFamilyNote">En savoir plus</p>
 		</a>

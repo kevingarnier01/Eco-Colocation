@@ -21,7 +21,7 @@
 	<script src="https://cdn.jsdelivr.net/npm/places.js@1.16.3"></script>
 
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-	<link rel="stylesheet" href="/resources/demos/style.css">
+	@*<link rel="stylesheet" href="/resources/demos/style.css">*@
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
@@ -53,14 +53,19 @@
 </body>
 </html>
 
-<script language="javascript/te">
+<script language="javascript">
 	$(document).ready(function () {
-		// Si elementIdToTrigger n'est pas vide c'est que l'utilisateur à saisi l'url du modal.  
-		var elementIdToTrigger = "@ViewData["elementIdToTrigger"]";
-		if (elementIdToTrigger != null) {
-			//Simule l'appel au modal qui est en lien avec l'url saisi
-			
-			$(elementIdToTrigger)[0].click();
+		//Si l'utilisateur active le lien d'un des modal qui se trouve dans l'onglet "projet de création". Alors basculer l'affichage sur cette onglet
+		var showProjetCreation = "@ViewData["showProjetCreation"]";
+		if (showProjetCreation != null && showProjetCreation.length != 0) {
+			projetCreationPage()
+		}
+
+		// Si idModalToTrigger n'est pas vide c'est que l'utilisateur à saisi l'url du modal et qu'il faut déclancher le click de l'element.
+		var idModalToTrigger = "@ViewData["idModalToTrigger"]";
+		if (idModalToTrigger != null && idModalToTrigger.length != 0) {
+			//Simule l'appel au modal qui est en lien avec l'url saisi			
+			$(idModalToTrigger)[0].click();
 		}
 	});
 </script>

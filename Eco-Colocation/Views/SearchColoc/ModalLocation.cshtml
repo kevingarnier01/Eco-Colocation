@@ -199,6 +199,7 @@
 </div>
 <script language="javascript">
 	$(document).ready(function () {
-		window.history.replaceState('data to be passed', 'Title of the page', '/Modal/ModalLocation/1000');
+		window.history.replaceState('data to be passed', 'Title of the page',
+			'/Modal/ModalLocation/?targetCity=' + "@ViewData["targetCity"]" + "&idModal=" + @ViewData["IdModal"] + "&urlCurrentPage=" + $('#urlCurrentPage').val());
 	});
 </script>
