@@ -29,13 +29,6 @@
 							   href="@Url.Action("ModalAccount", "Account", null)" rel="modal:open">Se connecter</a>
 						</li>
 					}
-					else
-					{
-						<li class="menu-item menu-item-type-post_type menu-item-object-page">
-							<a class="nav-link" title="Se déconnecter"
-							   href="@Url.Action("Deconnection", "Account", null)">Se déconnecter</a>
-						</li>
-					}
 					@if (!User.Identity.IsAuthenticated)
 					{
 						<li class="menu-item menu-item-type-post_type menu-item-object-page">
@@ -46,6 +39,16 @@
 					<li class="menu-item menu-item-type-post_type menu-item-object-page">
 						<a class="nav-link" title="Nous contacter" href="">Nous contacter</a>
 					</li>
+					@if (User.Identity.IsAuthenticated)
+					{
+						<li class="menu-item menu-item-type-post_type menu-item-object-page" id="liProfil-nb">
+							<i onclick="" class="fas fa-user-circle" id="pictureProfil-nb"></i>
+							<div id="sousDivProfil">
+								<a href="@Url.Action("Index", "ColocAnnounce", null)" class="linkProfil-nb">Voir mes annonces et mes projets</a>
+								<a href="@Url.Action("Deconnection", "Account", null)" class="linkProfil-nb">Se déconnecter</a>
+							</div>
+						</li>
+					}
 				</ul>
 			</div>
 		</div>
