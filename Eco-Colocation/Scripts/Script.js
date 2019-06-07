@@ -13,30 +13,11 @@ $(document).ready(function () {
 		e.stopPropagation();
 	});
 
+	eventCloseOrNotModal();
+
 	//permet de correctement fermer le modal lors du click a l'exterieur
 	$(document).on('mouseleave', '.reelModal', function () {
-		$('.modal').on('click', '.underModal', function (e) {
-			$('.jquery-modal').css('display', 'none');
-			$('body').css('overflow', 'auto');
-			setTimeout(function () {
-				if ($('.jquery-modal').css('display') == 'none') {
-					$(".ui-autocomplete").prependTo("body");
-					$('.jquery-modal').remove();
-					updateUrlModalAfterClosing();
-				}
-			}, 50)
-		});
-		$(document).on('click', '.modal', function (e) {
-			$('.jquery-modal').css('display', 'none');
-			$('body').css('overflow', 'auto');
-			setTimeout(function () {
-				if ($('.jquery-modal').css('display') == 'none') {
-					$(".ui-autocomplete").prependTo("body");
-					$('.jquery-modal').remove();
-					updateUrlModalAfterClosing();
-				}
-			}, 50)
-		});
+		eventCloseOrNotModal()
 	});
 
 	$(document).on('mouseenter', '.reelModal', function () {
@@ -53,13 +34,13 @@ $(document).ready(function () {
 		});
 	});
 	//if ($('.blockerCenterToHideWindows').css('display') == 'none') {
-	
+
 	//Si le button close-modal à été cliqué, alors nous l'indiquons et l'evenement au dessus  (click sur modal)
 	//se charge de ne pas faire disparaitre le scroll bar du body
 	$(document).on('click', '.close-modal, .closeModal', function (e) {
 		$('body').css('overflow', 'auto');
 		closemodalhasbeenclicked = true;
-		
+
 		updateUrlModalAfterClosing();
 
 		// entre les deux : ouvre l'evenement click du modal //
@@ -69,10 +50,6 @@ $(document).ready(function () {
 	});
 	// Fin modal //	
 
-	//change de l'url quand le modal se ferme
-	function updateUrlModalAfterClosing() {
-		window.history.replaceState("", $("#urlCurrentPage").val(), $("#urlCurrentPage").val());
-	}
 
 	//ModalProjetCreation, when option 'Type d'engagement' list change.
 	$(document).on('change', 'select#select-engagementType-mpc', function () {
@@ -93,6 +70,36 @@ $(document).ready(function () {
 	});
 
 });
+
+function eventCloseOrNotModal() {
+	$('.modal').on('click', '.underModal', function (e) {
+		$('.jquery-modal').css('display', 'none');
+		$('body').css('overflow', 'auto');
+		setTimeout(function () {
+			if ($('.jquery-modal').css('display') == 'none') {
+				$(".ui-autocomplete").prependTo("body");
+				$('.jquery-modal').remove();
+				updateUrlModalAfterClosing();
+			}
+		}, 50)
+	});
+	$(document).on('click', '.modal', function (e) {
+		$('.jquery-modal').css('display', 'none');
+		$('body').css('overflow', 'auto');
+		setTimeout(function () {
+			if ($('.jquery-modal').css('display') == 'none') {
+				$(".ui-autocomplete").prependTo("body");
+				$('.jquery-modal').remove();
+				updateUrlModalAfterClosing();
+			}
+		}, 50)
+	});
+}
+
+//change de l'url quand le modal se ferme
+function updateUrlModalAfterClosing() {
+	window.history.replaceState("", $("#urlCurrentPage").val(), $("#urlCurrentPage").val());
+}
 
 function closeMenuNavbar() {
 	$('#btnNavBar').click();

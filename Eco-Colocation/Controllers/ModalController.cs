@@ -14,6 +14,22 @@ namespace Eco_Colocation.Controllers
 		{
 			return View();
 		}
+		
+
+	  [HttpGet]
+		public ActionResult ModalConnection()
+		{
+			ViewData["idModalToTrigger"] = "#modalConnectionLink";
+
+			return View("~/Views/Home/Index.cshtml");
+		}
+
+		public ActionResult ModalInscription()
+		{
+			ViewData["idModalToTrigger"] = "#modalInscriptionLink";
+
+			return View("~/Views/Home/Index.cshtml");
+		}
 
 		[HttpGet]
 		public ActionResult ModalUpdateDataProfil(string idModal, string targetCity)

@@ -382,6 +382,10 @@ select:-moz-focusring {
 	z-index: 1000
 }
 
+.blocker {
+	padding: 0 !important;
+}
+
 .blockerCenterToHideWindows {
 	background-color: rgba(0,0,0,0.75);
 	position: absolute !important;
@@ -1134,14 +1138,14 @@ div#divContenuPlSchDisable {
 	font-size: 15px;
 }
 
-#linkDetailEvent-al {
+.linkDetailEvent-al {
 	display: flex;
 	margin-left: auto;
 	margin-right: auto;
 	font-size: 15px;
 	margin-top: 13px;
-	color: inherit;
-	text-decoration: none;
+	color: inherit !important;
+	text-decoration: none !important;
 }
 
 .nameColoc-al {
