@@ -458,6 +458,7 @@
     <Content Include="Views\EcoRoommateEvent\PartialGoingOrInterested.cshtml" />
     <Content Include="Views\PeopleSearching\ModalUpdateDataProfil.cshtml" />
     <Content Include="Views\Account\CARecherche.cshtml" />
+    <Content Include="Views\Account\ModalCreateEmptyAccount.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

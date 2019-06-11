@@ -12,10 +12,13 @@
 			</div>
 			<div>
 				<div class="divParentTypeInterest-mca" style="display: flex;">
-					<a href="@Url.Action("ModalCARecherche","Account", null)" rel="modal:open" onclick="openSecondModal()"><div>Je recherche une éco-colocation</div></a>
+					<a href="/Account/ModalCARecherche" rel="modal:open" onclick="openSecondModal()" class="btnGreen"><div>Je recherche une éco-colocation</div></a>
 				</div>
 				<div class="divParentTypeInterest-mca" style="display: flex;">
-					<a href="@Url.Action("ModalCAPropose","Account", null)" rel="modal:open" onclick="openSecondModal()"><div>Je propose une éco-colocation</div></a>
+					<a href="/Account/ModalCAPropose" rel="modal:open" onclick="openSecondModal()" class="btnGreen"><div>Je propose une éco-colocation</div></a>
+				</div>
+				<div class="btnGreen flex childFlex" id="btnOthersSubscribe-mca">
+					<a href="#" class="childFlex noLink">Autres</a>
 				</div>
 			</div>
 		</div>

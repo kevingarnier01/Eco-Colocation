@@ -34,6 +34,11 @@ namespace Eco_Colocation.Controllers
 			return PartialView();
 		}
 
+		public ActionResult ModalCreateEmptyAccount()
+		{
+			return PartialView();
+		}
+
 		public ActionResult ModalCAPropose()
 		{
 			return PartialView();
