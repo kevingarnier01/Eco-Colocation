@@ -748,7 +748,7 @@ function loadEcoRoommateEventMap(mymap) {
 			var marker = data2[ii];
 
 			//Recuperer l'element en fonction de l'id (eventMarker1 ou eventMarker2, etc.). L'id doit être le même que pour celui du data2
-			var customPopup = $('#eventMarker' + marker.id).html();
+			var customPopup = $('#eventMarker' + marker.id)[0].outerHTML;
 			
 			//Pour le charge via une autre page : https://stackoverflow.com/questions/6203502/jquery-load-to-variable
 
@@ -759,7 +759,7 @@ function loadEcoRoommateEventMap(mymap) {
 			}
 
 			var markerObject = L.marker(marker.latLng, { icon: markerIcon2 }).bindPopup(customPopup, customOptions).addTo(mymap).on("click", function () {
-				checkIfBtnInteretIsNotEmpty_erevom('.leafletDivEcoRommateEvent');
+				checkIfBtnInteretIsNotEmpty_erevom('.leafletDivEcoRommateEvent #eventMarker' + marker.id);
 			});
 
 			$("#annonce" + (ii + 1) + "-ereom").on("mouseover", function (e) {
@@ -897,6 +897,7 @@ function removeUploadPicture_ayer() {
 }
 
 function checkIfBtnInteretIsNotEmpty_erevom(targetElement) {
+	debugger
 	if (!$(targetElement + ' #txtResultEventListChoose-erevom').text()) {
 		changeBtnStillNotChoose(targetElement);
 	}
