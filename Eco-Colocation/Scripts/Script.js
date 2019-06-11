@@ -700,9 +700,9 @@ function loadEcoRoommateExistingMap(mymap) {
 	for (var i = 0; i < data.length; i++) {
 		(function () {
 			var ii = i;
-			var marker = data[ii];
+			var marker = data[ii]; 
 
-			var customPopup = $('.ecoRommateExisting-ereom').html();
+			var customPopup = $('#ecoColocExistante' + marker.id).html();
 
 			// specify popup options 
 			var customOptions =
@@ -731,12 +731,12 @@ function loadEcoRoommateEventMap(mymap) {
 
 	var data2 = [
 		{
-			name: 'Marker1',
+			name: 'eventMarker1',
 			latLng: [48.10, 2.10],
 			id: '1'
 		},
 		{
-			name: 'Marker2',
+			name: 'eventMarker2',
 			latLng: [46.10, 2.10],
 			id: '2'
 		},
@@ -747,7 +747,9 @@ function loadEcoRoommateEventMap(mymap) {
 			var ii = i;
 			var marker = data2[ii];
 
-			var customPopup = $('.ecoRommateEvent-ereom').html();
+			//Recuperer l'element en fonction de l'id (eventMarker1 ou eventMarker2, etc.). L'id doit être le même que pour celui du data2
+			var customPopup = $('#eventMarker' + marker.id).html();
+			
 			//Pour le charge via une autre page : https://stackoverflow.com/questions/6203502/jquery-load-to-variable
 
 			// specify popup options 
