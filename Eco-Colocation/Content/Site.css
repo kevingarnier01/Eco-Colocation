@@ -385,7 +385,7 @@ greyColor {
 	}
 
 .noLink {
-	color: white !important;
+	color: inherit !important;
 	text-decoration: none !important;
 }
 
@@ -946,6 +946,15 @@ body .ui-autocomplete a {
 		margin-bottom: 20px
 	}
 
+#divAddSearchAnounce-ps {
+	margin-bottom: 10px;
+}
+
+#divLinkPublishInteresse-ps {
+	color: #a3ad07;
+	font-size: 17px;
+}
+
 #divPanelPl {
 	overflow: auto;
 	max-height: 760px;
@@ -1083,6 +1092,15 @@ div#divContenuPlSchDisable {
 	right: 0;
 	bottom: -23px;
 }
+
+/**** ModalAddMySearchAnnounce ****/
+#modalAddMySearchAnnounce {
+	width: 900px;
+	padding: 15px;
+	overflow: auto;
+	position: relative
+}
+
 /*** Search colocation ***/
 #searchColoc {
 	border-radius: 10px;

@@ -24,9 +24,6 @@ namespace Eco_Colocation.Controllers
 			ViewData["targetCity"] = "Rennes";
 
 			return PartialView("~/Views/PeopleSearching/ModalUpdateDataProfil.cshtml");
-		}
-
-		
-
+		}		
 	}
 }

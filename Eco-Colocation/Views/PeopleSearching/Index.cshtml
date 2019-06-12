@@ -5,6 +5,20 @@
 
 <div id="peopleSearching">
 	<h3 id="titleSearching">150 personnes recherchent en Bretagne</h3>
+	<div class="flex" id="divAddSearchAnounce-ps">
+		@* !!! A faire au future : S'il est connecté et qu'il a déja ajouté une annonce de recherche, alors ne pas afficher le lien ci-dessous*@
+		<div class="childFlex fontFamilyNote" id="divLinkPublishInteresse-ps">
+			<i class="far fa-id-badge"></i>
+			@if (User.Identity.IsAuthenticated)
+			{
+				<a href="@Url.Action("ModalCARecherche", "Account", null)" rel="modal:open" class="noLink">Ajouter mon annonce de recherche d'éco-colocation</a>
+			}
+			else
+			{
+				<a href="@Url.Action("ModalAccount", "Account", null)" rel="modal:open" class="noLink">Ajouter mon annonce de recherche d'éco-colocation</a>
+			}
+		</div>
+	</div>
 	<div id="divPanelPl">
 		@if (User.Identity.IsAuthenticated)
 		{
