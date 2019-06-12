@@ -4,7 +4,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>@ViewBag.Title</title>	
+	<title>@ViewBag.Title</title>
 	@Html.Hidden("urlCurrentPage", (object)ViewBag.urlCurrentPage)
 	@Styles.Render("~/Content/css")
 	@Scripts.Render("~/bundles/jquery")
@@ -63,8 +63,8 @@
 
 		// Si idModalToTrigger n'est pas vide c'est que l'utilisateur à saisi l'url du modal et qu'il faut déclancher le click de l'element.
 		var idModalToTrigger = "@ViewData["idModalToTrigger"]";
-		if (idModalToTrigger != null && idModalToTrigger.length != 0) {
-			//Simule l'appel au modal qui est en lien avec l'url saisi			
+		if (idModalToTrigger.length != 0 && $(idModalToTrigger).length != 0) {
+			//Simule l'appel au modal qui est en lien avec l'url saisi
 			$(idModalToTrigger)[0].click();
 		}
 	});
