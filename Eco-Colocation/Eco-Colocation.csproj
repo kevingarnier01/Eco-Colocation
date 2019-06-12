@@ -459,6 +459,7 @@
     <Content Include="Views\PeopleSearching\ModalUpdateDataProfil.cshtml" />
     <Content Include="Views\Account\CARecherche.cshtml" />
     <Content Include="Views\Account\ModalCreateEmptyAccount.cshtml" />
+    <Content Include="Views\Account\PersonalDataForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

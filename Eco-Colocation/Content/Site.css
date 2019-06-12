@@ -3318,9 +3318,19 @@ i.fas.fa-times.crossPlace-cpc {
 	margin-bottom: 15px;
 }
 
+/******  ModalCreateEmptyAccount ******/
+#modalCreateEmptyAccount {
+	width: 900px;
+	padding: 15px;
+	overflow: auto;
+	position: relative
+}
+
+#titleAccount-mcea {
+	font-size: 35px;
+}
 
 /****************** ForgetAccount  ******************/
-
 .divBtnBottom-fa {
 	display: flex;
 	margin-top: 5px;
