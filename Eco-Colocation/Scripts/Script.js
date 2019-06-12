@@ -625,43 +625,13 @@ function showDivCritereRecherche() {
 	$('#divCritereRecherche-mcar').css('display', 'block')
 }
 
-function openDivCreateProfil(element) {
+function openDivElement(element) {
 	if ($(element).css('display') == 'block') {
 		$(element).css('display', 'none')
 	}
 	else {
 		$(element).css('display', 'block')
 	}
-}
-
-function switcherMcap(elementToEnable, elementToDisable) {
-	$('body').addClass('waiting');
-	$(elementToEnable).css("cursor", "inherit");
-	$(elementToDisable).css("cursor", "inherit");
-
-	$(elementToEnable).css('background-color', 'background-color: rgba(0, 0, 0, 0.2)');
-	$(elementToDisable).css('background-color', 'inherit');
-
-	if (elementToEnable == '#btnSwitcherPropose-mcap') {
-		$('#resultSwitcher-mcap').load('../ColocAnnounce/ModalLocation #htmlBlockModalLocation-ml', function () {
-			initAutoComplete("#address-input-ml");
-		});
-	}
-	else {
-		$('#resultSwitcher-mcap').load('../ColocAnnounce/ModalProjetCreation #htmlBlockModalCreationProjet-mpc', function () {
-			initAutoComplete("#address-input-mpc");
-		});
-	}
-
-	$('#divPersonnaliteInfo-mcap').load('../Account/ModalCARecherche #divPersonnaliteInfo-mcar');
-	$('#divContactInfo-mcap').load('../Account/ModalCARecherche #divContactInfo-mcar');
-	$('#divDesciptionInfo-mcap').load('../Account/ModalCARecherche #divDesciptionInfo-mcar', function () {
-		$('#divCritereRecherche-mcar').remove();
-		$('#infoPerso-mcap').css('display', 'block');
-		$('body').removeClass('waiting');
-		$(elementToEnable).css("cursor", "pointer");
-		$(elementToDisable).css("cursor", "pointer")
-	});
 }
 
 function loadEcoRoommateMap() {

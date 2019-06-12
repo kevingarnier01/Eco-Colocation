@@ -5,9 +5,14 @@
 <div class="underModal col-sm-12 col-xs-12">
 	<div id="modalCreationProjet-ColocAnnounce" class="reelModal">
 		<div style="margin-bottom: 30px;">
-			<h2 style="text-align: center;">
-				Creer un projet de création
-			</h2>
+			@if (User.Identity.IsAuthenticated)
+			{
+				<h2 style="text-align: center;">Creer un projet de création</h2>
+			}
+			else
+			{
+				<h2 style="text-align: center;">Inscrivez-vous et partagez votre projet de création</h2>
+			}
 		</div>
 		<div id="htmlBlockModalCreationProjet-mpc">
 			<div id="div1-contenu-ca" class="col-sm-12">
@@ -38,6 +43,26 @@
 					</div>
 				</div>
 			</div>
+			<div id="divDesciptionInfo-mcap">
+				<div class="divEncadrer-mcar" id="divDesciptionInfo-mcar">
+					<div class="encadrer-mcar col-sm-11 col-xs-12">
+						<div class="col-sm-4 col-xs-12 divImgLogo-mcar">
+							<div class="divImgLogoHorizontal-mcar">
+								<div class="divImgLogoVertical-mcar">
+									<div class="imgLogo-mcar" id="ImgInformationSup-mcar"></div>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-8 col-xs-12" id="divGlobalPresent-mcar">
+							<div class="col-sm-12" id="divDesciptionInfo2-mcar">
+								<label class="lbl-mcar">Présentation de votre personnalité</label>
+								<textarea class="txtareaDesc-mcar input-mcar" id="txtareaPersoP-mcar" placeholder="Présentez-vous en quelque ligne..."></textarea>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
 			<div id="div-adresseLog-ca" class="col-sm-12" style="">
 				<div id="div1-adresseLog-ca" class="col-sm-11 col-xs-12">
 					<div style="width: 100%;">
@@ -48,7 +73,7 @@
 						</div>
 						<div id="div10-1-adresseLog-ca" class="col-sm-9 col-xs-12">
 							<div id="div10-2-adresseLog-ca" style="position:relative">
-								<div onclick="addNewPlace('#inputSearchPlace-mpc')" id="btnEnterNewPlace-mpc" class="fontFamilyNote" >| Entrer</div>
+								<div onclick="addNewPlace('#inputSearchPlace-mpc')" id="btnEnterNewPlace-mpc" class="fontFamilyNote">| Entrer</div>
 								<input id="inputSearchPlace-mpc" oninput="addr_searchCity(this);" autocomplete="none" type="text" class="inputSearchPlace form-control" placeholder="Où recherchez-vous ?">
 								<input id="inputSearchPlace-mpcHidden" name="inputSearchPlace-mpcHidden" type="hidden" value="">
 								<div class="listAutoCompleteToModal"></div>
@@ -63,12 +88,12 @@
 
 								@*<input type="search" id="address-input-mpc" class="address-input" placeholder="Localisation de l'endroit" onload="initAutoComplete('#address-input-mpc')" />*@
 								@*@for (int i = 0; i < 4; i++)
-		{
-			@Html.Hidden("adresseVille", null, new { @class = "addresseVille" + i })
-			@Html.Hidden("adresseRegion", null, new { @class = "adresseRegion" + i })
-			@Html.Hidden("adressePays", null, new { @class = "adressePays" + i })
-			@Html.Hidden("adresseLatLng", null, new { @class = "adresseLatLng" + i })
-		}*@
+								{
+									@Html.Hidden("adresseVille", null, new { @class = "addresseVille" + i })
+									@Html.Hidden("adresseRegion", null, new { @class = "adresseRegion" + i })
+									@Html.Hidden("adressePays", null, new { @class = "adressePays" + i })
+									@Html.Hidden("adresseLatLng", null, new { @class = "adresseLatLng" + i })
+								}*@
 
 								@*<input id="listAutoCompletePlace2Hidden" name="listAutoCompletePlace2Hidden" type="hidden" value="">*@
 
@@ -235,12 +260,42 @@
 					</div>
 				</div>
 			</div>
-		</div>
-		<div id="divBtn-mpc" class="col-sm-12">
-			<div id="div1Btn-mpc">
-				<a href="#" id="txtBtn-mpc" class="btnGreen flex childFlex">Creer cette annonce</a>
+			<div id="divDesciptionInfo-mcap" class="col-sm-12">
+				<div class="divEncadrer-mcar" id="divDesciptionInfo-mcar">
+					<div class="encadrer-mcar col-sm-11 col-xs-12">
+						<p class="col-xs-12 centerText fontFamilyNote" id="titleInstrucePerson-mcap">Completer mon profil lié a ce compte</p>
+						<div class="col-sm-4 col-xs-12 divImgLogo-mcar">
+							<div class="divImgLogoHorizontal-mcar">
+								<div class="divImgLogoVertical-mcar">
+									<div class="imgLogo-mcar" id="ImgInformationSup-mcar"></div>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-8 col-xs-12" id="divGlobalPresent-mcar">
+							<div class="col-sm-12" id="divDesciptionInfo2-mcar">
+								<label class="lbl-mcar">Présentation de votre personnalité</label>
+								<textarea class="txtareaDesc-mcar input-mcar" id="txtareaPersoP-mcar" placeholder="Présentez-vous en quelque ligne..."></textarea>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
+		@if (User.Identity.IsAuthenticated)
+		{
+			<div id="divBtn-mpc" class="col-sm-12">
+				<div id="div1Btn-mpc">
+					<a href="#" id="txtBtn-mpc" class="btnGreen flex childFlex">Creer cette annonce</a>
+				</div>
+			</div>
+		}
+		else
+		{
+			<div id="partialView-ml">
+				@Html.Partial("~/Views/Account/PersonalDataForm.cshtml")
+				@Html.Partial("~/Views/Account/ButtonsCreateAccount.cshtml")
+			</div>
+		}
 		<a href="#close-modal" rel="modal:close" class="close-modal" onclick="autoCompletePrepend()">Close</a>
 	</div>
 </div>

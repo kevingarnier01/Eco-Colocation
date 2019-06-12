@@ -8,7 +8,14 @@
 <div class="underModal col-sm-12 col-xs-12">
 	<div id="modalLocation-ColocAnnounce" class="reelModal">
 		<div id="div-title-ca">
-			<h2>Création d'une annonce de location</h2>
+			@if (User.Identity.IsAuthenticated)
+			{
+				<h2>Création d'une annonce de location</h2>
+			}
+			else
+			{
+				<h2>Inscrivez-vous et créez votre annonce de location</h2>
+			}
 		</div>
 		<div id="htmlBlockModalLocation-ml">
 			<div id="div1-contenu-ca" class="col-sm-12">
@@ -25,10 +32,23 @@
 							</div>
 						</div>
 					</div>
+
 					<div id="divEcoPratic-ca" class="col-sm-12 col-xs-12">
 						<div id="div1-ecoPratic-ca" class="col-sm-12 col-xs-12">
 							<div id="div1-1-ecoPratic-ca" class="col-sm-12 col-xs-12">
-								<label for="Pratiques__cologiques_exerc_es_par_la_colocation">Pratiques écologiques souhaitées</label>
+								<label for="Pratiques__cologiques_exerc_es_par_la_colocation">Présentation des personnes présentes</label>
+							</div>
+						</div>
+						<div id="div2-ecoPratic-ca" class="col-sm-12 col-xs-12">
+							<div id="div2-1-ecoPratic-ca" class="col-sm-12 col-xs-12">
+								<textarea id="descEcoPratique" name="descEcoPratique"></textarea>
+							</div>
+						</div>
+					</div>
+					<div id="divEcoPratic-ca" class="col-sm-12 col-xs-12">
+						<div id="div1-ecoPratic-ca" class="col-sm-12 col-xs-12">
+							<div id="div1-1-ecoPratic-ca" class="col-sm-12 col-xs-12">
+								<label for="Pratiques__cologiques_exerc_es_par_la_colocation">Pratiques écologiques que vous effectuées</label>
 							</div>
 						</div>
 						<div id="div2-ecoPratic-ca" class="col-sm-12 col-xs-12">
@@ -50,18 +70,18 @@
 						<div id="div10-1-adresseLog-ca" class="col-sm-9 col-xs-12">
 							<div id="div10-2-adresseLog-ca">
 								@*<input id="inputAddresseMap-ML" type="text" oninput="addr_search('inputAddresseMap-ML','listAutoCompletePlaceML');" list="listAutoCompletePlaceML" autocomplete="off" class="inputAdresseLog-ca">
-		<datalist id="listAutoCompletePlaceML"></datalist>*@
+									<datalist id="listAutoCompletePlaceML"></datalist>*@
 								@*<input type="search" id="address-input-ml" class="address-input"
-		placeholder="Localisation de l'endroit" />*@
+									placeholder="Localisation de l'endroit" />*@
 								<input id="inputSearchPlace-car" oninput="addr_searchStreet(this);" autocomplete="none" type="text" class="inputSearchPlace form-control" placeholder="Où recherchez-vous ?">
 								<div class="listAutoCompleteToModal"></div>
 								@*@for (int i = 0; i < 4; i++)
-								{
-									@Html.Hidden("adresseVille", null, new { @class = "addresseVille" + i })
-									@Html.Hidden("adresseRegion", null, new { @class = "adresseRegion" + i })
-									@Html.Hidden("adressePays", null, new { @class = "adressePays" + i })
-									@Html.Hidden("adresseLatLng", null, new { @class = "adresseLatLng" + i })
-								}*@
+									{
+										@Html.Hidden("adresseVille", null, new { @class = "addresseVille" + i })
+										@Html.Hidden("adresseRegion", null, new { @class = "adresseRegion" + i })
+										@Html.Hidden("adressePays", null, new { @class = "adressePays" + i })
+										@Html.Hidden("adresseLatLng", null, new { @class = "adresseLatLng" + i })
+									}*@
 								<div id="div10-3-adresseLog-ca" class="flex col-sm-12">
 									<div id="div10-4-adresseLog-ca" class="col-sm-2"></div>
 									<i class="fas fa-info" id="iconPlace-ca"></i>
@@ -222,11 +242,22 @@
 				</div>
 			</div>
 		</div>
-		<div id="divBtn-ca" class="col-sm-12">
-			<div id="div1Btn-ca">
-				<p>Creer cette annonce</p>
+		@if (User.Identity.IsAuthenticated)
+		{
+			<div id="divBtn-ca" class="col-sm-12">
+				<div id="div1Btn-ca">
+					<p>Creer cette annonce</p>
+				</div>
 			</div>
-		</div>
+		}
+		else
+		{
+			<div id="partialView-ml">
+				@Html.Partial("~/Views/Account/PersonalDataForm.cshtml")
+				@Html.Partial("~/Views/Account/ButtonsCreateAccount.cshtml")
+			</div>
+		}
+
 		<a href="#close-modal" rel="modal:close" class="close-modal" onclick="autoCompletePrepend()">Close</a>
 	</div>
 </div>

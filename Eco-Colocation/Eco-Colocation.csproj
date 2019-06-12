@@ -441,7 +441,6 @@
     <Content Include="Views\Account\ModalAccount.cshtml" />
     <Content Include="Views\Account\ModalCreateAccount.cshtml" />
     <Content Include="Views\Account\ModalCARecherche.cshtml" />
-    <Content Include="Views\Account\ModalCAPropose.cshtml" />
     <Content Include="Views\Account\ForgetAccount\FindAccountByEmail.cshtml" />
     <Content Include="Views\Account\ForgetAccount\CheckCodeSend.cshtml" />
     <Content Include="Views\Account\ForgetAccount\ChangePassword.cshtml" />
@@ -460,6 +459,7 @@
     <Content Include="Views\Account\CARecherche.cshtml" />
     <Content Include="Views\Account\ModalCreateEmptyAccount.cshtml" />
     <Content Include="Views\Account\PersonalDataForm.cshtml" />
+    <Content Include="Views\Account\ButtonsCreateAccount.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

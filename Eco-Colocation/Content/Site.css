@@ -177,7 +177,7 @@ main {
 		box-shadow: none;
 		margin-bottom: 0;
 		margin-top: 0;
-		-webkit-transition:none;
+		-webkit-transition: none;
 	}
 
 	#liProfil-nb:hover #sousDivProfil {
@@ -2445,6 +2445,15 @@ i.fas.fa-times.crossPlace-cpc {
 	display: none;
 }
 
+#divDesciptionInfo-mcap {
+	padding: 0;
+}
+
+#titleInstrucePerson-mcap {
+	font-size: 28px;
+	margin-bottom: 20px;
+}
+
 #div1-descInform-ca {
 	display: flex;
 	padding: 0
@@ -2599,6 +2608,10 @@ i.fas.fa-times.crossPlace-cpc {
 		height: 60px !important;
 		margin-bottom: 10px;
 	}
+}
+
+#partialView-ml {
+	display: inline-block;
 }
 
 /**** colocAnnounce ****/
@@ -2841,6 +2854,41 @@ i.fas.fa-times.crossPlace-cpc {
 	margin-top: 10px;
 	width: 125px;
 	background-color: #a9b309;
+}
+
+.linkProposeEcoColoc-mca {
+	display: block;
+	font-size: 16px;
+	margin: 5px 0;
+}
+
+#secondLinkProposeEcoColoc-mca {
+	border-top: 2px solid;
+	padding-top: 5px;
+}
+
+#divLinkTypeInterest-mca {
+	width: 280px;
+}
+
+#linkModalCAPropose-mca {
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
+	padding: 15px 25px;
+	font-size: 18px;
+	margin-bottom: 10px;
+	text-align: center;
+}
+
+#divUnderLinkPropose-mca {
+	width: 90%;
+	margin-top: -8px;
+	margin-bottom: 10px;
+	box-shadow: 0 0 3px black;
+	border-radius: 3px;
+	color: #666;
+	display: none;
 }
 
 /**** ModalCARecherche ****/
