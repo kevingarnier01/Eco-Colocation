@@ -621,6 +621,25 @@ function initSlidepicture() {
 	});
 }
 
+//********* Acccount *************//
+
+function redirectAfterConnection() {
+	$.ajax({
+		url: "/Account/Index",
+		type: 'post',
+		datatype: 'json',
+		//data: $("#form").serialize() + "&urlCurrentPage=" + $('#urlCurrentPage').val(), //A redefinir le vrai id !!!
+		data: "urlCurrentPage=" + $('#urlCurrentPage').val(),
+		success: function (result) {
+			$('body').html(result);
+			$('body').css("overflow", "auto");
+			window.history.replaceState('data to be passed', 'Title of the page', $('#urlCurrentPage').val());
+		}
+	});
+}
+
+//********* Fin Acccount *************//
+
 function showDivCritereRecherche() {
 	$('#divCritereRecherche-mcar').css('display', 'block')
 }
@@ -670,7 +689,7 @@ function loadEcoRoommateExistingMap(mymap) {
 	for (var i = 0; i < data.length; i++) {
 		(function () {
 			var ii = i;
-			var marker = data[ii]; 
+			var marker = data[ii];
 
 			var customPopup = $('#ecoColocExistante' + marker.id).html();
 
@@ -719,7 +738,7 @@ function loadEcoRoommateEventMap(mymap) {
 
 			//Recuperer l'element en fonction de l'id (eventMarker1 ou eventMarker2, etc.). L'id doit être le même que pour celui du data2
 			var customPopup = $('#eventMarker' + marker.id)[0].outerHTML;
-			
+
 			//Pour le charge via une autre page : https://stackoverflow.com/questions/6203502/jquery-load-to-variable
 
 			// specify popup options 

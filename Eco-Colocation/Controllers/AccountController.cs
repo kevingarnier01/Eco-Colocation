@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using Eco_Colocation.ViewModel;
+using System.Web.Mvc;
 using System.Web.Security;
 
 namespace Eco_Colocation.Controllers
@@ -6,12 +7,17 @@ namespace Eco_Colocation.Controllers
 	public class AccountController : Controller
 	{
 		// GET: Account
-		public ActionResult Index()
+		public ActionResult Index(string urlCurrentPage)
 		{
 			FormsAuthentication.SetAuthCookie("User", true);
-			return Redirect(Request.UrlReferrer.PathAndQuery);
+			//return Redirect(Request.UrlReferrer.PathAndQuery);
+			return Redirect(urlCurrentPage);
+			//if(urlCurrentPage != "")
+			//	return View("~/Views" + urlCurrentPage + ".csthml");
+			//else
 
-			//return RedirectToAction("Index", "Home", null);
+			//AllViewModel allViewModel = new AllViewModel();
+			//return View("~/Views/Home/Index.csthml", allViewModel);
 		}
 
 		public ActionResult ModalAccount()
