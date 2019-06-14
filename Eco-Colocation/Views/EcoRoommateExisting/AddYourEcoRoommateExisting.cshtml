@@ -26,8 +26,9 @@
 		</div>
 		<div class="col-xs-12 sousDivFormColoc-ayer" id="divLocalisation-ayer">
 			<label class="label-ayer">Adresse</label>
-			<input type="search" id="address-input-ayer" class="address-input inputSearchPlace"
-				   placeholder="Entrez votre adresse de résidence." />
+			<div class="flex">
+				<input type="search" id="address-input-ayer" oninput="addr_searchStreet(this);" class="address-input inputSearchPlace childFlex" placeholder="Entrez votre adresse de résidence.">
+			</div>
 			<div id="divInfoUserMdp-ayer" class="divGlobalMsgPhoto-ayer">
 				<i class="fas fa-info" id="iconMsgPhoto-mcar"></i>
 				<div>
