@@ -2720,6 +2720,7 @@ i.fas.fa-times.crossPlace-cpc {
 	text-align: center;
 	color: white;
 	font-size: 15px;
+	cursor: pointer;
 }
 
 #divMdpForget-acc {

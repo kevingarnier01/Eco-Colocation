@@ -2,10 +2,10 @@
 $(document).ready(function () {
 
 	//http://pixelcog.github.io/parallax.js/
-	$('.parallax-window').parallax({
-		imageSrc: "http://www.ecocolocs.fr/bundles/app/images/image1.png"
-		//, naturalheight: '50'
-	});
+	//$('.parallax-window').parallax({
+	//	imageSrc: "http://www.ecocolocs.fr/bundles/app/images/image1.png"
+	//	//, naturalheight: '50'
+	//});
 	//$('.parallax-window').parallax();
 
 	//Probleme initial, l'encadré ce ferme lors du clique à l'interieur du bloc
@@ -436,7 +436,6 @@ function addr_search(url, inputId, typeResearch) {
 	};
 
 	$(inputId).removeAttr("autocomplete").attr("autocomplete", "none");
-	//debugger;
 	xmlhttp.open("GET", url, true);
 	xmlhttp.send();
 
@@ -631,9 +630,10 @@ function redirectAfterConnection() {
 		//data: $("#form").serialize() + "&urlCurrentPage=" + $('#urlCurrentPage').val(), //A redefinir le vrai id !!!
 		data: "urlCurrentPage=" + $('#urlCurrentPage').val(),
 		success: function (result) {
-			$('body').html(result);
-			$('body').css("overflow", "auto");
+			//$('body').html(result);
+			//$('body').css("overflow", "auto");
 			window.history.replaceState('data to be passed', 'Title of the page', $('#urlCurrentPage').val());
+			location.reload();
 		}
 	});
 }
@@ -886,7 +886,6 @@ function removeUploadPicture_ayer() {
 }
 
 function checkIfBtnInteretIsNotEmpty_erevom(targetElement) {
-	debugger
 	if (!$(targetElement + ' #txtResultEventListChoose-erevom').text()) {
 		changeBtnStillNotChoose(targetElement);
 	}
