@@ -11,7 +11,14 @@
 		</a>
 	</div>
 	<div id="divLibellePropose">
-		<h3 style="text-align: center;font-family: cursive;">Je propose une éco-colocation</h3>
+		@if (ViewData["changeTitle"] != null && ViewData["changeTitle"].ToString() != "")
+		{
+			<h3 style="text-align: center;font-family: cursive;">Mes annonces et mes projets</h3>
+		}
+		else
+		{
+			<h3 style="text-align: center;font-family: cursive;">Je propose une éco-colocation</h3>
+		}
 	</div>
 	<div id="divRubriqueRecherche">
 		<div id="sousDivRubriqueRecherche" style="width: 650px;">

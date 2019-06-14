@@ -135,6 +135,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ModalController.cs" />
     <Compile Include="Controllers\PeopleSearchingController.cs" />
+    <Compile Include="Controllers\ProfilController.cs" />
     <Compile Include="Controllers\SearchColocController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -464,6 +465,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Modal\" />
+    <Folder Include="Views\Profil\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
