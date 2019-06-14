@@ -665,7 +665,7 @@ body .ui-autocomplete a {
 
 #btnCherche, #btnProposition {
 	font-family: cursive;
-	font-size: 15px;
+	font-size: 18px;
 	padding: 20px;
 	width: 300px;
 	text-align: center;
@@ -675,12 +675,13 @@ body .ui-autocomplete a {
 	border: none;
 	background-color: white;
 	margin-left: auto;
-	margin-right: auto
+	margin-right: auto;
+	font-family: Noteworthy;
+	border: none;
 }
 
 	#btnCherche:hover, #btnProposition:hover {
-		box-shadow: 0px 0 20px 0 black;
-		border: 2px solid white
+		box-shadow: 0px 0 10px 0 black;
 	}
 
 	#btnCherche:focus, #btnProposition:focus {
@@ -782,6 +783,9 @@ body .ui-autocomplete a {
 	border: groove 2px;
 	background-color: white;
 	color: black;
+	font-size: 17px;
+	height: 36px;
+	line-height: 17px;
 }
 
 	#btnSearch:focus {
@@ -944,7 +948,10 @@ body .ui-autocomplete a {
 }
 
 	#peopleSearching #titleSearching {
-		margin-bottom: 20px
+		margin-bottom: 20px;
+		color: #00C2D6;
+		font-size: 35px;
+		font-family: Noteworthy;
 	}
 
 #divAddSearchAnounce-ps {
@@ -1009,19 +1016,20 @@ body .ui-autocomplete a {
 	border-radius: 10px 10px 0 0;
 }
 
-	#divImgPlSch img:first-child {
-		position: absolute;
-		left: 10px;
-		top: 5px;
-		width: 30px
-	}
+#heartImg {
+	position: absolute;
+	left: 10px;
+	top: 5px;
+	font-size: 32px;
+	color: #555;
+}
 
-	#divImgPlSch #imgPlSch {
-		background-size: 100% !important;
-		width: 100%;
-		height: 100%;
-		border-radius: 10px 10px 0 0;
-	}
+#divImgPlSch #imgPlSch {
+	background-size: 100% !important;
+	width: 100%;
+	height: 100%;
+	border-radius: 10px 10px 0 0;
+}
 
 #divContenuPlSch {
 	padding: 5px;
@@ -1042,7 +1050,8 @@ body .ui-autocomplete a {
 
 	#divContenuPlSch div:first-child img {
 		width: 15px;
-		display: inline-block
+		display: inline-block;
+		margin-top: -7px;
 	}
 
 div#divContenuPlSchDisable {
@@ -1067,10 +1076,11 @@ div#divContenuPlSchDisable {
 }
 
 #descriptionPl {
-	margin-bottom: 10px;
+	margin-bottom: 12px;
 	background-color: white;
-	box-shadow: 0 0 10px 0px black;
-	border-radius: 3px
+	box-shadow: 0 0 4px 0px black;
+	padding: 2px;
+	border-radius: 3px;
 }
 
 #divMembrePl {
@@ -1092,6 +1102,20 @@ div#divContenuPlSchDisable {
 	left: 0;
 	right: 0;
 	bottom: -23px;
+}
+
+#titlePrenom-ps {
+	margin-bottom: 5px;
+}
+
+#infoPlusPerson-ps {
+	margin-bottom: 10px;
+}
+
+.imgToCheck-ps {
+	color: lightgray;
+	font-size: 17px;
+	margin: 0 3px;
 }
 
 /**** ModalAddMySearchAnnounce ****/
@@ -3735,8 +3759,8 @@ i.fas.fa-times.crossPlace-cpc {
 	font-size: 35px;
 	font-weight: bold;
 	margin-bottom: 15px;
-	color: #C4D102;
-	font-family: cursive;
+	color: #00C2D6;
+	font-family: Noteworthy;
 }
 
 #descEcoRoom-ereom {

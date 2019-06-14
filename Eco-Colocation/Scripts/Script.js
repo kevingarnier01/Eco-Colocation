@@ -200,11 +200,13 @@ function selectSwitcher(element) {
 }
 
 function changeCssSwitcher(elementToEnable, elementToDisable) {
-	$(elementToEnable).css("border", "2px solid rgba(0, 0, 0, 0.1)");
-	$(elementToEnable).css("background-color", "rgba(0, 0, 0, 0.1)");
-
-	$(elementToDisable).css("border", "none");
+	$(elementToEnable).css("background-color", "#C4D102");
+	$(elementToEnable).css("color", "white");
+	$(elementToEnable).css("font-size", "21px");
+	
 	$(elementToDisable).css("background-color", "white");
+	$(elementToDisable).css("font-size", "18px");
+	$(elementToDisable).css("color", "inherit");
 
 	$(elementToEnable).prop('checked', true);
 	$(elementToDisable).prop('checked', false);
