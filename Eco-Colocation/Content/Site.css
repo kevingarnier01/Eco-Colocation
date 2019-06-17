@@ -354,8 +354,9 @@ h2 {
 
 .title {
 	color: #00C2D6;
-	font-family: Noteworthy;
+	font-family: Noteworthy !important;
 	font-weight: bold;
+	font-size: 35px;
 }
 
 greyColor {
@@ -776,6 +777,12 @@ body .ui-autocomplete a {
 #btnFiltre {
 	border-radius: 5px;
 	margin-right: 12px;
+	background-color: #C4D102;
+	color: white;
+	font-family: Noteworthy;
+	font-size: 17px;
+	border: none;
+	box-shadow: 0 0 2px black;
 }
 
 #btnSearch {
@@ -920,21 +927,13 @@ body .ui-autocomplete a {
 	margin-right: auto;
 	width: 130px;
 	height: 30px;
-	box-shadow: 0 0 2px black;
-	border-radius: 5px;
-	padding-top: 4px;
 	text-align: center;
-	cursor: pointer;
 }
 
 #submitBtnFiltre-Al {
 	font-size: 18px;
-	color: black;
+	color: white;
 	text-decoration: none;
-}
-
-#div2SubmitBtnFiltre-Al:hover {
-	box-shadow: 0 0 5px black;
 }
 
 /** people searching **/
@@ -952,6 +951,7 @@ body .ui-autocomplete a {
 		color: #00C2D6;
 		font-size: 35px;
 		font-family: Noteworthy;
+		font-weight: bold;
 	}
 
 #divAddSearchAnounce-ps {
@@ -1167,7 +1167,7 @@ div#divContenuPlSchDisable {
 	margin-top: 15px;
 	margin-bottom: 0;
 	padding-bottom: 10px;
-	border-bottom: 3px solid #f7be68;
+	border-bottom: 3px solid #e9e5c3;
 	margin-left: auto;
 	margin-right: auto
 }
@@ -1186,7 +1186,6 @@ div#divContenuPlSchDisable {
 
 #sousDivRubriqueRecherche h3 {
 	text-align: center;
-	font-family: cursive;
 	cursor: pointer
 }
 
@@ -1199,7 +1198,7 @@ div#divContenuPlSchDisable {
 
 #mapSearchColoc {
 	height: 380px;
-	box-shadow: 0 0 20px 0px black;
+	box-shadow: 0 0 3px 0px black;
 	z-index: 0;
 }
 
@@ -1366,8 +1365,9 @@ div#divContenuPlSchDisable {
 	padding: 0;
 	margin-left: auto;
 	margin-right: auto;
-	box-shadow: 0 0 5px 0px black;
+	box-shadow: 0 0 3px 0px black;
 	border-radius: 10px;
+	background-color: #fdfbf9;
 }
 
 #annonceColoc {
@@ -1499,10 +1499,12 @@ div#divContenuPlSchDisable {
 	margin: -10px;
 	padding: 2px;
 	box-shadow: 0 0 5px 0px black;
-	background-color: rgba(0,0,0,0.4);
-	color: white;
+	background-color: rgba(246, 246, 246, 0.9);
+	color: #666;
 	font-weight: bold;
 	font-size: 16px;
+	border-radius: 3px;
+	font-family: Noteworthy;
 }
 
 #rentCosts {
@@ -1551,6 +1553,7 @@ div#divContenuPlSchDisable {
 	height: 230px;
 	max-height: 450px;
 	margin-bottom: 25px;
+	background-color: #fdfbf9;
 }
 
 #div1ProfilPC {
@@ -1605,6 +1608,8 @@ div#divContenuPlSchDisable {
 	margin-right: auto;
 	margin-left: 50%;
 	transform: translateX(-50%);
+	font-weight: bold;
+	color: #333;
 }
 
 	#div2DecriptionIdentitePC p {
@@ -1694,7 +1699,10 @@ div#divContenuPlSchDisable {
 	#div1DescriptionPC h3 {
 		text-align: center;
 		margin: 0;
+		margin-top: 5px;
 		margin-bottom: 2px;
+		color: #444;
+		font-weight: bold;
 	}
 
 	#div1DescriptionPC #div2DescriptionPC p:first-child {
@@ -1703,6 +1711,10 @@ div#divContenuPlSchDisable {
 
 #div1Desc-title-pc {
 	text-align: center;
+	margin-bottom: 20px;
+	margin-top: 10px;
+	font-weight: 600;
+	color: #333;
 }
 
 @media only screen and (max-width: 960px) and (min-width:768px) {
@@ -1733,7 +1745,8 @@ div#divContenuPlSchDisable {
 	#div2PC {
 		height: auto;
 		max-height: 450px;
-		overflow: auto
+		overflow: auto;
+		background-color: #faf4f0;
 	}
 
 	#div1DescriptionPC {
@@ -1933,8 +1946,9 @@ div#divContenuPlSchDisable {
 	margin-right: auto
 }
 
-	#d1-1-1-description-mpc h2 {
-		margin-top: 0
+	#d1-1-1-description-mpc h2, #d1-1-1-description-mpc h4 {
+		margin: 0;
+		text-align: center;
 	}
 
 #d1-2-1-description-mpc {
@@ -1949,7 +1963,7 @@ div#divContenuPlSchDisable {
 }
 
 #p-d1-3-description-mpc {
-	background-color: #42c174;
+	background-color: #C4D102;
 	color: white;
 	font-size: 12px;
 	border-radius: 3px;
@@ -2007,13 +2021,10 @@ div#divContenuPlSchDisable {
 
 .d3-1-description-mpc {
 	display: inline-block;
-	background-color: rgba(0,0,0,0.4);
-	box-shadow: 0 0 5px 0px black;
-	color: white;
-	border-radius: 3px;
-	padding: 2px 6px 3px 6px;
-	cursor: pointer;
-	margin-right: 5px
+	margin-right: 5px;
+	font-size: 16px;
+	height: 30px;
+	line-height: 27px;
 }
 
 	.d3-1-description-mpc img {
@@ -2023,13 +2034,10 @@ div#divContenuPlSchDisable {
 
 #d3-2-description-mpc {
 	display: inline-block;
-	background-color: rgba(0,0,0,0.4);
-	box-shadow: 0 0 5px 0px black;
-	color: white;
-	border-radius: 3px;
-	padding: 2px 6px 3px 6px;
-	cursor: pointer;
-	margin-top: 10px
+	margin-top: 10px;
+	font-size: 16px;
+	height: 30px;
+	line-height: 27px;
 }
 
 	#d3-2-description-mpc a {
@@ -2037,10 +2045,17 @@ div#divContenuPlSchDisable {
 		text-decoration: none;
 	}
 
-	#d3-2-description-mpc img {
-		height: 20px;
-		margin-right: 3px
-	}
+.imgBtnContact-mpc {
+	margin-right: 5px;
+}
+
+#numberPhone-ml {
+	font-size: 14px;
+}
+
+#d4-description-mpc {
+	margin-bottom: 15px;
+}
 
 #d4-description-mpc h4:first-child {
 	display: inline;
@@ -2048,7 +2063,11 @@ div#divContenuPlSchDisable {
 }
 
 #d5-description-mpc th {
-	background: lightgrey
+	background: #C4D102
+}
+
+#div-description-mpc .table-striped > tbody > tr:nth-of-type(odd) {
+	background-color: #f8fae0;
 }
 
 
@@ -2185,19 +2204,20 @@ div#divContenuPlSchDisable {
 	position: unset;
 	margin-right: auto;
 	margin-bottom: -50px;
-	background-color: rgba(0,0,0,0.02);
 	border-radius: 5px;
 	padding: 5px 10px;
 	box-shadow: 0 0 3px 0px black;
 	cursor: pointer;
-	color: black;
 	text-decoration: none;
+	background-color: #bcc802;
+	color: white;
 }
 
 #localisation-ca {
 	margin-bottom: 3px;
 	text-align: center;
 	font-weight: bold;
+	font-size: 20px;
 }
 
 #nbPeopleSearching-ca {
@@ -2205,7 +2225,7 @@ div#divContenuPlSchDisable {
 	text-align: center;
 }
 
-@media only screen and (max-width: 1020px) {
+@media only screen and (max-width: 1090px) {
 	#btnPeopleSearch-ca {
 		position: unset !important;
 		margin-right: auto !important;

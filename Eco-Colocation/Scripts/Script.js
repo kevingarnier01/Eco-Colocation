@@ -216,14 +216,14 @@ function annonceLocationPage() {
 	$("#annonceLocation").css("display", "block");
 	$("#projetCreation").css("display", "none");
 	$("#creationRubrique2").css("border-bottom", "none");
-	$("#annonceRubrique2").css("border-bottom", "3px solid #f7be68");
+	$("#annonceRubrique2").css("border-bottom", "3px solid #e9e5c3");
 }
 
 function projetCreationPage() {
 	$("#annonceLocation").css("display", "none");
 	$("#projetCreation").css("display", "block");
 	$("#annonceRubrique2").css("border-bottom", "none");
-	$("#creationRubrique2").css("border-bottom", "3px solid #f7be68");
+	$("#creationRubrique2").css("border-bottom", "3px solid #e9e5c3");
 }
 
 /* SlideShow */
