@@ -10,11 +10,11 @@
 		<div id="div-title-ca">
 			@if (User.Identity.IsAuthenticated)
 			{
-				<h2>Création d'une annonce de location</h2>
+				<h2 class="title">Création d'une annonce de location</h2>
 			}
 			else
 			{
-				<h2>Inscrivez-vous et créez votre annonce de location</h2>
+				<h2 class="title">Inscrivez-vous et créez votre annonce de location</h2>
 			}
 		</div>
 		<div id="htmlBlockModalLocation-ml">
@@ -59,15 +59,15 @@
 					</div>
 				</div>
 			</div>
-			<div id="div-adresseLog-ca" class="col-sm-12" style="">
+			<div id="div-adresseLog-ca" class="col-sm-12">
 				<div id="div1-adresseLog-ca" class="col-sm-11 col-xs-12">
 					<div style="width: 100%;">
-						<div id="div1-1-adresseLog-ca" class="col-sm-3 col-xs-12">
-							<div id="div1-2-adresseLog-ca">
-								<div id="div1-3-adresseLog-ca"></div>
+						<div class="col-sm-4 div2-2-descInform-ca" style="padding: 0;">
+							<div class="flex childFlex">
+								<i class="fas fa-map-signs childFlex icon-ca" style="margin-top: 12px;"></i>
 							</div>
 						</div>
-						<div id="div10-1-adresseLog-ca" class="col-sm-9 col-xs-12">
+						<div id="div10-1-adresseLog-ca" class="col-sm-8 col-xs-12">
 							<div id="div10-2-adresseLog-ca">
 								@*<input id="inputAddresseMap-ML" type="text" oninput="addr_search('inputAddresseMap-ML','listAutoCompletePlaceML');" list="listAutoCompletePlaceML" autocomplete="off" class="inputAdresseLog-ca">
 									<datalist id="listAutoCompletePlaceML"></datalist>*@
@@ -82,7 +82,7 @@
 										@Html.Hidden("adressePays", null, new { @class = "adressePays" + i })
 										@Html.Hidden("adresseLatLng", null, new { @class = "adresseLatLng" + i })
 									}*@
-								<div id="div10-3-adresseLog-ca" class="flex col-sm-12">
+								<div id="div10-3-adresseLog-ca" class="flex col-sm-12 textInfoAdresse-ca">
 									<div id="div10-4-adresseLog-ca" class="col-sm-2"></div>
 									<i class="fas fa-info" id="iconPlace-ca"></i>
 									<p class="fontFamilyNote col-sm-12" style="margin: auto;">
@@ -99,10 +99,12 @@
 					<div class="div20-descInform-ca">
 						<div class="div2-1-descInform-ca">
 							<div class="col-sm-4 div2-2-descInform-ca">
-								<div class="div2-3-descInform-ca" style="width: 101px;">
+								<div class="div2-3-descInform-ca">
 									<div class="div2-4-descInform-ca">
-										<div id="imgChambre-ca" class="div2-5-descInform-ca"></div>
-										<p>CHAMBRE</p>
+										<div class="flex">
+											<i class="fas fa-bed childFlex icon-ca"></i>
+										</div>
+										<p class="txtIcon-ca">CHAMBRE</p>
 									</div>
 								</div>
 							</div>
@@ -147,7 +149,7 @@
 										<tr>
 											<td class="col-xs-6"><label for="Disponibilit_">Disponibilité</label></td>
 											<td class="col-xs-6">
-												<input id="Disponibilite" name="Disponibilite" type="date" value="" style="border: none;border-radius: 8px;box-shadow: 0 0 2px 0px black;">
+												<input id="Disponibilite" name="Disponibilite" type="date" class="inputtable-ca">
 											</td>
 										</tr>
 									</tbody>
@@ -158,10 +160,12 @@
 					<div class="div20-descInform-ca">
 						<div class="div2-1-descInform-ca">
 							<div class="col-sm-4 div2-2-descInform-ca">
-								<div class="div2-3-descInform-ca" style="width: 113px;">
+								<div class="div2-3-descInform-ca">
 									<div class="div2-4-descInform-ca">
-										<div id="imgLogement-ca" class="div2-5-descInform-ca"></div>
-										<p>LOGEMENT</p>
+										<div class="flex">
+											<i class="fas fa-home childFlex icon-ca"></i>
+										</div>
+										<p class="txtIcon-ca">LOGEMENT</p>
 									</div>
 								</div>
 							</div>
@@ -171,31 +175,31 @@
 										<tr>
 											<td class="col-xs-6"><label for="Localisation">Localisation</label></td>
 											<td class="col-xs-6">
-												<input id="Localisation" name="Localisation" type="text" value="" style="border: none;border-radius: 8px;box-shadow: 0 0 2px 0px black;">
+												<input id="Localisation" name="Localisation" type="text" class="inputtable-ca">
 											</td>
 										</tr>
 										<tr>
 											<td class="col-xs-6"><label for="Type">Type</label></td>
 											<td class="col-xs-6">
-												<input id="Type" name="Type" type="text" value="" style="border: none;border-radius: 8px;box-shadow: 0 0 2px 0px black;">
+												<input id="Type" name="Type" type="text" class="inputtable-ca">
 											</td>
 										</tr>
 										<tr>
 											<td class="col-xs-6"><label for="Superficie">Superficie</label></td>
 											<td class="col-xs-6">
-												<input id="Superficie" name="Superficie" type="text" value="" style="border: none;border-radius: 8px;box-shadow: 0 0 2px 0px black;">
+												<input id="Superficie" name="Superficie" type="text" class="inputtable-ca">
 											</td>
 										</tr>
 										<tr>
 											<td class="col-xs-6"><label for="Coloc_d_j__pr_sents">Coloc déjà présents</label></td>
 											<td class="col-xs-6">
-												<input id="ColocationresPresents" name="ColocationresPresents" type="text" value="" style="border: none;border-radius: 8px;box-shadow: 0 0 2px 0px black;">
+												<input id="ColocationresPresents" name="ColocationresPresents" type="text" class="inputtable-ca">
 											</td>
 										</tr>
 										<tr>
 											<td class="col-xs-6"><label for="Accessibilit__handicap_">Accessibilité handicapé</label></td>
 											<td class="col-xs-6">
-												<input id="AccessibiliteHandicape" name="AccessibiliteHandicape" type="text" value="" style="border: none;border-radius: 8px;box-shadow: 0 0 2px 0px black;">
+												<input id="AccessibiliteHandicape" name="AccessibiliteHandicape" type="text" class="inputtable-ca">
 											</td>
 										</tr>
 									</tbody>
@@ -206,10 +210,12 @@
 					<div class="div20-descInform-ca">
 						<div class="div2-1-descInform-ca">
 							<div class="col-sm-4 div2-2-descInform-ca">
-								<div class="div2-3-descInform-ca" style="width: 135px;">
+								<div class="div2-3-descInform-ca" style="width: 119px;">
 									<div class="div2-4-descInform-ca">
-										<div id="imgTolerances-ca" class="div2-5-descInform-ca"></div>
-										<p>TOLERANCES</p>
+										<div class="flex">
+											<i class="fas fa-clipboard-list childFlex icon-ca"></i>
+										</div>
+										<p class="txtIcon-ca">TOLERANCES</p>
 									</div>
 								</div>
 							</div>
@@ -245,7 +251,7 @@
 		@if (User.Identity.IsAuthenticated)
 		{
 			<div id="divBtn-ca" class="col-sm-12">
-				<div id="div1Btn-ca">
+				<div id="div1Btn-ca" class="btnGreen">
 					<p>Creer cette annonce</p>
 				</div>
 			</div>

@@ -28,29 +28,29 @@
 						</div>
 					</div>
 				</div>
-					<div style="display:flex; margin-bottom:10px">
-						<div style="margin-left:auto;margin-right:auto">
-							<div class="d3-1-description-mpc btnGreen" onclick="displayPhoneNumber('#numberPhone-mps')">
-								<i class="fas fa-phone imgBtnContact-mpc"></i>
-								<span id="libelleTelephone-mpc">Afficher le numéro</span>
-								<span id="numberPhone-mps"></span>
-							</div>
-							<div id="d3-2-description-mpc" onclick="displayPVMessage()" class="btnGreen">
-								<a href="#divMessage-ml">
-									<i class="far fa-envelope imgBtnContact-mpc"></i>Envoyer un message
-								</a>
-							</div>
+				<div style="display:flex; margin-bottom:10px">
+					<div style="margin-left:auto;margin-right:auto">
+						<div class="d3-1-description-mpc btnGreen" onclick="displayPhoneNumber('#numberPhone-mps')">
+							<i class="fas fa-phone imgBtnContact-mpc"></i>
+							<span id="libelleTelephone-mpc">Afficher le numéro</span>
+							<span id="numberPhone-mps"></span>
 						</div>
-					</div>
-					<div id="div1PersonnalitePC" class="col-sm-12">
-						<div id="div2PersonnalitePC" style="width: initial;">
-							<p style="text-align: center;">
-								Salarié à Hipoco dans la décoration. J'envisage aujourd'hui de faire une eco-colocation pour être davantage au contact de la nature mais
-								également des animaux. Mon métier est également une passion pour moi, je construis de nombreux objets de décoration. Je souhaiterais donc pouvoir avoir un atelier. En espérant pouvoir partager celui-ci avec mes futures eco-coloc.
-							</p>
+						<div id="d3-2-description-mpc" onclick="displayPVMessage()" class="btnGreen">
+							<a href="#divMessage-ml">
+								<i class="far fa-envelope imgBtnContact-mpc"></i>Envoyer un message
+							</a>
 						</div>
 					</div>
 				</div>
+				<div id="div1PersonnalitePC" class="col-sm-12">
+					<div id="div2PersonnalitePC" style="width: initial;">
+						<p style="text-align: center;">
+							Salarié à Hipoco dans la décoration. J'envisage aujourd'hui de faire une eco-colocation pour être davantage au contact de la nature mais
+							également des animaux. Mon métier est également une passion pour moi, je construis de nombreux objets de décoration. Je souhaiterais donc pouvoir avoir un atelier. En espérant pouvoir partager celui-ci avec mes futures eco-coloc.
+						</p>
+					</div>
+				</div>
+			</div>
 		</div>
 		<a href="#close-modal" rel="modal:close" class="close-modal ">Close</a>
 	</div>
@@ -58,7 +58,7 @@
 
 <script language="javascript">
 	$(document).ready(function () {
-		window.history.replaceState('data to be passed', 'Title of the page', 
-	'/Modal/ModalPeopleSearch/?idModal=' + @ViewData["idModal"] + "&targetCity=" + "@ViewData["targetCity"]");
+		window.history.replaceState('data to be passed', 'Title of the page',
+			'/Modal/ModalPeopleSearch/?idModal=' + @ViewData["idModal"] + "&targetCity=" + "@ViewData["targetCity"]");
 	});
 </script>

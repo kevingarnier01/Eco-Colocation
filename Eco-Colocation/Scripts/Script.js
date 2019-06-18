@@ -1047,3 +1047,11 @@ function showOthersPeople() {
 	var people = $("#divPeoplesSearching")[0].outerHTML;
 	$("#divOthersPeople-ps").append(people);
 }
+
+function lineMaxToShow(textElement) {
+	var el = $(textElement);
+	var divHeight = parseInt(el.css('height'));
+	var lineHeight = parseInt(el.css('line-height'));
+	var lines = divHeight / lineHeight;
+	el.css("-webkit-line-clamp", Math.floor(lines).toString());
+}
