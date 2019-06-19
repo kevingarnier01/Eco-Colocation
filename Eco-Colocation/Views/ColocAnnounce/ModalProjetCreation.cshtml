@@ -7,11 +7,11 @@
 		<div style="margin-bottom: 30px;">
 			@if (User.Identity.IsAuthenticated)
 			{
-				<h2 style="text-align: center;">Creer un projet de création</h2>
+				<h2 class="title centerText">Creer un projet de création</h2>
 			}
 			else
 			{
-				<h2 style="text-align: center;">Inscrivez-vous et partagez votre projet de création</h2>
+				<h2 class="title centerText">Inscrivez-vous et partagez votre projet de création</h2>
 			}
 		</div>
 		<div id="htmlBlockModalCreationProjet-mpc">
@@ -66,12 +66,12 @@
 			<div id="div-adresseLog-ca" class="col-sm-12" style="">
 				<div id="div1-adresseLog-ca" class="col-sm-11 col-xs-12">
 					<div style="width: 100%;">
-						<div id="div1-1-adresseLog-ca" class="col-sm-3 col-xs-12">
-							<div id="div1-2-adresseLog-ca">
-								<div id="div1-3-adresseLog-ca"></div>
+						<div class="col-sm-4 div2-2-descInform-ca" style="padding: 0;">
+							<div class="flex childFlex">
+								<i class="fas fa-map-signs childFlex icon-ca" style="margin-top: 12px;"></i>
 							</div>
 						</div>
-						<div id="div10-1-adresseLog-ca" class="col-sm-9 col-xs-12">
+						<div id="div10-1-adresseLog-ca" class="col-sm-8 col-xs-12">
 							<div id="div10-2-adresseLog-ca" style="position:relative">
 								<div onclick="addNewPlace('#inputSearchPlace-mpc')" id="btnEnterNewPlace-mpc" class="fontFamilyNote">| Entrer</div>
 								<input id="inputSearchPlace-mpc" oninput="addr_searchCity(this);" name="autoComplete-mpc2" autocomplete="off" type="text" class="inputSearchPlace form-control" placeholder="Où recherchez-vous ?">
@@ -88,22 +88,21 @@
 
 								@*<input type="search" id="address-input-mpc" class="address-input" placeholder="Localisation de l'endroit" onload="initAutoComplete('#address-input-mpc')" />*@
 								@*@for (int i = 0; i < 4; i++)
-								{
-									@Html.Hidden("adresseVille", null, new { @class = "addresseVille" + i })
-									@Html.Hidden("adresseRegion", null, new { @class = "adresseRegion" + i })
-									@Html.Hidden("adressePays", null, new { @class = "adressePays" + i })
-									@Html.Hidden("adresseLatLng", null, new { @class = "adresseLatLng" + i })
-								}*@
+		{
+			@Html.Hidden("adresseVille", null, new { @class = "addresseVille" + i })
+			@Html.Hidden("adresseRegion", null, new { @class = "adresseRegion" + i })
+			@Html.Hidden("adressePays", null, new { @class = "adressePays" + i })
+			@Html.Hidden("adresseLatLng", null, new { @class = "adresseLatLng" + i })
+		}*@
 
 								@*<input id="listAutoCompletePlace2Hidden" name="listAutoCompletePlace2Hidden" type="hidden" value="">*@
-
-								<div id="div10-3-adresseLog-ca" class="flex col-sm-12">
+								<div id="div10-3-adresseLog-ca" class="flex col-sm-12 textInfoAdresse-ca">
 									<div id="div10-4-adresseLog-ca" class="col-sm-2"></div>
 									<i class="fas fa-info" id="iconPlace-ca"></i>
-									<p class="fontFamilyNote  col-sm-12" style="margin: auto;">
+									<p class="fontFamilyNote col-sm-12" style="margin: auto;">
 										Il vous est possible d'indiquer plusieurs lieux concernant votre projet de création d'éco-colocation
 									</p>
-								</div>
+								</div>								
 							</div>
 						</div>
 					</div>
@@ -114,10 +113,12 @@
 					<div class="div20-descInform-ca">
 						<div class="div2-1-descInform-ca">
 							<div class="col-sm-4 div2-2-descInform-ca">
-								<div class="div2-3-descInform-ca" style="width: 114px;">
+								<div class="div2-3-descInform-ca">
 									<div class="div2-4-descInform-ca">
-										<div id="imgLogement-ca" class="div2-5-descInform-ca"></div>
-										<p>LOGEMENT</p>
+										<div class="flex">
+											<i class="fas fa-home childFlex icon-ca"></i>
+										</div>
+										<p class="txtIcon-ca">LOGEMENT</p>
 									</div>
 								</div>
 							</div>
@@ -210,10 +211,12 @@
 					<div class="div20-descInform-ca">
 						<div class="div2-1-descInform-ca">
 							<div class="col-sm-4 div2-2-descInform-ca">
-								<div class="div2-3-descInform-ca" style="width: 132px;">
+								<div class="div2-3-descInform-ca" style="width: 119px;">
 									<div class="div2-4-descInform-ca">
-										<div id="imgChambre-ca" class="div2-5-descInform-ca"></div>
-										<p>COLOCATION</p>
+										<div class="flex">
+											<i class="fas fa-users childFlex icon-ca"></i>
+										</div>
+										<p class="txtIcon-ca">COLOCATION</p>
 									</div>
 								</div>
 							</div>
@@ -262,19 +265,20 @@
 			</div>
 			<div id="divDesciptionInfo-mcap" class="col-sm-12">
 				<div class="divEncadrer-mcar" id="divDesciptionInfo-mcar">
-					<div class="encadrer-mcar col-sm-11 col-xs-12">
+					<div class="encadrer-mcar col-sm-11 col-xs-12" id="divProfil-mpc">
 						<p class="col-xs-12 centerText fontFamilyNote" id="titleInstrucePerson-mcap">Completer mon profil lié a ce compte</p>
-						<div class="col-sm-4 col-xs-12 divImgLogo-mcar">
+						<div class="col-sm-4 col-xs-12 divImgLogo-mcar" id="divImgLogoProfil-mpc">
 							<div class="divImgLogoHorizontal-mcar">
 								<div class="divImgLogoVertical-mcar">
-									<div class="imgLogo-mcar" id="ImgInformationSup-mcar"></div>
+									<i class="far fa-id-badge childFlex icon-ca"></i>
+
 								</div>
 							</div>
 						</div>
 						<div class="col-sm-8 col-xs-12" id="divGlobalPresent-mcar">
 							<div class="col-sm-12" id="divDesciptionInfo2-mcar">
-								<label class="lbl-mcar">Présentation de votre personnalité</label>
-								<textarea class="txtareaDesc-mcar input-mcar" id="txtareaPersoP-mcar" placeholder="Présentez-vous en quelque ligne..."></textarea>
+								<label class="lbl-mcar" id="tktIntroduceProfil-mpc">Présentation de votre personnalité</label>
+								<textarea class="txtareaDesc-mcar input-mcar" id="txtareaPersoP-mcar" placeholder="Présentez-vous en quelque ligne..." style=""></textarea>
 							</div>
 						</div>
 					</div>

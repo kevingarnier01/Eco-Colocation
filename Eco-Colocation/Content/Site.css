@@ -429,8 +429,9 @@ select:-moz-focusring {
 		position: absolute !important;
 		display: table !important;
 	}
+
 	.underModal {
-		height:100%
+		height: 100%
 	}
 }
 
@@ -644,12 +645,11 @@ body .ui-autocomplete a {
 	padding: 15px;
 	border-radius: 5px;
 	font-family: Noteworthy;
-	font-weight: bold;
 }
 
 	.inputSearchPlace:focus {
 		border: none;
-		box-shadow: 0 0 5px black;
+		box-shadow: 0 0 2px black;
 	}
 
 /**** PictureHeader ****/
@@ -679,7 +679,7 @@ body .ui-autocomplete a {
 	text-align: center;
 	cursor: pointer;
 	display: inline-block;
-	box-shadow: 0 0 5px 0px black;
+	box-shadow: 0 0 3px 0px black;
 	border: none;
 	background-color: white;
 	margin-left: auto;
@@ -689,7 +689,7 @@ body .ui-autocomplete a {
 }
 
 	#btnCherche:hover, #btnProposition:hover {
-		box-shadow: 0px 0 10px 0 black;
+		box-shadow: 0px 0 4px 0 black;
 	}
 
 	#btnCherche:focus, #btnProposition:focus {
@@ -794,12 +794,13 @@ body .ui-autocomplete a {
 
 #btnSearch {
 	border-radius: 6px;
-	border: groove 2px;
-	background-color: white;
-	color: black;
 	font-size: 17px;
 	height: 36px;
 	line-height: 17px;
+	border: none;
+	box-shadow: 0 0 2px #888;
+	background-color: #C4D102;
+	color: white;
 }
 
 	#btnSearch:focus {
@@ -1042,7 +1043,7 @@ body .ui-autocomplete a {
 	padding: 5px;
 	border-radius: 0 0 10px 10px;
 	box-shadow: 0 0 2px 0px black;
-	background-color: white;
+    background-color: #fdfbf9;
 	max-height: 280px;
 	overflow: auto;
 	height: 195px;
@@ -1084,8 +1085,8 @@ div#divContenuPlSchDisable {
 
 #descriptionPl {
 	margin-bottom: 12px;
-	background-color: white;
-	box-shadow: 0 0 4px 0px black;
+	background-color: #f7efe7;
+	box-shadow: 0 0 2px 0px black;
 	padding: 2px;
 	border-radius: 3px;
 }
@@ -1102,6 +1103,7 @@ div#divContenuPlSchDisable {
 	#logoPl img {
 		width: 20px
 	}
+
 
 .btnModifyEvent-mps {
 	font-size: 15px;
@@ -1122,7 +1124,9 @@ div#divContenuPlSchDisable {
 .imgToCheck-ps {
 	color: lightgray;
 	font-size: 17px;
-	margin: 0 3px;
+	top: 0;
+	bottom: 0;
+	margin: auto;
 }
 
 /**** ModalAddMySearchAnnounce ****/
@@ -1586,13 +1590,14 @@ div#divContenuPlSchDisable {
 
 #photoProfilPC {
 	padding: 0;
-	background: url(/Content/Images/Personnes/Profil1.jpg) 50% 50% no-repeat; /* 50% 50% centers image in div */
+	background: url(/Content/Images/Personnes/Profil1.jpg) 50% 50% no-repeat;
 	background-size: 120px;
-	width: 80px;
-	height: 80px;
-	border-radius: 50%;
-	margin-left: auto;
-	margin-right: auto;
+	width: 85px;
+	height: 85px;
+	border-radius: 25%;
+	top: 0;
+	bottom: 0;
+	margin: auto;
 }
 
 #div0DecriptionIdentitePC {
@@ -1659,11 +1664,11 @@ div#divContenuPlSchDisable {
 	background-color: #f7efe7;
 }
 
-	#div1InscriptionPC {
-		padding: 0;
-		overflow: auto;
-		display: flex;
-	}
+#div1InscriptionPC {
+	padding: 0;
+	overflow: auto;
+	display: flex;
+}
 
 #div11InscriptionPC {
 	width: 200px;
@@ -1803,6 +1808,15 @@ div#divContenuPlSchDisable {
 		display: none;
 	}
 }
+
+#logo-pcpv {
+	display: flex;
+	width: 63px
+}
+
+	#logo-pcpv img {
+		width: 20px
+	}
 
 /** Pagination **/
 /* Pagination links */
@@ -2074,10 +2088,10 @@ div#divContenuPlSchDisable {
 	margin-bottom: 15px;
 }
 
-#d4-description-mpc h4:first-child {
-	display: inline;
-	margin-bottom: 10px
-}
+	#d4-description-mpc h4:first-child {
+		display: inline;
+		margin-bottom: 10px
+	}
 
 #d5-description-mpc th {
 	background: #C4D102
@@ -2260,8 +2274,16 @@ div#divContenuPlSchDisable {
 	position: relative;
 }
 
+	#modalLocation-ColocAnnounce textarea, input {
+		color: #555;
+	}
+
 #htmlBlockModalLocation-ml {
-	color: #8f9714
+	color: #888
+}
+
+#inputSearchPlace-car {
+	font-weight: inherit;
 }
 
 #div-title-ca {
@@ -2286,7 +2308,7 @@ div#divContenuPlSchDisable {
 #div1-1-contenu-ca {
 	margin: 3px auto;
 	padding: 10px;
-	background-color: #e1e880;
+	background-color: #f1f4c2;
 	box-shadow: 0 0 5px 0 #d9d9d9;
 	border-radius: 10px;
 }
@@ -2398,7 +2420,7 @@ div#divContenuPlSchDisable {
 	margin-left: auto;
 	margin-right: auto;
 	padding: 10px;
-	background-color: #e1e880;
+	background-color: #f1f4c2;
 	box-shadow: 0 0 5px 0 #d9d9d9;
 	border-radius: 10px;
 }
@@ -2502,13 +2524,14 @@ i.fas.fa-times.crossPlace-cpc {
 #div10-3-adresseLog-ca {
 	width: 100%;
 	padding: 5px 10px;
-	border-radius: 10px;
+	border-radius: 5px;
 	margin-top: 10px;
+	background-color: white;
 }
 
 .textInfoAdresse-ca {
 	background-color: white;
-	color: #888;
+	color: #555;
 }
 
 #div10-4-adresseLog-ca {
@@ -2537,9 +2560,9 @@ i.fas.fa-times.crossPlace-cpc {
 		background-color: #eef3b5;
 	}
 
-	#txtBtn-mpc {
-		margin-bottom: 15px;
-	}
+#txtBtn-mpc {
+	margin-bottom: 15px;
+}
 
 #div2-descInform-ca {
 	margin-left: auto;
@@ -2549,7 +2572,7 @@ i.fas.fa-times.crossPlace-cpc {
 
 .div20-descInform-ca {
 	display: flex;
-	background-color: #e1e880;
+	background-color: #f1f4c2;
 	box-shadow: 0 0 5px 0 #d9d9d9;
 	border-radius: 10px;
 	margin-bottom: 20px;
@@ -2643,6 +2666,7 @@ i.fas.fa-times.crossPlace-cpc {
 	font-weight: bold !important;
 	margin-top: 5px !important;
 	margin-bottom: 10px !important;
+	color: #8f9714;
 }
 
 #div2-descInform-ca th {
@@ -2667,7 +2691,7 @@ i.fas.fa-times.crossPlace-cpc {
 	#div2-descInform-ca td label {
 		font-weight: initial;
 		font-size: 15px;
-		color: #6d740b;
+		color: #555;
 	}
 
 #divBtn-ca {
@@ -2740,6 +2764,8 @@ i.fas.fa-times.crossPlace-cpc {
 	padding: 5px 15px;
 	margin-bottom: 15px;
 	text-align: center;
+	background-color: #bcc802;
+	color: white;
 }
 /**** Fin ****/
 
@@ -2749,23 +2775,43 @@ i.fas.fa-times.crossPlace-cpc {
 	width: 900px;
 	position: relative;
 }
-/*** Fin div-photos-mpc-ColocAnnounce ***/
 
+#htmlBlockModalCreationProjet-mpc {
+	color: #888;
+}
+
+#divImgLogoProfil-mpc {
+	background-color: white;
+	border-radius: 5px;
+}
+
+#tktIntroduceProfil-mpc {
+	color: #555;
+	font-weight: bold;
+}
+
+#divProfil-mpc {
+	background-color: #f1f4c2;
+}
+
+	#divProfil-mpc #txtareaPersoP-mcar {
+		box-shadow: 0 0 2px 0 #555;
+	}
+
+		#divProfil-mpc #txtareaPersoP-mcar::placeholder {
+			color: #555
+		}
+/*** Fin div-photos-mpc-ColocAnnounce ***/
 /**** Modal Account / Index *****/
 #modalAccount {
 	overflow: auto;
 	padding: 20px 35px;
-	position: relative
+	position: relative;
+	width: 400px;
 }
 
 #divAccesMembre-acc h2 {
-	text-align: center;
-	margin-bottom: 25px;
-	font-family: Poppins-Bold;
-	font-weight: bold;
 	font-size: 24px;
-	color: #333;
-	line-height: 1.2;
 }
 
 #divGlobalInput-acc i {
@@ -2786,17 +2832,14 @@ i.fas.fa-times.crossPlace-cpc {
 }
 
 	.divInputWrite-acc .div2InputWrite-acc {
-		margin-left: auto;
-		margin-right: auto;
-		border-radius: 30px;
-		background-color: rgba(0,0,0,0.1);
-		width: 100%
+		border-radius: 5px;
+		background-color: white;
+		box-shadow: 0 0 2px black;
 	}
 
 	.divInputWrite-acc input {
 		background-color: transparent;
 		border: none;
-		font-family: cursive;
 		font-size: 15px;
 		padding: 10px 30px;
 		padding-left: 65px;
@@ -2811,13 +2854,13 @@ i.fas.fa-times.crossPlace-cpc {
 	}
 
 #btnConnexion-acc {
-	border-radius: 25px;
-	background-color: #57b846;
-	padding: 15px 25px;
+	border-radius: 5px;
+	padding: 10px 25px;
 	text-align: center;
-	color: white;
 	font-size: 15px;
 	cursor: pointer;
+	background-color: #bcc802;
+	color: white;
 }
 
 #divMdpForget-acc {
@@ -2826,12 +2869,8 @@ i.fas.fa-times.crossPlace-cpc {
 }
 
 	#divMdpForget-acc p {
-		margin-left: auto;
-		margin-right: auto;
-		font-family: sans-serif;
 		font-size: 13px;
-		line-height: 1.5;
-		color: #999;
+		color: #666;
 	}
 
 #div1CreateAccount-acc {
@@ -2928,10 +2967,7 @@ i.fas.fa-times.crossPlace-cpc {
 #title-mca {
 	margin-left: auto;
 	margin-right: auto;
-	font-family: Poppins-Bold;
-	font-weight: bold;
 	font-size: 24px;
-	color: #333;
 }
 
 .divParentTypeInterest-mca {
@@ -3014,8 +3050,8 @@ i.fas.fa-times.crossPlace-cpc {
 
 .encadrer-mcar {
 	box-shadow: 0 0 5px 0 #d9d9d9;
-	background-color: rgba(0,0,0,0.01);
-	padding: 15px 5px;
+	background-color: #f1f4c2;
+	padding: 10px;
 	border-radius: 10px;
 	margin-bottom: 40px;
 	position: relative;
@@ -3101,6 +3137,8 @@ i.fas.fa-times.crossPlace-cpc {
 
 .divImgLogo-mcar {
 	position: relative;
+	background-color: white;
+	border-radius: 5px;
 }
 
 .divImgLogoHorizontal-mcar {
@@ -3144,10 +3182,11 @@ i.fas.fa-times.crossPlace-cpc {
 #divGlobalMsgPhoto-mcar {
 	display: flex;
 	padding: 5px 10px;
-	background-color: rgba(0,0,0,0.05);
-	border-radius: 8px;
+	background-color: white;
+	border-radius: 5px;
 	font-family: cursive;
 	margin-bottom: 10px;
+	color: #555;
 }
 
 #iconMsgPhoto-mcar {
@@ -3161,18 +3200,19 @@ i.fas.fa-times.crossPlace-cpc {
 
 #btnUplFile-mcar {
 	padding: 7px;
-	box-shadow: 0 0 10px 0px black;
+	box-shadow: 0 0 2px 0px black;
 	text-align: center;
-	border-radius: 8px;
-	width: 90%;
+	border-radius: 5px;
+	width: 70%;
 	margin-left: auto;
 	margin-right: auto;
-	font-family: cursive;
 	cursor: pointer;
 	font-weight: 100;
 	margin-bottom: 0;
 	max-width: 500px;
 	margin-top: 8px;
+	color: white;
+	background-color: #C4D102;
 }
 
 #file-upload {
@@ -3217,12 +3257,13 @@ i.fas.fa-times.crossPlace-cpc {
 
 .labelDescFile-mcar {
 	display: none;
-	position: absolute;
-	top: 0;
-	left: 0;
-	background-color: rgba(0,0,0,0.5);
-	color: white;
-	padding: 1px 5px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 1px 5px;
+    background-color: rgba(246, 246, 246, 0.9);
+    box-shadow: 0 0 5px 0px black;
+    color: #666;
 }
 
 .resultPictureUpl-mcar {
@@ -3242,6 +3283,7 @@ i.fas.fa-times.crossPlace-cpc {
 	transform: translateX(-50%);
 	margin-bottom: 3px;
 	cursor: pointer;
+	color: #C4D102;
 }
 
 @media screen and (max-width: 768px) {
@@ -3268,6 +3310,7 @@ i.fas.fa-times.crossPlace-cpc {
 	border-radius: 5px;
 	margin-top: 2px;
 	padding: 5px 10px;
+	background-color: white;
 }
 
 #lblCritereRecherche-mcar {
@@ -3305,7 +3348,7 @@ i.fas.fa-times.crossPlace-cpc {
 }
 
 #div2InscriptionBtnFb-mcar {
-	background-color: #4c66a4;
+	background-color: #9baedb;
 }
 
 #div2InscriptionBtnMail-mcar {
@@ -3314,7 +3357,7 @@ i.fas.fa-times.crossPlace-cpc {
 	box-shadow: 0 0 5px 0px black;
 	padding: 5px 15px;
 	border-radius: 3px;
-	background-color: #43b37f;
+	background-color: #C4D102;
 }
 
 .iconInscriptionBtn-mcar {
@@ -3361,6 +3404,8 @@ i.fas.fa-times.crossPlace-cpc {
 	text-align: center;
 	font-size: 15px;
 	cursor: pointer;
+	background-color: #C4D102;
+	color: white;
 }
 
 /***** ModalCARecherche *****/
@@ -3494,10 +3539,6 @@ i.fas.fa-times.crossPlace-cpc {
 	position: relative
 }
 
-#titleAccount-mcea {
-	font-size: 35px;
-}
-
 /****************** ForgetAccount  ******************/
 .divBtnBottom-fa {
 	display: flex;
@@ -3515,8 +3556,8 @@ i.fas.fa-times.crossPlace-cpc {
 	padding: 5px 15px;
 	border-radius: 5px;
 	margin-right: 15px;
-	background-color: #57b846ab;
-	color: white;
+	background-color: #bcc802;
+	color: white !important;
 	text-decoration: none;
 }
 

@@ -4,26 +4,27 @@
 
 <div id="account">
 	<div id="divAccesMembre-acc">
-		<h2>Accès Membre</h2>
+		<h2 class="title centerText">Accès Membre</h2>
 	</div>
-	<div id="divGlobalInput-acc">
-		<div class="divInputWrite-acc">
-			<div class="div2InputWrite-acc">
-				<i class="fa fa-envelope" aria-hidden="true"></i><input placeholder="Email" />
+	<div class="flex">
+		<div id="divGlobalInput-acc" class="childFlex">
+			<div class="divInputWrite-acc">
+				<div class="div2InputWrite-acc">
+					<i class="fa fa-envelope" aria-hidden="true"></i><input placeholder="Email">
+				</div>
 			</div>
-		</div>
-		<div class="divInputWrite-acc">
-			<div class="div2InputWrite-acc">
-				<i class="fa fa-lock" aria-hidden="true"></i><input placeholder="Mot de passe" />
+			<div class="divInputWrite-acc">
+				<div class="div2InputWrite-acc">
+					<i class="fa fa-lock" aria-hidden="true"></i><input placeholder="Mot de passe">
+				</div>
 			</div>
 		</div>
 	</div>
 	<div id="divbtnConnexion-acc">		
-		@*<a href="@Url.Action("Index", "Account", new { @urlCurrentPage = (object)ViewBag.urlCurrentPage })" onclick="closeModal()"><div id="btnConnexion-acc">CONNEXION</div></a>*@
-		<div onclick="redirectAfterConnection()" id="btnConnexion-acc">CONNEXION</div>
+		<div onclick="redirectAfterConnection()" class="btnGreen childFlex fontFamilyNote" id="btnConnexion-acc">CONNEXION</div>
 	</div>
 	<a id="divMdpForget-acc" href="@Url.Action("FindAccountByEmail","Account" ,null)">
-		<p>[Nom d'utilisateur / Mot de passe] Oublié ?</p>
+		<p class="childFlex">[Nom d'utilisateur / Mot de passe] Oublié ?</p>
 	</a>
 	<div id="divConexionExterne-acc">
 		<div>
