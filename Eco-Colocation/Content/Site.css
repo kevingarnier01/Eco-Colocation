@@ -378,6 +378,7 @@ greyColor {
 	padding: 2px 12px;
 	border-radius: 3px;
 	cursor: pointer;
+	-webkit-width: max-content;
 	width: max-content;
 	user-select: none;
 	-webkit-user-select: none;
@@ -1043,7 +1044,7 @@ body .ui-autocomplete a {
 	padding: 5px;
 	border-radius: 0 0 10px 10px;
 	box-shadow: 0 0 2px 0px black;
-    background-color: #fdfbf9;
+	background-color: #fdfbf9;
 	max-height: 280px;
 	overflow: auto;
 	height: 195px;
@@ -1129,6 +1130,9 @@ div#divContenuPlSchDisable {
 	margin: auto;
 }
 
+#img-mps {
+	height: 330px;
+}
 /**** ModalAddMySearchAnnounce ****/
 #modalAddMySearchAnnounce {
 	width: 900px;
@@ -1487,6 +1491,7 @@ div#divContenuPlSchDisable {
 	background-color: white;
 	margin-top: 15px;
 	color: #636161 !important;
+	margin-bottom: 5px;
 }
 
 #iconShowNewEvent-alpv {
@@ -1849,7 +1854,10 @@ div#divContenuPlSchDisable {
 
 @media only screen and (max-width: 767px) {
 	#modalPeopleSearch {
-		height: inherit !important;
+		height: max-content;
+		top: 0;
+		bottom: 0;
+		margin: auto;
 	}
 }
 
@@ -2337,7 +2345,6 @@ div#divContenuPlSchDisable {
 	#div1-1DescAnn-ca label {
 		font-size: 20px;
 		font-weight: initial;
-		font-weight: bold
 	}
 
 #div2DescAnn-ca {
@@ -2382,7 +2389,6 @@ div#divContenuPlSchDisable {
 	#div1-1-ecoPratic-ca label {
 		font-size: 20px;
 		font-weight: initial;
-		font-weight: bold
 	}
 
 #div2-ecoPratic-ca {
@@ -2580,8 +2586,7 @@ i.fas.fa-times.crossPlace-cpc {
 
 .div2-1-descInform-ca {
 	padding: 10px;
-	overflow: auto;
-	display: unset;
+	display: block;
 	width: 100%;
 }
 
@@ -2612,6 +2617,8 @@ i.fas.fa-times.crossPlace-cpc {
 	margin-top: 10px;
 	margin-bottom: 10px;
 	color: #b3bb43;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .div2-5-descInform-ca {
@@ -2733,6 +2740,7 @@ i.fas.fa-times.crossPlace-cpc {
 
 #partialView-ml {
 	display: inline-block;
+	width: 100%
 }
 
 /**** colocAnnounce ****/
@@ -2787,7 +2795,6 @@ i.fas.fa-times.crossPlace-cpc {
 
 #tktIntroduceProfil-mpc {
 	color: #555;
-	font-weight: bold;
 }
 
 #divProfil-mpc {
@@ -2808,6 +2815,10 @@ i.fas.fa-times.crossPlace-cpc {
 	padding: 20px 35px;
 	position: relative;
 	width: 400px;
+	height: fit-content;
+	top: 0;
+	bottom: 0;
+	margin: auto;
 }
 
 #divAccesMembre-acc h2 {
@@ -2934,12 +2945,11 @@ i.fas.fa-times.crossPlace-cpc {
 	height: 50px;
 	text-align: center;
 	font-size: 25px;
-	color: #3b5998;
+	color: #7e9ee9;
 	line-height: 50px;
 }
 
 #btnGoogle-acc {
-	background: url(/Content/images/icons/google.png) no-repeat center;
 	background-size: 25px;
 	width: 50px;
 	height: 50px;
@@ -2949,6 +2959,10 @@ i.fas.fa-times.crossPlace-cpc {
 	-o-box-shadow: 0 5px 20px 0 rgba(0,0,0,.2);
 	-ms-box-shadow: 0 5px 20px 0 rgba(0,0,0,.2);
 	border-radius: 50%;
+	font-size: 25px;
+	text-align: center;
+	padding-top: 12px;
+	color: #d09c92;
 }
 
 /*ModalCreateAccount*/
@@ -2957,6 +2971,10 @@ i.fas.fa-times.crossPlace-cpc {
 	padding: 15px;
 	width: 400px;
 	position: relative;
+	height: 300px;
+	top: 0;
+	bottom: 0;
+	margin: auto
 }
 
 #divInscriptionTitle-mca {
@@ -3132,7 +3150,7 @@ i.fas.fa-times.crossPlace-cpc {
 }
 
 #civiliteDiv-mcar {
-	height: 91px;
+	height: 89px;
 }
 
 .divImgLogo-mcar {
@@ -3151,6 +3169,8 @@ i.fas.fa-times.crossPlace-cpc {
 	position: absolute;
 	top: 50%;
 	transform: translateY(-50%);
+	width: inherit;
+	display: flex;
 }
 
 .imgLogo-mcar {
@@ -3257,13 +3277,13 @@ i.fas.fa-times.crossPlace-cpc {
 
 .labelDescFile-mcar {
 	display: none;
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 1px 5px;
-    background-color: rgba(246, 246, 246, 0.9);
-    box-shadow: 0 0 5px 0px black;
-    color: #666;
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 1px 5px;
+	background-color: rgba(246, 246, 246, 0.9);
+	box-shadow: 0 0 5px 0px black;
+	color: #666;
 }
 
 .resultPictureUpl-mcar {
@@ -3290,7 +3310,9 @@ i.fas.fa-times.crossPlace-cpc {
 	.divImgLogo-mcar {
 		position: relative;
 		min-height: 60px;
-		margin-bottom: 10px
+		margin-bottom: 10px;
+		width: 100%;
+		padding: 40px 0;
 	}
 }
 
@@ -3311,6 +3333,7 @@ i.fas.fa-times.crossPlace-cpc {
 	margin-top: 2px;
 	padding: 5px 10px;
 	background-color: white;
+	margin: 3px 0;
 }
 
 #lblCritereRecherche-mcar {
@@ -3326,6 +3349,10 @@ i.fas.fa-times.crossPlace-cpc {
 	display: table;
 	margin-left: auto;
 	margin-right: auto;
+}
+
+#divbtnCreate-mbca {
+	margin-bottom: 15px;
 }
 
 .div2InscriptionBtn-mcar {
@@ -3348,7 +3375,7 @@ i.fas.fa-times.crossPlace-cpc {
 }
 
 #div2InscriptionBtnFb-mcar {
-	background-color: #9baedb;
+	background-color: #7e9ee9;
 }
 
 #div2InscriptionBtnMail-mcar {
@@ -3378,7 +3405,8 @@ i.fas.fa-times.crossPlace-cpc {
 
 #divCreateProfil-mcar {
 	width: 365px;
-	box-shadow: 0 0 5px 0px black;
+	box-shadow: 0 0 3px 0px black;
+	border-radius: 0 0 5px 5px;
 	padding: 15px 5px;
 	overflow: auto;
 	display: inline-grid;
@@ -3588,7 +3616,7 @@ i.fas.fa-times.crossPlace-cpc {
 	bottom: 0;
 	margin: auto;
 	max-width: 800px;
-	height: min-content;
+	height: 215px;
 }
 
 #title-cp02 {
@@ -3658,7 +3686,7 @@ i.fas.fa-times.crossPlace-cpc {
 	bottom: 0;
 	margin: auto;
 	max-width: 800px;
-	height: min-content;
+	height: 210px
 }
 
 #title-ccs {
@@ -3715,7 +3743,7 @@ i.fas.fa-times.crossPlace-cpc {
 	bottom: 0;
 	margin: auto;
 	max-width: 800px;
-	height: min-content;
+	height: 200px
 }
 
 #title-fabe {
@@ -3757,7 +3785,7 @@ i.fas.fa-times.crossPlace-cpc {
 	bottom: 0;
 	margin: auto;
 	max-width: 800px;
-	height: min-content;
+	height: 260px
 }
 
 #title-sc {
@@ -3883,7 +3911,6 @@ i.fas.fa-times.crossPlace-cpc {
 
 .txtSommaireLogo-ereom {
 	margin-left: 5px;
-	font-weight: bold;
 }
 
 .imgSommaireLogo-ereom {
@@ -3910,6 +3937,13 @@ i.fas.fa-times.crossPlace-cpc {
 	margin-right: auto;
 	box-shadow: black 0px 0px 5px;
 	outline: none;
+}
+
+
+@media only screen and (max-width: 767px) {
+	#leafletMap_ereo {
+		width: 90%
+	}
 }
 
 #divBtnAddOurEcoRoom-ereom {
@@ -4941,6 +4975,10 @@ input.radioFibreEco-ayer {
 	width: 420px;
 	padding: 15px;
 	position: relative;
+	height: fit-content;
+	top: 0;
+	bottom: 0;
+	margin: auto;
 }
 
 .label-mgoi {
