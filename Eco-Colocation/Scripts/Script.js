@@ -260,7 +260,7 @@ function displayPVMessage() {
 		$('#divMessage-ml').css('display', 'unset');
 	}
 	else {
-		$('#divPhoto-ml').css('display', 'unset');
+		$('#divPhoto-ml').css('display', 'inline');
 		$('#divMessage-ml').css('display', 'none');
 	}
 }
@@ -980,7 +980,7 @@ function openMessageWindow_merev() {
 		$('#divMessage-ml').css('display', 'unset');
 	}
 	else {
-		$('#divPhoto-ml').css('display', 'unset');
+		$('#divPhoto-ml').css('display', 'inline');
 		$('#divMessage-ml').css('display', 'none');
 	}
 }

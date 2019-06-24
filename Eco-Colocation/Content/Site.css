@@ -1899,7 +1899,7 @@ div#divContenuPlSchDisable {
 	}
 
 #divPhoto-ml {
-	display: unset;
+	display: inline;
 }
 
 #div-photos-mpc {
@@ -2011,17 +2011,26 @@ div#divContenuPlSchDisable {
 	width: max-content;
 }
 
+#introduceAnnonce-merev {
+	display: flex;
+}
+
 .d2-description-mpc {
 	display: table;
 	margin-left: auto;
 	margin-right: auto;
 	margin-bottom: 10px;
 	margin-top: 10px;
+	flex-wrap: wrap;
+	display: flex;
 }
 
 .d2-1-description-mpc {
 	display: flex;
-	overflow: auto;
+	overflow: hidden;
+	width: max-content;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .d2-1-1-description-mpc {
@@ -2100,6 +2109,10 @@ div#divContenuPlSchDisable {
 		display: inline;
 		margin-bottom: 10px
 	}
+
+d5-description-mpc {
+	margin-top: 15px
+}
 
 #d5-description-mpc th {
 	background: #C4D102
