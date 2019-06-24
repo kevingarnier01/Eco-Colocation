@@ -17,12 +17,12 @@
 								<option value="0" selected="">Loyer min</option>
 								@for (var i = 0; i < 1000; i++)
 								{
-									<option value=@i>@i</option>
+									<option value=@i>@i €</option>
 									i += 49;
 								}
 								@for (var i = 1000; i < 2000; i++)
 								{
-									<option value=@i>@i</option>
+									<option value=@i>@i €</option>
 									i += 99;
 								}
 							</select>
@@ -30,12 +30,12 @@
 								<option value="0" selected="">Loyer max</option>
 								@for (var i = 50; i < 1000; i++)
 								{
-									<option value=@i>@i</option>
+									<option value=@i>@i €</option>
 									i += 49;
 								}
 								@for (var i = 1000; i < 2000; i++)
 								{
-									<option value=@i>@i</option>
+									<option value=@i>@i €</option>
 									i += 99;
 								}
 								<option value="2000">2000 et +</option>
@@ -45,8 +45,8 @@
 				</div>
 				<div class="col-xs-6 form-group dropdown">
 					<label id="lbNbColoc-filtre" for="filter">Nombre de colocs</label><br>
-					<div id="div1-multiList" onclick="displayMultiListe()" >
-						<div id="div1-1-multiList" >
+					<div id="div1-multiList" onclick="displayMultiListe()">
+						<div id="div1-1-multiList">
 							<p>Choix multiples</p>
 						</div>
 						<div id="div1-2-multiList">
@@ -59,7 +59,7 @@
 								<input name="Tous_colocataires" type="checkbox" value="0">
 							</div>
 							<div class="div2-3-multiList col-xs-10">
-								<label for="Tous_colocataires">Tous colocataires</label>
+								<label for="Tous_colocataires">Peu importe</label>
 							</div>
 						</div>
 						@for (var i = 1; i < 7; i++)
@@ -86,7 +86,7 @@
 				<div class="col-xs-6 form-group">
 					<label for="filter">Types de logement</label><br />
 					<select class="form-control">
-						<option value="0" selected>Tout type</option>
+						<option value="0" selected>Peu importe</option>
 						<option value="1">Habitat alternatif</option>
 						<option value="2">Appartements</option>
 						<option value="3">Maisons</option>
@@ -95,7 +95,7 @@
 				<div class="col-xs-6 form-group">
 					<label for="filter">Nombre de pièces</label><br />
 					<select class="form-control">
-						<option value="0">Toutes pièces</option>
+						<option value="0">Peu importe</option>
 						<option value="1">> 1 pièce</option>
 						@for (var i = 2; i < 9; i++)
 						{
@@ -106,7 +106,7 @@
 				<div class="col-xs-6 form-group">
 					<label for="filter">Surface du logement</label><br />
 					<select class="form-control">
-						<option value="0">Toutes surfaces</option>
+						<option value="0">Peu importe</option>
 						@for (var i = 20; i < 160; i++)
 						{
 							<option value=@i>> @i m²</option>
@@ -122,7 +122,7 @@
 				<div class="col-xs-6 form-group">
 					<label for="filter">Surface de la chambre</label><br />
 					<select class="form-control">
-						<option value="0">Toutes surfaces</option>
+						<option value="0">Peu importe</option>
 						@for (var i = 5; i <= 41; i++)
 						{
 							<option value=@i>> @i m²</option>
@@ -133,7 +133,7 @@
 				<div class="col-xs-6 form-group">
 					<label for="filter">Date de publication</label><br />
 					<select class="form-control">
-						<option value="0" selected>Toutes dates</option>
+						<option value="0" selected>Peu importe</option>
 						<option value="1">Moins d'un mois</option>
 						<option value="2">Moins de 2 semaine</option>
 						<option value="3">Moins d'une semaine</option>
@@ -144,7 +144,7 @@
 				<div class="col-xs-6 form-group">
 					<label for="filter">Commodités</label><br />
 					<select class="form-control">
-						<option value="0" selected>Toutes commodités</option>
+						<option value="0" selected>Peu importe</option>
 						<option value="1">Chambre meublée</option>
 						<option value="2">Accessibilité handicapé</option>
 					</select>

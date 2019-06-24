@@ -13,7 +13,7 @@
 
 /* Html */
 html {
-	scroll-behavior: smooth;
+	/*scroll-behavior: smooth;*/
 }
 
 @font-face {
@@ -2264,6 +2264,12 @@ div#divContenuPlSchDisable {
 #nbPeopleSearching-ca {
 	margin-bottom: 0;
 	text-align: center;
+}
+
+#infoLocalisation-ca {
+	font-weight: 900;
+	font-family: "Font Awesome 5 Free";
+	margin-top: 3px;
 }
 
 @media only screen and (max-width: 1090px) {

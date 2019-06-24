@@ -94,6 +94,15 @@ function eventCloseOrNotModal() {
 			}
 		}, 50)
 	});
+		
+	// Captures click events of all <a> elements with href starting with #
+	$("#btnPeopleSearch-ca").click(function (event) {
+		event.preventDefault();
+
+		$('html').animate({
+			scrollTop: $($.attr(this, 'href')).offset().top - 100
+		}, 500);
+	});
 }
 
 //change de l'url quand le modal se ferme
@@ -203,7 +212,7 @@ function changeCssSwitcher(elementToEnable, elementToDisable) {
 	$(elementToEnable).css("background-color", "#C4D102");
 	$(elementToEnable).css("color", "white");
 	$(elementToEnable).css("font-size", "21px");
-	
+
 	$(elementToDisable).css("background-color", "white");
 	$(elementToDisable).css("font-size", "18px");
 	$(elementToDisable).css("color", "inherit");
