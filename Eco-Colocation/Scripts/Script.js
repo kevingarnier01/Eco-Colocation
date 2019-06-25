@@ -1054,7 +1054,7 @@ function showOthersAnnounces() {
 
 function showOthersPeople() {
 	var people = $("#divPeoplesSearching")[0].outerHTML;
-	$("#divOthersPeople-ps").append(people);
+	$("#divPanelPl #divBtnOtherAnnonceLocation-alpv").before(people);
 }
 
 function lineMaxToShow(textElement) {
