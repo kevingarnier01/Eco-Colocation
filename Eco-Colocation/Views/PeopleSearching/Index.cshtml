@@ -22,7 +22,7 @@
 	<div id="divPanelPl">
 		@if (User.Identity.IsAuthenticated)
 		{
-			<div id="divPeoplesSearching" class="col-lg-3 col-sm-4 col-xs-6">
+			<div class="col-lg-3 col-sm-4 col-xs-6 divPeoplesSearching">
 				<a id="peopleSearchingUpdateLink-1" class="col-sm-9 col-xs-9 divPeopleSearching" href="@Url.Action("ModalUpdateDataProfil", "PeopleSearching", new { @idModal = "1" })" rel="modal:open">
 					<div id="divImgPlSch">
 						<div id="imgPlSch" style="background: url(https://lcdcfrance-prod.s3.amazonaws.com/profile_pictures/3be2c07f20221b84fdc52e32c5cd4f9e_large.jpg) 50% 50% no-repeat;">
@@ -36,7 +36,7 @@
 				</a>
 			</div>
 		}
-		<div id="divPeoplesSearching" class="col-lg-3 col-sm-4 col-xs-6">
+		<div class="col-lg-3 col-sm-4 col-xs-6 divPeoplesSearching">
 			<a id="peopleSearchingLink-2" class="col-sm-9 col-xs-9 divPeopleSearching" href="@Url.Action("ModalPeopleSearch", "PeopleSearching", new { @idModal = "2" })" rel="modal:open">
 				<div id="divImgPlSch">
 					<div id="imgPlSch" style="background: url(https://lcdcfrance-prod.s3.amazonaws.com/profile_pictures/3be2c07f20221b84fdc52e32c5cd4f9e_large.jpg) 50% 50% no-repeat;">
@@ -65,10 +65,12 @@
 			</a>
 			@if (User.Identity.IsAuthenticated)
 			{
-				<a id="peopleSearchingUpdateLink-2" href="@Url.Action("ModalUpdateDataProfil", "PeopleSearching", new { @idModal = "2" })" rel="modal:open" class="btnGreen flex childFlex btnModifyEvent-mps">Mettre à jour mon profil</a>
+				<div class="flex">
+					<a id="peopleSearchingUpdateLink-2" href="@Url.Action("ModalUpdateDataProfil", "PeopleSearching", new { @idModal = "2" })" rel="modal:open" class="btnGreen flex childFlex btnModifyEvent-mps">Mettre à jour mon profil</a>
+				</div>
 			}
 		</div>
-		<div id="divPeoplesSearching" class="col-lg-3 col-sm-4 col-xs-6">
+		<div class="col-lg-3 col-sm-4 col-xs-6 divPeoplesSearching">
 			<a id="peopleSearchingLink-3" class="col-sm-9 col-xs-9 divPeopleSearching" href="@Url.Action("ModalPeopleSearch", "PeopleSearching", new { @idModal = "3" })" rel="modal:open">
 				<div id="divImgPlSch">
 					<div id="imgPlSch" style="background: url(https://lcdcfrance-prod.s3.amazonaws.com/profile_pictures/3be2c07f20221b84fdc52e32c5cd4f9e_large.jpg) 50% 50% no-repeat;">
@@ -96,7 +98,7 @@
 				</div>
 			</a>
 		</div>
-		<div id="divPeoplesSearching" class="col-lg-3 col-sm-4 col-xs-6">
+		<div class="col-lg-3 col-sm-4 col-xs-6 divPeoplesSearching">
 			<a id="peopleSearchingLink-4" class="col-sm-9 col-xs-9 divPeopleSearching" href="@Url.Action("ModalPeopleSearch", "PeopleSearching", new { @idModal = "4" })" rel="modal:open">
 				<div id="divImgPlSch">
 					<div id="imgPlSch" style="background: url(https://lcdcfrance-prod.s3.amazonaws.com/profile_pictures/3be2c07f20221b84fdc52e32c5cd4f9e_large.jpg) 50% 50% no-repeat;">
@@ -124,7 +126,7 @@
 				</div>
 			</a>
 		</div>
-		<div id="divPeoplesSearching" class="col-lg-3 col-sm-4 col-xs-6">
+		<div class="col-lg-3 col-sm-4 col-xs-6 divPeoplesSearching">
 			<a id="peopleSearchingLink-5" class="col-sm-9 col-xs-9 divPeopleSearching" href="@Url.Action("ModalPeopleSearch", "PeopleSearching", new { @idModal = "5" })" rel="modal:open">
 				<div id="divImgPlSch">
 					<div id="imgPlSch" style="background: url(https://lcdcfrance-prod.s3.amazonaws.com/profile_pictures/3be2c07f20221b84fdc52e32c5cd4f9e_large.jpg) 50% 50% no-repeat;">
@@ -152,7 +154,7 @@
 				</div>
 			</a>
 		</div>
-		<div id="divPeoplesSearching" class="col-lg-3 col-sm-4 col-xs-6">
+		<div class="col-lg-3 col-sm-4 col-xs-6 divPeoplesSearching">
 			<a id="peopleSearchingLink-6" class="col-sm-9 col-xs-9 divPeopleSearching" href="@Url.Action("ModalPeopleSearch", "PeopleSearching", new { @idModal = "6" })" rel="modal:open">
 				<div id="divImgPlSch">
 					<div id="imgPlSch" style="background: url(https://lcdcfrance-prod.s3.amazonaws.com/profile_pictures/3be2c07f20221b84fdc52e32c5cd4f9e_large.jpg) 50% 50% no-repeat;">
@@ -180,7 +182,7 @@
 				</div>
 			</a>
 		</div>
-		<div id="divPeoplesSearching" class="col-lg-3 col-sm-4 col-xs-6">
+		<div class="col-lg-3 col-sm-4 col-xs-6 divPeoplesSearching">
 			<a id="peopleSearchingLink-7" class="col-sm-9 col-xs-9 divPeopleSearching" href="@Url.Action("ModalPeopleSearch", "PeopleSearching", new { @idModal = "7" })" rel="modal:open">
 				<div id="divImgPlSch">
 					<div id="imgPlSch" style="background: url(https://lcdcfrance-prod.s3.amazonaws.com/profile_pictures/3be2c07f20221b84fdc52e32c5cd4f9e_large.jpg) 50% 50% no-repeat;">

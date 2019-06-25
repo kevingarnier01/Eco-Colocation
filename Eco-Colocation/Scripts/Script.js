@@ -94,7 +94,7 @@ function eventCloseOrNotModal() {
 			}
 		}, 50)
 	});
-		
+
 	// Captures click events of all <a> elements with href starting with #
 	$("#btnPeopleSearch-ca").click(function (event) {
 		event.preventDefault();
@@ -537,7 +537,7 @@ function initHtmlTagToAutoComplete() {
 
 function openSecondModal() {
 
-	setTimeout(function () {
+	setTimeout(function() {
 		$('.modal').modal({
 			closeExisting: false
 		});
@@ -1053,7 +1053,7 @@ function showOthersAnnounces() {
 }
 
 function showOthersPeople() {
-	var people = $("#divPeoplesSearching")[0].outerHTML;
+	var people = $(".divPeoplesSearching:first-child")[0].outerHTML;
 	$("#divPanelPl #divBtnOtherAnnonceLocation-alpv").before(people);
 }
 

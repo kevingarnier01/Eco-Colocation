@@ -156,8 +156,10 @@
 				@if (User.Identity.IsAuthenticated)
 				{
 					<div id="divAddNewPublication-merev">
-						<div class="btnGreen childFlexVertical" id="btnAddNewPublication-merev"
-							 onclick="$('#divInputNewPublication-merev').css('display','inline-grid')">Ajouter une publication</div>
+						<div class="flex">
+							<div class="btnGreen childFlexVertical" id="btnAddNewPublication-merev"
+								 onclick="$('#divInputNewPublication-merev').css('display','inline-grid')">Ajouter une publication</div>
+						</div>
 						<div id="divInputNewPublication-merev" class="overflow">
 							<div class="col-xs-12" style="margin-bottom: 15px;">
 								<label class="label-ayer">Entrez votre description</label>

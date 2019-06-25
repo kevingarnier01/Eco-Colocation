@@ -145,7 +145,7 @@ main {
 #sousDivProfil {
 	box-shadow: 0 0 2px black;
 	position: absolute;
-	width : 230px;
+	width: 230px;
 	width: max-content;
 	max-width: 250px;
 	margin-left: 50%;
@@ -162,9 +162,10 @@ main {
 }
 
 @media screen and (max-width: 768px) {
+	#menu-main_menu {
+		display: grid;
+	}
 	#menu-main_menu > li {
-		display: flex;
-		max-width: max-content;
 		margin-left: auto;
 		margin-right: auto;
 	}
@@ -180,11 +181,6 @@ main {
 		margin-top: 0;
 		-webkit-transition: none;
 		transform: translateX(-50%);
-	}
-
-	#liProfil-nb:hover #sousDivProfil {
-		margin-top: 50px;
-		margin-bottom: 10px;
 	}
 }
 
@@ -413,7 +409,8 @@ select:-moz-focusring {
 }
 
 .jquery-modal {
-	z-index: 10000 !important
+	z-index: 10000 !important;
+	overflow: hidden !important
 }
 
 .modal {
@@ -423,6 +420,7 @@ select:-moz-focusring {
 	width: 100% !important;
 	padding: 0 !important;
 	height: 100%;
+	overflow: hidden !important
 }
 
 @media screen and (max-width: 768px) {
@@ -610,9 +608,10 @@ body .ui-autocomplete {
 }
 
 body .ui-autocomplete a {
-	display: flex;
+	display: inline-flex;
 	text-decoration: none;
 	height: 30px;
+	width: 100%
 }
 
 .ui-state-active {
@@ -734,6 +733,10 @@ body .ui-autocomplete a {
 	#divGlobal1-sw {
 		padding: 20px !important;
 		width: 100% !important;
+	}
+
+	#divGlobal2-sw {
+		width: 315px
 	}
 }
 
@@ -988,7 +991,7 @@ body .ui-autocomplete a {
 	display: contents;
 }
 
-#divPeoplesSearching {
+.divPeoplesSearching {
 	display: flex;
 	padding: 0;
 	padding-bottom: 5px;
@@ -1001,7 +1004,7 @@ body .ui-autocomplete a {
 }
 
 @media only screen and (max-width: 500px) {
-	#divPeoplesSearching {
+	.divPeoplesSearching {
 		width: 100%
 	}
 
@@ -1113,6 +1116,8 @@ div#divContenuPlSchDisable {
 	left: 0;
 	right: 0;
 	bottom: -23px;
+	width: 170px;
+	width: max-content
 }
 
 #titlePrenom-ps {
@@ -1768,7 +1773,7 @@ div#divContenuPlSchDisable {
 
 	#div1ProfilPC {
 		height: auto;
-		overflow:hidden;
+		overflow: hidden;
 	}
 
 	#div2PC {
@@ -1855,6 +1860,7 @@ div#divContenuPlSchDisable {
 
 @media only screen and (max-width: 767px) {
 	#modalPeopleSearch {
+		height: 100%;
 		height: max-content;
 		top: 0;
 		bottom: 0;
@@ -2291,7 +2297,7 @@ d5-description-mpc {
 		position: unset !important;
 		margin-right: auto !important;
 		margin-left: auto !important;
-		margin-bottom: 25px;
+		margin-bottom: 0;
 	}
 }
 /*** ModalLocation ***/
