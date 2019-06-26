@@ -416,7 +416,7 @@ select:-moz-focusring {
 .modal {
 	background-color: transparent !important;
 	box-shadow: none !important;
-	max-width: initial !important;
+	max-width: inherit !important;
 	width: 100% !important;
 	padding: 0 !important;
 	height: 100%;

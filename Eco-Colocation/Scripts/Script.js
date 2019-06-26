@@ -373,13 +373,21 @@ function getLstAutoCompletion(arr, inputId, typeResearch) {
 
 		//Supprime les doublons		
 		var labelThing; var labelT;
-		arr.features = arr.features.filter((thing, index, self) =>
-			index === self.findIndex((t) => (
-				labelT = t.properties.label + t.properties.city + t.properties.context,
-				labelThing = thing.properties.label + thing.properties.city + thing.properties.context,
-				labelT === labelThing
-			))
-		)
+		arr.features = arr.features.filter(function (thing, index, self) {
+			var indexItem = -1;
+			for (var i = 0; i < self.length; i++) {
+				var t = self[i];
+				labelT = t.properties.label + t.properties.city + t.properties.context;
+				labelThing = thing.properties.label + thing.properties.city + thing.properties.context;
+				if (labelT === labelThing) {
+					indexItem = i;
+					break;
+				}
+			}
+			if (index === indexItem) {
+				return true;
+			}
+		});
 
 		var availableTags = new Array();
 		for (i = 0; i < arr.features.length; i++) {
@@ -537,7 +545,7 @@ function initHtmlTagToAutoComplete() {
 
 function openSecondModal() {
 
-	setTimeout(function() {
+	setTimeout(function () {
 		$('.modal').modal({
 			closeExisting: false
 		});
@@ -1009,6 +1017,7 @@ function checkToShowArrowDivEvents() {
 	if ((sizeContenerEvents) < (sizeDivEvent * nbDivEvent)) {
 		$('.btnDivOtherEvent-eyere').css('display', 'flex');
 		$('#divContenerOtherEvents-ayere').css('margin-left', '55px');
+
 		$('#divContenerOtherEvents-ayere').css('margin-right', '55px');
 		$('#divContenerOtherEvents-ayere').css('overflow', 'hidden');
 	}
