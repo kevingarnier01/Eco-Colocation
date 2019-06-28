@@ -1,65 +1,45 @@
 ﻿var closeModalHasBeenClicked;
 $(document).ready(function () {
-	//http://pixelcog.github.io/parallax.js/
-	$('.parallax-window').parallax({
-		imageSrc: "http://www.ecocolocs.fr/bundles/app/images/image1.png"
-		//, naturalheight: '50'
+	//eventCloseOrNotModal();
+
+	//permet de correctement fermer le modal lors du click a l'exterieur
+	//$(document).on('mouseleave', '.reelModal', function () {
+	//	//eventCloseOrNotModal()
+	//});
+
+	//$(document).on('mouseenter', '.reelModal', function () {
+	//	$('body').css('overflow', 'hidden');
+	//	$('.modal').on('click', '.underModal', function (e) {
+	//		$('.jquery-modal').css('display', 'block');
+	//		$('body').css('overflow', 'hidden');
+	//	});
+	//	$(document).on('click', '.modal', function (e) {
+	//		$('.jquery-modal').css('display', 'block');
+	//		if (!closeModalHasBeenClicked) {
+	//			$('body').css('overflow', 'hidden');
+	//		}
+	//	});
+	//});
+	//if ($('.blockerCenterToHideWindows').css('display') == 'none') {
+
+	//Si le button close-modal à été cliqué, alors nous l'indiquons et l'evenement au dessus  (click sur modal)
+	//se charge de ne pas faire disparaitre le scroll bar du body
+	$(document).on('click', '.close-modal, .closeModal', function (e) {
+		$('body').css('overflow', 'auto');
+		//closemodalhasbeenclicked = true;
+
+		updateUrlModalAfterClosing();
+
+		//// entre les deux : ouvre l'evenement click du modal //
+		//settimeout(function () {
+		//	closemodalhasbeenclicked = false; //puis réinitialise la variable à false
+		//}, 1000)
 	});
-	//$('.parallax-window').parallax();
+	// Fin modal //	
 
 	//Probleme initial, l'encadré ce ferme lors du clique à l'interieur du bloc
 	$('.dropdown-menu').click(function (e) {
 		e.stopPropagation();
-	});
-
-	//permet de correctement fermer le modal lors du click a l'exterieur
-	$(document).on('mouseleave', '.reelModal', function () {
-		$('.modal').on('click', '.underModal', function (e) {
-			$('.jquery-modal').css('display', 'none');
-			$('body').css('overflow', 'auto');
-		});
-		$(document).on('click', '.modal', function (e) {
-			$('.jquery-modal').css('display', 'none');
-			$('body').css('overflow', 'auto');
-		});
-	});
-
-	$(document).on('mouseenter', '.reelModal', function () {
-		$('body').css('overflow', 'hidden');
-		$('.modal').on('click', '.underModal', function (e) {
-			$('.jquery-modal').css('display', 'block');
-			$('body').css('overflow', 'hidden');
-		});
-		$(document).on('click', '.modal', function (e) {
-			$('.jquery-modal').css('display', 'block');
-			if (!closeModalHasBeenClicked) {
-				$('body').css('overflow', 'hidden');
-			}
-		});
-	});
-
-
-	//if ($('.blockerCenterToHideWindows').css('display') == 'none') {
-
-
-	//Si le button close-modal à été cliqué, alors nous l'indiquons et l'evenement au dessus  (click sur modal)
-	//se charge de ne pas faire disparaitre le scroll bar du body
-	$(document).on('click', '.close-modal, .closeModal', function () {
-		closeModalHasBeenClicked = true;
-		// Entre les deux : ouvre l'evenement click du modal //
-		setTimeout(function () {
-			closeModalHasBeenClicked = false; //puis réinitialise la variable à false
-		}, 1000)
-	});
-	// Fin modal //
-
-	//ModalProjetCreation. Can use enter button to valid a location place
-	$(document).on('keypress', '#inputLocalisation-cpc', function (e) {
-		var key = e.which;
-		if (key == 13)  // the enter key code
-		{
-			addNewPlace();
-		}
 	});
 
 	//ModalProjetCreation, when option 'Type d'engagement' list change.
@@ -79,8 +59,46 @@ $(document).ready(function () {
 			$('#rowTerrain').css('display', 'table-row');
 		}
 	});
+	
+	// Captures click events of all <a> elements with href starting with #
+	$("#btnPeopleSearch-ca").click(function (event) {
+		event.preventDefault();
 
+		$('html').animate({
+			scrollTop: $($.attr(this, 'href')).offset().top - 100
+		}, 500);
+	});
 });
+
+//function eventCloseOrNotModal() {
+//	$('.modal').on('click', '.underModal', function (e) {
+//		$('.jquery-modal').css('display', 'none');
+//		$('body').css('overflow', 'auto');
+//		setTimeout(function () {
+//			if ($('.jquery-modal').css('display') == 'none') {
+//				$(".ui-autocomplete").prependTo("body");
+//				$('.jquery-modal').remove();
+//				updateUrlModalAfterClosing();
+//			}
+//		}, 50)
+//	});
+//	$(document).on('click', '.modal', function (e) {
+//		$('.jquery-modal').css('display', 'none');
+//		$('body').css('overflow', 'auto');
+//		setTimeout(function () {
+//			if ($('.jquery-modal').css('display') == 'none') {
+//				$(".ui-autocomplete").prependTo("body");
+//				$('.jquery-modal').remove();
+//				updateUrlModalAfterClosing();
+//			}
+//		}, 50)
+//	});
+//}
+
+//change de l'url quand le modal se ferme
+function updateUrlModalAfterClosing() {
+	window.history.replaceState("", $("#urlCurrentPage").val(), $("#urlCurrentPage").val());
+}
 
 function closeMenuNavbar() {
 	$('#btnNavBar').click();
@@ -106,14 +124,14 @@ function initMap() {
 	}).addTo(mymap);
 
 	var leafIcon = L.icon({
-		iconUrl: '../Content/Images/Logos/markerColocExisting.png',
+		iconUrl: '/Content/Images/Logos/markerColocExisting.png',
 
 		iconSize: [20, 20], // size of the icon
 		//popupAnchor: [30, -76]  // point from which the popup should open relative to the iconAnchor
 	});
 
 	var leafIconOver = L.icon({
-		iconUrl: '../Content/Images/Logos/mapLocalisationOVer.png',
+		iconUrl: '/Content/Images/Logos/mapLocalisationOVer.png',
 
 		iconSize: [20, 20], // size of the icon
 		//popupAnchor: [30, -76]  // point from which the popup should open relative to the iconAnchor
@@ -131,14 +149,23 @@ function initMap() {
 			id: '2'
 		},
 	];
+
 	for (var i = 0; i < data.length; i++) {
 		(function () {
 			var ii = i;
 			setTimeout(function () {
 				var marker = data[ii];
 
+				// specify popup options 
+				var customOptions =
+				{
+					'className': 'leafletDivAnnounce'
+				}
+
 				var markerObject = L.marker(marker.latLng, { icon: leafIcon }).addTo(mymap).on("mouseover", function () {
-					showAnnonce("#onHoverMarker", ii + 1)
+					var numberId = ii + 1;
+					var idElement = $("#onHoverMarker" + numberId);
+					markerObject.bindPopup(idElement.html(), customOptions)
 				}).on("mouseout", function () {
 					hideAnnonce("#onHoverMarker", ii + 1);
 				});
@@ -149,43 +176,11 @@ function initMap() {
 
 				$("#annonce" + (ii + 1) + "-alpv").on("mouseout", function (e) {
 					markerObject.setIcon(leafIcon);
-				});
-
-				markerObject.on("mouseover", function (e) {
-					markerObject.setIcon(leafIconOver);
-				});
-
-				markerObject.on("mouseout", function (e) {
-					markerObject.setIcon(leafIcon);
-				});
+				}); showOthersEvents()
 
 			}, 1000);
 		})();
 	}
-}
-
-function showAnnonce(idElement, numeroMarker) {
-	var posx = 0;
-	var posy = 0;
-	if (!e) var e = window.event;
-	if (e.pageX || e.pageY) {
-		posx = e.pageX;
-		posy = e.pageY;
-	} else if (e.clientX || e.clientY) {
-		posx = e.clientX;
-		posy = e.clientY;
-	}
-
-	$(idElement + numeroMarker).css("display", "block");
-	$(idElement + numeroMarker).css("position", "absolute");
-	$(idElement + numeroMarker).css('left', posx + 20);
-	$(idElement + numeroMarker).css('top', posy - 5);
-}
-
-function hideAnnonce(idElement, numeroMarker) {
-	$(idElement + numeroMarker).css("display", "none");
-	$(idElement + numeroMarker).css('left', 'inherit');
-	$(idElement + numeroMarker).css('top', 'inherit');
 }
 
 function selectSwitcher(element) {
@@ -204,11 +199,13 @@ function selectSwitcher(element) {
 }
 
 function changeCssSwitcher(elementToEnable, elementToDisable) {
-	$(elementToEnable).css("border", "2px solid rgba(0, 0, 0, 0.1)");
-	$(elementToEnable).css("background-color", "rgba(0, 0, 0, 0.1)");
+	$(elementToEnable).css("background-color", "#C4D102");
+	$(elementToEnable).css("color", "white");
+	$(elementToEnable).css("font-size", "21px");
 
-	$(elementToDisable).css("border", "none");
 	$(elementToDisable).css("background-color", "white");
+	$(elementToDisable).css("font-size", "18px");
+	$(elementToDisable).css("color", "inherit");
 
 	$(elementToEnable).prop('checked', true);
 	$(elementToDisable).prop('checked', false);
@@ -218,14 +215,14 @@ function annonceLocationPage() {
 	$("#annonceLocation").css("display", "block");
 	$("#projetCreation").css("display", "none");
 	$("#creationRubrique2").css("border-bottom", "none");
-	$("#annonceRubrique2").css("border-bottom", "3px solid #f7be68");
+	$("#annonceRubrique2").css("border-bottom", "3px solid #e9e5c3");
 }
 
 function projetCreationPage() {
 	$("#annonceLocation").css("display", "none");
 	$("#projetCreation").css("display", "block");
 	$("#annonceRubrique2").css("border-bottom", "none");
-	$("#creationRubrique2").css("border-bottom", "3px solid #f7be68");
+	$("#creationRubrique2").css("border-bottom", "3px solid #e9e5c3");
 }
 
 /* SlideShow */
@@ -250,10 +247,10 @@ function showDivs(n) {
 function displayPVMessage() {
 	if ($('#divMessage-ml').css('display') == 'none') {
 		$('#divPhoto-ml').css('display', 'none');
-		$('#divMessage-ml').css('display', 'unset');
+		$('#divMessage-ml').css('display', 'inherit');
 	}
 	else {
-		$('#divPhoto-ml').css('display', 'unset');
+		$('#divPhoto-ml').css('display', 'inline');
 		$('#divMessage-ml').css('display', 'none');
 	}
 }
@@ -283,16 +280,16 @@ $('#div2-multiList').on('mouseenter', function () {
 });
 
 function closeChildDropDown(e) {
-	if (!e.target.matches('#div1-multiList')) {
+	if ($('#div2-multiList').length != 0 && $('#div2-multiList').css('display') == "block") {
 		var myDropdown = document.getElementById("div2-multiList");
-		if (myDropdown.classList.contains('show')) {
+		if (myDropdown != null && myDropdown.classList.contains('show')) {
 			myDropdown.classList.remove('show');
 		}
 	}
 }
 
 window.onclick = function (e) {
-	if (!e.target.matches('#div1-multiList')) {
+	if ($('#div2-multiList').length != 0 && $('#div2-multiList').css('display') == "block") {
 		var myDropdown = document.getElementById("div2-multiList");
 		if (myDropdown != null && myDropdown.classList.contains('show')) {
 			myDropdown.classList.remove('show');
@@ -300,10 +297,6 @@ window.onclick = function (e) {
 	}
 }
 //Fin de la fermeture list checkBox
-
-function deletePlace(element) {
-	$(element).remove();
-}
 
 function updateSwitcher(typeRecherche) {
 	if (typeRecherche == "searching") {
@@ -333,75 +326,211 @@ function chooseAddr(lat1, lng1) {
 //Garder cette fonction en commentaire - cette utilisation concerne nominatim.openstreetmap.org 
 //(Si algolia ne fonctionne plus, utiliser lui)
 
-//var compteurPlace = 1;
-//function addNewPlace(elementId) {
-//	elementIdvalue = $('#' + elementId).val();
-//	if (elementIdvalue != null) {
-//		var nameElementId = JSON.parse(elementIdvalue)['display_name'];
-//	}
+var compteurPlace = 1;
+function addNewPlace(inputId) {
+	if ($(inputId + 'Hidden').val() == $(inputId).val()) {
+		if (/[a-zA-Z]/.test($.trim($(inputId).val()))) {
+			var htmlPlace =
+				'<div id="place' + compteurPlace + '" class="divPlace-cpc">' +
+				'<p id="placeName-cpc" class="placeName-cpc">' + $("#inputSearchPlace-mpc").val() + '</p>' +
+				'<div class="crossPlace-cpc"><i onclick="deletePlace(place' + compteurPlace + ')" class="fas fa-times crossPlace-cpc"></i></div>' +
+				'</div>';
 
-//	console.log(nameElementId);
-//	if (elementIdvalue != null && nameElementId == $("#inputLocalisation-cpc").val()) {
-//		if (/[a-zA-Z]/.test($.trim($("#inputLocalisation-cpc").val()))) {
-//			var htmlPlace =
-//				'<div id="place' + compteurPlace + '" style="margin: auto;margin-left: initial;margin-right: 5px;margin-bottom:10px;padding-left: 5px;padding-right: 30px;padding-top: 3px;padding-bottom: 3px;background-color: rgba(0,0,0,0.15);border-radius: 15px;">' +
-//				'<div style="display: inline-block;height: 100%;">' +
-//				'<p id="placeName-cpc" style="margin: 0;">' + $("#inputLocalisation-cpc").val() + '</p>' +
-//				'</div>' +
-//				'<div style="display: inline-block;position:absolute">' +
-//				'<div onclick="deletePlace(place' + compteurPlace + ')" style="background: url(https://www.gstatic.com/images/icons/material/system/1x/close_black_16dp.png) no-repeat;height: 15px;width: 17px;display: inline-block;margin-left: 5px;cursor: pointer;"></div>' +
-//				'</div>' +
-//				'</div>';
+			$("#place-cpc").append(htmlPlace);
 
-//			$("#place-cpc").append(htmlPlace);
+			if ($("#placeSaved-cpc").css('display') == 'none')
+				$("#placeSaved-cpc").css('display', 'block');
 
-//			$("#inputLocalisation-cpc").val("");
+			$(inputId).val("");
 
-//			compteurPlace++;
-//		}
-//	}
-//	else {
-//		alert('S\'il vous plait, veuillez selectionner une localisation suggérer par les propositions.')
-//	}
+			compteurPlace++;
+		}
+	}
+	else {
+		alert('Veuillez selectionner une des villes proposées par la liste d\'auto completion des villes.')
+	}
+}
+
+function deletePlace(element) {
+	$(element).remove();
+
+	if ($('#placeSaved-cpc .divPlace-cpc').length == 0)
+		$("#placeSaved-cpc").css('display', 'none');
+}
+
+function getLstAutoCompletion(arr, inputId, typeResearch) {
+	if (arr.features.length > 0) {
+
+		//Supprime les doublons		
+		var labelThing; var labelT;
+		arr.features = arr.features.filter(function (thing, index, self) {
+			var indexItem = -1;
+			for (var i = 0; i < self.length; i++) {
+				var t = self[i];
+				labelT = t.properties.label + t.properties.city + t.properties.context;
+				labelThing = thing.properties.label + thing.properties.city + thing.properties.context;
+				if (labelT === labelThing) {
+					indexItem = i;
+					break;
+				}
+			}
+			if (index === indexItem) {
+				return true;
+			}
+		});
+
+		var availableTags = new Array();
+		for (i = 0; i < arr.features.length; i++) {
+			var label = arr.features[i].properties.label;
+			var context = arr.features[i].properties.context;
+
+			availableTags[i] = {
+				label: ((typeResearch == "city") ?
+					"<i class='iconAutoComplete fas fa-city'></i>" :
+					"<i class='iconAutoComplete fas fa-map-marker-alt'></i>") +
+					"<strong id='txtLabelAutoCompletion'>" + label + "</strong>" +
+					"<p id='txtContextAutoCompletion'>" + context + "</p>",
+				value: label + " " + context
+			}
+
+			//if (i == 0 && $('#listAutoCompletePlaceHidden').length != 0 && arr.features[0] == 1) {
+			//	$('#listAutoCompletePlaceHidden').val() = availableTags[i];
+			//}
+		}
+
+		$(inputId).autocomplete({
+			source: function (request, response) {
+				response(availableTags);
+			},
+			autoFocus: true,
+			html: 'html',
+			select: function (event, ui) {
+				saveValueSelected(event, ui, this)
+			}
+		});
+	}
+}
+
+function saveValueSelected(event, ui, input) {
+	var selectedObj = ui.item;
+	$("#" + input.id + "Hidden").val(selectedObj.value)
+}
+
+function addr_searchCity(inputId) {
+	if ($(inputId).val() != "") {
+		var inp = $(inputId);
+		var url = "https://api-adresse.data.gouv.fr/search/?q=" + inp.val() + "&type=municipality";
+		addr_search(url, inputId, "city")
+	}
+}
+
+function addr_searchStreet(inputId) {
+	if ($(inputId).val() != "") {
+		var inp = $(inputId);
+		var url = "https://api-adresse.data.gouv.fr/search/?q=" + inp.val() + "&type=street";
+		addr_search(url, inputId, "street")
+	}
+}
+
+//anciennement : var url = "https://nominatim.openstreetmap.org/search?format=json&limit=3&q=" + inp.value;
+function addr_search(url, inputId, typeResearch) {
+	initHtmlTagToAutoComplete();
+	var xmlhttp = new XMLHttpRequest();
+
+	xmlhttp.onreadystatechange = function () {
+		if (this.readyState == 4 && this.status == 200) {
+			var myArr = JSON.parse(this.responseText);
+			getLstAutoCompletion(myArr, inputId, typeResearch);
+		}
+	};
+
+	$(inputId).removeAttr("autocomplete").attr("autocomplete", "none");
+	xmlhttp.open("GET", url, true);
+	xmlhttp.send();
+
+	if ($('.listAutoCompleteToModal').length != 0) {
+		$(".ui-autocomplete").prependTo(".listAutoCompleteToModal")
+		i = 1;
+	}
+}
+
+function autoCompletePrepend() {
+	if ($('.listAutoCompleteToModal').length != 0) {
+		$(".ui-autocomplete").prependTo("body");
+	}
+}
+
+//Permet d'activer les element html (comme l'image) que je creer dans la list d'autocompletion
+function initHtmlTagToAutoComplete() {
+
+	(function ($) {
+		var proto = $.ui.autocomplete.prototype,
+			initSource = proto._initSource;
+
+		function filter(array, term) {
+			var matcher = new RegExp($.ui.autocomplete.escapeRegex(term), "i");
+			return $.grep(array, function (value) {
+				return matcher.test($("<div>").html(value.label || value.value || value).text());
+			});
+		}
+
+		$.extend(proto, {
+			_initSource: function () {
+				if (this.options.html && $.isArray(this.options.source)) {
+					this.source = function (request, response) {
+						response(filter(this.options.source, request.term));
+					};
+				} else {
+					initSource.call(this);
+				}
+			},
+
+			_renderItem: function (ul, item) {
+				return $("<li></li>")
+					.data("item.autocomplete", item)
+					.append($("<a></a>")[this.options.html ? "html" : "text"](item.label))
+					.appendTo(ul);
+			}
+		});
+	})(jQuery);
+}
+
+
+//Autocompletion avec algolia
+//Si probleme utiliser l'api gratuit de valentin Eni : https://api-adresse.data.gouv.fr/search/
+//https://notemoncoin.renard-valentin.fr/
+//function initAutoComplete(elementId) {
+//	var placesAutocomplete = places({
+//		appId: 'plG5RW55OE5Z',
+//		apiKey: '093af2800668c4b5a7d69e84e6a36b65',
+//		container: document.querySelector(elementId)
+//	});
+
+//	placesAutocomplete.on('change', function resultSelected(e) {
+//		$(".adresseVille").val(e.suggestion.name || '');
+//		$(".adresseRegion").val(e.suggestion.administrative || '');
+//		$(".adressePays").val(e.suggestion.country || '');
+//		$(".adresseLatLng").val(e.suggestion.latlng.lat + "," + e.suggestion.latlng.lng || '');
+//	});
 //}
 
-//function myFunction(arr, inputId, listId) {
-//	var out = "<br />";
-//	var i;
-//	if (arr.length > 0) {
-//		$("#listAutoCompletePlaceHidden").val("");
-//		for (i = 0; i < arr.length; i++) {
-//			//out += "<div class='address' title='Show Location and Coordinates' onclick='chooseAddr(" + arr[i].lat + ", " + arr[i].lon + ");return false;'>" + arr[i].display_name + "</div>";
-//			//out += "<div class='address' title='Show Location and Coordinates'>" + arr[i].display_name + "</div>";
-//			out += "<option data-value='" + i + "'>" + arr[i].display_name + "</option>";
+// Permet d'avoir toujours la list autocompletion gouv qui reste ouverte (permet de travailler sur le css en debug)
 
-//			if ($('#' + inputId).val().replace(/\s/g, "") == arr[i].display_name.replace(/\s/g, "")) {
-//				$("#" + listId + "Hidden").val(JSON.stringify(arr[i]));
-//				//document.getElementById(listId + "Hidden").value = arr[i].lat + "," + arr[i].lon;
-//			}
-//		}
-//		document.getElementById(listId).innerHTML = out;
+//var availableTags = [
+//	{ label: 'Apple1', value: 'ValApple1' },
+//	{ label: '<strong>Apple </strong> 2', value: 'ValApple2' },
+//	{ label: 'Apple3', value: 'ValApple3' }
+//]; $(".inputSearchPlace").autocomplete({
+//	source: availableTags,
+
+//	close: function (event, ui) {
+//		val = $(".inputSearchPlace").val();
+//		$(".inputSearchPlace").autocomplete("search", val); //keep autocomplete open by 
+
+//		$(".inputSearchPlace").focus();
+//		return false;
 //	}
-//	else {
-//		document.getElementById(listId).innerHTML = "";
-//		$("#listAutoCompletePlaceHidden").val("");
-//	}
-//}
-
-//function addr_search(inputId, listId) {
-//	var inp = document.getElementById(inputId);
-//	var xmlhttp = new XMLHttpRequest();
-//	var url = "https://nominatim.openstreetmap.org/search?format=json&limit=3&q=" + inp.value;
-//	xmlhttp.onreadystatechange = function () {
-//		if (this.readyState == 4 && this.status == 200) {
-//			var myArr = JSON.parse(this.responseText);
-//			myFunction(myArr, inputId, listId);
-//		}
-//	};
-//	xmlhttp.open("GET", url, true);
-//	xmlhttp.send();
-//}
-
+//});
 // -------------- Fin nominatim.openstreetmap.org  ---------------
 
 function openSecondModal() {
@@ -500,11 +629,31 @@ function initSlidepicture() {
 	});
 }
 
+//********* Acccount *************//
+
+function redirectAfterConnection() {
+	$.ajax({
+		url: "/Account/Index",
+		type: 'post',
+		datatype: 'json',
+		//data: $("#form").serialize() + "&urlCurrentPage=" + $('#urlCurrentPage').val(), //A redefinir le vrai id !!!
+		data: "urlCurrentPage=" + $('#urlCurrentPage').val(),
+		success: function (result) {
+			//$('body').html(result);
+			//$('body').css("overflow", "auto");
+			window.history.replaceState('data to be passed', 'Title of the page', $('#urlCurrentPage').val());
+			location.reload();
+		}
+	});
+}
+
+//********* Fin Acccount *************//
+
 function showDivCritereRecherche() {
 	$('#divCritereRecherche-mcar').css('display', 'block')
 }
 
-function openDivCreateProfil(element) {
+function openDivElement(element) {
 	if ($(element).css('display') == 'block') {
 		$(element).css('display', 'none')
 	}
@@ -513,55 +662,7 @@ function openDivCreateProfil(element) {
 	}
 }
 
-//Initialisation de l'input AutoCompletion des villes - algolia plugin
-//Si probleme utiliser l'api gratuit de valentin Eni : https://api-adresse.data.gouv.fr/search/?type=housenumber&q=
-//https://notemoncoin.renard-valentin.fr/
-function initAutoComplete(elementId) {
-	var placesAutocomplete = places({
-		appId: 'plG5RW55OE5Z',
-		apiKey: '093af2800668c4b5a7d69e84e6a36b65',
-		container: document.querySelector(elementId)
-	});
-
-	placesAutocomplete.on('change', function resultSelected(e) {
-		$(".adresseVille").val(e.suggestion.name || '');
-		$(".adresseRegion").val(e.suggestion.administrative || '');
-		$(".adressePays").val(e.suggestion.country || '');
-		$(".adresseLatLng").val(e.suggestion.latlng.lat + "," + e.suggestion.latlng.lng || '');
-	});
-}
-
-function switcherMcap(elementToEnable, elementToDisable) {
-	$('body').addClass('waiting');
-	$(elementToEnable).css("cursor", "inherit");
-	$(elementToDisable).css("cursor", "inherit");
-
-	$(elementToEnable).css('background-color', 'background-color: rgba(0, 0, 0, 0.2)');
-	$(elementToDisable).css('background-color', 'inherit');
-
-	if (elementToEnable == '#btnSwitcherPropose-mcap') {
-		$('#resultSwitcher-mcap').load('../ColocAnnounce/ModalLocation #htmlBlockModalLocation-ml', function () {
-			initAutoComplete("#address-input-ml");
-		});
-	}
-	else {
-		$('#resultSwitcher-mcap').load('../ColocAnnounce/ModalProjetCreation #htmlBlockModalCreationProjet-mpc', function () {
-			initAutoComplete("#address-input-mpc");
-		});
-	}
-
-	$('#divPersonnaliteInfo-mcap').load('../Account/ModalCARecherche #divPersonnaliteInfo-mcar');
-	$('#divContactInfo-mcap').load('../Account/ModalCARecherche #divContactInfo-mcar');
-	$('#divDesciptionInfo-mcap').load('../Account/ModalCARecherche #divDesciptionInfo-mcar', function () {
-		$('#divCritereRecherche-mcar').remove();
-		$('#infoPerso-mcap').css('display', 'block');
-		$('body').removeClass('waiting');
-		$(elementToEnable).css("cursor", "pointer");
-		$(elementToDisable).css("cursor", "pointer")
-	});
-}
-
-function loadEcoRoommateExistingAndEventMap() {
+function loadEcoRoommateMap() {
 	var mymap = L.map('leafletMap_ereo').setView([46.89, 2.67], 5);
 
 	L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
@@ -570,8 +671,13 @@ function loadEcoRoommateExistingAndEventMap() {
 		accessToken: 'pk.eyJ1Ijoia2dhcm5pZXIiLCJhIjoiY2pyajlmOW1nMDlmNDQ5bzAwemRoNTNpeSJ9.7Evwr47aOCoVYOAnds_WZA'
 	}).addTo(mymap);
 
+	loadEcoRoommateExistingMap(mymap);
+	loadEcoRoommateEventMap(mymap);
+}
+
+function loadEcoRoommateExistingMap(mymap) {
 	var markerIcon = L.icon({
-		iconUrl: '../Content/Images/Logos/markerColocExisting.png',
+		iconUrl: '/Content/Images/Logos/markerColocExisting.png',
 
 		iconSize: [22, 22], // size of the icon
 	});
@@ -594,7 +700,7 @@ function loadEcoRoommateExistingAndEventMap() {
 			var ii = i;
 			var marker = data[ii];
 
-			var customPopup = $('.ecoRommateExisting-ereom').html();
+			var customPopup = $('#ecoColocExistante' + marker.id).html();
 
 			// specify popup options 
 			var customOptions =
@@ -606,27 +712,29 @@ function loadEcoRoommateExistingAndEventMap() {
 			});
 		})();
 	}
+}
 
+function loadEcoRoommateEventMap(mymap) {
 	var markerIcon2 = L.icon({
-		iconUrl: '../Content/Images/Logos/markerEvenement.png',
+		iconUrl: '/Content/Images/Logos/markerEvenement.png',
 
 		iconSize: [22, 22], // size of the icon
 	});
 
 	var markerIconOver = L.icon({
-		iconUrl: '../Content/Images/Logos/markerEvenementOver.png',
+		iconUrl: '/Content/Images/Logos/markerEvenementOver.png',
 
 		iconSize: [22, 22],
 	});
 
 	var data2 = [
 		{
-			name: 'Marker1',
+			name: 'eventMarker1',
 			latLng: [48.10, 2.10],
 			id: '1'
 		},
 		{
-			name: 'Marker2',
+			name: 'eventMarker2',
 			latLng: [46.10, 2.10],
 			id: '2'
 		},
@@ -637,7 +745,9 @@ function loadEcoRoommateExistingAndEventMap() {
 			var ii = i;
 			var marker = data2[ii];
 
-			var customPopup = $('.ecoRommateEvent-ereom').html();
+			//Recuperer l'element en fonction de l'id (eventMarker1 ou eventMarker2, etc.). L'id doit être le même que pour celui du data2
+			var customPopup = $('#eventMarker' + marker.id)[0].outerHTML;
+
 			//Pour le charge via une autre page : https://stackoverflow.com/questions/6203502/jquery-load-to-variable
 
 			// specify popup options 
@@ -647,7 +757,7 @@ function loadEcoRoommateExistingAndEventMap() {
 			}
 
 			var markerObject = L.marker(marker.latLng, { icon: markerIcon2 }).bindPopup(customPopup, customOptions).addTo(mymap).on("click", function () {
-				checkIfBtnInteretIsNotEmpty_erevom('.leafletDivEcoRommateEvent');
+				checkIfBtnInteretIsNotEmpty_erevom('.leafletDivEcoRommateEvent #eventMarker' + marker.id);
 			});
 
 			$("#annonce" + (ii + 1) + "-ereom").on("mouseover", function (e) {
@@ -822,7 +932,7 @@ function validateListEventChoose(targetElement) {
 	var resultVal = $(targetElement + ' .listEvenementInterestedErevom').find(":selected").val();
 	var result = $(targetElement + ' .listEvenementInterestedErevom').find(":selected").text();
 	$(targetElement + " .txtResultEventListChooseErevom").text(result);
-	
+
 	if (resultVal == 1) {
 		$(targetElement + " .iconInterestedErevom").attr('class', 'fas fa-check iconInterestedErevom');
 		changeBtnChoose(targetElement);
@@ -865,10 +975,10 @@ function openMessageWindow_merev() {
 	if ($('#divMessage-ml').css('display') == 'none') {
 		$('#divPhoto-ml').css('display', 'none');
 		$('#divInterestedEmail-merev').css('display', 'none')
-		$('#divMessage-ml').css('display', 'unset');
+		$('#divMessage-ml').css('display', 'inherit');
 	}
 	else {
-		$('#divPhoto-ml').css('display', 'unset');
+		$('#divPhoto-ml').css('display', 'inline');
 		$('#divMessage-ml').css('display', 'none');
 	}
 }
@@ -876,19 +986,19 @@ function openMessageWindow_merev() {
 function openInterestedWindow_merev() {
 	$('#divPhoto-ml').css('display', 'none');
 	$('#divMessage-ml').css('display', 'none');
-	$('#divInterestedEmail-merev').css('display', 'unset')
+	$('#divInterestedEmail-merev').css('display', 'inherit')
 	$('#divEmail-mgoi').css('display', 'block');
 }
 
 function closeWindow() {
-	$('#divPhoto-ml').css('display', 'unset');
+	$('#divPhoto-ml').css('display', 'inline');
 	$('#divMessage-ml').css('display', 'none');
 	$('#divInterestedEmail-merev').css('display', 'none');
 	$('#infoSup-mgoi').css('display', 'none')
 }
 
 //Si le nombre de divEvent visbles n'est pas plus grand en taille que son conteneur alors enlever les fleches
-function checkToShowArrowDivEvents() {	
+function checkToShowArrowDivEvents() {
 	var sizeContenerEvents = parseInt($('#divContenerOtherEvents-ayere').css('width'));
 	var sizeDivEvent = parseInt($('.divElementEvent-ayer:first').css('width'), 10);
 
@@ -897,6 +1007,7 @@ function checkToShowArrowDivEvents() {
 	if ((sizeContenerEvents) < (sizeDivEvent * nbDivEvent)) {
 		$('.btnDivOtherEvent-eyere').css('display', 'flex');
 		$('#divContenerOtherEvents-ayere').css('margin-left', '55px');
+
 		$('#divContenerOtherEvents-ayere').css('margin-right', '55px');
 		$('#divContenerOtherEvents-ayere').css('overflow', 'hidden');
 	}
@@ -916,11 +1027,11 @@ function turnRightOthersEvents(parentContener) {
 	var currentPosition = parseInt($(parentContener + ' .divElementEvent-ayer:first').css('margin-left'), 10);
 
 	var nbDivEvent = $('.divElementEvent-ayer').length;
-	
+
 	//Calcul du nombre de divEvent qui sont visbles sur l'écran
 	var sizeContenerEvents = parseInt($('#divContenerOtherEvents-ayere').css('width'));
 	var nbDivEventVisible = parseInt(((sizeContenerEvents / sizeDivEvent).toString().split(".")[0]));
-	
+
 	//sizeDivEvent * (nbDivEvent - 3); 3 étant le nombre de event visible
 	if (currentPosition > '-' + (sizeDivEvent * (nbDivEvent - nbDivEventVisible))) {
 		$(parentContener + ' .divElementEvent-ayer:first').css('margin-left', currentPosition - sizeDivEvent + 'px')
@@ -928,9 +1039,27 @@ function turnRightOthersEvents(parentContener) {
 }
 
 function showOthersEvents() {
-	// Appelé controller pour recuperer quelques événements et les afficher
+	// Appeler le controller pour recuperer quelques événements et les afficher
 	var event = $('#divBlocAnnonce2').html();
 	$("#divOthersEvents-ereom").append(event);
 
 	//Afficher ces événements sur la carte
+}
+
+function showOthersAnnounces() {
+	var announce = $("#annonce2-alpv")[0].outerHTML;
+	$("#divOthersAnnounces-alpv").append(announce);
+}
+
+function showOthersPeople() {
+	var people = $(".divPeoplesSearching:first-child")[0].outerHTML;
+	$("#divPanelPl #divBtnOtherAnnonceLocation-alpv").before(people);
+}
+
+function lineMaxToShow(textElement) {
+	var el = $(textElement);
+	var divHeight = parseInt(el.css('height'));
+	var lineHeight = parseInt(el.css('line-height'));
+	var lines = divHeight / lineHeight;
+	el.css("-webkit-line-clamp", Math.floor(lines).toString());
 }

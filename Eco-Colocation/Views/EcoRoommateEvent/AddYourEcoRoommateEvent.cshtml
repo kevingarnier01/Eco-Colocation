@@ -3,16 +3,15 @@
 	ViewBag.Title = "AddYourEcoRoommateExistingEvent";
 }
 <div id="addYourEcoRoommateEvent">
-	<h2 id="titleTop-ayer">Ajout d'un nouvel événement</h2>
+	<h2 id="titleTop-ayer" class="title">Ajout d'un nouvel événement</h2>
 	<div class="overflow flex flexWrap">
 		<div class="sousDivFormColoc-ayere">
 			<label class="label-ayer">Nom</label>
-			<input class="input-ayer" placeholder="Entrer un nom d'événement">
+			<input class="input-ayer" placeholder="Entrez un nom d'événement">
 			<div class="underInput-ayer"></div>
 		</div>
 		<div class="sousDivFormColoc-ayere">
-			<label class="label-ayer">Lieu</label>
-			<input class="input-ayer" placeholder="Entrer l'adresse du lieu">
+			<label class="label-ayer">Email</label><input class="input-ayer" placeholder="Entrez votre email">
 			<div class="underInput-ayer"></div>
 		</div>
 		<div class="sousDivFormColoc-ayere">
@@ -25,9 +24,10 @@
 			<input class="input-ayer" type="datetime-local">
 			<div class="underInput-ayer"></div>
 		</div>
-		<div class="sousDivFormColoc-ayere">
-			<label class="label-ayer">Email</label><input class="input-ayer" placeholder="Email a joindre">
-			<div class="underInput-ayer"></div>
+		<div class="sousDivFormColoc-ayere" id="inputlieu-ayere">
+			<label class="label-ayer">Lieu</label>
+			<input id="inputSearchPlace-car" oninput="addr_searchCity(this);" name="autoComplete-mpc" autocomplete="off" type="text" class="inputSearchPlace form-control" placeholder="Où recherchez-vous ?">
+			<div class="listAutoCompleteToModal"></div>
 		</div>
 		<div class="col-xs-12 sousDivFormColoc-ayer" style="margin-bottom: 25px;">
 			<label class="label-ayer">Description de votre événement</label>
@@ -51,12 +51,12 @@
 	<div class="flex" id="divContener0OtherEvents-ayere">
 		<div id="d1-btnphoto-mpc" class="btnDivOtherEvent-eyere flex">
 			<div id="d1-2-btnphoto-mpc" onclick="turnLeftOthersEvents('#divContenerOtherEvents-ayere')">
-				<img src="../Content/Images/Icons/arrow-left.png">
+				<img src="/Content/Images/Icons/arrow-left.png">
 			</div>
 		</div>
 		<div id="d2-btnphoto-ayere" class="btnDivOtherEvent-eyere flex">
 			<div id="d2-1-btnphoto-mpc" onclick="turnRightOthersEvents('#divContenerOtherEvents-ayere')">
-				<img src="../Content/Images/Icons/arrow-right.png">
+				<img src="/Content/Images/Icons/arrow-right.png">
 			</div>
 		</div>
 		<div class="flex childFlex" id="divContenerOtherEvents-ayere">

@@ -4,7 +4,8 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>@ViewBag.Title - Mon application ASP.NET</title>
+	<title>@ViewBag.Title</title>
+	@Html.Hidden("urlCurrentPage", (object)ViewBag.urlCurrentPage)
 	@Styles.Render("~/Content/css")
 	@Scripts.Render("~/bundles/jquery")
 	@Scripts.Render("~/bundles/modernizr")
@@ -18,31 +19,53 @@
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/places.js@1.16.3"></script>
+
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	@*<link rel="stylesheet" href="/resources/demos/style.css">*@
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
 <body>
-    <div id="global">
-        <header>
-            <div>
-                @Html.Partial("_NavPartial")
-            </div>
-        </header>
+	<div id="global">
+		<header>
+			<div>
+				@Html.Partial("_NavPartial")
+			</div>
+		</header>
 		<div id="_PictureHeader">
 			@Html.Partial("_PictureHeader")
 		</div>
-        <main>
-            @RenderBody()
-        </main>
+		<main>
+			@RenderBody()
+		</main>
 
-        <footer>
-            @Html.Partial("_FooterPartial")
-        </footer>
+		<footer>
+			@Html.Partial("_FooterPartial")
+		</footer>
 
-    </div>
+	</div>
 
-    @Scripts.Render("~/Scripts/parallax")
-    @*@Scripts.Render("~/Scripts/waypoints")*@
-    @Scripts.Render("~/bundles/bootstrap")
-    @Scripts.Render("~/Scripts/Script")
-    @RenderSection("scripts", required: false)
+	@Scripts.Render("~/Scripts/parallax")
+	@*@Scripts.Render("~/Scripts/waypoints")*@
+	@Scripts.Render("~/bundles/bootstrap")
+	@Scripts.Render("~/Scripts/Script")
+	@RenderSection("scripts", required: false)
 </body>
 </html>
+
+<script language="javascript">
+	$(document).ready(function () {
+		//Si l'utilisateur active le lien d'un des modal qui se trouve dans l'onglet "projet de création". Alors basculer l'affichage sur cette onglet
+		var showProjetCreation = "@ViewData["showProjetCreation"]";
+		if (showProjetCreation != null && showProjetCreation.length != 0) {
+			projetCreationPage()
+		}
+
+		// Si idModalToTrigger n'est pas vide c'est que l'utilisateur à saisi l'url du modal et qu'il faut déclancher le click de l'element.
+		var idModalToTrigger = "@ViewData["idModalToTrigger"]";
+		if (idModalToTrigger.length != 0 && $(idModalToTrigger).length != 0) {
+			//Simule l'appel au modal qui est en lien avec l'url saisi
+			$(idModalToTrigger)[0].click();
+		}
+	});
+</script>

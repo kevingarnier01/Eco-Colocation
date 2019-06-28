@@ -5,198 +5,218 @@
 
 <div id="peopleSearching">
 	<h3 id="titleSearching">150 personnes recherchent en Bretagne</h3>
+	<div class="flex" id="divAddSearchAnounce-ps">
+		@* !!! A faire au future : S'il est connecté et qu'il a déja ajouté une annonce de recherche, alors ne pas afficher le lien ci-dessous*@
+		<div class="childFlex fontFamilyNote" id="divLinkPublishInteresse-ps">
+			<i class="far fa-id-badge"></i>
+			@if (User.Identity.IsAuthenticated)
+			{
+				<a href="@Url.Action("ModalCARecherche", "Account", null)" rel="modal:open" class="noLink">Ajouter mon annonce de recherche d'éco-colocation</a>
+			}
+			else
+			{
+				<a href="@Url.Action("ModalAccount", "Account", null)" rel="modal:open" class="noLink">Ajouter mon annonce de recherche d'éco-colocation</a>
+			}
+		</div>
+	</div>
 	<div id="divPanelPl">
-			<div id="divPeoplesSearching" class="col-lg-3 col-sm-4 col-xs-6">
-				<a id="divPeopleSearching" class="col-sm-9 col-xs-9" href="/PeopleSearching/ModalPeopleSearch" rel="modal:open">
+		@if (User.Identity.IsAuthenticated)
+		{
+			<div class="col-lg-3 col-sm-4 col-xs-6 divPeoplesSearching">
+				<a id="peopleSearchingUpdateLink-1" class="col-sm-9 col-xs-9 divPeopleSearching" href="@Url.Action("ModalUpdateDataProfil", "PeopleSearching", new { @idModal = "1" })" rel="modal:open">
 					<div id="divImgPlSch">
 						<div id="imgPlSch" style="background: url(https://lcdcfrance-prod.s3.amazonaws.com/profile_pictures/3be2c07f20221b84fdc52e32c5cd4f9e_large.jpg) 50% 50% no-repeat;">
-							<img src="https://img.icons8.com/ios/50/000000/like.png">
+							<i class="far fa-heart" id="heartImg"></i>
 						</div>
 					</div>
-					<div id="divContenuPlSch">
-						<div>
-							<p>Victoire</p>
-							<img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg">
-						</div>
-						<p id="statutPl">Etudiante, 22 ans</p>
-						<p>Budget max de 450 €</p>
-						<div id="descriptionPl">
-							Salarié à Hipoco dans la décoration. J'envisage aujourd'hui de faire une eco-colocation pour être...
-						</div>
-						<div id="divMembrePl">Membre depuis 6 jours</div>
-
-						<div id="logoPl">
-							<img src="https://img.icons8.com/small/32/000000/visible.png">
-							<img src="https://img.icons8.com/cotton/64/000000/new-post.png">
-						</div>
+					<div id="divContenuPlSchDisable" class="fontFamilyNote">
+						<p class="fontFamilyNote childFlexVertical childFlex" id="txt1ContenuDisable">Votre annonce est désactivée.</p>
+						<p class="fontFamilyNote"> Cliquer dessus pour la mettre à jour.</p>
 					</div>
 				</a>
 			</div>
-			<div id="divPeoplesSearching" class="col-lg-3 col-sm-4 col-xs-6">
-				<a id="divPeopleSearching" class="col-sm-9 col-xs-9" href="/PeopleSearching/ModalPeopleSearch" rel="modal:open">
-					<div id="divImgPlSch">
-						<div id="imgPlSch" style="background: url(https://lcdcfrance-prod.s3.amazonaws.com/profile_pictures/3be2c07f20221b84fdc52e32c5cd4f9e_large.jpg) 50% 50% no-repeat;">
-							<img src="https://img.icons8.com/ios/50/000000/like.png">
-						</div>
+		}
+		<div class="col-lg-3 col-sm-4 col-xs-6 divPeoplesSearching">
+			<a id="peopleSearchingLink-2" class="col-sm-9 col-xs-9 divPeopleSearching" href="@Url.Action("ModalPeopleSearch", "PeopleSearching", new { @idModal = "2" })" rel="modal:open">
+				<div id="divImgPlSch">
+					<div id="imgPlSch" style="background: url(https://lcdcfrance-prod.s3.amazonaws.com/profile_pictures/3be2c07f20221b84fdc52e32c5cd4f9e_large.jpg) 50% 50% no-repeat;">
+						<i class="far fa-heart" id="heartImg"></i>
 					</div>
-					<div id="divContenuPlSch">
-						<div>
-							<p>Victoire</p>
-							<img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg">
-						</div>
+				</div>
+				<div id="divContenuPlSch" class="fontFamilyNote">
+					<div id="titlePrenom-ps">
+						<p>Victoire</p>
+						<img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg">
+					</div>
+					<div id="infoPlusPerson-ps">
 						<p id="statutPl">Etudiante, 22 ans</p>
 						<p>Budget max de 450 €</p>
-						<div id="descriptionPl">
-							Salarié à Hipoco dans la décoration. J'envisage aujourd'hui de faire une eco-colocation pour être...
-						</div>
-						<div id="divMembrePl">Membre depuis 6 jours</div>
+					</div>
+					<div id="descriptionPl">
+						Salarié à Hipoco dans la décoration. J'envisage aujourd'hui de faire une eco-colocation pour être...
+					</div>
+					<div id="divMembrePl">Membre depuis 6 jours</div>
 
-						<div id="logoPl">
-							<img src="https://img.icons8.com/small/32/000000/visible.png">
-							<img src="https://img.icons8.com/cotton/64/000000/new-post.png">
-						</div>
+					<div id="logoPl">
+						<i class="fas fa-eye imgToCheck-ps" id="eyesImg-ps"></i>
+						<i class="far fa-envelope imgToCheck-ps"></i>
 					</div>
-				</a>
-			</div>
-			<div id="divPeoplesSearching" class="col-lg-3 col-sm-4 col-xs-6">
-				<a id="divPeopleSearching" class="col-sm-9 col-xs-9" href="/PeopleSearching/ModalPeopleSearch" rel="modal:open">
-					<div id="divImgPlSch">
-						<div id="imgPlSch" style="background: url(https://lcdcfrance-prod.s3.amazonaws.com/profile_pictures/3be2c07f20221b84fdc52e32c5cd4f9e_large.jpg) 50% 50% no-repeat;">
-							<img src="https://img.icons8.com/ios/50/000000/like.png">
-						</div>
+				</div>
+			</a>
+			@if (User.Identity.IsAuthenticated)
+			{
+				<div class="flex">
+					<a id="peopleSearchingUpdateLink-2" href="@Url.Action("ModalUpdateDataProfil", "PeopleSearching", new { @idModal = "2" })" rel="modal:open" class="btnGreen flex childFlex btnModifyEvent-mps">Mettre à jour mon profil</a>
+				</div>
+			}
+		</div>
+		<div class="col-lg-3 col-sm-4 col-xs-6 divPeoplesSearching">
+			<a id="peopleSearchingLink-3" class="col-sm-9 col-xs-9 divPeopleSearching" href="@Url.Action("ModalPeopleSearch", "PeopleSearching", new { @idModal = "3" })" rel="modal:open">
+				<div id="divImgPlSch">
+					<div id="imgPlSch" style="background: url(https://lcdcfrance-prod.s3.amazonaws.com/profile_pictures/3be2c07f20221b84fdc52e32c5cd4f9e_large.jpg) 50% 50% no-repeat;">
+						<i class="far fa-heart" id="heartImg"></i>
 					</div>
-					<div id="divContenuPlSch">
-						<div>
-							<p>Victoire</p>
-							<img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg">
-						</div>
+				</div>
+				<div id="divContenuPlSch" class="fontFamilyNote">
+					<div id="titlePrenom-ps">
+						<p>Victoire</p>
+						<img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg">
+					</div>
+					<div id="infoPlusPerson-ps">
 						<p id="statutPl">Etudiante, 22 ans</p>
 						<p>Budget max de 450 €</p>
-						<div id="descriptionPl">
-							Salarié à Hipoco dans la décoration. J'envisage aujourd'hui de faire une eco-colocation pour être...
-						</div>
-						<div id="divMembrePl">Membre depuis 6 jours</div>
+					</div>
+					<div id="descriptionPl">
+						Salarié à Hipoco dans la décoration. J'envisage aujourd'hui de faire une eco-colocation pour être...
+					</div>
+					<div id="divMembrePl">Membre depuis 6 jours</div>
 
-						<div id="logoPl">
-							<img src="https://img.icons8.com/small/32/000000/visible.png">
-							<img src="https://img.icons8.com/cotton/64/000000/new-post.png">
-						</div>
+					<div id="logoPl">
+						<i class="fas fa-eye imgToCheck-ps" id="eyesImg-ps"></i>
+						<i class="far fa-envelope imgToCheck-ps"></i>
 					</div>
-				</a>
-			</div>
-			<div id="divPeoplesSearching" class="col-lg-3 col-sm-4 col-xs-6">
-				<a id="divPeopleSearching" class="col-sm-9 col-xs-9" href="/PeopleSearching/ModalPeopleSearch" rel="modal:open">
-					<div id="divImgPlSch">
-						<div id="imgPlSch" style="background: url(https://lcdcfrance-prod.s3.amazonaws.com/profile_pictures/3be2c07f20221b84fdc52e32c5cd4f9e_large.jpg) 50% 50% no-repeat;">
-							<img src="https://img.icons8.com/ios/50/000000/like.png">
-						</div>
+				</div>
+			</a>
+		</div>
+		<div class="col-lg-3 col-sm-4 col-xs-6 divPeoplesSearching">
+			<a id="peopleSearchingLink-4" class="col-sm-9 col-xs-9 divPeopleSearching" href="@Url.Action("ModalPeopleSearch", "PeopleSearching", new { @idModal = "4" })" rel="modal:open">
+				<div id="divImgPlSch">
+					<div id="imgPlSch" style="background: url(https://lcdcfrance-prod.s3.amazonaws.com/profile_pictures/3be2c07f20221b84fdc52e32c5cd4f9e_large.jpg) 50% 50% no-repeat;">
+						<i class="far fa-heart" id="heartImg"></i>
 					</div>
-					<div id="divContenuPlSch">
-						<div>
-							<p>Victoire</p>
-							<img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg">
-						</div>
+				</div>
+				<div id="divContenuPlSch" class="fontFamilyNote">
+					<div id="titlePrenom-ps">
+						<p>Victoire</p>
+						<img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg">
+					</div>
+					<div id="infoPlusPerson-ps">
 						<p id="statutPl">Etudiante, 22 ans</p>
 						<p>Budget max de 450 €</p>
-						<div id="descriptionPl">
-							Salarié à Hipoco dans la décoration. J'envisage aujourd'hui de faire une eco-colocation pour être...
-						</div>
-						<div id="divMembrePl">Membre depuis 6 jours</div>
+					</div>
+					<div id="descriptionPl">
+						Salarié à Hipoco dans la décoration. J'envisage aujourd'hui de faire une eco-colocation pour être...
+					</div>
+					<div id="divMembrePl">Membre depuis 6 jours</div>
 
-						<div id="logoPl">
-							<img src="https://img.icons8.com/small/32/000000/visible.png">
-							<img src="https://img.icons8.com/cotton/64/000000/new-post.png">
-						</div>
+					<div id="logoPl">
+						<i class="fas fa-eye imgToCheck-ps" id="eyesImg-ps"></i>
+						<i class="far fa-envelope imgToCheck-ps"></i>
 					</div>
-				</a>
-			</div>
-			<div id="divPeoplesSearching" class="col-lg-3 col-sm-4 col-xs-6">
-				<a id="divPeopleSearching" class="col-sm-9 col-xs-9" href="/PeopleSearching/ModalPeopleSearch" rel="modal:open">
-					<div id="divImgPlSch">
-						<div id="imgPlSch" style="background: url(https://lcdcfrance-prod.s3.amazonaws.com/profile_pictures/3be2c07f20221b84fdc52e32c5cd4f9e_large.jpg) 50% 50% no-repeat;">
-							<img src="https://img.icons8.com/ios/50/000000/like.png">
-						</div>
+				</div>
+			</a>
+		</div>
+		<div class="col-lg-3 col-sm-4 col-xs-6 divPeoplesSearching">
+			<a id="peopleSearchingLink-5" class="col-sm-9 col-xs-9 divPeopleSearching" href="@Url.Action("ModalPeopleSearch", "PeopleSearching", new { @idModal = "5" })" rel="modal:open">
+				<div id="divImgPlSch">
+					<div id="imgPlSch" style="background: url(https://lcdcfrance-prod.s3.amazonaws.com/profile_pictures/3be2c07f20221b84fdc52e32c5cd4f9e_large.jpg) 50% 50% no-repeat;">
+						<i class="far fa-heart" id="heartImg"></i>
 					</div>
-					<div id="divContenuPlSch">
-						<div>
-							<p>Victoire</p>
-							<img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg">
-						</div>
+				</div>
+				<div id="divContenuPlSch" class="fontFamilyNote">
+					<div id="titlePrenom-ps">
+						<p>Victoire</p>
+						<img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg">
+					</div>
+					<div id="infoPlusPerson-ps">
 						<p id="statutPl">Etudiante, 22 ans</p>
 						<p>Budget max de 450 €</p>
-						<div id="descriptionPl">
-							Salarié à Hipoco dans la décoration. J'envisage aujourd'hui de faire une eco-colocation pour être...
-						</div>
-						<div id="divMembrePl">Membre depuis 6 jours</div>
+					</div>
+					<div id="descriptionPl">
+						Salarié à Hipoco dans la décoration. J'envisage aujourd'hui de faire une eco-colocation pour être...
+					</div>
+					<div id="divMembrePl">Membre depuis 6 jours</div>
 
-						<div id="logoPl">
-							<img src="https://img.icons8.com/small/32/000000/visible.png">
-							<img src="https://img.icons8.com/cotton/64/000000/new-post.png">
-						</div>
+					<div id="logoPl">
+						<i class="fas fa-eye imgToCheck-ps" id="eyesImg-ps"></i>
+						<i class="far fa-envelope imgToCheck-ps"></i>
 					</div>
-				</a>
-			</div>
-			<div id="divPeoplesSearching" class="col-lg-3 col-sm-4 col-xs-6">
-				<a id="divPeopleSearching" class="col-sm-9 col-xs-9" href="/PeopleSearching/ModalPeopleSearch" rel="modal:open">
-					<div id="divImgPlSch">
-						<div id="imgPlSch" style="background: url(https://lcdcfrance-prod.s3.amazonaws.com/profile_pictures/3be2c07f20221b84fdc52e32c5cd4f9e_large.jpg) 50% 50% no-repeat;">
-							<img src="https://img.icons8.com/ios/50/000000/like.png">
-						</div>
+				</div>
+			</a>
+		</div>
+		<div class="col-lg-3 col-sm-4 col-xs-6 divPeoplesSearching">
+			<a id="peopleSearchingLink-6" class="col-sm-9 col-xs-9 divPeopleSearching" href="@Url.Action("ModalPeopleSearch", "PeopleSearching", new { @idModal = "6" })" rel="modal:open">
+				<div id="divImgPlSch">
+					<div id="imgPlSch" style="background: url(https://lcdcfrance-prod.s3.amazonaws.com/profile_pictures/3be2c07f20221b84fdc52e32c5cd4f9e_large.jpg) 50% 50% no-repeat;">
+						<i class="far fa-heart" id="heartImg"></i>
 					</div>
-					<div id="divContenuPlSch">
-						<div>
-							<p>Victoire</p>
-							<img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg">
-						</div>
+				</div>
+				<div id="divContenuPlSch" class="fontFamilyNote">
+					<div id="titlePrenom-ps">
+						<p>Victoire</p>
+						<img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg">
+					</div>
+					<div id="infoPlusPerson-ps">
 						<p id="statutPl">Etudiante, 22 ans</p>
 						<p>Budget max de 450 €</p>
-						<div id="descriptionPl">
-							Salarié à Hipoco dans la décoration. J'envisage aujourd'hui de faire une eco-colocation pour être...
-						</div>
-						<div id="divMembrePl">Membre depuis 6 jours</div>
+					</div>
+					<div id="descriptionPl">
+						Salarié à Hipoco dans la décoration. J'envisage aujourd'hui de faire une eco-colocation pour être...
+					</div>
+					<div id="divMembrePl">Membre depuis 6 jours</div>
 
-						<div id="logoPl">
-							<img src="https://img.icons8.com/small/32/000000/visible.png">
-							<img src="https://img.icons8.com/cotton/64/000000/new-post.png">
-						</div>
+					<div id="logoPl">
+						<i class="fas fa-eye imgToCheck-ps" id="eyesImg-ps"></i>
+						<i class="far fa-envelope imgToCheck-ps"></i>
 					</div>
-				</a>
-			</div>
-			<div id="divPeoplesSearching" class="col-lg-3 col-sm-4 col-xs-6">
-				<a id="divPeopleSearching" class="col-sm-9 col-xs-9" href="/PeopleSearching/ModalPeopleSearch" rel="modal:open">
-					<div id="divImgPlSch">
-						<div id="imgPlSch" style="background: url(https://lcdcfrance-prod.s3.amazonaws.com/profile_pictures/3be2c07f20221b84fdc52e32c5cd4f9e_large.jpg) 50% 50% no-repeat;">
-							<img src="https://img.icons8.com/ios/50/000000/like.png">
-						</div>
+				</div>
+			</a>
+		</div>
+		<div class="col-lg-3 col-sm-4 col-xs-6 divPeoplesSearching">
+			<a id="peopleSearchingLink-7" class="col-sm-9 col-xs-9 divPeopleSearching" href="@Url.Action("ModalPeopleSearch", "PeopleSearching", new { @idModal = "7" })" rel="modal:open">
+				<div id="divImgPlSch">
+					<div id="imgPlSch" style="background: url(https://lcdcfrance-prod.s3.amazonaws.com/profile_pictures/3be2c07f20221b84fdc52e32c5cd4f9e_large.jpg) 50% 50% no-repeat;">
+						<i class="far fa-heart" id="heartImg"></i>
 					</div>
-					<div id="divContenuPlSch">
-						<div>
-							<p>Victoire</p>
-							<img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg">
-						</div>
+				</div>
+				<div id="divContenuPlSch" class="fontFamilyNote">
+					<div id="titlePrenom-ps">
+						<p>Victoire</p>
+						<img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg">
+					</div>
+					<div id="infoPlusPerson-ps">
 						<p id="statutPl">Etudiante, 22 ans</p>
 						<p>Budget max de 450 €</p>
-						<div id="descriptionPl">
-							Salarié à Hipoco dans la décoration. J'envisage aujourd'hui de faire une eco-colocation pour être...
-						</div>
-						<div id="divMembrePl">Membre depuis 6 jours</div>
-
-						<div id="logoPl">
-							<img src="https://img.icons8.com/small/32/000000/visible.png">
-							<img src="https://img.icons8.com/cotton/64/000000/new-post.png">
-						</div>
 					</div>
-				</a>
+					<div id="descriptionPl">
+						Salarié à Hipoco dans la décoration. J'envisage aujourd'hui de faire une eco-colocation pour être...
+					</div>
+					<div id="divMembrePl">Membre depuis 6 jours</div>
+
+					<div id="logoPl">
+						<i class="fas fa-eye imgToCheck-ps" id="eyesImg-ps"></i>
+						<i class="far fa-envelope imgToCheck-ps"></i>
+					</div>
+				</div>
+			</a>
+		</div>
+		<div class="col-xs-12" id="divBtnOtherAnnonceLocation-alpv">
+			<div class="flex col-xs-12">
+				<div class="btnGreen childFlex" id="btnOtherAnnonceLocation-alpv" onclick="showOthersPeople()">
+					<p id="txtShowNewEvent-alpv">Voir plus de personnes</p>
+					<div class="flex"><i class="fas fa-sort-down childFlex" id="iconShowNewEvent-alpv"></i></div>
+				</div>
 			</div>
 		</div>
-	<div class="pagination">
-		<a href="#">&laquo;</a>
-		<a href="#">1</a>
-		<a class="active" href="#">2</a>
-		<a href="#">3</a>
-		<a href="#">4</a>
-		<a href="#">5</a>
-		<a href="#">6</a>
-		<a href="#">&raquo;</a>
 	</div>
 </div>

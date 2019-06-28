@@ -133,7 +133,9 @@
     <Compile Include="Controllers\EcoRoommateEventController.cs" />
     <Compile Include="Controllers\EcoRoommateExistingController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ModalController.cs" />
     <Compile Include="Controllers\PeopleSearchingController.cs" />
+    <Compile Include="Controllers\ProfilController.cs" />
     <Compile Include="Controllers\SearchColocController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -142,6 +144,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModel\AllViewModel.cs" />
     <Compile Include="ViewModel\ColocAnnounceViewModel.cs" />
+    <Compile Include="ViewModel\EcoRoommateEventViewModel.cs" />
     <Compile Include="ViewModel\HomeViewModel.cs" />
     <Compile Include="ViewModel\PeopleSearchingViewModel.cs" />
     <Compile Include="ViewModel\SearchColocViewModel.cs" />
@@ -222,6 +225,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\Autres\coverPicture.jpg" />
     <Content Include="Content\Images\Icons\arrow-left.png" />
     <Content Include="Content\Images\Icons\arrow-right.png" />
     <Content Include="Content\Images\Icons\facebook.svg" />
@@ -395,7 +399,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_FooterPartial.cshtml" />
     <Content Include="Views\Shared\_HeaderPartial.cshtml" />
     <Content Include="Views\Shared\_NavPartial.cshtml" />
@@ -424,7 +427,6 @@
     <Content Include="Views\ColocAnnounce\AnnonceLocation.cshtml" />
     <Content Include="Views\ColocAnnounce\ModalLocation.cshtml" />
     <Content Include="Views\ColocAnnounce\ProjetCreation.cshtml" />
-    <Content Include="Views\Home\Filtres.cshtml" />
     <Content Include="Views\SearchColoc\AnnonceLocation.cshtml" />
     <Content Include="Views\SearchColoc\ProjetCreation.cshtml" />
     <Content Include="Views\Shared\AnnonceLocation\AnnonceLocationPV.cshtml" />
@@ -438,7 +440,6 @@
     <Content Include="Views\Account\ModalAccount.cshtml" />
     <Content Include="Views\Account\ModalCreateAccount.cshtml" />
     <Content Include="Views\Account\ModalCARecherche.cshtml" />
-    <Content Include="Views\Account\ModalCAPropose.cshtml" />
     <Content Include="Views\Account\ForgetAccount\FindAccountByEmail.cshtml" />
     <Content Include="Views\Account\ForgetAccount\CheckCodeSend.cshtml" />
     <Content Include="Views\Account\ForgetAccount\ChangePassword.cshtml" />
@@ -453,9 +454,17 @@
     <Content Include="Views\EcoRoommateEvent\ModalDeleteEcoRoommateEvent.cshtml" />
     <Content Include="Views\EcoRoommateEvent\ModalGoingOrInterested.cshtml" />
     <Content Include="Views\EcoRoommateEvent\PartialGoingOrInterested.cshtml" />
+    <Content Include="Views\PeopleSearching\ModalUpdateDataProfil.cshtml" />
+    <Content Include="Views\Account\CARecherche.cshtml" />
+    <Content Include="Views\Account\ModalCreateEmptyAccount.cshtml" />
+    <Content Include="Views\Account\PersonalDataForm.cshtml" />
+    <Content Include="Views\Account\ButtonsCreateAccount.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Modal\" />
+    <Folder Include="Views\Profil\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

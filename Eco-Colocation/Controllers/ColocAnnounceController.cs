@@ -8,15 +8,11 @@ namespace Eco_Colocation.Controllers
 	{
 		// GET: ColocAnnounce
 		public ActionResult Index()
-		{
-			//AllViewModel allViewModel = (AllViewModel)TempData["allViewModel"];
-
-			//allViewModel.ColocAnnounceViewModel = new ColocAnnounceViewModel();		
+		{	
 			AllViewModel allViewModel = new AllViewModel();
 			allViewModel.ColocAnnounceViewModel = new ColocAnnounceViewModel();
 
 			return View(allViewModel);
-			//return View("~/Views/Home/Index.cshtml", allViewModel);
 		}
 
 		public ActionResult ModalLocation()

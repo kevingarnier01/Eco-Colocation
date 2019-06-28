@@ -1,4 +1,5 @@
 ﻿using System.Web.Mvc;
+using Eco_Colocation.ViewModel;
 
 namespace Eco_Colocation.Controllers
 {
@@ -13,11 +14,17 @@ namespace Eco_Colocation.Controllers
 		{
 			return View();
 		}
-
-		public ActionResult ModalEcoRoommateEventVisual()
+		
+		public ActionResult ModalEcoRoommateEventVisual(string idModal)
 		{
+			EcoRoommateEventViewModel EcoRoommateEventViewModel = new EcoRoommateEventViewModel();
+			EcoRoommateEventViewModel.Id = 2;
+
+			ViewData["idModal"] = idModal;
+
 			return PartialView();
 		}
+
 		public ActionResult ModalDeleteEcoRoommateEvent()
 		{
 			return View("~/Views/EcoRoommateEvent/AddYourEcoRoommateEvent.cshtml");
