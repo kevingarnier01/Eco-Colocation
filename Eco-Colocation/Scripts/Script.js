@@ -1,55 +1,46 @@
 ﻿var closeModalHasBeenClicked;
 $(document).ready(function () {
-
-	//http://pixelcog.github.io/parallax.js/
-	//$('.parallax-window').parallax({
-	//	imageSrc: "http://www.ecocolocs.fr/bundles/app/images/image1.png"
-	//	//, naturalheight: '50'
-	//});
-	//$('.parallax-window').parallax();
-
-	//Probleme initial, l'encadré ce ferme lors du clique à l'interieur du bloc
-	$('.dropdown-menu').click(function (e) {
-		e.stopPropagation();
-	});
-
-	eventCloseOrNotModal();
+	//eventCloseOrNotModal();
 
 	//permet de correctement fermer le modal lors du click a l'exterieur
-	$(document).on('mouseleave', '.reelModal', function () {
-		eventCloseOrNotModal()
-	});
+	//$(document).on('mouseleave', '.reelModal', function () {
+	//	//eventCloseOrNotModal()
+	//});
 
-	$(document).on('mouseenter', '.reelModal', function () {
-		$('body').css('overflow', 'hidden');
-		$('.modal').on('click', '.underModal', function (e) {
-			$('.jquery-modal').css('display', 'block');
-			$('body').css('overflow', 'hidden');
-		});
-		$(document).on('click', '.modal', function (e) {
-			$('.jquery-modal').css('display', 'block');
-			if (!closeModalHasBeenClicked) {
-				$('body').css('overflow', 'hidden');
-			}
-		});
-	});
+	//$(document).on('mouseenter', '.reelModal', function () {
+	//	$('body').css('overflow', 'hidden');
+	//	$('.modal').on('click', '.underModal', function (e) {
+	//		$('.jquery-modal').css('display', 'block');
+	//		$('body').css('overflow', 'hidden');
+	//	});
+	//	$(document).on('click', '.modal', function (e) {
+	//		$('.jquery-modal').css('display', 'block');
+	//		if (!closeModalHasBeenClicked) {
+	//			$('body').css('overflow', 'hidden');
+	//		}
+	//	});
+	//});
 	//if ($('.blockerCenterToHideWindows').css('display') == 'none') {
 
 	//Si le button close-modal à été cliqué, alors nous l'indiquons et l'evenement au dessus  (click sur modal)
 	//se charge de ne pas faire disparaitre le scroll bar du body
 	$(document).on('click', '.close-modal, .closeModal', function (e) {
 		$('body').css('overflow', 'auto');
-		closemodalhasbeenclicked = true;
+		//closemodalhasbeenclicked = true;
 
 		updateUrlModalAfterClosing();
 
-		// entre les deux : ouvre l'evenement click du modal //
-		settimeout(function () {
-			closemodalhasbeenclicked = false; //puis réinitialise la variable à false
-		}, 1000)
+		//// entre les deux : ouvre l'evenement click du modal //
+		//settimeout(function () {
+		//	closemodalhasbeenclicked = false; //puis réinitialise la variable à false
+		//}, 1000)
 	});
 	// Fin modal //	
 
+	//Probleme initial, l'encadré ce ferme lors du clique à l'interieur du bloc
+	$('.dropdown-menu').click(function (e) {
+		e.stopPropagation();
+	});
 
 	//ModalProjetCreation, when option 'Type d'engagement' list change.
 	$(document).on('change', 'select#select-engagementType-mpc', function () {
@@ -68,33 +59,7 @@ $(document).ready(function () {
 			$('#rowTerrain').css('display', 'table-row');
 		}
 	});
-
-});
-
-function eventCloseOrNotModal() {
-	$('.modal').on('click', '.underModal', function (e) {
-		$('.jquery-modal').css('display', 'none');
-		$('body').css('overflow', 'auto');
-		setTimeout(function () {
-			if ($('.jquery-modal').css('display') == 'none') {
-				$(".ui-autocomplete").prependTo("body");
-				$('.jquery-modal').remove();
-				updateUrlModalAfterClosing();
-			}
-		}, 50)
-	});
-	$(document).on('click', '.modal', function (e) {
-		$('.jquery-modal').css('display', 'none');
-		$('body').css('overflow', 'auto');
-		setTimeout(function () {
-			if ($('.jquery-modal').css('display') == 'none') {
-				$(".ui-autocomplete").prependTo("body");
-				$('.jquery-modal').remove();
-				updateUrlModalAfterClosing();
-			}
-		}, 50)
-	});
-
+	
 	// Captures click events of all <a> elements with href starting with #
 	$("#btnPeopleSearch-ca").click(function (event) {
 		event.preventDefault();
@@ -103,7 +68,32 @@ function eventCloseOrNotModal() {
 			scrollTop: $($.attr(this, 'href')).offset().top - 100
 		}, 500);
 	});
-}
+});
+
+//function eventCloseOrNotModal() {
+//	$('.modal').on('click', '.underModal', function (e) {
+//		$('.jquery-modal').css('display', 'none');
+//		$('body').css('overflow', 'auto');
+//		setTimeout(function () {
+//			if ($('.jquery-modal').css('display') == 'none') {
+//				$(".ui-autocomplete").prependTo("body");
+//				$('.jquery-modal').remove();
+//				updateUrlModalAfterClosing();
+//			}
+//		}, 50)
+//	});
+//	$(document).on('click', '.modal', function (e) {
+//		$('.jquery-modal').css('display', 'none');
+//		$('body').css('overflow', 'auto');
+//		setTimeout(function () {
+//			if ($('.jquery-modal').css('display') == 'none') {
+//				$(".ui-autocomplete").prependTo("body");
+//				$('.jquery-modal').remove();
+//				updateUrlModalAfterClosing();
+//			}
+//		}, 50)
+//	});
+//}
 
 //change de l'url quand le modal se ferme
 function updateUrlModalAfterClosing() {
@@ -257,7 +247,7 @@ function showDivs(n) {
 function displayPVMessage() {
 	if ($('#divMessage-ml').css('display') == 'none') {
 		$('#divPhoto-ml').css('display', 'none');
-		$('#divMessage-ml').css('display', 'unset');
+		$('#divMessage-ml').css('display', 'inherit');
 	}
 	else {
 		$('#divPhoto-ml').css('display', 'inline');
@@ -290,16 +280,16 @@ $('#div2-multiList').on('mouseenter', function () {
 });
 
 function closeChildDropDown(e) {
-	if (!e.target.matches('#div1-multiList')) {
+	if ($('#div2-multiList').length != 0 && $('#div2-multiList').css('display') == "block") {
 		var myDropdown = document.getElementById("div2-multiList");
-		if (myDropdown.classList.contains('show')) {
+		if (myDropdown != null && myDropdown.classList.contains('show')) {
 			myDropdown.classList.remove('show');
 		}
 	}
 }
 
 window.onclick = function (e) {
-	if (!e.target.matches('#div1-multiList')) {
+	if ($('#div2-multiList').length != 0 && $('#div2-multiList').css('display') == "block") {
 		var myDropdown = document.getElementById("div2-multiList");
 		if (myDropdown != null && myDropdown.classList.contains('show')) {
 			myDropdown.classList.remove('show');
@@ -985,7 +975,7 @@ function openMessageWindow_merev() {
 	if ($('#divMessage-ml').css('display') == 'none') {
 		$('#divPhoto-ml').css('display', 'none');
 		$('#divInterestedEmail-merev').css('display', 'none')
-		$('#divMessage-ml').css('display', 'unset');
+		$('#divMessage-ml').css('display', 'inherit');
 	}
 	else {
 		$('#divPhoto-ml').css('display', 'inline');
@@ -996,12 +986,12 @@ function openMessageWindow_merev() {
 function openInterestedWindow_merev() {
 	$('#divPhoto-ml').css('display', 'none');
 	$('#divMessage-ml').css('display', 'none');
-	$('#divInterestedEmail-merev').css('display', 'unset')
+	$('#divInterestedEmail-merev').css('display', 'inherit')
 	$('#divEmail-mgoi').css('display', 'block');
 }
 
 function closeWindow() {
-	$('#divPhoto-ml').css('display', 'unset');
+	$('#divPhoto-ml').css('display', 'inline');
 	$('#divMessage-ml').css('display', 'none');
 	$('#divInterestedEmail-merev').css('display', 'none');
 	$('#infoSup-mgoi').css('display', 'none')

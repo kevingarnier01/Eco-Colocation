@@ -44,7 +44,7 @@
 					</div>
 				</div>
 				<div class="col-xs-6 form-group dropdown">
-					<label id="lbNbColoc-filtre" for="filter">Nombre de colocs</label><br>
+					<label id="lbNbColoc-filtre" for="filter">Nombre de colocatires max</label><br>
 					<div id="div1-multiList" onclick="displayMultiListe()">
 						<div id="div1-1-multiList">
 							<p>Choix multiples</p>
@@ -71,12 +71,19 @@
 								<div class="div2-3-multiList col-xs-10">
 									@if (i != 6)
 									{
-										<label for="@i+coloc">@i colocataire</label>
+										if (i == 1)
+										{
+											<label for="@i+coloc">@i colocataire</label>
+										}
+										else
+										{
+											<label for="@i+coloc">@i colocataires</label>
+										}
 									}
 									else
 									{
 
-										<label for="6coloc">6 colocataires et plus</label>
+										<label for="6coloc">Plus</label>
 									}
 								</div>
 							</div>
