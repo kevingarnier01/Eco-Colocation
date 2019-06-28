@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "ButtonsCreateAccount";
+}
+
+<div class="flex">
+	<div id="divbtnCreate-mbca" class="childFlex">
+		<div class="div2InscriptionBtn-mcar" id="div2InscriptionBtnFb-mcar">
+			<i class="iconInscriptionBtn-mcar fab fa-facebook"></i>
+			<p class="textInscriptionBtn-mcar">Créer le profil en s'inscrivant avec Facebook</p>
+		</div>
+
+		<div class="div2InscriptionBtn-mcar" id="div2InscriptionBtnMail-mcar">
+			<i class="iconInscriptionBtn-mcar fas fa-envelope"></i>
+			<p class="textInscriptionBtn-mcar" onclick="openDivElement('#createProfilWindow')">Créer le profil en s'inscrivant avec un e-mail</p>
+		</div>
+		<div id="createProfilWindow">
+			<div id="divCreateProfil-mcar">
+				<div class="col-xs-10 sousDivCreateProfil-mcar">
+					<label class="lbl-mcar">Utilisateur</label>
+					<input type="email" placeholder="Addresse mail" class="input-mcar">
+					<div class="lineinput-mcar"></div>
+				</div>
+				<div class="col-xs-10 sousDivCreateProfil-mcar">
+					<label class="lbl-mcar">Mot de passe</label>
+					<input type="password" placeholder="Entrez un mot de passe" class="input-mcar">
+					<div class="lineinput-mcar"></div>
+				</div>
+				<div class="col-xs-10 sousDivCreateProfil-mcar">
+					<label class="lbl-mcar">Mot de passe</label>
+					<input type="password" placeholder="Confirmez le mot de passe" class="input-mcar">
+					<div class="lineinput-mcar"></div>
+				</div>
+				<div class="col-xs-12" id="divBtnCreateProfil-mcar">
+					<div id="btnCreateProfil-mcar">Creer mon profil</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

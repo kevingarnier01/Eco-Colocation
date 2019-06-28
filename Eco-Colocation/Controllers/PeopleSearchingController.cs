@@ -10,10 +10,20 @@ namespace Eco_Colocation.Controllers
             return View();
         }
 
-		public ActionResult ModalPeopleSearch()
+		public ActionResult ModalPeopleSearch(string idModal)
 		{
+			ViewData["idModal"] = idModal;
+			ViewData["targetCity"] = "Rennes";
+
 			return PartialView();
 		}
 
+		public ActionResult ModalUpdateDataProfil(string idModal)
+		{
+			ViewData["idModal"] = idModal;
+			ViewData["targetCity"] = "Rennes";
+
+			return PartialView("~/Views/PeopleSearching/ModalUpdateDataProfil.cshtml");
+		}		
 	}
 }

@@ -1,0 +1,15 @@
+﻿
+@{
+	ViewBag.Title = "ModalCreateEmptyAccount";
+}
+
+<div class="underModal col-sm-12 col-xs-12">
+	<div id="modalCreateEmptyAccount" class="reelModal">
+		<h2 class="title centerText" id="titleAccount-mcea">Créer un compte</h2>
+		@Html.Partial("~/Views/Account/PersonalDataForm.cshtml")
+		<div id="divInscriptionButtons-mcea">
+			@Html.Partial("~/Views/Account/ButtonsCreateAccount.cshtml")
+		</div>
+		<a href="#close-modal" rel="modal:close" class="close-modal">Close</a>
+	</div>
+</div>

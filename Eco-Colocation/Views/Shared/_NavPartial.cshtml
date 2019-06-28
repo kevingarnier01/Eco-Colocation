@@ -7,7 +7,7 @@
 		<div class="container">
 			<div id="logo">
 				<a class="logo" href="@Url.Action("Index","Home", null)">
-					<img class="fixed-logo lazyloading" src="../../Content/Images/Icons/logoEcoColoc.gif" width="179" alt="Eco-Colocation" data-was-processed="true">
+					<img class="fixed-logo lazyloading" src="/Content/Images/Icons/logoEcoColoc.png" width="140" alt="Eco-Colocation" data-was-processed="true">
 				</a>
 			</div>
 			<div class="navbar-header page-scroll">
@@ -25,24 +25,30 @@
 					@if (!User.Identity.IsAuthenticated)
 					{
 						<li class="menu-item menu-item-type-post_type menu-item-object-page">
-							<a class="nav-link" title="Se connecter"
+							<a id="modalConnectionLink" class="nav-link" title="Se connecter"
 							   href="@Url.Action("ModalAccount", "Account", null)" rel="modal:open">Se connecter</a>
 						</li>
 					}
-					else
+					@if (!User.Identity.IsAuthenticated)
 					{
 						<li class="menu-item menu-item-type-post_type menu-item-object-page">
-							<a class="nav-link" title="Se déconnecter"
-							   href="@Url.Action("Deconnection", "Account", null)">Se déconnecter</a>
+							<a id="modalInscriptionLink" class="nav-link" title="Inscription"
+							   href="@Url.Action("ModalCreateAccount", "Account", null)" rel="modal:open">Inscription</a>
 						</li>
 					}
 					<li class="menu-item menu-item-type-post_type menu-item-object-page">
-						<a class="nav-link" title="Inscription"
-						   href="@Url.Action("ModalCreateAccount", "Account", null)" rel="modal:open">Inscription</a>
-					</li>
-					<li class="menu-item menu-item-type-post_type menu-item-object-page">
 						<a class="nav-link" title="Nous contacter" href="">Nous contacter</a>
 					</li>
+					@if (User.Identity.IsAuthenticated)
+					{
+						<li class="menu-item menu-item-type-post_type menu-item-object-page" id="liProfil-nb">
+							<i class="fas fa-user-circle" id="pictureProfil-nb"></i>
+							<div id="sousDivProfil">
+								<a href="@Url.Action("AnnouncementsAndProjects", "Profil", null)" class="linkProfil-nb">Mes annonces et mes projets</a>
+								<a href="@Url.Action("Deconnection", "Account", null)" class="linkProfil-nb">Se déconnecter</a>
+							</div>
+						</li>
+					}
 				</ul>
 			</div>
 		</div>

@@ -1,18 +1,29 @@
 ﻿@model  Eco_Colocation.ViewModel.AllViewModel
 @{
 	ViewBag.Title = "Index";
+	ViewBag.urlCurrentPage = "/ColocAnnounce/Index";
 }
 <div id="colocAnnounce">
-	<div id="divNbPeopleSearch-ca">
+	<div id="divNbPeopleSearch-ca" class="fontFamilyNote">
 		<a href="#peopleSearching" id="btnPeopleSearch-ca">
 			<p id="localisation-ca">Bretagne</p>
 			<p id="nbPeopleSearching-ca">Voir les 150 personnes qui recherchent</p>
+			<div class="flex">
+				<p class="childFlex" id="infoLocalisation-ca">En bas de la page</p>
+			</div>
 		</a>
 	</div>
 	<div id="divLibellePropose">
-		<h3 style="text-align: center;font-family: cursive;">Je propose une éco-colocation</h3>
+		@if (ViewData["changeTitle"] != null && ViewData["changeTitle"].ToString() != "")
+		{
+			<h3 style="text-align: center;" class="title">Mes annonces et mes projets</h3>
+		}
+		else
+		{
+			<h3 style="text-align: center;" class="title">Je propose une éco-colocation</h3>
+		}
 	</div>
-	<div id="divRubriqueRecherche">
+	<div id="divRubriqueRecherche" class="fontFamilyNote">
 		<div id="sousDivRubriqueRecherche" style="width: 650px;">
 			<div id="annonceRubrique" class="col-sm-6 col-xs-12">
 				<h3 id="annonceRubrique2" onclick="annonceLocationPage();">Mes annonces de locations</h3>
@@ -22,7 +33,6 @@
 			</div>
 		</div>
 	</div>
-
 	<div id="annonceLocation">
 		@Html.Partial("~/Views/ColocAnnounce/AnnonceLocation.cshtml", Model.ColocAnnounceViewModel)
 	</div>

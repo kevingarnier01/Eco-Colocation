@@ -19,6 +19,9 @@
 	</div>
 
 	<div id="div1PC" class="col-sm-12">
-		@Html.Partial("~/Views/Shared/ProjetCreation/ProjetCreationPV.cshtml")
+		@if (User.Identity.IsAuthenticated)
+		{
+			@Html.Partial("~/Views/Shared/ProjetCreation/ProjetCreationPV.cshtml")
+		}
 	</div>
 </div>

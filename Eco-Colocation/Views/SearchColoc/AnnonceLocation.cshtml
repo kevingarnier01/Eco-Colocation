@@ -11,14 +11,19 @@
 		<img class="img-responsive col-xs-12" src="https://lcdcfrance-prod.s3.amazonaws.com/pictures/5971704b03891a82ae95f895a7700705_small.jpg" style="padding: 0;">
 	</div>
 	<div id="description" class="col-md-7 col-xs-7">
-		<h5>Maison 1</h5>
-		<p>80m² pour 5 pièces</p>
-		<p>3 autres colocataires</p>
-		<p>Disponible le 15/12/2019</p>
-		<p>Allée du boulemier au pré</p>
+		<p class="nameColoc-al">Maison 1</p>
+		<p class="fontFamilyNote centerText underTitlePopup-al">80m² pour 5 colocataire</p>
+
+		<p class="fontFamilyNote centerText underTitlePopup-al">2 chambres disponibles le 15/12/2019</p>
+		<p class="descriptionHabitat-al fontFamilyNote">Nous recherchons 2 hommes pour amener une mixité...</p>
+	</div>
+	<div id="divLinkDetailEvent-erevom" class="col-xs-12">
+		<a id="annonceLocationPVLink-1" class="linkDetailEvent-al" rel="modal:open" href="@Url.Action("ModalLocation","SearchColoc", new { @idModal = "1" })">
+			<i id="iconDetailEvent-erevom" class="fas fa-angle-double-right"></i>
+			<p class="fontFamilyNote">En savoir plus</p>
+		</a>
 	</div>
 </div>
-
 <div class="onHoverMarker" id="onHoverMarker2">
 	<div id="divPrixAnnonce">
 		<div id="prixAnnonce">340€<span id="rentCosts">/mois</span></div>
@@ -27,22 +32,25 @@
 		<img class="img-responsive col-xs-12" src="https://lcdcfrance-prod.s3.amazonaws.com/pictures/5971704b03891a82ae95f895a7700705_small.jpg" style="padding: 0;">
 	</div>
 	<div id="description" class="col-md-7 col-xs-7">
-		<h5>Maison 1</h5>
-		<p>80m² pour 5 pièces</p>
-		<p>3 autres colocataires</p>
-		<p>Disponible le 15/12/2019</p>
-		<p>Allée du boulemier au pré</p>
-	</div>
-</div>
-<div id="divMapSearchColoc" class="col-md-6 col-sm-12">
-	<div id="mapSearchColoc">
+		<p class="nameColoc-al">Maison 1</p>
+		<p class="fontFamilyNote centerText underTitlePopup-al">80m² pour 5 colocataire</p>
 
+		<p class="fontFamilyNote centerText underTitlePopup-al">2 chambres disponibles le 15/12/2019</p>
+		<p class="descriptionHabitat-al fontFamilyNote">Nous recherchons 2 hommes pour amener une mixité...</p>
+	</div>
+	<div id="divLinkDetailEvent-erevom" class="col-xs-12">
+		<a id="annonceLocationPVLink-2" class="linkDetailEvent-al" rel="modal:open" href="@Url.Action("ModalLocation","SearchColoc", new { @idModal = "2" })">
+			<i id="iconDetailEvent-erevom" class="fas fa-angle-double-right"></i>
+			<p class="fontFamilyNote">En savoir plus</p>
+		</a>
 	</div>
 </div>
+
+<div id="divMapSearchColoc" class="col-md-6 col-sm-12"><div id="mapSearchColoc"></div></div>
 @*****@
 
 <div id="divDivBlocAnnonce" class="col-md-6 col-sm-12">
-	<div style="margin-bottom: 15px;" class="col-xs-12">
+	<div id="divDivBlocAnnonce2" class="col-xs-12">
 		@Html.Partial("~/Views/SearchColoc/FiltresAnnonceLocation.cshtml")
 	</div>
 	@Html.Partial("~/Views/Shared/AnnonceLocation/AnnonceLocationPV.cshtml")

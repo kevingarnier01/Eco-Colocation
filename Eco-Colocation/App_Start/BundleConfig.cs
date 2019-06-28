@@ -21,7 +21,7 @@ namespace Eco_Colocation
 
 			bundles.Add(new StyleBundle("~/Content/css").Include(
 					  "~/Content/bootstrap.css",
-					  "~/Content/site.css"));
+					  "~/Content/Site.css"));
 
 			bundles.Add(new ScriptBundle("~/Scripts/parallax").Include(
 					  "~/Scripts/parallax.js-1.5.0/parallax.js"

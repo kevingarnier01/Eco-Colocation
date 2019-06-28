@@ -18,12 +18,12 @@
     margin-bottom: 15px;
 ">
 		<div class="divSommaireLogo-ereom">
-			<img src="../Content/Images/Logos/markerColocExisting.png" class="imgSommaireLogo-ereom">
+			<img src="/Content/Images/Logos/markerColocExisting.png" class="imgSommaireLogo-ereom">
 			<p class="fontFamilyNote txtSommaireLogo-ereom">Les éco-colocations existantes</p>
 
 		</div>
 		<div class="divSommaireLogo-ereom">
-			<img src="../Content/Images/Logos/markerEvenement.png" class="imgSommaireLogo-ereom">
+			<img src="/Content/Images/Logos/markerEvenement.png" class="imgSommaireLogo-ereom">
 			<p class="fontFamilyNote txtSommaireLogo-ereom">Les événements à venir</p>
 
 		</div>
@@ -34,7 +34,7 @@
 	</div>
 </div>
 
-<div class="ecoRommateExisting-ereom">
+<div class="ecoRommateExisting-ereom" id="ecoColocExistante1">
 	<div class="ecoRommateExisting2-ereom">
 		<div class="divMarkerPhoto-ereom col-md-5 col-xs-5">
 			<div class="markerPhoto-ereom"
@@ -42,7 +42,7 @@
 			</div>
 		</div>
 		<div class="description-ereom col-md-7 col-xs-7">
-			<p class="nameColoc-ereom">Colokitri</p>
+			<p class="nameColoc-ereom">Colokitri 1</p>@* Facultatif *@
 			<div class="infoPrimaire-ereom">
 				<p class="fontFamilyNote">Crée depuis le 01/02/2019</p>
 				<p class="fontFamilyNote">4 Colocataire(s)</p>
@@ -51,7 +51,30 @@
 		</div>
 	</div>
 	<div id="divLinkDetailEvent-erevom">
-		<a id="linkDetailEvent-erevom" href="@Url.Action("EcoRoommateExistingVisual","EcoRoommateExisting", null)">
+		<a class="linkDetailEvent-erevom" href="@Url.Action("EcoRoommateExistingVisual","EcoRoommateExisting", null)">
+			<i id="iconDetailEvent-erevom" class="fas fa-angle-double-right"></i>
+			<p class="fontFamilyNote">En savoir plus</p>
+		</a>
+	</div>
+</div>
+<div class="ecoRommateExisting-ereom" id="ecoColocExistante2">
+	<div class="ecoRommateExisting2-ereom">
+		<div class="divMarkerPhoto-ereom col-md-5 col-xs-5">
+			<div class="markerPhoto-ereom"
+				 style="background: url(https://www.domoskit.com/wp-content/uploads/2017/05/matheus-ferrero-228716-unsplash-thegem-blog-default.jpg) 50% no-repeat">
+			</div>
+		</div>
+		<div class="description-ereom col-md-7 col-xs-7">
+			<p class="nameColoc-ereom">Colokitri 2</p>@* Facultatif *@
+			<div class="infoPrimaire-ereom">
+				<p class="fontFamilyNote">Crée depuis le 01/02/2019</p>
+				<p class="fontFamilyNote">4 Colocataire(s)</p>
+			</div>
+			<p class="descriptionHabitat-ereom fontFamilyNote">Une maison paille, un potager, 5 poules et deux chats et 4 colocataires</p>
+		</div>
+	</div>
+	<div id="divLinkDetailEvent-erevom">
+		<a class="linkDetailEvent-erevom" href="@Url.Action("EcoRoommateExistingVisual","EcoRoommateExisting", null)">
 			<i id="iconDetailEvent-erevom" class="fas fa-angle-double-right"></i>
 			<p class="fontFamilyNote">En savoir plus</p>
 		</a>
@@ -64,7 +87,7 @@
 
 <script type="text/javascript">
 	$(document).ready(function () {
-		loadEcoRoommateExistingAndEventMap();
+		loadEcoRoommateMap();
 	});
 </script>
 

@@ -2,7 +2,7 @@
 @{
 	ViewBag.Title = "_PictureHeader";
 }
-<div class="parallax-window" data-parallax="scroll" data-image-src="http://www.ecocolocs.fr/bundles/app/images/image1.png">
+<div class="parallax-window" data-parallax="scroll" data-image-src="/Content/Images/Autres/coverPicture.jpg">
 	@using (Html.BeginForm("TypeRecherche", "Home"))
 	{
 		<div id="switcher-wrapper">
@@ -14,16 +14,15 @@
 					</div>
 					@Html.HiddenFor(m => Model.HomeViewModel.TypeRecherche, new { @id = "typeRecherche" })
 					<div class="input-group" id="adv-search">
-						@*<input id="inputSearchPlace" oninput="addr_search('inputSearchPlace','listAutoCompletePlace');" list="listAutoCompletePlace" autocomplete="off" type="text" class="form-control" placeholder="Saisir un lieu. Ex: Ville, Département, Région">
-							<datalist id="listAutoCompletePlace"></datalist>*@
-						<input type="search" id="address-input-ph" class="address-input inputSearchPlace" placeholder="Saisir un lieu. Ex: Ville, Département, Région" />
-						@*<input id="listAutoCompletePlaceHidden" name="listAutoCompletePlaceHidden" type="hidden" value="">*@
+						<input id="inputSearchPlace-ph" oninput="addr_searchCity(this);" name="autooComplete-ph" autocomplete="off" type="text"
+							   class="form-control inputSearchPlace" placeholder="Où recherchez-vous ?" >
+						@*<input type="search" id="address-input-ph" class="address-input inputSearchPlace" placeholder="Saisir un lieu. Ex: Ville, Département, Région" />*@
 						<div class="input-group-btn">
 							<div id="divBtnFiltre" class="btn-group" role="group">
 								<div id="div2BtnFiltre" class="dropdown dropdown-lg">
-									<button id="btnSearch" type="submit" class="btn btn-primary">
+									<button id="btnSearch" type="submit" class="btn btn-primary fontFamilyNote">
 										<p>Rechercher</p>
-										<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+										<i class="fas fa-search"></i>
 									</button>
 								</div>
 							</div>
@@ -35,8 +34,9 @@
 	}
 </div>
 
-<script type="text/javascript">
+@*<script type="text/javascript">
 	$(document).ready(function () {
-		initAutoComplete('#address-input-ph');
-	});
-</script>
+		//initAutoComplete('#address-input-ph');
+
+	})
+</script>*@

@@ -1,0 +1,124 @@
+﻿
+@{
+	ViewBag.Title = "CARecherche";
+}
+@if (!User.Identity.IsAuthenticated)
+{
+	<h2 class="title centerText">Inscrivez-vous et trouver votre future éco-colocation</h2>
+}
+else
+{
+	<div class="titleForm-mcar">Ajouter mon annonce de recherche d'éco-colocation</div>
+}
+<div class="divEncadrer-mcar">
+	<div class="encadrer-mcar col-sm-11 col-xs-12">
+		<div class="col-sm-4 divLeftSideEncadrer-mcar divImgLogo-mcar">
+			<div class="divImgLogoHorizontal-mcar">
+				<div class="divImgLogoVertical-mcar">
+					<i class="fas fa-search icon-ca"></i>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-8 divRightSideEncadrer-mcar">
+			<div class="col-sm-12">
+				<div id="divBudgMax-mcar" class="col-sm-4">
+					<label class="lbl-mcar">Budget maximum</label>
+				</div>
+				<div id="divInputBudgMax" class="col-sm-7">
+					<input type="number" class="input-mcar" placeholder="Entrez le buget max">
+					<div class="lineinput-mcar"></div>
+					<div id="euroSignBudgetMax-mcar">€</div>
+				</div>
+			</div>
+			<div class="col-sm-12">
+				<div id="div10-2-adresseLog-ca" style="position:relative" class="fontFamilyNote">
+					<div onclick="addNewPlace('#inputSearchPlace-mpc')" id="btnEnterNewPlace-mpc" class="fontFamilyNote">| Entrer</div>
+					<input id="inputSearchPlace-mpc" oninput="addr_searchCity(this);" type="text" class="inputSearchPlace form-control ui-autocomplete-input" placeholder="Où recherchez-vous ?" name="autoComplete-mpc" autocomplete="off">
+					<input id="inputSearchPlace-mpcHidden" name="inputSearchPlace-mpcHidden" type="hidden">
+					<div class="listAutoCompleteToModal"></div>
+					<div id="placeSaved-cpc">
+						<div id="place-cpc">
+						</div>
+					</div>
+					<div id="div10-3-adresseLog-ca" class="flex col-sm-12">
+						<div id="div10-4-adresseLog-ca" class="col-sm-2"></div>
+						<i class="fas fa-info" id="iconPlace-ca"></i>
+						<p class="col-sm-12" style="margin: auto;">Il vous est possible d'indiquer plusieurs lieux concernant votre projet de création d'éco-colocation</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+@Html.Partial("~/Views/Account/PersonalDataForm.cshtml")
+<div class="divEncadrer-mcar" id="divDesciptionInfo-mcar">
+	<div class="encadrer-mcar col-sm-11 col-xs-12">
+		<div class="col-sm-4 col-xs-12 divImgLogo-mcar">
+			<div class="divImgLogoHorizontal-mcar">
+				<div class="divImgLogoVertical-mcar">
+					<i class="fas fa-pencil-alt icon-ca"></i>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-8 col-xs-12" id="divGlobalPresent-mcar">
+			<div class="col-sm-12" id="divDesciptionInfo2-mcar">
+				<label class="lbl-mcar">Présentation de votre personnalité</label>
+				<textarea class="txtareaDesc-mcar input-mcar" id="txtareaPersoP-mcar" placeholder="Présentez-vous en quelque ligne..."></textarea>
+			</div>
+			<div class="col-sm-12" id="divCritereRecherche-mcar">
+				<label class="lbl-mcar" id="lblCritereRecherche-mcar">Information sur vos critères de recherche</label>
+				<textarea class="txtareaDesc-mcar input-mcar" placeholder="Présenter le type d'éco-colocation recherchée..."></textarea>
+				<textarea class="txtareaDesc-mcar input-mcar" placeholder="Présenter les pratiques écologiques envisagées..."></textarea>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="divEncadrer-mcar">
+	<div class="encadrer-mcar col-sm-11 col-xs-12">
+		<div class="col-sm-4 divLeftSideEncadrer-mcar divImgLogo-mcar">
+			<div class="divImgLogoHorizontal-mcar">
+				<div class="divImgLogoVertical-mcar">
+					<i class="fas fa-camera-retro icon-ca"></i>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-8 divRightSideEncadrer-mcar">
+			<div id="divGlobalMsgPhoto-mcar">
+				<i class="fas fa-info" id="iconMsgPhoto-mcar"></i>
+				<div>
+					<p>Les profils accompagnées de photos sont 7 fois plus consultés que les autres.</p>
+				</div>
+			</div>
+			<div id="divGlobalBtnUplFile-mcar">
+				<label id="btnUplFile-mcar" for="file-upload">Ajouter des photos de vous</label>
+				<input id="file-upload" type="file" multiple="multiple">
+			</div>
+		</div>
+	</div>
+</div>
+<div id="divGlobalResultFilesUpl-mcar">
+	<ul id="divResultFilesUpl-mcar" class='all-slides'>
+		@* Html généré par javascript dans la fonction showMultiplesFilesUpload() *@
+	</ul>
+</div>
+@if (!User.Identity.IsAuthenticated)
+{
+	<div id="divInscriptionButtons-mcar">
+		@Html.Partial("~/Views/Account/ButtonsCreateAccount.cshtml")
+	</div>
+}
+else
+{
+	<div class="flex" id="divInscriptionButtons-mcar">
+		<div class="childFlex btnGreen">Ajouter mon annonce</div>
+	</div>
+}
+
+<script type="text/javascript">
+	$(document).ready(function () {
+		//initAutoComplete("#address-input-mcar");
+		showMultiplesFilesUpload();
+		initSlidepicture();
+		showDivCritereRecherche();
+	});
+</script>

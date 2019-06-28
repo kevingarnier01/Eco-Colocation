@@ -18,24 +18,24 @@
 				<div class="photo-mpc mySlides" style="background: url(https://tel.img.pmdstatic.net/fit/http.3A.2F.2Fwww.2Eprogramme.2Etv.2Fupload.2Fepgs.2F2018.2F01.2Ftiny-house-mini-maison-a-emporter_123388556_2.2Ejpg/355x272/quality/80/tiny-house-mini-maison-a-emporter.jpg) 50% 50% no-repeat;"></div>
 				<div id="d1-btnphoto-mpc">
 					<div id="d1-2-btnphoto-mpc" onclick="plusDivs(-1)">
-						<img src="../Content/Images/Icons/arrow-left.png">
+						<img src="/Content/Images/Icons/arrow-left.png">
 					</div>
 				</div>
 				<div id="d2-btnphoto-mpc">
 					<div id="d2-1-btnphoto-mpc" onclick="plusDivs(+1)">
-						<img src="../Content/Images/Icons/arrow-right.png">
+						<img src="/Content/Images/Icons/arrow-right.png">
 					</div>
 				</div>
 			</div>
 		</div>
-		<div id="div-description-mpc" class="col-sm-6 col-xs-12">
+		<div id="div-description-mpc" class="col-sm-6 col-xs-12 fontFamilyNote">
 			<div id="d1-description-mpc">
 				<div id="d1-description-mpc" style="display: flex;">
 					<div style="margin-left: auto;margin-right: auto;display: flex;">
-						<div id="d1-2-description-mpc" class="col-sm-3 col-xs-3" style="margin-left: auto;margin-right:auto">
-							<div id="d1-2-1-description-mpc" style="background: url(../Content/Images/Personnes/Profil1.jpg) 50% 50% no-repeat;"></div>
+						<div id="d1-2-description-mpc" class="col-sm-5 col-xs-5" style="margin-left: auto;margin-right:auto">
+							<div id="d1-2-1-description-mpc" style="background: url(/Content/Images/Personnes/Profil1.jpg) 50% 50% no-repeat;"></div>
 						</div>
-						<div id="d1-3-description-mpc" class="col-sm-6 col-xs-6" style="margin-left: auto;margin-right: auto;">
+						<div id="d1-3-description-mpc" class="col-sm-7 col-xs-7" style="margin-left: auto;margin-right: auto;">
 							<h4>Matias</h4>
 							<p>22 ans, Indépendent</p>
 							<p id="p-d1-3-description-mpc">Posté il y a 3 jours</p>
@@ -49,15 +49,13 @@
 				</div>
 			</div>
 			<div id="d3-description-mpc">
-				<div class="d3-1-description-mpc" onclick="displayPhoneNumber('#numberPhone-mpc'/*Passer id client*/)">
-					<img src="../Content/Images/Icons/phone.png">
+				<div class="d3-1-description-mpc btnGreen" onclick="displayPhoneNumber('#numberPhone-mpc'/*Passer id client*/)">
+					<i class="fas fa-phone imgBtnContact-mpc"></i>
 					<span id="libelleTelephone-mpc">Afficher le numéro</span>
 					<span id="numberPhone-mpc"></span>
 				</div>
-				<div id="d3-2-description-mpc" onclick="displayPVMessage()">
-					<a href="#divMessage-ml">
-						<img src="../Content/Images/Icons/message.png">Envoyer un message
-					</a>
+				<div id="d3-2-description-mpc" onclick="displayPVMessage();$('#modalLocation').scrollTop(0);" class="btnGreen">
+					<i class="far fa-envelope imgBtnContact-mpc"></i>Envoyer un message
 				</div>
 			</div>
 			<div>
@@ -126,8 +124,36 @@
 						</tr>
 					</tbody>
 				</table>
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th scope="col" colspan="2">Villes concernées</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Rennes 35, Ille-et-Vilaine, Bretagne</td>
+
+						</tr>
+						<tr>
+							<td>Nouvoitou 35, Ille-et-Vilaine, Bretagne</td>
+
+						</tr>
+						<tr>
+							<td>Vern-sur-Seiche 35, Ille-et-Vilaine, Bretagne</td>
+
+						</tr>
+					</tbody>
+				</table>
 			</div>
 		</div>		
 		<a href="#close-modal" rel="modal:close" class="close-modal ">Close</a>
 	</div>
 </div>
+
+<script language="javascript">
+	$(document).ready(function () {
+		window.history.replaceState('data to be passed', 'Title of the page',
+			'/Modal/ModalProjetCreation/?targetCity=' + "@ViewData["targetCity"]" + "&idModal=" + @ViewData["IdModal"]  + "&urlCurrentPage=" + $('#urlCurrentPage').val());
+	});
+</script>
