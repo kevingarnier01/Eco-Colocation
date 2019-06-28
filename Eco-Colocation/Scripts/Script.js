@@ -59,7 +59,7 @@ $(document).ready(function () {
 			$('#rowTerrain').css('display', 'table-row');
 		}
 	});
-	
+
 	// Captures click events of all <a> elements with href starting with #
 	$("#btnPeopleSearch-ca").click(function (event) {
 		event.preventDefault();
@@ -261,40 +261,78 @@ function displayPhoneNumber(idElement) {
 	$(idElement).text(phone);
 }
 
-function displayMultiListe() {
-	document.getElementById("div2-multiList").classList.toggle("show");
+function displayMultiListe(listElement) {
+	setTimeout(function () {
+		document.getElementById(listElement).classList.toggle("show");
+	}, 50);
+}
+
+function checkIfChecked_LocationFilter() {
+	if ($('.checkboxNbColoc-fal:checked').length != 0) {
+		$('#titleNbColoc-fal').text("Nombre de colocatires max (" + $('.checkboxNbColoc-fal:checked').length + ")")
+	}
+	else {
+		$('#titleNbColoc-fal').text('Choix multiples')
+	}
+}
+
+function checkIfIsChecked_fal(elementCheck, titleToChange) {
+	if ($(elementCheck + ':checked').length != 0) {
+		var actualTitle = $(titleToChange).text();
+		$(titleToChange).text(actualTitle + "(" + $('.checkboxNbColoc-fal:checked').length + ")");
+	}
+	else {
+		$(titleToChange).text('Choix multiples')
+	}
+}
+
+function unCheckedAllItem_fal(elementsToUnchecked, elementTextToChange) {
+	$(elementsToUnchecked).attr("checked", false);
+	$(elementTextToChange).text('Choix multiples')
 }
 
 //Permet de fermer la liste checkbox
 $('#div1-multiList').on('mouseleave', function () {
 	$('#divfiltreHome').on('click', closeChildDropDown);
 });
-$('#div2-multiList').on('mouseleave', function () {
+$('.div2-multiList').on('mouseleave', function () {
 	$('#divfiltreHome').on('click', closeChildDropDown);
 });
 $('#div1-multiList').on('mouseenter', function () {
 	$("#divfiltreHome").prop("onclick", null).off("click");
 });
-$('#div2-multiList').on('mouseenter', function () {
+$('.div2-multiList').on('mouseenter', function () {
 	$("#divfiltreHome").prop("onclick", null).off("click");
 });
 
-function closeChildDropDown(e) {
-	if ($('#div2-multiList').length != 0 && $('#div2-multiList').css('display') == "block") {
-		var myDropdown = document.getElementById("div2-multiList");
-		if (myDropdown != null && myDropdown.classList.contains('show')) {
-			myDropdown.classList.remove('show');
+//function closeChildDropDown() {
+//	if ($('.div2-multiList').length != 0 && $('.div2-multiList').css('display') == "block") {
+//		var myDropdown = document.getElementsByClassName("div2-multiList");
+//		if (myDropdown != null) {
+//			for (i = 0; i < myDropdown.length; i++) {
+//				if (myDropdown[i].classList.contains('show')) {
+//					myDropdown[i].classList.remove('show');
+//				}
+//			}
+//		}
+//	}
+//}
+
+function closeChildDropDown() {
+	if ($('.div2-multiList').length != 0) {
+		for (i = 0; i < $('.div2-multiList').length; i++) {
+			if ($('.div2-multiList') != null) {
+				var myDropdown = document.getElementsByClassName("div2-multiList");
+				if (myDropdown[i].classList.contains('show')) {
+					myDropdown[i].classList.remove('show');
+				}
+			}
 		}
 	}
 }
 
 window.onclick = function (e) {
-	if ($('#div2-multiList').length != 0 && $('#div2-multiList').css('display') == "block") {
-		var myDropdown = document.getElementById("div2-multiList");
-		if (myDropdown != null && myDropdown.classList.contains('show')) {
-			myDropdown.classList.remove('show');
-		}
-	}
+	closeChildDropDown()
 }
 //Fin de la fermeture list checkBox
 
@@ -443,8 +481,10 @@ function addr_search(url, inputId, typeResearch) {
 			getLstAutoCompletion(myArr, inputId, typeResearch);
 		}
 	};
-
-	$(inputId).removeAttr("autocomplete").attr("autocomplete", "none");
+	//Permet de contourner l'attribute autoCompelte off qui ne fonctionne pas sur otut les navigateurs.
+	if ($(inputId).attr("name") == null) {
+		$(inputId).attr("name", "inputAutoComplete" + Math.random())
+	}
 	xmlhttp.open("GET", url, true);
 	xmlhttp.send();
 
