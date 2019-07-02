@@ -113,32 +113,44 @@
 									<tbody>
 										<tr>
 											<td class="col-xs-6">
-												<label for="Tarif_loyer">Loyer (sans charges)</label>
+												<label for="Loyer">Loyer (sans charges)</label>
 											</td>
 											<td class="col-xs-6">
-												<input id="Loyer" name="Loyer" type="number" value="" class="inputtable-ca">
+												<div class="flex">
+													<input id="Loyer" name="Loyer" type="number" value="" class="inputtable-ca">
+													<p class="centerText signInputPropose-ml">€</p>
+												</div>
 											</td>
 										</tr>
 										<tr>
 											<td class="col-xs-6"><label for="Charges">Charges</label></td>
 											<td class="col-xs-6">
-												<input id="Charges" name="Charges" type="number" value="" class="inputtable-ca">
+												<div class="flex">
+													<input id="Charges" name="Charges" type="number" value="" class="inputtable-ca">
+													<p class="centerText signInputPropose-ml">€</p>
+												</div>
 											</td>
 										</tr>
 										<tr>
 											<td class="col-xs-6"><label for="Caution">Caution</label></td>
 											<td class="col-xs-6">
-												<input id="Caution" name="Caution" type="number" value="" class="inputtable-ca">
+												<div class="flex">
+													<input id="Caution" name="Caution" type="number" value="" class="inputtable-ca">
+													<p class="centerText signInputPropose-ml">€</p>
+												</div>
 											</td>
 										</tr>
 										<tr>
 											<td class="col-xs-6"><label for="Superficie">Superficie</label></td>
 											<td class="col-xs-6">
-												<input id="Superficie" name="Superficie" type="number" value="" class="inputtable-ca">
+												<div class="flex">
+													<input id="Superficie" name="Superficie" type="number" value="" class="inputtable-ca">
+													<p class="centerText signInputPropose-ml">m²</p>
+												</div>
 											</td>
 										</tr>
 										<tr>
-											<td class="col-xs-6"><label for="Meublee">Meublée</label></td>
+											<td class="col-xs-6"><label>Meublée</label></td>
 											<td style="padding: 0;padding-top: 4px;padding-left: 8px;">
 												<p class="onoff">
 													<input type="checkbox" value="1" id="meuble-cb">
@@ -147,9 +159,9 @@
 											</td>
 										</tr>
 										<tr>
-											<td class="col-xs-6"><label for="Disponibilit_">Disponibilité</label></td>
+											<td class="col-xs-6"><label for="Disponibilite">Disponibilité</label></td>
 											<td class="col-xs-6">
-												<input id="Disponibilite" name="Disponibilite" type="date" class="inputtable-ca">
+												<input id="Disponibilite" name="Disponibilite" type="date" class="inputtable-ca inputtableDate-ca">
 											</td>
 										</tr>
 									</tbody>
@@ -175,7 +187,7 @@
 										<tr>
 											<td class="col-xs-6"><label for="Type">Type</label></td>
 											<td class="col-xs-6">
-												<select class="form-control">
+												<select class="form-control" id="Type">
 													<option value="1">Habitat léger</option>
 													<option value="2">Appartement</option>
 													<option value="2">Maison</option>
@@ -183,9 +195,9 @@
 											</td>
 										</tr>
 										<tr>
-											<td class="col-xs-6"><label for="Localisation">Implantation</label></td>
+											<td class="col-xs-6"><label for="Implantation">Implantation</label></td>
 											<td class="col-xs-6">
-												<select class="form-control">
+												<select class="form-control" id="Implantation">
 													<option value="1">Campagne</option>
 													<option value="2">Ville</option>
 												</select>
@@ -194,23 +206,32 @@
 										<tr>
 											<td class="col-xs-6"><label for="Superficie">Superficie</label></td>
 											<td class="col-xs-6">
-												<input id="Superficie" name="Superficie" type="text" class="form-control inputtable-ca">
+												<div class="flex">
+													<input id="Superficie" name="Superficie" type="number" class="inputtable-ca">
+													<p class="centerText signInputPropose-ml">m²</p>
+												</div>
 											</td>
 										</tr>
 										<tr>
-											<td class="col-xs-6"><label for="Coloc_d_j__pr_sents">Colocs déjà présents</label></td>
+											<td class="col-xs-6"><label for="nbPieceLogement">Nombre de pièce</label></td>
 											<td class="col-xs-6">
-												<input id="ColocationresPresents" name="ColocationresPresents" type="number" class="inputtable-ca">
+												<input id="nbPieceLogement" name="nbPieceLogement" type="number" class="inputtable-ca">
 											</td>
 										</tr>
 										<tr>
-											<td class="col-xs-6"><label for="Coloc_d_j__pr_sents">Nombre de colocs max</label></td>
+											<td class="col-xs-6"><label for="ColocationresRestants">Nombre de coloc restant</label></td>
 											<td class="col-xs-6">
-												<input id="ColocationresPresents" name="ColocationresPresents" type="number" class="inputtable-ca">
+												<input id="ColocationresRestants" name="ColocationresPresents" type="number" class="inputtable-ca">
 											</td>
 										</tr>
 										<tr>
-											<td class="col-xs-6"><label for="Fumeur">Moyen d’accès écolo au centre-ville</label></td>
+											<td class="col-xs-6"><label for="ColocationresMax">Nombre de colocs max</label></td>
+											<td class="col-xs-6">
+												<input id="ColocationresMax" name="ColocationresMax" type="number" class="inputtable-ca">
+											</td>
+										</tr>
+										<tr>
+											<td class="col-xs-6"><label>Moyen d’accès écolo au centre-ville</label></td>
 											<td style="padding: 0;padding-top: 4px;padding-left: 8px;">
 												<p class="onoff">
 													<input type="checkbox" value="1" id="accesEcolo-cb">
@@ -220,7 +241,7 @@
 										</tr>
 										<tr>
 											<td class="col-xs-6">
-												<label for="accesHandicap">Accessibilité handicapé</label>
+												<label>Accessibilité handicapé</label>
 											</td>
 											<td style="padding: 0;padding-top: 4px;padding-left: 8px;">
 												<p class="onoff">
@@ -250,7 +271,7 @@
 								<table class="table table-striped">
 									<tbody>
 										<tr>
-											<td class="col-xs-6"><label for="Fumeur">Accessibilité fumeur</label></td>
+											<td class="col-xs-6"><label>Accessibilité fumeur</label></td>
 											<td style="padding: 0;padding-top: 4px;padding-left: 8px;">
 												<p class="onoff">
 													<input type="checkbox" value="1" id="fumeur-cb">
@@ -259,7 +280,7 @@
 											</td>
 										</tr>
 										<tr>
-											<td class="col-xs-6"><label for="Animaux">Accessibilité animaux</label></td>
+											<td class="col-xs-6"><label>Accessibilité animaux</label></td>
 											<td style="padding: 0;padding-top: 4px;padding-left: 8px;">
 												<p class="onoff">
 													<input type="checkbox" value="1" id="animaux-cb">
@@ -291,7 +312,7 @@
 			</div>
 		}
 
-		<a href="#close-modal" rel="modal:close" class="close-modal" onclick="autoCompletePrepend()">Close</a>
+		<a href="#close-modal" rel="modal:close" onclick="autoCompletePrepend()"><i class="fas fa-times close-modal"></i></a>
 	</div>
 </div>
 

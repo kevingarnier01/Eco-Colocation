@@ -131,7 +131,7 @@
 						</div>
 						<div class="div2-1-multiList">
 							<div class="div2-2-multiList col-xs-2">
-								<input id="chkHabitatLeger-fal" type="checkbox" class="checkboxTypesLogement-fal" value="1" onchange="checkIfIsChecked_fal()" checked>
+								<input id="chkHabitatLeger-fal" type="checkbox" class="checkboxTypesLogement-fal" value="1" onchange="checkIfIsChecked_fal(this, '#titleTypesLogement-fal')" checked>
 							</div>
 							<div class="div2-3-multiList col-xs-10">
 								<label for="chkHabitatLeger-fal">Habitat léger</label>
@@ -139,7 +139,7 @@
 						</div>
 						<div class="div2-1-multiList">
 							<div class="div2-2-multiList col-xs-2">
-								<input id="chkAppartement-fal" type="checkbox" class="checkboxTypesLogement-fal" value="1" onchange="checkIfIsChecked_fal()" checked>
+								<input id="chkAppartement-fal" type="checkbox" class="checkboxTypesLogement-fal" value="1" onchange="checkIfIsChecked_fal(this, '#titleTypesLogement-fal')" checked>
 							</div>
 							<div class="div2-3-multiList col-xs-10">
 								<label for="chkAppartement-fal">Appartement</label>
@@ -183,6 +183,61 @@
 						}
 					</select>
 				</div>
+				<div class="col-xs-6 form-group dropdown">
+					<label for="filter">Nombre de piece</label><br>
+					<div id="div1-multiList" onclick="displayMultiListe('listNbPiece-fal')">
+						<div id="div1-1-multiList">
+							<p id="titleNbPiece-fal">Choix multiples</p>
+						</div>
+						<div id="div1-2-multiList">
+							<span class="caret"></span>
+						</div>
+					</div>
+					<div id="listNbPiece-fal" class="dropdown-content div2-multiList">
+						<div class="div2-1-multiList">
+							<div class="div2-2-multiList col-xs-2">
+								<i class="fas fa-times pointer unCheck-fal"
+								   onclick="unCheckedAllItem_fal('.checkboxNbPiece-fal', '#titleNbPiece-fal')"></i>
+							</div>
+							<div class="div2-3-multiList col-xs-10">
+								<label for="Tous_colocataires" onclick="unCheckedAllItem_fal('.checkboxNbPiece-fal', '#titleNbPiece-fal')"
+									   class="pointer">Tout décocher</label>
+							</div>
+						</div>
+						@for (var i = 1; i < 8; i++)
+						{
+							if (i != 8)
+							{
+								<div class="div2-1-multiList">
+									<div class="div2-2-multiList col-xs-2">
+										<input id="chk+@i-fal" type="checkbox" class="checkboxNbPiece-fal" value="1" onchange="checkIfIsChecked_fal(this, '#titleNbPiece-fal')" checked>
+									</div>
+									<div class="div2-3-multiList col-xs-10">
+										@if (i == 1)
+										{
+											<label for="chk+@i-fal">1 pièce</label>
+										}
+										else
+										{
+											<label for="chk+@i-fal">@i pièces</label>
+										}
+									</div>
+								</div>
+							}
+							else
+							{
+								<div class="div2-1-multiList">
+									<div class="div2-2-multiList col-xs-2">
+										<input id="chkAppartement-fal" type="checkbox" class="checkboxTypesLogement-fal" value="1" onchange="checkIfIsChecked_fal(this, '#titleNbPiece-fal')" checked>
+									</div>
+									<div class="div2-3-multiList col-xs-10">
+										<label for="chkAppartement-fal">@i pièce et plus</label>
+									</div>
+								</div>
+							}
+						}
+					</div>
+				</div>
 				<div class="col-xs-6 form-group">
 					<label for="filter">Date de publication</label><br />
 					<select class="form-control">
@@ -193,6 +248,18 @@
 						<option value="3">Depuis une semaine</option>
 						<option value="4">Depuis de 3 jours</option>
 						<option value="5">Ajoutée aujourd'hui</option>
+					</select>
+				</div>
+				<div class="col-xs-6 form-group">
+					<label for="filter">Disponibilité de la chambre</label><br />
+					<select class="form-control">
+						<option value="0" selected>Peu importe</option>
+						<option value="1">plus de 2 mois</option>
+						<option value="1">2 mois ou mois</option>
+						<option value="2">1 mois ou mois</option>
+						<option value="3">2 semaine ou moins</option>
+						<option value="4">1 semaine ou moins</option>
+						<option value="5">Maintenant</option>
 					</select>
 				</div>
 				<div class="col-xs-6 form-group dropdown">
@@ -218,7 +285,7 @@
 						</div>
 						<div class="div2-1-multiList">
 							<div class="div2-2-multiList col-xs-2">
-								<input id="chkChambreMeuble-fal" type="checkbox" class="checkboxCommodites-fal" value="1" onchange="checkIfIsChecked_fal()" checked>
+								<input id="chkChambreMeuble-fal" type="checkbox" class="checkboxCommodites-fal" value="1" onchange="checkIfIsChecked_fal(this, '#titleCommodites-fal')" checked>
 							</div>
 							<div class="div2-3-multiList col-xs-10">
 								<label for="chkChambreMeuble-fal">Chambre meublée</label>
@@ -244,14 +311,14 @@
 						</div>
 						<div class="div2-1-multiList">
 							<div class="div2-2-multiList col-xs-2">
-								<input id="chkAccesHandicape-fal" type="checkbox" class="checkboxCommodites-fal" value="1" onchange="checkIfIsChecked_fal()" checked>
+								<input id="chkAccesHandicape-fal" type="checkbox" class="checkboxCommodites-fal" value="1" onchange="checkIfIsChecked_fal(this, '#titleCommodites-fal')" checked>
 							</div>
 							<div class="div2-3-multiList col-xs-10">
 								<label for="chkAccesHandicape-fal">Accessibilité handicapé</label>
 							</div>
 						</div>
 					</div>
-				</div>				
+				</div>
 				<div class="col-xs-6 form-group" id="div1SubmitBtnFiltre-Al">
 					<div id="div2SubmitBtnFiltre-Al" class="btnGreen">
 						<a id="submitBtnFiltre-Al" href="#">Valider</a>

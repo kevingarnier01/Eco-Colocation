@@ -482,8 +482,15 @@ select:-moz-focusring {
 }
 
 .close-modal {
-	margin-top: 15px;
-	margin-right: 15px
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	font-size: 20px;
+	color: white !important;
+	background-color: #C4D102;
+	padding: 5px 8px;
+	border-radius: 5px;
+	box-shadow: 0 0 3px black;
 }
 
 .modal-spinner {
@@ -2796,6 +2803,17 @@ i.fas.fa-times.crossPlace-cpc {
 		border: none;
 		border-radius: 5px;
 		box-shadow: 0 0 2px 0px black;
+		text-align: center
+	}
+
+	#div2-descInform-ca td .inputtableDate-ca {
+		text-align: inherit;
+	}
+
+	#div2-descInform-ca td .signInputPropose-ml {
+		width: 50px;
+		text-align: center;
+		color: #555;
 	}
 
 	#div2-descInform-ca td label {
