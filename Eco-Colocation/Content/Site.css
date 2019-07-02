@@ -362,6 +362,12 @@ a, p h1, h2, h3, h4, h5, h6, input, textarea, label, span, div, table {
 	font-size: 35px;
 }
 
+.underTitle {
+	color: #00C2D6;
+	font-family: Noteworthy !important;
+	font-weight: bold;
+}
+
 .btnGreen {
 	background-color: #C4D102;
 	font-family: 'Noteworthy';
@@ -848,6 +854,13 @@ body .ui-autocomplete a {
 	flex-wrap: wrap
 }
 
+	#div2-filtreHome select {
+		outline: none;
+		border-color: #cecece;
+		-webkit-box-shadow: none;
+		box-shadow: 0 0 1px #999;
+	}
+
 #div2-1-loyer-fh {
 	padding: 0;
 	display: flex
@@ -862,10 +875,6 @@ body .ui-autocomplete a {
 	#div-2-1-1-loyer-fh select {
 		width: 48%;
 		height: 33px;
-		outline: none;
-		border-color: #86858566;
-		-webkit-box-shadow: none;
-		box-shadow: 0 0 1px #999;
 	}
 
 #select1-loyer-fh {
@@ -2374,9 +2383,16 @@ d5-description-mpc {
 	color: #888
 }
 
-#inputSearchPlace-car {
-	font-weight: inherit;
+#htmlBlockModalLocation-ml select {
+	width: 180px;
+	height: 30px;
+	padding-top: 2px;
+	padding-left: 5px;
 }
+
+	#inputSearchPlace-car {
+		font-weight: inherit;
+	}
 
 #div-title-ca {
 	display: flex

@@ -116,25 +116,25 @@
 												<label for="Tarif_loyer">Loyer (sans charges)</label>
 											</td>
 											<td class="col-xs-6">
-												<input id="Loyer" name="Loyer" type="text" value="" class="inputtable-ca">
+												<input id="Loyer" name="Loyer" type="number" value="" class="inputtable-ca">
 											</td>
 										</tr>
 										<tr>
 											<td class="col-xs-6"><label for="Charges">Charges</label></td>
 											<td class="col-xs-6">
-												<input id="Charges" name="Charges" type="text" value="" class="inputtable-ca">
+												<input id="Charges" name="Charges" type="number" value="" class="inputtable-ca">
 											</td>
 										</tr>
 										<tr>
 											<td class="col-xs-6"><label for="Caution">Caution</label></td>
 											<td class="col-xs-6">
-												<input id="Caution" name="Caution" type="text" value="" class="inputtable-ca">
+												<input id="Caution" name="Caution" type="number" value="" class="inputtable-ca">
 											</td>
 										</tr>
 										<tr>
 											<td class="col-xs-6"><label for="Superficie">Superficie</label></td>
 											<td class="col-xs-6">
-												<input id="Superficie" name="Superficie" type="text" value="" class="inputtable-ca">
+												<input id="Superficie" name="Superficie" type="number" value="" class="inputtable-ca">
 											</td>
 										</tr>
 										<tr>
@@ -173,39 +173,60 @@
 								<table class="table table-striped">
 									<tbody>
 										<tr>
-											<td class="col-xs-6"><label for="Localisation">Localisation</label></td>
+											<td class="col-xs-6"><label for="Type">Type</label></td>
 											<td class="col-xs-6">
-												<input id="Localisation" name="Localisation" type="text" class="inputtable-ca">
+												<select class="form-control">
+													<option value="1">Habitat léger</option>
+													<option value="2">Appartement</option>
+													<option value="2">Maison</option>
+												</select>
 											</td>
 										</tr>
 										<tr>
-											<td class="col-xs-6"><label for="Type">Type</label></td>
+											<td class="col-xs-6"><label for="Localisation">Implantation</label></td>
 											<td class="col-xs-6">
-												<input id="Type" name="Type" type="text" class="inputtable-ca">
+												<select class="form-control">
+													<option value="1">Campagne</option>
+													<option value="2">Ville</option>
+												</select>
 											</td>
 										</tr>
 										<tr>
 											<td class="col-xs-6"><label for="Superficie">Superficie</label></td>
 											<td class="col-xs-6">
-												<input id="Superficie" name="Superficie" type="text" class="inputtable-ca">
+												<input id="Superficie" name="Superficie" type="text" class="form-control inputtable-ca">
 											</td>
 										</tr>
 										<tr>
 											<td class="col-xs-6"><label for="Coloc_d_j__pr_sents">Colocs déjà présents</label></td>
 											<td class="col-xs-6">
-												<input id="ColocationresPresents" name="ColocationresPresents" type="text" class="inputtable-ca">
+												<input id="ColocationresPresents" name="ColocationresPresents" type="number" class="inputtable-ca">
 											</td>
 										</tr>
 										<tr>
 											<td class="col-xs-6"><label for="Coloc_d_j__pr_sents">Nombre de colocs max</label></td>
 											<td class="col-xs-6">
-												<input id="ColocationresPresents" name="ColocationresPresents" type="text" class="inputtable-ca">
+												<input id="ColocationresPresents" name="ColocationresPresents" type="number" class="inputtable-ca">
 											</td>
 										</tr>
 										<tr>
-											<td class="col-xs-6"><label for="Accessibilit__handicap_">Accessibilité handicapé</label></td>
+											<td class="col-xs-6"><label for="Fumeur">Moyen d’accès écolo au centre-ville</label></td>
+											<td style="padding: 0;padding-top: 4px;padding-left: 8px;">
+												<p class="onoff">
+													<input type="checkbox" value="1" id="accesEcolo-cb">
+													<label for="accesEcolo-cb"></label>
+												</p>
+											</td>
+										</tr>
+										<tr>
 											<td class="col-xs-6">
-												<input id="AccessibiliteHandicape" name="AccessibiliteHandicape" type="text" class="inputtable-ca">
+												<label for="accesHandicap">Accessibilité handicapé</label>
+											</td>
+											<td style="padding: 0;padding-top: 4px;padding-left: 8px;">
+												<p class="onoff">
+													<input type="checkbox" value="1" id="accesHandicap-cb">
+													<label for="accesHandicap-cb"></label>
+												</p>
 											</td>
 										</tr>
 									</tbody>
@@ -229,7 +250,7 @@
 								<table class="table table-striped">
 									<tbody>
 										<tr>
-											<td class="col-xs-6"><label for="Fumeur">Fumeur</label></td>
+											<td class="col-xs-6"><label for="Fumeur">Accessibilité fumeur</label></td>
 											<td style="padding: 0;padding-top: 4px;padding-left: 8px;">
 												<p class="onoff">
 													<input type="checkbox" value="1" id="fumeur-cb">
@@ -238,7 +259,7 @@
 											</td>
 										</tr>
 										<tr>
-											<td class="col-xs-6"><label for="Animaux">Animaux</label></td>
+											<td class="col-xs-6"><label for="Animaux">Accessibilité animaux</label></td>
 											<td style="padding: 0;padding-top: 4px;padding-left: 8px;">
 												<p class="onoff">
 													<input type="checkbox" value="1" id="animaux-cb">

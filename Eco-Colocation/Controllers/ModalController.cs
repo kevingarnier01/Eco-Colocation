@@ -63,7 +63,7 @@ namespace Eco_Colocation.Controllers
 
 			ViewData["idModalToTrigger"] = "#annonceLocationPVLink-" + idModal;
 
-			if(urlCurrentPage.Length != 0)
+			if(urlCurrentPage != null && urlCurrentPage.Length != 0)
 			{
 				return View("~/Views" + urlCurrentPage + ".cshtml", allViewModel);
 			}
