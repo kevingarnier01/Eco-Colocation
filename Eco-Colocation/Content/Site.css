@@ -46,7 +46,7 @@ header {
 
 	header nav {
 		padding-top: 5px;
-		padding-bottom: 5px
+		padding-bottom: 8px
 	}
 
 	header h2 {
@@ -80,7 +80,8 @@ main {
 /* Navbar */
 .navbar {
 	background-color: white;
-	border-bottom: none
+	border-bottom: none;
+	box-shadow: 0 0 2px #999;
 }
 
 	.navbar #menu-main_menu {
@@ -692,7 +693,6 @@ body .ui-autocomplete a {
 
 #switcher-wrapper {
 	display: flex;
-	/*margin-top: 50px;*/
 	margin-bottom: 30px;
 	margin-top: initial;
 	padding-top: 75px
@@ -861,11 +861,12 @@ body .ui-autocomplete a {
 	flex-wrap: wrap
 }
 
-	#div2-filtreHome select {
+	#div2-filtreHome select, #div2-filtreHome .div1-multiList {
 		outline: none;
 		border-color: #cecece;
 		-webkit-box-shadow: none;
 		box-shadow: 0 0 1px #999;
+		cursor: pointer;
 	}
 
 #div2-1-loyer-fh {
@@ -902,7 +903,7 @@ body .ui-autocomplete a {
 	width: 150px
 }
 
-#div1-multiList {
+.div1-multiList {
 	display: flex;
 	margin-top: 1px;
 	height: 32px;
@@ -921,18 +922,21 @@ body .ui-autocomplete a {
 	width: 90%
 }
 
-	#div1-1-multiList p {
+	#div1-1-multiList .titleChoixMultiples-fal {
 		margin-top: 5px;
 		margin-left: 5px;
-		margin-bottom: 0
+		margin-bottom: 0;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		overflow: hidden;
 	}
 
-#div1-2-multiList {
-	display: inline-flex;
-	width: 20px;
-	padding-top: 13px;
-	padding-left: 5px;
-}
+	#div1-2-multiList {
+		display: inline-flex;
+		width: 20px;
+		padding-top: 13px;
+		padding-left: 5px;
+	}
 
 .div2-multiList {
 	position: absolute;
@@ -996,6 +1000,30 @@ body .ui-autocomplete a {
 	width: 130px;
 	height: 30px;
 	text-align: center;
+}
+
+#commoditeUnderDiv-fal label {
+	min-width: inherit;
+}
+
+#commoditeUnderDiv-fal {
+	padding: 0;
+}
+
+#oneOfCommodite-fal {
+	height: 19px;
+}
+
+#chkBoxCommodite-fal {
+	margin-right: 10px;
+}
+
+#commoditeUnderDiv-fal .div2-1-multiList {
+	margin: 10px auto;
+}
+
+#dateDisponibilty-fal {
+	padding-left: 5px;
 }
 
 #submitBtnFiltre-Al {

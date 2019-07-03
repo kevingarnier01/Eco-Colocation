@@ -144,7 +144,7 @@
 													<option value="0">Tout type d'habitat</option>
 													<option value="1">Maison</option>
 													<option value="2">Appartement</option>
-													<option value="3">Habitat alternatif</option>
+													<option value="3">Habitat léger</option>
 												</select>
 											</td>
 										</tr>
@@ -154,8 +154,7 @@
 												<select id="select2-loyer-fh" class="form-control">
 													<option value="0">Toutes localisations</option>
 													<option value="1">Campagne</option>
-													<option value="2">Village</option>
-													<option value="3">Ville</option>
+													<option value="2">Ville</option>
 												</select>
 											</td>
 										</tr>
@@ -180,27 +179,59 @@
 										<tr id="rowCreation" class="rowByEngagement">
 											<td class="col-xs-6"><label for="Loyer">Cout de création</label></td>
 											<td class="col-xs-6">
-												<input id="coutCreationMoy" name="coutCreationMoy" type="text" class="inputtable-ca" placeholder="Cout de création moyen" style="width: 150px;padding: 5px 8px;">
+												<div class="flex">
+													<input id="coutCreationMoy" name="coutCreationMoy" type="number" class="inputtable-ca" placeholder="Cout de création moyen" style="width: 150px;padding: 5px 8px;padding-right: 0;">
+													<p class="centerText signInputPropose-ml">€</p>
+												</div>
 											</td>
 										</tr>
 										<tr id="rowTerrain" class="rowByEngagement">
 											<td class="col-xs-6"><label for="Loyer">Cout du terrain</label></td>
 											<td class="col-xs-6">
-												<input id="coutTerrainMoy" name="coutTerrainMoy" type="text" class="inputtable-ca" placeholder="Cout de terrain moyen" style="width: 150px;padding: 5px 8px;">
+												<div class="flex">
+													<input id="coutTerrainMoy" name="coutTerrainMoy" type="number" class="inputtable-ca" placeholder="Cout de terrain moyen" style="width: 150px;padding: 5px 8px;">
+													<p class="centerText signInputPropose-ml">€</p>
+												</div>
 											</td>
 										</tr>
 										<tr id="rowAchat" class="rowByEngagement">
 											<td class="col-xs-6"><label for="Loyer">Cout de l'achat</label></td>
 											<td class="col-xs-6">
-												<input id="coutAchatMoy" name="coutAchatMoy" type="text" class="inputtable-ca" placeholder="Cout d'achat moyen" style="width: 150px;padding: 5px 8px;">
+												<div class="flex">
+													<input id="coutAchatMoy" name="coutAchatMoy" type="number" class="inputtable-ca" placeholder="Cout d'achat moyen" style="width: 150px;padding: 5px 8px;">
+													<p class="centerText signInputPropose-ml">€</p>
+												</div>
 											</td>
 										</tr>
 										<tr id="rowLoyer" class="rowByEngagement">
 											<td class="col-xs-6"><label for="Loyer">Loyer / personne</label></td>
 											<td class="col-xs-6">
 												<div id="div-2-1-1-loyer-fh">
-													<input id="loyerMoy" name="loyerMoy" type="text" class="inputtable-ca" placeholder="Loyer moyen" style="width: 150px;padding: 5px 10px;">
+													<div class="flex">
+														<input id="loyerMoy" name="loyerMoy" type="number" class="inputtable-ca" placeholder="Loyer moyen" style="width: 150px;padding: 5px 10px;">
+														<p class="centerText signInputPropose-ml">€</p>
+													</div>
 												</div>
+											</td>
+										</tr>
+										<tr>
+											<td class="col-xs-6"><label>Moyen d’accès écolo au centre-ville</label></td>
+											<td style="padding: 0;padding-top: 4px;padding-left: 8px;">
+												<p class="onoff">
+													<input type="checkbox" value="1" id="accesEcolo-cb">
+													<label for="accesEcolo-cb"></label>
+												</p>
+											</td>
+										</tr>
+										<tr>
+											<td class="col-xs-6">
+												<label>Accessibilité handicapé</label>
+											</td>
+											<td style="padding: 0;padding-top: 4px;padding-left: 8px;">
+												<p class="onoff">
+													<input type="checkbox" value="1" id="accesHandicap-cb">
+													<label for="accesHandicap-cb"></label>
+												</p>
 											</td>
 										</tr>
 									</tbody>

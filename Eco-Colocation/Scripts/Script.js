@@ -261,19 +261,9 @@ function displayPhoneNumber(idElement) {
 	$(idElement).text(phone);
 }
 
-function checkIfChecked_LocationFilter() {
-	if ($('.checkboxNbColoc-fal:checked').length != 0) {
-		$('#titleNbColoc-fal').text("Nombre de colocatires max (" + $('.checkboxNbColoc-fal:checked').length + ")")
-	}
-	else {
-		$('#titleNbColoc-fal').text('Choix multiples')
-	}
-}
-
-function checkIfIsChecked_fal(elementCheck, titleToChange) {
+function checkIfIsChecked_fal(elementCheck, actualTitle, titleToChange) {
 	if ($(elementCheck + ':checked').length != 0) {
-		var actualTitle = $(titleToChange).text();
-		$(titleToChange).text(actualTitle + "(" + $('.checkboxNbColoc-fal:checked').length + ")");
+		$(titleToChange).text($(actualTitle).text() + "(" + $(elementCheck + ':checked').length + ")");
 	}
 	else {
 		$(titleToChange).text('Choix multiples')
@@ -298,13 +288,13 @@ function displayMultiListe(listElement) {
 }
 
 //Permet de fermer la liste checkbox
-$('#div1-multiList').on('mouseleave', function () {
+$('.div1-multiList').on('mouseleave', function () {
 	$('#divfiltreHome').on('click', closeChildDropDown);
 });
 $('.div2-multiList').on('mouseleave', function () {
 	$('#divfiltreHome').on('click', closeChildDropDown);
 });
-$('#div1-multiList').on('mouseenter', function () {
+$('.div1-multiList').on('mouseenter', function () {
 	$("#divfiltreHome").prop("onclick", null).off("click");
 });
 $('.div2-multiList').on('mouseenter', function () {
