@@ -557,9 +557,9 @@ function initHtmlTagToAutoComplete() {
 // -------------- Fin nominatim.openstreetmap.org  ---------------
 
 function addNbChambreDisponible() {
-	//var divChambre = $('.divGlobalChambre-ml')[0].outerHTML;
+	var divChambre = $('#div1-descInform-ca')[0].outerHTML;
 	
-	//$(".divGlobalChambre-ml").after(divChambre);
+	$("#divOthersEvents-ereom").after(event);
 }
 
 function openSecondModal() {

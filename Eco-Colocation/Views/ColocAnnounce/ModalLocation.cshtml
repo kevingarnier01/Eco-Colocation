@@ -33,8 +33,8 @@
 						</div>
 						<div id="div2DescAnn-ca" class="col-sm-12 col-xs-12">
 							<div id="div2-1DescAnn-ca" class="col-sm-12 col-xs-12">
-								<textarea id="descRecherche-ml" name="descAnnonce" 
-											placeholder="Ex: Deux chambres meublées se libères dans notre maison ..."></textarea>
+								<textarea id="descRecherche-ml" name="descAnnonce"
+										  placeholder="Ex: Deux chambres meublées se libères dans notre maison ..."></textarea>
 							</div>
 						</div>
 					</div>
@@ -136,18 +136,18 @@
 						<div id="div10-1-adresseLog-ca" class="col-sm-8 col-xs-12">
 							<div id="div10-2-adresseLog-ca">
 								@*<input id="inputAddresseMap-ML" type="text" oninput="addr_search('inputAddresseMap-ML','listAutoCompletePlaceML');" list="listAutoCompletePlaceML" autocomplete="off" class="inputAdresseLog-ca">
-									<datalist id="listAutoCompletePlaceML"></datalist>*@
+							<datalist id="listAutoCompletePlaceML"></datalist>*@
 								@*<input type="search" id="address-input-ml" class="address-input"
-									placeholder="Localisation de l'endroit" />*@
+							placeholder="Localisation de l'endroit" />*@
 								<input id="inputSearchPlace-car" oninput="addr_searchStreet(this);" autocomplete="off" type="text" class="inputSearchPlace form-control" placeholder="Entrez l'adresse de votre colocation">
 								<div class="listAutoCompleteToModal"></div>
 								@*@for (int i = 0; i < 4; i++)
-									{
-										@Html.Hidden("adresseVille", null, new { @class = "addresseVille" + i })
-										@Html.Hidden("adresseRegion", null, new { @class = "adresseRegion" + i })
-										@Html.Hidden("adressePays", null, new { @class = "adressePays" + i })
-										@Html.Hidden("adresseLatLng", null, new { @class = "adresseLatLng" + i })
-									}*@
+							{
+								@Html.Hidden("adresseVille", null, new { @class = "addresseVille" + i })
+								@Html.Hidden("adresseRegion", null, new { @class = "adresseRegion" + i })
+								@Html.Hidden("adressePays", null, new { @class = "adressePays" + i })
+								@Html.Hidden("adresseLatLng", null, new { @class = "adresseLatLng" + i })
+							}*@
 								<div id="div10-3-adresseLog-ca" class="flex col-sm-12 textInfoAdresse-ca">
 									<div id="div10-4-adresseLog-ca" class="col-sm-2"></div>
 									<i class="fas fa-info" id="iconPlace-ca"></i>
@@ -160,9 +160,15 @@
 					</div>
 				</div>
 			</div>
+			<div class="flex col-xs-12" id="divGlobalNbChambre-ml" flex="">
+				<div class="flex childFlex" id="divNbChambres-ml">
+					<p for="nbChambre-ml" id="lbNbChambre-ml">Nombre de chambre disponible</p>
+					<input id="nbChambre-ml" type="number" min="1" class="inputtable-ca" oninput="addNbChambreDisponible()">
+				</div>
+			</div>
 			<div id="div1-descInform-ca" class="col-sm-12">
 				<div id="div2-descInform-ca" class="col-sm-11 col-xs-12">
-					<div class="div20-descInform-ca">
+					<div class="div20-descInform-ca divGlobalChambre-ml">
 						<div class="div2-1-descInform-ca">
 							<div class="col-sm-4 div2-2-descInform-ca">
 								<div class="div2-3-descInform-ca">

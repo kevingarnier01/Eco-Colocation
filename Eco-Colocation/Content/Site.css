@@ -2720,9 +2720,16 @@ i.fas.fa-times.crossPlace-cpc {
 	padding: 0
 }
 
-	#div1-descInform-ca .table-striped > tbody > tr:nth-of-type(odd) {
-		background-color: #eef3b5;
+
+@media screen and (max-width: 768px) {
+	#div1-descInform-ca {
+		display: block;
 	}
+}
+
+#div1-descInform-ca .table-striped > tbody > tr:nth-of-type(odd) {
+	background-color: #eef3b5;
+}
 
 #txtBtn-mpc {
 	margin-bottom: 15px;
@@ -2834,6 +2841,19 @@ i.fas.fa-times.crossPlace-cpc {
 	color: #8f9714;
 }
 
+#divGlobalNbChambre-ml {
+	margin-bottom: 10px;
+}
+
+#lbNbChambre-ml {
+	font-size: 18px;
+	margin-right: 15px;
+}
+
+#nbChambre-ml {
+	width: 80px;
+}
+
 #div2-descInform-ca th {
 	background-color: lightgrey
 }
@@ -2846,7 +2866,7 @@ i.fas.fa-times.crossPlace-cpc {
 	font-weight: initial;
 }
 
-	#div2-descInform-ca td .inputtable-ca {
+	#div2-descInform-ca td .inputtable-ca, #divNbChambres-ml .inputtable-ca {
 		padding: 4px 10px;
 		border: none;
 		border-radius: 5px;
