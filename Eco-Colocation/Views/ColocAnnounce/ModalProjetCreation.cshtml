@@ -17,27 +17,82 @@
 		<div id="htmlBlockModalCreationProjet-mpc">
 			<div id="div1-contenu-ca" class="col-sm-12">
 				<div id="div1-1-contenu-ca" class="col-sm-11 col-xs-12">
+					<div class="childFlex" id="infoChampsAnnonce-ml-mpc">
+						<h4 class="centerText">Les champs ci-dessous sont un support pour améliorer le contenu de votre annonce.</h4>
+						<p class="centerText">A l'affichage ils seront regroupés dans un seul text.</p>
+						<p class="centerText">Merci de faire des phrases.</p>
+					</div>
 					<div id="divDescAnn-ca" class="col-sm-12 col-xs-12">
 						<div id="div1DescAnn-ca" class="col-sm-12 col-xs-12">
 							<div id="div1-1DescAnn-ca" class="col-sm-12 col-xs-12">
-								<label for="Description_de_l_annonce">Description de l'annonce</label>
+								<label for="descRecherche-ml">Introduction de votre annonce</label>
 							</div>
 						</div>
 						<div id="div2DescAnn-ca" class="col-sm-12 col-xs-12">
 							<div id="div2-1DescAnn-ca" class="col-sm-12 col-xs-12">
-								<textarea id="descAnnonce" name="descAnnonce"></textarea>
+								<textarea id="descRecherche-ml" name="descAnnonce"
+										  placeholder="Ex: Deux chambres meublées se libères dans notre maison ..."></textarea>
+							</div>
+						</div>
+					</div>
+					<div id="divDescAnn-ca" class="col-sm-12 col-xs-12">
+						<div id="div1DescAnn-ca" class="col-sm-12 col-xs-12">
+							<div id="div1-1DescAnn-ca" class="col-sm-12 col-xs-12">
+								<label for="descAnnonce-mpc">Description de votre projet</label>
+							</div>
+						</div>
+						<div id="div2DescAnn-ca" class="col-sm-12 col-xs-12">
+							<div id="div2-1DescAnn-ca" class="col-sm-12 col-xs-12">
+								<textarea id="descAnnonce-mpc" name="descAnnonce" placeholder="Ce que vous proposez / recherchez ..."></textarea>
+							</div>
+						</div>
+					</div>
+					<h2 class="col-xs-12 underTitle centerText" id="titleAboutColocation-ml">Ce que vous envisagez ...</h2>
+					<div id="divEcoPratic-ca" class="col-sm-12 col-xs-12">
+						<div id="div1-ecoPratic-ca" class="col-sm-12 col-xs-12">
+							<div id="div1-1-ecoPratic-ca" class="col-sm-12 col-xs-12">
+								<label for="convivialite-mpc">Convivialité commune souhaitée</label>
+							</div>
+						</div>
+						<div id="div2-ecoPratic-ca" class="col-sm-12 col-xs-12">
+							<div id="div2-1-ecoPratic-ca" class="col-sm-12 col-xs-12">
+								<textarea id="convivialite-mpc" name="descEcoPratique" placeholder="Activités communes, capacité d’accueil, ..."></textarea>
 							</div>
 						</div>
 					</div>
 					<div id="divEcoPratic-ca" class="col-sm-12 col-xs-12">
 						<div id="div1-ecoPratic-ca" class="col-sm-12 col-xs-12">
 							<div id="div1-1-ecoPratic-ca" class="col-sm-12 col-xs-12">
-								<label for="Pratiques__cologiques_exerc_es_par_la_colocation">Pratiques écologiques souhaitées</label>
+								<label for="organisation-mpc">Organisation souhaitée</label>
 							</div>
 						</div>
 						<div id="div2-ecoPratic-ca" class="col-sm-12 col-xs-12">
 							<div id="div2-1-ecoPratic-ca" class="col-sm-12 col-xs-12">
-								<textarea id="descEcoPratique" name="descEcoPratique"></textarea>
+								<textarea id="organisation-mpc" name="descEcoPratique" placeholder="Organisations des tâches, des ressources, ..."></textarea>
+							</div>
+						</div>
+					</div>
+					<div id="divEcoPratic-ca" class="col-sm-12 col-xs-12">
+						<div id="div1-ecoPratic-ca" class="col-sm-12 col-xs-12">
+							<div id="div1-1-ecoPratic-ca" class="col-sm-12 col-xs-12">
+								<label for="descEcoPratique-mpc">Pratiques écologiques souhaitées</label>
+							</div>
+						</div>
+						<div id="div2-ecoPratic-ca" class="col-sm-12 col-xs-12">
+							<div id="div2-1-ecoPratic-ca" class="col-sm-12 col-xs-12">
+								<textarea id="descEcoPratique-mpc" name="descEcoPratique" placeholder="Attitude, niveau d'investissement, ..."></textarea>
+							</div>
+						</div>
+					</div>
+					<div id="divEcoPratic-ca" class="col-sm-12 col-xs-12">
+						<div id="div1-ecoPratic-ca" class="col-sm-12 col-xs-12">
+							<div id="div1-1-ecoPratic-ca" class="col-sm-12 col-xs-12">
+								<label for="autresPrecisions-mpc">Autres précisions ... *</label>
+							</div>
+						</div>
+						<div id="div2-ecoPratic-ca" class="col-sm-12 col-xs-12">
+							<div id="div2-1-ecoPratic-ca" class="col-sm-12 col-xs-12">
+								<textarea id="autresPrecisions-mpc" name="descEcoPratique"></textarea>
 							</div>
 						</div>
 					</div>
@@ -74,7 +129,7 @@
 						<div id="div10-1-adresseLog-ca" class="col-sm-8 col-xs-12">
 							<div id="div10-2-adresseLog-ca" style="position:relative">
 								<div onclick="addNewPlace('#inputSearchPlace-mpc')" id="btnEnterNewPlace-mpc" class="fontFamilyNote">| Entrer</div>
-								<input id="inputSearchPlace-mpc" oninput="addr_searchCity(this);" name="autoComplete-mpc2" autocomplete="off" type="text" class="inputSearchPlace form-control" placeholder="Où recherchez-vous ?">
+								<input id="inputSearchPlace-mpc" oninput="addr_searchCity(this);" autocomplete="off" type="text" class="inputSearchPlace form-control" placeholder="Où recherchez-vous ?">
 								<input id="inputSearchPlace-mpcHidden" name="inputSearchPlace-mpcHidden" type="hidden" value="">
 								<div class="listAutoCompleteToModal"></div>
 								@*<input oninput="addr_search('inputLocalisation-cpc','listAutoCompletePlace2');" list="listAutoCompletePlace2" autocomplete="off" type="text" class="inputAdresseLog-ca" id="inputLocalisation-cpc" style="padding: 5px 8px;padding-right: 65px;">*@
@@ -144,7 +199,7 @@
 													<option value="0">Tout type d'habitat</option>
 													<option value="1">Maison</option>
 													<option value="2">Appartement</option>
-													<option value="3">Habitat alternatif</option>
+													<option value="3">Habitat léger</option>
 												</select>
 											</td>
 										</tr>
@@ -154,8 +209,7 @@
 												<select id="select2-loyer-fh" class="form-control">
 													<option value="0">Toutes localisations</option>
 													<option value="1">Campagne</option>
-													<option value="2">Village</option>
-													<option value="3">Ville</option>
+													<option value="2">Ville</option>
 												</select>
 											</td>
 										</tr>
@@ -180,27 +234,59 @@
 										<tr id="rowCreation" class="rowByEngagement">
 											<td class="col-xs-6"><label for="Loyer">Cout de création</label></td>
 											<td class="col-xs-6">
-												<input id="coutCreationMoy" name="coutCreationMoy" type="text" class="inputtable-ca" placeholder="Cout de création moyen" style="width: 150px;padding: 5px 8px;">
+												<div class="flex">
+													<input id="coutCreationMoy" name="coutCreationMoy" type="number" class="inputtable-ca" placeholder="Cout de création moyen" style="width: 150px;padding: 5px 8px;padding-right: 0;">
+													<p class="centerText signInputPropose-ml">€</p>
+												</div>
 											</td>
 										</tr>
 										<tr id="rowTerrain" class="rowByEngagement">
 											<td class="col-xs-6"><label for="Loyer">Cout du terrain</label></td>
 											<td class="col-xs-6">
-												<input id="coutTerrainMoy" name="coutTerrainMoy" type="text" class="inputtable-ca" placeholder="Cout de terrain moyen" style="width: 150px;padding: 5px 8px;">
+												<div class="flex">
+													<input id="coutTerrainMoy" name="coutTerrainMoy" type="number" class="inputtable-ca" placeholder="Cout de terrain moyen" style="width: 150px;padding: 5px 8px;">
+													<p class="centerText signInputPropose-ml">€</p>
+												</div>
 											</td>
 										</tr>
 										<tr id="rowAchat" class="rowByEngagement">
 											<td class="col-xs-6"><label for="Loyer">Cout de l'achat</label></td>
 											<td class="col-xs-6">
-												<input id="coutAchatMoy" name="coutAchatMoy" type="text" class="inputtable-ca" placeholder="Cout d'achat moyen" style="width: 150px;padding: 5px 8px;">
+												<div class="flex">
+													<input id="coutAchatMoy" name="coutAchatMoy" type="number" class="inputtable-ca" placeholder="Cout d'achat moyen" style="width: 150px;padding: 5px 8px;">
+													<p class="centerText signInputPropose-ml">€</p>
+												</div>
 											</td>
 										</tr>
 										<tr id="rowLoyer" class="rowByEngagement">
 											<td class="col-xs-6"><label for="Loyer">Loyer / personne</label></td>
 											<td class="col-xs-6">
 												<div id="div-2-1-1-loyer-fh">
-													<input id="loyerMoy" name="loyerMoy" type="text" class="inputtable-ca" placeholder="Loyer moyen" style="width: 150px;padding: 5px 10px;">
+													<div class="flex">
+														<input id="loyerMoy" name="loyerMoy" type="number" class="inputtable-ca" placeholder="Loyer moyen" style="width: 150px;padding: 5px 10px;">
+														<p class="centerText signInputPropose-ml">€</p>
+													</div>
 												</div>
+											</td>
+										</tr>
+										<tr>
+											<td class="col-xs-6"><label>Moyen d’accès écolo au centre-ville</label></td>
+											<td style="padding: 0;padding-top: 4px;padding-left: 8px;">
+												<p class="onoff">
+													<input type="checkbox" value="1" id="accesEcolo-cb">
+													<label for="accesEcolo-cb"></label>
+												</p>
+											</td>
+										</tr>
+										<tr>
+											<td class="col-xs-6">
+												<label>Accessibilité handicapé</label>
+											</td>
+											<td style="padding: 0;padding-top: 4px;padding-left: 8px;">
+												<p class="onoff">
+													<input type="checkbox" value="1" id="accesHandicap-cb">
+													<label for="accesHandicap-cb"></label>
+												</p>
 											</td>
 										</tr>
 									</tbody>
@@ -300,7 +386,7 @@
 				@Html.Partial("~/Views/Account/ButtonsCreateAccount.cshtml")
 			</div>
 		}
-		<a href="#close-modal" rel="modal:close" class="close-modal" onclick="autoCompletePrepend()">Close</a>
+		<a href="#close-modal" rel="modal:close" onclick="autoCompletePrepend()"><i class="fas fa-times close-modal"></i></a>
 	</div>
 </div>
 

@@ -6,18 +6,9 @@
 <div id="div1-annonceLocation" class="col-xs-12">
 	<div id="div1-1-al" class="col-sm-12">
 		<div id="div1-2-al">
-			@if (User.Identity.IsAuthenticated)
-			{
-				<a href="@Url.Action("ModalLocation", "ColocAnnounce", null)" rel="modal:open">
-					<div id="btnCreer-al">Creer une annonce de location</div>
-				</a>
-			}
-			else
-			{
-				<a href="@Url.Action("ModalAccount","Account", null)" rel="modal:open">
-					<div id="btnCreer-al">Creer une annonce de location</div>
-				</a>
-			}
+			<a href="@Url.Action("ModalLocation", "ColocAnnounce", null)" rel="modal:open">
+				<div id="btnCreer-al">Creer une annonce de location</div>
+			</a>
 		</div>
 	</div>
 

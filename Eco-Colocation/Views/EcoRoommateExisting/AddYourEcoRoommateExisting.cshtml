@@ -9,42 +9,37 @@
 	<h2 class="title centerText">Ajout d'une nouvelle Eco-Colocation</h2>
 	<div id="divDescEco-Coloc-ayer" class="flex flexWrap">
 		<div class="sousDivFormColoc-ayer" id="divLabelNomColoc-ayer">
-			<label class="label-ayer">Nom</label>
-			<span class="fontFamilyNote titleFacultatif2-ayer">- falcultatif</span>
+			<label class="label-ayer">Nom *</label>
 			<input class="input-ayer" placeholder="Determiner un nom à votre colocation">
 			<div class="underInput-ayer"></div>
 		</div>
-		<div class="sousDivFormColoc-ayer" id="divLabelDateColoc-ayer">
-			<label class="label-ayer">Date de création</label>
-			<input class="input-ayer" type="date" id="inputDateCréation-ayer">
-			<div class="underInput-ayer"></div>
-		</div>
 		<div class="sousDivFormColoc-ayer" id="divLabelNbColoc-ayer">
-			<label class="label-ayer">Nombre de colocataires</label>
+			<label class="label-ayer">Nombre de colocataires *</label>
 			<input class="input-ayer" placeholder="Entrez le nombre" type="number" oninput="modifyMinValueToNbInfoColoc(this)">
 			<div class="underInput-ayer"></div>
 		</div>
-		<div class="col-xs-12 sousDivFormColoc-ayer" id="divLocalisation-ayer">
-			<label class="label-ayer">Adresse</label>
-			<div class="flex">
-				<input type="search" id="address-input-ayer" oninput="addr_searchStreet(this);" class="address-input inputSearchPlace childFlex" placeholder="Entrez votre adresse de résidence.">
-			</div>
-			<div id="divInfoUserMdp-ayer" class="divGlobalMsgPhoto-ayer">
-				<i class="fas fa-info" id="iconMsgPhoto-mcar"></i>
-				<div>
-					<p class="fontFamilyNote">Votre eco-cocation apparaitra sur la carte à l'adresse fournie ce dessus. Toutefois seul le nom de la ville sera publiquement diffusée sur l'annonce..</p>
+		<div class="col-xs-12">
+			<div class="sousDivFormColoc-ayer" id="divLocalisation-ayer">
+				<label class="label-ayer">Adresse *</label>
+				<div class="flex">
+					<input type="search" id="address-input-ayer" oninput="addr_searchStreet(this);" class="address-input inputSearchPlace childFlex" placeholder="Entrez votre adresse de résidence.">
+				</div>
+				<div id="divInfoUserMdp-ayer" class="divGlobalMsgPhoto-ayer">
+					<i class="fas fa-info" id="iconMsgPhoto-mcar"></i>
+					<div>
+						<p class="fontFamilyNote">Votre eco-cocation apparaitra sur la carte à l'adresse fournie ce dessus. Toutefois seul le nom de la ville sera publiquement diffusée sur l'annonce..</p>
+					</div>
 				</div>
 			</div>
 		</div>
 		<div class="col-xs-12 sousDivFormColoc-ayer" style="margin-bottom: 25px;">
-			<label class="label-ayer">Description de votre éco-colocation</label>
+			<label class="label-ayer">Description de votre éco-colocation *</label>
 			<textarea id="txtareaDescColoc-ayer"></textarea>
 		</div>
 		<div class="col-xs-12 sousDivFormColoc-ayer">
 			<div>
 				<label class="label-ayer">
 					Ajouter une photo à l'image de votre éco-colocation
-					<span class="fontFamilyNote titleFacultatif2-ayer">- falcultatif</span>
 				</label>
 			</div>
 
@@ -59,7 +54,6 @@
 	<div>
 		<h2 class="titleH2-ayer">
 			Notre fibre écologique
-			<span class="titleH2-ayer titleFacultatif-ayer">- facultatif</span>
 		</h2>
 		<div>
 			<div class="divFibreEco-ayer">
@@ -79,7 +73,6 @@
 	<div>
 		<h2 class="titleH2-ayer flex">
 			Ce que l'on y fait
-			<span class="titleH2-ayer titleFacultatif-ayer">- facultatif</span>
 		</h2>
 		<div>
 			<div class="divParentFlexWrap-ayer">
@@ -189,7 +182,6 @@
 	<div>
 		<h2 class="titleH2-ayer flex">
 			Ce que l'on a d'écologique chez nous
-			<span class="titleH2-ayer titleFacultatif-ayer">- facultatif</span>
 		</h2>
 		<div>
 			<div class="divParentFlexWrap-ayer">
@@ -292,7 +284,6 @@
 	<div>
 		<h2 class="titleH2-ayer flex">
 			Ce que l'on réduit grâce à nos attitudes
-			<span class="titleH2-ayer titleFacultatif-ayer">- facultatif</span>
 		</h2>
 		<div class="flex flexWrap">
 			<div class="divIconCkbox">
@@ -349,7 +340,7 @@
 			<textarea class="txtareaDescSup-ayer"></textarea>
 		</div>
 		<div>
-			<h2 class="titleH2-ayer flex">Comment est notre habitat<span class="titleH2-ayer titleFacultatif-ayer">- facultatif</span></h2>
+			<h2 class="titleH2-ayer flex">Comment est notre habitat</h2>
 			<div>
 				<div id="divHabitatDesc-ayer">
 					<div class="childFlex">

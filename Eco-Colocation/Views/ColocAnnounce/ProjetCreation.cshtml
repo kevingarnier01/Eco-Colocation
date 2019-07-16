@@ -4,18 +4,9 @@
 }
 <div id="div1-1-al" class="col-sm-12">
 	<div id="div1-2-ProjetCreation-al">
-		@if (User.Identity.IsAuthenticated)
-		{
-			<a href="@Url.Action("ModalProjetCreation", "ColocAnnounce", null)" rel="modal:open">
-				<div id="btnCreer-al">Creer un projet de création</div>
-			</a>
-		}
-		else
-		{
-			<a href="@Url.Action("ModalAccount","Account", null)" rel="modal:open">
-				<div id="btnCreer-al">Creer un projet de création</div>
-			</a>
-		}
+		<a href="@Url.Action("ModalProjetCreation", "ColocAnnounce", null)" rel="modal:open">
+			<div id="btnCreer-al">Creer un projet de création</div>
+		</a>
 	</div>
 
 	<div id="div1PC" class="col-sm-12">

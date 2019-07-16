@@ -203,16 +203,6 @@
 		</div>
 	</div>
 </div>
-
-@if (User.Identity.IsAuthenticated)
-{
-	<div id="divBtnAddOurEcoRoom-ereom">
-		<a id="btnAddOurEcoRoom-ereom" class="btn waves-light waves-effect" href="@Url.Action("AddYourEcoRoommateEvent", "EcoRoommateEvent")">Creer un événement</a>
-	</div>
-}
-else
-{
-	<div id="divBtnAddOurEcoRoom-ereom">
-		<a id="btnAddOurEcoRoom-ereom" class="btn waves-light waves-effect" rel="modal:open" href="@Url.Action("ModalAccount", "Account")">Creer un événement</a>
-	</div>
-}
+<div id="divBtnAddOurEcoRoom-ereom">
+	<a id="btnAddOurEcoRoom-ereom" class="btn waves-light waves-effect" href="@Url.Action("AddYourEcoRoommateEvent", "EcoRoommateEvent")">Creer un événement</a>
+</div>
