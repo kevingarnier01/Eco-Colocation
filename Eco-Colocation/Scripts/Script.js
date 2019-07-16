@@ -21,7 +21,7 @@ $(document).ready(function () {
 	//	});
 	//});
 	//if ($('.blockerCenterToHideWindows').css('display') == 'none') {
-
+	
 	//Si le button close-modal à été cliqué, alors nous l'indiquons et l'evenement au dessus  (click sur modal)
 	//se charge de ne pas faire disparaitre le scroll bar du body
 	$(document).on('click', '.close-modal, .closeModal', function (e) {
@@ -216,6 +216,8 @@ function annonceLocationPage() {
 	$("#projetCreation").css("display", "none");
 	$("#creationRubrique2").css("border-bottom", "none");
 	$("#annonceRubrique2").css("border-bottom", "3px solid #e9e5c3");
+
+	window.history.replaceState('data to be passed', 'Title of the page', $('#urlCurrentPage').val() + '/AnnonceLocation')
 }
 
 function projetCreationPage() {
@@ -223,6 +225,8 @@ function projetCreationPage() {
 	$("#projetCreation").css("display", "block");
 	$("#annonceRubrique2").css("border-bottom", "none");
 	$("#creationRubrique2").css("border-bottom", "3px solid #e9e5c3");
+
+	window.history.replaceState('data to be passed', 'Title of the page', $('#urlCurrentPage').val() + '/ProjetCreation')
 }
 
 /* SlideShow */

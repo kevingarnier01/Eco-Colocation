@@ -35,5 +35,22 @@ namespace Eco_Colocation.Controllers
 
 			return PartialView();
 		}
-	}
+		public ActionResult AnnonceLocation(string targetCity)
+		{
+			ViewData["showAnnonceLocation"] = "true";
+
+			AllViewModel allViewModel = new AllViewModel();
+
+			return View("~/Views/SearchColoc/Index.cshtml", allViewModel);
+		}
+
+		public ActionResult ProjetCreation(string targetCity)
+		{
+			ViewData["showProjetCreation"] = "true";
+			
+			AllViewModel allViewModel = new AllViewModel();
+
+			return View("~/Views/SearchColoc/Index.cshtml", allViewModel);
+		}
+	}	
 }

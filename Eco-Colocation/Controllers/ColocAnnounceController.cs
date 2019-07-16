@@ -23,15 +23,24 @@ namespace Eco_Colocation.Controllers
 		public ActionResult ModalProjetCreation()
 		{
 			return PartialView();
+		}
 
-			//if (User.Identity.IsAuthenticated)
-			//{
-			//	return PartialView();
-			//}
-			//else
-			//{
-			//	return PartialView("~/Views/Account/ModalAccount.cshtml");
-			//}
+		public ActionResult AnnonceLocation(string targetCity)
+		{
+			ViewData["showAnnonceLocation"] = "true";
+
+			AllViewModel allViewModel = new AllViewModel();
+
+			return View("~/Views/ColocAnnounce/Index.cshtml", allViewModel);
+		}
+
+		public ActionResult ProjetCreation(string targetCity)
+		{
+			ViewData["showProjetCreation"] = "true";
+
+			AllViewModel allViewModel = new AllViewModel();
+
+			return View("~/Views/ColocAnnounce/Index.cshtml", allViewModel);
 		}
 	}
 }
