@@ -556,10 +556,37 @@ function initHtmlTagToAutoComplete() {
 //});
 // -------------- Fin nominatim.openstreetmap.org  ---------------
 
-function addNbChambreDisponible() {
-	//var divChambre = $('.divGlobalChambre-ml')[0].outerHTML;
-	
-	//$(".divGlobalChambre-ml").after(divChambre);
+function modifyNbChambreDisponible(elementNbChambreAsk, blockElementRoom) {
+	if ($(elementNbChambreAsk).val() >= 1) {
+		while ($(elementNbChambreAsk).val() != $(blockElementRoom).length) {
+			if ($(elementNbChambreAsk).val() > $(blockElementRoom).length) {
+				var divChambre = $(blockElementRoom)[0].outerHTML;
+				$(blockElementRoom).last().after(divChambre);
+				$(blockElementRoom + ':last #titleChambre-ml').text('CHAMBRE ' + $(blockElementRoom).length);
+			}
+			else if ($(elementNbChambreAsk).val() < $(blockElementRoom).length && $(blockElementRoom).length > 1) {
+				var numberDifference = $(blockElementRoom).length - $(elementNbChambreAsk).val();
+				if (numberDifference < 2) {
+					if (confirm("La " + $(blockElementRoom).length + "eme chambre va être retirée.")) {
+						$('.divGlobalChambre-ml').last().remove();
+					}
+					else {
+						$(elementNbChambreAsk).val(parseInt($(elementNbChambreAsk).val()) + 1)
+					}
+				}
+				else {
+					if (confirm("Les " + numberDifference + " dernières chambres vont être retirées.")) {
+						for (i = 0; i < numberDifference; i++) {
+							$('.divGlobalChambre-ml').last().remove();
+						}
+						break;
+					} else {
+						$(elementNbChambreAsk).val($(blockElementRoom).length)
+					}
+				}
+			}
+		}
+	}
 }
 
 function openSecondModal() {

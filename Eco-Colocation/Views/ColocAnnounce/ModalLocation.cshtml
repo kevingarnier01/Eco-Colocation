@@ -163,7 +163,7 @@
 			<div class="flex col-xs-12" id="divGlobalNbChambre-ml" flex="">
 				<div class="flex childFlex" id="divNbChambres-ml">
 					<p for="nbChambre-ml" id="lbNbChambre-ml">Nombre de chambre disponible</p>
-					<input id="nbChambre-ml" type="number" min="1" class="inputtable-ca" oninput="addNbChambreDisponible()">
+					<input id="nbChambre-ml" type="number" min="1" value="1" class="inputtable-ca" oninput="modifyNbChambreDisponible(this, '.divGlobalChambre-ml')">
 				</div>
 			</div>
 			<div id="div1-descInform-ca" class="col-sm-12">
@@ -176,7 +176,7 @@
 										<div class="flex">
 											<i class="fas fa-bed childFlex icon-ca"></i>
 										</div>
-										<p class="txtIcon-ca">CHAMBRE</p>
+										<p class="txtIcon-ca" id="titleChambre-ml">CHAMBRE 1</p>
 									</div>
 								</div>
 							</div>

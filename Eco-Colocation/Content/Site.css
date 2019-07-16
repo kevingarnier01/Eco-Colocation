@@ -4073,10 +4073,6 @@ i.fas.fa-times.crossPlace-cpc {
 	font-weight: bold;
 }
 
-	.infoPrimaire-ereom p:last-child {
-		padding-top: 3px
-	}
-
 .descriptionHabitat-ereom {
 	font-weight: initial;
 	padding-top: 5px;
@@ -4560,6 +4556,7 @@ input.radioFibreEco-ayer {
 #divLocalisation-ayer {
 	width: 500px;
 	max-width: 100%;
+	margin: 0;
 	margin-bottom: 25px;
 	overflow: auto;
 	padding: 5px 0;
@@ -5436,6 +5433,15 @@ input.radioFibreEco-ayer {
 	display: none;
 	width: 100%;
 }
+
+#createAccount-ayere {
+	margin-top: 45px;
+}
+
+	#createAccount-ayere .encadrer-mcar {
+		background-color: inherit;
+		width: 100%;
+	}
 
 /****** Add Simply Eco Roommate Existing ******/
 #divLocalisation-asere {
