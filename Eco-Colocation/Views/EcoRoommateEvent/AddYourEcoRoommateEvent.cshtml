@@ -26,7 +26,7 @@
 		</div>
 		<div class="sousDivFormColoc-ayere" id="inputlieu-ayere">
 			<label class="label-ayer">Lieu</label>
-			<input id="inputSearchPlace-car" oninput="addr_searchCity(this);" name="autoComplete-mpc" autocomplete="off" type="text" class="inputSearchPlace form-control" placeholder="Où recherchez-vous ?">
+			<input id="inputSearchPlace-car" oninput="addr_searchCity(this);" autocomplete="off" type="text" class="inputSearchPlace form-control" placeholder="Où recherchez-vous ?">
 			<div class="listAutoCompleteToModal"></div>
 		</div>
 		<div class="col-xs-12 sousDivFormColoc-ayer" style="margin-bottom: 25px;">
@@ -118,10 +118,23 @@
 			</div>
 		</div>
 	</div>
-	<div id="divBottomBtn-ayer">
-		<div class="flex">
-			<a id="btnValidateInfo-ayer" href="@Url.Action("Index", "Home", null)">Valider mes informations</a>
+
+	@if (!User.Identity.IsAuthenticated)
+	{
+		<h2 class="title">Valider l'événement en s'inscrivant</h2>
+		<div id="createAccount-ayere">
+			@Html.Partial("~/Views/Account/PersonalDataForm.cshtml")
 		</div>
+		@Html.Partial("~/Views/Account/ButtonsCreateAccount.cshtml")
+	}
+
+	<div id="divBottomBtn-ayer">
+		@if (User.Identity.IsAuthenticated)
+		{
+			<div class="flex">
+				<a id="btnValidateInfo-ayer" href="@Url.Action("Index", "Home", null)">Valider mes informations</a>
+			</div>
+		}
 		<div class="flex">
 			<a id="btnCancelInfo-ayer" href="@Url.Action("Index", "Home", null)">Retour</a>
 		</div>

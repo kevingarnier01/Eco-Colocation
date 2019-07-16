@@ -14,7 +14,7 @@
 					</div>
 					@Html.HiddenFor(m => Model.HomeViewModel.TypeRecherche, new { @id = "typeRecherche" })
 					<div class="input-group" id="adv-search">
-						<input id="inputSearchPlace-ph" oninput="addr_searchCity(this);" name="autooComplete-ph" autocomplete="off" type="text"
+						<input id="inputSearchPlace-ph" oninput="addr_searchCity(this);" name="@ViewData["randomInputAutoComplete"]" autocomplete="off" type="text"
 							   class="form-control inputSearchPlace" placeholder="Où recherchez-vous ?" >
 						@*<input type="search" id="address-input-ph" class="address-input inputSearchPlace" placeholder="Saisir un lieu. Ex: Ville, Département, Région" />*@
 						<div class="input-group-btn">
