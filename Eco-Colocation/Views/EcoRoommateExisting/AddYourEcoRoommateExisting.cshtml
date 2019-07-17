@@ -429,7 +429,7 @@
 					</div>
 					<div id="tableColocInfo-ayer">
 						<div id="coloc1-ayer">
-							<div id="titleInfoColoc1-ayer" class="titleInfoColocs-ayer" onclick="openThisColocRow_ayer('#titleInfoColoc1-ayer','#infoColoc1-ayer')">
+							<div id="titleInfoColoc1-ayer" class="titleInfoColocs-ayer" onclick="openThisColocRow_ayer('#titleInfoColoc1-ayer','#infoColoc1-ayer')">								
 								<p class="txtColocTable-ayer">Colocataire 1 (Vous)</p>
 								<i class="fas fa-long-arrow-alt-down iconTxtColocTable-ayer"></i>
 							</div>
@@ -467,6 +467,8 @@
 						</div>
 						<div id="coloc2-ayer">
 							<div id="titleInfoColoc2-ayer" class="titleInfoColocs-ayer" onclick="openThisColocRow_ayer('#titleInfoColoc2-ayer','#infoColoc2-ayer')">
+								<i class="fas fa-times crossEcoColocExisting-ayere" id="crossEcoColocExist-ayere" 
+								   onclick="removeSpecificColoc('#coloc2-ayer')"></i>
 								<p class="txtColocTable-ayer">Colocataire 2</p>
 								<i class="fas fa-long-arrow-alt-right iconTxtColocTable-ayer"></i>
 							</div>
@@ -505,6 +507,8 @@
 						<div id="addOthersColoc">
 							<div id="colocCopie-ayer" style="display:none">
 								<div id="titleInfoColocCopie-ayer" class="titleInfoColocs-ayer" onclick="openThisColocRow_ayer('#titleInfoColocCopie-ayer','#infoColocCopie-ayer')">
+									<i class="fas fa-times crossEcoColocExisting-ayere" id="crossEcoColocExist-ayere" 
+									   onclick="removeSpecificColoc('colocCopie-ayer')"></i>
 									<p class="txtColocTable-ayer">Colocataire exemple</p>
 									<i class="fas fa-long-arrow-alt-right iconTxtColocTable-ayer"></i>
 								</div>
@@ -563,9 +567,3 @@
 		}
 	</div>
 </div>
-
-<script type="text/javascript">
-	$(document).ready(function () {
-		initAutoComplete('#address-input-ayer');
-	});
-</script>

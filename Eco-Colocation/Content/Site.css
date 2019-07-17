@@ -4877,7 +4877,7 @@ input.radioFibreEco-ayer {
 	color: #555555;
 	font-weight: 100;
 	padding-left: 25px;
-	cursor: pointer;
+	cursor: grab;
 	display: flex;
 	position: relative;
 }
@@ -4885,6 +4885,13 @@ input.radioFibreEco-ayer {
 .txtColocTable-ayer {
 	user-select: none;
 	font-family: Noteworthy;
+}
+
+.crossEcoColocExisting-ayere {
+	margin-top: 3px;
+	margin-right: 10px;
+	color: #555;
+	cursor: pointer
 }
 
 .iconTxtColocTable-ayer {

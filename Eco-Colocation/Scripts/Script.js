@@ -73,7 +73,7 @@ $(document).ready(function () {
 
 	//Permet de ne plus pouvoir ouvrir le modal sur un autre onglet
 	stopNewTabOppening();
-	openModalInThisTap();	
+	openModalInThisTap();
 });
 /***** Permet de ne plus pouvoir ouvrir le modal sur un autre onglet *****/
 function stopNewTabOppening() {
@@ -869,7 +869,8 @@ function openThisColocRow_ayer(elementTitle, elementBlockIdToOpen) {
 			$(elementBlockIdToOpen).css('max-height', '1000px');
 			$(elementTitle).css('background-color', '#C4D102');
 			$(elementTitle).css('color', 'white');
-			$(elementTitle + " i").attr("class", "fas fa-long-arrow-alt-down iconTxtColocTable-ayer")
+			$(elementTitle + " i:first-child").css("color", "white")
+			$(elementTitle + " i:last-child").attr("class", "fas fa-long-arrow-alt-down iconTxtColocTable-ayer")
 		}, 100)
 	}
 	else {
@@ -880,6 +881,7 @@ function openThisColocRow_ayer(elementTitle, elementBlockIdToOpen) {
 		$('.titleInfoColocs-ayer').css('background-color', 'initial');
 		$('.titleInfoColocs-ayer').css('color', '#555555');
 		$('.infoColoc-ayer').css('max-height', '0');
+		$(".crossEcoColocExisting-ayere").css("color", "#555")
 		$(".iconTxtColocTable-ayer").attr("class", "fas fa-long-arrow-alt-right iconTxtColocTable-ayer")
 	}
 }
@@ -921,6 +923,28 @@ function removeOneColoc_ayer() {
 	}
 }
 
+function removeSpecificColoc(elementToRemove) {
+	if ($('#valueNbColocInfo-ayer').val() > 1) {
+		$(elementToRemove).remove();
+
+		var newValueNbBlockColocInfo = parseInt($('#valueNbColocInfo-ayer').val()) - 1;
+		$('#valueNbColocInfo-ayer').val(newValueNbBlockColocInfo)
+
+		var colocActual = 2
+		$('.divColocInfo').each(function () {
+			$('#' + this.id + ' .titleInfoColocs-ayer').attr("id", "titleInfoColocs" + colocActual + "-ayer")
+			$('#' + this.id + ' .titleInfoColocs-ayer').attr('onclick',
+				'openThisColocRow_ayer("#titleInfoColoc' + colocActual + '-ayer","#infoColoc' + colocActual + '-ayer")')
+			$('#' + this.id + ' .txtColocTable-ayer').text("Colocataire " + colocActual)
+			$('#' + this.id + ' .infoColoc-ayer').attr('id', 'infoColoc' + colocActual + '-ayer')
+			$('#' + this.id + ' .crossEcoColocExisting-ayere').attr("onclick", "removeSpecificColoc('#divColocInfo" + colocActual + "')")
+
+
+			colocActual += 1;
+		});
+	}
+}
+
 function addOneColoc_ayer() {
 	var newValueNbBlockColocInfo = parseInt($('#valueNbColocInfo-ayer').val()) + 1;
 
@@ -950,6 +974,7 @@ function addOneColoc_ayer() {
 			'openThisColocRow_ayer("#titleInfoColoc' + newValueNbBlockColocInfo + '-ayer","#infoColoc' + newValueNbBlockColocInfo + '-ayer")')
 		$("#" + idName + ' .titleInfoColocs-ayer p').text("Colocataire " + newValueNbBlockColocInfo)
 		$("#" + idName + ' #infoColocCopie-ayer').attr('id', 'infoColoc' + newValueNbBlockColocInfo + '-ayer')
+		$("#" + idName + ' #crossEcoColocExist-ayere').attr("onclick", "removeSpecificColoc('#divColocInfo" + newValueNbBlockColocInfo + "')")
 	}
 }
 
