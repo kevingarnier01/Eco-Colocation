@@ -9,14 +9,7 @@
 		@* !!! A faire au future : S'il est connecté et qu'il a déja ajouté une annonce de recherche, alors ne pas afficher le lien ci-dessous*@
 		<div class="childFlex fontFamilyNote" id="divLinkPublishInteresse-ps">
 			<i class="far fa-id-badge"></i>
-			@if (User.Identity.IsAuthenticated)
-			{
-				<a href="@Url.Action("ModalCARecherche", "Account", null)" rel="modal:open" class="noLink">Ajouter mon annonce de recherche d'éco-colocation</a>
-			}
-			else
-			{
-				<a href="@Url.Action("ModalAccount", "Account", null)" rel="modal:open" class="noLink">Ajouter mon annonce de recherche d'éco-colocation</a>
-			}
+			<a href="@Url.Action("ModalCARecherche", "Account", null)" rel="modal:open" class="noLink">Ajouter mon annonce de recherche d'éco-colocation</a>
 		</div>
 	</div>
 	<div id="divPanelPl">
@@ -31,7 +24,7 @@
 					</div>
 					<div id="divContenuPlSchDisable" class="fontFamilyNote">
 						<p class="fontFamilyNote childFlexVertical childFlex" id="txt1ContenuDisable">Votre annonce est désactivée.</p>
-						<p class="fontFamilyNote"> Cliquer dessus pour la mettre à jour.</p>
+						<p class="fontFamilyNote">Cliquer dessus pour la mettre à jour.</p>
 					</div>
 				</a>
 			</div>

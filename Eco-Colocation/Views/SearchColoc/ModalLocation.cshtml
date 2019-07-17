@@ -4,8 +4,6 @@
 }
 
 @* https://jquerymodal.com/ *@
-@*<a href="#close-modal" rel="modal:close">*@
-
 <div class="underModal col-sm-12 col-xs-12">
 	<div id="modalLocation" class="reelModal col-sm-8 col-xs-12">
 		<div id="divMessage-ml">
@@ -92,7 +90,7 @@
 					<span id="numberPhone-ml"></span>
 				</div>
 				<div id="d3-2-description-mpc" onclick="displayPVMessage();$('#modalLocation').scrollTop(0);" class="btnGreen">
-						<i class="far fa-envelope imgBtnContact-mpc"></i>Envoyer un message
+					<i class="far fa-envelope imgBtnContact-mpc"></i>Envoyer un message
 				</div>
 			</div>
 			<div id="d4-description-mpc">
@@ -236,9 +234,9 @@
 		<a href="#close-modal" rel="modal:close"><i class="fas fa-times close-modal"></i></a>
 	</div>
 </div>
-<script language="javascript">
+<script language="text/javascript">
 	$(document).ready(function () {
 		window.history.replaceState('data to be passed', 'Title of the page',
-			'/Modal/ModalLocation/?targetCity=' + "@ViewData["targetCity"]" + "&idModal=" + @ViewData["IdModal"] + "&urlCurrentPage=" + $('#urlCurrentPage').val());
+			'/Modal/ModalLocation/?targetCity=' + "@ViewData["targetCity"]" + "&idModal=" + @ViewData["IdModal"] + "&urlCurrentPage=" + $('#urlCurrentPage').val()+ "/Index");
 	});
 </script>
