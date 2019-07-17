@@ -21,10 +21,12 @@ $(document).ready(function () {
 	//	});
 	//});
 	//if ($('.blockerCenterToHideWindows').css('display') == 'none') {
-	
+
 	//Si le button close-modal à été cliqué, alors nous l'indiquons et l'evenement au dessus  (click sur modal)
 	//se charge de ne pas faire disparaitre le scroll bar du body
 	$(document).on('click', '.close-modal, .closeModal', function (e) {
+		stopNewTabOppening();
+
 		$('body').css('overflow', 'auto');
 		//closemodalhasbeenclicked = true;
 
@@ -68,7 +70,33 @@ $(document).ready(function () {
 			scrollTop: $($.attr(this, 'href')).offset().top - 100
 		}, 500);
 	});
+
+	//Permet de ne plus pouvoir ouvrir le modal sur un autre onglet
+	stopNewTabOppening();
+	openModalInThisTap();	
 });
+/***** Permet de ne plus pouvoir ouvrir le modal sur un autre onglet *****/
+function stopNewTabOppening() {
+	$('a').each(function () {
+		var href = $(this).attr('href');
+		$(this).attr('href', 'javascript:void(0)');  //set href
+		if (!$(this).attr('jshref')) {
+			$(this).attr('jshref', href); //add new attribte
+		}
+	});
+}
+
+function openModalInThisTap() {
+	$('a').bind('click', function (e) {
+		if ($(this).attr('jshref')) {
+			var href = $(this).attr('jshref');
+			$(this).attr('href', href);
+			$(this).removeAttr('jshref');
+			$(this).click();
+		}
+	});
+}
+/***** Fin = Permet de ne plus pouvoir ouvrir le modal sur un autre onglet *****/
 
 //function eventCloseOrNotModal() {
 //	$('.modal').on('click', '.underModal', function (e) {
@@ -167,7 +195,7 @@ function initMap() {
 					var idElement = $("#onHoverMarker" + numberId);
 					markerObject.bindPopup(idElement.html(), customOptions)
 				}).on("mouseout", function () {
-					hideAnnonce("#onHoverMarker", ii + 1);
+					//hideAnnonce("#onHoverMarker", ii + 1);
 				});
 
 				$("#annonce" + (ii + 1) + "-alpv").on("mouseover", function (e) {
@@ -1102,6 +1130,7 @@ function showOthersEvents() {
 	// Appeler le controller pour recuperer quelques événements et les afficher
 	var event = $('#divBlocAnnonce2').html();
 	$("#divOthersEvents-ereom").append(event);
+	openModalInThisTap();
 
 	//Afficher ces événements sur la carte
 }
@@ -1109,11 +1138,13 @@ function showOthersEvents() {
 function showOthersAnnounces() {
 	var announce = $("#annonce2-alpv")[0].outerHTML;
 	$("#divOthersAnnounces-alpv").append(announce);
+	openModalInThisTap();
 }
 
 function showOthersPeople() {
 	var people = $(".divPeoplesSearching:first-child")[0].outerHTML;
 	$("#divPanelPl #divBtnOtherAnnonceLocation-alpv").before(people);
+	openModalInThisTap();
 }
 
 function lineMaxToShow(textElement) {
