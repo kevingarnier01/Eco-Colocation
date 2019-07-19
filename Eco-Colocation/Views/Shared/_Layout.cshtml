@@ -6,13 +6,14 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>@ViewBag.Title</title>
 	@Html.Hidden("urlCurrentPage", (object)ViewBag.urlCurrentPage)
+	@Html.Hidden("currentTab", (object)ViewBag.CurrentTab)
 	@Styles.Render("~/Content/css")
 	@Scripts.Render("~/bundles/jquery")
 	@Scripts.Render("~/bundles/modernizr")
 	@Styles.Render("~/Scripts/css/leaflet")
 	<script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"></script>
 	@Scripts.Render("~/Scripts/jquerymodal")
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 	@Scripts.Render("~/bundles/jquery") @* Répétition double volontaire - Sinon le modal ne fonction pas *@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 	<script type="text/javascript" src="https://vicopo.selfbuild.fr/api.js"></script>
@@ -42,7 +43,6 @@
 		<footer>
 			@Html.Partial("_FooterPartial")
 		</footer>
-
 	</div>
 
 	@Scripts.Render("~/Scripts/parallax")
@@ -55,15 +55,14 @@
 
 <script language="javascript">
 	$(document).ready(function () {
-		//Si l'utilisateur active le lien d'un des modal qui se trouve dans l'onglet "projet de création". Alors basculer l'affichage sur cette onglet
-		var showProjetCreation = "@ViewData["showProjetCreation"]";
-		if (showProjetCreation != null && showProjetCreation.length != 0) {
-			projetCreationPage()
-		}
-
-		var showAnnonceLocation = "@ViewData["showAnnonceLocation"]";
-		if (showAnnonceLocation != null && showAnnonceLocation.length != 0) {
-			annonceLocationPage()
+		var currentTab = "@ViewData["currentTab"]"
+		if (currentTab != null && currentTab.length != 0) {
+			if (currentTab == "ProjetCreation") {
+				projetCreationPage()
+			}
+			else {
+				annonceLocationPage()
+			}
 		}
 
 		// Si idModalToTrigger n'est pas vide c'est que l'utilisateur à saisi l'url d'un modal et qu'il faut déclancher le click de l'element.

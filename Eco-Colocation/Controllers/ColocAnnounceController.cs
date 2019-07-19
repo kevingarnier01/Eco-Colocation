@@ -7,8 +7,18 @@ namespace Eco_Colocation.Controllers
 	public class ColocAnnounceController : Controller
 	{
 		// GET: ColocAnnounce
-		public ActionResult Index()
-		{	
+		public ActionResult Index(string currentTab, string idModal)
+		{
+			if (currentTab != null && currentTab.Length != 0)
+			{
+				ViewData["currentTab"] = currentTab;
+			}
+			else
+			{
+				ViewData["currentTab"] = "AnnonceLocation";
+			}
+			ViewData["idModalToTrigger"] = idModal;
+
 			AllViewModel allViewModel = new AllViewModel();
 			allViewModel.ColocAnnounceViewModel = new ColocAnnounceViewModel();
 
