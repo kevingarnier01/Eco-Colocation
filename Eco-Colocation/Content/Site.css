@@ -4467,6 +4467,16 @@ i.fas.fa-times.crossPlace-cpc {
 	margin-bottom: 35px;
 }
 
+#emailColoc-ayere {
+	border-radius: 5px;
+	width: 300px;
+	padding: 5px;
+}
+
+#contactColoc-ayere {
+	margin-bottom: 40px;
+}
+
 #divDescEco-Coloc-ayer {
 	overflow: auto;
 }

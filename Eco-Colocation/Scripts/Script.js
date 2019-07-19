@@ -73,7 +73,7 @@ $(document).ready(function () {
 
 	//Permet de ne plus pouvoir ouvrir le modal sur un autre onglet
 	stopNewTabOppening();
-	openModalInThisTap();
+	openModalInThisTag();
 });
 /***** Permet de ne plus pouvoir ouvrir le modal sur un autre onglet *****/
 function stopNewTabOppening() {
@@ -86,7 +86,7 @@ function stopNewTabOppening() {
 	});
 }
 
-function openModalInThisTap() {
+function openModalInThisTag() {
 	$('a').bind('click', function (e) {
 		if ($(this).attr('jshref')) {
 			var href = $(this).attr('jshref');
@@ -930,25 +930,39 @@ function removeOneColoc_ayer() {
 	}
 }
 
-function removeSpecificColoc(elementToRemove) {
-	if ($('#valueNbColocInfo-ayer').val() > 1) {
-		$(elementToRemove).remove();
+function removeSpecificColoc(event, elementToRemove) {
+	if ($(elementToRemove + ' .prenomColoc-ayer').val().length != 0) {
+		if (confirm('Êtes-Vous sûr de vouloir supprimer "' + $(elementToRemove + ' .prenomColoc-ayer').val() + '" de la liste ?')) {
+			removeIt(elementToRemove);
+		}
+	}
+	else {
+		if (confirm('Êtes-Vous sûr de vouloir supprimer ' + $(elementToRemove + ' .txtColocTable-ayer').text() + ' de la liste ?')) {
+			removeIt(elementToRemove);
+		}
+	}
 
-		var newValueNbBlockColocInfo = parseInt($('#valueNbColocInfo-ayer').val()) - 1;
-		$('#valueNbColocInfo-ayer').val(newValueNbBlockColocInfo)
+	function removeIt(elementToRemove) {
+		if ($('#valueNbColocInfo-ayer').val() > 2) {
+			$(elementToRemove).remove();
 
-		var colocActual = 2
-		$('.divColocInfo').each(function () {
-			$('#' + this.id + ' .titleInfoColocs-ayer').attr("id", "titleInfoColocs" + colocActual + "-ayer")
-			$('#' + this.id + ' .titleInfoColocs-ayer').attr('onclick',
-				'openThisColocRow_ayer("#titleInfoColoc' + colocActual + '-ayer","#infoColoc' + colocActual + '-ayer")')
-			$('#' + this.id + ' .txtColocTable-ayer').text("Colocataire " + colocActual)
-			$('#' + this.id + ' .infoColoc-ayer').attr('id', 'infoColoc' + colocActual + '-ayer')
-			$('#' + this.id + ' .crossEcoColocExisting-ayere').attr("onclick", "removeSpecificColoc('#divColocInfo" + colocActual + "')")
+			var newValueNbBlockColocInfo = parseInt($('#valueNbColocInfo-ayer').val()) - 1;
+			$('#valueNbColocInfo-ayer').val(newValueNbBlockColocInfo)
 
+			var colocActual = 3
+			$('.divColocInfo').each(function () {
+				$('#' + this.id).attr("id", "divColocInfo" + colocActual)
+				$('#' + this.id + ' .titleInfoColocs-ayer').attr("id", "titleInfoColoc" + colocActual + "-ayer")
+				$('#' + this.id + ' .titleInfoColocs-ayer').attr('onclick',
+					'openThisColocRow_ayer("#titleInfoColoc' + colocActual + '-ayer","#infoColoc' + colocActual + '-ayer")')
+				$('#' + this.id + ' .txtColocTable-ayer').text("Colocataire " + colocActual)
+				$('#' + this.id + ' .infoColoc-ayer').attr('id', 'infoColoc' + colocActual + '-ayer')
+				$('#' + this.id + ' .crossEcoColocExisting-ayere').attr("onclick", "removeSpecificColoc(event, '#divColocInfo" + colocActual + "')")
 
-			colocActual += 1;
-		});
+				colocActual += 1;
+			});
+		}		
+		event.stopPropagation();
 	}
 }
 
@@ -981,7 +995,7 @@ function addOneColoc_ayer() {
 			'openThisColocRow_ayer("#titleInfoColoc' + newValueNbBlockColocInfo + '-ayer","#infoColoc' + newValueNbBlockColocInfo + '-ayer")')
 		$("#" + idName + ' .titleInfoColocs-ayer p').text("Colocataire " + newValueNbBlockColocInfo)
 		$("#" + idName + ' #infoColocCopie-ayer').attr('id', 'infoColoc' + newValueNbBlockColocInfo + '-ayer')
-		$("#" + idName + ' #crossEcoColocExist-ayere').attr("onclick", "removeSpecificColoc('#divColocInfo" + newValueNbBlockColocInfo + "')")
+		$("#" + idName + ' #crossEcoColocExist-ayere').attr("onclick", "removeSpecificColoc(event, '#divColocInfo" + newValueNbBlockColocInfo + "')")
 	}
 }
 
@@ -1162,7 +1176,7 @@ function showOthersEvents() {
 	// Appeler le controller pour recuperer quelques événements et les afficher
 	var event = $('#divBlocAnnonce2').html();
 	$("#divOthersEvents-ereom").append(event);
-	openModalInThisTap();
+	openModalInThisTag();
 
 	//Afficher ces événements sur la carte
 }
@@ -1170,13 +1184,13 @@ function showOthersEvents() {
 function showOthersAnnounces() {
 	var announce = $("#annonce2-alpv")[0].outerHTML;
 	$("#divOthersAnnounces-alpv").append(announce);
-	openModalInThisTap();
+	openModalInThisTag();
 }
 
 function showOthersPeople() {
 	var people = $(".divPeoplesSearching:first-child")[0].outerHTML;
 	$("#divPanelPl #divBtnOtherAnnonceLocation-alpv").before(people);
-	openModalInThisTap();
+	openModalInThisTag();
 }
 
 function lineMaxToShow(textElement) {
