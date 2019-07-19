@@ -136,18 +136,18 @@
 						<div id="div10-1-adresseLog-ca" class="col-sm-8 col-xs-12">
 							<div id="div10-2-adresseLog-ca">
 								@*<input id="inputAddresseMap-ML" type="text" oninput="addr_search('inputAddresseMap-ML','listAutoCompletePlaceML');" list="listAutoCompletePlaceML" autocomplete="off" class="inputAdresseLog-ca">
-							<datalist id="listAutoCompletePlaceML"></datalist>*@
+									<datalist id="listAutoCompletePlaceML"></datalist>*@
 								@*<input type="search" id="address-input-ml" class="address-input"
-							placeholder="Localisation de l'endroit" />*@
+									placeholder="Localisation de l'endroit" />*@
 								<input id="inputSearchPlace-car" oninput="addr_searchStreet(this);" autocomplete="off" type="text" class="inputSearchPlace form-control" placeholder="Entrez l'adresse de votre colocation">
 								<div class="listAutoCompleteToModal"></div>
 								@*@for (int i = 0; i < 4; i++)
-							{
-								@Html.Hidden("adresseVille", null, new { @class = "addresseVille" + i })
-								@Html.Hidden("adresseRegion", null, new { @class = "adresseRegion" + i })
-								@Html.Hidden("adressePays", null, new { @class = "adressePays" + i })
-								@Html.Hidden("adresseLatLng", null, new { @class = "adresseLatLng" + i })
-							}*@
+									{
+										@Html.Hidden("adresseVille", null, new { @class = "addresseVille" + i })
+										@Html.Hidden("adresseRegion", null, new { @class = "adresseRegion" + i })
+										@Html.Hidden("adressePays", null, new { @class = "adressePays" + i })
+										@Html.Hidden("adresseLatLng", null, new { @class = "adresseLatLng" + i })
+									}*@
 								<div id="div10-3-adresseLog-ca" class="flex col-sm-12 textInfoAdresse-ca">
 									<div id="div10-4-adresseLog-ca" class="col-sm-2"></div>
 									<i class="fas fa-info" id="iconPlace-ca"></i>
@@ -383,13 +383,15 @@
 				@Html.Partial("~/Views/Account/ButtonsCreateAccount.cshtml")
 			</div>
 		}
+	</div>
 
+	<div class="divCloseModal">
 		<a href="#close-modal" rel="modal:close" onclick="autoCompletePrepend()"><i class="fas fa-times close-modal"></i></a>
 	</div>
 </div>
 
-<script type="text/javascript">
-	$("#address-input-ml").ready(function () {
-		initAutoComplete("#address-input-ml");
+<script language="text/javascript">
+	$(document).ready(function () {
+		window.history.replaceState('data to be passed', 'Title of the page', '/Modal/ModalLocation_ColocAnnounce');
 	});
 </script>

@@ -125,7 +125,12 @@ function openModalInThisTap() {
 
 //change de l'url quand le modal se ferme
 function updateUrlModalAfterClosing() {
-	window.history.replaceState("", $("#urlCurrentPage").val(), $("#urlCurrentPage").val());
+	if ($('#currentTab').val().length != 0) {
+		window.history.replaceState("", "", $("#urlCurrentPage").val() + "/?currentTab=" + $('#currentTab').val());
+	}
+	else {
+		window.history.replaceState("", "", $("#urlCurrentPage").val());
+	}
 }
 
 function closeMenuNavbar() {
@@ -245,7 +250,8 @@ function annonceLocationPage() {
 	$("#creationRubrique2").css("border-bottom", "none");
 	$("#annonceRubrique2").css("border-bottom", "3px solid #e9e5c3");
 
-	window.history.replaceState('data to be passed', 'Title of the page', $('#urlCurrentPage').val() + '/AnnonceLocation')
+	$('#currentTab').val("AnnonceLocation");
+	window.history.replaceState('data to be passed', 'Title of the page', $('#urlCurrentPage').val() + '/?currentTab=AnnonceLocation')
 }
 
 function projetCreationPage() {
@@ -254,7 +260,8 @@ function projetCreationPage() {
 	$("#annonceRubrique2").css("border-bottom", "none");
 	$("#creationRubrique2").css("border-bottom", "3px solid #e9e5c3");
 
-	window.history.replaceState('data to be passed', 'Title of the page', $('#urlCurrentPage').val() + '/ProjetCreation')
+	$('#currentTab').val("ProjetCreation");
+	window.history.replaceState('data to be passed', 'Title of the page', $('#urlCurrentPage').val() + '/?currentTab=ProjetCreation')
 }
 
 /* SlideShow */

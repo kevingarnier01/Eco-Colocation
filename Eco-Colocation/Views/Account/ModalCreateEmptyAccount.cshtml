@@ -10,6 +10,14 @@
 		<div id="divInscriptionButtons-mcea">
 			@Html.Partial("~/Views/Account/ButtonsCreateAccount.cshtml")
 		</div>
+	</div>
+	<div class="divCloseModal">
 		<a href="#close-modal" rel="modal:close"><i class="fas fa-times close-modal"></i></a>
 	</div>
 </div>
+
+<script type="text/javascript">
+	$(document).ready(function () {
+		window.history.replaceState('data to be passed', 'Title of the page', '/Modal/ModalCreateEmptyAccount');
+	});
+</script>
