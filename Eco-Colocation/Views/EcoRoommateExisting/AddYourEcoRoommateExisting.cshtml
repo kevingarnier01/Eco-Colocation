@@ -27,19 +27,92 @@
 				<div id="divInfoUserMdp-ayer" class="divGlobalMsgPhoto-ayer">
 					<i class="fas fa-info" id="iconMsgPhoto-mcar"></i>
 					<div>
-						<p class="fontFamilyNote">Votre eco-cocation apparaitra sur la carte à l'adresse fournie ce dessus. Toutefois seul le nom de la ville sera publiquement diffusée sur l'annonce..</p>
+						<p class="fontFamilyNote">Seul le nom de la ville sera directement visible sur la page, toutefois votre eco-colocation apparaîtra sur la carte à l'adresse fournie.</p>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="col-xs-12 sousDivFormColoc-ayer" style="margin-bottom: 25px;">
-			<label class="label-ayer">Description de votre éco-colocation *</label>
-			<textarea id="txtareaDescColoc-ayer"></textarea>
+		<div class="col-xs-12" id="contactColoc-ayere">
+			<div>
+				<label class="label-ayer">Email</label>
+				<input id="emailColoc-ayere" type="email" class="flex" placeholder="mon adresse e-mail">
+				<div id="divInfoUserMdp-ayer" class="divGlobalMsgPhoto-ayer">
+					<i class="fas fa-info" id="iconMsgPhoto-mcar"></i>
+					<div>
+						<p class="fontFamilyNote">Optionnel : L'adresse email permettra aux utilisateurs de vous contacter.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="childFlex" id="infoChampsAnnonce-ml-mpc" style="box-shadow: 0 0 2px black;">
+			<h4 class="centerText">Les champs ci-dessous sont un support pour améliorer la description de votre colocation.</h4>
+			<p class="centerText">A l'affichage ils seront regroupés dans un seul text.</p>
+			<p class="centerText">Merci de faire des phrases.</p>
+		</div>
+		<div id="divEcoPratic-ca" class="col-sm-12 col-xs-12">
+			<div id="div1-ecoPratic-ca" class="col-sm-12 col-xs-12">
+				<div id="div1-1-ecoPratic-ca" class="col-sm-12 col-xs-12">
+					<label for="presentationLogement-ml">Présentation du logement</label>
+				</div>
+			</div>
+			<div id="div2-ecoPratic-ca" class="col-sm-12 col-xs-12">
+				<div id="div2-1-ecoPratic-ca" class="col-sm-12 col-xs-12">
+					<textarea id="presentationLogement-ml" name="descEcoPratique" placeholder="Description du logement et de sa localisation..."></textarea>
+				</div>
+			</div>
+		</div>
+		<div id="divEcoPratic-ca" class="col-sm-12 col-xs-12">
+			<div id="div1-ecoPratic-ca" class="col-sm-12 col-xs-12">
+				<div id="div1-1-ecoPratic-ca" class="col-sm-12 col-xs-12">
+					<label for="personnesPresentes-ml">Présentation des personnes présentes</label>
+				</div>
+			</div>
+			<div id="div2-ecoPratic-ca" class="col-sm-12 col-xs-12">
+				<div id="div2-1-ecoPratic-ca" class="col-sm-12 col-xs-12">
+					<textarea id="personnesPresentes-ml" name="descEcoPratique" placeholder="Personnalité / caractère des colocataires..."></textarea>
+				</div>
+			</div>
+		</div>
+		<div id="divEcoPratic-ca" class="col-sm-12 col-xs-12">
+			<div id="div1-ecoPratic-ca" class="col-sm-12 col-xs-12">
+				<div id="div1-1-ecoPratic-ca" class="col-sm-12 col-xs-12">
+					<label for="convivialite-ml">Présentation de la convivialité commune</label>
+				</div>
+			</div>
+			<div id="div2-ecoPratic-ca" class="col-sm-12 col-xs-12">
+				<div id="div2-1-ecoPratic-ca" class="col-sm-12 col-xs-12">
+					<textarea id="convivialite-ml" name="descEcoPratique" placeholder="Activités communes, capacité d’accueil, ..."></textarea>
+				</div>
+			</div>
+		</div>
+		<div id="divEcoPratic-ca" class="col-sm-12 col-xs-12">
+			<div id="div1-ecoPratic-ca" class="col-sm-12 col-xs-12">
+				<div id="div1-1-ecoPratic-ca" class="col-sm-12 col-xs-12">
+					<label for="organisation-ml">Présentation de l’organisation</label>
+				</div>
+			</div>
+			<div id="div2-ecoPratic-ca" class="col-sm-12 col-xs-12">
+				<div id="div2-1-ecoPratic-ca" class="col-sm-12 col-xs-12">
+					<textarea id="organisation-ml" name="descEcoPratique" placeholder="Organisations des tâches, des ressources, ..."></textarea>
+				</div>
+			</div>
+		</div>
+		<div id="divEcoPratic-ca" class="col-sm-12 col-xs-12">
+			<div id="div1-ecoPratic-ca" class="col-sm-12 col-xs-12">
+				<div id="div1-1-ecoPratic-ca" class="col-sm-12 col-xs-12">
+					<label for="Pratiques__cologiques_exerc_es_par_la_colocation">Présentation des pratiques écologiques</label>
+				</div>
+			</div>
+			<div id="div2-ecoPratic-ca" class="col-sm-12 col-xs-12">
+				<div id="div2-1-ecoPratic-ca" class="col-sm-12 col-xs-12">
+					<textarea id="descEcoPratique" name="descEcoPratique" placeholder="Celles que vous réalisez / que vous envisagez ..."></textarea>
+				</div>
+			</div>
 		</div>
 		<div class="col-xs-12 sousDivFormColoc-ayer">
 			<div>
 				<label class="label-ayer">
-					Ajouter une photo à l'image de votre éco-colocation
+					Ajouter une photo à l'image de votre éco-colocation *
 				</label>
 			</div>
 
@@ -53,20 +126,20 @@
 	</div>
 	<div>
 		<h2 class="titleH2-ayer">
-			Notre fibre écologique
+			Notre fibre écologique *
 		</h2>
 		<div>
 			<div class="divFibreEco-ayer">
 				<input type="radio" name="fibreEco" value="1" class="radioFibreEco-ayer">
-				<p class="txtFibreEco-ayer">Donner le meilleur de nous-même pour réduire au maximum notre impact écologique</p>
+				<p class="txtFibreEco-ayer">Donner le meilleur de nous-même pour réduire au maximum notre impact sur l'environnement</p>
 			</div>
 			<div class="divFibreEco-ayer">
 				<input type="radio" name="fibreEco" value="2" class="radioFibreEco-ayer" checked="">
-				<p class="txtFibreEco-ayer">Tenter notre possible pour réduire notre impact écologique</p>
+				<p class="txtFibreEco-ayer">Tenter notre possible pour réduire notre impact sur l'environnement</p>
 			</div>
 			<div class="divFibreEco-ayer">
 				<input type="radio" name="fibreEco" value="3" class="radioFibreEco-ayer">
-				<p class="txtFibreEco-ayer">Essayer de réduire un minimum notre impact écologique</p>
+				<p class="txtFibreEco-ayer">Essayer de réduire un minimum notre impact sur l'environnement</p>
 			</div>
 		</div>
 	</div>
@@ -383,7 +456,7 @@
 		<div class="overflow">
 			<div class="flexWrap">
 				<div class="col-sm-6 col-xs-12">
-					<h2 class="titleH2-ayer">Création d'un compte éco-colocation</h2>
+					<h2 class="titleH2-ayer">Création d'un compte éco-colocation *</h2>
 					<div class="flex">
 						<div id="divInfoUserMdp-ayer">
 							<i id="iconInfoUserMdp-ayer" class="fas fa-info"></i>
@@ -409,9 +482,7 @@
 					</div>
 				</div>
 				<div class="col-sm-6 col-xs-12">
-					<h2 class="titleH2-ayer">
-						Enregistrement des colocataires
-					</h2>
+					<h2 class="titleH2-ayer">Enregistrement des colocataires *</h2>
 					<div id="divAddOthersColoc-ayer">
 						<div class="input-group">
 							<span class="input-group-btn">
@@ -437,7 +508,7 @@
 								<div class="enterColocTable-ayer">
 									<div class="col-sm-6 divLabelInfoColoc-ayer">
 										<label class="label-ayer">Prénom</label>
-										<input type="text" placeholder="Entrez votre prénom" class="input-ayer">
+										<input type="text" placeholder="Entrez votre prénom" class="input-ayer prenomColoc-ayer">
 										<div class="underInput-ayer"></div>
 									</div>
 									<div class="col-sm-6 divLabelInfoColoc-ayer">
@@ -474,7 +545,7 @@
 								<div class="enterColocTable-ayer">
 									<div class="col-sm-6 divLabelInfoColoc-ayer">
 										<label class="label-ayer">Prénom</label>
-										<input type="text" placeholder="Entrez votre prénom" class="input-ayer">
+										<input type="text" placeholder="Entrez votre prénom" class="input-ayer prenomColoc-ayer">
 										<div class="underInput-ayer"></div>
 									</div>
 									<div class="col-sm-6 divLabelInfoColoc-ayer">
@@ -505,6 +576,8 @@
 						<div id="addOthersColoc">
 							<div id="colocCopie-ayer" style="display:none">
 								<div id="titleInfoColocCopie-ayer" class="titleInfoColocs-ayer" onclick="openThisColocRow_ayer('#titleInfoColocCopie-ayer','#infoColocCopie-ayer')">
+									<i class="fas fa-times crossEcoColocExisting-ayere" id="crossEcoColocExist-ayere"
+									   onclick="removeSpecificColoc('colocCopie-ayer')"></i>
 									<p class="txtColocTable-ayer">Colocataire exemple</p>
 									<i class="fas fa-long-arrow-alt-right iconTxtColocTable-ayer"></i>
 								</div>
@@ -512,7 +585,7 @@
 									<div class="enterColocTable-ayer">
 										<div class="col-sm-6 divLabelInfoColoc-ayer">
 											<label class="label-ayer">Prénom</label>
-											<input type="text" placeholder="Entrez votre prénom" class="input-ayer">
+											<input type="text" placeholder="Entrez votre prénom" class="input-ayer prenomColoc-ayer">
 											<div class="underInput-ayer"></div>
 										</div>
 										<div class="col-sm-6 divLabelInfoColoc-ayer">
@@ -563,9 +636,3 @@
 		}
 	</div>
 </div>
-
-<script type="text/javascript">
-	$(document).ready(function () {
-		initAutoComplete('#address-input-ayer');
-	});
-</script>

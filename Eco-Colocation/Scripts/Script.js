@@ -73,12 +73,7 @@ $(document).ready(function () {
 
 	//Permet de ne plus pouvoir ouvrir le modal sur un autre onglet
 	stopNewTabOppening();
-	openModalInThisTap();
-
-	//Ajouter la croix sur la modal
-	//$(document).on('ready', '.underModal', function () {
-	//	showCloseModalImg()
-	//});	
+	openModalInThisTag();
 });
 /***** Permet de ne plus pouvoir ouvrir le modal sur un autre onglet *****/
 function stopNewTabOppening() {
@@ -91,7 +86,7 @@ function stopNewTabOppening() {
 	});
 }
 
-function openModalInThisTap() {
+function openModalInThisTag() {
 	$('a').bind('click', function (e) {
 		if ($(this).attr('jshref')) {
 			var href = $(this).attr('jshref');
@@ -881,7 +876,8 @@ function openThisColocRow_ayer(elementTitle, elementBlockIdToOpen) {
 			$(elementBlockIdToOpen).css('max-height', '1000px');
 			$(elementTitle).css('background-color', '#C4D102');
 			$(elementTitle).css('color', 'white');
-			$(elementTitle + " i").attr("class", "fas fa-long-arrow-alt-down iconTxtColocTable-ayer")
+			$(elementTitle + " i:first-child").css("color", "white")
+			$(elementTitle + " i:last-child").attr("class", "fas fa-long-arrow-alt-down iconTxtColocTable-ayer")
 		}, 100)
 	}
 	else {
@@ -892,6 +888,7 @@ function openThisColocRow_ayer(elementTitle, elementBlockIdToOpen) {
 		$('.titleInfoColocs-ayer').css('background-color', 'initial');
 		$('.titleInfoColocs-ayer').css('color', '#555555');
 		$('.infoColoc-ayer').css('max-height', '0');
+		$(".crossEcoColocExisting-ayere").css("color", "#555")
 		$(".iconTxtColocTable-ayer").attr("class", "fas fa-long-arrow-alt-right iconTxtColocTable-ayer")
 	}
 }
@@ -933,6 +930,42 @@ function removeOneColoc_ayer() {
 	}
 }
 
+function removeSpecificColoc(event, elementToRemove) {
+	if ($(elementToRemove + ' .prenomColoc-ayer').val().length != 0) {
+		if (confirm('Êtes-Vous sûr de vouloir supprimer "' + $(elementToRemove + ' .prenomColoc-ayer').val() + '" de la liste ?')) {
+			removeIt(elementToRemove);
+		}
+	}
+	else {
+		if (confirm('Êtes-Vous sûr de vouloir supprimer ' + $(elementToRemove + ' .txtColocTable-ayer').text() + ' de la liste ?')) {
+			removeIt(elementToRemove);
+		}
+	}
+
+	function removeIt(elementToRemove) {
+		if ($('#valueNbColocInfo-ayer').val() > 2) {
+			$(elementToRemove).remove();
+
+			var newValueNbBlockColocInfo = parseInt($('#valueNbColocInfo-ayer').val()) - 1;
+			$('#valueNbColocInfo-ayer').val(newValueNbBlockColocInfo)
+
+			var colocActual = 3
+			$('.divColocInfo').each(function () {
+				$('#' + this.id).attr("id", "divColocInfo" + colocActual)
+				$('#' + this.id + ' .titleInfoColocs-ayer').attr("id", "titleInfoColoc" + colocActual + "-ayer")
+				$('#' + this.id + ' .titleInfoColocs-ayer').attr('onclick',
+					'openThisColocRow_ayer("#titleInfoColoc' + colocActual + '-ayer","#infoColoc' + colocActual + '-ayer")')
+				$('#' + this.id + ' .txtColocTable-ayer').text("Colocataire " + colocActual)
+				$('#' + this.id + ' .infoColoc-ayer').attr('id', 'infoColoc' + colocActual + '-ayer')
+				$('#' + this.id + ' .crossEcoColocExisting-ayere').attr("onclick", "removeSpecificColoc(event, '#divColocInfo" + colocActual + "')")
+
+				colocActual += 1;
+			});
+		}		
+		event.stopPropagation();
+	}
+}
+
 function addOneColoc_ayer() {
 	var newValueNbBlockColocInfo = parseInt($('#valueNbColocInfo-ayer').val()) + 1;
 
@@ -962,6 +995,7 @@ function addOneColoc_ayer() {
 			'openThisColocRow_ayer("#titleInfoColoc' + newValueNbBlockColocInfo + '-ayer","#infoColoc' + newValueNbBlockColocInfo + '-ayer")')
 		$("#" + idName + ' .titleInfoColocs-ayer p').text("Colocataire " + newValueNbBlockColocInfo)
 		$("#" + idName + ' #infoColocCopie-ayer').attr('id', 'infoColoc' + newValueNbBlockColocInfo + '-ayer')
+		$("#" + idName + ' #crossEcoColocExist-ayere').attr("onclick", "removeSpecificColoc(event, '#divColocInfo" + newValueNbBlockColocInfo + "')")
 	}
 }
 
@@ -1142,7 +1176,7 @@ function showOthersEvents() {
 	// Appeler le controller pour recuperer quelques événements et les afficher
 	var event = $('#divBlocAnnonce2').html();
 	$("#divOthersEvents-ereom").append(event);
-	openModalInThisTap();
+	openModalInThisTag();
 
 	//Afficher ces événements sur la carte
 }
@@ -1150,13 +1184,13 @@ function showOthersEvents() {
 function showOthersAnnounces() {
 	var announce = $("#annonce2-alpv")[0].outerHTML;
 	$("#divOthersAnnounces-alpv").append(announce);
-	openModalInThisTap();
+	openModalInThisTag();
 }
 
 function showOthersPeople() {
 	var people = $(".divPeoplesSearching:first-child")[0].outerHTML;
 	$("#divPanelPl #divBtnOtherAnnonceLocation-alpv").before(people);
-	openModalInThisTap();
+	openModalInThisTag();
 }
 
 function lineMaxToShow(textElement) {
