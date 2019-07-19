@@ -4,6 +4,10 @@
 	ViewBag.urlCurrentPage = "/Home/Index";
 }
 
+<a id="createAnnounceLocationLink-h" href="@Url.Action("ModalLocation", "ColocAnnounce", null)" rel="modal:open" onclick="openSecondModal()" class="linkProposeEcoColoc-mca centerText noLink fontFamilyNote">Une annonce de location</a>
+<a id="createProjetCreationLink-h" href="@Url.Action("ModalProjetCreation", "ColocAnnounce", null)" rel="modal:open" onclick="openSecondModal()" class="linkProposeEcoColoc-mca centerText noLink fontFamilyNote">Un projet de création</a>
+<a id="createEmptyAccountLing-h" href="@Url.Action("ModalCreateEmptyAccount", "Account", null)" rel="modal:open" class="childFlex noLink">Autres</a>
+
 <div id="home">
 	<div id="partialViewEcoRoommateEvent_OnMap" class="col-sm-6 col-xs-12">
 		@Html.Partial("~/Views/EcoRoommateEvent/EcoRoommateEvent_OnMap.cshtml")

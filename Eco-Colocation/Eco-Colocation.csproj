@@ -423,7 +423,6 @@
     <Content Include="Views\PeopleSearching\Index.cshtml" />
     <Content Include="Views\SearchColoc\ModalLocation.cshtml" />
     <Content Include="Views\SearchColoc\PartialViewMessage.cshtml" />
-    <Content Include="Views\SearchColoc\ModalSendMessage.cshtml" />
     <Content Include="Views\ColocAnnounce\AnnonceLocation.cshtml" />
     <Content Include="Views\ColocAnnounce\ModalLocation.cshtml" />
     <Content Include="Views\ColocAnnounce\ProjetCreation.cshtml" />

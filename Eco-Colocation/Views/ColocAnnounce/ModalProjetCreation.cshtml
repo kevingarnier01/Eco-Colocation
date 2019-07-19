@@ -98,26 +98,6 @@
 					</div>
 				</div>
 			</div>
-			<div id="divDesciptionInfo-mcap">
-				<div class="divEncadrer-mcar" id="divDesciptionInfo-mcar">
-					<div class="encadrer-mcar col-sm-11 col-xs-12">
-						<div class="col-sm-4 col-xs-12 divImgLogo-mcar">
-							<div class="divImgLogoHorizontal-mcar">
-								<div class="divImgLogoVertical-mcar">
-									<div class="imgLogo-mcar" id="ImgInformationSup-mcar"></div>
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-8 col-xs-12" id="divGlobalPresent-mcar">
-							<div class="col-sm-12" id="divDesciptionInfo2-mcar">
-								<label class="lbl-mcar">Présentation de votre personnalité</label>
-								<textarea class="txtareaDesc-mcar input-mcar" id="txtareaPersoP-mcar" placeholder="Présentez-vous en quelque ligne..."></textarea>
-							</div>
-
-						</div>
-					</div>
-				</div>
-			</div>
 			<div id="div-adresseLog-ca" class="col-sm-12" style="">
 				<div id="div1-adresseLog-ca" class="col-sm-11 col-xs-12">
 					<div style="width: 100%;">
@@ -143,12 +123,12 @@
 
 								@*<input type="search" id="address-input-mpc" class="address-input" placeholder="Localisation de l'endroit" onload="initAutoComplete('#address-input-mpc')" />*@
 								@*@for (int i = 0; i < 4; i++)
-		{
-			@Html.Hidden("adresseVille", null, new { @class = "addresseVille" + i })
-			@Html.Hidden("adresseRegion", null, new { @class = "adresseRegion" + i })
-			@Html.Hidden("adressePays", null, new { @class = "adressePays" + i })
-			@Html.Hidden("adresseLatLng", null, new { @class = "adresseLatLng" + i })
-		}*@
+									{
+										@Html.Hidden("adresseVille", null, new { @class = "addresseVille" + i })
+										@Html.Hidden("adresseRegion", null, new { @class = "adresseRegion" + i })
+										@Html.Hidden("adressePays", null, new { @class = "adressePays" + i })
+										@Html.Hidden("adresseLatLng", null, new { @class = "adresseLatLng" + i })
+									}*@
 
 								@*<input id="listAutoCompletePlace2Hidden" name="listAutoCompletePlace2Hidden" type="hidden" value="">*@
 								<div id="div10-3-adresseLog-ca" class="flex col-sm-12 textInfoAdresse-ca">
@@ -157,7 +137,7 @@
 									<p class="fontFamilyNote col-sm-12" style="margin: auto;">
 										Il vous est possible d'indiquer plusieurs lieux concernant votre projet de création d'éco-colocation
 									</p>
-								</div>								
+								</div>
 							</div>
 						</div>
 					</div>
@@ -386,7 +366,9 @@
 				@Html.Partial("~/Views/Account/ButtonsCreateAccount.cshtml")
 			</div>
 		}
-		<a href="#close-modal" rel="modal:close" onclick="autoCompletePrepend()"><i class="fas fa-times close-modal"></i></a>
+	</div>
+	<div class="divCloseModal">
+		<a href="#close-modal" rel="modal:close"><i class="fas fa-times close-modal"></i></a>
 	</div>
 </div>
 
@@ -400,5 +382,7 @@
 				addNewPlace("#inputSearchPlace-mpc");
 			}
 		});
+
+		window.history.replaceState('data to be passed', 'Title of the page', '/Modal/ModalProjetCreation_ColocAnnounce');
 	});
 </script>

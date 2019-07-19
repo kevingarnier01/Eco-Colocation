@@ -6,8 +6,19 @@ namespace Eco_Colocation.Controllers
 	public class SearchColocController : Controller
 	{
 		// GET: SearchColoc
-		public ActionResult Index(/*AllViewModel allViewModel*/)
+		public ActionResult Index(string currentTab, string idModal)
 		{
+			if (currentTab != null && currentTab.Length != 0)
+			{
+				ViewData["currentTab"] = currentTab;
+			}
+			else
+			{
+				ViewData["currentTab"] = "AnnonceLocation";
+			}
+
+			ViewData["idModalToTrigger"] = idModal;
+
 			AllViewModel allViewModel = new AllViewModel();
 
 			return View(allViewModel);
@@ -47,10 +58,10 @@ namespace Eco_Colocation.Controllers
 		public ActionResult ProjetCreation(string targetCity)
 		{
 			ViewData["showProjetCreation"] = "true";
-			
+
 			AllViewModel allViewModel = new AllViewModel();
 
 			return View("~/Views/SearchColoc/Index.cshtml", allViewModel);
 		}
-	}	
+	}
 }
