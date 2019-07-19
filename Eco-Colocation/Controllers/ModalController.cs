@@ -14,9 +14,9 @@ namespace Eco_Colocation.Controllers
 		{
 			return View();
 		}
-		
 
-	  [HttpGet]
+
+		[HttpGet]
 		public ActionResult ModalConnection()
 		{
 			ViewData["idModalToTrigger"] = "#modalConnectionLink";
@@ -48,8 +48,17 @@ namespace Eco_Colocation.Controllers
 		}
 
 		[HttpGet]
+		public ActionResult ModalCARecherche()
+		{
+			ViewData["idModalToTrigger"] = "#addSearchingAnnonceLink-ps";
+
+			return View("~/Views/PeopleSearching/Index.cshtml");
+		}
+
+		[HttpGet]
 		public ActionResult ModalEcoRoommateEventVisual(string idModal)
 		{
+
 			ViewData["idModalToTrigger"] = "#ecoRoommateEventLink-" + idModal;
 
 			return View("~/Views/Home/Index.cshtml");
@@ -61,16 +70,17 @@ namespace Eco_Colocation.Controllers
 			AllViewModel allViewModel = new AllViewModel();
 			//...Recuperer les données necessaire en fonction de la veriable targetCity qui représente la ville qu'il à saisi
 
-			ViewData["idModalToTrigger"] = "#annonceLocationPVLink-" + idModal;
+			string idModalDestination = "#annonceLocationPVLink-" + idModal;
+			string currentTab = "AnnonceLocation";
 
-			if(urlCurrentPage != null && urlCurrentPage.Length != 0)
+			if (urlCurrentPage != null && urlCurrentPage.Length != 0)
 			{
-				return View("~/Views" + urlCurrentPage + ".cshtml", allViewModel);
+				return Redirect(urlCurrentPage + "/?currentTab=" + currentTab + "&idModal=" + Uri.EscapeDataString(idModalDestination));
 			}
 			else
 			{
 				return View("~/Views/SearchColoc/Index.cshtml", allViewModel);
-			}			
+			}
 		}
 
 		[HttpGet]
@@ -79,17 +89,42 @@ namespace Eco_Colocation.Controllers
 			AllViewModel allViewModel = new AllViewModel();
 			//...Recuperer les données necessaire en fonction de la veriable targetCity qui représente la ville qu'il à saisi
 
-			ViewData["idModalToTrigger"] = "#projetCreationPVLink-" + idModal;
-			ViewData["showProjetCreation"] = "true";
+			string idModalDestination = "#projetCreationPVLink-" + idModal;
+			string currentTab = "ProjetCreation";
 
 			if (urlCurrentPage.Length != 0)
 			{
-				return View("~/Views" + urlCurrentPage + ".cshtml", allViewModel);
+				return Redirect(urlCurrentPage + "/?currentTab=" + currentTab + "&idModal=" + Uri.EscapeDataString(idModalDestination));
 			}
 			else
 			{
 				return View("~/Views/SearchColoc/Index.cshtml", allViewModel);
 			}
+		}
+
+		[HttpGet]
+		public ActionResult ModalLocation_ColocAnnounce()
+		{
+			ViewData["idModalToTrigger"] = "#createAnnounceLocationLink-h";
+
+			return View("~/Views/Home/Index.cshtml");
+		}
+
+		[HttpGet]
+		public ActionResult ModalProjetCreation_ColocAnnounce()
+		{
+			ViewData["idModalToTrigger"] = "#createProjetCreationLink-h";
+
+			return View("~/Views/Home/Index.cshtml");
+		}
+		
+
+					[HttpGet]
+		public ActionResult ModalCreateEmptyAccount()
+		{
+			ViewData["idModalToTrigger"] = "#createEmptyAccountLing-h";
+
+			return View("~/Views/Home/Index.cshtml");
 		}
 	}
 }
