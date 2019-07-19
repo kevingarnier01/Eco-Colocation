@@ -4467,6 +4467,16 @@ i.fas.fa-times.crossPlace-cpc {
 	margin-bottom: 35px;
 }
 
+#emailColoc-ayere {
+	border-radius: 5px;
+	width: 300px;
+	padding: 5px;
+}
+
+#contactColoc-ayere {
+	margin-bottom: 40px;
+}
+
 #divDescEco-Coloc-ayer {
 	overflow: auto;
 }
@@ -4923,7 +4933,7 @@ input.radioFibreEco-ayer {
 	color: #555555;
 	font-weight: 100;
 	padding-left: 25px;
-	cursor: pointer;
+	cursor: grab;
 	display: flex;
 	position: relative;
 }
@@ -4931,6 +4941,13 @@ input.radioFibreEco-ayer {
 .txtColocTable-ayer {
 	user-select: none;
 	font-family: Noteworthy;
+}
+
+.crossEcoColocExisting-ayere {
+	margin-top: 3px;
+	margin-right: 10px;
+	color: #555;
+	cursor: pointer
 }
 
 .iconTxtColocTable-ayer {
