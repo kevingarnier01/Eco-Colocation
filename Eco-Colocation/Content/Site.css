@@ -621,6 +621,80 @@ select:-moz-focusring {
 	}
 }
 
+/***** Leaflet ******/
+/* Cluster */
+.markersCluster {
+	border-radius: 50%;
+	color: white;
+	margin-top: -20px;
+	margin-left: -20px;
+}
+
+	.markersCluster div {
+		text-align: center;
+		border-radius: 15px;
+		font: 12px sans-serif;
+		font-weight: bold;
+		margin-left: 5px;
+		margin-top: 5px;
+	}
+
+
+		.markersCluster div span {
+			left: 50%;
+			transform: translateX(-50%);
+			position: absolute;
+		}
+
+.digits-1 {
+	background-color: rgba(181, 226, 140, 0.95);
+	height: 34px;
+	width: 34px;
+}
+
+	.digits-1 div {
+		background-color: rgba(110, 204, 57, 0.8);
+		width: 24px;
+		height: 24px;
+	}
+
+.digits-1 div span {
+	line-height: 26px;
+}
+
+.digits-2 {
+	background-color: rgba(241, 211, 87, 0.85);
+	height: 39px;
+	width: 39px;
+}
+
+	.digits-2 div {
+		background-color: rgba(240, 194, 12, 0.8);
+		width: 29px;
+		height: 29px;
+	}
+
+		.digits-2 div span {
+			line-height: 30px;
+		}
+
+.digits-3 {
+	height: 44px;
+	width: 44px;
+	background-color: rgba(253, 156, 115, 0.6);
+}
+
+	.digits-3 div {
+		background-color: rgba(241, 128, 23, 0.6);
+		width: 34px;
+		height: 34px;
+	}
+
+		.digits-3 div span {
+			line-height: 35px;
+		}
+
+
 /* Fin bar de recherche */
 /* Nom of attribute : https://stackoverflow.com/questions/14992827/change-background-color-of-jquery-autocomplete-item-based-on-state-using-css /
 /**** AutoComplete ****/
@@ -2440,9 +2514,9 @@ d5-description-mpc {
 		width: 900px
 	}
 
-	#modalLocation-ColocAnnounce textarea, input {
-		color: #555;
-	}
+		#modalLocation-ColocAnnounce textarea, input {
+			color: #555;
+		}
 
 #htmlBlockModalLocation-ml {
 	color: #888
@@ -4477,6 +4551,10 @@ i.fas.fa-times.crossPlace-cpc {
 	margin-bottom: 40px;
 }
 
+#divDescrTextColoc-ayere {
+	font-style: italic;
+}
+
 #divDescEco-Coloc-ayer {
 	overflow: auto;
 }
@@ -4620,6 +4698,9 @@ input.radioFibreEco-ayer {
 
 #address-input-ayer {
 	width: 98%;
+	margin: 1px;
+	padding: 5px;
+	border-radius: 5px;
 }
 
 .divGlobalMsgPhoto-ayer {

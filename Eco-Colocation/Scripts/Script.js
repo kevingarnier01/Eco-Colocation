@@ -181,7 +181,33 @@ function initMap() {
 			latLng: [46.89, 2.67],
 			id: '2'
 		},
+		{
+			name: 'Marker2',
+			latLng: [46.95, 2.67],
+			id: '2'
+		}
 	];
+
+	var markersCluster = new L.MarkerClusterGroup({
+		iconCreateFunction: function (cluster) {
+			var digits = cluster.getChildCount();
+			if (digits < 10) {
+				digits = 1;
+			}
+			else if (digits >= 10 && digits < 100) {
+				digits = 2;
+			}
+			else {
+				digits = 3;
+			}
+			
+			return L.divIcon({
+				html: "<div><span>" + cluster.getChildCount() + "</span></div>",
+				className: 'markersCluster digits-' + digits,
+				iconSize: null
+			});
+		}
+	});
 
 	for (var i = 0; i < data.length; i++) {
 		(function () {
@@ -211,9 +237,13 @@ function initMap() {
 					markerObject.setIcon(leafIcon);
 				}); showOthersEvents()
 
+				markersCluster.addLayer(markerObject);
+
 			}, 1000);
 		})();
 	}
+
+	mymap.addLayer(markersCluster);
 }
 
 function selectSwitcher(element) {
@@ -961,7 +991,7 @@ function removeSpecificColoc(event, elementToRemove) {
 
 				colocActual += 1;
 			});
-		}		
+		}
 		event.stopPropagation();
 	}
 }
