@@ -694,6 +694,24 @@ select:-moz-focusring {
 			line-height: 35px;
 		}
 
+.digitsEvent {
+	background-color: #f3ff4f;
+	color: #555;
+}
+
+	.digitsEvent div {
+		background-color: #f5f5f5;
+	}
+
+.digitsColocExistante {
+	background-color: rgb(196, 209, 2);
+	color: #555;
+}
+
+	.digitsColocExistante div {
+		background-color: #f5f5f5;
+	}
+
 
 /* Fin bar de recherche */
 /* Nom of attribute : https://stackoverflow.com/questions/14992827/change-background-color-of-jquery-autocomplete-item-based-on-state-using-css /
