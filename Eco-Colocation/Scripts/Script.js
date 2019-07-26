@@ -73,7 +73,7 @@ $(document).ready(function () {
 
 	//Permet de ne plus pouvoir ouvrir le modal sur un autre onglet
 	stopNewTabOppening();
-	openModalInThisTag();
+	openModalInThisTab();
 });
 /***** Permet de ne plus pouvoir ouvrir le modal sur un autre onglet *****/
 function stopNewTabOppening() {
@@ -86,7 +86,7 @@ function stopNewTabOppening() {
 	});
 }
 
-function openModalInThisTag() {
+function openModalInThisTab() {
 	$('a').bind('click', function (e) {
 		if ($(this).attr('jshref')) {
 			var href = $(this).attr('jshref');
@@ -147,7 +147,31 @@ function modalResize() {
 	$('.modal').css('cssText', $('.modal').attr('style') + 'width: ' + (pourcent) + '% !IMPORTANT;');
 }
 
-function initMap() {
+function initmarkersCluster(specialDigits) {
+	var markersCluster = new L.MarkerClusterGroup({
+		iconCreateFunction: function (cluster) {
+			var digits = cluster.getChildCount();
+			if (digits < 10) {
+				digits = 1;
+			}
+			else if (digits >= 10 && digits < 100) {
+				digits = 2;
+			}
+			else {
+				digits = 3;
+			}
+
+			return L.divIcon({
+				html: "<div><span>" + cluster.getChildCount() + "</span></div>",
+				className: 'markersCluster ' + ((specialDigits != null && specialDigits.length != 0) ? specialDigits : "") + ' digits-' + digits,
+				iconSize: null
+			});
+		}
+	});
+	return markersCluster;
+}
+
+function initSearchColocMap() {
 	var mymap = L.map('mapSearchColoc').setView([46.89, 2.67], 5);
 
 	L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
@@ -180,34 +204,10 @@ function initMap() {
 			name: 'Marker2',
 			latLng: [46.89, 2.67],
 			id: '2'
-		},
-		{
-			name: 'Marker2',
-			latLng: [46.95, 2.67],
-			id: '2'
 		}
 	];
 
-	var markersCluster = new L.MarkerClusterGroup({
-		iconCreateFunction: function (cluster) {
-			var digits = cluster.getChildCount();
-			if (digits < 10) {
-				digits = 1;
-			}
-			else if (digits >= 10 && digits < 100) {
-				digits = 2;
-			}
-			else {
-				digits = 3;
-			}
-			
-			return L.divIcon({
-				html: "<div><span>" + cluster.getChildCount() + "</span></div>",
-				className: 'markersCluster digits-' + digits,
-				iconSize: null
-			});
-		}
-	});
+	var markersCluster = initmarkersCluster();
 
 	for (var i = 0; i < data.length; i++) {
 		(function () {
@@ -221,12 +221,10 @@ function initMap() {
 					'className': 'leafletDivAnnounce'
 				}
 
-				var markerObject = L.marker(marker.latLng, { icon: leafIcon }).addTo(mymap).on("mouseover", function () {
+				var markerObject = L.marker(marker.latLng, { icon: leafIcon }).on("mouseover", function () {
 					var numberId = ii + 1;
 					var idElement = $("#onHoverMarker" + numberId);
 					markerObject.bindPopup(idElement.html(), customOptions)
-				}).on("mouseout", function () {
-					//hideAnnonce("#onHoverMarker", ii + 1);
 				});
 
 				$("#annonce" + (ii + 1) + "-alpv").on("mouseover", function (e) {
@@ -235,10 +233,11 @@ function initMap() {
 
 				$("#annonce" + (ii + 1) + "-alpv").on("mouseout", function (e) {
 					markerObject.setIcon(leafIcon);
-				}); showOthersEvents()
+				});
+				
+				showOthersEvents()
 
 				markersCluster.addLayer(markerObject);
-
 			}, 1000);
 		})();
 	}
@@ -820,6 +819,8 @@ function loadEcoRoommateExistingMap(mymap) {
 		},
 	];
 
+	var markersCluster = initmarkersCluster('digitsColocExistante');
+
 	for (var i = 0; i < data.length; i++) {
 		(function () {
 			var ii = i;
@@ -833,10 +834,14 @@ function loadEcoRoommateExistingMap(mymap) {
 				'className': 'leafletDivEcoRommateExisting'
 			}
 
-			var markerObject = L.marker(marker.latLng, { icon: markerIcon }).bindPopup(customPopup, customOptions).addTo(mymap).on("click", function () {
+			var markerObject = L.marker(marker.latLng, { icon: markerIcon }).bindPopup(customPopup, customOptions).on("click", function () {
 			});
+
+			markersCluster.addLayer(markerObject);
 		})();
 	}
+
+	mymap.addLayer(markersCluster);
 }
 
 function loadEcoRoommateEventMap(mymap) {
@@ -865,6 +870,8 @@ function loadEcoRoommateEventMap(mymap) {
 		},
 	];
 
+	var markersCluster = initmarkersCluster('digitsEvent');
+
 	for (var i = 0; i < data2.length; i++) {
 		(function () {
 			var ii = i;
@@ -881,7 +888,7 @@ function loadEcoRoommateEventMap(mymap) {
 				'className': 'leafletDivEcoRommateEvent'
 			}
 
-			var markerObject = L.marker(marker.latLng, { icon: markerIcon2 }).bindPopup(customPopup, customOptions).addTo(mymap).on("click", function () {
+			var markerObject = L.marker(marker.latLng, { icon: markerIcon2 }).bindPopup(customPopup, customOptions).on("click", function () {
 				checkIfBtnInteretIsNotEmpty_erevom('.leafletDivEcoRommateEvent #eventMarker' + marker.id);
 			});
 
@@ -892,8 +899,12 @@ function loadEcoRoommateEventMap(mymap) {
 			$("#annonce" + (ii + 1) + "-ereom").on("mouseout", function (e) {
 				markerObject.setIcon(markerIcon2);
 			});
+
+
+			markersCluster.addLayer(markerObject);
 		})();
 	}
+	mymap.addLayer(markersCluster);
 }
 
 //********* EcoRoommateExisting *************//
@@ -1206,21 +1217,19 @@ function showOthersEvents() {
 	// Appeler le controller pour recuperer quelques événements et les afficher
 	var event = $('#divBlocAnnonce2').html();
 	$("#divOthersEvents-ereom").append(event);
-	openModalInThisTag();
-
-	//Afficher ces événements sur la carte
+	openModalInThisTab();
 }
 
 function showOthersAnnounces() {
 	var announce = $("#annonce2-alpv")[0].outerHTML;
 	$("#divOthersAnnounces-alpv").append(announce);
-	openModalInThisTag();
+	openModalInThisTab();
 }
 
 function showOthersPeople() {
 	var people = $(".divPeoplesSearching:first-child")[0].outerHTML;
 	$("#divPanelPl #divBtnOtherAnnonceLocation-alpv").before(people);
-	openModalInThisTag();
+	openModalInThisTab();
 }
 
 function lineMaxToShow(textElement) {
