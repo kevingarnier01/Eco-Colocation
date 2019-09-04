@@ -234,7 +234,7 @@ function initSearchColocMap() {
 				$("#annonce" + (ii + 1) + "-alpv").on("mouseout", function (e) {
 					markerObject.setIcon(leafIcon);
 				});
-				
+
 				showOthersEvents()
 
 				markersCluster.addLayer(markerObject);
@@ -494,6 +494,9 @@ function getLstAutoCompletion(arr, inputId, typeResearch) {
 			autoFocus: true,
 			html: 'html',
 			select: function (event, ui) {
+				if (inputId.id == "inpMultiPlace-al") {
+					addNewPlaceItem(ui, inputId);
+				}
 				saveValueSelected(event, ui, this)
 			}
 		});
@@ -1238,4 +1241,31 @@ function lineMaxToShow(textElement) {
 	var lineHeight = parseInt(el.css('line-height'));
 	var lines = divHeight / lineHeight;
 	el.css("-webkit-line-clamp", Math.floor(lines).toString());
+}
+
+function getOtherMarkerFromThisNewPlace(ui) {
+	var locationSelected = ui.item.value;
+
+}
+
+var compteurPlaceItem = 2;
+function addNewPlaceItem(ui, inputId) {
+	var locationNameSelected = ui.item.value;
+
+	var htmlPlace =
+		'<div id="place' + compteurPlaceItem + '" class="divMultiPlace-al">' +
+		'<p id="placeName-cpc" class="placeName-cpc" title="' + locationNameSelected + '">' + locationNameSelected + '</p>' +
+		'<div class="crossPlace-cpc"><i onclick="deletePlace(place' + compteurPlaceItem + ')" class="fas fa-times crossPlace-cpc"></i></div>' +
+		'</div>';
+
+	$("#divAllMultiPlace-al").append(htmlPlace);
+
+	if ($("#placeSaved-cpc").css('display') == 'none')
+		$("#placeSaved-cpc").css('display', 'block');
+
+	setTimeout(function () {
+		$(inputId).val("");
+	}, 10)
+
+	compteurPlaceItem++;
 }

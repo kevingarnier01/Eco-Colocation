@@ -1427,6 +1427,23 @@ div#divContenuPlSchDisable {
 	padding-top: 5px;
 }
 
+.divMultiPlace-al {
+	padding: 5px 10px;
+	padding-top: 7px;
+	border-radius: 8px;
+	display: flex;
+	background-color: white;
+	max-width: 100%;
+	min-width: 160px;
+	margin-left: 5px;
+	height: 35px;
+	border: 2px solid #f4f6f7;
+}
+
+#divAllMultiPlace-al {
+	overflow: auto;
+}
+
 #globalDivMapSearchColoc {
 	margin-top: 3px;
 	margin-bottom: 20px;
@@ -2818,7 +2835,8 @@ d5-description-mpc {
 }
 
 .crossPlace-cpc {
-	margin-left: 3px;
+	margin-left: auto;
+	padding-left: 3px;
 }
 
 i.fas.fa-times.crossPlace-cpc {
