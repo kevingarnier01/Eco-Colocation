@@ -46,6 +46,18 @@ namespace Eco_Colocation
 			bundles.Add(new ScriptBundle("~/Scripts/css/jquerymodal").Include(
 					"~/Scripts/jquery-modal/jquery.modal.min.css"
 			   ));
+
+			bundles.Add(new ScriptBundle("~/Scripts/markercluster-1.4.1").Include(
+				//"~/Scripts/markercluster-1.4.1/leaflet.markercluster-src.js",
+				"~/Scripts/Leaflet.markercluster-1.4.1/dist/leaflet.markercluster-src.js",
+				"~/Scripts/Leaflet.markercluster-1.4.1/dist/leaflet.markercluster.js"
+				));
+
+
+			bundles.Add(new StyleBundle("~/Scripts/css/markercluster-1.4.1").Include(
+					  "~/Scripts/Leaflet.markercluster-1.4.1/dist/MarkerCluster.Default.min.css",
+					  "~/Scripts/Leaflet.markercluster-1.4.1/dist/MarkerCluster.min.css"
+					  ));
 		}
 	}
 }
