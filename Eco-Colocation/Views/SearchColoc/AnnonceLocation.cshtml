@@ -43,14 +43,14 @@
 </div>
 
 <div class="col-md-6 col-sm-12" id="globalDivMapSearchColoc">
-	<div id="rangeSlideKmArround-al" class="childFlex">
-		<div class="flex flexChild" id="divRayonRecherche-al">
-			<p class="centerText" id="descRayonRecherche-al">Le rayon de recherche autour de la ville est de</p>
-			<p class="centerText" id="valueRayonRecherche-al"><span id="valueRayon-al">0</span> Km</p>
+	<div id="divMultiPlaceToSearch-al" class="flex" style="display:none">
+		<div id="underDivMultiPlaceToSearch-al" class="flex">
+			<label for="inpMultiPlace-al"><i class="fas fa-map-marker-alt" id="iMarkerMultiPlace-al"></i></label>
+			<input type="text" placeholder="Saisissez une location" id="inpMultiPlace-al">
 		</div>
-		<div class="slidecontainer">
-			<input type="range" min="0" max="50" value="0" class="slider" id="rangeRayonRecherche">
-		</div>
+	</div>
+	<div id="divMultiPlaceCheck-al">
+
 	</div>
 	<div id="divMapSearchColoc"><div id="mapSearchColoc"></div></div>
 </div>
@@ -62,10 +62,3 @@
 	</div>
 	@Html.Partial("~/Views/Shared/AnnonceLocation/AnnonceLocationPV.cshtml")
 </div>
-
-<script type="text/javascript">
-	$(document).ready(function () {
-		
-		changeRayonRecherche()		
-	});
-</script>

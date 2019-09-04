@@ -1405,20 +1405,26 @@ div#divContenuPlSchDisable {
 	cursor: pointer
 }
 
-#divRayonRecherche-al {
-	font-size: 16px;
+#underDivMultiPlaceToSearch-al {
+	background-color: #f4f6f7;
+	height: 35px;
+	border-radius: 5px;
+	margin-bottom: 8px;
 }
 
-#descRayonRecherche-al {
+#iMarkerMultiPlace-al {
+	margin: 0 10px;
 	margin-right: 6px;
+	font-size: 18px;
+	line-height: 35px;
 }
 
-#rangeSlideKmArround-al {
-	width: 400px;
-}
-
-#valueRayonRecherche-al {
-	font-weight: bold;
+#inpMultiPlace-al {
+	border: none;
+	background-color: transparent;
+	height: 100%;
+	font-size: 16px;
+	padding-top: 5px;
 }
 
 #globalDivMapSearchColoc {
