@@ -1405,11 +1405,29 @@ div#divContenuPlSchDisable {
 	cursor: pointer
 }
 
-#divMapSearchColoc {
-	/*height: 340px;*/
-	padding-right: 25px;
-	margin-top: 30px;
+#divRayonRecherche-al {
+	font-size: 16px;
+}
+
+#descRayonRecherche-al {
+	margin-right: 6px;
+}
+
+#rangeSlideKmArround-al {
+	width: 400px;
+}
+
+#valueRayonRecherche-al {
+	font-weight: bold;
+}
+
+#globalDivMapSearchColoc {
+	margin-top: 3px;
 	margin-bottom: 20px;
+}
+
+#divMapSearchColoc {
+	margin-top: 5px;
 }
 
 #mapSearchColoc {

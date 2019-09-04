@@ -171,6 +171,16 @@ function initmarkersCluster(specialDigits) {
 	return markersCluster;
 }
 
+function changeRayonRecherche() {
+	var slider = document.getElementById("rangeRayonRecherche");
+	var output = document.getElementById("valueRayon-al");
+	output.innerHTML = slider.value;
+
+	slider.oninput = function () {
+		output.innerHTML = this.value;
+	}
+}
+
 function initSearchColocMap() {
 	var mymap = L.map('mapSearchColoc').setView([46.89, 2.67], 5);
 

@@ -42,7 +42,18 @@
 	</div>
 </div>
 
-<div id="divMapSearchColoc" class="col-md-6 col-sm-12"><div id="mapSearchColoc"></div></div>
+<div class="col-md-6 col-sm-12" id="globalDivMapSearchColoc">
+	<div id="rangeSlideKmArround-al" class="childFlex">
+		<div class="flex flexChild" id="divRayonRecherche-al">
+			<p class="centerText" id="descRayonRecherche-al">Le rayon de recherche autour de la ville est de</p>
+			<p class="centerText" id="valueRayonRecherche-al"><span id="valueRayon-al">0</span> Km</p>
+		</div>
+		<div class="slidecontainer">
+			<input type="range" min="0" max="50" value="0" class="slider" id="rangeRayonRecherche">
+		</div>
+	</div>
+	<div id="divMapSearchColoc"><div id="mapSearchColoc"></div></div>
+</div>
 @*****@
 
 <div id="divDivBlocAnnonce" class="col-md-6 col-sm-12">
@@ -51,3 +62,10 @@
 	</div>
 	@Html.Partial("~/Views/Shared/AnnonceLocation/AnnonceLocationPV.cshtml")
 </div>
+
+<script type="text/javascript">
+	$(document).ready(function () {
+		
+		changeRayonRecherche()		
+	});
+</script>
