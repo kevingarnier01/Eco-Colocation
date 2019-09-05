@@ -602,6 +602,7 @@ select:-moz-focusring {
 
 #adv-search {
 	z-index: 2;
+	display: flex;
 }
 
 @media screen and (min-width: 768px) {
@@ -658,9 +659,9 @@ select:-moz-focusring {
 		height: 24px;
 	}
 
-.digits-1 div span {
-	line-height: 26px;
-}
+		.digits-1 div span {
+			line-height: 26px;
+		}
 
 .digits-2 {
 	background-color: rgba(241, 211, 87, 0.85);
@@ -801,7 +802,7 @@ body .ui-autocomplete a {
 	display: flex;
 	margin-bottom: 30px;
 	margin-top: initial;
-	padding-top: 75px
+	padding-top: 65px
 }
 
 #sous-switcher-wrapper {
@@ -858,6 +859,17 @@ body .ui-autocomplete a {
 	margin-right: auto
 }
 
+select#typeResearchSct-ph:focus {
+	outline: none;
+}
+
+#typeResearchSct-ph {
+	width: 110px;
+	margin-right: 2px;
+	color: #999;
+	height: 35px;
+}
+
 @media only screen and (max-width: 730px) {
 	#btnCherche {
 		margin-bottom: 5px;
@@ -871,10 +883,36 @@ body .ui-autocomplete a {
 	#divGlobal1-sw {
 		padding: 20px !important;
 		width: 100% !important;
+		margin-top: -25px;
 	}
 
 	#divGlobal2-sw {
 		width: 315px
+	}
+
+	#typeResearchSct-ph {
+		width: 100px;
+		border-radius: 3px;
+		margin-bottom: 5px;
+		width: 130px;
+		text-align-last: center;
+	}
+
+	#div2BtnFiltre {
+		margin-top: -20px;
+		margin-bottom: 20px
+	}
+
+	#inputSearchPlace-ph {
+		border-radius: 3px
+	}
+
+	#adv-search {
+		display: inherit;
+	}
+
+	#switcher-wrapper {
+		padding-top: 58px
 	}
 }
 
@@ -921,6 +959,8 @@ body .ui-autocomplete a {
 
 #divBtnFiltre {
 	margin-left: 3px;
+	margin-top: 20px;
+	margin-bottom: -20px;
 }
 
 #div2BtnFiltre {
@@ -1434,7 +1474,7 @@ div#divContenuPlSchDisable {
 	display: flex;
 	background-color: white;
 	max-width: 100%;
-	min-width: 160px;
+	min-width: 80px;
 	margin-left: 5px;
 	height: 35px;
 	border: 2px solid #f4f6f7;
