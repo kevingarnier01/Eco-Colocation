@@ -13,18 +13,28 @@
 						<input id="btnProposition" type="button" value="Je propose une éco-colocation" onclick="selectSwitcher(this);">
 					</div>
 					@Html.HiddenFor(m => Model.HomeViewModel.TypeRecherche, new { @id = "typeRecherche" })
-					<div class="input-group" id="adv-search">
+					<div class="input-group flex" id="adv-search">
+						<div class="flex">
+							<div class="childFlex">
+								<select id="typeResearchSct-ph" class="form-control" onchange="typeOfResearchLocation(this)">
+									<option value="communes" selected>Communes</option>
+									<option value="departements">Départements</option>
+									<option value="regions">Régions</option>
+									<option value="france">Toute la France</option>
+								</select>
+							</div>
+						</div>
 						<input id="inputSearchPlace-ph" oninput="addr_searchCity(this);" name="@ViewData["randomInputAutoComplete"]" autocomplete="off" type="text"
-							   class="form-control inputSearchPlace" placeholder="Où recherchez-vous ?" >
+							   class="form-control inputSearchPlace" placeholder="Quelle commune recherchez-vous ?">
 						@*<input type="search" id="address-input-ph" class="address-input inputSearchPlace" placeholder="Saisir un lieu. Ex: Ville, Département, Région" />*@
-						<div class="input-group-btn">
-							<div id="divBtnFiltre" class="btn-group" role="group">
-								<div id="div2BtnFiltre" class="dropdown dropdown-lg">
-									<button id="btnSearch" type="submit" class="btn btn-primary fontFamilyNote">
-										<p>Rechercher</p>
-										<i class="fas fa-search"></i>
-									</button>
-								</div>
+					</div>
+					<div class="input-group-btn">
+						<div id="divBtnFiltre" class="btn-group" role="group">
+							<div id="div2BtnFiltre" class="dropdown dropdown-lg">
+								<button id="btnSearch" type="submit" class="btn btn-primary fontFamilyNote">
+									<p>Rechercher</p>
+									<i class="fas fa-search"></i>
+								</button>
 							</div>
 						</div>
 					</div>
@@ -35,8 +45,8 @@
 </div>
 
 @*<script type="text/javascript">
-	$(document).ready(function () {
-		//initAutoComplete('#address-input-ph');
+		$(document).ready(function () {
+			//initAutoComplete('#address-input-ph');
 
-	})
-</script>*@
+		})
+	</script>*@
