@@ -1306,26 +1306,26 @@ function addNewPlaceItem(ui, inputId) {
 
 function typeOfResearchLocation(item) {
 	if (item.value == "communes") {
-		$("#inputSearchPlace-ph").attr("placeholder", "Quel commune recherchez-vous ?")
+		$("#inputSearchPlace-ph").attr("placeholder", "Veuillez indiquer la commune concernée")
 		$("#inputSearchPlace-ph").attr("oninput", "addr_searchCity(this)")
 		$("#inputSearchPlace-ph").removeAttr("disabled")
 	}
 	else if (item.value == "departements") {
-		$("#inputSearchPlace-ph").attr("placeholder", "Quel département recherchez-vous ?")
+		$("#inputSearchPlace-ph").attr("placeholder", "Veuillez indiquer le département concerné")
 		$("#inputSearchPlace-ph").attr("oninput", "addr_searchDepartement(this)")
 		$("#inputSearchPlace-ph").removeAttr("disabled")
 	}
 	else if (item.value == "regions") {
-		$("#inputSearchPlace-ph").attr("placeholder", "Quel région recherchez-vous ?")
+		$("#inputSearchPlace-ph").attr("placeholder", "Veuillez indiquer la région concernée")
 		$("#inputSearchPlace-ph").attr("oninput", "addr_searchRegion(this)")
 		$("#inputSearchPlace-ph").removeAttr("disabled")
 	}
 	else if (item.value == "france") {
-		$("#inputSearchPlace-ph").attr("placeholder", "Vous recherchez en France")
+		$("#inputSearchPlace-ph").attr("placeholder", "Dans toute la France")
 		$("#inputSearchPlace-ph").attr("disabled", "true")
 	}
 	else {
-		$("#inputSearchPlace-ph").attr("placeholder", "Où recherchez-vous ?")
+		$("#inputSearchPlace-ph").attr("placeholder", "Veuillez indiquer la commune concernée")
 		$("#inputSearchPlace-ph").attr("oninput", "addr_searchCity(this)")
 		$("#inputSearchPlace-ph").removeAttr("disabled")
 	}
