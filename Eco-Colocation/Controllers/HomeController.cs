@@ -16,7 +16,7 @@ namespace Eco_Colocation.Controllers
 		public ActionResult TypeRecherche(AllViewModel allViewModel)
 		{
 			TempData["allViewModel"] = allViewModel;
-
+			
 			if (allViewModel.HomeViewModel.TypeRecherche == "searching")
 			{
 				return RedirectToAction("Index", "SearchColoc", null);
