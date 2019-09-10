@@ -1,5 +1,6 @@
 ﻿var closeModalHasBeenClicked;
 $(document).ready(function () {
+
 	//eventCloseOrNotModal();
 
 	//permet de correctement fermer le modal lors du click a l'exterieur
@@ -75,11 +76,13 @@ $(document).ready(function () {
 	stopNewTabOppening();
 	openModalInThisTab();
 });
+
 /***** Permet de ne plus pouvoir ouvrir le modal sur un autre onglet *****/
 function stopNewTabOppening() {
 	$('a').each(function () {
 		var href = $(this).attr('href');
-		$(this).attr('href', 'javascript:void(0)');  //set href
+		$(this).removeAttr('href');
+		$(this).attr('onclick', "openModalInThisTab()");
 		if (!$(this).attr('jshref')) {
 			$(this).attr('jshref', href); //add new attribte
 		}
@@ -448,16 +451,28 @@ function deletePlace(element) {
 }
 
 function getLstAutoCompletion(arr, inputId, typeResearch) {
+
+	if (arr.length != null) {
+		arr.features = arr;
+	}
+
 	if (arr.features.length > 0) {
 
 		//Supprime les doublons		
 		var labelThing; var labelT;
 		arr.features = arr.features.filter(function (thing, index, self) {
+
 			var indexItem = -1;
 			for (var i = 0; i < self.length; i++) {
 				var t = self[i];
-				labelT = t.properties.label + t.properties.city + t.properties.context;
-				labelThing = thing.properties.label + thing.properties.city + thing.properties.context;
+				if (typeResearch == "region" || typeResearch == "departement") {
+					labelT = t.nom;
+					labelThing = t.nom;
+				}
+				else {
+					labelT = t.properties.label + t.properties.city + t.properties.context;
+					labelThing = thing.properties.label + thing.properties.city + thing.properties.context;
+				}
 				if (labelT === labelThing) {
 					indexItem = i;
 					break;
@@ -470,8 +485,14 @@ function getLstAutoCompletion(arr, inputId, typeResearch) {
 
 		var availableTags = new Array();
 		for (i = 0; i < arr.features.length; i++) {
-			var label = arr.features[i].properties.label;
-			var context = arr.features[i].properties.context;
+			if (typeResearch == "region" || typeResearch == "departement") {
+				var label = arr.features[i].nom;
+				var context = "";
+			}
+			else {
+				var label = arr.features[i].properties.label;
+				var context = arr.features[i].properties.context;
+			}
 
 			availableTags[i] = {
 				label: ((typeResearch == "city") ?
@@ -521,6 +542,22 @@ function addr_searchStreet(inputId) {
 		var inp = $(inputId);
 		var url = "https://api-adresse.data.gouv.fr/search/?q=" + inp.val() + "&type=street";
 		addr_search(url, inputId, "street")
+	}
+}
+
+function addr_searchRegion(inputId) {
+	if ($(inputId).val() != "") {
+		var inp = $(inputId);
+		var url = "https://geo.api.gouv.fr/regions?nom=" + inp.val() + "&limit=5"
+		addr_search(url, inputId, "region")
+	}
+}
+
+function addr_searchDepartement(inputId) {
+	if ($(inputId).val() != "") {
+		var inp = $(inputId);
+		var url = "https://geo.api.gouv.fr/departements?nom=" + inp.val() + "&limit=5"
+		addr_search(url, inputId, "departement")
 	}
 }
 
@@ -838,6 +875,8 @@ function loadEcoRoommateExistingMap(mymap) {
 			}
 
 			var markerObject = L.marker(marker.latLng, { icon: markerIcon }).bindPopup(customPopup, customOptions).on("click", function () {
+				stopNewTabOppening();
+				openModalInThisTab();
 			});
 
 			markersCluster.addLayer(markerObject);
@@ -893,6 +932,8 @@ function loadEcoRoommateEventMap(mymap) {
 
 			var markerObject = L.marker(marker.latLng, { icon: markerIcon2 }).bindPopup(customPopup, customOptions).on("click", function () {
 				checkIfBtnInteretIsNotEmpty_erevom('.leafletDivEcoRommateEvent #eventMarker' + marker.id);
+				stopNewTabOppening();
+				openModalInThisTab();
 			});
 
 			$("#annonce" + (ii + 1) + "-ereom").on("mouseover", function (e) {
@@ -1268,4 +1309,31 @@ function addNewPlaceItem(ui, inputId) {
 	}, 10)
 
 	compteurPlaceItem++;
+}
+
+function typeOfResearchLocation(item) {
+	if (item.value == "communes") {
+		$("#inputSearchPlace-ph").attr("placeholder", "Veuillez indiquer la commune concernée")
+		$("#inputSearchPlace-ph").attr("oninput", "addr_searchCity(this)")
+		$("#inputSearchPlace-ph").removeAttr("disabled")
+	}
+	else if (item.value == "departements") {
+		$("#inputSearchPlace-ph").attr("placeholder", "Veuillez indiquer le département concerné")
+		$("#inputSearchPlace-ph").attr("oninput", "addr_searchDepartement(this)")
+		$("#inputSearchPlace-ph").removeAttr("disabled")
+	}
+	else if (item.value == "regions") {
+		$("#inputSearchPlace-ph").attr("placeholder", "Veuillez indiquer la région concernée")
+		$("#inputSearchPlace-ph").attr("oninput", "addr_searchRegion(this)")
+		$("#inputSearchPlace-ph").removeAttr("disabled")
+	}
+	else if (item.value == "france") {
+		$("#inputSearchPlace-ph").attr("placeholder", "Dans toute la France")
+		$("#inputSearchPlace-ph").attr("disabled", "true")
+	}
+	else {
+		$("#inputSearchPlace-ph").attr("placeholder", "Veuillez indiquer la commune concernée")
+		$("#inputSearchPlace-ph").attr("oninput", "addr_searchCity(this)")
+		$("#inputSearchPlace-ph").removeAttr("disabled")
+	}
 }
