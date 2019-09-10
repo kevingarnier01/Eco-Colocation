@@ -1,5 +1,6 @@
 ﻿var closeModalHasBeenClicked;
 $(document).ready(function () {
+
 	//eventCloseOrNotModal();
 
 	//permet de correctement fermer le modal lors du click a l'exterieur
@@ -75,11 +76,13 @@ $(document).ready(function () {
 	stopNewTabOppening();
 	openModalInThisTab();
 });
+
 /***** Permet de ne plus pouvoir ouvrir le modal sur un autre onglet *****/
 function stopNewTabOppening() {
 	$('a').each(function () {
 		var href = $(this).attr('href');
-		$(this).attr('href', 'javascript:void(0)');  //set href
+		$(this).removeAttr('href');
+		$(this).attr('onclick', "openModalInThisTab()");
 		if (!$(this).attr('jshref')) {
 			$(this).attr('jshref', href); //add new attribte
 		}
@@ -872,6 +875,8 @@ function loadEcoRoommateExistingMap(mymap) {
 			}
 
 			var markerObject = L.marker(marker.latLng, { icon: markerIcon }).bindPopup(customPopup, customOptions).on("click", function () {
+				stopNewTabOppening();
+				openModalInThisTab();
 			});
 
 			markersCluster.addLayer(markerObject);
@@ -927,6 +932,8 @@ function loadEcoRoommateEventMap(mymap) {
 
 			var markerObject = L.marker(marker.latLng, { icon: markerIcon2 }).bindPopup(customPopup, customOptions).on("click", function () {
 				checkIfBtnInteretIsNotEmpty_erevom('.leafletDivEcoRommateEvent #eventMarker' + marker.id);
+				stopNewTabOppening();
+				openModalInThisTab();
 			});
 
 			$("#annonce" + (ii + 1) + "-ereom").on("mouseover", function (e) {
