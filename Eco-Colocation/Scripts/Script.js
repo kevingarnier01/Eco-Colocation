@@ -186,26 +186,26 @@ function initSearchColocMap() {
 	var leafIcon = L.icon({
 		iconUrl: '/Content/Images/Logos/markerColocExisting.png',
 
-		iconSize: [20, 20], // size of the icon
+		iconSize: [30, 30], // size of the icon
 		//popupAnchor: [30, -76]  // point from which the popup should open relative to the iconAnchor
 	});
 
 	var leafIconOver = L.icon({
-		iconUrl: '/Content/Images/Logos/mapLocalisationOVer.png',
+		iconUrl: '/Content/Images/Logos/mapLocalisationOver.png',
 
-		iconSize: [20, 20], // size of the icon
+		iconSize: [35, 35], // size of the icon
 		//popupAnchor: [30, -76]  // point from which the popup should open relative to the iconAnchor
 	});
 
 	var data = [
 		{
 			name: 'Marker1',
-			latLng: [48.89, 2.67],
+			latLng: [48.111728,	-1.686257],
 			id: '1'
 		},
 		{
 			name: 'Marker2',
-			latLng: [46.89, 2.67],
+			latLng: [48.131728, -1.686257],
 			id: '2'
 		}
 	];
@@ -843,7 +843,7 @@ function loadEcoRoommateExistingMap(mymap) {
 	var markerIcon = L.icon({
 		iconUrl: '/Content/Images/Logos/markerColocExisting.png',
 
-		iconSize: [22, 22], // size of the icon
+		iconSize: [30, 30], // size of the icon
 	});
 
 	var data = [
@@ -890,13 +890,13 @@ function loadEcoRoommateEventMap(mymap) {
 	var markerIcon2 = L.icon({
 		iconUrl: '/Content/Images/Logos/markerEvenement.png',
 
-		iconSize: [22, 22], // size of the icon
+		iconSize: [30, 30], // size of the icon
 	});
 
 	var markerIconOver = L.icon({
-		iconUrl: '/Content/Images/Logos/markerEvenementOver.png',
+		iconUrl: '/Content/Images/Logos/markerEvenement.png',
 
-		iconSize: [22, 22],
+		iconSize: [43, 43],
 	});
 
 	var data2 = [
