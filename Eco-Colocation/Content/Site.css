@@ -1200,6 +1200,13 @@ select#typeResearchSct-ph:focus {
 #peopleSearching {
 	overflow: hidden;
 	padding-bottom: 10px;
+	border-radius: 10px;
+	box-shadow: 0 0 5px 0px black;
+	padding: 10px;
+	background-color: white;
+	overflow: auto;
+	margin-top: 20px;
+	margin-bottom: 20px;
 }
 
 #peopleSearching {
@@ -1776,6 +1783,8 @@ div#divContenuPlSchDisable {
 	padding-bottom: 6px;
 	font-family: Noteworthy;
 	font-weight: bold;
+	line-height: 25px;
+	margin-top: 8px;
 }
 
 #textTopDescriptionArt {
@@ -2673,10 +2682,11 @@ d5-description-mpc {
 	border-radius: 10px;
 }
 
-	#div1-1-contenu-ca p {
-		margin: 6px auto;
-		font-weight: bold;
-	}
+#infoChampsAnnonce-ml-mpc p {
+	margin: 6px auto;
+	font-weight: bold;
+	color: rgba(205, 92, 92, 0.8);
+}
 
 #infoChampsAnnonce-ml-mpc {
 	width: 90%;
@@ -2691,6 +2701,7 @@ d5-description-mpc {
 #titleAboutColocation-ml {
 	margin-top: 0px;
 	margin-bottom: 15px;
+	color: #999 !important;
 }
 
 #divDescAnn-ca {
@@ -4712,12 +4723,26 @@ i.fas.fa-times.crossPlace-cpc {
 	color: #6b6a6a;
 	font-weight: 100;
 	background-color: transparent;
+	text-indent: 1px;
 }
 
 .underInput-ayer {
 	border-bottom: 2px solid #d9d9d9;
 	margin-bottom: 25px;
 }
+
+#numRueInput-ayer {
+	padding: 5px;
+	border-radius: 5px;
+	overflow: auto;
+	height: 34px;
+	text-align: center;
+}
+
+	#numRueInput-ayer:focus, #facebookLinkEvent-ayere:focus {
+		border: none;
+		box-shadow: 0 0 2px black;
+	}
 
 .sousDivFormColoc-ayer {
 	padding: 0;
@@ -4785,6 +4810,19 @@ input.radioFibreEco-ayer {
 	#divPlace-ayer {
 		display: initial
 	}
+}
+
+#divNumRue-ayere {
+	width: 70px;
+	min-width: 70px;
+	margin-right: 5px;
+	margin-bottom: 10px;
+}
+
+#inputSearchPlace-ayere {
+	font-weight: inherit;
+	width: 450px;
+	max-width: 98%;
 }
 
 #inputDateCréation-ayer {
@@ -4868,13 +4906,26 @@ input.radioFibreEco-ayer {
 }
 
 #icondeletePicture-ayer {
-	font-size: 25px;
 	position: absolute;
+	right: -11px;
+	top: -12px;
+	font-size: 25px;
+	color: #555;
+	background-color: white;
+	border-radius: 50%;
+	cursor: pointer;
+}
+
+#checkPicture-ayer {
 	bottom: 0;
 	margin-left: 50%;
 	transform: translateX(-50%);
 	margin-bottom: 3px;
-	cursor: pointer;
+	position: absolute;
+	font-size: 25px;
+	color: #c4d102;
+	background-color: white;
+	border-radius: 50%;
 }
 
 .titleH2-ayer {
@@ -4898,6 +4949,27 @@ input.radioFibreEco-ayer {
 
 .divFibreEco-ayer {
 	display: flex;
+}
+
+#divLevelTree-erev {
+	font-size: 22px;
+	color: rgba(205, 210, 129, 0.3);
+}
+
+#divLevelEcolo1 #treeLevel1 {
+	color: #b0bc03;
+}
+
+#divLevelEcolo2 #treeLevel1, #divLevelEcolo2 #treeLevel2 {
+	color: #b0bc03;
+}
+
+#divLevelEcolo3 #treeLevel1, #divLevelEcolo3 #treeLevel2, #divLevelEcolo3 #treeLevel3 {
+	color: #b0bc03;
+}
+
+.divLevelTree-ayere {
+	margin-right: 15px;
 }
 
 .txtFibreEco-ayer {
@@ -5569,7 +5641,28 @@ input.radioFibreEco-ayer {
 }
 
 #divOrganisateur-merev {
-	margin-bottom: 18px;
+	margin-bottom: 8px;
+}
+
+	#divOrganisateur-merev p:first-child {
+		white-space: nowrap;
+	}
+
+	#divLienExterne-merev {
+		margin-bottom: 18px;
+	}
+
+#linkLienExterne-merev {
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	width: 250px;
+	overflow: hidden;
+	color: darkblue;
+}
+
+#lblLienExterne-merev {
+	white-space: nowrap;
+	margin-right: 10px;
 }
 
 #btnModifyEvent-merev {
@@ -5672,9 +5765,32 @@ input.radioFibreEco-ayer {
 	display: none;
 }
 
+#inputSearchPlace-ayere {
+	font-weight: inherit;
+	width: 450px;
+	max-width: 100%;
+}
+
+#divFacebookLinkEvent-ayere {
+	margin-bottom: 25px;
+	max-width: 95%;
+}
+
+#facebookLinkEvent-ayere {
+	width: 400px;
+	max-width: 100%;
+}
+
+#divLocation-ayere {
+	flex-wrap: wrap;
+	max-width: 100%;
+	width: 100%;
+}
+
 #inputlieu-ayere {
 	width: 450px;
 	margin-bottom: 25px !important;
+	max-width: 94%;
 }
 
 .sousDivFormColoc-ayere {
