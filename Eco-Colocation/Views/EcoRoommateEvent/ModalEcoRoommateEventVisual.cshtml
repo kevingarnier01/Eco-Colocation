@@ -78,6 +78,12 @@
 					<p>Collectif Eco-Colocation</p>
 				</div>
 			</div>
+			<div class="flex" id="divLienExterne-merev">
+				<div class="flex childFlex">
+					<label id="lblLienExterne-merev">Lien externe : </label>
+					<a id="linkLienExterne-merev" href="#" target="_blank">https://www.facebook.com/events/502645896963620/</a>
+				</div>
+			</div>
 			@if (User.Identity.IsAuthenticated)
 			{
 				<div class="flex">
@@ -132,7 +138,7 @@
 							<option value="1">Participe</option>
 							<option value="2">Intéressé(e)</option>
 							@*
-								<option value="2">Intéressé(e)</option> Si txtResultEventListChoose n'est pas empty *@
+						<option value="2">Intéressé(e)</option> Si txtResultEventListChoose n'est pas empty *@
 							<option value="3">Pas intéressé(e)</option>
 						</select>
 						@if (User.Identity.IsAuthenticated)

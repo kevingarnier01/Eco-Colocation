@@ -44,12 +44,8 @@
 				</div>
 			</div>
 		</div>
-		<div class="childFlex" id="infoChampsAnnonce-ml-mpc" style="box-shadow: 0 0 2px black;">
-			<h4 class="centerText underTitle">Les champs ci-dessous sont un support pour améliorer la description de votre colocation.</h4>
-			<div id="divDescrTextColoc-ayere">
-				<p class="centerText">A l'affichage ils seront regroupés dans un seul texte.</p>
-				<p class="centerText">Merci de faire des phrases.</p>
-			</div>
+		<div class="childFlex overflow" id="infoChampsAnnonce-ml-mpc">
+			<p class="centerText">ATTENTION : Votre texte apparaîtra en seul bloc, merci de faire des phrases !</p>
 		</div>
 		<div id="divEcoPratic-ca" class="col-sm-12 col-xs-12">
 			<div id="div1-ecoPratic-ca" class="col-sm-12 col-xs-12">
@@ -95,7 +91,7 @@
 			</div>
 			<div id="div2-ecoPratic-ca" class="col-sm-12 col-xs-12">
 				<div id="div2-1-ecoPratic-ca" class="col-sm-12 col-xs-12">
-					<textarea id="organisation-ml" name="descEcoPratique" placeholder="Organisations des tâches, des ressources, ..."></textarea>
+					<textarea id="organisation-ml" name="descEcoPratique" placeholder="Organisations des tâches, ressources financières, ..."></textarea>
 				</div>
 			</div>
 		</div>
@@ -110,6 +106,9 @@
 					<textarea id="descEcoPratique" name="descEcoPratique" placeholder="Celles que vous réalisez / que vous envisagez ..."></textarea>
 				</div>
 			</div>
+		</div>
+		<div class="childFlex overflow" id="infoChampsAnnonce-ml-mpc">
+			<p class="centerText">ATTENTION : Votre texte apparaîtra en seul bloc, merci de faire des phrases !</p>
 		</div>
 		<div class="col-xs-12 sousDivFormColoc-ayer">
 			<div>
@@ -128,20 +127,38 @@
 	</div>
 	<div>
 		<h2 class="titleH2-ayer">
-			Notre fibre écologique *
+			Niveau d'implication écologique *
 		</h2>
 		<div>
-			<div class="divFibreEco-ayer">
-				<input type="radio" name="fibreEco" value="1" class="radioFibreEco-ayer">
-				<p class="txtFibreEco-ayer">Donner le meilleur de nous-même pour réduire au maximum notre impact sur l'environnement</p>
+			<div class="divFibreEco-ayer" id="divLevelEcolo1">
+				<div class="flex divLevelTree-ayere">
+					<div class="childFlex" id="divLevelTree-erev">
+						<i class="fas fa-tree" id="treeLevel1"></i>
+						<i class="fas fa-tree" id="treeLevel2"></i>
+						<i class="fas fa-tree" id="treeLevel3"></i>
+					</div>
+				</div><input type="radio" name="fibreEco" value="3" class="radioFibreEco-ayer">
+				<p class="txtFibreEco-ayer">Essayer de réduire un minimum notre impact environnemental</p>
 			</div>
-			<div class="divFibreEco-ayer">
-				<input type="radio" name="fibreEco" value="2" class="radioFibreEco-ayer" checked="">
-				<p class="txtFibreEco-ayer">Tenter notre possible pour réduire notre impact sur l'environnement</p>
+			<div class="divFibreEco-ayer" id="divLevelEcolo2">
+				<div class="flex divLevelTree-ayere">
+					<div class="childFlex" id="divLevelTree-erev">
+						<i class="fas fa-tree" id="treeLevel1"></i>
+						<i class="fas fa-tree" id="treeLevel2"></i>
+						<i class="fas fa-tree" id="treeLevel3"></i>
+					</div>
+				</div><input type="radio" name="fibreEco" value="2" class="radioFibreEco-ayer" checked="">
+				<p class="txtFibreEco-ayer">Tenter notre possible pour réduire notre impact environnemental</p>
 			</div>
-			<div class="divFibreEco-ayer">
-				<input type="radio" name="fibreEco" value="3" class="radioFibreEco-ayer">
-				<p class="txtFibreEco-ayer">Essayer de réduire un minimum notre impact sur l'environnement</p>
+			<div class="divFibreEco-ayer flex" id="divLevelEcolo3">
+				<div class="flex divLevelTree-ayere">
+					<div class="childFlex" id="divLevelTree-erev">
+						<i class="fas fa-tree" id="treeLevel1"></i>
+						<i class="fas fa-tree" id="treeLevel2"></i>
+						<i class="fas fa-tree" id="treeLevel3"></i>
+					</div>
+				</div><input type="radio" name="fibreEco" value="1" class="radioFibreEco-ayer">
+				<p class="txtFibreEco-ayer">Donner le meilleur de nous-même pour réduire notre impact environnemental</p>
 			</div>
 		</div>
 	</div>
@@ -284,7 +301,7 @@
 				</div>
 				<div class="divIconCkbox">
 					<div class="flex">
-						<div class="iconCkbox-ayer" style="background: url(/Content/images/logos/compost.png) no-repeat;"></div>
+						<div class="iconCkbox-ayer" style="background: url(/Content/images/logos/toilet.png) no-repeat;"></div>
 					</div>
 					<div class="flex">
 						<div class="divParentCkbox-ayer">
@@ -444,7 +461,6 @@
 							<div class="divTxtPlace-ayer"><input type="number"><p>Terrasse(s)</p></div>
 							<div class="divTxtPlace-ayer"><input type="number"><p>Balcon(s)</p></div>
 							<div class="divTxtPlace-ayer"><input type="number"><p>Bureau(s)</p></div>
-							<div class="divTxtPlace-ayer"><input type="number"><p>OpenSpace(s)</p></div>
 						</div>
 					</div>
 				</div>

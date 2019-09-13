@@ -80,11 +80,13 @@ $(document).ready(function () {
 /***** Permet de ne plus pouvoir ouvrir le modal sur un autre onglet *****/
 function stopNewTabOppening() {
 	$('a').each(function () {
-		var href = $(this).attr('href');
-		$(this).removeAttr('href');
-		$(this).attr('onclick', "openModalInThisTab()");
-		if (!$(this).attr('jshref')) {
-			$(this).attr('jshref', href); //add new attribte
+		if ($(this).attr('rel')) {
+			var href = $(this).attr('href');
+			$(this).removeAttr('href');
+			//$(this).attr('onclick', "openModalInThisTab()");
+			if (!$(this).attr('jshref')) {
+				$(this).attr('jshref', href); //add new attribte
+			}
 		}
 	});
 }
@@ -200,7 +202,7 @@ function initSearchColocMap() {
 	var data = [
 		{
 			name: 'Marker1',
-			latLng: [48.111728,	-1.686257],
+			latLng: [48.111728, -1.686257],
 			id: '1'
 		},
 		{
@@ -224,10 +226,17 @@ function initSearchColocMap() {
 					'className': 'leafletDivAnnounce'
 				}
 
-				var markerObject = L.marker(marker.latLng, { icon: leafIcon }).on("mouseover", function () {
-					var numberId = ii + 1;
-					var idElement = $("#onHoverMarker" + numberId);
-					markerObject.bindPopup(idElement.html(), customOptions)
+				//var markerObject = L.marker(marker.latLng, { icon: leafIcon }).on("mouseover", function () {
+				//	var numberId = ii + 1;
+				//	var idElement = $("#onHoverMarker" + numberId);
+				//	markerObject.bindPopup(idElement.html(), customOptions)
+				//});
+
+				var numberId = ii + 1;
+				var idElement = $("#onHoverMarker" + numberId);
+				var markerObject = L.marker(marker.latLng, { icon: leafIcon }).bindPopup(idElement.html(), customOptions).on("click", function () {
+					stopNewTabOppening();
+					openModalInThisTab();
 				});
 
 				$("#annonce" + (ii + 1) + "-alpv").on("mouseover", function (e) {
@@ -663,6 +672,15 @@ function initHtmlTagToAutoComplete() {
 //	}
 //});
 // -------------- Fin nominatim.openstreetmap.org  ---------------
+
+function checkToDisableLstOrNot(element) {
+	if (element.value.length != 0) {
+		$('#typeResearchSct-ph').attr('disabled', 'true')
+	}
+	else {
+		$('#typeResearchSct-ph').removeAttr('disabled')
+	}
+}
 
 function modifyNbChambreDisponible(elementNbChambreAsk, blockElementRoom) {
 	if ($(elementNbChambreAsk).val() >= 1) {
