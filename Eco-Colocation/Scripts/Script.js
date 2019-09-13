@@ -72,6 +72,28 @@ $(document).ready(function () {
 		}, 500);
 	});
 
+	$("#ecoColocExistTab-np").click(function (event) {
+		event.preventDefault();
+
+		if (window.location.pathname + window.location.hash != $(this).attr('href')) {
+			window.location.href = $(this).attr('href')
+		}
+		scrollDownTab(1000)
+	});
+
+	//Permet aux onglets "Les éco-colocation existantes" et "Les évènements" d'être positionné au dessus du titre
+	function scrollDownTab(time) {
+		var target = $("#ecoColocExistTab-np").attr("href").split('#')[1];
+
+		$('html').animate({
+			scrollTop: $('#' + target).offset().top - 85
+		}, time);
+	}
+
+	if (window.location.pathname + window.location.hash === $("#ecoColocExistTab-np").attr("href")) {
+		scrollDownTab(0.01);
+	}
+
 	//Permet de ne plus pouvoir ouvrir le modal sur un autre onglet
 	stopNewTabOppening();
 	openModalInThisTab();
