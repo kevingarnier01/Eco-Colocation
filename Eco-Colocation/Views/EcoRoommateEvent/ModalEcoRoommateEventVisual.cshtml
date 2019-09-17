@@ -78,6 +78,12 @@
 					<p>Collectif Eco-Colocation</p>
 				</div>
 			</div>
+			<div class="flex" id="divLienExterne-merev">
+				<div class="flex childFlex">
+					<label id="lblLienExterne-merev">Lien externe : </label>
+					<a id="linkLienExterne-merev" href="#" target="_blank">https://www.facebook.com/events/502645896963620/</a>
+				</div>
+			</div>
 			@if (User.Identity.IsAuthenticated)
 			{
 				<div class="flex">
@@ -117,7 +123,14 @@
 				</div>
 			</div>
 			<div class="flex">
-				<div onclick="openMessageWindow_merev()" class="btnGreen" id="btnSendMessage-merev">Envoyer un message</div>
+				@if (User.Identity.IsAuthenticated)
+				{
+					<div onclick="openMessageWindow_merev()" class="btnGreen" id="btnSendMessage-merev">Envoyer un message</div>
+				}
+				else
+				{
+					<a href="@Url.Action("ModalAccount", "Account", null)" rel="modal:open" class="btnGreen" id="btnSendMessage-merev">Envoyer un message</a>
+				}
 				<div id="divInterested-merev">
 					<div id="btnInterested-erevom"
 						 onclick="showListEvenementInterested_erevom('#divInterested-merev')" class="fontFamilyNote btnInterestedErevom">
@@ -132,7 +145,7 @@
 							<option value="1">Participe</option>
 							<option value="2">Intéressé(e)</option>
 							@*
-								<option value="2">Intéressé(e)</option> Si txtResultEventListChoose n'est pas empty *@
+					<option value="2">Intéressé(e)</option> Si txtResultEventListChoose n'est pas empty *@
 							<option value="3">Pas intéressé(e)</option>
 						</select>
 						@if (User.Identity.IsAuthenticated)
@@ -184,21 +197,17 @@
 			<div>
 				<p class="title sousTitle-merev">Evénements associées</p><div class="flex" id="divOtherLinkEvent0-merev">
 					<div class="flex flexWrap">
-
 						<div class="divOtherLinkEvent-merev">
-
 							<div>
 								<p class="titleOtherLinkEvent-merev">Apero Eco-Colocation Strasbourg</p>
 								<p class="fontFamilyNote underTitleOLinkEvent-merev">Jeudi 2 Mai 2019</p>
 							</div>
-
 							<div class="flex">
 								<div style="background: url(https://www.izroom.com/blog/wp-content/uploads/2017/06/ap%C3%A9ro-2.jpg) 50% 50% no-repeat;" class="imgOtherLink-merev"></div>
 							</div>
 						</div>
 
 						<div class="divOtherLinkEvent-merev">
-
 							<div>
 								<p class="titleOtherLinkEvent-merev">Apero Eco-Colocation Lille</p>
 								<p class="fontFamilyNote underTitleOLinkEvent-merev">02 Mai - 04 Mai 2019</p>
@@ -210,7 +219,7 @@
 						</div><div class="divOtherLinkEvent-merev">
 
 							<div>
-								<p class="titleOtherLinkEvent-merev">Apero Eco-Colocation Lion</p>
+								<p class="titleOtherLinkEvent-merev">Apero Eco-Colocation Lyon</p>
 								<p class="fontFamilyNote underTitleOLinkEvent-merev">Jeudi 2 Mai 2019</p>
 							</div>
 

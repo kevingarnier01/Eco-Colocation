@@ -12,7 +12,8 @@
 						<input id="btnCherche" type="button" value="Je recherche une éco-colocation" onclick="selectSwitcher(this);">
 						<input id="btnProposition" type="button" value="Je propose une éco-colocation" onclick="selectSwitcher(this);">
 					</div>
-					@Html.HiddenFor(m => Model.HomeViewModel.TypeRecherche, new { @id = "typeRecherche" })
+					@Html.HiddenFor(m => Model.HomeViewModel.TypeRecherche, new { @id = "typeRecherche", @value = "ah" })
+					@*<input id="typeRecherche" name="@Model.HomeViewModel.TypeRecherche" type="hidden" value="@ViewData["currentTab"]">*@
 					<div class="input-group flex" id="adv-search">
 						<div class="flex">
 							<div class="childFlex">
@@ -24,9 +25,13 @@
 								</select>
 							</div>
 						</div>
-						<input id="inputSearchPlace-ph" oninput="addr_searchCity(this);" name="@ViewData["randomInputAutoComplete"]" autocomplete="off" type="text"
+						<input id="inputSearchPlace-ph" oninput="addr_searchCity(this);checkToDisableLstOrNot(this)" name="@ViewData["randomInputAutoComplete"]" autocomplete="off" type="text"
 							   class="form-control inputSearchPlace" placeholder="Veuillez indiquer la commune concernée">
 						@*<input type="search" id="address-input-ph" class="address-input inputSearchPlace" placeholder="Saisir un lieu. Ex: Ville, Département, Région" />*@
+					</div>
+					<div id="globalDivMultiLocalisation-ph">
+						<div class="flex" id="divMultiLocalisation-ph">
+						</div>
 					</div>
 					<div class="input-group-btn">
 						<div id="divBtnFiltre" class="btn-group" role="group">
