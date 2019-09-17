@@ -1,6 +1,5 @@
 ﻿var closeModalHasBeenClicked;
 $(document).ready(function () {
-
 	//eventCloseOrNotModal();
 
 	//permet de correctement fermer le modal lors du click a l'exterieur
@@ -72,6 +71,31 @@ $(document).ready(function () {
 		}, 500);
 	});
 
+	//Permet aux onglets "Les éco-colocation existantes" et "Les évènements" d'être positionné au dessus du titre
+	$("#ecoColocExistTab-np, #evenementTab-np").click(function (event) {
+		event.preventDefault();
+
+		if (window.location.pathname + window.location.hash != $(this).attr('href')) {
+			window.location.href = $(this).attr('href')
+		}
+
+		scrollDownTab(1000)
+	});
+
+	function scrollDownTab(time) {
+		var target = $("#ecoColocExistTab-np").attr("href").split('#')[1];
+
+		$('html').animate({
+			scrollTop: $('#' + target).offset().top - 80
+		}, time);
+	}
+
+	if (window.location.pathname + window.location.hash === $("#ecoColocExistTab-np").attr("href")
+		|| window.location.pathname + window.location.hash === $("#evenementTab-np").attr("href")) {
+		scrollDownTab(0.01);
+	}
+	//Fin "Permet aux onglets ..."
+
 	//Permet de ne plus pouvoir ouvrir le modal sur un autre onglet
 	stopNewTabOppening();
 	openModalInThisTab();
@@ -80,11 +104,13 @@ $(document).ready(function () {
 /***** Permet de ne plus pouvoir ouvrir le modal sur un autre onglet *****/
 function stopNewTabOppening() {
 	$('a').each(function () {
-		var href = $(this).attr('href');
-		$(this).removeAttr('href');
-		$(this).attr('onclick', "openModalInThisTab()");
-		if (!$(this).attr('jshref')) {
-			$(this).attr('jshref', href); //add new attribte
+		if ($(this).attr('rel')) {
+			var href = $(this).attr('href');
+			$(this).removeAttr('href');
+			//$(this).attr('onclick', "openModalInThisTab()");
+			if (!$(this).attr('jshref')) {
+				$(this).attr('jshref', href); //add new attribte
+			}
 		}
 	});
 }
@@ -186,26 +212,26 @@ function initSearchColocMap() {
 	var leafIcon = L.icon({
 		iconUrl: '/Content/Images/Logos/markerColocExisting.png',
 
-		iconSize: [20, 20], // size of the icon
+		iconSize: [30, 30], // size of the icon
 		//popupAnchor: [30, -76]  // point from which the popup should open relative to the iconAnchor
 	});
 
 	var leafIconOver = L.icon({
-		iconUrl: '/Content/Images/Logos/mapLocalisationOVer.png',
+		iconUrl: '/Content/Images/Logos/mapLocalisationOver.png',
 
-		iconSize: [20, 20], // size of the icon
+		iconSize: [35, 35], // size of the icon
 		//popupAnchor: [30, -76]  // point from which the popup should open relative to the iconAnchor
 	});
 
 	var data = [
 		{
 			name: 'Marker1',
-			latLng: [48.89, 2.67],
+			latLng: [48.111728, -1.686257],
 			id: '1'
 		},
 		{
 			name: 'Marker2',
-			latLng: [46.89, 2.67],
+			latLng: [48.131728, -1.686257],
 			id: '2'
 		}
 	];
@@ -224,10 +250,17 @@ function initSearchColocMap() {
 					'className': 'leafletDivAnnounce'
 				}
 
-				var markerObject = L.marker(marker.latLng, { icon: leafIcon }).on("mouseover", function () {
-					var numberId = ii + 1;
-					var idElement = $("#onHoverMarker" + numberId);
-					markerObject.bindPopup(idElement.html(), customOptions)
+				//var markerObject = L.marker(marker.latLng, { icon: leafIcon }).on("mouseover", function () {
+				//	var numberId = ii + 1;
+				//	var idElement = $("#onHoverMarker" + numberId);
+				//	markerObject.bindPopup(idElement.html(), customOptions)
+				//});
+
+				var numberId = ii + 1;
+				var idElement = $("#onHoverMarker" + numberId);
+				var markerObject = L.marker(marker.latLng, { icon: leafIcon }).bindPopup(idElement.html(), customOptions).on("click", function () {
+					stopNewTabOppening();
+					openModalInThisTab();
 				});
 
 				$("#annonce" + (ii + 1) + "-alpv").on("mouseover", function (e) {
@@ -448,6 +481,12 @@ function deletePlace(element) {
 
 	if ($('#placeSaved-cpc .divPlace-cpc').length == 0)
 		$("#placeSaved-cpc").css('display', 'none');
+
+	if ($('#globalDivMultiLocalisation-ph .divMultiPlace-ph').length == 0) {
+		$("#globalDivMultiLocalisation-ph").css('display', 'none');
+		$('#inputSearchPlace-ph').val("")
+		$('#typeResearchSct-ph').removeAttr('disabled')
+	}
 }
 
 function getLstAutoCompletion(arr, inputId, typeResearch) {
@@ -517,6 +556,9 @@ function getLstAutoCompletion(arr, inputId, typeResearch) {
 			select: function (event, ui) {
 				if (inputId.id == "inpMultiPlace-al") {
 					addNewPlaceItem(ui, inputId);
+				}
+				else if (inputId.id == "inputSearchPlace-ph") {
+					addNewPlaceItemPh(ui, inputId);
 				}
 				saveValueSelected(event, ui, this)
 			}
@@ -663,6 +705,15 @@ function initHtmlTagToAutoComplete() {
 //	}
 //});
 // -------------- Fin nominatim.openstreetmap.org  ---------------
+
+function checkToDisableLstOrNot(element) {
+	if (element.value.length != 0) {
+		$('#typeResearchSct-ph').attr('disabled', 'true')
+	}
+	else {
+		$('#typeResearchSct-ph').removeAttr('disabled')
+	}
+}
 
 function modifyNbChambreDisponible(elementNbChambreAsk, blockElementRoom) {
 	if ($(elementNbChambreAsk).val() >= 1) {
@@ -843,7 +894,7 @@ function loadEcoRoommateExistingMap(mymap) {
 	var markerIcon = L.icon({
 		iconUrl: '/Content/Images/Logos/markerColocExisting.png',
 
-		iconSize: [22, 22], // size of the icon
+		iconSize: [30, 30], // size of the icon
 	});
 
 	var data = [
@@ -890,13 +941,13 @@ function loadEcoRoommateEventMap(mymap) {
 	var markerIcon2 = L.icon({
 		iconUrl: '/Content/Images/Logos/markerEvenement.png',
 
-		iconSize: [22, 22], // size of the icon
+		iconSize: [30, 30], // size of the icon
 	});
 
 	var markerIconOver = L.icon({
-		iconUrl: '/Content/Images/Logos/markerEvenementOver.png',
+		iconUrl: '/Content/Images/Logos/markerEvenement.png',
 
-		iconSize: [22, 22],
+		iconSize: [43, 43],
 	});
 
 	var data2 = [
@@ -1311,20 +1362,42 @@ function addNewPlaceItem(ui, inputId) {
 	compteurPlaceItem++;
 }
 
+var compteurPlaceItemPh = 1;
+function addNewPlaceItemPh(ui, inputId) {
+	var locationNameSelected = ui.item.value;
+
+	var htmlPlace =
+		'<div class="divMultiPlace-ph" id="place' + compteurPlaceItemPh + '"><p id="placeName-ph" class="placeName-ph" title="' + locationNameSelected + '">' + locationNameSelected + '</p>' +
+		'<div class="crossPlace-ph"><i onclick="deletePlace(place' + compteurPlaceItemPh + ')" class="fas fa-times crossPlace-ph"></i></div>' +
+		'</div>';
+
+	$("#divMultiLocalisation-ph").append(htmlPlace);
+
+	compteurPlaceItemPh++;
+
+	if ($("#globalDivMultiLocalisation-ph").css('display') == 'none')
+		$("#globalDivMultiLocalisation-ph").css('display', 'block');
+
+	setTimeout(function () {
+		$(inputId).val("");
+	}, 10)
+
+}
+
 function typeOfResearchLocation(item) {
 	if (item.value == "communes") {
 		$("#inputSearchPlace-ph").attr("placeholder", "Veuillez indiquer la commune concernée")
-		$("#inputSearchPlace-ph").attr("oninput", "addr_searchCity(this)")
+		$("#inputSearchPlace-ph").attr("oninput", "addr_searchCity(this);checkToDisableLstOrNot(this)")
 		$("#inputSearchPlace-ph").removeAttr("disabled")
 	}
 	else if (item.value == "departements") {
 		$("#inputSearchPlace-ph").attr("placeholder", "Veuillez indiquer le département concerné")
-		$("#inputSearchPlace-ph").attr("oninput", "addr_searchDepartement(this)")
+		$("#inputSearchPlace-ph").attr("oninput", "addr_searchDepartement(this);checkToDisableLstOrNot(this)")
 		$("#inputSearchPlace-ph").removeAttr("disabled")
 	}
 	else if (item.value == "regions") {
 		$("#inputSearchPlace-ph").attr("placeholder", "Veuillez indiquer la région concernée")
-		$("#inputSearchPlace-ph").attr("oninput", "addr_searchRegion(this)")
+		$("#inputSearchPlace-ph").attr("oninput", "addr_searchRegion(this);checkToDisableLstOrNot(this)")
 		$("#inputSearchPlace-ph").removeAttr("disabled")
 	}
 	else if (item.value == "france") {

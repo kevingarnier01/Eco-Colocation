@@ -84,14 +84,35 @@
 				</div>
 			</div>
 			<div id="d3-description-mpc">
-				<div class="d3-1-description-mpc btnGreen" onclick="displayPhoneNumber('#numberPhone-ml')">
-					<i class="fas fa-phone imgBtnContact-mpc"></i>
-					<span id="libelleTelephone-mpc">Afficher le numéro</span>
-					<span id="numberPhone-ml"></span>
-				</div>
-				<div id="d3-2-description-mpc" onclick="displayPVMessage();$('#modalLocation').scrollTop(0);" class="btnGreen">
-					<i class="far fa-envelope imgBtnContact-mpc"></i>Envoyer un message
-				</div>
+				@if (User.Identity.IsAuthenticated)
+				{
+					<div class="d3-1-description-mpc btnGreen" onclick="displayPhoneNumber('#numberPhone-ml')">
+						<i class="fas fa-phone imgBtnContact-mpc"></i>
+						<span id="libelleTelephone-mpc">Afficher le numéro</span>
+						<span id="numberPhone-ml"></span>
+					</div>
+				}
+				else
+				{
+					<a class="d3-1-description-mpc btnGreen" href="@Url.Action("ModalAccount", "Account", null)" rel="modal:open">
+						<i class="fas fa-phone imgBtnContact-mpc"></i>
+						<span id="libelleTelephone-mpc">Afficher le numéro</span>
+						<span id="numberPhone-ml"></span>
+					</a>
+				}
+
+				@if (User.Identity.IsAuthenticated)
+				{
+					<div id="d3-2-description-mpc" onclick="displayPVMessage();$('#modalLocation').scrollTop(0);" class="btnGreen">
+						<i class="far fa-envelope imgBtnContact-mpc"></i>Envoyer un message
+					</div>
+				}
+				else
+				{
+					<a id="d3-2-description-mpc" href="@Url.Action("ModalAccount", "Account", null)" rel="modal:open" class="btnGreen">
+						<i class="far fa-envelope imgBtnContact-mpc"></i>Envoyer un message
+					</a>
+				}
 			</div>
 			<div id="d4-description-mpc">
 				<p>Nous recherchons 2 hommes pour amener une mixité dans la colocation et qui seraient interressés pour co-habiter avec nous et participer à ces démarches écologiques.</p>
@@ -166,7 +187,7 @@
 					<tbody>
 						<tr>
 							<td>Type</td>
-							<td>Appartement</td>
+							<td>Maison</td>
 						</tr>
 						<tr>
 							<td>Implantation</td>
@@ -186,10 +207,10 @@
 						</tr>
 						<tr>
 							<td>Colocataires maximum</td>
-							<td>4</td>
+							<td>5</td>
 						</tr>
 						<tr>
-							<td>Moyen d’accès écolo au centre-ville</td>
+							<td>Accès aux transports en communs</td>
 							<td>Oui</td>
 						</tr>
 						<tr>

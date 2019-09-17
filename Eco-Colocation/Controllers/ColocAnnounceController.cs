@@ -20,6 +20,7 @@ namespace Eco_Colocation.Controllers
 			ViewData["idModalToTrigger"] = idModal;
 
 			AllViewModel allViewModel = new AllViewModel();
+			allViewModel.HomeViewModel.TypeRecherche = "offering";
 			allViewModel.ColocAnnounceViewModel = new ColocAnnounceViewModel();
 
 			return View(allViewModel);

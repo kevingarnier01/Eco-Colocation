@@ -17,21 +17,19 @@
 		<div id="htmlBlockModalCreationProjet-mpc">
 			<div id="div1-contenu-ca" class="col-sm-12">
 				<div id="div1-1-contenu-ca" class="col-sm-11 col-xs-12">
-					<div class="childFlex" id="infoChampsAnnonce-ml-mpc">
-						<h4 class="centerText">Les champs ci-dessous sont un support pour améliorer le contenu de votre annonce.</h4>
-						<p class="centerText">A l'affichage ils seront regroupés dans un seul texte.</p>
-						<p class="centerText">Merci de faire des phrases.</p>
+					<div class="childFlex overflow" id="infoChampsAnnonce-ml-mpc">
+						<p class="centerText">ATTENTION : Votre texte apparaîtra en seul bloc, merci de faire des phrases !</p>
 					</div>
 					<div id="divDescAnn-ca" class="col-sm-12 col-xs-12">
 						<div id="div1DescAnn-ca" class="col-sm-12 col-xs-12">
 							<div id="div1-1DescAnn-ca" class="col-sm-12 col-xs-12">
-								<label for="descRecherche-ml">Introduction de votre annonce</label>
+								<label for="descRecherche-mpc">Introduction de votre annonce</label>
 							</div>
 						</div>
 						<div id="div2DescAnn-ca" class="col-sm-12 col-xs-12">
 							<div id="div2-1DescAnn-ca" class="col-sm-12 col-xs-12">
-								<textarea id="descRecherche-ml" name="descAnnonce"
-										  placeholder="Ex: Deux chambres meublées se libères dans notre maison."></textarea>
+								<textarea id="descRecherche-mpc" name="descAnnonce"
+										  placeholder="Ex: Création de plusieurs grandes yourtes cotes à cotes."></textarea>
 							</div>
 						</div>
 					</div>
@@ -68,7 +66,7 @@
 						</div>
 						<div id="div2-ecoPratic-ca" class="col-sm-12 col-xs-12">
 							<div id="div2-1-ecoPratic-ca" class="col-sm-12 col-xs-12">
-								<textarea id="organisation-mpc" name="descEcoPratique" placeholder="Organisations des tâches, des ressources, ..."></textarea>
+								<textarea id="organisation-mpc" name="descEcoPratique" placeholder="Organisations des tâches, ressources financières, ..."></textarea>
 							</div>
 						</div>
 					</div>
@@ -95,6 +93,9 @@
 								<textarea id="autresPrecisions-mpc" name="descEcoPratique"></textarea>
 							</div>
 						</div>
+					</div>
+					<div class="childFlex overflow" id="infoChampsAnnonce-ml-mpc">
+						<p class="centerText">ATTENTION : Votre texte apparaîtra en seul bloc, merci de faire des phrases !</p>
 					</div>
 				</div>
 			</div>
@@ -250,7 +251,7 @@
 											</td>
 										</tr>
 										<tr>
-											<td class="col-xs-6"><label>Moyen d’accès écolo au centre-ville</label></td>
+											<td class="col-xs-6"><label>Accès aux transports en communs</label></td>
 											<td style="padding: 0;padding-top: 4px;padding-left: 8px;">
 												<p class="onoff">
 													<input type="checkbox" value="1" id="accesEcolo-cb">
@@ -291,7 +292,7 @@
 									<tbody>
 										<tr>
 											<td class="col-xs-6">
-												<label for="NbColocTotal">Nombre de colocataire total</label>
+												<label for="NbColocTotal">Nombre de personne au total</label>
 											</td>
 											<td class="col-xs-6">
 												<input id="NbColocTotal" name="NbColocTotal" type="number" class="inputtable-ca" style="width: 50px;">

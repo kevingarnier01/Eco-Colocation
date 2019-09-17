@@ -652,13 +652,13 @@ select:-moz-focusring {
 		}
 
 .digits-1 {
-	background-color: rgba(181, 226, 140, 0.95);
+	background-color: rgba(191, 203, 3, 0.4);
 	height: 34px;
 	width: 34px;
 }
 
 	.digits-1 div {
-		background-color: rgba(110, 204, 57, 0.8);
+		background-color: #bfcb03;
 		width: 24px;
 		height: 24px;
 	}
@@ -700,7 +700,7 @@ select:-moz-focusring {
 		}
 
 .digitsEvent {
-	background-color: #f3ff4f;
+	background-color: #f1c74c;
 	color: #555;
 }
 
@@ -709,7 +709,7 @@ select:-moz-focusring {
 	}
 
 .digitsColocExistante {
-	background-color: rgb(196, 209, 2);
+	background-color: #BFCB03;
 	color: #555;
 }
 
@@ -806,7 +806,7 @@ body .ui-autocomplete a {
 	display: flex;
 	margin-bottom: 30px;
 	margin-top: initial;
-	padding-top: 65px
+	padding-top: 30px
 }
 
 #sous-switcher-wrapper {
@@ -914,10 +914,6 @@ select#typeResearchSct-ph:focus {
 	#adv-search {
 		display: inherit;
 	}
-
-	#switcher-wrapper {
-		padding-top: 58px
-	}
 }
 
 @media screen and (max-width: 530px) {
@@ -930,4826 +926,5018 @@ select#typeResearchSct-ph:focus {
 	}
 }
 
-	/*** Home ***/
-	#home {
-		overflow: auto;
+/*** Home ***/
+#home {
+	overflow: auto;
+}
+
+#createAnnounceLocationLink-h, #createProjetCreationLink-h, #createEmptyAccountLing-h {
+	display: none !important
+}
+
+#partialViewEcoRoommateExisting_OnMap {
+	padding: 5px 10px;
+}
+
+#partialViewEcoRoommateEvent_OnMap {
+	padding: 5px 10px;
+}
+
+#1div-filtreHome div {
+	margin-left: auto;
+	margin-right: auto
+}
+
+#1div-filtreHome select, #1div-filtreHome input {
+	width: 225px;
+}
+
+#divfiltre label {
+	min-width: 145px;
+}
+
+#divMultiLocalisation-ph {
+	flex-wrap: wrap;
+}
+
+#globalDivMultiLocalisation-np {
+	width: 603px;
+	box-shadow: 0 0 2px 0px #999;
+	margin-top: 10px;
+	overflow: auto;
+	height: 55px;
+	display: none
+}
+
+.divMultiPlace-ph {
+	padding: 5px 10px;
+	padding-top: 7px;
+	border-radius: 8px;
+	display: flex;
+	background-color: white;
+	max-width: 100%;
+	min-width: 80px;
+	margin-left: 5px;
+	height: 35px;
+	border: 2px solid #f4f6f7;
+	width: 32%;
+	margin-bottom: 10px;
+	margin-top: 10px;
+}
+
+@media screen and (max-width: 730px) {
+	.divMultiPlace-ph {
+		width: 48%;
+	}
+}
+
+.placeName-ph {
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	max-width: 97%;
+	font-weight: normal;
+	color: #666;
+	text-indent: 2px;
+}
+
+.crossPlace-ph {
+	margin-left: auto;
+	padding-left: 3px;
+}
+
+.crossPlace-ph {
+	font-size: 15px;
+	color: #555;
+	cursor: pointer;
+}
+
+#globalDivMultiLocalisation-ph {
+	width: 603px;
+	max-width: 100%;
+	box-shadow: 0 0 2px 0px #999;
+	margin-top: 10px;
+	overflow: auto;
+	height: 55px;
+	display: none;
+}
+
+#divMultiLocalisation-ph {
+	flex-wrap: wrap;
+}
+
+
+@media only screen and (max-width: 365px) {
+	#divfiltre .form-group {
+		padding: 2px
 	}
 
-	#createAnnounceLocationLink-h, #createProjetCreationLink-h, #createEmptyAccountLing-h {
-		display: none !important
+	.dropdown.dropdown-lg .dropdown-menu {
+		padding: 2px
+	}
+}
+
+#divBtnFiltre {
+	margin-left: 3px;
+	margin-top: 20px;
+	margin-bottom: -20px;
+}
+
+#div2BtnFiltre {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#btnFiltre {
+	border-radius: 5px;
+	margin-right: 12px;
+	background-color: #C4D102;
+	color: white;
+	font-family: Noteworthy;
+	font-size: 17px;
+	border: none;
+	box-shadow: 0 0 3px black;
+}
+
+#btnSearch {
+	border-radius: 6px;
+	font-size: 17px;
+	height: 36px;
+	line-height: 17px;
+	border: none;
+	box-shadow: 0 0 2px #888;
+	background-color: #C4D102;
+	color: white;
+}
+
+	#btnSearch:focus {
+		outline: 0
 	}
 
-	#partialViewEcoRoommateExisting_OnMap {
-		padding: 5px 10px;
+	#btnSearch p {
+		display: inline;
+		margin-right: 3px;
 	}
 
-	#partialViewEcoRoommateEvent_OnMap {
-		padding: 5px 10px;
-	}
+#partialViewPeopleSearching {
+	margin-top: 20px;
+	border-radius: 10px;
+	max-height: 1200px;
+}
 
-	#1div-filtreHome div {
-		margin-left: auto;
-		margin-right: auto
-	}
+/** Filtres **/
+#div2-filtreHome {
+	display: flex;
+	flex-wrap: wrap
+}
 
-	#1div-filtreHome select, #1div-filtreHome input {
-		width: 225px;
-	}
-
-	#divfiltre label {
-		min-width: 145px;
-	}
-
-
-	@media only screen and (max-width: 365px) {
-		#divfiltre .form-group {
-			padding: 2px
-		}
-
-		.dropdown.dropdown-lg .dropdown-menu {
-			padding: 2px
-		}
-	}
-
-	#divBtnFiltre {
-		margin-left: 3px;
-		margin-top: 20px;
-		margin-bottom: -20px;
-	}
-
-	#div2BtnFiltre {
-		margin-left: auto;
-		margin-right: auto;
-	}
-
-	#btnFiltre {
-		border-radius: 5px;
-		margin-right: 12px;
-		background-color: #C4D102;
-		color: white;
-		font-family: Noteworthy;
-		font-size: 17px;
-		border: none;
-		box-shadow: 0 0 3px black;
-	}
-
-	#btnSearch {
-		border-radius: 6px;
-		font-size: 17px;
-		height: 36px;
-		line-height: 17px;
-		border: none;
-		box-shadow: 0 0 2px #888;
-		background-color: #C4D102;
-		color: white;
-	}
-
-		#btnSearch:focus {
-			outline: 0
-		}
-
-		#btnSearch p {
-			display: inline;
-			margin-right: 3px;
-		}
-
-	#partialViewPeopleSearching {
-		margin-top: 20px;
-		border-radius: 10px;
-		max-height: 1200px;
-	}
-
-	/** Filtres **/
-	#div2-filtreHome {
-		display: flex;
-		flex-wrap: wrap
-	}
-
-		#div2-filtreHome select, #div2-filtreHome .div1-multiList {
-			outline: none;
-			border-color: #cecece;
-			-webkit-box-shadow: none;
-			box-shadow: 0 0 1px #999;
-			cursor: pointer;
-		}
-
-	#div2-1-loyer-fh {
-		padding: 0;
-		display: flex
-	}
-
-	#div-2-1-1-loyer-fh {
-		display: flex;
-		margin-left: initial;
-		width: 100%
-	}
-
-		#div-2-1-1-loyer-fh select {
-			width: 48%;
-			height: 33px;
-		}
-
-	#select1-loyer-fh {
-		margin-right: auto;
-	}
-
-	#select2-loyer-fh {
-		margin-left: auto;
-	}
-
-	#div1-dotloyer-fh {
-		height: 34px;
-		padding-top: 6px;
-		margin-right: 5px
-	}
-
-	#select-engagementType-mpc {
-		width: 150px
-	}
-
-	.div1-multiList {
-		display: flex;
-		margin-top: 1px;
-		height: 32px;
-		border: solid 1px #cecece;
-		border-radius: 4px;
-		overflow: hidden;
-		line-height: 21px;
+	#div2-filtreHome select, #div2-filtreHome .div1-multiList {
 		outline: none;
+		border-color: #cecece;
 		-webkit-box-shadow: none;
 		box-shadow: 0 0 1px #999;
+		cursor: pointer;
 	}
 
-	#div1-1-multiList {
-		display: inline-block;
-		height: 100%;
-		width: 90%
+#div2-1-loyer-fh {
+	padding: 0;
+	display: flex
+}
+
+#div-2-1-1-loyer-fh {
+	display: flex;
+	margin-left: initial;
+	width: 100%
+}
+
+	#div-2-1-1-loyer-fh select {
+		width: 48%;
+		height: 33px;
 	}
 
-		#div1-1-multiList .titleChoixMultiples-fal {
-			margin-top: 5px;
-			margin-left: 5px;
-			margin-bottom: 0;
-			white-space: nowrap;
-			text-overflow: ellipsis;
-			overflow: hidden;
-		}
-
-	#div1-2-multiList {
-		display: inline-flex;
-		width: 20px;
-		padding-top: 13px;
-		padding-left: 5px;
-	}
-
-	.div2-multiList {
-		position: absolute;
-		z-index: 3;
-		background-color: white;
-		display: none;
-		width: 90%;
-		height: auto;
-		border: 1px groove rgba(0, 0, 0, 0.2);
-		padding: 4px 0;
-	}
-
-	.show {
-		display: block;
-	}
-
-	.div2-1-multiList {
-		display: flex
-	}
-
-	.div2-2-multiList {
-		padding: 0;
-		display: flex
-	}
-
-		.div2-2-multiList input {
-			margin-left: auto;
-			margin-right: auto;
-			height: -moz-available
-		}
-
-			.div2-2-multiList input[type='radio'], .div2-2-multiList input[type='checkbox'] {
-				top: 0;
-				bottom: 0;
-				margin: auto;
-			}
-
-	.unCheck-fal {
-		top: 0;
-		bottom: 0;
-		margin: auto;
-	}
-
-	.div2-3-multiList {
-		padding: 0
-	}
-
-		.div2-3-multiList label {
-			margin-bottom: 0;
-			font-weight: normal
-		}
-
-	#div1SubmitBtnFiltre-Al {
-		display: flex;
-		margin-top: 28px;
-	}
-
-	#div2SubmitBtnFiltre-Al {
-		margin-left: auto;
-		margin-right: auto;
-		width: 130px;
-		height: 30px;
-		text-align: center;
-	}
-
-	#commoditeUnderDiv-fal label {
-		min-width: inherit;
-	}
-
-	#commoditeUnderDiv-fal {
-		padding: 0;
-	}
-
-	#oneOfCommodite-fal {
-		height: 19px;
-	}
-
-	#chkBoxCommodite-fal {
-		margin-right: 10px;
-	}
-
-	#commoditeUnderDiv-fal .div2-1-multiList {
-		margin: 10px auto;
-	}
-
-	#dateDisponibilty-fal {
-		padding-left: 5px;
-	}
-
-	#submitBtnFiltre-Al {
-		font-size: 18px;
-		color: white;
-		text-decoration: none;
-	}
-
-	/** people searching **/
-	#peopleSearching {
-		overflow: hidden;
-		padding-bottom: 10px;
-	}
-
-	#peopleSearching {
-		text-align: center;
-	}
-
-		#peopleSearching #titleSearching {
-			margin-bottom: 20px;
-			color: #00C2D6;
-			font-size: 35px;
-			font-family: Noteworthy;
-			font-weight: bold;
-		}
-
-	#divAddSearchAnounce-ps {
-		margin-bottom: 10px;
-	}
-
-	#divLinkPublishInteresse-ps {
-		color: #a3ad07;
-		font-size: 17px;
-	}
-
-	#divPanelPl {
-		overflow: auto;
-		max-height: 760px;
-		width: 90%;
-		margin-left: auto;
-		margin-right: auto;
-		display: flex;
-		flex-wrap: wrap;
-		padding-bottom: 10px
-	}
-
-	#divOthersPeople-ps {
-		display: contents;
-	}
-
-	.divPeoplesSearching {
-		display: flex;
-		padding: 0;
-		padding-bottom: 5px;
-		padding-top: 5px;
-		margin-top: 15px;
-		margin-bottom: 15px;
-		margin-left: auto;
-		margin-right: auto;
-		width: 240px;
-	}
-
-	@media only screen and (max-width: 500px) {
-		.divPeoplesSearching {
-			width: 100%
-		}
-
-		#divPanelPl {
-			width: 300px;
-		}
-	}
-
-	.divPeopleSearching {
-		padding: 0;
-		margin-left: auto;
-		margin-right: auto;
-		text-decoration: none !important;
-		color: black !important;
-		width: 225px;
-		position: relative;
-	}
-
-	#divImgPlSch {
-		box-shadow: 0 0 3px 0px black;
-		height: 150px;
-		border-radius: 10px 10px 0 0;
-	}
-
-	#heartImg {
-		position: absolute;
-		left: 10px;
-		top: 5px;
-		font-size: 32px;
-		color: #555;
-	}
-
-	#divImgPlSch #imgPlSch {
-		background-size: 100% !important;
-		width: 100%;
-		height: 100%;
-		border-radius: 10px 10px 0 0;
-	}
-
-	#divContenuPlSch {
-		padding: 5px;
-		border-radius: 0 0 10px 10px;
-		box-shadow: 0 0 2px 0px black;
-		background-color: #fdfbf9;
-		max-height: 280px;
-		overflow: auto;
-		height: 195px;
-	}
-
-		#divContenuPlSch div:first-child p {
-			display: inline-block;
-			margin-bottom: 0;
-			font-size: 21px;
-			margin-right: 5px;
-		}
-
-		#divContenuPlSch div:first-child img {
-			width: 15px;
-			display: inline-block;
-			margin-top: -7px;
-		}
-
-	div#divContenuPlSchDisable {
-		padding: 5px;
-		border-radius: 0 0 10px 10px;
-		box-shadow: 0 0 2px 0px black;
-		max-height: 280px;
-		overflow: auto;
-		height: 195px;
-		background-color: rgba(0,0,0,0.03);
-		display: flow-root;
-	}
-
-	#txt1ContenuDisable {
-		font-size: 18px;
-		margin-top: 20px;
-		margin-bottom: 10px;
-	}
-
-	#statutPl {
-		margin-bottom: 0
-	}
-
-	#descriptionPl {
-		margin-bottom: 12px;
-		background-color: #f7efe7;
-		box-shadow: 0 0 2px 0px black;
-		padding: 2px;
-		border-radius: 3px;
-	}
-
-	#divMembrePl {
-		display: inline-block;
-	}
-
-	#logoPl {
-		display: inline-block;
-		width: 63px
-	}
-
-		#logoPl img {
-			width: 20px
-		}
-
-
-	.btnModifyEvent-mps {
-		font-size: 15px;
-		position: absolute;
-		left: 0;
-		right: 0;
-		bottom: -23px;
-		width: 170px;
-		width: max-content
-	}
-
-	#titlePrenom-ps {
-		margin-bottom: 5px;
-	}
-
-	#infoPlusPerson-ps {
-		margin-bottom: 10px;
-	}
-
-	.imgToCheck-ps {
-		color: lightgray;
-		font-size: 17px;
-		top: 0;
-		bottom: 0;
-		margin: auto;
-	}
-
-	#img-mps {
-		height: 330px;
-	}
-	/**** ModalAddMySearchAnnounce ****/
-	#modalAddMySearchAnnounce {
-		width: 900px;
-		padding: 15px;
-		overflow: auto;
-		position: relative
-	}
-
-	/*** Search colocation ***/
-	#searchColoc {
-		border-radius: 10px;
-		box-shadow: 0 0 5px 0px black;
-		padding: 10px;
-		background-color: white;
-		margin-top: 20px;
-		margin-bottom: 20px;
-		overflow: visible;
-		display: inline-block;
-		width: 100%;
-	}
-
-	#divLibelleRecherche {
-		margin-top: -15px;
-	}
-
-		#divLibelleRecherche h3 {
-			text-align: center;
-			font-family: cursive;
-		}
-
-	#divRubriqueRecherche {
-		display: flex;
-		margin-top: -10px;
-		margin-bottom: 15px;
-	}
-
-		#divRubriqueRecherche #sousDivRubriqueRecherche {
-			margin-top: 5px;
-			margin-left: auto;
-			margin-right: auto;
-			width: 560px;
-		}
-
-	#annonceRubrique {
-		display: flex;
-	}
-
-	#annonceRubrique2 {
-		margin-top: 15px;
-		margin-bottom: 0;
-		padding-bottom: 10px;
-		border-bottom: 3px solid #e9e5c3;
-		margin-left: auto;
-		margin-right: auto
-	}
-
-	#creationRubrique {
-		display: flex
-	}
-
-	#creationRubrique2 {
-		margin-top: 15px;
-		margin-bottom: 0;
-		padding-bottom: 10px;
-		margin-left: auto;
-		margin-right: auto
-	}
-
-	#sousDivRubriqueRecherche h3 {
-		text-align: center;
-		cursor: pointer
-	}
-
-	#underDivMultiPlaceToSearch-al {
-		background-color: #f4f6f7;
-		height: 35px;
-		border-radius: 5px;
-		margin-bottom: 8px;
-	}
-
-	#iMarkerMultiPlace-al {
-		margin: 0 10px;
-		margin-right: 6px;
-		font-size: 18px;
-		line-height: 35px;
-	}
-
-	#inpMultiPlace-al {
-		border: none;
-		background-color: transparent;
-		height: 100%;
-		font-size: 16px;
-		padding-top: 5px;
-	}
-
-	.divMultiPlace-al {
-		padding: 5px 10px;
-		padding-top: 7px;
-		border-radius: 8px;
-		display: flex;
-		background-color: white;
-		max-width: 100%;
-		min-width: 80px;
-		margin-left: 5px;
-		height: 35px;
-		border: 2px solid #f4f6f7;
-	}
-
-	#divAllMultiPlace-al {
-		overflow: auto;
-	}
-
-	#globalDivMapSearchColoc {
-		margin-top: 3px;
-		margin-bottom: 20px;
-	}
-
-	#divMapSearchColoc {
+#select1-loyer-fh {
+	margin-right: auto;
+}
+
+#select2-loyer-fh {
+	margin-left: auto;
+}
+
+#div1-dotloyer-fh {
+	height: 34px;
+	padding-top: 6px;
+	margin-right: 5px
+}
+
+#select-engagementType-mpc {
+	width: 150px
+}
+
+.div1-multiList {
+	display: flex;
+	margin-top: 1px;
+	height: 32px;
+	border: solid 1px #cecece;
+	border-radius: 4px;
+	overflow: hidden;
+	line-height: 21px;
+	outline: none;
+	-webkit-box-shadow: none;
+	box-shadow: 0 0 1px #999;
+}
+
+#div1-1-multiList {
+	display: inline-block;
+	height: 100%;
+	width: 90%
+}
+
+	#div1-1-multiList .titleChoixMultiples-fal {
 		margin-top: 5px;
-	}
-
-	#mapSearchColoc {
-		height: 380px;
-		box-shadow: 0 0 3px 0px black;
-		z-index: 0;
-	}
-
-
-	@media only screen and (max-width: 620px) {
-		#divMapSearchColoc {
-			display: flex;
-		}
-
-		#mapSearchColoc {
-			height: 315px;
-			width: 100%;
-			margin-left: auto;
-			margin-right: auto
-		}
-	}
-
-	.leafletDivAnnounce {
-		width: 400px;
-	}
-
-	.onHoverMarker {
-		z-index: 500;
-		display: none;
-		box-shadow: black 0px 0px 20px 0px;
-		width: 300px;
-		height: 94px;
-		background-color: white
-	}
-
-	#markerPhoto {
-		padding: 0;
-	}
-
-		#markerPhoto img {
-			border-radius: 3px;
-		}
-
-	.onHoverMarker #description {
-		padding: 0;
-	}
-
-	.onHoverMarker h5 {
-		margin: 0;
-		margin-top: 2px;
-		margin-bottom: 1px;
-		text-align: center;
-		font-weight: bold;
-	}
-
-	.onHoverMarker p {
-		margin: 0;
 		margin-left: 5px;
-	}
-
-		.onHoverMarker p:last-child {
-			font-size: 11px;
-		}
-
-	.descriptionHabitat-al {
-		padding-top: 5px;
-		text-align: center;
-		font-size: 15px;
-	}
-
-	.linkDetailEvent-al {
-		display: flex;
-		margin-left: auto;
-		margin-right: auto;
-		font-size: 15px;
-		margin-top: 13px;
-		color: inherit !important;
-		text-decoration: none !important;
-	}
-
-	.nameColoc-al {
-		font-size: 18px;
-		text-align: center;
-		padding-bottom: 6px;
-		font-family: Noteworthy;
-		font-weight: bold;
-	}
-
-	.underTitlePopup-al {
-		font-weight: bold;
-	}
-
-	#divDivBlocAnnonce {
-		margin-left: auto;
-		margin-right: auto;
-	}
-
-	#divDivBlocAnnonce2 {
-		margin-bottom: 15px;
-	}
-
-	#divfiltreHome {
-		width: 528px
-	}
-
-
-	@media only screen and (max-width: 768px) {
-		#divfiltreHome {
-			width: inherit !important;
-		}
-	}
-
-	#divBlocsEvents-erevom {
-		overflow: auto;
-		padding-bottom: 5px;
-		height: 345px;
-		margin: 5px 0px;
-	}
-
-	@media only screen and (max-width: 768px) {
-		#divBlocsEvents-erevom {
-			margin: 10px 20px;
-			height: 660px;
-		}
-
-		#divDivBlocAnnonce2 {
-			margin-top: 15px;
-			margin-bottom: 0;
-		}
-	}
-
-	#divBlocAnnonce {
-		padding: 0;
-		overflow: auto;
-		margin-left: auto;
-		margin-right: auto;
-		height: 360px;
-		padding-bottom: 10px;
-	}
-
-	@media only screen and (max-width: 768px) {
-		#divBlocAnnonce {
-			margin: 10px 20px;
-			height: 660px;
-		}
-	}
-
-	#divContenerBlocAnnonce {
-		width: 100%;
-	}
-
-	#divBlocAnnonce a {
-		color: rgba(0,0,0,0.8);
-	}
-
-	.divBlocAnnonce1-ereom {
-		display: flex
-	}
-
-	#divBlocAnnonce2 {
-		padding: 0;
-		padding-left: 3px;
-		padding-right: 3px;
-		margin-left: auto;
-		margin-right: auto;
-	}
-
-		#divBlocAnnonce2 a, #divOthersEvents-ereom a {
-			color: inherit !important;
-		}
-
-	.divAnnonceColoc {
-		display: flex;
-		margin-top: 15px;
-		margin-bottom: 5px;
-		padding: 1px;
-	}
-
-	#div2AnnonceColoc {
-		padding: 0;
-		margin-left: auto;
-		margin-right: auto;
-		box-shadow: 0 0 3px 0px black;
-		border-radius: 10px;
-		background-color: #fdfbf9;
-	}
-
-	#annonceColoc {
-		padding: 1px;
-	}
-
-	#annonce2Coloc {
-		padding: 0;
-		display: flex;
-	}
-
-	#photoAnnonce {
-		padding: 0;
-		height: 148px;
-		position: relative;
-		margin-left: auto;
-		margin-right: auto;
-		border-radius: 10px
-	}
-
-		#photoAnnonce div {
-			background-size: 100% !important;
-			width: 100%;
-			height: 100%;
-		}
-
-	#divContenDescriptionAnnonce {
-		padding: 0;
-		display: flex;
-		overflow: auto;
-	}
-
-	#divDescriptionAnnonce {
-		padding: 0;
-		display: flex;
-	}
-
-		#divDescriptionAnnonce p {
-			margin-bottom: 0;
-		}
-
-	@media only screen and (max-width: 768px) {
-		#photoAnnonce {
-			box-shadow: none;
-		}
-
-		/*#photoAnnonce div {
-			background-size: inherit !important;
-		}*/
-
-		#divDescriptionAnnonce {
-			overflow: auto;
-		}
-
-		#divBlocAnnonce {
-			max-width: 500px;
-			max-width: 85%;
-			margin-left: auto;
-			margin-right: auto;
-		}
-
-		.divBlocAnnonce1-ereom {
-			margin-bottom: 20px
-		}
-	}
-
-	#descriptionAnnonce {
-		height: 148px;
-		margin-left: auto;
-		margin-right: auto;
-	}
-
-	@media only screen and (max-width: 768px) {
-		#descriptionAnnonce {
-			box-shadow: none;
-		}
-	}
-
-
-	#descriptionAnnonce h4 {
-		margin-bottom: 5px;
-		font-size: 18px;
-		text-align: center;
-		padding-bottom: 6px;
-		font-family: Noteworthy;
-		font-weight: bold;
-	}
-
-	#textTopDescriptionArt {
-		text-align: center;
-		margin-bottom: 10px;
-		font-weight: bold;
-	}
-
-	#textDescriptionArt {
-		font-weight: initial;
-		text-align: center;
-		font-size: 15px;
-	}
-
-	#divOthersEvents-ereom {
-		overflow: auto;
-	}
-
-	#btnOtherAnnonceLocation-alpv {
-		background-color: white;
-		margin-top: 15px;
-		color: #636161 !important;
-		margin-bottom: 5px;
-	}
-
-	#iconShowNewEvent-alpv {
-		margin-top: -9px;
-		margin-bottom: 2px;
-	}
-
-	#txtShowNewEvent-alpv {
-		font-size: 19px;
-	}
-
-	#divPrixAnnonce {
-		position: absolute;
-		z-index: 1;
-		left: 14px;
-		top: 14px;
-	}
-
-	#prixAnnonce {
-		float: left;
-		margin: -10px;
-		padding: 2px;
-		box-shadow: 0 0 5px 0px black;
-		background-color: rgba(246, 246, 246, 0.9);
-		color: #666;
-		font-weight: bold;
-		font-size: 16px;
-		border-radius: 3px;
-		font-family: Noteworthy;
-	}
-
-	#rentCosts {
-		font-size: 11px;
-		margin-left: 3px;
-	}
-
-
-	#projetCreation {
-		display: none;
-	}
-
-	#div1PC {
-		display: grid;
-	}
-
-		#div1PC a {
-			text-decoration: none;
-		}
-
-	#div1-1PC {
-		position: relative;
-		height: auto
-	}
-
-	#div1PC a {
-		margin-left: auto;
-		margin-right: auto;
-		padding: 0;
-		color: black;
-	}
-
-	#div1PC a {
-		margin-left: auto;
-		margin-right: auto;
-		padding: 0;
-		color: black;
-	}
-
-	#div2PC {
-		box-shadow: 0 0 6px -1px black;
-		border-radius: 10px;
-		padding: 0;
-		margin-left: auto;
-		margin-right: auto;
-		height: 230px;
-		max-height: 450px;
-		margin-bottom: 25px;
-		background-color: #fdfbf9;
-	}
-
-	#div1ProfilPC {
-		padding: 5px;
-		height: 100%;
-		max-height: 225px;
-		overflow: auto;
-		overflow-x: hidden;
-	}
-
-	#divIdentitePC {
-		padding: 0 !important;
-		display: flex;
-		flex-wrap: wrap;
-	}
-
-	#divPhotoProfilPC {
-		display: flex;
-		padding: 0;
-		margin-left: auto;
-		margin-right: auto;
-	}
-
-	#photoProfilPC {
-		padding: 0;
-		background: url(/Content/Images/Personnes/Profil1.jpg) 50% 50% no-repeat;
-		background-size: 120px;
-		width: 85px;
-		height: 85px;
-		border-radius: 25%;
-		top: 0;
-		bottom: 0;
-		margin: auto;
-	}
-
-	#div0DecriptionIdentitePC {
-		margin-left: auto;
-		margin-right: auto;
-	}
-
-	#div1DecriptionIdentitePC {
-		display: flex;
-	}
-
-	@media only screen and (max-width: 960px) and (min-width: 768px) {
-		#div0DecriptionIdentitePC {
-			width: 100%
-		}
-	}
-
-
-	#div2DecriptionIdentitePC {
-		margin-right: auto;
-		margin-left: 50%;
-		transform: translateX(-50%);
-		font-weight: bold;
-		color: #333;
-	}
-
-		#div2DecriptionIdentitePC p {
-			font-size: 23px;
-			margin-bottom: 0
-		}
-
-			#div2DecriptionIdentitePC p:last-child {
-				margin-bottom: 5px
-			}
-
-	#div1PersonnalitePC {
-		display: flex;
-		margin-top: 10px;
-		margin-bottom: 10px;
-	}
-
-	#div2PersonnalitePC {
-		margin-left: auto;
-		margin-right: auto;
-		width: 250px;
-		padding: 10px;
-		padding-top: 5px;
-		padding-bottom: 5px;
-		box-shadow: 0 0 2px 0px black;
-		height: 65px;
+		margin-bottom: 0;
+		white-space: nowrap;
+		text-overflow: ellipsis;
 		overflow: hidden;
 	}
 
-		#div2PersonnalitePC p {
-			margin: 0;
-			display: -webkit-box;
-			-webkit-box-orient: vertical;
-			overflow: hidden;
-			text-overflow: ellipsis;
-			height: inherit !important;
-		}
+#div1-2-multiList {
+	display: inline-flex;
+	width: 20px;
+	padding-top: 13px;
+	padding-left: 5px;
+}
 
-	.div2PersonnaliteColorPC {
-		background-color: #f7efe7;
-	}
+.div2-multiList {
+	position: absolute;
+	z-index: 3;
+	background-color: white;
+	display: none;
+	width: 90%;
+	height: auto;
+	border: 1px groove rgba(0, 0, 0, 0.2);
+	padding: 4px 0;
+}
 
-	#div1InscriptionPC {
-		padding: 0;
-		display: flex;
-	}
+.show {
+	display: block;
+}
 
-	#div11InscriptionPC {
-		width: 200px;
-		padding: 0;
+.div2-1-multiList {
+	display: flex
+}
+
+.div2-2-multiList {
+	padding: 0;
+	display: flex
+}
+
+	.div2-2-multiList input {
 		margin-left: auto;
 		margin-right: auto;
-		display: flex;
-		flex-wrap: wrap;
+		height: -moz-available
 	}
 
-	#div2InscriptionPC {
-		display: flex;
-		padding: 0;
-		text-align: center;
-		margin-left: auto;
-		margin-right: auto;
-	}
-
-	@media only screen and (max-width: 767px) {
-		#div2InscriptionPC div {
-			margin-left: auto;
-			margin-right: auto;
-		}
-	}
-
-	#div1IconInscriptionPC {
-		display: flex;
-		padding: 0;
-	}
-
-	#div1IconInscriptionPC {
-		margin-left: auto;
-		margin-right: auto;
-	}
-
-		#div1IconInscriptionPC img {
-			width: 22px;
-			height: 22px;
-		}
-
-	#div1DescriptionPC {
-		border-left: 1px solid rgba(0,0,0,0.15);
-		border-radius: 10px;
-		overflow: auto;
-		padding: 5px;
-		padding-left: 10px;
-		padding-right: 10px;
-		height: 100%;
-	}
-
-		#div1DescriptionPC h3 {
-			text-align: center;
-			margin: 0;
-			margin-top: 5px;
-			margin-bottom: 2px;
-			color: #444;
-			font-weight: bold;
-		}
-
-		#div1DescriptionPC #div2DescriptionPC p:first-child {
-			margin-bottom: 0
-		}
-
-	#div1Desc-title-pc {
-		text-align: center;
-		margin-bottom: 20px;
-		margin-top: 10px;
-		font-weight: 600;
-		color: #333;
-	}
-
-	@media only screen and (max-width: 960px) and (min-width:768px) {
-		#divPhotoProfilPC {
-			width: 100%
-		}
-	}
-
-	@media only screen and (max-width: 560px) {
-		#divPhotoProfilPC {
-			width: 100%
-		}
-
-		#div0DecriptionIdentitePC {
-			width: 100%
-		}
-	}
-
-	@media only screen and (max-width: 767px) {
-		#div2DecriptionIdentitePC p {
-			text-align: center
-		}
-
-		#div1ProfilPC {
-			height: auto;
-			overflow: hidden;
-		}
-
-		#div2PC {
-			height: auto;
-			max-height: 450px;
-			overflow: auto;
-		}
-
-		#div1DescriptionPC {
-			border-left: none;
-			height: auto;
-		}
-	}
-
-	#div1Filter-cp {
-		position: absolute;
-		height: 30px;
-		bottom: 25px;
-		padding: 0;
-		padding-left: 5px;
-	}
-
-	#div2Filter-cp1 {
-		position: absolute;
-		height: 100%;
-		width: 99%;
-		background-color: rgba(255,255,255,0.9);
-		background-image: linear-gradient(transparent, rgba(255,255,255,0.5));
-	}
-
-	#div2Filter-cp2 {
-		display: flex;
-		position: absolute;
-		padding-left: 10px
-	}
-
-	@media only screen and (max-width: 388px) {
-		#div2Filter-cp2 {
-			padding: 3px
-		}
-
-		.img-description-mpc {
-			display: none;
-		}
-	}
-
-	#logo-pcpv {
-		display: flex;
-		width: 63px
-	}
-
-		#logo-pcpv img {
-			width: 20px
-		}
-
-	/** Pagination **/
-	/* Pagination links */
-	.pagination a {
-		color: black;
-		float: left;
-		padding: 8px 16px;
-		text-decoration: none;
-		transition: background-color .3s;
-	}
-
-		/* Style the active/current link */
-		.pagination a.active {
-			background-color: dodgerblue;
-			color: white;
-		}
-
-		/* Add a grey background color on mouse-over */
-		.pagination a:hover:not(.active) {
-			background-color: #ddd;
-		}
-
-	/* modalPeopleSearch*/
-	#modalPeopleSearch {
-		overflow: auto;
-		position: relative;
-		height: 348px;
-	}
-
-		#modalPeopleSearch, #modalPeopleSearch ~ .divCloseModal {
-			width: 900px
-		}
-
-	@media only screen and (max-width: 767px) {
-		#modalPeopleSearch {
-			height: 100%;
-			height: max-content;
+		.div2-2-multiList input[type='radio'], .div2-2-multiList input[type='checkbox'] {
 			top: 0;
 			bottom: 0;
 			margin: auto;
 		}
-	}
 
+.unCheck-fal {
+	top: 0;
+	bottom: 0;
+	margin: auto;
+}
 
-	/**** modalCreationProjet-SearchColoc ****/
-	#modalCreationProjet-SearchColoc {
-		overflow: auto;
-		height: 348px;
-		position: relative;
-	}
+.div2-3-multiList {
+	padding: 0
+}
 
-		#modalCreationProjet-SearchColoc, #modalCreationProjet-SearchColoc ~ .divCloseModal {
-			width: 900px
-		}
-
-	@media only screen and (max-width: 767px) {
-		#modalCreationProjet-SearchColoc {
-			height: inherit !important;
-		}
-	}
-
-	/*** ModalLocation ***/
-	#modalLocation {
-		height: 400px;
-		overflow: auto;
-		position: relative;
-	}
-
-		#modalLocation, #modalLocation ~ .divCloseModal {
-			width: 900px
-		}
-
-	#divMessage-ml {
-		display: none;
-	}
-
-		#divMessage-ml img {
-			cursor: pointer;
-			z-index: 1;
-			position: absolute;
-			margin-top: 5px;
-			margin-left: 5px;
-			left: -5px;
-			top: -5px;
-		}
-
-	#divPhoto-ml {
-		display: inline;
-	}
-
-	#div-photos-mpc {
-		height: 100%;
-		padding: 10px;
-	}
-
-	.photo-mpc {
-		background-size: 100% !important;
-		height: 100%;
-		display: none;
-	}
-
-	#div-photos-mpc .photo-mpc:first-child {
-		display: inherit;
-	}
-
-	#d1-btnphoto-mpc {
-		position: absolute;
-		top: 0;
-		height: 100%
-	}
-
-	#d1-2-btnphoto-mpc {
-		position: absolute;
-		top: 50%;
-		transform: translateY(-50%);
-		cursor: pointer
-	}
-
-		#d1-2-btnphoto-mpc img {
-			background-color: rgba(0,0,0,0.6);
-			height: 50px;
-		}
-
-	#d2-btnphoto-mpc {
-		width: 10px;
-		position: absolute;
-		top: 0;
-		right: 0;
-		height: 100%
-	}
-
-	#d2-1-btnphoto-mpc {
-		position: absolute;
-		top: 50%;
-		transform: translateY(-50%);
-		margin-left: -50px;
-		cursor: pointer
-	}
-
-		#d2-1-btnphoto-mpc img {
-			background-color: rgba(0,0,0,0.6);
-			height: 50px
-		}
-
-		#d2-1-btnphoto-mpc img {
-			background-color: rgba(0,0,0,0.6);
-			height: 50px
-		}
-
-	#div-description-mpc {
-		overflow: auto;
-		padding: 10px
-	}
-
-	@media only screen and (min-width: 767px) {
-		#div-description-mpc {
-			height: 100%;
-		}
-	}
-
-	#d1-description-mpc {
-		overflow: auto;
-	}
-
-	#d1-1-description-mpc {
-		display: flex;
-		padding: 5px;
-	}
-
-	#d1-1-1-description-mpc {
-		margin-left: auto;
-		margin-right: auto
-	}
-
-		#d1-1-1-description-mpc h2, #d1-1-1-description-mpc h4 {
-			margin: 0;
-			text-align: center;
-		}
-
-	#d1-2-1-description-mpc {
-		background-size: 120px !important;
-		width: 80px;
-		height: 80px;
-		border-radius: 50%
-	}
-
-	#d1-3-description-mpc {
-		padding-top: 5px;
-		padding-bottom: 5px;
-	}
-
-		#d1-3-description-mpc h4 {
-			margin: 0
-		}
-
-	#p-d1-3-description-mpc {
-		background-color: #C4D102;
-		color: white;
-		font-size: 12px;
-		border-radius: 3px;
-		padding: 2px 6px 3px 6px;
-		margin: 0;
-		width: max-content;
-	}
-
-	#introduceAnnonce-merev {
-		display: flex;
-	}
-
-	.d2-description-mpc {
-		display: table;
-		margin-left: auto;
-		margin-right: auto;
-		margin-bottom: 10px;
-		margin-top: 10px;
-		flex-wrap: wrap;
-		display: flex;
-	}
-
-	.d2-1-description-mpc {
-		display: flex;
-		overflow: hidden;
-		width: max-content;
-		margin-left: auto;
-		margin-right: auto;
-	}
-
-	.d2-1-1-description-mpc {
-		margin-left: 50%;
-		transform: translateX(-50%);
-	}
-
-		.d2-1-1-description-mpc p {
-			text-align: center
-		}
-
-	.d2-1-1-1-description-mpc {
-		display: flex;
-		margin-bottom: 5px
-	}
-
-		.d2-1-1-1-description-mpc img {
-			margin-left: auto;
-			margin-right: auto;
-			height: 50px;
-		}
-
-	#p1-d2-1-description-mpc {
-		margin-bottom: 0
-	}
-
-	#p2-d2-1-description-mpc {
+	.div2-3-multiList label {
 		margin-bottom: 0;
-		font-size: 12px;
-		text-align: center
+		font-weight: normal
 	}
 
-	#d3-description-mpc {
-		margin-bottom: 15px
-	}
+#div1SubmitBtnFiltre-Al {
+	display: flex;
+	margin-top: 28px;
+}
 
-	.d3-1-description-mpc {
-		display: inline-block;
-		margin-right: 5px;
-		font-size: 16px;
-		height: 30px;
-		line-height: 27px;
-	}
+#div2SubmitBtnFiltre-Al {
+	margin-left: auto;
+	margin-right: auto;
+	width: 130px;
+	height: 30px;
+	text-align: center;
+}
 
-		.d3-1-description-mpc img {
-			height: 20px;
-			margin-right: 3px
-		}
+#commoditeUnderDiv-fal label {
+	min-width: inherit;
+}
 
-	#d3-2-description-mpc {
-		display: inline-block;
-		margin-top: 10px;
-		font-size: 16px;
-		height: 30px;
-		line-height: 27px;
-	}
+#commoditeUnderDiv-fal {
+	padding: 0;
+}
 
-		#d3-2-description-mpc a {
-			color: inherit;
-			text-decoration: none;
-		}
+#oneOfCommodite-fal {
+	height: 19px;
+}
 
-	.imgBtnContact-mpc {
-		margin-right: 5px;
-	}
+#chkBoxCommodite-fal {
+	margin-right: 10px;
+}
 
-	#numberPhone-ml {
-		font-size: 14px;
-	}
+#commoditeUnderDiv-fal .div2-1-multiList {
+	margin: 10px auto;
+}
 
-	#d4-description-mpc {
-		margin-bottom: 15px;
-	}
+#dateDisponibilty-fal {
+	padding-left: 5px;
+}
 
-		#d4-description-mpc h4:first-child {
-			display: inline;
-			margin-bottom: 10px
-		}
+#submitBtnFiltre-Al {
+	font-size: 18px;
+	color: white;
+	text-decoration: none;
+}
 
-	d5-description-mpc {
-		margin-top: 15px
-	}
+/** people searching **/
+#peopleSearching {
+	overflow: hidden;
+	padding-bottom: 10px;
+	border-radius: 10px;
+	box-shadow: 0 0 5px 0px black;
+	padding: 10px;
+	background-color: white;
+	overflow: auto;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
 
-	#d5-description-mpc th {
-		background: #C4D102
-	}
+#peopleSearching {
+	text-align: center;
+}
 
-	#div-description-mpc .table-striped > tbody > tr:nth-of-type(odd) {
-		background-color: #f8fae0;
-	}
-
-
-	@media only screen and (max-width: 767px) {
-		#modalLocation, #modalCreationProjet, #modalEcoRoommateEventVisual {
-			min-width: 360px;
-			height: inherit !important;
-		}
-
-		#div-photos-mpc {
-			max-height: 348px;
-		}
-	}
-
-	@media only screen and (min-width: 767px) {
-		#div-description-mpc {
-			overflow: inherit;
-		}
-	}
-
-	/*** End ModalLocation ***/
-
-	/*** ModalMessage ***/
-	#partialViewMessage {
-		height: auto;
-		overflow: auto;
-		/*max-height: 350px;*/
-		max-height: 100%
-	}
-
-	#divTitre-pvm {
-		display: flex;
-		margin-bottom: 20px
-	}
-
-		#divTitre-pvm h2 {
-			margin-left: auto;
-			margin-right: auto;
-			text-align: center;
-			margin-top: 10px;
-			margin-bottom: 10px;
-		}
-
-	.div1Input-pvm {
-		display: flex;
-		margin-bottom: 10px;
-	}
-
-	.div2Input-pvm {
-		display: flex;
-		margin-left: auto;
-		margin-right: auto;
-		width: 80%;
-	}
-
-		.div2Input-pvm input {
-			margin-left: auto;
-			margin-right: auto;
-			outline: 0;
-			height: 35px;
-			width: 100%;
-			padding: 2px 10px;
-			border-radius: 10px;
-			border: none;
-			background-color: #f7f8db;
-		}
-
-		.div2Input-pvm textarea {
-			margin-left: auto;
-			margin-right: auto;
-			outline: 0;
-			overflow: hidden;
-			min-height: 50px;
-			min-width: 100%;
-			width: 100%;
-			padding: 2px 10px;
-			border-radius: 10px;
-			border: none;
-			background-color: #f7f8db;
-		}
-
-			.div2Input-pvm input::-webkit-input-placeholder, .div2Input-pvm textarea::-webkit-input-placeholder {
-				color: #666666;
-				font-size: 15px;
-			}
-
-	#btnSendMsg-pvm {
-		margin-left: auto;
-		margin-right: auto;
-		display: inline-block;
-		box-shadow: 0 0 5px 0px black;
-		color: white;
-		border-radius: 3px;
-		padding: 9px 50px;
-		cursor: pointer;
-		text-align: center;
-		background-color: #C4D102;
-		font-family: 'Noteworthy';
-		font-size: 20px;
+	#peopleSearching #titleSearching {
+		margin-bottom: 20px;
+		color: #00C2D6;
+		font-size: 35px;
+		font-family: Noteworthy;
 		font-weight: bold;
 	}
 
-	#div3InputNom-pvm {
-		margin-right: 10px
-	}
-
-	.div3Input-pvm {
-		width: 50%;
-		padding: 0;
-		display: inline-flex
-	}
-
-	@media only screen and (max-width: 767px) {
-		#partialViewMessage {
-			margin-bottom: 30px
-		}
-	}
-
-	/*** ColocAnnonce ***/
-	#colocAnnounce {
-		border-radius: 10px;
-		box-shadow: 0 0 5px 0px black;
-		padding: 10px;
-		background-color: white;
-		overflow: auto;
-		margin-top: 20px;
-		margin-bottom: 20px;
-	}
-
-	#divNbPeopleSearch-ca {
-		display: flex
-	}
-
-	#btnPeopleSearch-ca {
-		max-width: 230px;
-		position: unset;
-		margin-right: auto;
-		margin-bottom: -50px;
-		border-radius: 5px;
-		padding: 5px 10px;
-		box-shadow: 0 0 3px 0px black;
-		cursor: pointer;
-		text-decoration: none;
-		background-color: #bcc802;
-		color: white;
-	}
-
-	#localisation-ca {
-		margin-bottom: 3px;
-		text-align: center;
-		font-weight: bold;
-		font-size: 20px;
-	}
-
-	#nbPeopleSearching-ca {
-		margin-bottom: 0;
-		text-align: center;
-	}
-
-	#infoLocalisation-ca {
-		font-weight: 900;
-		font-family: "Font Awesome 5 Free";
-		margin-top: 3px;
-	}
-
-	@media only screen and (max-width: 1090px) {
-		#btnPeopleSearch-ca {
-			position: unset !important;
-			margin-right: auto !important;
-			margin-left: auto !important;
-			margin-bottom: 0;
-		}
-	}
-	/*** ModalLocation ***/
-	#modalLocation-ColocAnnounce {
-		overflow: auto;
-		padding: 15px;
-		position: relative;
-	}
-
-		#modalLocation-ColocAnnounce, #modalLocation-ColocAnnounce ~ .divCloseModal {
-			width: 900px
-		}
-
-			#modalLocation-ColocAnnounce textarea, input {
-				color: #555;
-			}
-
-	#htmlBlockModalLocation-ml {
-		color: #888
-	}
-
-		#htmlBlockModalLocation-ml select {
-			width: 180px;
-			height: 30px;
-			padding-top: 2px;
-			padding-left: 5px;
-		}
-
-	#inputSearchPlace-car {
-		font-weight: inherit;
-	}
-
-	#div-title-ca {
-		display: flex
-	}
-
-		#div-title-ca h2 {
-			margin-left: auto;
-			margin-right: auto;
-			margin-bottom: 25px;
-			padding-left: 15px;
-			padding-right: 15px;
-		}
-
-	#div1-contenu-ca {
-		overflow: auto;
-		display: flex;
-		margin-bottom: 20px;
-		padding: 0
-	}
-
-	#div1-1-contenu-ca {
-		margin: 3px auto;
-		padding: 10px;
-		background-color: #f1f4c2;
-		box-shadow: 0 0 5px 0 #d9d9d9;
-		border-radius: 10px;
-	}
-
-		#div1-1-contenu-ca p {
-			margin: 6px auto;
-			font-weight: bold;
-		}
-
-	#infoChampsAnnonce-ml-mpc {
-		width: 90%;
-		width: max-content;
-		max-width: 100%;
-		padding: 5px 10px;
-		border-radius: 5px;
-		background-color: white;
-		margin-bottom: 15px;
-	}
-
-	#titleAboutColocation-ml {
-		margin-top: 0px;
-		margin-bottom: 15px;
-	}
-
-	#divDescAnn-ca {
-		margin-bottom: 15px
-	}
-
-	#div1DescAnnt-ca {
-		padding: 0;
-		display: flex;
-		margin-bottom: 5px;
-	}
-
-	#div1DescAnn-ca {
-		padding: 0;
-		display: flex;
-	}
-
-	#div1-1DescAnn-ca {
-		padding: 0;
-		margin-left: auto;
-		margin-right: auto;
-	}
-
-		#div1-1DescAnn-ca label {
-			font-size: 20px;
-			font-weight: initial;
-		}
-
-	#div2DescAnn-ca {
-		padding: 0;
-		display: flex;
-	}
-
-	#div2-1DescAnn-ca {
-		margin-left: auto;
-		margin-right: auto;
-		padding: 0
-	}
-
-		#div2-1DescAnn-ca textarea {
-			padding: 5px;
-			border: none;
-			border-radius: 5px;
-			box-shadow: black 0px 0px 2px 0px;
-			min-height: 70px;
-			min-width: 100%;
-			max-width: 100%;
-			margin: 0px;
-			width: 603px;
-			height: 70px;
-		}
-
-	#divEcoPratic-ca {
-		margin-bottom: 15px;
-	}
-
-	#div1-ecoPratic-ca {
-		padding: 0;
-		display: flex;
-	}
-
-	#div1-1-ecoPratic-ca {
-		padding: 0;
-		margin-left: auto;
-		margin-right: auto;
-	}
-
-		#div1-1-ecoPratic-ca label {
-			font-size: 20px;
-			font-weight: initial;
-		}
-
-	#div2-ecoPratic-ca {
-		padding: 0;
-		display: flex
-	}
-
-	#div2-1-ecoPratic-ca {
-		padding: 0;
-		margin-left: auto;
-		margin-right: auto
-	}
-
-		#div2-1-ecoPratic-ca textarea {
-			padding: 5px;
-			margin: 0px;
-			border: none;
-			border-radius: 5px;
-			box-shadow: black 0px 0px 2px 0px;
-			min-width: 100%;
-			max-width: 100%;
-			height: 70px;
-			min-height: 70px;
-			width: 600px;
-		}
-
-	#div-adresseLog-ca {
-		display: flex;
-		margin-bottom: 20px;
-		padding: 0
-	}
-
-	#div1-adresseLog-ca {
-		display: flex;
-		margin-left: auto;
-		margin-right: auto;
-		padding: 10px;
-		background-color: #f1f4c2;
-		box-shadow: 0 0 5px 0 #d9d9d9;
-		border-radius: 10px;
-	}
-
-	#div1-1-adresseLog-ca {
-		height: 100%;
-	}
-
-	#div1-2-adresseLog-ca {
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translateY(-50%);
-	}
-
-	#div1-3-adresseLog-ca {
-		background: url(https://img.icons8.com/ios/50/000000/map.png) no-repeat;
-		height: 50px;
-		width: 50px;
-		transform: translateX(-50%);
-	}
-
-	#div10-1-adresseLog-ca {
-		display: flex
-	}
-
-	#div10-2-adresseLog-ca {
-		margin-left: auto;
-		margin-right: auto;
-		max-width: 450px
-	}
-
-	#btnEnterNewPlace-mpc {
-		position: absolute;
-		right: 20px;
-		line-height: 35px;
-		cursor: pointer;
-		font-size: 16px;
-	}
-
-	#inputSearchPlace-mpc {
-		padding-right: 80px;
-		line-height: 11px
-	}
-
-	.inputAdresseLog-ca {
-		width: 100%;
-		border: none;
-		box-shadow: 0 0 2px 0 black;
-		border-radius: 5px;
-	}
-
-	#placeSaved-cpc {
-		margin-bottom: 5px;
-		display: none
-	}
-
-	#place-cpc {
-		display: flex;
-		flex-wrap: wrap;
-		border-radius: 5px;
-		background-color: #f5f5f5;
-		padding: 10px 5px;
-		margin: 10px;
-	}
-
-	.divPlace-cpc {
-		margin: 4px;
-		padding: 5px 10px;
-		border-radius: 8px;
-		display: flex;
-		position: relative;
-		background-color: #dde474;
-		font-weight: bold;
-		font-family: 'Noteworthy';
-		margin-left: auto;
-		margin-right: auto;
-		max-width: 100%;
-	}
-
-	.placeName-cpc {
-		white-space: nowrap;
-		text-overflow: ellipsis;
-		overflow: hidden;
-		max-width: 97%;
-		font-weight: normal;
-		color: #666;
-	}
-
-	.crossPlace-cpc {
-		margin-left: auto;
-		padding-left: 3px;
-	}
-
-	i.fas.fa-times.crossPlace-cpc {
-		font-size: 15px;
-		color: #555;
-		cursor: pointer;
-	}
-
-	#iconPlace-ca {
-		font-size: 17px;
-	}
-
-	#div10-3-adresseLog-ca {
-		width: 100%;
-		padding: 5px 10px;
-		border-radius: 5px;
-		margin-top: 10px;
-		background-color: white;
-	}
-
-	.textInfoAdresse-ca {
-		background-color: white;
-		color: #555;
-	}
-
-	#div10-4-adresseLog-ca {
-		background: url(https://img.icons8.com/ios/50/000000/information.png) 10px no-repeat;
-		height: 43px;
-		min-width: 50px;
-		background-size: 30px;
-		display: none;
-	}
-
-	#divDesciptionInfo-mcap {
-		padding: 0;
-	}
-
-	#titleInstrucePerson-mcap {
-		font-size: 28px;
-		margin-bottom: 20px;
-	}
-
-	#div1-descInform-ca {
-		display: flex;
-		padding: 0
-	}
-
-
-	@media screen and (max-width: 768px) {
-		#div1-descInform-ca {
-			display: block;
-		}
-	}
-
-	#div1-descInform-ca .table-striped > tbody > tr:nth-of-type(odd) {
-		background-color: #eef3b5;
-	}
-
-	#txtBtn-mpc {
-		margin-bottom: 15px;
-	}
-
-	#div2-descInform-ca {
-		margin-left: auto;
-		margin-right: auto;
-		padding: 0
-	}
-
-	.div20-descInform-ca {
-		display: flex;
-		background-color: #f1f4c2;
-		box-shadow: 0 0 5px 0 #d9d9d9;
-		border-radius: 10px;
-		margin-bottom: 20px;
-	}
-
-	.div2-1-descInform-ca {
-		padding: 10px;
-		display: block;
-		width: 100%;
-	}
-
-	.div2-2-descInform-ca {
-		display: flex;
-		padding: 0;
-		height: 100%;
-		background-color: white;
-		border-radius: 5px;
-		padding: 55px;
-	}
-
-	.div2-3-descInform-ca {
-		margin-left: auto;
-		margin-right: auto;
-		display: flex;
-		width: 101px;
-	}
-
-	.div2-4-descInform-ca {
-		position: absolute;
-		top: 50%;
-		transform: translateY(-50%);
-	}
-
-	.icon-ca {
-		font-size: 55px;
-		margin-top: 10px;
-		margin-bottom: 10px;
-		color: #b3bb43;
-		margin-left: auto;
-		margin-right: auto;
-	}
-
-	.div2-5-descInform-ca {
-		height: 50px;
-		width: 50px;
-		margin-bottom: 5px;
-	}
-
-		.div2-5-descInform-ca p {
-			font-size: 18px;
-			font-weight: initial
-		}
-
-	.rowByEngagement {
-		display: none;
-	}
-
-	#rowAchat, #rowLoyer {
-		display: table-row;
-	}
-
-	#imgChambre-ca {
-		background: url(https://img.icons8.com/ios/50/000000/bedroom.png) no-repeat;
-		margin-left: auto;
-		margin-right: auto;
-	}
-
-	#imgLogement-ca {
-		background: url(https://img.icons8.com/ios/50/000000/home.png) no-repeat;
-		margin-left: auto;
-		margin-right: auto;
-	}
-
-	#imgTolerances-ca {
-		background: url(https://img.icons8.com/ios/50/000000/survey.png) no-repeat;
-		margin-left: auto;
-		margin-right: auto;
-	}
-
-	#div2-descInform-ca table {
-		margin-bottom: 0;
-		min-height: 105px;
-	}
-
-	#div2-descInform-ca p {
-		margin: 0;
-		font-size: 20px;
-		font-weight: initial
-	}
-
-	.txtIcon-ca {
-		font-weight: bold !important;
-		margin-top: 5px !important;
-		margin-bottom: 10px !important;
-		color: #8f9714;
-	}
-
-	#divGlobalNbChambre-ml {
-		margin-bottom: 10px;
-	}
-
-	#lbNbChambre-ml {
-		font-size: 18px;
-		margin-right: 15px;
-	}
-
-	#nbChambre-ml {
-		width: 80px;
-	}
-
-	#div2-descInform-ca th {
-		background-color: lightgrey
-	}
-
-	#div2-descInform-ca tr {
-		border-style: hidden;
-	}
-
-	#div2-descInform-ca td {
-		font-weight: initial;
-	}
-
-		#div2-descInform-ca td .inputtable-ca, #divNbChambres-ml .inputtable-ca {
-			padding: 4px 10px;
-			border: none;
-			border-radius: 5px;
-			box-shadow: 0 0 2px 0px black;
-			text-align: center
-		}
-
-		#div2-descInform-ca td .inputtableDate-ca {
-			text-align: inherit;
-		}
-
-		#div2-descInform-ca td .signInputPropose-ml {
-			width: 50px;
-			text-align: center;
-			color: #555;
-		}
-
-		#div2-descInform-ca td label {
-			font-weight: initial;
-			font-size: 15px;
-			color: #555;
-		}
-
-	#divBtn-ca {
-		display: flex;
-		margin-bottom: 30px;
-	}
-
-	#div1Btn-ca {
-		padding: 0;
-		margin-left: auto;
-		margin-right: auto;
-		box-shadow: 0 0 5px 0px black;
-		border-radius: 9px;
-		cursor: pointer;
-		width: 200px;
-		height: 40px;
-		text-align: center;
-		position: relative;
-	}
-
-		#div1Btn-ca p {
-			position: absolute;
-			top: 50%;
-			transform: translateY(-50%);
-			width: 100%;
-		}
-
-	@media screen and (max-width: 768px) {
-		.div2-2-descInform-ca {
-			height: 85px !important;
-			margin-bottom: 20px;
-		}
-
-		#div1-1-adresseLog-ca {
-			height: 60px !important;
-			margin-bottom: 10px;
-		}
-	}
-
-	#partialView-ml {
-		display: inline-block;
+#divAddSearchAnounce-ps {
+	margin-bottom: 10px;
+}
+
+#divLinkPublishInteresse-ps {
+	color: #a3ad07;
+	font-size: 17px;
+}
+
+#divPanelPl {
+	overflow: auto;
+	max-height: 760px;
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+	display: flex;
+	flex-wrap: wrap;
+	padding-bottom: 10px
+}
+
+#divOthersPeople-ps {
+	display: contents;
+}
+
+.divPeoplesSearching {
+	display: flex;
+	padding: 0;
+	padding-bottom: 5px;
+	padding-top: 5px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 240px;
+}
+
+@media only screen and (max-width: 500px) {
+	.divPeoplesSearching {
 		width: 100%
 	}
 
-	/**** colocAnnounce ****/
+	#divPanelPl {
+		width: 300px;
+	}
+}
 
-	#div1-2-al {
-		width: 305px;
-		max-width: 100%;
+.divPeopleSearching {
+	padding: 0;
+	margin-left: auto;
+	margin-right: auto;
+	text-decoration: none !important;
+	color: black !important;
+	width: 225px;
+	position: relative;
+}
+
+#divImgPlSch {
+	box-shadow: 0 0 3px 0px black;
+	height: 150px;
+	border-radius: 10px 10px 0 0;
+}
+
+#heartImg {
+	position: absolute;
+	left: 10px;
+	top: 5px;
+	font-size: 32px;
+	color: #555;
+}
+
+#divImgPlSch #imgPlSch {
+	background-size: 100% !important;
+	width: 100%;
+	height: 100%;
+	border-radius: 10px 10px 0 0;
+}
+
+#divContenuPlSch {
+	padding: 5px;
+	border-radius: 0 0 10px 10px;
+	box-shadow: 0 0 2px 0px black;
+	background-color: #fdfbf9;
+	max-height: 280px;
+	overflow: auto;
+	height: 195px;
+}
+
+	#divContenuPlSch div:first-child p {
+		display: inline-block;
+		margin-bottom: 0;
+		font-size: 21px;
+		margin-right: 5px;
+	}
+
+	#divContenuPlSch div:first-child img {
+		width: 15px;
+		display: inline-block;
+		margin-top: -7px;
+	}
+
+div#divContenuPlSchDisable {
+	padding: 5px;
+	border-radius: 0 0 10px 10px;
+	box-shadow: 0 0 2px 0px black;
+	max-height: 280px;
+	overflow: auto;
+	height: 195px;
+	background-color: rgba(0,0,0,0.03);
+	display: flow-root;
+}
+
+#txt1ContenuDisable {
+	font-size: 18px;
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+
+#statutPl {
+	margin-bottom: 0
+}
+
+#descriptionPl {
+	margin-bottom: 12px;
+	background-color: #f7efe7;
+	box-shadow: 0 0 2px 0px black;
+	padding: 2px;
+	border-radius: 3px;
+}
+
+#divMembrePl {
+	display: inline-block;
+}
+
+#logoPl {
+	display: inline-block;
+	width: 63px
+}
+
+	#logoPl img {
+		width: 20px
+	}
+
+
+.btnModifyEvent-mps {
+	font-size: 15px;
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: -23px;
+	width: 170px;
+	width: max-content
+}
+
+#titlePrenom-ps {
+	margin-bottom: 5px;
+}
+
+#infoPlusPerson-ps {
+	margin-bottom: 10px;
+}
+
+.imgToCheck-ps {
+	color: lightgray;
+	font-size: 17px;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+}
+
+#img-mps {
+	height: 330px;
+}
+/**** ModalAddMySearchAnnounce ****/
+#modalAddMySearchAnnounce {
+	width: 900px;
+	padding: 15px;
+	overflow: auto;
+	position: relative
+}
+
+/*** Search colocation ***/
+#searchColoc {
+	border-radius: 10px;
+	box-shadow: 0 0 5px 0px black;
+	padding: 10px;
+	background-color: white;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	overflow: visible;
+	display: inline-block;
+	width: 100%;
+}
+
+#divLibelleRecherche {
+	margin-top: -15px;
+}
+
+	#divLibelleRecherche h3 {
+		text-align: center;
+		font-family: cursive;
+	}
+
+#divRubriqueRecherche {
+	display: flex;
+	margin-top: -10px;
+	margin-bottom: 15px;
+}
+
+	#divRubriqueRecherche #sousDivRubriqueRecherche {
+		margin-top: 5px;
+		margin-left: auto;
+		margin-right: auto;
+		width: 560px;
+	}
+
+#annonceRubrique {
+	display: flex;
+}
+
+#annonceRubrique2 {
+	margin-top: 15px;
+	margin-bottom: 0;
+	padding-bottom: 10px;
+	border-bottom: 3px solid #e9e5c3;
+	margin-left: auto;
+	margin-right: auto
+}
+
+#creationRubrique {
+	display: flex
+}
+
+#creationRubrique2 {
+	margin-top: 15px;
+	margin-bottom: 0;
+	padding-bottom: 10px;
+	margin-left: auto;
+	margin-right: auto
+}
+
+#sousDivRubriqueRecherche h3 {
+	text-align: center;
+	cursor: pointer
+}
+
+#underDivMultiPlaceToSearch-al {
+	background-color: #f4f6f7;
+	height: 35px;
+	border-radius: 5px;
+	margin-bottom: 8px;
+}
+
+#iMarkerMultiPlace-al {
+	margin: 0 10px;
+	margin-right: 6px;
+	font-size: 18px;
+	line-height: 35px;
+}
+
+#inpMultiPlace-al {
+	border: none;
+	background-color: transparent;
+	height: 100%;
+	font-size: 16px;
+	padding-top: 5px;
+}
+
+.divMultiPlace-al {
+	padding: 5px 10px;
+	padding-top: 7px;
+	border-radius: 8px;
+	display: flex;
+	background-color: white;
+	max-width: 100%;
+	min-width: 80px;
+	margin-left: 5px;
+	height: 35px;
+	border: 2px solid #f4f6f7;
+}
+
+#divAllMultiPlace-al {
+	overflow: auto;
+}
+
+#globalDivMapSearchColoc {
+	margin-top: 3px;
+	margin-bottom: 20px;
+}
+
+#divMapSearchColoc {
+	margin-top: 5px;
+}
+
+#mapSearchColoc {
+	height: 380px;
+	box-shadow: 0 0 3px 0px black;
+	z-index: 0;
+}
+
+
+@media only screen and (max-width: 620px) {
+	#divMapSearchColoc {
+		display: flex;
+	}
+
+	#mapSearchColoc {
+		height: 315px;
+		width: 100%;
 		margin-left: auto;
 		margin-right: auto
 	}
+}
 
-	#div1-2-ProjetCreation-al {
-		width: 268px;
-		margin-left: auto;
-		margin-right: auto
+.leafletDivAnnounce {
+	width: 400px;
+}
+
+.onHoverMarker {
+	z-index: 500;
+	display: none;
+	box-shadow: black 0px 0px 20px 0px;
+	width: 300px;
+	height: 94px;
+	background-color: white
+}
+
+#markerPhoto {
+	padding: 0;
+}
+
+	#markerPhoto img {
+		border-radius: 3px;
 	}
 
-		#div1-2-al a, #div1-2-ProjetCreation-al a {
-			margin-left: auto;
-			margin-right: auto;
-			color: black;
-			text-decoration: none;
+.onHoverMarker #description {
+	padding: 0;
+}
+
+.onHoverMarker h5 {
+	margin: 0;
+	margin-top: 2px;
+	margin-bottom: 1px;
+	text-align: center;
+	font-weight: bold;
+}
+
+.onHoverMarker p {
+	margin: 0;
+	margin-left: 5px;
+}
+
+	.onHoverMarker p:last-child {
+		font-size: 11px;
+	}
+
+.descriptionHabitat-al {
+	padding-top: 5px;
+	text-align: center;
+	font-size: 15px;
+}
+
+.linkDetailEvent-al {
+	display: flex;
+	margin-left: auto;
+	margin-right: auto;
+	font-size: 15px;
+	margin-top: 13px;
+	color: inherit !important;
+	text-decoration: none !important;
+}
+
+.nameColoc-al {
+	font-size: 18px;
+	text-align: center;
+	padding-bottom: 6px;
+	font-family: Noteworthy;
+	font-weight: bold;
+}
+
+.underTitlePopup-al {
+	font-weight: bold;
+}
+
+#divDivBlocAnnonce {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#divDivBlocAnnonce2 {
+	margin-bottom: 15px;
+}
+
+#divfiltreHome {
+	width: 528px
+}
+
+
+@media only screen and (max-width: 768px) {
+	#divfiltreHome {
+		width: inherit !important;
+	}
+}
+
+#divBlocsEvents-erevom {
+	overflow: auto;
+	padding-bottom: 5px;
+	height: 345px;
+	margin: 5px 0px;
+}
+
+@media only screen and (max-width: 768px) {
+	#divBlocsEvents-erevom {
+		margin: 10px 20px;
+		height: 660px;
+	}
+
+	#divDivBlocAnnonce2 {
+		margin-top: 15px;
+		margin-bottom: 0;
+	}
+}
+
+#divBlocAnnonce {
+	padding: 0;
+	overflow: auto;
+	margin-left: auto;
+	margin-right: auto;
+	height: 360px;
+	padding-bottom: 10px;
+}
+
+@media only screen and (max-width: 768px) {
+	#divBlocAnnonce {
+		margin: 10px 20px;
+		height: 660px;
+	}
+}
+
+#divContenerBlocAnnonce {
+	width: 100%;
+}
+
+#divBlocAnnonce a {
+	color: rgba(0,0,0,0.8);
+}
+
+.divBlocAnnonce1-ereom {
+	display: flex
+}
+
+#divBlocAnnonce2 {
+	padding: 0;
+	padding-left: 3px;
+	padding-right: 3px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+	#divBlocAnnonce2 a, #divOthersEvents-ereom a {
+		color: inherit !important;
+	}
+
+.divAnnonceColoc {
+	display: flex;
+	margin-top: 15px;
+	margin-bottom: 5px;
+	padding: 1px;
+}
+
+#div2AnnonceColoc {
+	padding: 0;
+	margin-left: auto;
+	margin-right: auto;
+	box-shadow: 0 0 3px 0px black;
+	border-radius: 10px;
+	background-color: #fdfbf9;
+}
+
+#annonceColoc {
+	padding: 1px;
+}
+
+#annonce2Coloc {
+	padding: 0;
+	display: flex;
+}
+
+#photoAnnonce {
+	padding: 0;
+	height: 148px;
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 10px
+}
+
+	#photoAnnonce div {
+		background-size: 100% !important;
+		width: 100%;
+		height: 100%;
+	}
+
+#divContenDescriptionAnnonce {
+	padding: 0;
+	display: flex;
+	overflow: auto;
+}
+
+#divDescriptionAnnonce {
+	padding: 0;
+	display: flex;
+}
+
+	#divDescriptionAnnonce p {
+		margin-bottom: 0;
+	}
+
+@media only screen and (max-width: 768px) {
+	#photoAnnonce {
+		box-shadow: none;
+	}
+
+	/*#photoAnnonce div {
+			background-size: inherit !important;
+		}*/
+
+	#divDescriptionAnnonce {
+		overflow: auto;
+	}
+
+	#divBlocAnnonce {
+		max-width: 500px;
+		max-width: 85%;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.divBlocAnnonce1-ereom {
+		margin-bottom: 20px
+	}
+}
+
+#descriptionAnnonce {
+	height: 148px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+@media only screen and (max-width: 768px) {
+	#descriptionAnnonce {
+		box-shadow: none;
+	}
+}
+
+
+#descriptionAnnonce h4 {
+	margin-bottom: 5px;
+	font-size: 18px;
+	text-align: center;
+	padding-bottom: 6px;
+	font-family: Noteworthy;
+	font-weight: bold;
+	line-height: 25px;
+	margin-top: 8px;
+}
+
+#textTopDescriptionArt {
+	text-align: center;
+	margin-bottom: 10px;
+	font-weight: bold;
+}
+
+#textDescriptionArt {
+	font-weight: initial;
+	text-align: center;
+	font-size: 15px;
+}
+
+#divOthersEvents-ereom {
+	overflow: auto;
+}
+
+#btnOtherAnnonceLocation-alpv {
+	background-color: white;
+	margin-top: 15px;
+	color: #636161 !important;
+	margin-bottom: 5px;
+}
+
+#iconShowNewEvent-alpv {
+	margin-top: -9px;
+	margin-bottom: 2px;
+}
+
+#txtShowNewEvent-alpv {
+	font-size: 19px;
+}
+
+#divPrixAnnonce {
+	position: absolute;
+	z-index: 1;
+	left: 14px;
+	top: 14px;
+}
+
+#prixAnnonce {
+	float: left;
+	margin: -10px;
+	padding: 2px;
+	box-shadow: 0 0 5px 0px black;
+	background-color: rgba(246, 246, 246, 0.9);
+	color: #666;
+	font-weight: bold;
+	font-size: 16px;
+	border-radius: 3px;
+	font-family: Noteworthy;
+}
+
+#rentCosts {
+	font-size: 11px;
+	margin-left: 3px;
+}
+
+
+#projetCreation {
+	display: none;
+}
+
+#div1PC {
+	display: grid;
+}
+
+	#div1PC a {
+		text-decoration: none;
+	}
+
+#div1-1PC {
+	position: relative;
+	height: auto
+}
+
+#div1PC a {
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0;
+	color: black;
+}
+
+#div1PC a {
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0;
+	color: black;
+}
+
+#div2PC {
+	box-shadow: 0 0 6px -1px black;
+	border-radius: 10px;
+	padding: 0;
+	margin-left: auto;
+	margin-right: auto;
+	height: 230px;
+	max-height: 450px;
+	margin-bottom: 25px;
+	background-color: #fdfbf9;
+}
+
+#div1ProfilPC {
+	padding: 5px;
+	height: 100%;
+	max-height: 225px;
+	overflow: auto;
+	overflow-x: hidden;
+}
+
+#divIdentitePC {
+	padding: 0 !important;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+#divPhotoProfilPC {
+	display: flex;
+	padding: 0;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#photoProfilPC {
+	padding: 0;
+	background: url(/Content/Images/Personnes/Profil1.jpg) 50% 50% no-repeat;
+	background-size: 120px;
+	width: 85px;
+	height: 85px;
+	border-radius: 25%;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+}
+
+#div0DecriptionIdentitePC {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#div1DecriptionIdentitePC {
+	display: flex;
+}
+
+@media only screen and (max-width: 960px) and (min-width: 768px) {
+	#div0DecriptionIdentitePC {
+		width: 100%
+	}
+}
+
+
+#div2DecriptionIdentitePC {
+	margin-right: auto;
+	margin-left: 50%;
+	transform: translateX(-50%);
+	font-weight: bold;
+	color: #333;
+}
+
+	#div2DecriptionIdentitePC p {
+		font-size: 23px;
+		margin-bottom: 0
+	}
+
+		#div2DecriptionIdentitePC p:last-child {
+			margin-bottom: 5px
 		}
 
-	#btnCreer-al {
-		box-shadow: 0 0 5px 0px black;
-		border-radius: 10px;
-		font-size: 20px;
-		padding: 5px 15px;
-		margin-bottom: 15px;
+#div1PersonnalitePC {
+	display: flex;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+#div2PersonnalitePC {
+	margin-left: auto;
+	margin-right: auto;
+	width: 250px;
+	padding: 10px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	box-shadow: 0 0 2px 0px black;
+	height: 65px;
+	overflow: hidden;
+}
+
+	#div2PersonnalitePC p {
+		margin: 0;
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		height: inherit !important;
+	}
+
+.div2PersonnaliteColorPC {
+	background-color: #f7efe7;
+}
+
+#div1InscriptionPC {
+	padding: 0;
+	display: flex;
+}
+
+#div11InscriptionPC {
+	width: 200px;
+	padding: 0;
+	margin-left: auto;
+	margin-right: auto;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+#div2InscriptionPC {
+	display: flex;
+	padding: 0;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+@media only screen and (max-width: 767px) {
+	#div2InscriptionPC div {
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+#div1IconInscriptionPC {
+	display: flex;
+	padding: 0;
+}
+
+#div1IconInscriptionPC {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+	#div1IconInscriptionPC img {
+		width: 22px;
+		height: 22px;
+	}
+
+#div1DescriptionPC {
+	border-left: 1px solid rgba(0,0,0,0.15);
+	border-radius: 10px;
+	overflow: auto;
+	padding: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
+	height: 100%;
+}
+
+	#div1DescriptionPC h3 {
 		text-align: center;
-		background-color: #bcc802;
+		margin: 0;
+		margin-top: 5px;
+		margin-bottom: 2px;
+		color: #444;
+		font-weight: bold;
+	}
+
+	#div1DescriptionPC #div2DescriptionPC p:first-child {
+		margin-bottom: 0
+	}
+
+#div1Desc-title-pc {
+	text-align: center;
+	margin-bottom: 20px;
+	margin-top: 10px;
+	font-weight: 600;
+	color: #333;
+}
+
+@media only screen and (max-width: 960px) and (min-width:768px) {
+	#divPhotoProfilPC {
+		width: 100%
+	}
+}
+
+@media only screen and (max-width: 560px) {
+	#divPhotoProfilPC {
+		width: 100%
+	}
+
+	#div0DecriptionIdentitePC {
+		width: 100%
+	}
+}
+
+@media only screen and (max-width: 767px) {
+	#div2DecriptionIdentitePC p {
+		text-align: center
+	}
+
+	#div1ProfilPC {
+		height: auto;
+		overflow: hidden;
+	}
+
+	#div2PC {
+		height: auto;
+		max-height: 450px;
+		overflow: auto;
+	}
+
+	#div1DescriptionPC {
+		border-left: none;
+		height: auto;
+	}
+}
+
+#div1Filter-cp {
+	position: absolute;
+	height: 30px;
+	bottom: 25px;
+	padding: 0;
+	padding-left: 5px;
+}
+
+#div2Filter-cp1 {
+	position: absolute;
+	height: 100%;
+	width: 99%;
+	background-color: rgba(255,255,255,0.9);
+	background-image: linear-gradient(transparent, rgba(255,255,255,0.5));
+}
+
+#div2Filter-cp2 {
+	display: flex;
+	position: absolute;
+	padding-left: 10px
+}
+
+@media only screen and (max-width: 388px) {
+	#div2Filter-cp2 {
+		padding: 3px
+	}
+
+	.img-description-mpc {
+		display: none;
+	}
+}
+
+#logo-pcpv {
+	display: flex;
+	width: 63px
+}
+
+	#logo-pcpv img {
+		width: 20px
+	}
+
+/** Pagination **/
+/* Pagination links */
+.pagination a {
+	color: black;
+	float: left;
+	padding: 8px 16px;
+	text-decoration: none;
+	transition: background-color .3s;
+}
+
+	/* Style the active/current link */
+	.pagination a.active {
+		background-color: dodgerblue;
 		color: white;
 	}
-	/**** Fin ****/
 
-	/*** modalCreationProjet-ColocAnnounce ***/
-	#modalCreationProjet-ColocAnnounce {
-		overflow: auto;
-		position: relative;
+	/* Add a grey background color on mouse-over */
+	.pagination a:hover:not(.active) {
+		background-color: #ddd;
 	}
 
-		#modalCreationProjet-ColocAnnounce, #modalCreationProjet-ColocAnnounce ~ .divCloseModal {
-			width: 900px
-		}
+/* modalPeopleSearch*/
+#modalPeopleSearch {
+	overflow: auto;
+	position: relative;
+	height: 348px;
+}
 
-	#htmlBlockModalCreationProjet-mpc {
-		color: #888;
+	#modalPeopleSearch, #modalPeopleSearch ~ .divCloseModal {
+		width: 900px
 	}
 
-	#divImgLogoProfil-mpc {
-		background-color: white;
-		border-radius: 5px;
-	}
-
-	#tktIntroduceProfil-mpc {
-		color: #555;
-	}
-
-	#divProfil-mpc {
-		background-color: #f1f4c2;
-	}
-
-		#divProfil-mpc #txtareaPersoP-mcar {
-			box-shadow: 0 0 2px 0 #555;
-		}
-
-			#divProfil-mpc #txtareaPersoP-mcar::placeholder {
-				color: #555
-			}
-	/*** Fin div-photos-mpc-ColocAnnounce ***/
-	/**** Modal Account / Index *****/
-	#modalAccount {
-		overflow: auto;
-		padding: 20px 35px;
-		position: relative;
-		height: fit-content;
+@media only screen and (max-width: 767px) {
+	#modalPeopleSearch {
+		height: 100%;
+		height: max-content;
 		top: 0;
 		bottom: 0;
 		margin: auto;
 	}
+}
 
-		#modalAccount, #modalAccount ~ .divCloseModal {
-			width: 400px
-		}
 
-	#divAccesMembre-acc h2 {
-		font-size: 24px;
+/**** modalCreationProjet-SearchColoc ****/
+#modalCreationProjet-SearchColoc {
+	overflow: auto;
+	height: 348px;
+	position: relative;
+}
+
+	#modalCreationProjet-SearchColoc, #modalCreationProjet-SearchColoc ~ .divCloseModal {
+		width: 900px
 	}
 
-	#divGlobalInput-acc i {
-		height: 12px;
-		top: 50%;
-		transform: translateY(-50%);
-		align-items: center;
-		position: absolute;
-		bottom: 0;
-		padding-left: 35px;
-		pointer-events: none;
+@media only screen and (max-width: 767px) {
+	#modalCreationProjet-SearchColoc {
+		height: inherit !important;
+	}
+}
+
+/*** ModalLocation ***/
+#modalLocation {
+	height: 400px;
+	overflow: auto;
+	position: relative;
+}
+
+	#modalLocation, #modalLocation ~ .divCloseModal {
+		width: 900px
 	}
 
-	.divInputWrite-acc {
-		display: flex;
-		position: relative;
-		margin-bottom: 10px;
-	}
+#divMessage-ml {
+	display: none;
+}
 
-		.divInputWrite-acc .div2InputWrite-acc {
-			border-radius: 5px;
-			background-color: white;
-			box-shadow: 0 0 2px black;
-		}
-
-		.divInputWrite-acc input {
-			background-color: transparent;
-			border: none;
-			font-size: 15px;
-			padding: 10px 30px;
-			padding-left: 65px;
-		}
-
-	#divbtnConnexion-acc {
-		margin-bottom: 15px;
-	}
-
-		#divbtnConnexion-acc a {
-			text-decoration: none;
-		}
-
-	#btnConnexion-acc {
-		border-radius: 5px;
-		padding: 10px 25px;
-		text-align: center;
-		font-size: 15px;
+	#divMessage-ml img {
 		cursor: pointer;
-		background-color: #bcc802;
-		color: white;
+		z-index: 1;
+		position: absolute;
+		margin-top: 5px;
+		margin-left: 5px;
+		left: -5px;
+		top: -5px;
 	}
 
-	#divMdpForget-acc {
-		display: flex;
+#divPhoto-ml {
+	display: inline;
+}
+
+#div-photos-mpc {
+	height: 100%;
+	padding: 10px;
+}
+
+.photo-mpc {
+	background-size: 100% !important;
+	height: 100%;
+	display: none;
+}
+
+#div-photos-mpc .photo-mpc:first-child {
+	display: inherit;
+}
+
+#d1-btnphoto-mpc {
+	position: absolute;
+	top: 0;
+	height: 100%
+}
+
+#d1-2-btnphoto-mpc {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	cursor: pointer
+}
+
+	#d1-2-btnphoto-mpc img {
+		background-color: rgba(0,0,0,0.6);
+		height: 50px;
+	}
+
+#d2-btnphoto-mpc {
+	width: 10px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: 100%
+}
+
+#d2-1-btnphoto-mpc {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	margin-left: -50px;
+	cursor: pointer
+}
+
+	#d2-1-btnphoto-mpc img {
+		background-color: rgba(0,0,0,0.6);
+		height: 50px
+	}
+
+	#d2-1-btnphoto-mpc img {
+		background-color: rgba(0,0,0,0.6);
+		height: 50px
+	}
+
+#div-description-mpc {
+	overflow: auto;
+	padding: 10px
+}
+
+@media only screen and (min-width: 767px) {
+	#div-description-mpc {
+		height: 100%;
+	}
+}
+
+#d1-description-mpc {
+	overflow: auto;
+}
+
+#d1-1-description-mpc {
+	display: flex;
+	padding: 5px;
+}
+
+#d1-1-1-description-mpc {
+	margin-left: auto;
+	margin-right: auto
+}
+
+	#d1-1-1-description-mpc h2, #d1-1-1-description-mpc h4 {
+		margin: 0;
+		text-align: center;
+	}
+
+#d1-2-1-description-mpc {
+	background-size: 120px !important;
+	width: 80px;
+	height: 80px;
+	border-radius: 50%
+}
+
+#d1-3-description-mpc {
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+	#d1-3-description-mpc h4 {
+		margin: 0
+	}
+
+#p-d1-3-description-mpc {
+	background-color: #C4D102;
+	color: white;
+	font-size: 12px;
+	border-radius: 3px;
+	padding: 2px 6px 3px 6px;
+	margin: 0;
+	width: max-content;
+}
+
+#introduceAnnonce-merev {
+	display: flex;
+}
+
+.d2-description-mpc {
+	display: table;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 10px;
+	margin-top: 10px;
+	flex-wrap: wrap;
+	display: flex;
+}
+
+.d2-1-description-mpc {
+	display: flex;
+	overflow: hidden;
+	width: max-content;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.d2-1-1-description-mpc {
+	margin-left: 50%;
+	transform: translateX(-50%);
+}
+
+	.d2-1-1-description-mpc p {
+		text-align: center
+	}
+
+.d2-1-1-1-description-mpc {
+	display: flex;
+	margin-bottom: 5px
+}
+
+	.d2-1-1-1-description-mpc img {
+		margin-left: auto;
+		margin-right: auto;
+		height: 50px;
+	}
+
+#p1-d2-1-description-mpc {
+	margin-bottom: 0
+}
+
+#p2-d2-1-description-mpc {
+	margin-bottom: 0;
+	font-size: 12px;
+	text-align: center
+}
+
+#d3-description-mpc {
+	margin-bottom: 15px
+}
+
+.d3-1-description-mpc {
+	display: inline-block;
+	margin-right: 5px;
+	font-size: 16px;
+	height: 30px;
+	line-height: 27px;
+}
+
+	.d3-1-description-mpc img {
+		height: 20px;
+		margin-right: 3px
+	}
+
+#d3-2-description-mpc {
+	display: inline-block;
+	margin-top: 10px;
+	font-size: 16px;
+	height: 30px;
+	line-height: 27px;
+}
+
+	#d3-2-description-mpc a {
+		color: inherit;
 		text-decoration: none;
 	}
 
-		#divMdpForget-acc p {
-			font-size: 13px;
-			color: #666;
-		}
+.imgBtnContact-mpc {
+	margin-right: 5px;
+}
 
-	#div1CreateAccount-acc {
-		display: flex;
+#numberPhone-ml {
+	font-size: 14px;
+}
+
+#d4-description-mpc {
+	margin-bottom: 15px;
+}
+
+	#d4-description-mpc h4:first-child {
+		display: inline;
+		margin-bottom: 10px
 	}
 
-	#div2CreateAccount-acc {
+d5-description-mpc {
+	margin-top: 15px
+}
+
+#d5-description-mpc th {
+	background: #C4D102
+}
+
+#div-description-mpc .table-striped > tbody > tr:nth-of-type(odd) {
+	background-color: #f8fae0;
+}
+
+
+@media only screen and (max-width: 767px) {
+	#modalLocation, #modalCreationProjet, #modalEcoRoommateEventVisual {
+		min-width: 360px;
+		height: inherit !important;
+	}
+
+	#div-photos-mpc {
+		max-height: 348px;
+	}
+}
+
+@media only screen and (min-width: 767px) {
+	#div-description-mpc {
+		overflow: inherit;
+	}
+}
+
+/*** End ModalLocation ***/
+
+/*** ModalMessage ***/
+#partialViewMessage {
+	height: auto;
+	overflow: auto;
+	/*max-height: 350px;*/
+	max-height: 100%
+}
+
+#divTitre-pvm {
+	display: flex;
+	margin-bottom: 20px
+}
+
+	#divTitre-pvm h2 {
 		margin-left: auto;
 		margin-right: auto;
-	}
-
-		#div2CreateAccount-acc p {
-			font-size: 15px;
-			color: #666;
-			display: inline-block;
-			margin-right: 5px;
-		}
-
-		#div2CreateAccount-acc i {
-			color: #666;
-		}
-
-	#divConexionExterne-acc {
-		display: flex;
-		margin-top: 40px;
-		margin-bottom: 15px;
-	}
-
-		#divConexionExterne-acc div:first-child {
-			margin-left: auto;
-			margin-right: auto;
-			margin-bottom: 20px;
-		}
-
-		#divConexionExterne-acc p {
-			font-size: 15px;
-			color: #666;
-		}
-
-		#divConexionExterne-acc a {
-			display: inline-block;
-		}
-
-	#divImgOtherCo-acc {
-		display: flex;
-	}
-
-		#divImgOtherCo-acc a {
-			margin-left: auto;
-			margin-right: auto;
-		}
-
-	#btnfb-acc {
-		box-shadow: 0 5px 20px 0 rgba(0,0,0,.2);
-		-moz-box-shadow: 0 5px 20px 0 rgba(0,0,0,.2);
-		-webkit-box-shadow: 0 5px 20px 0 rgba(0,0,0,.2);
-		-o-box-shadow: 0 5px 20px 0 rgba(0,0,0,.2);
-		-ms-box-shadow: 0 5px 20px 0 rgba(0,0,0,.2);
-		border-radius: 50%;
-		width: 50px;
-		height: 50px;
 		text-align: center;
-		font-size: 25px;
-		color: #7e9ee9;
-		line-height: 50px;
+		margin-top: 10px;
+		margin-bottom: 10px;
 	}
 
-	#btnGoogle-acc {
-		background-size: 25px;
-		width: 50px;
-		height: 50px;
-		box-shadow: 0 5px 20px 0 rgba(0,0,0,.2);
-		-moz-box-shadow: 0 5px 20px 0 rgba(0,0,0,.2);
-		-webkit-box-shadow: 0 5px 20px 0 rgba(0,0,0,.2);
-		-o-box-shadow: 0 5px 20px 0 rgba(0,0,0,.2);
-		-ms-box-shadow: 0 5px 20px 0 rgba(0,0,0,.2);
-		border-radius: 50%;
-		font-size: 25px;
-		text-align: center;
-		padding-top: 12px;
-		color: #d09c92;
+.div1Input-pvm {
+	display: flex;
+	margin-bottom: 10px;
+}
+
+.div2Input-pvm {
+	display: flex;
+	margin-left: auto;
+	margin-right: auto;
+	width: 80%;
+}
+
+	.div2Input-pvm input {
+		margin-left: auto;
+		margin-right: auto;
+		outline: 0;
+		height: 35px;
+		width: 100%;
+		padding: 2px 10px;
+		border-radius: 10px;
+		border: none;
+		background-color: #f7f8db;
 	}
 
-	/*ModalCreateAccount*/
-	#modalCreateAccount {
-		overflow: auto;
-		padding: 15px;
-		position: relative;
-		height: 300px;
-		top: 0;
-		bottom: 0;
-		margin: auto
+	.div2Input-pvm textarea {
+		margin-left: auto;
+		margin-right: auto;
+		outline: 0;
+		overflow: hidden;
+		min-height: 50px;
+		min-width: 100%;
+		width: 100%;
+		padding: 2px 10px;
+		border-radius: 10px;
+		border: none;
+		background-color: #f7f8db;
 	}
 
-		#modalCreateAccount, #modalCreateAccount ~ .divCloseModal {
-			width: 400px
+		.div2Input-pvm input::-webkit-input-placeholder, .div2Input-pvm textarea::-webkit-input-placeholder {
+			color: #666666;
+			font-size: 15px;
 		}
 
-	#divInscriptionTitle-mca {
-		display: flex;
+#btnSendMsg-pvm {
+	margin-left: auto;
+	margin-right: auto;
+	display: inline-block;
+	box-shadow: 0 0 5px 0px black;
+	color: white;
+	border-radius: 3px;
+	padding: 9px 50px;
+	cursor: pointer;
+	text-align: center;
+	background-color: #C4D102;
+	font-family: 'Noteworthy';
+	font-size: 20px;
+	font-weight: bold;
+}
+
+#div3InputNom-pvm {
+	margin-right: 10px
+}
+
+.div3Input-pvm {
+	width: 50%;
+	padding: 0;
+	display: inline-flex
+}
+
+@media only screen and (max-width: 767px) {
+	#partialViewMessage {
+		margin-bottom: 30px
+	}
+}
+
+/*** ColocAnnonce ***/
+#colocAnnounce {
+	border-radius: 10px;
+	box-shadow: 0 0 5px 0px black;
+	padding: 10px;
+	background-color: white;
+	overflow: auto;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+#divNbPeopleSearch-ca {
+	display: flex
+}
+
+#btnPeopleSearch-ca {
+	max-width: 230px;
+	position: unset;
+	margin-right: auto;
+	margin-bottom: -50px;
+	border-radius: 5px;
+	padding: 5px 10px;
+	box-shadow: 0 0 3px 0px black;
+	cursor: pointer;
+	text-decoration: none;
+	background-color: #bcc802;
+	color: white;
+}
+
+#localisation-ca {
+	margin-bottom: 3px;
+	text-align: center;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+#nbPeopleSearching-ca {
+	margin-bottom: 0;
+	text-align: center;
+}
+
+#infoLocalisation-ca {
+	font-weight: 900;
+	font-family: "Font Awesome 5 Free";
+	margin-top: 3px;
+}
+
+@media only screen and (max-width: 1090px) {
+	#btnPeopleSearch-ca {
+		position: unset !important;
+		margin-right: auto !important;
+		margin-left: auto !important;
+		margin-bottom: 0;
+	}
+}
+/*** ModalLocation ***/
+#modalLocation-ColocAnnounce {
+	overflow: auto;
+	padding: 15px;
+	position: relative;
+}
+
+	#modalLocation-ColocAnnounce, #modalLocation-ColocAnnounce ~ .divCloseModal {
+		width: 900px
+	}
+
+		#modalLocation-ColocAnnounce textarea, input {
+			color: #555;
+		}
+
+#htmlBlockModalLocation-ml {
+	color: #888
+}
+
+	#htmlBlockModalLocation-ml select {
+		width: 180px;
+		height: 30px;
+		padding-top: 2px;
+		padding-left: 5px;
+	}
+
+#inputSearchPlace-car {
+	font-weight: inherit;
+}
+
+#div-title-ca {
+	display: flex
+}
+
+	#div-title-ca h2 {
+		margin-left: auto;
+		margin-right: auto;
+		margin-bottom: 25px;
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+
+#div1-contenu-ca {
+	overflow: auto;
+	display: flex;
+	margin-bottom: 20px;
+	padding: 0
+}
+
+#div1-1-contenu-ca {
+	margin: 3px auto;
+	padding: 10px;
+	background-color: #f1f4c2;
+	box-shadow: 0 0 5px 0 #d9d9d9;
+	border-radius: 10px;
+}
+
+#infoChampsAnnonce-ml-mpc p {
+	margin: 6px auto;
+	font-weight: bold;
+	color: rgba(205, 92, 92, 0.8);
+}
+
+#infoChampsAnnonce-ml-mpc {
+	width: 90%;
+	width: max-content;
+	max-width: 100%;
+	padding: 5px 10px;
+	border-radius: 5px;
+	background-color: white;
+	margin-bottom: 15px;
+}
+
+#titleAboutColocation-ml {
+	margin-top: 0px;
+	margin-bottom: 15px;
+	color: #999 !important;
+}
+
+#divDescAnn-ca {
+	margin-bottom: 15px
+}
+
+#div1DescAnnt-ca {
+	padding: 0;
+	display: flex;
+	margin-bottom: 5px;
+}
+
+#div1DescAnn-ca {
+	padding: 0;
+	display: flex;
+}
+
+#div1-1DescAnn-ca {
+	padding: 0;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+	#div1-1DescAnn-ca label {
+		font-size: 20px;
+		font-weight: initial;
+	}
+
+#div2DescAnn-ca {
+	padding: 0;
+	display: flex;
+}
+
+#div2-1DescAnn-ca {
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0
+}
+
+	#div2-1DescAnn-ca textarea {
+		padding: 5px;
+		border: none;
+		border-radius: 5px;
+		box-shadow: black 0px 0px 2px 0px;
+		min-height: 70px;
+		min-width: 100%;
+		max-width: 100%;
+		margin: 0px;
+		width: 603px;
+		height: 70px;
+	}
+
+	#div2-1DescAnn-ca #descRecherche-ml {
+		min-height: 27px;
+		height: 27px;
+	}
+
+#divEcoPratic-ca {
+	margin-bottom: 15px;
+}
+
+#div1-ecoPratic-ca {
+	padding: 0;
+	display: flex;
+}
+
+#div1-1-ecoPratic-ca {
+	padding: 0;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+	#div1-1-ecoPratic-ca label {
+		font-size: 20px;
+		font-weight: initial;
+	}
+
+#div2-ecoPratic-ca {
+	padding: 0;
+	display: flex
+}
+
+#div2-1-ecoPratic-ca {
+	padding: 0;
+	margin-left: auto;
+	margin-right: auto
+}
+
+	#div2-1-ecoPratic-ca textarea {
+		padding: 5px;
+		margin: 0px;
+		border: none;
+		border-radius: 5px;
+		box-shadow: black 0px 0px 2px 0px;
+		min-width: 100%;
+		max-width: 100%;
+		height: 70px;
+		min-height: 70px;
+		width: 600px;
+	}
+
+#div-adresseLog-ca {
+	display: flex;
+	margin-bottom: 20px;
+	padding: 0
+}
+
+#div1-adresseLog-ca {
+	display: flex;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 10px;
+	background-color: #f1f4c2;
+	box-shadow: 0 0 5px 0 #d9d9d9;
+	border-radius: 10px;
+}
+
+#div1-1-adresseLog-ca {
+	height: 100%;
+}
+
+#div1-2-adresseLog-ca {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translateY(-50%);
+}
+
+#div1-3-adresseLog-ca {
+	background: url(https://img.icons8.com/ios/50/000000/map.png) no-repeat;
+	height: 50px;
+	width: 50px;
+	transform: translateX(-50%);
+}
+
+#div10-1-adresseLog-ca {
+	display: flex
+}
+
+#div10-2-adresseLog-ca {
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 450px
+}
+
+#btnEnterNewPlace-mpc {
+	position: absolute;
+	right: 20px;
+	line-height: 35px;
+	cursor: pointer;
+	font-size: 16px;
+}
+
+#inputSearchPlace-mpc {
+	padding-right: 80px;
+	line-height: 11px
+}
+
+.inputAdresseLog-ca {
+	width: 100%;
+	border: none;
+	box-shadow: 0 0 2px 0 black;
+	border-radius: 5px;
+}
+
+#placeSaved-cpc {
+	margin-bottom: 5px;
+	display: none
+}
+
+#place-cpc {
+	display: flex;
+	flex-wrap: wrap;
+	border-radius: 5px;
+	background-color: #f5f5f5;
+	padding: 10px 5px;
+	margin: 10px;
+}
+
+.divPlace-cpc {
+	margin: 4px;
+	padding: 5px 10px;
+	border-radius: 8px;
+	display: flex;
+	position: relative;
+	background-color: #dde474;
+	font-weight: bold;
+	font-family: 'Noteworthy';
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 100%;
+}
+
+.placeName-cpc {
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	max-width: 97%;
+	font-weight: normal;
+	color: #666;
+}
+
+.crossPlace-cpc {
+	margin-left: auto;
+	padding-left: 3px;
+}
+
+i.fas.fa-times.crossPlace-cpc {
+	font-size: 15px;
+	color: #555;
+	cursor: pointer;
+}
+
+#iconPlace-ca {
+	font-size: 17px;
+}
+
+#div10-3-adresseLog-ca {
+	width: 100%;
+	padding: 5px 10px;
+	border-radius: 5px;
+	margin-top: 10px;
+	background-color: white;
+}
+
+.textInfoAdresse-ca {
+	background-color: white;
+	color: #555;
+}
+
+#div10-4-adresseLog-ca {
+	background: url(https://img.icons8.com/ios/50/000000/information.png) 10px no-repeat;
+	height: 43px;
+	min-width: 50px;
+	background-size: 30px;
+	display: none;
+}
+
+#divDesciptionInfo-mcap {
+	padding: 0;
+}
+
+#titleInstrucePerson-mcap {
+	font-size: 28px;
+	margin-bottom: 20px;
+}
+
+#div1-descInform-ca {
+	display: flex;
+	padding: 0
+}
+
+
+@media screen and (max-width: 768px) {
+	#div1-descInform-ca {
+		display: block;
+	}
+}
+
+#div1-descInform-ca .table-striped > tbody > tr:nth-of-type(odd) {
+	background-color: #eef3b5;
+}
+
+#txtBtn-mpc {
+	margin-bottom: 15px;
+}
+
+#div2-descInform-ca {
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0
+}
+
+.div20-descInform-ca {
+	display: flex;
+	background-color: #f1f4c2;
+	box-shadow: 0 0 5px 0 #d9d9d9;
+	border-radius: 10px;
+	margin-bottom: 20px;
+}
+
+.div2-1-descInform-ca {
+	padding: 10px;
+	display: block;
+	width: 100%;
+}
+
+.div2-2-descInform-ca {
+	display: flex;
+	padding: 0;
+	height: 100%;
+	background-color: white;
+	border-radius: 5px;
+	padding: 55px;
+}
+
+.div2-3-descInform-ca {
+	margin-left: auto;
+	margin-right: auto;
+	display: flex;
+	width: 101px;
+}
+
+.div2-4-descInform-ca {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.icon-ca {
+	font-size: 55px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	color: #b3bb43;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.div2-5-descInform-ca {
+	height: 50px;
+	width: 50px;
+	margin-bottom: 5px;
+}
+
+	.div2-5-descInform-ca p {
+		font-size: 18px;
+		font-weight: initial
+	}
+
+.rowByEngagement {
+	display: none;
+}
+
+#rowAchat, #rowLoyer {
+	display: table-row;
+}
+
+#imgChambre-ca {
+	background: url(https://img.icons8.com/ios/50/000000/bedroom.png) no-repeat;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#imgLogement-ca {
+	background: url(https://img.icons8.com/ios/50/000000/home.png) no-repeat;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#imgTolerances-ca {
+	background: url(https://img.icons8.com/ios/50/000000/survey.png) no-repeat;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#div2-descInform-ca table {
+	margin-bottom: 0;
+	min-height: 105px;
+}
+
+#div2-descInform-ca p {
+	margin: 0;
+	font-size: 20px;
+	font-weight: initial
+}
+
+.txtIcon-ca {
+	font-weight: bold !important;
+	margin-top: 5px !important;
+	margin-bottom: 10px !important;
+	color: #8f9714;
+}
+
+#divGlobalNbChambre-ml {
+	margin-bottom: 10px;
+}
+
+#lbNbChambre-ml {
+	font-size: 18px;
+	margin-right: 15px;
+}
+
+#nbChambre-ml {
+	width: 80px;
+}
+
+#div2-descInform-ca th {
+	background-color: lightgrey
+}
+
+#div2-descInform-ca tr {
+	border-style: hidden;
+}
+
+#div2-descInform-ca td {
+	font-weight: initial;
+}
+
+	#div2-descInform-ca td .inputtable-ca, #divNbChambres-ml .inputtable-ca {
+		padding: 4px 10px;
+		border: none;
+		border-radius: 5px;
+		box-shadow: 0 0 2px 0px black;
+		text-align: center
+	}
+
+	#div2-descInform-ca td .inputtableDate-ca {
+		text-align: inherit;
+	}
+
+	#div2-descInform-ca td .signInputPropose-ml {
+		width: 50px;
+		text-align: center;
+		color: #555;
+	}
+
+	#div2-descInform-ca td label {
+		font-weight: initial;
+		font-size: 15px;
+		color: #555;
+	}
+
+#divBtn-ca {
+	display: flex;
+	margin-bottom: 30px;
+}
+
+#div1Btn-ca {
+	padding: 0;
+	margin-left: auto;
+	margin-right: auto;
+	box-shadow: 0 0 5px 0px black;
+	border-radius: 9px;
+	cursor: pointer;
+	width: 200px;
+	height: 40px;
+	text-align: center;
+	position: relative;
+}
+
+	#div1Btn-ca p {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		width: 100%;
+	}
+
+@media screen and (max-width: 768px) {
+	.div2-2-descInform-ca {
+		height: 85px !important;
 		margin-bottom: 20px;
 	}
 
-	#title-mca {
+	#div1-1-adresseLog-ca {
+		height: 60px !important;
+		margin-bottom: 10px;
+	}
+}
+
+#partialView-ml {
+	display: inline-block;
+	width: 100%
+}
+
+/**** colocAnnounce ****/
+
+#div1-2-al {
+	width: 305px;
+	max-width: 100%;
+	margin-left: auto;
+	margin-right: auto
+}
+
+#div1-2-ProjetCreation-al {
+	width: 268px;
+	margin-left: auto;
+	margin-right: auto
+}
+
+	#div1-2-al a, #div1-2-ProjetCreation-al a {
 		margin-left: auto;
 		margin-right: auto;
-		font-size: 24px;
+		color: black;
+		text-decoration: none;
 	}
 
-	.divParentTypeInterest-mca {
-		display: flex
+#btnCreer-al {
+	box-shadow: 0 0 5px 0px black;
+	border-radius: 10px;
+	font-size: 20px;
+	padding: 5px 15px;
+	margin-bottom: 15px;
+	text-align: center;
+	background-color: #bcc802;
+	color: white;
+}
+/**** Fin ****/
+
+/*** modalCreationProjet-ColocAnnounce ***/
+#modalCreationProjet-ColocAnnounce {
+	overflow: auto;
+	position: relative;
+}
+
+	#modalCreationProjet-ColocAnnounce, #modalCreationProjet-ColocAnnounce ~ .divCloseModal {
+		width: 900px
 	}
 
-		.divParentTypeInterest-mca a {
-			margin-left: auto;
-			margin-right: auto;
-			width: 280px;
-			padding: 15px 25px;
-			font-size: 18px;
-			margin-bottom: 10px;
-			text-align: center;
+#htmlBlockModalCreationProjet-mpc {
+	color: #888;
+}
+
+#divImgLogoProfil-mpc {
+	background-color: white;
+	border-radius: 5px;
+}
+
+#tktIntroduceProfil-mpc {
+	color: #555;
+}
+
+#divProfil-mpc {
+	background-color: #f1f4c2;
+}
+
+	#divProfil-mpc #txtareaPersoP-mcar {
+		box-shadow: 0 0 2px 0 #555;
+	}
+
+		#divProfil-mpc #txtareaPersoP-mcar::placeholder {
+			color: #555
 		}
+/*** Fin div-photos-mpc-ColocAnnounce ***/
+/**** Modal Account / Index *****/
+#modalAccount {
+	overflow: auto;
+	padding: 20px 35px;
+	position: relative;
+	height: fit-content;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+}
 
-	#btnOthersSubscribe-mca {
-		margin-top: 10px;
-		width: 125px;
-		background-color: #a9b309;
+	#modalAccount, #modalAccount ~ .divCloseModal {
+		width: 400px
 	}
 
-	.linkProposeEcoColoc-mca {
-		display: block;
-		font-size: 16px;
-		margin: 5px 0;
+#divAccesMembre-acc h2 {
+	font-size: 24px;
+}
+
+#divGlobalInput-acc i {
+	height: 12px;
+	top: 50%;
+	transform: translateY(-50%);
+	align-items: center;
+	position: absolute;
+	bottom: 0;
+	padding-left: 35px;
+	pointer-events: none;
+}
+
+.divInputWrite-acc {
+	display: flex;
+	position: relative;
+	margin-bottom: 10px;
+}
+
+	.divInputWrite-acc .div2InputWrite-acc {
+		border-radius: 5px;
+		background-color: white;
+		box-shadow: 0 0 2px black;
 	}
 
-	#secondLinkProposeEcoColoc-mca {
-		border-top: 2px solid;
-		padding-top: 5px;
+	.divInputWrite-acc input {
+		background-color: transparent;
+		border: none;
+		font-size: 15px;
+		padding: 10px 30px;
+		padding-left: 65px;
 	}
 
-	#divLinkTypeInterest-mca {
-		width: 280px;
+#divbtnConnexion-acc {
+	margin-bottom: 15px;
+}
+
+	#divbtnConnexion-acc a {
+		text-decoration: none;
 	}
 
-	#linkModalCAPropose-mca {
+#btnConnexion-acc {
+	border-radius: 5px;
+	padding: 10px 25px;
+	text-align: center;
+	font-size: 15px;
+	cursor: pointer;
+	background-color: #bcc802;
+	color: white;
+}
+
+#divMdpForget-acc {
+	display: flex;
+	text-decoration: none;
+}
+
+	#divMdpForget-acc p {
+		font-size: 13px;
+		color: #666;
+	}
+
+#div1CreateAccount-acc {
+	display: flex;
+}
+
+#div2CreateAccount-acc {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+	#div2CreateAccount-acc p {
+		font-size: 15px;
+		color: #666;
+		display: inline-block;
+		margin-right: 5px;
+	}
+
+	#div2CreateAccount-acc i {
+		color: #666;
+	}
+
+#divConexionExterne-acc {
+	display: flex;
+	margin-top: 40px;
+	margin-bottom: 15px;
+}
+
+	#divConexionExterne-acc div:first-child {
 		margin-left: auto;
 		margin-right: auto;
-		width: 100%;
+		margin-bottom: 20px;
+	}
+
+	#divConexionExterne-acc p {
+		font-size: 15px;
+		color: #666;
+	}
+
+	#divConexionExterne-acc a {
+		display: inline-block;
+	}
+
+#divImgOtherCo-acc {
+	display: flex;
+}
+
+	#divImgOtherCo-acc a {
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+#btnfb-acc {
+	box-shadow: 0 5px 20px 0 rgba(0,0,0,.2);
+	-moz-box-shadow: 0 5px 20px 0 rgba(0,0,0,.2);
+	-webkit-box-shadow: 0 5px 20px 0 rgba(0,0,0,.2);
+	-o-box-shadow: 0 5px 20px 0 rgba(0,0,0,.2);
+	-ms-box-shadow: 0 5px 20px 0 rgba(0,0,0,.2);
+	border-radius: 50%;
+	width: 50px;
+	height: 50px;
+	text-align: center;
+	font-size: 25px;
+	color: #7e9ee9;
+	line-height: 50px;
+}
+
+#btnGoogle-acc {
+	background-size: 25px;
+	width: 50px;
+	height: 50px;
+	box-shadow: 0 5px 20px 0 rgba(0,0,0,.2);
+	-moz-box-shadow: 0 5px 20px 0 rgba(0,0,0,.2);
+	-webkit-box-shadow: 0 5px 20px 0 rgba(0,0,0,.2);
+	-o-box-shadow: 0 5px 20px 0 rgba(0,0,0,.2);
+	-ms-box-shadow: 0 5px 20px 0 rgba(0,0,0,.2);
+	border-radius: 50%;
+	font-size: 25px;
+	text-align: center;
+	padding-top: 12px;
+	color: #d09c92;
+}
+
+/*ModalCreateAccount*/
+#modalCreateAccount {
+	overflow: auto;
+	padding: 15px;
+	position: relative;
+	height: 300px;
+	top: 0;
+	bottom: 0;
+	margin: auto
+}
+
+	#modalCreateAccount, #modalCreateAccount ~ .divCloseModal {
+		width: 400px
+	}
+
+#divInscriptionTitle-mca {
+	display: flex;
+	margin-bottom: 20px;
+}
+
+#title-mca {
+	margin-left: auto;
+	margin-right: auto;
+	font-size: 24px;
+}
+
+.divParentTypeInterest-mca {
+	display: flex
+}
+
+	.divParentTypeInterest-mca a {
+		margin-left: auto;
+		margin-right: auto;
+		width: 280px;
 		padding: 15px 25px;
 		font-size: 18px;
 		margin-bottom: 10px;
 		text-align: center;
 	}
 
-	#divUnderLinkPropose-mca {
-		width: 90%;
-		margin-top: -8px;
-		margin-bottom: 10px;
-		box-shadow: 0 0 3px black;
-		border-radius: 3px;
-		color: #666;
-		display: none;
-	}
+#btnOthersSubscribe-mca {
+	margin-top: 10px;
+	width: 125px;
+	background-color: #a9b309;
+}
 
-	/**** ModalCARecherche ****/
-	#modalCARecherche {
-		padding: 15px;
-		overflow: auto;
-		position: relative;
-	}
+.linkProposeEcoColoc-mca {
+	display: block;
+	font-size: 16px;
+	margin: 5px 0;
+}
 
-		#modalCARecherche, #modalCARecherche ~ .divCloseModal {
-			width: 900px
-		}
+#secondLinkProposeEcoColoc-mca {
+	border-top: 2px solid;
+	padding-top: 5px;
+}
 
+#divLinkTypeInterest-mca {
+	width: 280px;
+}
 
-	.titleForm-mcar {
-		text-align: center;
-		font-family: cursive;
-		font-size: 27px;
-		color: #333333;
-		line-height: 1.2;
-		margin-top: 15px;
-		margin-bottom: 45px;
-		padding-left: 10px;
-	}
+#linkModalCAPropose-mca {
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
+	padding: 15px 25px;
+	font-size: 18px;
+	margin-bottom: 10px;
+	text-align: center;
+}
 
-	.divEncadrer-mcar {
-		display: flex
-	}
+#divUnderLinkPropose-mca {
+	width: 90%;
+	margin-top: -8px;
+	margin-bottom: 10px;
+	box-shadow: 0 0 3px black;
+	border-radius: 3px;
+	color: #666;
+	display: none;
+}
 
-	.encadrer-mcar {
-		box-shadow: 0 0 5px 0 #d9d9d9;
-		background-color: #f1f4c2;
-		padding: 10px;
-		border-radius: 10px;
-		margin-bottom: 40px;
-		position: relative;
-		display: flex;
-		flex-wrap: wrap;
-		margin-left: auto;
-		margin-right: auto;
-	}
+/**** ModalCARecherche ****/
+#modalCARecherche {
+	padding: 15px;
+	overflow: auto;
+	position: relative;
+}
 
-	.divLeftSideEncadrer-mcar {
-		margin-left: auto;
-		margin-right: auto;
-	}
-
-	.divRightSideEncadrer-mcar {
-		margin-left: auto;
-		margin-right: auto;
-	}
-
-	#divBudgMax-mcar {
-		padding: 0;
-		margin-right: 10px;
-	}
-
-	#divInputBudgMax {
-		padding: 0;
-		width: 170px;
+	#modalCARecherche, #modalCARecherche ~ .divCloseModal {
+		width: 900px
 	}
 
 
-		#divInputBudgMax input {
-			width: 160px;
-		}
+.titleForm-mcar {
+	text-align: center;
+	font-family: cursive;
+	font-size: 27px;
+	color: #333333;
+	line-height: 1.2;
+	margin-top: 15px;
+	margin-bottom: 45px;
+	padding-left: 10px;
+}
 
-	#euroSignBudgetMax-mcar {
-		position: absolute;
-		top: 0;
-		right: 4px;
+.divEncadrer-mcar {
+	display: flex
+}
+
+.encadrer-mcar {
+	box-shadow: 0 0 5px 0 #d9d9d9;
+	background-color: #f1f4c2;
+	padding: 10px;
+	border-radius: 10px;
+	margin-bottom: 40px;
+	position: relative;
+	display: flex;
+	flex-wrap: wrap;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.divLeftSideEncadrer-mcar {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.divRightSideEncadrer-mcar {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#divBudgMax-mcar {
+	padding: 0;
+	margin-right: 10px;
+}
+
+#divInputBudgMax {
+	padding: 0;
+	width: 170px;
+}
+
+
+	#divInputBudgMax input {
+		width: 160px;
 	}
 
-	#inputAddresseMapMCAR {
-		padding: 5px 10px;
-	}
+#euroSignBudgetMax-mcar {
+	position: absolute;
+	top: 0;
+	right: 4px;
+}
 
-	.lbl-mcar {
-		padding-left: 5px;
-		font-size: 18px;
-		color: #555555;
-		font-weight: 100;
-	}
+#inputAddresseMapMCAR {
+	padding: 5px 10px;
+}
 
-	.descTxt-mcar {
-		font-size: 15px;
-		color: #999999;
-		font-weight: 100;
-	}
+.lbl-mcar {
+	padding-left: 5px;
+	font-size: 18px;
+	color: #555555;
+	font-weight: 100;
+}
 
-	.input-mcar {
-		border: none;
-		font-size: 15px;
-		line-height: 1.2;
-		padding: 0 5px;
-		padding-bottom: 13px;
-		width: 100%;
-		/*color: #999999;*/
-		color: #6b6a6a;
-		font-weight: 100;
-		background-color: transparent;
-	}
+.descTxt-mcar {
+	font-size: 15px;
+	color: #999999;
+	font-weight: 100;
+}
 
-	.select-mcar {
-		margin-bottom: 33px;
-	}
+.input-mcar {
+	border: none;
+	font-size: 15px;
+	line-height: 1.2;
+	padding: 0 5px;
+	padding-bottom: 13px;
+	width: 100%;
+	/*color: #999999;*/
+	color: #6b6a6a;
+	font-weight: 100;
+	background-color: transparent;
+}
 
-	.input-mcar + .lineinput-mcar {
-		border-bottom: 2px solid #d9d9d9;
-		margin-bottom: 25px;
-	}
+.select-mcar {
+	margin-bottom: 33px;
+}
 
-	#civiliteDiv-mcar {
-		height: 89px;
-	}
+.input-mcar + .lineinput-mcar {
+	border-bottom: 2px solid #d9d9d9;
+	margin-bottom: 25px;
+}
 
+#civiliteDiv-mcar {
+	height: 89px;
+}
+
+.divImgLogo-mcar {
+	position: relative;
+	background-color: white;
+	border-radius: 5px;
+}
+
+.divImgLogoHorizontal-mcar {
+	margin-left: auto;
+	margin-right: auto;
+	width: 60px;
+}
+
+.divImgLogoVertical-mcar {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	width: inherit;
+	display: flex;
+}
+
+.imgLogo-mcar {
+	background-size: 40px;
+	width: 60px;
+	height: 60px;
+}
+
+#ImgLogoSearch-mcar {
+	background: url(https://img.icons8.com/ios/60/000000/search.png) no-repeat;
+}
+
+#ImgLogoProfil-mcar {
+	background: url(https://img.icons8.com/ios/60/000000/gender-neutral-user.png) no-repeat;
+}
+
+#ImgLogoContact-mcar {
+	background: url(https://img.icons8.com/ios/60/000000/phone.png) no-repeat;
+}
+
+#ImgLogoPhoto-mcar {
+	background: url(https://img.icons8.com/ios/60/000000/camera.png) no-repeat;
+}
+
+#ImgInformationSup-mcar {
+	background: url(https://img.icons8.com/ios/60/000000/ball-point-pen.png) no-repeat;
+}
+
+#divGlobalMsgPhoto-mcar {
+	display: flex;
+	padding: 5px 10px;
+	background-color: white;
+	border-radius: 5px;
+	font-family: cursive;
+	margin-bottom: 10px;
+	color: #555;
+}
+
+#iconMsgPhoto-mcar {
+	width: 20px;
+	font-size: 20px;
+}
+
+#divGlobalBtnUplFile-mcar {
+	display: flex;
+}
+
+#btnUplFile-mcar {
+	padding: 7px;
+	box-shadow: 0 0 2px 0px black;
+	text-align: center;
+	border-radius: 5px;
+	width: 70%;
+	margin-left: auto;
+	margin-right: auto;
+	cursor: pointer;
+	font-weight: 100;
+	margin-bottom: 0;
+	max-width: 500px;
+	margin-top: 8px;
+	color: white;
+	background-color: #C4D102;
+}
+
+#file-upload {
+	display: none;
+}
+
+#divGlobalResultFilesUpl-mcar {
+	display: flex;
+}
+
+#divResultFilesUpl-mcar {
+	display: flex;
+	flex-wrap: wrap;
+	margin-left: auto;
+	margin-right: auto;
+	list-style-type: none;
+	padding: 0;
+}
+
+.div2ResultFilesUpl-mcar {
+	margin-left: auto;
+	margin-right: auto;
+	/*display: flex;
+	flex-wrap: wrap-reverse;*/
+	padding: 0 5px 0;
+	float: left;
+	cursor: move
+}
+
+.div3ResultFilesUpl-mcar {
+	height: 190px;
+	width: 170px;
+	box-shadow: 0 0 2px 0px black;
+	position: relative;
+	padding-top: 12px;
+	padding-bottom: 12px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 20px;
+	background-color: white;
+}
+
+.labelDescFile-mcar {
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 1px 5px;
+	background-color: rgba(246, 246, 246, 0.9);
+	box-shadow: 0 0 5px 0px black;
+	color: #666;
+}
+
+.resultPictureUpl-mcar {
+	background-size: 150px !important;
+	height: 150px;
+	width: 150px;
+	max-height: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.crossPictureUpl-mcar {
+	font-size: 23px;
+	position: absolute;
+	bottom: 0;
+	margin-left: 50%;
+	transform: translateX(-50%);
+	margin-bottom: 3px;
+	cursor: pointer;
+	color: #C4D102;
+}
+
+@media screen and (max-width: 768px) {
 	.divImgLogo-mcar {
 		position: relative;
-		background-color: white;
-		border-radius: 5px;
-	}
-
-	.divImgLogoHorizontal-mcar {
-		margin-left: auto;
-		margin-right: auto;
-		width: 60px;
-	}
-
-	.divImgLogoVertical-mcar {
-		position: absolute;
-		top: 50%;
-		transform: translateY(-50%);
-		width: inherit;
-		display: flex;
-	}
-
-	.imgLogo-mcar {
-		background-size: 40px;
-		width: 60px;
-		height: 60px;
-	}
-
-	#ImgLogoSearch-mcar {
-		background: url(https://img.icons8.com/ios/60/000000/search.png) no-repeat;
-	}
-
-	#ImgLogoProfil-mcar {
-		background: url(https://img.icons8.com/ios/60/000000/gender-neutral-user.png) no-repeat;
-	}
-
-	#ImgLogoContact-mcar {
-		background: url(https://img.icons8.com/ios/60/000000/phone.png) no-repeat;
-	}
-
-	#ImgLogoPhoto-mcar {
-		background: url(https://img.icons8.com/ios/60/000000/camera.png) no-repeat;
-	}
-
-	#ImgInformationSup-mcar {
-		background: url(https://img.icons8.com/ios/60/000000/ball-point-pen.png) no-repeat;
-	}
-
-	#divGlobalMsgPhoto-mcar {
-		display: flex;
-		padding: 5px 10px;
-		background-color: white;
-		border-radius: 5px;
-		font-family: cursive;
+		min-height: 60px;
 		margin-bottom: 10px;
-		color: #555;
-	}
-
-	#iconMsgPhoto-mcar {
-		width: 20px;
-		font-size: 20px;
-	}
-
-	#divGlobalBtnUplFile-mcar {
-		display: flex;
-	}
-
-	#btnUplFile-mcar {
-		padding: 7px;
-		box-shadow: 0 0 2px 0px black;
-		text-align: center;
-		border-radius: 5px;
-		width: 70%;
-		margin-left: auto;
-		margin-right: auto;
-		cursor: pointer;
-		font-weight: 100;
-		margin-bottom: 0;
-		max-width: 500px;
-		margin-top: 8px;
-		color: white;
-		background-color: #C4D102;
-	}
-
-	#file-upload {
-		display: none;
-	}
-
-	#divGlobalResultFilesUpl-mcar {
-		display: flex;
-	}
-
-	#divResultFilesUpl-mcar {
-		display: flex;
-		flex-wrap: wrap;
-		margin-left: auto;
-		margin-right: auto;
-		list-style-type: none;
-		padding: 0;
-	}
-
-	.div2ResultFilesUpl-mcar {
-		margin-left: auto;
-		margin-right: auto;
-		/*display: flex;
-	flex-wrap: wrap-reverse;*/
-		padding: 0 5px 0;
-		float: left;
-		cursor: move
-	}
-
-	.div3ResultFilesUpl-mcar {
-		height: 190px;
-		width: 170px;
-		box-shadow: 0 0 2px 0px black;
-		position: relative;
-		padding-top: 12px;
-		padding-bottom: 12px;
-		margin-left: auto;
-		margin-right: auto;
-		margin-bottom: 20px;
-		background-color: white;
-	}
-
-	.labelDescFile-mcar {
-		display: none;
-		position: absolute;
-		top: 0;
-		left: 0;
-		padding: 1px 5px;
-		background-color: rgba(246, 246, 246, 0.9);
-		box-shadow: 0 0 5px 0px black;
-		color: #666;
-	}
-
-	.resultPictureUpl-mcar {
-		background-size: 150px !important;
-		height: 150px;
-		width: 150px;
-		max-height: 100%;
-		margin-left: auto;
-		margin-right: auto;
-	}
-
-	.crossPictureUpl-mcar {
-		font-size: 23px;
-		position: absolute;
-		bottom: 0;
-		margin-left: 50%;
-		transform: translateX(-50%);
-		margin-bottom: 3px;
-		cursor: pointer;
-		color: #C4D102;
-	}
-
-	@media screen and (max-width: 768px) {
-		.divImgLogo-mcar {
-			position: relative;
-			min-height: 60px;
-			margin-bottom: 10px;
-			width: 100%;
-			padding: 40px 0;
-		}
-	}
-
-	#txtareaPersoP-mcar {
-		margin-bottom: 10px
-	}
-
-	.txtareaDesc-mcar {
 		width: 100%;
-		min-width: 100%;
-		max-width: 100%;
-		margin: 0px;
-		height: 100px;
-		min-height: 100px;
-		border: none;
-		box-shadow: 0 0 2px 0px black;
-		border-radius: 5px;
-		margin-top: 2px;
-		padding: 5px 10px;
-		background-color: white;
-		margin: 3px 0;
+		padding: 40px 0;
+	}
+}
+
+#txtareaPersoP-mcar {
+	margin-bottom: 10px
+}
+
+.txtareaDesc-mcar {
+	width: 100%;
+	min-width: 100%;
+	max-width: 100%;
+	margin: 0px;
+	height: 100px;
+	min-height: 100px;
+	border: none;
+	box-shadow: 0 0 2px 0px black;
+	border-radius: 5px;
+	margin-top: 2px;
+	padding: 5px 10px;
+	background-color: white;
+	margin: 3px 0;
+}
+
+#lblCritereRecherche-mcar {
+	margin: 0;
+}
+
+	#lblCritereRecherche-mcar + p {
+		margin-bottom: 5px;
+		font-size: 12px;
 	}
 
-	#lblCritereRecherche-mcar {
-		margin: 0;
+#divInscriptionButtons-mcar {
+	display: table;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#divbtnCreate-mbca {
+	margin-bottom: 15px;
+}
+
+.div2InscriptionBtn-mcar {
+	display: flex;
+	box-shadow: 0 0 5px 0px black;
+	padding: 5px 15px;
+	border-radius: 3px;
+	margin-bottom: 20px;
+	width: 365px;
+	cursor: pointer;
+	text-align: center;
+}
+
+@media only screen and (max-width: 395px) {
+	.div2InscriptionBtn-mcar, #divCreateProfil-mcar {
+		max-width: 335px;
+		margin-left: auto !important;
+		margin-right: auto !important;
 	}
+}
 
-		#lblCritereRecherche-mcar + p {
-			margin-bottom: 5px;
-			font-size: 12px;
-		}
+#div2InscriptionBtnFb-mcar {
+	background-color: #7e9ee9;
+}
 
-	#divInscriptionButtons-mcar {
-		display: table;
-		margin-left: auto;
-		margin-right: auto;
-	}
+#div2InscriptionBtnMail-mcar {
+	margin: 0;
+	display: flex;
+	box-shadow: 0 0 5px 0px black;
+	padding: 5px 15px;
+	border-radius: 3px;
+	background-color: #C4D102;
+}
 
-	#divbtnCreate-mbca {
-		margin-bottom: 15px;
-	}
+.iconInscriptionBtn-mcar {
+	font-size: 28px;
+	color: white;
+}
 
-	.div2InscriptionBtn-mcar {
-		display: flex;
-		box-shadow: 0 0 5px 0px black;
-		padding: 5px 15px;
-		border-radius: 3px;
-		margin-bottom: 20px;
-		width: 365px;
-		cursor: pointer;
-		text-align: center;
-	}
+.textInscriptionBtn-mcar {
+	line-height: 28px;
+	margin-left: 15px;
+	color: white;
+	font-size: 15px;
+}
 
-	@media only screen and (max-width: 395px) {
-		.div2InscriptionBtn-mcar, #divCreateProfil-mcar {
-			max-width: 335px;
-			margin-left: auto !important;
-			margin-right: auto !important;
-		}
-	}
+#createProfilWindow {
+	display: none
+}
 
-	#div2InscriptionBtnFb-mcar {
-		background-color: #7e9ee9;
-	}
+#divCreateProfil-mcar {
+	width: 365px;
+	box-shadow: 0 0 3px 0px black;
+	border-radius: 0 0 5px 5px;
+	padding: 15px 5px;
+	overflow: auto;
+	display: inline-grid;
+}
 
-	#div2InscriptionBtnMail-mcar {
-		margin: 0;
-		display: flex;
-		box-shadow: 0 0 5px 0px black;
-		padding: 5px 15px;
-		border-radius: 3px;
-		background-color: #C4D102;
-	}
+.sousDivCreateProfil-mcar {
+	margin-left: auto;
+	margin-right: auto;
+}
 
-	.iconInscriptionBtn-mcar {
-		font-size: 28px;
-		color: white;
-	}
+#divBtnCreateProfil-mcar {
+	display: flex;
+}
 
-	.textInscriptionBtn-mcar {
-		line-height: 28px;
-		margin-left: 15px;
-		color: white;
-		font-size: 15px;
-	}
+#btnCreateProfil-mcar {
+	margin-left: auto;
+	margin-right: auto;
+	box-shadow: 0 0 5px 0px black;
+	border-radius: 5px;
+	height: 40px;
+	width: 150px;
+	line-height: 40px;
+	text-align: center;
+	font-size: 15px;
+	cursor: pointer;
+	background-color: #C4D102;
+	color: white;
+}
 
-	#createProfilWindow {
-		display: none
-	}
+/***** ModalCARecherche *****/
+#modalCAPropose {
+	width: 900px;
+	padding: 15px;
+	overflow: auto;
+	position: relative
+}
 
-	#divCreateProfil-mcar {
-		width: 365px;
-		box-shadow: 0 0 3px 0px black;
-		border-radius: 0 0 5px 5px;
-		padding: 15px 5px;
-		overflow: auto;
-		display: inline-grid;
-	}
+.divEncadrer-mcap {
+	display: flex;
+}
 
-	.sousDivCreateProfil-mcar {
-		margin-left: auto;
-		margin-right: auto;
-	}
+.encadrer-mcap {
+	box-shadow: 0 0 5px 0 #d9d9d9;
+	background-color: rgba(0,0,0,0.01);
+	padding: 15px 5px;
+	border-radius: 10px;
+	margin-bottom: 40px;
+	position: relative;
+	display: flex;
+	flex-wrap: wrap;
+	margin-left: auto;
+	margin-right: auto;
+}
 
-	#divBtnCreateProfil-mcar {
-		display: flex;
-	}
+#divSwitcherTypeProposition-mcap {
+	display: initial;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
 
-	#btnCreateProfil-mcar {
-		margin-left: auto;
-		margin-right: auto;
-		box-shadow: 0 0 5px 0px black;
-		border-radius: 5px;
-		height: 40px;
-		width: 150px;
-		line-height: 40px;
-		text-align: center;
-		font-size: 15px;
-		cursor: pointer;
-		background-color: #C4D102;
-		color: white;
-	}
+#divTxtPropose-mcap {
+	display: flex;
+}
 
-	/***** ModalCARecherche *****/
-	#modalCAPropose {
-		width: 900px;
-		padding: 15px;
-		overflow: auto;
-		position: relative
-	}
-
-	.divEncadrer-mcap {
-		display: flex;
-	}
-
-	.encadrer-mcap {
-		box-shadow: 0 0 5px 0 #d9d9d9;
-		background-color: rgba(0,0,0,0.01);
-		padding: 15px 5px;
-		border-radius: 10px;
-		margin-bottom: 40px;
-		position: relative;
-		display: flex;
-		flex-wrap: wrap;
-		margin-left: auto;
-		margin-right: auto;
-	}
-
-	#divSwitcherTypeProposition-mcap {
-		display: initial;
-		width: 100%;
-		margin-left: auto;
-		margin-right: auto;
-	}
-
-	#divTxtPropose-mcap {
-		display: flex;
-	}
-
-	@media only screen and (max-width: 565px) {
-		#btnSwitcherProjet-mcap {
-			line-height: 23px !important;
-		}
-	}
-
-	#txtSw1-mcap {
-		margin-left: auto;
-		margin-right: auto;
-		font-size: 25px;
-		margin-bottom: 15px;
-	}
-
-	#blockdivBtnSwitcher-mcap {
-		display: flex;
-	}
-
-	#divBtnSwitcher-mcap {
-		display: inline-flex;
-		margin-left: auto;
-		margin-right: auto;
-		width: 80%;
-	}
-
-	#btnSwitcherPropose-mcap {
-		padding: 5px 10px;
-		border-radius: 5px;
-		box-shadow: 0 0 3px 0px black;
-		font-size: 18px;
-		cursor: pointer;
-		text-align: center;
-		width: 50%;
-		line-height: 45px;
-		max-height: 55px;
-	}
-
-	@media only screen and (max-width: 379px) {
-		#btnSwitcherPropose-mcap {
-			line-height: 21px;
-		}
-	}
-
-	#separationSwitcherPropose-mcap {
-		padding: 3px 10px;
-		margin-left: 5px;
-		margin-right: 5px;
-		font-size: 30px;
-	}
-
+@media only screen and (max-width: 565px) {
 	#btnSwitcherProjet-mcap {
-		padding: 5px 10px;
-		border-radius: 5px;
-		box-shadow: 0 0 3px 0px black;
-		font-size: 18px;
-		cursor: pointer;
-		text-align: center;
-		width: 50%;
-		line-height: 45px;
-		max-height: 55px;
+		line-height: 23px !important;
+	}
+}
+
+#txtSw1-mcap {
+	margin-left: auto;
+	margin-right: auto;
+	font-size: 25px;
+	margin-bottom: 15px;
+}
+
+#blockdivBtnSwitcher-mcap {
+	display: flex;
+}
+
+#divBtnSwitcher-mcap {
+	display: inline-flex;
+	margin-left: auto;
+	margin-right: auto;
+	width: 80%;
+}
+
+#btnSwitcherPropose-mcap {
+	padding: 5px 10px;
+	border-radius: 5px;
+	box-shadow: 0 0 3px 0px black;
+	font-size: 18px;
+	cursor: pointer;
+	text-align: center;
+	width: 50%;
+	line-height: 45px;
+	max-height: 55px;
+}
+
+@media only screen and (max-width: 379px) {
+	#btnSwitcherPropose-mcap {
+		line-height: 21px;
+	}
+}
+
+#separationSwitcherPropose-mcap {
+	padding: 3px 10px;
+	margin-left: 5px;
+	margin-right: 5px;
+	font-size: 30px;
+}
+
+#btnSwitcherProjet-mcap {
+	padding: 5px 10px;
+	border-radius: 5px;
+	box-shadow: 0 0 3px 0px black;
+	font-size: 18px;
+	cursor: pointer;
+	text-align: center;
+	width: 50%;
+	line-height: 45px;
+	max-height: 55px;
+}
+
+#txtSw2-mcap {
+	margin-left: 10px;
+	font-size: 21px;
+}
+
+#resultSwitcher-mcap {
+	overflow: auto;
+}
+
+#infoPerso-mcap {
+	display: none
+}
+
+#btnValider-mcap {
+	background-color: #57b846;
+	width: 200px;
+	padding: 10px 20px;
+	border-radius: 30px;
+	text-align: center;
+	color: white;
+	font-size: 18px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 15px;
+}
+
+/******  ModalCreateEmptyAccount ******/
+#modalCreateEmptyAccount {
+	padding: 15px;
+	overflow: auto;
+	position: relative
+}
+
+	#modalCreateEmptyAccount, #modalCreateEmptyAccount ~ .divCloseModal {
+		width: 900px
 	}
 
-	#txtSw2-mcap {
-		margin-left: 10px;
-		font-size: 21px;
-	}
+/****************** ForgetAccount  ******************/
+.divBtnBottom-fa {
+	display: flex;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
 
-	#resultSwitcher-mcap {
-		overflow: auto;
-	}
+.div2BtnBottom-fa {
+	display: inline-flex;
+	margin-left: auto;
+}
 
-	#infoPerso-mcap {
-		display: none
-	}
+.btnNext-fa {
+	box-shadow: 0 0 2px black;
+	padding: 5px 15px;
+	border-radius: 5px;
+	margin-right: 15px;
+	background-color: #bcc802;
+	color: white !important;
+	text-decoration: none;
+}
 
-	#btnValider-mcap {
-		background-color: #57b846;
-		width: 200px;
-		padding: 10px 20px;
-		border-radius: 30px;
-		text-align: center;
-		color: white;
-		font-size: 18px;
-		margin-left: auto;
-		margin-right: auto;
-		margin-bottom: 15px;
-	}
+.btnCancel-fa {
+	box-shadow: 0 0 2px black;
+	padding: 5px 15px;
+	border-radius: 5px;
+	margin-right: 15px;
+	text-decoration: none;
+	color: black
+}
 
-	/******  ModalCreateEmptyAccount ******/
-	#modalCreateEmptyAccount {
-		padding: 15px;
-		overflow: auto;
-		position: relative
-	}
+/******* ChangePassword *******/
+#changePassword {
+	position: relative;
+	height: 400px;
+	margin: 15px;
+}
 
-		#modalCreateEmptyAccount, #modalCreateEmptyAccount ~ .divCloseModal {
-			width: 900px
-		}
+#divChangePassword-cp02 {
+	box-shadow: 0 0 5px 0px black;
+	border-radius: 5px;
+	padding: 15px;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+	max-width: 800px;
+	height: 215px;
+}
 
-	/****************** ForgetAccount  ******************/
-	.divBtnBottom-fa {
-		display: flex;
-		margin-top: 5px;
-		margin-bottom: 5px;
-	}
+#title-cp02 {
+	font-size: 22px;
+	padding-bottom: 8px;
+	border-bottom: 1px solid #ccc;
+	margin-bottom: 20px;
+}
 
-	.div2BtnBottom-fa {
-		display: inline-flex;
-		margin-left: auto;
-	}
+#divInputPassword-cp02 {
+	flex-wrap: wrap;
+	display: flex;
+}
 
-	.btnNext-fa {
-		box-shadow: 0 0 2px black;
-		padding: 5px 15px;
-		border-radius: 5px;
-		margin-right: 15px;
-		background-color: #bcc802;
-		color: white !important;
-		text-decoration: none;
-	}
+#divPasw1-cp02 {
+	width: 255px;
+	margin-right: 40px;
+}
 
-	.btnCancel-fa {
-		box-shadow: 0 0 2px black;
-		padding: 5px 15px;
-		border-radius: 5px;
-		margin-right: 15px;
-		text-decoration: none;
-		color: black
-	}
+.labelPasw-cp02 {
+	display: block;
+	padding-left: 5px;
+	font-size: 18px;
+	font-weight: 100;
+}
 
-	/******* ChangePassword *******/
-	#changePassword {
-		position: relative;
-		height: 400px;
-		margin: 15px;
-	}
+.divInput-cp02 {
+	width: 250px;
+}
 
-	#divChangePassword-cp02 {
-		box-shadow: 0 0 5px 0px black;
-		border-radius: 5px;
-		padding: 15px;
-		position: absolute;
-		left: 0;
-		right: 0;
-		top: 0;
-		bottom: 0;
-		margin: auto;
-		max-width: 800px;
-		height: 215px;
-	}
+.inputPasw-cp02 {
+	border: none;
+	font-size: 15px;
+	line-height: 1.2;
+	padding: 0 5px;
+	padding-bottom: 13px;
+	width: 100%;
+	color: #6b6a6a;
+	font-weight: 100;
+	background-color: transparent;
+}
 
-	#title-cp02 {
-		font-size: 22px;
-		padding-bottom: 8px;
-		border-bottom: 1px solid #ccc;
-		margin-bottom: 20px;
-	}
+.underInputPasw-cp02 {
+	border-bottom: 2px solid #d9d9d9;
+	margin-bottom: 25px;
+}
 
-	#divInputPassword-cp02 {
-		flex-wrap: wrap;
-		display: flex;
-	}
+#divPasw1-cp02 {
+	width: 255px;
+}
 
-	#divPasw1-cp02 {
-		width: 255px;
-		margin-right: 40px;
-	}
+/******** CheckCodeSend ********/
+#checkCodeSend {
+	position: relative;
+	height: 400px;
+	margin: 15px;
+}
 
-	.labelPasw-cp02 {
-		display: block;
-		padding-left: 5px;
-		font-size: 18px;
-		font-weight: 100;
-	}
+#divCheckCodeSend-ccs {
+	box-shadow: 0 0 5px 0px black;
+	border-radius: 5px;
+	padding: 15px;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+	max-width: 800px;
+	height: 210px
+}
 
-	.divInput-cp02 {
-		width: 250px;
-	}
+#title-ccs {
+	font-size: 22px;
+	padding-bottom: 8px;
+	border-bottom: 1px solid #ccc;
+	margin-bottom: 20px;
+}
 
-	.inputPasw-cp02 {
-		border: none;
-		font-size: 15px;
-		line-height: 1.2;
-		padding: 0 5px;
-		padding-bottom: 13px;
-		width: 100%;
-		color: #6b6a6a;
-		font-weight: 100;
-		background-color: transparent;
-	}
+#textResultAccount-ccs {
+	margin-bottom: 15px;
+}
 
-	.underInputPasw-cp02 {
-		border-bottom: 2px solid #d9d9d9;
-		margin-bottom: 25px;
-	}
+#divSecurityCode-ccs {
+	display: flex;
+	flex-wrap: wrap;
+}
 
-	#divPasw1-cp02 {
-		width: 255px;
-	}
+#securityCodeTxt-ccs {
+	margin-right: 15px;
+	line-height: 28px;
+	min-width: 160px;
+}
 
-	/******** CheckCodeSend ********/
-	#checkCodeSend {
-		position: relative;
-		height: 400px;
-		margin: 15px;
-	}
+#inputCodeSend-ccs {
+	border: none;
+	border-radius: 5px;
+	box-shadow: 0 0 3px black;
+	padding: 5px 10px;
+	width: 150px;
+	height: 30px;
+}
 
-	#divCheckCodeSend-ccs {
-		box-shadow: 0 0 5px 0px black;
-		border-radius: 5px;
-		padding: 15px;
-		position: absolute;
-		left: 0;
-		right: 0;
-		top: 0;
-		bottom: 0;
-		margin: auto;
-		max-width: 800px;
-		height: 210px
-	}
+#divBtnBottom-ccs {
+	display: flex;
+	margin-top: 20px;
+}
 
-	#title-ccs {
-		font-size: 22px;
-		padding-bottom: 8px;
-		border-bottom: 1px solid #ccc;
-		margin-bottom: 20px;
-	}
+/******** FindAccountByEmail ********/
+#findAccountByEmail {
+	position: relative;
+	margin: 15px;
+	height: 400px
+}
 
-	#textResultAccount-ccs {
-		margin-bottom: 15px;
-	}
+#divFindAccountByEmail-fabe {
+	box-shadow: 0 0 5px 0px black;
+	border-radius: 5px;
+	padding: 15px;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+	max-width: 800px;
+	height: 200px
+}
 
-	#divSecurityCode-ccs {
-		display: flex;
-		flex-wrap: wrap;
-	}
+#title-fabe {
+	font-size: 22px;
+	padding-bottom: 8px;
+	border-bottom: 1px solid #ccc;
+	margin-bottom: 20px;
+}
 
-	#securityCodeTxt-ccs {
-		margin-right: 15px;
-		line-height: 28px;
-		min-width: 160px;
-	}
+#searchAccountText-fabe {
+	margin-bottom: 10px;
+	width: 100%;
+}
 
-	#inputCodeSend-ccs {
-		border: none;
-		border-radius: 5px;
-		box-shadow: 0 0 3px black;
-		padding: 5px 10px;
-		width: 150px;
-		height: 30px;
-	}
+#inputSearchAccount-fabe {
+	border: none;
+	border-radius: 5px;
+	box-shadow: 0 0 3px black;
+	padding: 5px 10px;
+	width: 350px;
+	max-width: 100%;
+}
 
-	#divBtnBottom-ccs {
-		display: flex;
-		margin-top: 20px;
-	}
+/********* SendCode *********/
+#sendCode {
+	position: relative;
+	height: 400px;
+	margin: 15px
+}
 
-	/******** FindAccountByEmail ********/
-	#findAccountByEmail {
-		position: relative;
-		margin: 15px;
-		height: 400px
-	}
+#divSendCode-sc {
+	box-shadow: 0 0 5px 0px black;
+	border-radius: 5px;
+	padding: 15px;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+	max-width: 800px;
+	height: 260px
+}
 
-	#divFindAccountByEmail-fabe {
-		box-shadow: 0 0 5px 0px black;
-		border-radius: 5px;
-		padding: 15px;
-		position: absolute;
-		left: 0;
-		right: 0;
-		top: 0;
-		bottom: 0;
-		margin: auto;
-		max-width: 800px;
-		height: 200px
-	}
+#title-sc {
+	font-size: 22px;
+	padding-bottom: 8px;
+	border-bottom: 1px solid #ccc;
+	margin-bottom: 20px;
+}
 
-	#title-fabe {
-		font-size: 22px;
-		padding-bottom: 8px;
-		border-bottom: 1px solid #ccc;
-		margin-bottom: 20px;
-	}
+#divBlock1-sc {
+	display: flow-root;
+}
 
-	#searchAccountText-fabe {
-		margin-bottom: 10px;
-		width: 100%;
-	}
+#divAccount-sc {
+	display: flex;
+	margin-bottom: 20px;
+}
 
-	#inputSearchAccount-fabe {
-		border: none;
-		border-radius: 5px;
-		box-shadow: 0 0 3px black;
-		padding: 5px 10px;
-		width: 350px;
-		max-width: 100%;
-	}
+#div2Account-sc {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	font-size: 20px;
+}
 
-	/********* SendCode *********/
-	#sendCode {
-		position: relative;
-		height: 400px;
-		margin: 15px
-	}
+#photoAccunt-sc {
+	background: url(https://www.facebook.com/profile/pic.php?cuid=AYguhR9h46l2o1GnZryUws-SzSQqZvhDDKcHuJ4lJdA4kNFOpk5T81wlRBY9TIwayVamzoAXplVSVw5OcmoF-eyvg8yoiM047wyFN0Suq6TklXooC8Gz1t4BsQ0Tq3dgqoQwyCcnydLP3GNp_FMqEpHJQG4i24Zi3VKUO3ClSbzMQmBTWS207sJHUlqGwg__PCIdH-vFNSCviExh8Q076_xqBdPbOHoeGWJA6Yx66l9rHg&amp;square_px=50) 50% no-repeat;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	margin-left: auto;
+	margin-right: auto;
+}
 
-	#divSendCode-sc {
-		box-shadow: 0 0 5px 0px black;
-		border-radius: 5px;
-		padding: 15px;
-		position: absolute;
-		left: 0;
-		right: 0;
-		top: 0;
-		bottom: 0;
-		margin: auto;
-		max-width: 800px;
-		height: 260px
-	}
+#divTypeSendCode-sc {
+	overflow: auto;
+	margin-bottom: 20px;
+}
 
-	#title-sc {
-		font-size: 22px;
-		padding-bottom: 8px;
-		border-bottom: 1px solid #ccc;
-		margin-bottom: 20px;
-	}
+#labelTypeSendCode-sc {
+	margin-bottom: 10px;
+}
 
-	#divBlock1-sc {
-		display: flow-root;
-	}
+#divInputTypeSendCode-sc {
+	margin-bottom: 5px;
+}
 
-	#divAccount-sc {
-		display: flex;
-		margin-bottom: 20px;
-	}
+.btnTypeSendCode-sc {
+	display: inline-block;
+	margin-right: 15px !important;
+}
 
-	#div2Account-sc {
-		margin-left: auto;
-		margin-right: auto;
-		text-align: center;
-		font-size: 20px;
-	}
-
-	#photoAccunt-sc {
-		background: url(https://www.facebook.com/profile/pic.php?cuid=AYguhR9h46l2o1GnZryUws-SzSQqZvhDDKcHuJ4lJdA4kNFOpk5T81wlRBY9TIwayVamzoAXplVSVw5OcmoF-eyvg8yoiM047wyFN0Suq6TklXooC8Gz1t4BsQ0Tq3dgqoQwyCcnydLP3GNp_FMqEpHJQG4i24Zi3VKUO3ClSbzMQmBTWS207sJHUlqGwg__PCIdH-vFNSCviExh8Q076_xqBdPbOHoeGWJA6Yx66l9rHg&amp;square_px=50) 50% no-repeat;
-		width: 50px;
-		height: 50px;
-		border-radius: 50%;
-		margin-left: auto;
-		margin-right: auto;
-	}
-
-	#divTypeSendCode-sc {
-		overflow: auto;
-		margin-bottom: 20px;
-	}
-
-	#labelTypeSendCode-sc {
-		margin-bottom: 10px;
-	}
-
-	#divInputTypeSendCode-sc {
-		margin-bottom: 5px;
-	}
-
-	.btnTypeSendCode-sc {
-		display: inline-block;
-		margin-right: 15px !important;
-	}
-
-	.txtType-sc {
-		display: inline-block;
-	}
-	/**** Fin Modal Account / Index *****/
+.txtType-sc {
+	display: inline-block;
+}
+/**** Fin Modal Account / Index *****/
 
 
-	/********************************* Eco-Roommate ********************************/
-	/**** EcoRoommateExistingVisual ****/
-	.leafletDivEcoRommateExisting {
-		width: 300px;
-	}
+/********************************* Eco-Roommate ********************************/
+/**** EcoRoommateExistingVisual ****/
+.leafletDivEcoRommateExisting {
+	width: 300px;
+}
 
-	.ecoRommateExisting2-ereom {
-		display: flex;
-		color: black !important;
-		text-decoration: none !important;
-	}
+.ecoRommateExisting2-ereom {
+	display: flex;
+	color: black !important;
+	text-decoration: none !important;
+}
 
-	.divMarkerPhoto-ereom {
-		padding: 0
-	}
+.divMarkerPhoto-ereom {
+	padding: 0
+}
 
-	.markerPhoto-ereom {
-		background-size: 200% !important;
-		width: 100%;
-		height: 100%;
-		border-radius: 3px;
-	}
+.markerPhoto-ereom {
+	background-size: 200% !important;
+	width: 100%;
+	height: 100%;
+	border-radius: 3px;
+}
 
-	.description-ereom {
-		height: 100%;
-	}
+.description-ereom {
+	height: 100%;
+}
 
-	.nameColoc-ereom {
-		font-size: 18px;
-		text-align: center;
-		padding-bottom: 6px;
-		font-family: Noteworthy;
-		font-weight: bold;
-	}
+.nameColoc-ereom {
+	font-size: 18px;
+	text-align: center;
+	padding-bottom: 6px;
+	font-family: Noteworthy;
+	font-weight: bold;
+}
 
-	.infoPrimaire-ereom {
-		text-align: center;
-		font-weight: bold;
-	}
+.infoPrimaire-ereom {
+	text-align: center;
+	font-weight: bold;
+}
 
-	.descriptionHabitat-ereom {
-		font-weight: initial;
-		padding-top: 5px;
-		text-align: center;
-		font-size: 15px;
-	}
+.descriptionHabitat-ereom {
+	font-weight: initial;
+	padding-top: 5px;
+	text-align: center;
+	font-size: 15px;
+}
 
-	#title-ereom {
-		font-size: 35px;
-		font-weight: bold;
-		margin-bottom: 15px;
-		color: #00C2D6;
-		font-family: Noteworthy;
-	}
+#title-ereom {
+	font-size: 35px;
+	font-weight: bold;
+	margin-bottom: 15px;
+	color: #00C2D6;
+	font-family: Noteworthy;
+}
 
-	#descEcoRoom-ereom {
-		margin-bottom: 20px;
-		font-size: 15px;
-	}
+#descEcoRoom-ereom {
+	margin-bottom: 20px;
+	font-size: 15px;
+}
 
-	.txtSommaireLogo-ereom {
-		margin-left: 5px;
-	}
+.txtSommaireLogo-ereom {
+	margin-left: 5px;
+}
 
-	.imgSommaireLogo-ereom {
-		width: 22px;
-		height: 22px
-	}
+.imgSommaireLogo-ereom {
+	width: 27px;
+	height: 27px;
+	margin-top: -4px;
+}
 
-	.divSommaireLogo-ereom {
-		margin-right: 25px;
-		display: flex;
-		margin-bottom: 6px;
-	}
+.divSommaireLogo-ereom {
+	margin-right: 25px;
+	display: flex;
+	margin-bottom: 6px;
+}
 
-	#divMapEcoRoom-ereom {
-		display: flex;
-		margin-bottom: 28px;
-	}
+#divMapEcoRoom-ereom {
+	display: flex;
+	margin-bottom: 28px;
+}
 
+#leafletMap_ereo {
+	position: relative;
+	height: 326px;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	box-shadow: black 0px 0px 5px;
+	outline: none;
+}
+
+
+@media only screen and (max-width: 767px) {
 	#leafletMap_ereo {
-		position: relative;
-		height: 326px;
-		width: 100%;
-		margin-left: auto;
-		margin-right: auto;
-		box-shadow: black 0px 0px 5px;
-		outline: none;
+		width: 90%
 	}
+}
 
+#divBtnAddOurEcoRoom-ereom {
+	margin-top: 22px;
+	display: flex;
+}
 
-	@media only screen and (max-width: 767px) {
-		#leafletMap_ereo {
-			width: 90%
-		}
-	}
+#btnAddOurEcoRoom-ereom {
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #C4D102;
+	font-family: 'Noteworthy';
+	text-decoration: none;
+	font-size: 20px;
+	font-weight: 800;
+	color: white;
+	box-shadow: 0 0 3px 0px black;
+	padding: 1px 12px;
+	border-radius: 5px;
+	text-decoration: none;
+}
 
-	#divBtnAddOurEcoRoom-ereom {
-		margin-top: 22px;
-		display: flex;
-	}
+/**** EcoRoommateExistingVisual ****/
+#ecoRoommateExistingVisual {
+	padding: 10px;
+	position: relative;
+}
 
-	#btnAddOurEcoRoom-ereom {
-		margin-left: auto;
-		margin-right: auto;
-		background-color: #C4D102;
-		font-family: 'Noteworthy';
-		text-decoration: none;
-		font-size: 20px;
-		font-weight: 800;
-		color: white;
-		box-shadow: 0 0 3px 0px black;
-		padding: 1px 12px;
-		border-radius: 5px;
-		text-decoration: none;
-	}
+.iconTopPage-erev {
+	font-size: 25px;
+	color: #C4D102;
+	margin-right: 15px;
+}
 
-	/**** EcoRoommateExistingVisual ****/
-	#ecoRoommateExistingVisual {
-		padding: 10px;
-		position: relative;
-	}
+#divSendMessage-erev {
+	display: flex;
+	margin-top: 2px;
+	margin-bottom: 25px;
+}
 
-	.iconTopPage-erev {
-		font-size: 25px;
-		color: #C4D102;
-		margin-right: 15px;
-	}
+#divSendMessage2-erev {
+	margin-left: auto;
+	margin-right: auto;
+	width: 800px;
+	max-width: 100%;
+	box-shadow: 0 0 3px 0px black;
+	background-color: white;
+	border-radius: 5px;
+}
 
-	#divSendMessage-erev {
-		display: flex;
-		margin-top: 2px;
-		margin-bottom: 25px;
-	}
+#titleTop-erev {
+	text-align: center;
+	font-size: 45px;
+	margin-top: 10px;
+	margin-bottom: 15px;
+	font-family: 'Noteworthy';
+}
 
-	#divSendMessage2-erev {
-		margin-left: auto;
-		margin-right: auto;
-		width: 800px;
-		max-width: 100%;
-		box-shadow: 0 0 3px 0px black;
-		background-color: white;
-		border-radius: 5px;
-	}
+#divBtnModifierEcoRoom-erev {
+	display: flex
+}
 
-	#titleTop-erev {
-		text-align: center;
-		font-size: 45px;
-		margin-top: 10px;
-		margin-bottom: 15px;
-		font-family: 'Noteworthy';
-	}
+#btnModifierEcoRoom-erev {
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #C4D102;
+	font-family: 'Noteworthy';
+	text-decoration: none;
+	font-size: 20px;
+	font-weight: 800;
+	color: white;
+	box-shadow: 0 0 3px 0px black;
+	padding: 2px 12px;
+	border-radius: 3px;
+	min-width: 150px;
+	text-align: center;
+}
 
-	#divBtnModifierEcoRoom-erev {
-		display: flex
-	}
+#divTopInfoEcoColoc-erev {
+	display: flex;
+	margin-top: 25px;
+	margin-bottom: 15px;
+}
 
-	#btnModifierEcoRoom-erev {
-		margin-left: auto;
-		margin-right: auto;
-		background-color: #C4D102;
-		font-family: 'Noteworthy';
-		text-decoration: none;
-		font-size: 20px;
-		font-weight: 800;
-		color: white;
-		box-shadow: 0 0 3px 0px black;
-		padding: 2px 12px;
-		border-radius: 3px;
-		min-width: 150px;
-		text-align: center;
-	}
+#divTopInfoEcoColoc2-erev {
+	margin-left: auto;
+	margin-right: auto;
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+}
 
-	#divTopInfoEcoColoc-erev {
-		display: flex;
-		margin-top: 25px;
-		margin-bottom: 15px;
-	}
+.divRoom-erev {
+	display: flex;
+	margin-bottom: 10px;
+}
 
-	#divTopInfoEcoColoc2-erev {
-		margin-left: auto;
-		margin-right: auto;
-		display: flex;
-		flex-wrap: wrap;
-		width: 100%;
-	}
+.divTopInfoRoom2-erev {
+	display: flex;
+	margin-left: auto;
+	margin-right: auto;
+}
 
-	.divRoom-erev {
-		display: flex;
-		margin-bottom: 10px;
-	}
+.responseRoom-erev {
+	font-size: 18px;
+}
 
-	.divTopInfoRoom2-erev {
-		display: flex;
-		margin-left: auto;
-		margin-right: auto;
-	}
+#imgCoverEcoRoommate-erev {
+	width: 100%;
+}
 
-	.responseRoom-erev {
-		font-size: 18px;
-	}
+#divDescriptionEcoRoom-erev {
+	margin-top: 15px;
+	width: 98%;
+	margin-left: auto;
+	margin-right: auto;
+	font-size: 16px;
+	font-family: 'Noteworthy';
+	text-align: justify
+}
 
-	#imgCoverEcoRoommate-erev {
-		width: 100%;
-	}
+#divGlobalBlogInfo-erev {
+	margin-top: 20px;
+}
 
-	#divDescriptionEcoRoom-erev {
-		margin-top: 15px;
-		width: 98%;
-		margin-left: auto;
-		margin-right: auto;
-		font-size: 16px;
-		font-family: 'Noteworthy';
-		text-align: justify
-	}
+.titleLevel2-erev {
+	color: #00C2D6;
+	font-family: Noteworthy;
+	font-weight: bold;
+	margin-bottom: 25px;
+}
 
-	#divGlobalBlogInfo-erev {
-		margin-top: 20px;
-	}
+#txtFibreEco-erev {
+	text-align: center;
+	font-size: 22px;
+	font-family: cursive;
+}
 
-	.titleLevel2-erev {
-		color: #00C2D6;
-		font-family: Noteworthy;
-		font-weight: bold;
-		margin-bottom: 25px;
-	}
+.divGlobalToCenter-erev {
+	display: flex;
+	flex-wrap: wrap;
+}
 
-	#txtFibreEco-erev {
-		text-align: center;
-		font-size: 22px;
-		font-family: cursive;
-	}
+.divContenantImgInfo-erev {
+	margin-bottom: 30px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 190px;
+	padding-left: 5px;
+	padding-right: 5px;
+}
 
-	.divGlobalToCenter-erev {
-		display: flex;
-		flex-wrap: wrap;
-	}
+.underTitlePratique-erev {
+	text-align: center;
+	font-size: 18px;
+	margin-bottom: 5px;
+}
 
-	.divContenantImgInfo-erev {
-		margin-bottom: 30px;
-		margin-left: auto;
-		margin-right: auto;
-		width: 190px;
-		padding-left: 5px;
-		padding-right: 5px;
-	}
+.imgLogoRepresentation-erev {
+	height: 100px;
+	width: 100px;
+	background-size: 100px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 10px;
+}
 
-	.underTitlePratique-erev {
-		text-align: center;
-		font-size: 18px;
-		margin-bottom: 5px;
-	}
+.textLevel2ProdAlim-erev {
+	text-align: center;
+	font-family: Noteworthy;
+}
 
-	.imgLogoRepresentation-erev {
-		height: 100px;
-		width: 100px;
-		background-size: 100px;
-		margin-left: auto;
-		margin-right: auto;
-		margin-bottom: 10px;
-	}
+.underTitle-erev {
+	text-align: center;
+	font-size: 18px;
+}
 
-	.textLevel2ProdAlim-erev {
-		text-align: center;
-		font-family: Noteworthy;
-	}
+.descriptionSuplementaire-erev {
+	color: #555555;
+	font-family: Noteworthy;
+	font-size: 16px;
+	text-align: center;
+	margin-bottom: 35px;
+}
 
-	.underTitle-erev {
-		text-align: center;
-		font-size: 18px;
-	}
+#divSurfaceTerrain-erev {
+	display: flex;
+	margin-right: auto;
+}
 
-	.descriptionSuplementaire-erev {
+.txtSurface-erev {
+	text-align: center;
+	font-size: 18px;
+	margin-right: 15px;
+}
+
+.responseSurface-erev {
+	font-family: Noteworthy;
+}
+
+#divSurfaceHabitat-erev {
+	display: flex;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#txtDiversPieces {
+	font-size: 20px;
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+
+#divAllPlace-erev {
+	overflow: auto;
+	display: flex;
+	margin-bottom: 15px;
+}
+
+#divAllPlace2-erev {
+	margin-right: auto;
+	width: 500px;
+}
+
+	#divAllPlace2-erev p {
 		color: #555555;
 		font-family: Noteworthy;
-		font-size: 16px;
-		text-align: center;
-		margin-bottom: 35px;
-	}
-
-	#divSurfaceTerrain-erev {
-		display: flex;
-		margin-right: auto;
-	}
-
-	.txtSurface-erev {
-		text-align: center;
-		font-size: 18px;
-		margin-right: 15px;
-	}
-
-	.responseSurface-erev {
-		font-family: Noteworthy;
-	}
-
-	#divSurfaceHabitat-erev {
-		display: flex;
-		margin-left: auto;
-		margin-right: auto;
-	}
-
-	#txtDiversPieces {
-		font-size: 20px;
-		margin-top: 20px;
-		margin-bottom: 10px;
-	}
-
-	#divAllPlace-erev {
-		overflow: auto;
-		display: flex;
-		margin-bottom: 15px;
-	}
-
-	#divAllPlace2-erev {
-		margin-right: auto;
-		width: 500px;
-	}
-
-		#divAllPlace2-erev p {
-			color: #555555;
-			font-family: Noteworthy;
-			font-size: 17px;
-		}
-
-	.divBtnBottom-erev {
-		display: flex;
-	}
-
-	#divGlobalSurfaceHabitat-erev {
-		display: flex;
-	}
-
-	#divGlobalSurfaceHabitat2-erev {
-		display: flex;
-		width: 500px;
-		max-width: 100%;
-	}
-
-	@media only screen and (max-width: 520px) {
-		#divGlobalSurfaceHabitat2-erev {
-			display: initial;
-		}
-	}
-
-	#btnContacter-erev {
-		margin-left: auto;
-		margin-right: auto;
-		background-color: #C4D102;
-		font-family: 'Noteworthy';
-		text-decoration: none;
-		font-size: 20px;
-		font-weight: 800;
-		color: white;
-		box-shadow: 0 0 3px 0px black;
-		padding: 2px 12px;
-		border-radius: 3px;
-	}
-
-	#btnRetour-erev {
-		margin-left: auto;
-		margin-right: auto;
-		background-color: #C4D102;
-		font-family: 'Noteworthy';
-		text-decoration: none;
-		font-size: 20px;
-		font-weight: 800;
-		color: white;
-		box-shadow: 0 0 3px 0px black;
-		padding: 2px 12px;
-		border-radius: 3px;
-		margin-top: 15px;
-		margin-bottom: 15px;
-		min-width: 150px;
-		text-align: center;
-	}
-	/**** AddYourEcoRoommateExisting ****/
-	#AddYourEcoRoommateExisting {
-		padding: 10px
-	}
-
-	#titleTop-ayer {
-		text-align: center;
-		font-size: 45px;
-		margin-top: 10px;
-		font-family: 'Noteworthy';
-		margin-bottom: 35px;
-	}
-
-	#emailColoc-ayere {
-		border-radius: 5px;
-		width: 300px;
-		padding: 5px;
-	}
-
-	#contactColoc-ayere {
-		margin-bottom: 40px;
-	}
-
-	#divDescrTextColoc-ayere {
-		font-style: italic;
-	}
-
-	#divDescEco-Coloc-ayer {
-		overflow: auto;
-	}
-
-	#divLabelNomColoc-ayer {
-		width: 270px;
-	}
-
-	#divLabelAdresse-ayer {
-		width: 290px;
-	}
-
-	#divLabelCodePostal-ayer {
-		width: 150px;
-	}
-
-	#divLabelVille-ayer {
-		width: 240px;
-	}
-
-	.label-ayer {
-		padding-left: 5px;
-		font-size: 18px;
-		color: #555555;
-		font-weight: 100;
-	}
-
-	.input-ayer {
-		border: none;
-		font-size: 15px;
-		line-height: 1.2;
-		padding: 0 5px;
-		padding-bottom: 13px;
-		width: 100%;
-		color: #6b6a6a;
-		font-weight: 100;
-		background-color: transparent;
-	}
-
-	.underInput-ayer {
-		border-bottom: 2px solid #d9d9d9;
-		margin-bottom: 25px;
-	}
-
-	.sousDivFormColoc-ayer {
-		padding: 0;
-		margin-right: 15px;
-		margin-left: 15px;
-	}
-
-	input.radioFibreEco-ayer {
-		margin-right: 15px;
-	}
-
-	#divPlace-ayer {
-		margin-left: auto;
-		margin-right: auto;
-		display: flex;
-		flex-wrap: wrap;
-	}
-
-	.divTxtPlace-ayer {
-		margin-left: auto;
-		margin-right: auto;
-		margin-bottom: 10px;
-		display: flex;
-	}
-
-		.divTxtPlace-ayer p {
-			font-size: 17px;
-			color: #555555;
-			font-weight: 100;
-			padding: 0;
-			margin-right: 15px;
-			width: 135px;
-			font-family: Noteworthy;
-		}
-
-		.divTxtPlace-ayer input {
-			border: none;
-			border-radius: 3px;
-			padding: 5px;
-			box-shadow: 0 0 2px black;
-			height: 23px;
-			width: 70px;
-			margin-right: 20px;
-			text-align: center
-		}
-
-	#divPlace-ayer div {
-		margin-left: 8px;
-		margin-right: 8px;
-	}
-
-	#divLabelDateColoc-ayer {
-		width: 175px;
-	}
-
-	#divLabelNbColoc-ayer {
-		width: 200px;
-	}
-
-	@media only screen and (max-width: 600px) {
-		#divPlaceResponsive-ayer {
-			display: flex;
-		}
-
-		#divPlace-ayer {
-			display: initial
-		}
-	}
-
-	#inputDateCréation-ayer {
-		height: 30px;
-	}
-
-	#txtareaDescColoc-ayer {
-		display: block;
-		width: 95% !important;
-		min-width: 95%;
-		max-width: 95%;
-		margin: 0px;
-		height: 100px;
-		min-height: 100px;
-		border: none;
-		box-shadow: 0 0 2px 0px black;
-		border-radius: 5px;
-		margin-top: 2px;
-		padding: 5px 10px;
-		margin-left: 2px;
-	}
-
-	#divLocalisation-ayer {
-		width: 500px;
-		max-width: 100%;
-		margin: 0;
-		margin-bottom: 25px;
-		overflow: auto;
-		padding: 5px 0;
-	}
-
-	#address-input-ayer {
-		width: 98%;
-		margin: 1px;
-		padding: 5px;
-		border-radius: 5px;
-	}
-
-	.divGlobalMsgPhoto-ayer {
-		margin-top: 10px;
-		margin-bottom: 0 !important;
-		width: max-content;
-	}
-
-	#btnAddPicture-ayer {
-		padding: 7px;
-		box-shadow: 0 0 5px 0px black;
-		text-align: center;
-		border-radius: 8px;
-		width: 230px;
-		cursor: pointer;
-		font-weight: 100;
-		max-width: 500px;
-		margin-top: 8px;
-		margin-left: 5px;
-		background-color: #C4D102;
-		font-family: 'Noteworthy';
-		text-decoration: none;
-		color: white;
-		font-size: 18px;
-		margin-bottom: 5px;
-		display: block
-	}
-
-	#fileUpload-ayer {
-		display: none
-	}
-
-	#divResultFilesUpl-ayer {
-		display: inline-flex;
-		position: relative;
-		box-shadow: 0 0 5px 0 black;
-		margin: 6px;
-		display: none;
-	}
-
-	#resultImgUpl-ayer {
-		height: 170px;
-		margin: 10px;
-		margin-bottom: 30px;
-	}
-
-	#icondeletePicture-ayer {
-		font-size: 25px;
-		position: absolute;
-		bottom: 0;
-		margin-left: 50%;
-		transform: translateX(-50%);
-		margin-bottom: 3px;
-		cursor: pointer;
-	}
-
-	.titleH2-ayer {
-		color: #00C2D6;
-		font-family: Noteworthy;
-		font-weight: bold;
-		margin-bottom: 25px;
-	}
-
-	.titleFacultatif-ayer {
 		font-size: 17px;
-		margin-top: 10px;
-		margin-bottom: 10px;
-		margin-left: 12px;
 	}
 
-	.titleFacultatif2-ayer {
-		font-size: 16px;
-		margin-left: 5px;
-	}
+.divBtnBottom-erev {
+	display: flex;
+}
 
-	.divFibreEco-ayer {
-		display: flex;
-	}
+#divGlobalSurfaceHabitat-erev {
+	display: flex;
+}
 
-	.txtFibreEco-ayer {
-		font-size: 18px;
-		color: #555555;
-		font-family: Noteworthy;
-	}
+#divGlobalSurfaceHabitat2-erev {
+	display: flex;
+	width: 500px;
+	max-width: 100%;
+}
 
-	.divParentFlexWrap-ayer {
-		display: flex;
-		flex-wrap: wrap;
+@media only screen and (max-width: 520px) {
+	#divGlobalSurfaceHabitat2-erev {
+		display: initial;
 	}
+}
 
-	.divChildFlexWrap-ayer {
-		padding: 0px 10px;
-		margin-left: auto;
-		margin-right: auto;
-	}
+#btnContacter-erev {
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #C4D102;
+	font-family: 'Noteworthy';
+	text-decoration: none;
+	font-size: 20px;
+	font-weight: 800;
+	color: white;
+	box-shadow: 0 0 3px 0px black;
+	padding: 2px 12px;
+	border-radius: 3px;
+}
 
-	.encadrePratice-ayer {
-		padding: 5px 15px;
-		border-radius: 5px;
-		box-shadow: 0 0 3px 0 black;
-		margin-left: auto;
-		margin-right: auto;
-		margin-bottom: 25px;
-		max-width: 275px;
-		max-height: 220px;
-		overflow: hidden;
-	}
+#btnRetour-erev {
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #C4D102;
+	font-family: 'Noteworthy';
+	text-decoration: none;
+	font-size: 20px;
+	font-weight: 800;
+	color: white;
+	box-shadow: 0 0 3px 0px black;
+	padding: 2px 12px;
+	border-radius: 3px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	min-width: 150px;
+	text-align: center;
+}
+/**** AddYourEcoRoommateExisting ****/
+#AddYourEcoRoommateExisting {
+	padding: 10px
+}
 
-	.txtPratice-ayer {
-		text-align: center;
-		margin-bottom: 15px;
-		font-weight: bold;
-		color: #555555;
-		font-family: Noteworthy;
-		font-size: 18px;
-	}
+#titleTop-ayer {
+	text-align: center;
+	font-size: 45px;
+	margin-top: 10px;
+	font-family: 'Noteworthy';
+	margin-bottom: 35px;
+}
 
-	.divEnterPraticeWord-ayer {
-		display: flex;
-		margin-bottom: 10px;
-	}
+#emailColoc-ayere {
+	border-radius: 5px;
+	width: 300px;
+	padding: 5px;
+}
 
-	.inputPraticeWord-ayer {
+#contactColoc-ayere {
+	margin-bottom: 40px;
+}
+
+#divDescrTextColoc-ayere {
+	font-style: italic;
+}
+
+#divDescEco-Coloc-ayer {
+	overflow: auto;
+}
+
+#divLabelNomColoc-ayer {
+	width: 270px;
+}
+
+#divLabelAdresse-ayer {
+	width: 290px;
+}
+
+#divLabelCodePostal-ayer {
+	width: 150px;
+}
+
+#divLabelVille-ayer {
+	width: 240px;
+}
+
+.label-ayer {
+	padding-left: 5px;
+	font-size: 18px;
+	color: #555555;
+	font-weight: 100;
+}
+
+.input-ayer {
+	border: none;
+	font-size: 15px;
+	line-height: 1.2;
+	padding: 0 5px;
+	padding-bottom: 13px;
+	width: 100%;
+	color: #6b6a6a;
+	font-weight: 100;
+	background-color: transparent;
+	text-indent: 1px;
+}
+
+.underInput-ayer {
+	border-bottom: 2px solid #d9d9d9;
+	margin-bottom: 25px;
+}
+
+#numRueInput-ayer {
+	padding: 5px;
+	border-radius: 5px;
+	overflow: auto;
+	height: 34px;
+	text-align: center;
+}
+
+	#numRueInput-ayer:focus, #facebookLinkEvent-ayere:focus {
 		border: none;
-		border-radius: 3px;
-		padding: 5px;
 		box-shadow: 0 0 2px black;
-		height: 30px;
-		font-family: Noteworthy;
-		width: 175px;
 	}
 
-	.btnAddPraticeWord-ayer {
-		background-color: #C4D102;
-		font-family: 'Noteworthy';
-		text-decoration: none;
-		color: white;
-		margin-left: 10px;
-		padding: 10px;
-		border-radius: 5px;
-		height: 30px;
-		line-height: 11px;
-	}
+.sousDivFormColoc-ayer {
+	padding: 0;
+	margin-right: 15px;
+	margin-left: 15px;
+}
 
-	.divDisplayPraticeWord-ayer {
-		max-height: 128px;
-		overflow: auto;
-	}
+input.radioFibreEco-ayer {
+	margin-right: 15px;
+}
 
-	.ckboxPratice-ayer {
-		margin-right: 15px !important;
-	}
+#divPlace-ayer {
+	margin-left: auto;
+	margin-right: auto;
+	display: flex;
+	flex-wrap: wrap;
+}
 
-	.showTxt-ayer {
-		font-size: 18px;
-		color: #555555;
-		font-family: Noteworthy;
-	}
+.divTxtPlace-ayer {
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 10px;
+	display: flex;
+}
 
-	.divIconCkbox {
-		margin-left: auto;
-		margin-right: auto;
-		padding: 10px;
-		width: 200px;
-	}
-
-	.iconCkbox-ayer {
-		height: 60px;
-		background-size: 60px !important;
-		margin-bottom: 10px;
-		width: 60px;
-		margin-left: auto;
-		margin-right: auto;
-	}
-
-	.divParentCkbox-ayer {
-		display: flex;
-		margin-left: auto;
-		margin-right: auto;
-	}
-
-	.ckBoxIcon-ayer {
-		margin-right: 15px !important;
-		margin-top: 6px !important;
-	}
-
-	.iconConnectToCkBox-ayer {
-		font-size: 18px;
-		color: #555555;
-		font-family: Noteworthy;
-		text-align: center;
-	}
-
-	.txtIcon-ayer {
-		font-size: 18px;
-		color: #555555;
-		font-family: Noteworthy;
-		text-align: center;
-	}
-
-	.labelDescSup-ayer {
-		padding-left: 5px;
-		font-size: 18px;
-		color: #555555;
-		font-weight: 100;
-		margin-bottom: 10px;
-		margin-top: 10px;
-	}
-
-	.txtareaDescSup-ayer {
-		display: block;
-		min-width: 100%;
-		max-width: 100%;
-		margin: 2px 0px 0px 2px;
-		height: 50px;
-		min-height: 50px;
-		border: none;
-		box-shadow: black 0px 0px 2px 0px;
-		border-radius: 5px;
-		padding: 5px 10px;
-	}
-
-	#divHabitatDesc-ayer {
-		display: flex;
-		flex-wrap: wrap;
-		max-width: 690px;
-	}
-
-	#labelSurfaceTer-ayer {
-		font-size: 18px;
+	.divTxtPlace-ayer p {
+		font-size: 17px;
 		color: #555555;
 		font-weight: 100;
 		padding: 0;
 		margin-right: 15px;
+		width: 135px;
+		font-family: Noteworthy;
 	}
 
-	#labelSurfaceHab-ayer {
-		margin-right: 15px;
-		font-size: 18px;
-		color: #555555;
-		font-weight: 100;
-	}
-
-	.inputSurface-ayer {
+	.divTxtPlace-ayer input {
 		border: none;
 		border-radius: 3px;
 		padding: 5px;
 		box-shadow: 0 0 2px black;
 		height: 23px;
-		width: 150px;
-		font-family: Noteworthy;
+		width: 70px;
+		margin-right: 20px;
+		text-align: center
 	}
 
-	#txtTitlePlace-ayer {
-		font-size: 19px;
-		color: #555555;
-		font-weight: 100;
-		padding: 0;
-		margin-top: 20px;
-		margin-bottom: 15px;
-	}
+#divPlace-ayer div {
+	margin-left: 8px;
+	margin-right: 8px;
+}
 
-	#divInfoUserMdp-ayer {
+#divLabelDateColoc-ayer {
+	width: 175px;
+}
+
+#divLabelNbColoc-ayer {
+	width: 200px;
+}
+
+@media only screen and (max-width: 600px) {
+	#divPlaceResponsive-ayer {
 		display: flex;
-		padding: 8px 10px;
-		box-shadow: 0 0 2px 0px black;
-		border-radius: 5px;
-		margin-left: 2px;
-		margin-bottom: 15px;
-		max-width: 99%;
 	}
 
-	#iconInfoUserMdp-ayer {
-		width: 20px;
-		font-size: 20px;
+	#divPlace-ayer {
+		display: initial
 	}
+}
 
-	.rowLabelMdp-ayer {
-		padding: 0;
-	}
+#divNumRue-ayere {
+	width: 70px;
+	min-width: 70px;
+	margin-right: 5px;
+	margin-bottom: 10px;
+}
 
-	#divAddOthersColoc-ayer {
-		width: 130px;
-		margin-bottom: 15px;
-	}
+#inputSearchPlace-ayere {
+	font-weight: inherit;
+	width: 450px;
+	max-width: 98%;
+}
 
-	#valueNbColocInfo-ayer {
-		text-align: center;
-	}
+#inputDateCréation-ayer {
+	height: 30px;
+}
 
-	#tableColocInfo-ayer {
-		border-radius: 9px;
-		overflow: auto;
-		padding: 0 1px;
-		box-shadow: 0 0 3px black;
-		width: 380px;
+#txtareaDescColoc-ayer {
+	display: block;
+	width: 95% !important;
+	min-width: 95%;
+	max-width: 95%;
+	margin: 0px;
+	height: 100px;
+	min-height: 100px;
+	border: none;
+	box-shadow: 0 0 2px 0px black;
+	border-radius: 5px;
+	margin-top: 2px;
+	padding: 5px 10px;
+	margin-left: 2px;
+}
+
+#divLocalisation-ayer {
+	width: 500px;
+	max-width: 100%;
+	margin: 0;
+	margin-bottom: 25px;
+	overflow: auto;
+	padding: 5px 0;
+}
+
+#address-input-ayer {
+	width: 98%;
+	margin: 1px;
+	padding: 5px;
+	border-radius: 5px;
+}
+
+.divGlobalMsgPhoto-ayer {
+	margin-top: 10px;
+	margin-bottom: 0 !important;
+	width: max-content;
+}
+
+#btnAddPicture-ayer {
+	padding: 7px;
+	box-shadow: 0 0 5px 0px black;
+	text-align: center;
+	border-radius: 8px;
+	width: 230px;
+	cursor: pointer;
+	font-weight: 100;
+	max-width: 500px;
+	margin-top: 8px;
+	margin-left: 5px;
+	background-color: #C4D102;
+	font-family: 'Noteworthy';
+	text-decoration: none;
+	color: white;
+	font-size: 18px;
+	margin-bottom: 5px;
+	display: block
+}
+
+#fileUpload-ayer {
+	display: none
+}
+
+#divResultFilesUpl-ayer {
+	display: inline-flex;
+	position: relative;
+	box-shadow: 0 0 5px 0 black;
+	margin: 6px;
+	display: none;
+}
+
+#resultImgUpl-ayer {
+	height: 170px;
+	margin: 10px;
+	margin-bottom: 30px;
+}
+
+#icondeletePicture-ayer {
+	position: absolute;
+	right: -11px;
+	top: -12px;
+	font-size: 25px;
+	color: #555;
+	background-color: white;
+	border-radius: 50%;
+	cursor: pointer;
+}
+
+#checkPicture-ayer {
+	bottom: 0;
+	margin-left: 50%;
+	transform: translateX(-50%);
+	margin-bottom: 3px;
+	position: absolute;
+	font-size: 25px;
+	color: #c4d102;
+	background-color: white;
+	border-radius: 50%;
+}
+
+.titleH2-ayer {
+	color: #00C2D6;
+	font-family: Noteworthy;
+	font-weight: bold;
+	margin-bottom: 25px;
+}
+
+.titleFacultatif-ayer {
+	font-size: 17px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-left: 12px;
+}
+
+.titleFacultatif2-ayer {
+	font-size: 16px;
+	margin-left: 5px;
+}
+
+.divFibreEco-ayer {
+	display: flex;
+}
+
+#divLevelTree-erev {
+	font-size: 22px;
+	color: rgba(205, 210, 129, 0.3);
+}
+
+#divLevelEcolo1 #treeLevel1 {
+	color: #b0bc03;
+}
+
+#divLevelEcolo2 #treeLevel1, #divLevelEcolo2 #treeLevel2 {
+	color: #b0bc03;
+}
+
+#divLevelEcolo3 #treeLevel1, #divLevelEcolo3 #treeLevel2, #divLevelEcolo3 #treeLevel3 {
+	color: #b0bc03;
+}
+
+.divLevelTree-ayere {
+	margin-right: 15px;
+}
+
+.txtFibreEco-ayer {
+	font-size: 18px;
+	color: #555555;
+	font-family: Noteworthy;
+}
+
+.divParentFlexWrap-ayer {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.divChildFlexWrap-ayer {
+	padding: 0px 10px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.encadrePratice-ayer {
+	padding: 5px 15px;
+	border-radius: 5px;
+	box-shadow: 0 0 3px 0 black;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 25px;
+	max-width: 275px;
+	max-height: 220px;
+	overflow: hidden;
+}
+
+.txtPratice-ayer {
+	text-align: center;
+	margin-bottom: 15px;
+	font-weight: bold;
+	color: #555555;
+	font-family: Noteworthy;
+	font-size: 18px;
+}
+
+.divEnterPraticeWord-ayer {
+	display: flex;
+	margin-bottom: 10px;
+}
+
+.inputPraticeWord-ayer {
+	border: none;
+	border-radius: 3px;
+	padding: 5px;
+	box-shadow: 0 0 2px black;
+	height: 30px;
+	font-family: Noteworthy;
+	width: 175px;
+}
+
+.btnAddPraticeWord-ayer {
+	background-color: #C4D102;
+	font-family: 'Noteworthy';
+	text-decoration: none;
+	color: white;
+	margin-left: 10px;
+	padding: 10px;
+	border-radius: 5px;
+	height: 30px;
+	line-height: 11px;
+}
+
+.divDisplayPraticeWord-ayer {
+	max-height: 128px;
+	overflow: auto;
+}
+
+.ckboxPratice-ayer {
+	margin-right: 15px !important;
+}
+
+.showTxt-ayer {
+	font-size: 18px;
+	color: #555555;
+	font-family: Noteworthy;
+}
+
+.divIconCkbox {
+	margin-left: auto;
+	margin-right: auto;
+	padding: 10px;
+	width: 200px;
+}
+
+.iconCkbox-ayer {
+	height: 60px;
+	background-size: 60px !important;
+	margin-bottom: 10px;
+	width: 60px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.divParentCkbox-ayer {
+	display: flex;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.ckBoxIcon-ayer {
+	margin-right: 15px !important;
+	margin-top: 6px !important;
+}
+
+.iconConnectToCkBox-ayer {
+	font-size: 18px;
+	color: #555555;
+	font-family: Noteworthy;
+	text-align: center;
+}
+
+.txtIcon-ayer {
+	font-size: 18px;
+	color: #555555;
+	font-family: Noteworthy;
+	text-align: center;
+}
+
+.labelDescSup-ayer {
+	padding-left: 5px;
+	font-size: 18px;
+	color: #555555;
+	font-weight: 100;
+	margin-bottom: 10px;
+	margin-top: 10px;
+}
+
+.txtareaDescSup-ayer {
+	display: block;
+	min-width: 100%;
+	max-width: 100%;
+	margin: 2px 0px 0px 2px;
+	height: 50px;
+	min-height: 50px;
+	border: none;
+	box-shadow: black 0px 0px 2px 0px;
+	border-radius: 5px;
+	padding: 5px 10px;
+}
+
+#divHabitatDesc-ayer {
+	display: flex;
+	flex-wrap: wrap;
+	max-width: 690px;
+}
+
+#labelSurfaceTer-ayer {
+	font-size: 18px;
+	color: #555555;
+	font-weight: 100;
+	padding: 0;
+	margin-right: 15px;
+}
+
+#labelSurfaceHab-ayer {
+	margin-right: 15px;
+	font-size: 18px;
+	color: #555555;
+	font-weight: 100;
+}
+
+.inputSurface-ayer {
+	border: none;
+	border-radius: 3px;
+	padding: 5px;
+	box-shadow: 0 0 2px black;
+	height: 23px;
+	width: 150px;
+	font-family: Noteworthy;
+}
+
+#txtTitlePlace-ayer {
+	font-size: 19px;
+	color: #555555;
+	font-weight: 100;
+	padding: 0;
+	margin-top: 20px;
+	margin-bottom: 15px;
+}
+
+#divInfoUserMdp-ayer {
+	display: flex;
+	padding: 8px 10px;
+	box-shadow: 0 0 2px 0px black;
+	border-radius: 5px;
+	margin-left: 2px;
+	margin-bottom: 15px;
+	max-width: 99%;
+}
+
+#iconInfoUserMdp-ayer {
+	width: 20px;
+	font-size: 20px;
+}
+
+.rowLabelMdp-ayer {
+	padding: 0;
+}
+
+#divAddOthersColoc-ayer {
+	width: 130px;
+	margin-bottom: 15px;
+}
+
+#valueNbColocInfo-ayer {
+	text-align: center;
+}
+
+#tableColocInfo-ayer {
+	border-radius: 9px;
+	overflow: auto;
+	padding: 0 1px;
+	box-shadow: 0 0 3px black;
+	width: 380px;
+	max-width: 100%;
+	margin-bottom: 2px;
+}
+
+#titleInfoColoc1-ayer {
+	background-color: #C4D102;
+	color: white;
+}
+
+.titleInfoColocs-ayer {
+	box-shadow: 0 0 3px black;
+	padding: 10px;
+	margin-bottom: 1px;
+	font-size: 18px;
+	color: #555555;
+	font-weight: 100;
+	padding-left: 25px;
+	cursor: grab;
+	display: flex;
+	position: relative;
+}
+
+.txtColocTable-ayer {
+	user-select: none;
+	font-family: Noteworthy;
+}
+
+.crossEcoColocExisting-ayere {
+	margin-top: 3px;
+	margin-right: 10px;
+	color: #555;
+	cursor: pointer
+}
+
+.iconTxtColocTable-ayer {
+	position: absolute;
+	right: 20px;
+	line-height: 27px !important;
+}
+
+.infoColoc-ayer {
+	overflow: hidden;
+	max-height: 0;
+	transition: max-height 1000ms;
+}
+
+#infoColoc1-ayer {
+	max-height: 1000px;
+}
+
+.selectColocTable-ayer {
+	margin-bottom: 33px;
+}
+
+.enterColocTable-ayer {
+	padding: 10px 0;
+	flex-wrap: wrap
+}
+
+	.enterColocTable-ayer .divLabelInfoColoc-ayer {
+		min-width: 185px;
 		max-width: 100%;
-		margin-bottom: 2px;
 	}
 
-	#titleInfoColoc1-ayer {
-		background-color: #C4D102;
-		color: white;
-	}
+#divBottomBtn-ayer {
+	margin-top: 30px;
+}
 
-	.titleInfoColocs-ayer {
-		box-shadow: 0 0 3px black;
-		padding: 10px;
-		margin-bottom: 1px;
-		font-size: 18px;
-		color: #555555;
-		font-weight: 100;
-		padding-left: 25px;
-		cursor: grab;
-		display: flex;
-		position: relative;
-	}
+#btnValidateInfo-ayer {
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #C4D102;
+	font-family: 'Noteworthy';
+	text-decoration: none;
+	font-size: 20px;
+	font-weight: 800;
+	color: white;
+	box-shadow: 0 0 3px 0px black;
+	padding: 2px 12px;
+	border-radius: 3px;
+}
 
-	.txtColocTable-ayer {
-		user-select: none;
-		font-family: Noteworthy;
-	}
+#btnCancelInfo-ayer {
+	margin-left: auto;
+	margin-right: auto;
+	background-color: white;
+	font-family: 'Noteworthy';
+	text-decoration: none;
+	font-size: 20px;
+	font-weight: 800;
+	color: #555555;
+	box-shadow: 0 0 3px 0px black;
+	padding: 2px 12px;
+	border-radius: 3px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	min-width: 150px;
+	text-align: center;
+}
 
-	.crossEcoColocExisting-ayere {
-		margin-top: 3px;
-		margin-right: 10px;
-		color: #555;
-		cursor: pointer
-	}
+#btnSupColoc-ayer {
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #f26969;
+	font-family: 'Noteworthy';
+	text-decoration: none;
+	font-size: 20px;
+	font-weight: 800;
+	color: white;
+	box-shadow: 0 0 3px 0px black;
+	padding: 2px 12px;
+	border-radius: 3px;
+	margin-top: 35px;
+	margin-bottom: 15px;
+	min-width: 150px;
+	text-align: center;
+}
 
-	.iconTxtColocTable-ayer {
-		position: absolute;
-		right: 20px;
-		line-height: 27px !important;
-	}
+/***** ModalDeleteEcoRoommateExisting *****/
+#ModalDeleteEcoRoommateExisting {
+	overflow: auto;
+	width: 900px;
+	padding: 15px;
+	position: relative;
+}
 
-	.infoColoc-ayer {
-		overflow: hidden;
-		max-height: 0;
-		transition: max-height 1000ms;
-	}
+#titleTop-mder {
+	color: #555555;
+	font-family: Noteworthy;
+	font-weight: bold;
+	margin-bottom: 25px;
+}
 
-	#infoColoc1-ayer {
-		max-height: 1000px;
-	}
+.divBtn-mder {
+	margin-left: auto;
+	flex-wrap: wrap;
+	display: flex;
+	margin-right: auto;
+}
 
-	.selectColocTable-ayer {
-		margin-bottom: 33px;
-	}
+#btnCancelInfo-mder {
+	margin-left: 10px;
+	margin-right: 10px;
+	background-color: white;
+	font-family: 'Noteworthy';
+	text-decoration: none;
+	font-size: 20px;
+	font-weight: 800;
+	color: #555555;
+	box-shadow: 0 0 3px 0px black;
+	padding: 2px 50px;
+	border-radius: 3px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	min-width: 200px;
+	text-align: center;
+	cursor: pointer;
+}
 
-	.enterColocTable-ayer {
-		padding: 10px 0;
-		flex-wrap: wrap
-	}
+#btnDeleteInfo-mder {
+	margin-left: 10px;
+	margin-right: 10px;
+	background-color: indianred;
+	font-family: 'Noteworthy';
+	text-decoration: none;
+	font-size: 20px;
+	font-weight: 800;
+	color: white;
+	box-shadow: 0 0 3px 0px black;
+	padding: 2px 50px;
+	border-radius: 3px;
+	min-width: 200px;
+	text-align: center;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
 
-		.enterColocTable-ayer .divLabelInfoColoc-ayer {
-			min-width: 185px;
-			max-width: 100%;
-		}
+/********************************* Eco-Roommate ********************************/
+/**** EcoRoommateExistingVisual****/
+.leafletDivEcoRommateEvent {
+	width: 400px;
+}
 
-	#divBottomBtn-ayer {
-		margin-top: 30px;
-	}
+.ecoRommateEvent-ereom {
+	display: none;
+}
 
-	#btnValidateInfo-ayer {
-		margin-left: auto;
-		margin-right: auto;
-		background-color: #C4D102;
-		font-family: 'Noteworthy';
-		text-decoration: none;
-		font-size: 20px;
-		font-weight: 800;
-		color: white;
-		box-shadow: 0 0 3px 0px black;
-		padding: 2px 12px;
-		border-radius: 3px;
-	}
+.ecoRommateEvent2-ereom {
+	display: flex;
+	color: black !important;
+	text-decoration: none !important;
+}
 
-	#btnCancelInfo-ayer {
-		margin-left: auto;
-		margin-right: auto;
-		background-color: white;
-		font-family: 'Noteworthy';
-		text-decoration: none;
-		font-size: 20px;
-		font-weight: 800;
-		color: #555555;
-		box-shadow: 0 0 3px 0px black;
-		padding: 2px 12px;
-		border-radius: 3px;
-		margin-top: 15px;
-		margin-bottom: 15px;
-		min-width: 150px;
-		text-align: center;
-	}
+#divLinkDetailEvent-erevom {
+	display: flex;
+}
 
-	#btnSupColoc-ayer {
-		margin-left: auto;
-		margin-right: auto;
-		background-color: #f26969;
-		font-family: 'Noteworthy';
-		text-decoration: none;
-		font-size: 20px;
-		font-weight: 800;
-		color: white;
-		box-shadow: 0 0 3px 0px black;
-		padding: 2px 12px;
-		border-radius: 3px;
-		margin-top: 35px;
-		margin-bottom: 15px;
-		min-width: 150px;
-		text-align: center;
-	}
+.linkDetailEvent-erevom {
+	display: flex;
+	margin-left: auto;
+	margin-right: auto;
+	font-size: 15px;
+	margin-top: 13px;
+	margin-bottom: 10px;
+	color: inherit !important;
+	text-decoration: none !important;
+}
 
-	/***** ModalDeleteEcoRoommateExisting *****/
-	#ModalDeleteEcoRoommateExisting {
-		overflow: auto;
-		width: 900px;
-		padding: 15px;
-		position: relative;
-	}
+#iconDetailEvent-erevom {
+	line-height: 20px;
+	margin-right: 6px;
+}
 
-	#titleTop-mder {
-		color: #555555;
-		font-family: Noteworthy;
-		font-weight: bold;
-		margin-bottom: 25px;
-	}
+#selectEvent-erevom {
+	background-color: #C4D102;
+	color: white;
+	font-size: 16px;
+	font-weight: bold;
+	width: 100px;
+	height: 27px;
+	padding: 0;
+}
 
-	.divBtn-mder {
-		margin-left: auto;
-		flex-wrap: wrap;
-		display: flex;
-		margin-right: auto;
-	}
+#nbEvenement-erevom {
+	margin-left: 10px;
+	line-height: 26px;
+	font-style: italic;
+}
 
-	#btnCancelInfo-mder {
-		margin-left: 10px;
-		margin-right: 10px;
-		background-color: white;
-		font-family: 'Noteworthy';
-		text-decoration: none;
-		font-size: 20px;
-		font-weight: 800;
-		color: #555555;
-		box-shadow: 0 0 3px 0px black;
-		padding: 2px 50px;
-		border-radius: 3px;
-		margin-top: 5px;
-		margin-bottom: 5px;
-		min-width: 200px;
-		text-align: center;
-		cursor: pointer;
-	}
+.leafletDivEcoRommateExisting {
+	width: 400px;
+}
 
-	#btnDeleteInfo-mder {
-		margin-left: 10px;
-		margin-right: 10px;
-		background-color: indianred;
-		font-family: 'Noteworthy';
-		text-decoration: none;
-		font-size: 20px;
-		font-weight: 800;
-		color: white;
-		box-shadow: 0 0 3px 0px black;
-		padding: 2px 50px;
-		border-radius: 3px;
-		min-width: 200px;
-		text-align: center;
-		margin-top: 5px;
-		margin-bottom: 5px;
-	}
+.ecoRommateExisting-ereom {
+	display: none;
+}
 
-	/********************************* Eco-Roommate ********************************/
-	/**** EcoRoommateExistingVisual****/
-	.leafletDivEcoRommateEvent {
-		width: 400px;
-	}
+#btnInterested-erevom {
+	display: flex;
+	background-color: #C4D102;
+	color: white;
+	font-size: 16px;
+	font-weight: bold;
+	width: max-content;
+	height: 27px;
+	padding-top: 3px !important;
+	border-radius: 5px;
+	cursor: pointer;
+	padding: 0 5px;
+}
 
-	.ecoRommateEvent-ereom {
-		display: none;
-	}
-
-	.ecoRommateEvent2-ereom {
-		display: flex;
-		color: black !important;
-		text-decoration: none !important;
-	}
-
-	#divLinkDetailEvent-erevom {
-		display: flex;
-	}
-
-	.linkDetailEvent-erevom {
-		display: flex;
-		margin-left: auto;
-		margin-right: auto;
+	#btnInterested-erevom i {
+		margin-right: 5px;
 		font-size: 15px;
-		margin-top: 13px;
-		margin-bottom: 10px;
-		color: inherit !important;
-		text-decoration: none !important;
+		margin-top: 2px;
 	}
 
-	#iconDetailEvent-erevom {
-		line-height: 20px;
-		margin-right: 6px;
+#underDivBtnInterested-erevom {
+	display: flex;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.divListInterestedErevom {
+	display: none;
+}
+
+#listEvenementInterested-erevom {
+	background-color: #C4D102;
+	color: white;
+	font-size: 16px;
+	font-weight: bold;
+	width: 150px;
+	width: max-content;
+	height: 27px;
+	padding: 0;
+}
+
+#divBtnValidListEvent-erevom {
+	background-color: #C4D102;
+	color: white;
+	font-size: 16px;
+	border-radius: 5px;
+	margin-left: 5px;
+	display: flex;
+	cursor: pointer;
+	padding: 0px 5px;
+	text-decoration: none;
+	width: max-content;
+	width: 80px;
+}
+
+#txtBtnValidEvent-erevom {
+	line-height: 27px;
+	margin-left: 3px !important;
+}
+
+#btnValidListEvent-erevom {
+	margin-left: auto;
+	margin-right: auto;
+	line-height: 26px;
+}
+
+/***** ModalGoingOrInterested *****/
+
+#modalGoingOrInterested {
+	overflow: auto;
+	padding: 15px;
+	position: relative;
+	height: fit-content;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+}
+
+	#modalGoingOrInterested, #modalGoingOrInterested ~ .divCloseModal {
+		width: 420px;
 	}
 
-	#selectEvent-erevom {
-		background-color: #C4D102;
-		color: white;
-		font-size: 16px;
-		font-weight: bold;
-		width: 100px;
-		height: 27px;
-		padding: 0;
+.label-mgoi {
+	padding-left: 5px;
+	font-size: 18px;
+	color: #555555;
+	font-weight: 100;
+}
+
+.input-mgoi {
+	border: none;
+	font-size: 15px;
+	line-height: 1.2;
+	padding: 0 5px;
+	padding-bottom: 13px;
+	width: 100%;
+	color: #6b6a6a;
+	font-weight: 100;
+	background-color: transparent;
+}
+
+.enterColocTable-ayer {
+	padding: 10px 0;
+	flex-wrap: wrap;
+}
+
+#title-mgoi {
+	text-align: center;
+	margin-top: 10px;
+}
+
+#divEmail-mgoi {
+	overflow: auto;
+	padding-bottom: 15px;
+}
+
+.underInput-mgoi {
+	border-bottom: 2px solid #d9d9d9;
+	margin-bottom: 25px;
+}
+
+.select-mgoi {
+	margin-bottom: 33px;
+}
+
+#titleAfterEmail-mgoi {
+	padding-left: 15px;
+	font-size: 17px;
+	margin-bottom: 15px;
+}
+
+#infoSup-mgoi {
+	display: none;
+}
+
+#divBtnSave-mgoi {
+	display: none;
+	padding-bottom: 3px;
+}
+
+#divBtnSaveNoModal-mgoi {
+	display: none;
+	padding-bottom: 3px;
+}
+
+#divCGU-mgoi {
+	margin-bottom: 20px;
+}
+
+#cbxConditionGeneral-mgoi {
+	margin-right: 15px
+}
+
+#btnCGU-mgoi {
+	color: darkcyan;
+	border-bottom: 1.3px solid darkcyan;
+	text-decoration: none;
+}
+
+/**** ModalEcoRoommateEventVisual ****/
+#modalEcoRoommateEventVisual {
+	overflow: auto;
+	padding: 15px;
+	position: relative;
+	height: 400px;
+}
+
+	#modalEcoRoommateEventVisual, #modalEcoRoommateEventVisual ~ .divCloseModal {
+		width: 900px
 	}
 
-	#nbEvenement-erevom {
-		margin-left: 10px;
-		line-height: 26px;
-		font-style: italic;
-	}
+#divInterestedEmail-merev {
+	display: none;
+}
 
-	.leafletDivEcoRommateExisting {
-		width: 400px;
-	}
-
-	.ecoRommateExisting-ereom {
-		display: none;
-	}
-
-	#btnInterested-erevom {
-		display: flex;
-		background-color: #C4D102;
-		color: white;
-		font-size: 16px;
-		font-weight: bold;
-		width: max-content;
-		height: 27px;
-		padding-top: 3px !important;
-		border-radius: 5px;
+	#divInterestedEmail-merev img {
 		cursor: pointer;
-		padding: 0 5px;
-	}
-
-		#btnInterested-erevom i {
-			margin-right: 5px;
-			font-size: 15px;
-			margin-top: 2px;
-		}
-
-	#underDivBtnInterested-erevom {
-		display: flex;
-		margin-left: auto;
-		margin-right: auto;
-	}
-
-	.divListInterestedErevom {
-		display: none;
-	}
-
-	#listEvenementInterested-erevom {
-		background-color: #C4D102;
-		color: white;
-		font-size: 16px;
-		font-weight: bold;
-		width: 150px;
-		width: max-content;
-		height: 27px;
-		padding: 0;
-	}
-
-	#divBtnValidListEvent-erevom {
-		background-color: #C4D102;
-		color: white;
-		font-size: 16px;
-		border-radius: 5px;
+		z-index: 1;
+		position: absolute;
+		margin-top: 5px;
 		margin-left: 5px;
-		display: flex;
-		cursor: pointer;
-		padding: 0px 5px;
-		text-decoration: none;
-		width: max-content;
-		width: 80px;
+		left: -5px;
+		top: -5px;
 	}
 
-	#txtBtnValidEvent-erevom {
-		line-height: 27px;
-		margin-left: 3px !important;
-	}
 
-	#btnValidListEvent-erevom {
-		margin-left: auto;
-		margin-right: auto;
-		line-height: 26px;
-	}
+.divOtherLinkEvent-merev {
+	box-shadow: 0 0 3px black;
+	padding: 5px 10px;
+	width: 160px;
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-bottom: 7px;
+	margin-top: 7px;
+	max-height: 220px;
+}
 
-	/***** ModalGoingOrInterested *****/
+.titleOtherLinkEvent-merev {
+	font-weight: bold;
+	margin-bottom: 6px;
+	text-align: center;
+}
 
-	#modalGoingOrInterested {
-		overflow: auto;
-		padding: 15px;
-		position: relative;
-		height: fit-content;
-		top: 0;
-		bottom: 0;
-		margin: auto;
-	}
+.underTitleOLinkEvent-merev {
+	text-align: center;
+	margin-bottom: 5px;
+}
 
-		#modalGoingOrInterested, #modalGoingOrInterested ~ .divCloseModal {
-			width: 420px;
-		}
+#titleAperoEvent-merev {
+	text-align: center;
+	margin-top: 0;
+	margin-bottom: 6px;
+}
 
-	.label-mgoi {
-		padding-left: 5px;
-		font-size: 18px;
-		color: #555555;
-		font-weight: 100;
-	}
+#divOrganisateur-merev {
+	margin-bottom: 8px;
+}
 
-	.input-mgoi {
-		border: none;
-		font-size: 15px;
-		line-height: 1.2;
-		padding: 0 5px;
-		padding-bottom: 13px;
-		width: 100%;
-		color: #6b6a6a;
-		font-weight: 100;
-		background-color: transparent;
-	}
-
-	.enterColocTable-ayer {
-		padding: 10px 0;
-		flex-wrap: wrap;
-	}
-
-	#title-mgoi {
-		text-align: center;
-		margin-top: 10px;
-	}
-
-	#divEmail-mgoi {
-		overflow: auto;
-		padding-bottom: 15px;
-	}
-
-	.underInput-mgoi {
-		border-bottom: 2px solid #d9d9d9;
-		margin-bottom: 25px;
-	}
-
-	.select-mgoi {
-		margin-bottom: 33px;
-	}
-
-	#titleAfterEmail-mgoi {
-		padding-left: 15px;
-		font-size: 17px;
-		margin-bottom: 15px;
-	}
-
-	#infoSup-mgoi {
-		display: none;
-	}
-
-	#divBtnSave-mgoi {
-		display: none;
-		padding-bottom: 3px;
-	}
-
-	#divBtnSaveNoModal-mgoi {
-		display: none;
-		padding-bottom: 3px;
-	}
-
-	#divCGU-mgoi {
-		margin-bottom: 20px;
-	}
-
-	#cbxConditionGeneral-mgoi {
-		margin-right: 15px
-	}
-
-	#btnCGU-mgoi {
-		color: darkcyan;
-		border-bottom: 1.3px solid darkcyan;
-		text-decoration: none;
-	}
-
-	/**** ModalEcoRoommateEventVisual ****/
-	#modalEcoRoommateEventVisual {
-		overflow: auto;
-		padding: 15px;
-		position: relative;
-		height: 400px;
-	}
-
-		#modalEcoRoommateEventVisual, #modalEcoRoommateEventVisual ~ .divCloseModal {
-			width: 900px
-		}
-
-	#divInterestedEmail-merev {
-		display: none;
-	}
-
-		#divInterestedEmail-merev img {
-			cursor: pointer;
-			z-index: 1;
-			position: absolute;
-			margin-top: 5px;
-			margin-left: 5px;
-			left: -5px;
-			top: -5px;
-		}
-
-
-	.divOtherLinkEvent-merev {
-		box-shadow: 0 0 3px black;
-		padding: 5px 10px;
-		width: 160px;
-		margin-left: 10px;
-		margin-right: 10px;
-		margin-bottom: 7px;
-		margin-top: 7px;
-		max-height: 220px;
-	}
-
-	.titleOtherLinkEvent-merev {
-		font-weight: bold;
-		margin-bottom: 6px;
-		text-align: center;
-	}
-
-	.underTitleOLinkEvent-merev {
-		text-align: center;
-		margin-bottom: 5px;
-	}
-
-	#titleAperoEvent-merev {
-		text-align: center;
-		margin-top: 0;
-		margin-bottom: 6px;
-	}
-
-	#divOrganisateur-merev {
-		margin-bottom: 18px;
-	}
-
-	#btnModifyEvent-merev {
-		font-size: 15px;
-		margin-bottom: 15px;
-	}
-
-	#divInterested-merev {
-		margin-top: 10px;
-		margin-bottom: -5px;
-	}
-
-	#divLocalisationEvent-merev {
-		text-align: center;
-		margin-left: auto;
-		margin-right: auto;
-	}
-
-	#txtNbPartInter-merev {
+	#divOrganisateur-merev p:first-child {
 		white-space: nowrap;
 	}
 
-	#txtDateCalendar-merev {
-		white-space: nowrap;
-	}
+#divLienExterne-merev {
+	margin-bottom: 18px;
+}
 
-	#btnSendMessage-merev {
-		font-size: 16px;
-		margin-top: 10px;
-		font-weight: bold;
-		width: max-content;
-		height: 27px;
-		padding-top: 3px !important;
-		border-radius: 5px;
-		cursor: pointer;
-		padding: 0 5px;
-		margin-right: 10px;
-		box-shadow: 0 0 2px black;
-	}
+#linkLienExterne-merev {
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	width: 250px;
+	overflow: hidden;
+	color: darkblue;
+}
 
-	.sousTitle-merev {
-		font-size: 16px;
-		margin-top: 17px;
-		margin-bottom: 12px;
-	}
+#lblLienExterne-merev {
+	white-space: nowrap;
+	margin-right: 10px;
+}
 
-	.divNewsPosts-merev {
-		margin-bottom: 20px;
-	}
+#btnModifyEvent-merev {
+	font-size: 15px;
+	margin-bottom: 15px;
+}
 
-	.txtDateJour-merev {
-		font-weight: bold;
-		margin-bottom: 6px;
-	}
+#divInterested-merev {
+	margin-top: 10px;
+	margin-bottom: -5px;
+}
 
-	.txtDescNewPost-merev {
-		margin-left: 10px;
-	}
+#divLocalisationEvent-merev {
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
 
-	#divOtherLinkEvent0-merev {
-		padding: 5px 0;
-	}
+#txtNbPartInter-merev {
+	white-space: nowrap;
+}
 
-	.imgOtherLink-merev {
-		background-size: 100% !important;
-		width: 150px;
-		height: 100px;
-	}
+#txtDateCalendar-merev {
+	white-space: nowrap;
+}
 
-	#divModalGoingOrInterested-merev {
-		display: none;
-	}
+#btnSendMessage-merev {
+	font-size: 16px;
+	margin-top: 10px;
+	font-weight: bold;
+	width: max-content;
+	height: 27px;
+	padding-top: 3px !important;
+	border-radius: 5px;
+	cursor: pointer;
+	padding: 0 5px;
+	margin-right: 10px;
+	box-shadow: 0 0 2px black;
+}
 
-	/*********** AddYourEcoRoommateEvent ************/
-	#addYourEcoRoommateEvent {
-		padding: 10px;
-	}
+.sousTitle-merev {
+	font-size: 16px;
+	margin-top: 17px;
+	margin-bottom: 12px;
+}
 
-	#divContenerOtherEvents-ayere {
-		width: 540px;
-		max-width: 100%;
-		overflow: auto;
-	}
+.divNewsPosts-merev {
+	margin-bottom: 20px;
+}
 
-	#d2-btnphoto-ayere {
-		position: absolute;
-		top: 0;
-		right: 0;
-		height: 100%;
-	}
+.txtDateJour-merev {
+	font-weight: bold;
+	margin-bottom: 6px;
+}
 
-	#divContener0OtherEvents-ayere {
-		width: min-content;
-		max-width: 100%;
-		overflow: hidden;
-		position: relative;
-	}
+.txtDescNewPost-merev {
+	margin-left: 10px;
+}
 
-	.btnDivOtherEvent-eyere {
-		display: none;
-	}
+#divOtherLinkEvent0-merev {
+	padding: 5px 0;
+}
 
-	#inputlieu-ayere {
-		width: 450px;
-		margin-bottom: 25px !important;
-	}
+.imgOtherLink-merev {
+	background-size: 100% !important;
+	width: 150px;
+	height: 100px;
+}
 
-	.sousDivFormColoc-ayere {
-		width: 230px;
-		margin-left: 15px;
-		margin-right: 15px;
-	}
+#divModalGoingOrInterested-merev {
+	display: none;
+}
 
-	#btnValidPublication-merev {
-		width: max-content;
-	}
+/*********** AddYourEcoRoommateEvent ************/
+#addYourEcoRoommateEvent {
+	padding: 10px;
+}
 
-	#validPublication-merev {
-		margin-bottom: 5px;
-		font-size: 16px;
-		background-color: #adb810;
-	}
+#divContenerOtherEvents-ayere {
+	width: 540px;
+	max-width: 100%;
+	overflow: auto;
+}
 
-	#btnAddNewPublication-merev {
-		font-size: 15px;
-		margin-bottom: 15px;
-		background-color: #adb810;
-	}
+#d2-btnphoto-ayere {
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: 100%;
+}
 
-	#divInputNewPublication-merev {
-		display: none;
+#divContener0OtherEvents-ayere {
+	width: min-content;
+	max-width: 100%;
+	overflow: hidden;
+	position: relative;
+}
+
+.btnDivOtherEvent-eyere {
+	display: none;
+}
+
+#inputSearchPlace-ayere {
+	font-weight: inherit;
+	width: 450px;
+	max-width: 100%;
+}
+
+#divFacebookLinkEvent-ayere {
+	margin-bottom: 25px;
+	max-width: 95%;
+}
+
+#facebookLinkEvent-ayere {
+	width: 400px;
+	max-width: 100%;
+}
+
+#divLocation-ayere {
+	flex-wrap: wrap;
+	max-width: 100%;
+	width: 100%;
+}
+
+#inputlieu-ayere {
+	width: 450px;
+	margin-bottom: 25px !important;
+	max-width: 94%;
+}
+
+.sousDivFormColoc-ayere {
+	width: 230px;
+	margin-left: 15px;
+	margin-right: 15px;
+}
+
+#btnValidPublication-merev {
+	width: max-content;
+}
+
+#validPublication-merev {
+	margin-bottom: 5px;
+	font-size: 16px;
+	background-color: #adb810;
+}
+
+#btnAddNewPublication-merev {
+	font-size: 15px;
+	margin-bottom: 15px;
+	background-color: #adb810;
+}
+
+#divInputNewPublication-merev {
+	display: none;
+	width: 100%;
+}
+
+#createAccount-ayere {
+	margin-top: 45px;
+}
+
+	#createAccount-ayere .encadrer-mcar {
+		background-color: inherit;
 		width: 100%;
 	}
 
-	#createAccount-ayere {
-		margin-top: 45px;
+/****** Add Simply Eco Roommate Existing ******/
+#divLocalisation-asere {
+	width: 500px;
+	max-width: 100%;
+}
+
+#conteneurChamps-asere {
+	padding: 0 15px;
+	padding-bottom: 40px;
+}
+
+#divLabelLink-asere {
+	width: 500px;
+	max-width: 100%;
+}
+
+#divBottomBtn-asere {
+	margin-top: -20px;
+}
+
+.sousDivFormColoc-asere {
+	padding: 0 15px;
+	display: inline-block;
+	max-width: 100%;
+}
+
+/***** ModalUpdatePeopleSearch *****/
+
+#modalUpdatePeopleSearch {
+	overflow: auto;
+	position: relative;
+	padding: 15px 30px;
+}
+
+	#modalUpdatePeopleSearch, #modalUpdatePeopleSearch ~ .divCloseModal {
+		width: 900px
 	}
 
-		#createAccount-ayere .encadrer-mcar {
-			background-color: inherit;
-			width: 100%;
-		}
+#btnDisableProfilInterested {
+	margin-bottom: 20px;
+	background-color: #bc7e7c;
+}
 
-	/****** Add Simply Eco Roommate Existing ******/
-	#divLocalisation-asere {
-		width: 500px;
-		max-width: 100%;
-	}
-
-	#conteneurChamps-asere {
-		padding: 0 15px;
-		padding-bottom: 40px;
-	}
-
-	#divLabelLink-asere {
-		width: 500px;
-		max-width: 100%;
-	}
-
-	#divBottomBtn-asere {
-		margin-top: -20px;
-	}
-
-	.sousDivFormColoc-asere {
-		padding: 0 15px;
-		display: inline-block;
-		max-width: 100%;
-	}
-
-	/***** ModalUpdatePeopleSearch *****/
-
-	#modalUpdatePeopleSearch {
-		overflow: auto;
-		position: relative;
-		padding: 15px 30px;
-	}
-
-		#modalUpdatePeopleSearch, #modalUpdatePeopleSearch ~ .divCloseModal {
-			width: 900px
-		}
-
-	#btnDisableProfilInterested {
-		margin-bottom: 20px;
-		background-color: #bc7e7c;
-	}
-
-	#btnEnableProfilInterested {
-		margin-bottom: 20px;
-	}
+#btnEnableProfilInterested {
+	margin-bottom: 20px;
+}
