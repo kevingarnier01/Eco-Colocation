@@ -2294,6 +2294,30 @@ div#divContenuPlSchDisable {
 	display: inline;
 }
 
+.iconQuestionCharge-ml {
+	color: #c4d102;
+	margin-left: 8px;
+}
+
+.divInfoSupCharge-ml {
+	position: absolute;
+	width: 209px;
+	overflow: auto;
+	padding: 0;
+	background-color: white;
+	box-shadow: 0 0 2px black;
+	margin-top: 3px;
+	border-radius: 3px;
+	max-height: 0px;
+	max-height: 150px;
+	padding: 5px 8px;
+	display: none;
+}
+
+a, p h1, h2, h3, h4, h5, h6, input, textarea, label, span, div, table {
+	font-family: Noteworthy;
+}
+
 #div-photos-mpc {
 	height: 100%;
 	padding: 10px;
@@ -3190,6 +3214,11 @@ i.fas.fa-times.crossPlace-cpc {
 		color: #555;
 	}
 
+#ChargesDesc {
+	text-align: inherit !important;
+	height: 100px;
+}
+
 #divBtn-ca {
 	display: flex;
 	margin-bottom: 30px;
@@ -3227,9 +3256,43 @@ i.fas.fa-times.crossPlace-cpc {
 	}
 }
 
+#titleInfoPerso-ml {
+	margin-bottom: 0;
+}
+
+#underTitleInfoPerson-ml {
+	margin-top: 5px;
+	margin-bottom: 25px;
+	color: #999;
+}
+
 #partialView-ml {
 	display: inline-block;
 	width: 100%
+}
+
+#div2ConnectionWithAccount-mcar {
+	margin: 0;
+	display: flex;
+	box-shadow: 0 0 5px 0px black;
+	padding: 5px 15px;
+	border-radius: 3px;
+	background-color: white;
+	margin-top: 15px;
+	width: 300px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.textInscriptionBtnByAccount-mcar {
+	line-height: 28px;
+	margin-left: 15px;
+	font-size: 15px;
+}
+
+.iconInscriptionBtnByAccount-mcar.fas.fa-sign-in-alt {
+	font-size: 28px;
+	color: #555;
 }
 
 /**** colocAnnounce ****/
@@ -3902,6 +3965,10 @@ i.fas.fa-times.crossPlace-cpc {
 }
 
 #createProfilWindow {
+	display: none
+}
+
+#connectProfilWindow {
 	display: none
 }
 

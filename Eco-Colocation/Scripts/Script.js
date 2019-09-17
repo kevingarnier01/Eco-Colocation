@@ -1410,3 +1410,26 @@ function typeOfResearchLocation(item) {
 		$("#inputSearchPlace-ph").removeAttr("disabled")
 	}
 }
+
+function showPopUpInfoCharge(iconElement, elementPopUp) {
+	$(elementPopUp).fadeIn("slow");
+
+	$(iconElement).mouseleave(function (e) {
+		setTimeout(function () {
+			//if ($('#element').data('clicked')) {
+			if ($(elementPopUp + ':hover').length == 0) {
+				closePopUpInfoCharge(elementPopUp)
+			}
+		}, 500);		
+	});
+}
+
+function closePopUpInfoCharge(elementPopUp) {
+	$(elementPopUp).fadeOut("slow");
+}
+
+function loadAccountConnexionToFinishOperation() {
+	$('#div1CreateAccount-acc').remove()
+	$('#divMdpForget-acc').attr('target', '_blank')
+	$('#btnConnexion-acc').attr('onclick', '')
+}
