@@ -217,6 +217,14 @@
 											</td>
 										</tr>
 										<tr>
+											<td class="col-xs-6"><label for="ChargesDesc">Détail des charges</label></td>
+											<td class="col-xs-6">
+												<div class="flex">
+													<textarea id="ChargesDesc" name="Charges" type="text" value="" class="inputtable-ca"></textarea>
+												</div>
+											</td>
+										</tr>
+										<tr>
 											<td class="col-xs-6"><label for="Caution">Caution</label></td>
 											<td class="col-xs-6">
 												<div class="flex">
@@ -391,13 +399,27 @@
 		}
 		else
 		{
+			<h2 class="title centerText" id="titleInfoPerso-ml">Informations Personnelles</h2>
+			<p class="underTitle centerText" id="underTitleInfoPerson-ml">(Uniquement si vous n'avez pas encore creé votre compte)</p>
 			<div id="partialView-ml">
 				@Html.Partial("~/Views/Account/PersonalDataForm.cshtml")
 				@Html.Partial("~/Views/Account/ButtonsCreateAccount.cshtml")
+				<div class="flex">
+					<div class="childFlex">
+						<div class="div2InscriptionBtn-mcar" id="div2ConnectionWithAccount-mcar" onclick="openDivElement('#connectProfilWindow')">
+							<i class="iconInscriptionBtnByAccount-mcar fas fa-sign-in-alt"></i>
+							<p class="textInscriptionBtnByAccount-mcar">Finaliser l'opération en se connectant</p>
+						</div>
+						<div id="connectProfilWindow">
+							<div id="divCreateProfil-mcar">
+								@Html.Partial("~/Views/Account/Index.cshtml")
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		}
 	</div>
-
 	<div class="divCloseModal">
 		<a href="#close-modal" rel="modal:close" onclick="autoCompletePrepend()"><i class="fas fa-times close-modal"></i></a>
 	</div>
@@ -406,5 +428,6 @@
 <script language="text/javascript">
 	$(document).ready(function () {
 		window.history.replaceState('data to be passed', 'Title of the page', '/Modal/ModalLocation_ColocAnnounce');
+		loadAccountConnexionToFinishOperation();
 	});
 </script>
