@@ -103,19 +103,39 @@ namespace Eco_Colocation.Controllers
 		}
 
 		[HttpGet]
-		public ActionResult ModalLocation_ColocAnnounce()
+		public ActionResult ModalLocation_ColocAnnounce(string targetCity, string urlCurrentPage)
 		{
-			ViewData["idModalToTrigger"] = "#createAnnounceLocationLink-h";
+			AllViewModel allViewModel = new AllViewModel();
 
-			return View("~/Views/Home/Index.cshtml");
+			string idModalDestination = ".createAnnounceLocationLink-al";
+			string currentTab = "AnnonceLocation";
+
+			if (urlCurrentPage.Length != 0)
+			{
+				return Redirect(urlCurrentPage + "/?currentTab=" + currentTab + "&idModal=" + Uri.EscapeDataString(idModalDestination));
+			}
+			else
+			{
+				return View("~/Views/ColocAnnounce/Index.cshtml", allViewModel);
+			}
 		}
 
 		[HttpGet]
-		public ActionResult ModalProjetCreation_ColocAnnounce()
+		public ActionResult ModalProjetCreation_ColocAnnounce(string targetCity, string urlCurrentPage)
 		{
-			ViewData["idModalToTrigger"] = "#createProjetCreationLink-h";
+			AllViewModel allViewModel = new AllViewModel();
 
-			return View("~/Views/Home/Index.cshtml");
+			string idModalDestination = ".createProjetCreationLink-al";
+			string currentTab = "ProjetCreation";
+
+			if (urlCurrentPage.Length != 0)
+			{
+				return Redirect(urlCurrentPage + "/?currentTab=" + currentTab + "&idModal=" + Uri.EscapeDataString(idModalDestination));
+			}
+			else
+			{
+				return View("~/Views/ColocAnnounce/Index.cshtml", allViewModel);
+			}
 		}
 		
 

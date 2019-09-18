@@ -98,7 +98,7 @@ $(document).ready(function () {
 
 	//Permet de ne plus pouvoir ouvrir le modal sur un autre onglet
 	stopNewTabOppening();
-	openModalInThisTab();
+	openModalInThisTab();	
 });
 
 /***** Permet de ne plus pouvoir ouvrir le modal sur un autre onglet *****/
@@ -1420,7 +1420,7 @@ function showPopUpInfoCharge(iconElement, elementPopUp) {
 			if ($(elementPopUp + ':hover').length == 0) {
 				closePopUpInfoCharge(elementPopUp)
 			}
-		}, 500);		
+		}, 500);
 	});
 }
 
@@ -1432,4 +1432,38 @@ function loadAccountConnexionToFinishOperation() {
 	$('#div1CreateAccount-acc').remove()
 	$('#divMdpForget-acc').attr('target', '_blank')
 	$('#btnConnexion-acc').attr('onclick', '')
+}
+
+function disableStatutAndAddTriggerOnAgence() {
+	$("#agence-cb").click(function (e) {
+		if ($("#agence-cb").val() == 0) {
+			$('#nomAgence-mlca').attr('disabled', 'true')
+			$('#numSiret-mlca').attr('disabled', 'true')
+			$('#fraisAgence-mlca').attr('disabled', 'true')
+
+			$("#divPersonnaliteInfo-mcar").fadeIn("slow");	
+		}
+		else {
+			$('#nomAgence-mlca').removeAttr('disabled')
+			$('#numSiret-mlca').removeAttr('disabled')
+			$('#fraisAgence-mlca').removeAttr('disabled')
+			
+			$("#divPersonnaliteInfo-mcar").fadeOut("slow");	
+		}
+	});
+
+
+	$("#agence-cb").val("1") // La valeur va repasser à 0
+	$("#agence-cb").click();
+}
+
+function initButtonOnOff() {
+	$(".onoff input").click(function (e) {
+		if ($(this).attr('value') == '0') {
+			$(this).val("1")
+		}
+		else {
+			$(this).val("0")
+		}
+	})
 }

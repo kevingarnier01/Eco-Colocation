@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewBag.Title = "ButtonsCreateAccount";
+	ViewBag.Title = "ButtonsCreateAccount";
 }
 
 <div class="flex">
@@ -33,6 +33,19 @@
 				</div>
 				<div class="col-xs-12" id="divBtnCreateProfil-mcar">
 					<div id="btnCreateProfil-mcar">Valider</div>
+				</div>
+			</div>
+		</div>
+		<div class="flex">
+			<div class="childFlex">
+				<div class="div2InscriptionBtn-mcar" id="div2ConnectionWithAccount-mcar" onclick="openDivElement('#connectProfilWindow')">
+					<i class="iconInscriptionBtnByAccount-mcar fas fa-sign-in-alt"></i>
+					<p class="textInscriptionBtnByAccount-mcar">Finaliser l'opération en se connectant</p>
+				</div>
+				<div id="connectProfilWindow">
+					<div id="divCreateProfil-mcar">
+						@Html.Partial("~/Views/Account/Index.cshtml")
+					</div>
 				</div>
 			</div>
 		</div>

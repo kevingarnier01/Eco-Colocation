@@ -33,5 +33,8 @@
 <script language="javascript">
 	$(document).ready(function () {
 		window.history.replaceState('data to be passed', 'Title of the page', '/Modal/ModalInscription');
+		//Permet de ne plus pouvoir ouvrir le modal sur un autre onglet
+		stopNewTabOppening();
+		openModalInThisTab();
 	});
 </script>

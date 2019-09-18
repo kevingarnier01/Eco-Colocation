@@ -154,6 +154,140 @@
 										<div class="flex">
 											<i class="fas fa-home childFlex icon-ca"></i>
 										</div>
+										<p class="txtIcon-ca">TERRAIN</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-8">
+								<table class="table table-striped">
+									<tbody>
+										<tr>
+											<td class="col-xs-6">
+												<label for="Tarif_loyer">Engagement</label>
+											</td>
+											<td class="col-xs-6">
+												<select id="select-engagementType-mpc" class="form-control ">
+													<option value="1">Achat</option>
+													<option value="2">Location</option>
+												</select>
+											</td>
+										</tr>
+
+										<tr>
+											<td class="col-xs-6"><label for="Caution">Localisation</label></td>
+											<td class="col-xs-6">
+												<select id="select2-loyer-fh" class="form-control">
+													<option value="0">Toutes localisations</option>
+													<option value="1">Campagne</option>
+													<option value="2">Ville</option>
+												</select>
+											</td>
+										</tr>
+										<tr>
+											<td class="col-xs-6"><label for="Caution">Surface</label></td>
+											<td>
+												<select id="select2-loyer-fh" class="form-control">
+													@for (var i = 100; i < 501; i++)
+													{
+														<option value=@i>~ @i m²</option>
+														i += 99;
+													}
+													@for (var i = 1000; i < 10000; i++)
+													{
+														<option value=@i>~ @i m²</option>
+														i += 999;
+													}
+													@for (var i = 0; i < 101; i++)
+													{
+														if (i == 0)
+														{
+															<option value=@i>~ 1 ha</option>
+															<option value=@i>~ 5 ha</option>
+														}
+														else if (i == 100)
+														{
+															<option value=@i>> @i ha</option>
+														}
+														else
+														{
+															<option value=@i>~ @i ha</option>
+														}
+
+														i += 9;
+													}
+												</select>
+											</td>
+										</tr>
+										<tr id="rowCreation" class="rowByEngagement" style="display: none;">
+											<td class="col-xs-6"><label for="Loyer">Cout de création</label></td>
+											<td class="col-xs-6">
+												<div class="flex">
+													<input id="coutCreationMoy" name="coutCreationMoy" type="number" class="inputtable-ca" placeholder="Cout de création moyen" style="width: 150px;padding: 5px 8px;padding-right: 0;">
+													<p class="centerText signInputPropose-ml">€</p>
+												</div>
+											</td>
+										</tr>
+										<tr id="rowTerrain" class="rowByEngagement" style="display: none;">
+											<td class="col-xs-6"><label for="Loyer">Cout du terrain</label></td>
+											<td class="col-xs-6">
+												<div class="flex">
+													<input id="coutTerrainMoy" name="coutTerrainMoy" type="number" class="inputtable-ca" placeholder="Cout de terrain moyen" style="width: 150px;padding: 5px 8px;">
+													<p class="centerText signInputPropose-ml">€</p>
+												</div>
+											</td>
+										</tr>
+
+										<tr id="rowAchat" class="rowByEngagement" style="display: table-row;">
+											<td class="col-xs-6"><label for="Loyer">Cout de l'achat min</label></td>
+											<td class="col-xs-6">
+												<div class="flex">
+													<input id="coutAchatMoy" name="coutAchatMoy" type="number" class="inputtable-ca" placeholder="Cout d'achat min" style="width: 150px;padding: 5px 8px;">
+													<p class="centerText signInputPropose-ml">€</p>
+												</div>
+											</td>
+										</tr>
+										<tr id="rowAchat" class="rowByEngagement" style="display: table-row;">
+											<td class="col-xs-6"><label for="Loyer">Cout de l'achat max</label></td>
+											<td class="col-xs-6">
+												<div class="flex">
+													<input id="coutAchatMoy" name="coutAchatMoy" type="number" class="inputtable-ca" placeholder="Cout d'achat max" style="width: 150px;padding: 5px 8px;">
+													<p class="centerText signInputPropose-ml">€</p>
+												</div>
+											</td>
+										</tr>
+										<tr id="rowAchat" class="rowByEngagement" style="display: none;">
+											<td class="col-xs-6"><label for="Loyer">Cout de l'achat max</label></td>
+											<td class="col-xs-6">
+												<div class="flex">
+													<input id="coutAchatMoy" name="coutAchatMoy" type="number" class="inputtable-ca" placeholder="Cout d'achat max" style="width: 150px;padding: 5px 8px;">
+													<p class="centerText signInputPropose-ml">€</p>
+												</div>
+											</td>
+										</tr>
+
+										<tr>
+											<td class="col-xs-6"><label>Accès aux transports en communs</label></td>
+											<td style="padding: 0;padding-top: 4px;padding-left: 8px;">
+												<p class="onoff">
+													<input type="checkbox" value="1" id="accesEcolo-cb">
+													<label for="accesEcolo-cb"></label>
+												</p>
+											</td>
+										</tr>
+
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+					<div class="div20-descInform-ca">
+						<div class="div2-1-descInform-ca">
+							<div class="col-sm-4 div2-2-descInform-ca">
+								<div class="div2-3-descInform-ca">
+									<div class="div2-4-descInform-ca">
+										<div class="flex">
+											<i class="fas fa-home childFlex icon-ca"></i>
+										</div>
 										<p class="txtIcon-ca">LOGEMENT</p>
 									</div>
 								</div>
@@ -251,15 +385,6 @@
 											</td>
 										</tr>
 										<tr>
-											<td class="col-xs-6"><label>Accès aux transports en communs</label></td>
-											<td style="padding: 0;padding-top: 4px;padding-left: 8px;">
-												<p class="onoff">
-													<input type="checkbox" value="1" id="accesEcolo-cb">
-													<label for="accesEcolo-cb"></label>
-												</p>
-											</td>
-										</tr>
-										<tr>
 											<td class="col-xs-6">
 												<label>Accessibilité handicapé</label>
 											</td>
@@ -338,7 +463,6 @@
 							<div class="divImgLogoHorizontal-mcar">
 								<div class="divImgLogoVertical-mcar">
 									<i class="far fa-id-badge childFlex icon-ca"></i>
-
 								</div>
 							</div>
 						</div>
@@ -374,7 +498,7 @@
 </div>
 
 <script type="text/javascript">
-	$(document).ready(function () {		
+	$(document).ready(function () {
 		//ModalProjetCreation. Can use enter button to valid one of location place
 		$(document).on('keypress', '#inputSearchPlace-mpc', function (e) {
 			var key = e.which;
@@ -384,6 +508,9 @@
 			}
 		});
 
-		window.history.replaceState('data to be passed', 'Title of the page', '/Modal/ModalProjetCreation_ColocAnnounce');
+		window.history.replaceState('data to be passed', 'Title of the page',
+			'/Modal/ModalProjetCreation_ColocAnnounce/?targetCity=' + "@ViewData["targetCity"]" + "&urlCurrentPage=" + $('#urlCurrentPage').val());
+
+		initButtonOnOff();
 	});
 </script>

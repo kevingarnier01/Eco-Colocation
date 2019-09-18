@@ -266,15 +266,44 @@
 				</div>
 			</div>
 			<div class="col-sm-8 divRightSideEncadrer-mcar">
-				<div class="col-sm-6">
-					<label class="lbl-mcar">Email</label>
-					<input type="email" placeholder="Entrez votre email" class="input-mcar">
-					<div class="lineinput-mcar"></div>
+				<div class="overflow">
+					<div class="col-sm-6">
+						<label class="lbl-mcar">Email</label>
+						<input type="email" placeholder="Entrez votre email" class="input-mcar">
+						<div class="lineinput-mcar"></div>
+					</div>
+					<div class="col-sm-6">
+						<label class="lbl-mcar">Téléphone</label>
+						<input type="tel" placeholder="Entrez votre numéro" class="input-mcar">
+						<div class="lineinput-mcar"></div>
+					</div>
 				</div>
-				<div class="col-sm-6">
-					<label class="lbl-mcar">Téléphone</label>
-					<input type="tel" placeholder="Entrez votre numéro" class="input-mcar">
-					<div class="lineinput-mcar"></div>
+				<div id="wayToBeContact-pdf">
+					<h4 class="centerText" style="margin-bottom: 15px;">
+						Comment souhaitez-vous être contacté ?
+					</h4>
+					<div>
+						<div class="flex">
+							<div class="childFlex">
+								<input id="chkEmail-mlca" type="radio" name="radioContact">
+								<label for="chkEmail-mlca">Être contacté par adresse email</label>
+							</div>
+						</div>
+
+						<div class="flex">
+							<div class="childFlex">
+								<input id="chkPhone-mlca" type="radio" name="radioContact">
+								<label for="chkPhone-mlca">Être contacté par téléphone</label>
+							</div>
+						</div>
+
+						<div class="flex">
+							<div class="childFlex">
+								<input id="chkBoth-mlca" type="radio" name="radioContact">
+								<label for="chkBoth-mlca">Les deux</label>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>

@@ -246,7 +246,7 @@
 											<td class="col-xs-6"><label>Meublée</label></td>
 											<td style="padding: 0;padding-top: 4px;padding-left: 8px;">
 												<p class="onoff">
-													<input type="checkbox" value="1" id="meuble-cb">
+													<input type="checkbox" value="1" id="meuble-cb" >
 													<label for="meuble-cb"></label>
 												</p>
 											</td>
@@ -327,7 +327,7 @@
 											<td class="col-xs-6"><label>Accès aux transports en communs</label></td>
 											<td style="padding: 0;padding-top: 4px;padding-left: 8px;">
 												<p class="onoff">
-													<input type="checkbox" value="1" id="accesEcolo-cb">
+													<input type="checkbox" value="1" id="accesEcolo-cb" >
 													<label for="accesEcolo-cb"></label>
 												</p>
 											</td>
@@ -338,7 +338,7 @@
 											</td>
 											<td style="padding: 0;padding-top: 4px;padding-left: 8px;">
 												<p class="onoff">
-													<input type="checkbox" value="1" id="accesHandicap-cb">
+													<input type="checkbox" value="1" id="accesHandicap-cb" >
 													<label for="accesHandicap-cb"></label>
 												</p>
 											</td>
@@ -367,7 +367,7 @@
 											<td class="col-xs-6"><label>Accessibilité fumeur</label></td>
 											<td style="padding: 0;padding-top: 4px;padding-left: 8px;">
 												<p class="onoff">
-													<input type="checkbox" value="1" id="fumeur-cb">
+													<input type="checkbox" value="1" id="fumeur-cb" >
 													<label for="fumeur-cb"></label>
 												</p>
 											</td>
@@ -376,9 +376,59 @@
 											<td class="col-xs-6"><label>Accessibilité animaux</label></td>
 											<td style="padding: 0;padding-top: 4px;padding-left: 8px;">
 												<p class="onoff">
-													<input type="checkbox" value="1" id="animaux-cb">
+													<input type="checkbox" value="1" id="animaux-cb" >
 													<label for="animaux-cb"></label>
 												</p>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+
+					<h2 class="title centerText" id="titleInfoPerso-ml">Informations Personnelles</h2>
+					<p class="underTitle centerText" id="underTitleInfoPerson-ml">(Uniquement si vous n'avez pas encore creé votre compte)</p>
+					<div class="div20-descInform-ca">
+						<div class="div2-1-descInform-ca">
+							<div class="col-sm-4 div2-2-descInform-ca">
+								<div class="div2-3-descInform-ca" style="width: 60px;">
+									<div class="div2-4-descInform-ca">
+										<div class="flex">
+											<i class="fas fa-user-tag childFlex icon-ca"></i>
+										</div>
+										<p class="txtIcon-ca">Agence</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-8">
+								<table class="table table-striped">
+									<tbody>
+										<tr>
+											<td class="col-xs-6"><label>Êtes-vous une agence ?</label></td>
+											<td style="padding: 0;padding-top: 4px;padding-left: 8px;">
+												<p class="onoff">
+													<input type="checkbox" value="0" id="agence-cb">
+													<label for="agence-cb"></label>
+												</p>
+											</td>
+										</tr>
+										<tr>
+											<td class="col-xs-6"><label>Nom de l'agence</label></td>
+											<td style="padding: 0;padding-top: 4px;padding-left: 8px;">
+												<input id="nomAgence-mlca" name="nomAgence" type="text" value="" class="inputtable-ca">
+											</td>
+										</tr>
+										<tr>
+											<td class="col-xs-6"><label>Numéro de siret</label></td>
+											<td style="padding: 0;padding-top: 4px;padding-left: 8px;">
+												<input id="numSiret-mlca" name="SiretNumber" type="text" value="" class="inputtable-ca">
+											</td>
+										</tr>
+										<tr>
+											<td class="col-xs-6"><label>Frais d'agence</label></td>
+											<td style="padding: 0;padding-top: 4px;padding-left: 8px;">
+												<input id="fraisAgence-mlca" name="fraisAgence" type="number" value="" class="inputtable-ca">
 											</td>
 										</tr>
 									</tbody>
@@ -399,24 +449,9 @@
 		}
 		else
 		{
-			<h2 class="title centerText" id="titleInfoPerso-ml">Informations Personnelles</h2>
-			<p class="underTitle centerText" id="underTitleInfoPerson-ml">(Uniquement si vous n'avez pas encore creé votre compte)</p>
 			<div id="partialView-ml">
 				@Html.Partial("~/Views/Account/PersonalDataForm.cshtml")
-				@Html.Partial("~/Views/Account/ButtonsCreateAccount.cshtml")
-				<div class="flex">
-					<div class="childFlex">
-						<div class="div2InscriptionBtn-mcar" id="div2ConnectionWithAccount-mcar" onclick="openDivElement('#connectProfilWindow')">
-							<i class="iconInscriptionBtnByAccount-mcar fas fa-sign-in-alt"></i>
-							<p class="textInscriptionBtnByAccount-mcar">Finaliser l'opération en se connectant</p>
-						</div>
-						<div id="connectProfilWindow">
-							<div id="divCreateProfil-mcar">
-								@Html.Partial("~/Views/Account/Index.cshtml")
-							</div>
-						</div>
-					</div>
-				</div>
+				@Html.Partial("~/Views/Account/ButtonsCreateAccount.cshtml")				
 			</div>
 		}
 	</div>
@@ -427,7 +462,12 @@
 
 <script language="text/javascript">
 	$(document).ready(function () {
-		window.history.replaceState('data to be passed', 'Title of the page', '/Modal/ModalLocation_ColocAnnounce');
+		window.history.replaceState('data to be passed', 'Title of the page', 
+			'/Modal/ModalLocation_ColocAnnounce/?targetCity=' + "@ViewData["targetCity"]" + "&urlCurrentPage=" + $('#urlCurrentPage').val());
+
 		loadAccountConnexionToFinishOperation();
+
+		initButtonOnOff()
+		disableStatutAndAddTriggerOnAgence();
 	});
 </script>

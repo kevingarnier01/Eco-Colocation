@@ -28,6 +28,8 @@ namespace Eco_Colocation.Controllers
 
 		public ActionResult ModalLocation()
 		{
+			ViewData["targetCity"] = "Rennes";
+
 			return PartialView();
 		}
 
