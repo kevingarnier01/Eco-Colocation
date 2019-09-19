@@ -52,7 +52,7 @@ namespace Eco_Colocation.Controllers
 		{
 			ViewData["idModalToTrigger"] = "#addSearchingAnnonceLink-ps";
 
-			return View("~/Views/PeopleSearching/Index.cshtml");
+			return View("~/Views/home/Index.cshtml");
 		}
 
 		[HttpGet]

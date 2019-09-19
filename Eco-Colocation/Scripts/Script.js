@@ -47,18 +47,27 @@ $(document).ready(function () {
 	//ModalProjetCreation, when option 'Type d'engagement' list change.
 	$(document).on('change', 'select#select-engagementType-mpc', function () {
 		if ($(this).children(":selected").html() == 'Achat') {
-			$('.rowByEngagement').css('display', 'none');
-			$('#rowAchat').css('display', 'table-row');
-			$('#rowLoyer').css('display', 'table-row');
+			$('#tableLogement-mpc .rowByEngagement').fadeOut("slow");
+			$('#tableLogement-mpc #rowAchat').fadeIn("slow");
+			$('#tableLogement-mpc #rowLoyer').fadeIn("slow");
 		}
 		else if ($(this).children(":selected").html() == 'Location') {
-			$('.rowByEngagement').css('display', 'none');
-			$('#rowLoyer').css('display', 'table-row');
+			$('#tableLogement-mpc .rowByEngagement').fadeOut("slow");
+			$('#tableLogement-mpc #rowLoyer').fadeIn("slow");
 		}
-		else if ($(this).children(":selected").html() == 'Creation') {
-			$('.rowByEngagement').css('display', 'none');
-			$('#rowCreation').css('display', 'table-row');
-			$('#rowTerrain').css('display', 'table-row');
+		else if ($(this).children(":selected").html() == 'Construction') {
+			$('#tableLogement-mpc .rowByEngagement').fadeOut("slow");
+			$('#tableLogement-mpc #rowCreation').fadeIn("slow");
+		}
+	});
+
+	//engagement pour le terrain
+	$(document).on('change', 'select#select-engagementTypeTerrain-mpc', function () {
+		if ($(this).children(":selected").html() == 'Achat') {
+			$('#tableTerrain-mpc #rowAchatTerrain').fadeIn("slow");
+		}
+		else if ($(this).children(":selected").html() == 'Location') {
+			$('#tableTerrain-mpc #rowAchatTerrain').fadeOut("slow");
 		}
 	});
 
@@ -98,7 +107,7 @@ $(document).ready(function () {
 
 	//Permet de ne plus pouvoir ouvrir le modal sur un autre onglet
 	stopNewTabOppening();
-	openModalInThisTab();	
+	openModalInThisTab();
 });
 
 /***** Permet de ne plus pouvoir ouvrir le modal sur un autre onglet *****/
@@ -451,41 +460,40 @@ function chooseAddr(lat1, lng1) {
 //Garder cette fonction en commentaire - cette utilisation concerne nominatim.openstreetmap.org 
 //(Si algolia ne fonctionne plus, utiliser lui)
 
-var compteurPlace = 1;
-function addNewPlace(inputId) {
-	if ($(inputId + 'Hidden').val() == $(inputId).val()) {
-		if (/[a-zA-Z]/.test($.trim($(inputId).val()))) {
-			var htmlPlace =
-				'<div id="place' + compteurPlace + '" class="divPlace-cpc">' +
-				'<p id="placeName-cpc" class="placeName-cpc">' + $("#inputSearchPlace-mpc").val() + '</p>' +
-				'<div class="crossPlace-cpc"><i onclick="deletePlace(place' + compteurPlace + ')" class="fas fa-times crossPlace-cpc"></i></div>' +
-				'</div>';
+var compteurPlaceItem = 100;
+function addNewPlaceItem(ui, inputId, identityPage) {
+	var locationNameSelected = ui.item.value;
 
-			$("#place-cpc").append(htmlPlace);
+	var htmlPlace =
+		(identityPage != "ph") ?
+			'<div id="place' + identityPage + compteurPlaceItem + '" class="divPlace">'
+			: '<div id="place' + identityPage + compteurPlaceItem + '" class="divPlace divPlace-ph">'
+	htmlPlace += 
+		'<p class="placeName" title="' + locationNameSelected + '">' + locationNameSelected + '</p>' +
+		'<div class="crossPlace"><i onclick="deletePlace(place' + identityPage + compteurPlaceItem + ', \'' + identityPage + '\')" class="fas fa-times crossPlace"></i></div>' +
+		'</div>';
 
-			if ($("#placeSaved-cpc").css('display') == 'none')
-				$("#placeSaved-cpc").css('display', 'block');
+	$("#place-" + identityPage).append(htmlPlace);
 
-			$(inputId).val("");
+	if ($("#placeSaved-" + identityPage).css('display') == 'none')
+		$("#placeSaved-" + identityPage).css('display', 'block');
 
-			compteurPlace++;
-		}
-	}
-	else {
-		alert('Veuillez selectionner une des villes proposées par la liste d\'auto completion des villes.')
-	}
+	setTimeout(function () {
+		$(inputId).val("");
+	}, 10)
+
+	compteurPlaceItem++;
 }
 
-function deletePlace(element) {
+function deletePlace(element, identityPage) {
 	$(element).remove();
 
-	if ($('#placeSaved-cpc .divPlace-cpc').length == 0)
-		$("#placeSaved-cpc").css('display', 'none');
-
-	if ($('#globalDivMultiLocalisation-ph .divMultiPlace-ph').length == 0) {
-		$("#globalDivMultiLocalisation-ph").css('display', 'none');
-		$('#inputSearchPlace-ph').val("")
-		$('#typeResearchSct-ph').removeAttr('disabled')
+	if ($('#placeSaved-' + identityPage + ' .divPlace').length == 0) {
+		$("#placeSaved-" + identityPage).css('display', 'none');
+		if (identityPage == "ph") {
+			$('#inputSearchPlace-ph').val("")
+			$('#typeResearchSct-ph').removeAttr('disabled')
+		}
 	}
 }
 
@@ -555,10 +563,16 @@ function getLstAutoCompletion(arr, inputId, typeResearch) {
 			html: 'html',
 			select: function (event, ui) {
 				if (inputId.id == "inpMultiPlace-al") {
-					addNewPlaceItem(ui, inputId);
+					addNewPlaceItem(ui, inputId, "al");
 				}
 				else if (inputId.id == "inputSearchPlace-ph") {
-					addNewPlaceItemPh(ui, inputId);
+					addNewPlaceItem(ui, inputId, "ph");
+				}
+				else if (inputId.id == "inputSearchPlace-mpc") {
+					addNewPlaceItem(ui, inputId, "mpc")
+				}
+				else if (inputId.id == "inputSearchPlace-car") {
+					addNewPlaceItem(ui, inputId, "car")
 				}
 				saveValueSelected(event, ui, this)
 			}
@@ -1340,50 +1354,6 @@ function getOtherMarkerFromThisNewPlace(ui) {
 
 }
 
-var compteurPlaceItem = 2;
-function addNewPlaceItem(ui, inputId) {
-	var locationNameSelected = ui.item.value;
-
-	var htmlPlace =
-		'<div id="place' + compteurPlaceItem + '" class="divMultiPlace-al">' +
-		'<p id="placeName-cpc" class="placeName-cpc" title="' + locationNameSelected + '">' + locationNameSelected + '</p>' +
-		'<div class="crossPlace-cpc"><i onclick="deletePlace(place' + compteurPlaceItem + ')" class="fas fa-times crossPlace-cpc"></i></div>' +
-		'</div>';
-
-	$("#divAllMultiPlace-al").append(htmlPlace);
-
-	if ($("#placeSaved-cpc").css('display') == 'none')
-		$("#placeSaved-cpc").css('display', 'block');
-
-	setTimeout(function () {
-		$(inputId).val("");
-	}, 10)
-
-	compteurPlaceItem++;
-}
-
-var compteurPlaceItemPh = 1;
-function addNewPlaceItemPh(ui, inputId) {
-	var locationNameSelected = ui.item.value;
-
-	var htmlPlace =
-		'<div class="divMultiPlace-ph" id="place' + compteurPlaceItemPh + '"><p id="placeName-ph" class="placeName-ph" title="' + locationNameSelected + '">' + locationNameSelected + '</p>' +
-		'<div class="crossPlace-ph"><i onclick="deletePlace(place' + compteurPlaceItemPh + ')" class="fas fa-times crossPlace-ph"></i></div>' +
-		'</div>';
-
-	$("#divMultiLocalisation-ph").append(htmlPlace);
-
-	compteurPlaceItemPh++;
-
-	if ($("#globalDivMultiLocalisation-ph").css('display') == 'none')
-		$("#globalDivMultiLocalisation-ph").css('display', 'block');
-
-	setTimeout(function () {
-		$(inputId).val("");
-	}, 10)
-
-}
-
 function typeOfResearchLocation(item) {
 	if (item.value == "communes") {
 		$("#inputSearchPlace-ph").attr("placeholder", "Veuillez indiquer la commune concernée")
@@ -1441,14 +1411,14 @@ function disableStatutAndAddTriggerOnAgence() {
 			$('#numSiret-mlca').attr('disabled', 'true')
 			$('#fraisAgence-mlca').attr('disabled', 'true')
 
-			$("#divPersonnaliteInfo-mcar").fadeIn("slow");	
+			$("#divPersonnaliteInfo-mcar").fadeIn("slow");
 		}
 		else {
 			$('#nomAgence-mlca').removeAttr('disabled')
 			$('#numSiret-mlca').removeAttr('disabled')
 			$('#fraisAgence-mlca').removeAttr('disabled')
-			
-			$("#divPersonnaliteInfo-mcar").fadeOut("slow");	
+
+			$("#divPersonnaliteInfo-mcar").fadeOut("slow");
 		}
 	});
 

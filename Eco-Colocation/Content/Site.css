@@ -79,6 +79,11 @@ main {
 
 label {
 	font-weight: inherit;
+	text-indent: 1px
+}
+
+select {
+	text-indent: 1px
 }
 
 /* Navbar */
@@ -260,7 +265,7 @@ label {
 			display: block;
 			position: absolute;
 			top: 0px;
-			left: -3px;
+			left: -1px;
 			width: 100%;
 			font-size: 12px;
 			color: white;
@@ -315,6 +320,7 @@ a {
 
 input, textarea {
 	outline: 0;
+	text-indent: 1px;
 }
 
 p {
@@ -960,10 +966,6 @@ select#typeResearchSct-ph:focus {
 	min-width: 145px;
 }
 
-#divMultiLocalisation-ph {
-	flex-wrap: wrap;
-}
-
 #globalDivMultiLocalisation-np {
 	width: 603px;
 	box-shadow: 0 0 2px 0px #999;
@@ -973,50 +975,36 @@ select#typeResearchSct-ph:focus {
 	display: none
 }
 
-.divMultiPlace-ph {
-	padding: 5px 10px;
-	padding-top: 7px;
-	border-radius: 8px;
-	display: flex;
-	background-color: white;
-	max-width: 100%;
-	min-width: 80px;
-	margin-left: 5px;
-	height: 35px;
-	border: 2px solid #f4f6f7;
+.divPlace-ph {
 	width: 32%;
-	margin-bottom: 10px;
-	margin-top: 10px;
+	margin-bottom: 10px !important;
+	margin-top: 10px !important;
 }
 
 @media screen and (max-width: 730px) {
-	.divMultiPlace-ph {
+	.divPlace-ph {
 		width: 48%;
 	}
 }
 
-.placeName-ph {
+.placeName {
 	white-space: nowrap;
 	text-overflow: ellipsis;
 	overflow: hidden;
 	max-width: 97%;
 	font-weight: normal;
 	color: #666;
-	text-indent: 2px;
 }
 
-.crossPlace-ph {
+.crossPlace {
 	margin-left: auto;
 	padding-left: 3px;
-}
-
-.crossPlace-ph {
 	font-size: 15px;
 	color: #555;
 	cursor: pointer;
 }
 
-#globalDivMultiLocalisation-ph {
+#placeSaved-ph {
 	width: 603px;
 	max-width: 100%;
 	box-shadow: 0 0 2px 0px #999;
@@ -1026,7 +1014,7 @@ select#typeResearchSct-ph:focus {
 	display: none;
 }
 
-#divMultiLocalisation-ph {
+#place-ph {
 	flex-wrap: wrap;
 }
 
@@ -1558,7 +1546,7 @@ div#divContenuPlSchDisable {
 	padding-top: 5px;
 }
 
-.divMultiPlace-al {
+.divPlace {
 	padding: 5px 10px;
 	padding-top: 7px;
 	border-radius: 8px;
@@ -1569,10 +1557,8 @@ div#divContenuPlSchDisable {
 	margin-left: 5px;
 	height: 35px;
 	border: 2px solid #f4f6f7;
-}
-
-#divAllMultiPlace-al {
-	overflow: auto;
+	margin-top: 3px;
+	margin-bottom: 3px;
 }
 
 #globalDivMapSearchColoc {
@@ -2566,6 +2552,10 @@ d5-description-mpc {
 	}
 }
 
+.inpAccesTransport-mcp {
+	margin-right: 11px !important;
+}
+
 /*** End ModalLocation ***/
 
 /*** ModalMessage ***/
@@ -2961,21 +2951,21 @@ d5-description-mpc {
 	border-radius: 5px;
 }
 
-#placeSaved-cpc {
+.placeSaved {
 	margin-bottom: 5px;
 	display: none
 }
 
-#place-cpc {
+.place {
 	display: flex;
 	flex-wrap: wrap;
 	border-radius: 5px;
-	background-color: #f5f5f5;
+	background-color: rgb(225, 229, 162);
 	padding: 10px 5px;
 	margin: 10px;
 }
 
-.divPlace-cpc {
+.divplace {
 	margin: 4px;
 	padding: 5px 10px;
 	border-radius: 8px;
@@ -2989,21 +2979,12 @@ d5-description-mpc {
 	max-width: 100%;
 }
 
-.placeName-cpc {
-	white-space: nowrap;
-	text-overflow: ellipsis;
-	overflow: hidden;
-	max-width: 97%;
-	font-weight: normal;
-	color: #666;
-}
-
-.crossPlace-cpc {
+.crossPlace {
 	margin-left: auto;
 	padding-left: 3px;
 }
 
-i.fas.fa-times.crossPlace-cpc {
+i.fas.fa-times.crossPlace{
 	font-size: 15px;
 	color: #555;
 	cursor: pointer;
@@ -4864,7 +4845,6 @@ i.fas.fa-times.crossPlace-cpc {
 	color: #6b6a6a;
 	font-weight: 100;
 	background-color: transparent;
-	text-indent: 1px;
 }
 
 .underInput-ayer {

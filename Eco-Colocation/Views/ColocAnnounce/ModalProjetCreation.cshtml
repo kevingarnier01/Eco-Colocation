@@ -109,7 +109,6 @@
 						</div>
 						<div id="div10-1-adresseLog-ca" class="col-sm-8 col-xs-12">
 							<div id="div10-2-adresseLog-ca" style="position:relative">
-								<div onclick="addNewPlace('#inputSearchPlace-mpc')" id="btnEnterNewPlace-mpc" class="fontFamilyNote">| Entrer</div>
 								<input id="inputSearchPlace-mpc" oninput="addr_searchCity(this);" autocomplete="off" type="text" class="inputSearchPlace form-control" placeholder="Où recherchez-vous ?">
 								<input id="inputSearchPlace-mpcHidden" name="inputSearchPlace-mpcHidden" type="hidden" value="">
 								<div class="listAutoCompleteToModal"></div>
@@ -117,8 +116,8 @@
 								@*<datalist id="listAutoCompletePlace2"></datalist>*@
 
 								@* C'est ici que les villes qu'ils valident seront affichées *@
-								<div id="placeSaved-cpc">
-									<div id="place-cpc">
+								<div id="placeSaved-mpc" class="placeSaved">
+									<div id="place-mpc" class="place">
 									</div>
 								</div>
 
@@ -146,7 +145,7 @@
 			</div>
 			<div id="div1-descInform-ca" class="col-sm-12" style="">
 				<div id="div2-descInform-ca" class="col-sm-11 col-xs-12">
-					<div class="div20-descInform-ca">
+					<div class="div20-descInform-ca" id="tableTerrain-mpc">
 						<div class="div2-1-descInform-ca">
 							<div class="col-sm-4 div2-2-descInform-ca">
 								<div class="div2-3-descInform-ca">
@@ -166,7 +165,7 @@
 												<label for="Tarif_loyer">Engagement</label>
 											</td>
 											<td class="col-xs-6">
-												<select id="select-engagementType-mpc" class="form-control ">
+												<select id="select-engagementTypeTerrain-mpc" class="form-control ">
 													<option value="1">Achat</option>
 													<option value="2">Location</option>
 												</select>
@@ -189,98 +188,70 @@
 												<select id="select2-loyer-fh" class="form-control">
 													@for (var i = 100; i < 501; i++)
 													{
-														<option value=@i>~ @i m²</option>
+														<option value=@i>@i m² ou plus</option>
 														i += 99;
 													}
 													@for (var i = 1000; i < 10000; i++)
 													{
-														<option value=@i>~ @i m²</option>
+														<option value=@i>@i m² ou plus</option>
 														i += 999;
 													}
 													@for (var i = 0; i < 101; i++)
 													{
 														if (i == 0)
 														{
-															<option value=@i>~ 1 ha</option>
-															<option value=@i>~ 5 ha</option>
+															<option value=@i>1 ha ou plus</option>
 														}
 														else if (i == 100)
 														{
-															<option value=@i>> @i ha</option>
+															<option value=@i>@i ha ou plu</option>
 														}
 														else
 														{
-															<option value=@i>~ @i ha</option>
+															<option value=@i>@i ha ou plu</option>
 														}
 
 														i += 9;
 													}
 												</select>
 											</td>
-										</tr>
-										<tr id="rowCreation" class="rowByEngagement" style="display: none;">
-											<td class="col-xs-6"><label for="Loyer">Cout de création</label></td>
+										</tr>				
+										<tr id="rowAchatTerrain" class="rowByEngagement" style="display: table-row;">
+											<td class="col-xs-6"><label for="Loyer">Cout de l'achat moyen</label></td>
 											<td class="col-xs-6">
 												<div class="flex">
-													<input id="coutCreationMoy" name="coutCreationMoy" type="number" class="inputtable-ca" placeholder="Cout de création moyen" style="width: 150px;padding: 5px 8px;padding-right: 0;">
+ 													<input id="coutAchatMoy" name="coutAchatMoy" type="number" class="inputtable-ca" placeholder="Cout d'achat moyen" style="width: 150px;padding: 5px 8px;">
 													<p class="centerText signInputPropose-ml">€</p>
 												</div>
 											</td>
 										</tr>
-										<tr id="rowTerrain" class="rowByEngagement" style="display: none;">
-											<td class="col-xs-6"><label for="Loyer">Cout du terrain</label></td>
-											<td class="col-xs-6">
-												<div class="flex">
-													<input id="coutTerrainMoy" name="coutTerrainMoy" type="number" class="inputtable-ca" placeholder="Cout de terrain moyen" style="width: 150px;padding: 5px 8px;">
-													<p class="centerText signInputPropose-ml">€</p>
-												</div>
-											</td>
-										</tr>
-
-										<tr id="rowAchat" class="rowByEngagement" style="display: table-row;">
-											<td class="col-xs-6"><label for="Loyer">Cout de l'achat min</label></td>
-											<td class="col-xs-6">
-												<div class="flex">
-													<input id="coutAchatMoy" name="coutAchatMoy" type="number" class="inputtable-ca" placeholder="Cout d'achat min" style="width: 150px;padding: 5px 8px;">
-													<p class="centerText signInputPropose-ml">€</p>
-												</div>
-											</td>
-										</tr>
-										<tr id="rowAchat" class="rowByEngagement" style="display: table-row;">
-											<td class="col-xs-6"><label for="Loyer">Cout de l'achat max</label></td>
-											<td class="col-xs-6">
-												<div class="flex">
-													<input id="coutAchatMoy" name="coutAchatMoy" type="number" class="inputtable-ca" placeholder="Cout d'achat max" style="width: 150px;padding: 5px 8px;">
-													<p class="centerText signInputPropose-ml">€</p>
-												</div>
-											</td>
-										</tr>
-										<tr id="rowAchat" class="rowByEngagement" style="display: none;">
-											<td class="col-xs-6"><label for="Loyer">Cout de l'achat max</label></td>
-											<td class="col-xs-6">
-												<div class="flex">
-													<input id="coutAchatMoy" name="coutAchatMoy" type="number" class="inputtable-ca" placeholder="Cout d'achat max" style="width: 150px;padding: 5px 8px;">
-													<p class="centerText signInputPropose-ml">€</p>
-												</div>
-											</td>
-										</tr>
-
 										<tr>
 											<td class="col-xs-6"><label>Accès aux transports en communs</label></td>
 											<td style="padding: 0;padding-top: 4px;padding-left: 8px;">
-												<p class="onoff">
-													<input type="checkbox" value="1" id="accesEcolo-cb">
-													<label for="accesEcolo-cb"></label>
-												</p>
+												<div class="flex">
+													<div>
+														<div class="flex">
+															<input type="radio" name="AccesTransport" class="inpAccesTransport-mcp" id="yesAccesTransports-mcp">
+															<label for="yesAccesTransports-mcp">Oui</label>
+														</div>
+														<div class="flex">
+															<input type="radio" name="AccesTransport" class="inpAccesTransport-mcp" id="noAccesTransports-mcp">
+															<label for="noAccesTransports-mcp">Non</label>
+														</div>
+														<div class="flex">
+															<input type="radio" name="AccesTransport" class="inpAccesTransport-mcp" id="maybeAccesTransports-mcp" checked="">
+															<label for="maybeAccesTransports-mcp">Peut-importe</label>
+														</div>
+													</div>
+												</div>
 											</td>
 										</tr>
-
 									</tbody>
 								</table>
 							</div>
 						</div>
 					</div>
-					<div class="div20-descInform-ca">
+					<div class="div20-descInform-ca" id="tableLogement-mpc">
 						<div class="div2-1-descInform-ca">
 							<div class="col-sm-4 div2-2-descInform-ca">
 								<div class="div2-3-descInform-ca">
@@ -303,7 +274,7 @@
 												<select id="select-engagementType-mpc" class="form-control ">
 													<option value="1">Achat</option>
 													<option value="2">Location</option>
-													<option value="3">Creation</option>
+													<option value="3">Construction</option>
 												</select>
 											</td>
 										</tr>
@@ -351,15 +322,6 @@
 											<td class="col-xs-6">
 												<div class="flex">
 													<input id="coutCreationMoy" name="coutCreationMoy" type="number" class="inputtable-ca" placeholder="Cout de création moyen" style="width: 150px;padding: 5px 8px;padding-right: 0;">
-													<p class="centerText signInputPropose-ml">€</p>
-												</div>
-											</td>
-										</tr>
-										<tr id="rowTerrain" class="rowByEngagement">
-											<td class="col-xs-6"><label for="Loyer">Cout du terrain</label></td>
-											<td class="col-xs-6">
-												<div class="flex">
-													<input id="coutTerrainMoy" name="coutTerrainMoy" type="number" class="inputtable-ca" placeholder="Cout de terrain moyen" style="width: 150px;padding: 5px 8px;">
 													<p class="centerText signInputPropose-ml">€</p>
 												</div>
 											</td>
