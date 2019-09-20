@@ -96,9 +96,11 @@ else
 	</div>
 </div>
 <div id="divGlobalResultFilesUpl-mcar">
-	<ul id="divResultFilesUpl-mcar" class='all-slides'>
-		@* Html généré par javascript dans la fonction showMultiplesFilesUpload() *@
-	</ul>
+	<div class="childFlex">
+		<ul id="divResultFilesUpl-mcar" class='all-slides'>
+			@* Html généré par javascript dans la fonction showMultiplesFilesUpload() *@
+		</ul>
+	</div>
 </div>
 @if (!User.Identity.IsAuthenticated)
 {
@@ -115,7 +117,7 @@ else
 
 <script type="text/javascript">
 	$(document).ready(function () {
-		showMultiplesFilesUpload();
+		showMultiplesFilesUpload("file-upload", "divResultFilesUpl-mcar");
 		initSlidepicture();
 		showDivCritereRecherche();
 	});

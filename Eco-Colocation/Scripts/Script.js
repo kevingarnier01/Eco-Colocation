@@ -773,8 +773,8 @@ function openSecondModal() {
 	}, 1000);
 }
 
-function showMultiplesFilesUpload() {
-	var filesInput = document.getElementById("file-upload");
+function showMultiplesFilesUpload(filesInputId, elementIdToAppend) {
+	var filesInput = document.getElementById(filesInputId);
 
 	filesInput.addEventListener("change", function (event) {
 		$('body').addClass('waiting');
@@ -801,10 +801,11 @@ function showMultiplesFilesUpload() {
 					'<div class="resultPictureUpl-mcar" id="pictureUpl' + i + '-mcar"' +
 					'style="background: url(' + picFile.result + ') 50% no-repeat;" ></div >' +
 					'<i class="crossPictureUpl-mcar fas fa-times-circle"></i>' +
+					'<i class="fas fa-arrows-alt imgCursorMove"></i>' +
 					'</div>' +
 					'</li >';
 
-				$("#divResultFilesUpl-mcar").append(elementHtml);
+				$("#" + elementIdToAppend).append(elementHtml);
 			});
 
 			//Read the image
@@ -813,7 +814,6 @@ function showMultiplesFilesUpload() {
 			setTimeout(function () {
 				trierLesImagesUpl();
 				setTimeout(function () {
-
 					$('body').removeClass('waiting');
 				}, 2000);
 				$('.labelDescFile-mcar').css('display', 'block');
@@ -1436,4 +1436,9 @@ function initButtonOnOff() {
 			$(this).val("0")
 		}
 	})
+}
+
+function updateLocalisationPeopleSearch() {
+	//Change le titre selon la ville "150 personnes recherchent à ..."
+	//Mettre à jour les personnes qui recherchent
 }

@@ -13,6 +13,15 @@
 			<a id="addSearchingAnnonceLink-ps" href="@Url.Action("ModalCARecherche", "Account", null)" rel="modal:open" class="noLink">Ajouter mon annonce de recherche d'éco-colocation</a>
 		</div>
 	</div>
+	<div class="flex">
+		<div class="childFlex">
+			<select class="form-control" id="multipleLocalisation-pl" onchange="updateLocalisationPeopleSearch()">@*Ajouter dans le function js le nom de la ville associé*@
+				<option value="1">Rennes 35, Ille-et-Vilaine, Bretagne</option>
+				<option value="2">Acigné 35, Ille-et-Vilaine, Bretagne</option>
+				<option value="2">Bruz 35, Ille-et-Vilaine, Bretagne</option>
+			</select>
+		</div>
+	</div>
 	<div id="divPanelPl">
 		@if (User.Identity.IsAuthenticated)
 		{

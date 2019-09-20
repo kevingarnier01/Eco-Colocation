@@ -116,13 +116,15 @@
 					Ajouter une photo à l'image de l'évènement*
 				</label>
 			</div>
-
-			<label id="btnAddPicture-ayer" for="fileUpload-ayer">Ajouter une photo</label>
-			<input id="fileUpload-ayer" type="file" onchange="uploadImgEcoRoommate();">
-			<div id="divResultFilesUpl-ayer">
-				<img src="" id="resultImgUpl-ayer">
-				<i id="icondeletePicture-ayer" class="fas fa-times-circle" onclick="removeUploadPicture_ayer()"></i>
+			<label id="btnAddPicture-ayer" for="fileUpload-ayer">Ajouter des photos</label>
+			<input id="fileUpload-ayer" type="file" multiple="multiple" @*onchange="uploadImgEcoRoommate();"*@>
+			<div id="divGlobalResultFilesUpl-mcar">
+				<div class="childFlex">
+					<ul id="divResultFilesUpl-mcar" class="all-slides ui-sortable"></ul>
+				</div>
 			</div>
+			@*<img src="" id="resultImgUpl-ayer">
+				<i id="icondeletePicture-ayer" class="fas fa-times-circle" onclick="removeUploadPicture_ayer()"></i>*@
 		</div>
 	</div>
 	<div>
@@ -657,3 +659,11 @@
 		}
 	</div>
 </div>
+
+
+<script type="text/javascript">
+	$(document).ready(function () {
+		showMultiplesFilesUpload("fileUpload-ayer", "divResultFilesUpl-mcar");
+		initSlidepicture();
+	});
+</script>
