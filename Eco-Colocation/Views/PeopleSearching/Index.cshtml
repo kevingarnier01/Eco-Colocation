@@ -5,21 +5,23 @@
 }
 
 <div id="peopleSearching">
-	<h3 id="titleSearching">150 personnes recherchent à Rennes</h3>
+	<h3 id="titleSearching">Personnes qui recherchent dans cette zone</h3>
+	<div class="flex">
+		<div class="childFlex">
+			<select class="form-control" id="multipleLocalisation-pl" onchange="updateLocalisationPeopleSearch()">
+				@*Ajouter dans le function js le nom de la ville associé*@
+				<option value="1">Rennes 35, Ille-et-Vilaine, Bretagne</option>
+				<option value="2">Acigné 35, Ille-et-Vilaine, Bretagne</option>
+				<option value="2">Bruz 35, Ille-et-Vilaine, Bretagne</option>
+			</select>
+		</div>
+	</div>
+	<h3 id="nbPersonneRecherche-ps">Resultat : 150 personnes</h3>
 	<div class="flex" id="divAddSearchAnounce-ps">
 		@* !!! A faire au future : S'il est connecté et qu'il a déja ajouté une annonce de recherche, alors ne pas afficher le lien ci-dessous*@
 		<div class="childFlex fontFamilyNote" id="divLinkPublishInteresse-ps">
 			<i class="far fa-id-badge"></i>
 			<a id="addSearchingAnnonceLink-ps" href="@Url.Action("ModalCARecherche", "Account", null)" rel="modal:open" class="noLink">Ajouter mon annonce de recherche d'éco-colocation</a>
-		</div>
-	</div>
-	<div class="flex">
-		<div class="childFlex">
-			<select class="form-control" id="multipleLocalisation-pl" onchange="updateLocalisationPeopleSearch()">@*Ajouter dans le function js le nom de la ville associé*@
-				<option value="1">Rennes 35, Ille-et-Vilaine, Bretagne</option>
-				<option value="2">Acigné 35, Ille-et-Vilaine, Bretagne</option>
-				<option value="2">Bruz 35, Ille-et-Vilaine, Bretagne</option>
-			</select>
 		</div>
 	</div>
 	<div id="divPanelPl">

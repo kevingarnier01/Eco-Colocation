@@ -235,23 +235,25 @@ function initSearchColocMap() {
 	var data = [
 		{
 			name: 'Marker1',
-			latLng: [48.111728, -1.686257],
+			latLng: [48.101228, -1.686257],
 			id: '1'
 		},
 		{
 			name: 'Marker2',
-			latLng: [48.131728, -1.686257],
+			latLng: [48.131728, -1.636257],
 			id: '2'
 		}
 	];
 
 	var markersCluster = initmarkersCluster();
-
+	var latlong = [];
+	
 	for (var i = 0; i < data.length; i++) {
 		(function () {
 			var ii = i;
 			setTimeout(function () {
 				var marker = data[ii];
+
 
 				// specify popup options 
 				var customOptions =
@@ -283,10 +285,20 @@ function initSearchColocMap() {
 				showOthersEvents()
 
 				markersCluster.addLayer(markerObject);
+				mymap.fitBounds(markersCluster.getBounds());
+
 			}, 1000);
 		})();
 	}
 
+	//var groupMarker = new L.featureGroup(data[0], data[1]);
+	//mymap.fitBounds(groupMarker.getBounds());
+
+	//mymap.fitBounds([
+	//	[48.0833, -1.6833],
+	//	[48.1212, -1.603]
+	//])
+	
 	mymap.addLayer(markersCluster);
 }
 
@@ -468,7 +480,7 @@ function addNewPlaceItem(ui, inputId, identityPage) {
 		(identityPage != "ph") ?
 			'<div id="place' + identityPage + compteurPlaceItem + '" class="divPlace">'
 			: '<div id="place' + identityPage + compteurPlaceItem + '" class="divPlace divPlace-ph">'
-	htmlPlace += 
+	htmlPlace +=
 		'<p class="placeName" title="' + locationNameSelected + '">' + locationNameSelected + '</p>' +
 		'<div class="crossPlace"><i onclick="deletePlace(place' + identityPage + compteurPlaceItem + ', \'' + identityPage + '\')" class="fas fa-times crossPlace"></i></div>' +
 		'</div>';
@@ -740,11 +752,17 @@ function modifyNbChambreDisponible(elementNbChambreAsk, blockElementRoom) {
 			else if ($(elementNbChambreAsk).val() < $(blockElementRoom).length && $(blockElementRoom).length > 1) {
 				var numberDifference = $(blockElementRoom).length - $(elementNbChambreAsk).val();
 				if (numberDifference < 2) {
-					if (confirm("La " + $(blockElementRoom).length + "eme chambre va être retirée.")) {
-						$('.divGlobalChambre-ml').last().remove();
+					if ($('#msgJqueryNbChambre-ml').val() == 0) {
+						if (confirm("Cette action supprimera la dernière chambre qui à été ajoutée.")) {
+							$('.divGlobalChambre-ml').last().remove();
+							$('#msgJqueryNbChambre-ml').val(1);
+						}
+						else {
+							$(elementNbChambreAsk).val(parseInt($(elementNbChambreAsk).val()) + 1)
+						}
 					}
 					else {
-						$(elementNbChambreAsk).val(parseInt($(elementNbChambreAsk).val()) + 1)
+						$('.divGlobalChambre-ml').last().remove();
 					}
 				}
 				else {

@@ -460,14 +460,14 @@ select:-moz-focusring {
 
 @media screen and (max-width: 768px) {
 	.modal {
-		min-width: 365px !important;
+		/*min-width: 365px !important;*/
 		position: absolute !important;
 		display: table !important;
 	}
 
-	.underModal {
+	/*.underModal {
 		height: 100%
-	}
+	}*/
 }
 
 .modal > .close-modal {
@@ -504,7 +504,7 @@ select:-moz-focusring {
 	margin-left: 50%;
 	transform: translateX(-50%);
 	position: absolute;
-	max-width: 97%;
+	max-width: 97%;un
 }
 
 	.divCloseModal a {
@@ -1275,12 +1275,16 @@ select#typeResearchSct-ph:focus {
 }
 
 	#peopleSearching #titleSearching {
-		margin-bottom: 20px;
+		margin-bottom: 15px;
 		color: #00C2D6;
 		font-size: 35px;
 		font-family: Noteworthy;
 		font-weight: bold;
 	}
+
+#nbPersonneRecherche-ps {
+	margin-top: 25px;
+}
 
 #divAddSearchAnounce-ps {
 	margin-bottom: 10px;
@@ -2449,14 +2453,13 @@ a, p h1, h2, h3, h4, h5, h6, input, textarea, label, span, div, table {
 .d2-1-description-mpc {
 	display: flex;
 	overflow: hidden;
-	width: max-content;
 	margin-left: auto;
 	margin-right: auto;
+	padding: 1px;
 }
 
 .d2-1-1-description-mpc {
-	margin-left: 50%;
-	transform: translateX(-50%);
+	width: 100%;
 }
 
 	.d2-1-1-description-mpc p {
