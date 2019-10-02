@@ -1,0 +1,46 @@
+﻿
+@{
+	ViewBag.Title = "BulleConversation";
+}
+
+@* Faire en sorte que chaque message soit stocké dans la base de données dans un et même champ.  *@
+@* Et dans la nuit faire en sorte qu'une procédure stocké recupère ces messages et me les envoies par mail *@
+<div id="divConversationDev-main">
+	<div class="flex" id="bandeauConvDev-main" onclick="reduceOrOpenWindowsConvDev()">
+		<div id="bdPhotoConvDev-main"></div>
+		<p id="bdTitleConvDev-main">Développeur du site web</p>
+		<img src="https://img.icons8.com/ios-filled/30/ffffff/horizontal-line.png" id="bdImgReduceConvDev-main" onclick="reduceOrOpenWindowsConvDev()">
+	</div>
+	<div id="bdArticleConvDev-main">
+		<div id="divContenuMsgConvDev-main">
+			<div class="newMessageConvDev-main flex">
+				<div class="photoDev-main" id="firstImgProfilConv-main"></div>
+				<p class="txtDev-main" id="firsMsgByMySelf-main">Bonjour et bienvenue à toi !</p>
+			</div>
+			<div class="newMessageConvDev-main flex">
+				<div class="photoDev-main" id="secondImgProfilConv-main"></div>
+				<p class="txtDev-main" id="secondMsgByMySelf-main">Si tu rencontres un problème sur le site explique-le-moi très clairement içi en y ajoutant des captures d'écran.</p>
+			</div>
+			<div id="divAnswerUserConDev-main"></div>
+		</div>
+	</div>
+	<div id="divFooterConDev-main">
+		<div>
+			<input type="email" placeholder="Ecrivez votre email..." id="inputEmailDev-main">
+		</div>
+		<div class="flex">
+			<input type="text" placeholder="Écrivez un message..." id="saisiMsgConvDev-main">
+			<i class="far fa-paper-plane" id="btnSendConvDev-main" onclick="sendMsgOnConvDev()"></i>
+		</div>
+	</div>
+</div>
+
+<script language="javascript">
+	$(document).ready(function () {
+		$('#saisiMsgConvDev-main').keypress(function (e) {
+			if (e.keyCode == 13) {
+				sendMsgOnConvDev()
+			}
+		});
+	});
+</script>

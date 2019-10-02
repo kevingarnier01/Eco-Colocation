@@ -6051,3 +6051,151 @@ input.radioFibreEco-ayer {
 #btnEnableProfilInterested {
 	margin-bottom: 20px;
 }
+
+
+/* Bulle de Conversation avec le développeur */
+#divConversationDev-main {
+	width: 230px;
+	height: 300px;
+	position: fixed;
+	bottom: 0;
+	right: 10px;
+	z-index: 99999999;
+	box-shadow: 0 0 3px black;
+	border-radius: 10px 10px 0 0;
+	overflow: auto;
+	background-color: white;
+	display: none;
+}
+
+@media only screen and (max-width: 767px) {
+	#divConversationDev-main {
+		display: none !important
+	}
+}
+
+#bandeauConvDev-main {
+	background-color: #00c2d6;
+	height: 14%;
+	cursor:pointer;
+}
+
+#bdPhotoConvDev-main {
+	background: url(/content/Images/Personnes/Developpeur.png) 50% no-repeat;
+	background-size: 150%;
+	border-radius: 50%;
+	height: 35px;
+	width: 35px;
+	margin: auto 10px;
+	background-color: white;
+}
+
+#bdTitleConvDev-main {
+	margin: auto 0;
+	color: white;
+	font-weight: bold;
+}
+
+#bdImgReduceConvDev-main {
+	height: 13px;
+	margin: auto;
+	cursor: pointer;
+}
+
+#bdArticleConvDev-main {
+	height: 66%;
+	box-shadow: 0 0 2px black;
+	overflow: auto;
+}
+
+#divContenuMsgConvDev-main {
+	padding: 10px 0;
+}
+
+.photoDev-main {
+	background: url(/content/Images/Personnes/Developpeur.png) 50% no-repeat;
+	background-size: 150%;
+	border-radius: 50%;
+	height: 35px;
+	width: 165px;
+	margin: 0 10px;
+	margin-top: auto;
+}
+
+.newMessageConvDev-main {
+	margin-bottom: 3px;
+}
+
+#firstImgProfilConv-main {
+	width: 35px;
+}
+
+#secondImgProfilConv-main {
+	display:none
+}
+
+#firsMsgByMySelf-main {
+	margin-left: auto;
+}
+
+#secondMsgByMySelf-main {
+	display:none
+}
+
+.txtDev-main {
+	background-color: #f1f0f0;
+	padding: 10px;
+	border-radius: 20px;
+	margin-right: 10px;
+	z-index: -1;
+}
+
+.txtUser-main {
+	padding: 10px;
+	border-radius: 20px;
+	margin-right: 10px;
+	z-index: -1;
+	background-color: #00c2d6;
+	color: white;
+}
+
+.newMessageUserConvDev-main {
+	width: 90%;
+	padding: 0 10px;
+	margin-bottom: 2px;
+}
+
+#newMessageConvDev-main {
+	margin-bottom: 2px;
+}
+
+#divAnswerUserConDev-main {
+	margin-bottom: 8px
+}
+
+#divFooterConDev-main {
+	height: 20%;
+}
+
+#inputEmailDev-main {
+	width: 100%;
+	box-shadow: 0 0 2px #999;
+	border: none;
+	margin-bottom: 1px;
+	padding: 2px;
+	text-align: center;
+}
+
+#saisiMsgConvDev-main {
+	width: 100%;
+	height: 34px;
+	border: none;
+	padding: 2px;
+}
+
+#btnSendConvDev-main {
+	margin: auto 5px;
+	font-size: 19px;
+	color: #00c2d6;
+	cursor: pointer
+}

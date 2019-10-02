@@ -107,7 +107,12 @@ $(document).ready(function () {
 
 	//Permet de ne plus pouvoir ouvrir le modal sur un autre onglet
 	stopNewTabOppening();
-	openModalInThisTab();
+	openModalInThisTab();	
+
+	//Affiche la bulle de conversation réduite uniquement s'il n'est pas sur la page d'accueil
+	if (window.location.pathname != "/" && window.location.pathname != "/Home" && window.location.pathname != "/Home/Index") {
+		appearAndReduceWindowsConvDev()
+	}
 });
 
 /***** Permet de ne plus pouvoir ouvrir le modal sur un autre onglet *****/
@@ -247,7 +252,7 @@ function initSearchColocMap() {
 
 	var markersCluster = initmarkersCluster();
 	var latlong = [];
-	
+
 	for (var i = 0; i < data.length; i++) {
 		(function () {
 			var ii = i;
@@ -298,7 +303,7 @@ function initSearchColocMap() {
 	//	[48.0833, -1.6833],
 	//	[48.1212, -1.603]
 	//])
-	
+
 	mymap.addLayer(markersCluster);
 }
 
@@ -1459,4 +1464,71 @@ function initButtonOnOff() {
 function updateLocalisationPeopleSearch() {
 	//Change le titre selon la ville "150 personnes recherchent à ..."
 	//Mettre à jour les personnes qui recherchent
+}
+
+function appearAndOpenWindowsConvDev() {
+	setTimeout(function () {
+		$("#divConversationDev-main").fadeIn("fast")
+		setTimeout(function () {
+			$("#firstImgProfilConv-main").fadeOut("fast")
+			$("#secondMsgByMySelf-main").fadeIn("fast")
+			$("#secondImgProfilConv-main").fadeIn("fast")
+		}, 4000)
+	}, 6000)
+}
+
+function appearAndReduceWindowsConvDev() {
+	reduceWindowsConvDev();
+	$("#divConversationDev-main").fadeIn("fast")
+	$("#firstImgProfilConv-main").fadeOut("fast")
+	$("#secondMsgByMySelf-main").fadeIn("fast")
+	$("#secondImgProfilConv-main").fadeIn("fast")
+}
+
+function reduceOrOpenWindowsConvDev() {
+	if ($("#bdArticleConvDev-main").css("display") != "none") {
+		reduceWindowsConvDev();
+	}
+	else {
+		openWindowsConvDev();
+	}
+}
+
+function reduceWindowsConvDev() {
+	$("#bdImgReduceConvDev-main").fadeOut("fast")
+	$("#bdArticleConvDev-main").fadeOut("fast")
+	$("#divFooterConDev-main").fadeOut("fast")
+	$("#divConversationDev-main").css("height", "42px")
+	$("#divConversationDev-main").css("width", "200px")
+	$("#bandeauConvDev-main").css("height", "42px")
+}
+
+function openWindowsConvDev() {
+	$("#divConversationDev-main").css("height", "300px")
+	$("#divConversationDev-main").css("width", "230px")
+	$("#bandeauConvDev-main").css("height", "14%")
+	$("#bdArticleConvDev-main").fadeIn("fast")
+	$("#divFooterConDev-main").fadeIn("fast")
+	$("#bdImgReduceConvDev-main").fadeIn("fast")
+}
+
+function sendMsgOnConvDev() {
+	//Regarder si le formulaire est valider (pour voir si le mail est bien un email)
+
+	if ($("#saisiMsgConvDev-main").val() != "") {
+		if ($("#inputEmailDev-main").val() != "") {
+			var elementHtml =
+				'<div class="newMessageUserConvDev-main flex">' +
+				'<p class="txtUser-main">' + $("#saisiMsgConvDev-main").val() + '</p>' +
+				'</div>'
+
+			$("#divAnswerUserConDev-main").append(elementHtml);
+
+			$("#saisiMsgConvDev-main").val("")
+			$("#inputEmailDev-main").attr("disabled", "true")
+		}
+		else {
+			alert("Pour envoyer un message vous devez saisir votre email.")
+		}
+	}
 }
