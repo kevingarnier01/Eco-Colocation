@@ -22,6 +22,7 @@
 				<p class="txtDev-main" id="secondMsgByMySelf-main">Si tu rencontres un problème sur le site explique-le-moi très clairement içi en y ajoutant des captures d'écran.</p>
 			</div>
 			<div id="divAnswerUserConDev-main"></div>
+			<p id="" class="centerText">Délais de réponse inconnu. Vos messages parviendrons dans un mail.</p>
 		</div>
 	</div>
 	<div id="divFooterConDev-main">
@@ -29,9 +30,12 @@
 			<input type="email" placeholder="Ecrivez votre email..." id="inputEmailDev-main">
 		</div>
 		<div class="flex">
+			<label for="inpFileAttachmentConvDev-main" class="childFlexVertical"><i class="fas fa-paperclip" id="fileAttachmentConvDev-main"></i></label>
+			<input id="inpFileAttachmentConvDev-main" type="file" multiple="multiple" onchange="uploadImgConvDev();">
 			<input type="text" placeholder="Écrivez un message..." id="saisiMsgConvDev-main">
 			<i class="far fa-paper-plane" id="btnSendConvDev-main" onclick="sendMsgOnConvDev()"></i>
 		</div>
+		<div class="flex overflow" id="lstFilesUploadConvDev-main"></div>
 	</div>
 </div>
 
@@ -42,5 +46,6 @@
 				sendMsgOnConvDev()
 			}
 		});
+		uploadImgConvDev("inpFileAttachmentConvDev-main");
 	});
 </script>

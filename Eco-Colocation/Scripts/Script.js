@@ -107,7 +107,7 @@ $(document).ready(function () {
 
 	//Permet de ne plus pouvoir ouvrir le modal sur un autre onglet
 	stopNewTabOppening();
-	openModalInThisTab();	
+	openModalInThisTab();
 
 	//Affiche la bulle de conversation réduite uniquement s'il n'est pas sur la page d'accueil
 	if (window.location.pathname != "/" && window.location.pathname != "/Home" && window.location.pathname != "/Home/Index") {
@@ -1495,9 +1495,9 @@ function reduceOrOpenWindowsConvDev() {
 }
 
 function reduceWindowsConvDev() {
-	$("#bdImgReduceConvDev-main").fadeOut("fast")
-	$("#bdArticleConvDev-main").fadeOut("fast")
-	$("#divFooterConDev-main").fadeOut("fast")
+	$("#bdImgReduceConvDev-main").css("display", "none")
+	$("#bdArticleConvDev-main").css("display", "none")
+	$("#divFooterConDev-main").css("display", "none")
 	$("#divConversationDev-main").css("height", "42px")
 	$("#divConversationDev-main").css("width", "200px")
 	$("#bandeauConvDev-main").css("height", "42px")
@@ -1526,9 +1526,64 @@ function sendMsgOnConvDev() {
 
 			$("#saisiMsgConvDev-main").val("")
 			$("#inputEmailDev-main").attr("disabled", "true")
+
+			var scroolHeight = $("#bdArticleConvDev-main")[0].scrollHeight;
+			$("#bdArticleConvDev-main").scrollTop(scroolHeight);
 		}
 		else {
 			alert("Pour envoyer un message vous devez saisir votre email.")
 		}
+	}
+	if ($(".divFileUplConvDev-main").length != 0) {
+		var elementHtml =
+			'<div style="background: url(' + picFile.result + ') 50% no-repeat;" class="fileUplConvDev-main" id="idFileUplConvDev"></div>'
+
+		$("#lstFilesUploadConvDev-main").append(elementHtml);
+	}
+}
+
+function uploadImgConvDev(filesInputId) {
+	var filesInput = document.getElementById(filesInputId);
+
+	filesInput.addEventListener("change", function (event) {
+
+		var files = event.target.files; //FileList object
+
+		for (var i = 0; i < files.length; i++) {
+			var file = files[i];
+
+			var picReader = new FileReader();
+
+			picReader.addEventListener("load", function (event) {
+
+				numberId = Math.floor(100000 + Math.random() * 900000);
+
+				var picFile = event.target;
+
+				var elementHtml =
+					'<div class="divFileUplConvDev-main" id="divFileUplConvDev' + numberId + '">' +
+					'<i class="fas fa-times-circle imgCloseFileUplConvDev-main" onclick="removePictureConvDev(\'#divFileUplConvDev' + numberId + '\')"></i>' +
+					'<div style="background: url(' + picFile.result + ') 50% no-repeat;" class="fileUplConvDev-main" id="idFileUplConvDev"></div>' +
+					'</div>';
+
+				$("#lstFilesUploadConvDev-main").append(elementHtml);
+				
+				if ($("#lstFilesUploadConvDev-main").css("display", "none")) {
+					$("#bdArticleConvDev-main").css("height", "49%")
+					$("#lstFilesUploadConvDev-main").css("display", "flex")
+				}
+			});
+
+			//Read the image
+			picReader.readAsDataURL(file);
+		}
+	});
+}
+
+function removePictureConvDev(element) {
+	$(element).remove();
+	if ($(".divFileUplConvDev-main").length == 0) {
+		$("#lstFilesUploadConvDev-main").css("display", "none")
+		$("#bdArticleConvDev-main").css("height", "66%")
 	}
 }
