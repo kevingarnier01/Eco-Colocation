@@ -321,7 +321,7 @@ a {
 		text-decoration: none;
 	}
 
-input, textarea {
+input, textarea, p {
 	outline: 0;
 	text-indent: 1px;
 }
@@ -1537,6 +1537,31 @@ div#divContenuPlSchDisable {
 	cursor: pointer
 }
 
+#descriptionProjetCreationRubrique {
+	font-size: 12px;
+	margin-left: 7px;
+	position: absolute;
+	color: #c8c07f;
+}
+
+#divInfoProjetCreationRubrique {
+	position: absolute;
+	height: 85px;
+	width: 250px;
+	box-shadow: 0 0 2px 0 black;
+	background-color: white;
+	right: 0;
+	top: 30px;
+	z-index: 1;
+	overflow: auto;
+	font-size: 16px;
+	line-height: 25px;
+	border-radius: 5px;
+	text-align: center;
+	display: none;
+}
+
+
 #underDivMultiPlaceToSearch-al {
 	background-color: #f4f6f7;
 	height: 35px;
@@ -2569,7 +2594,6 @@ d5-description-mpc {
 }
 
 /*** End ModalLocation ***/
-
 /*** ModalMessage ***/
 #partialViewMessage {
 	height: auto;
@@ -3211,6 +3235,16 @@ i.fas.fa-times.crossPlace {
 		color: #555;
 	}
 
+.lblTxtCheckYesOrNot {
+	width: 100%;
+	text-align: center;
+}
+
+.divCheckYesOrNot {
+	display: inline-block;
+	margin-right: 10px;
+}
+
 #nomAgence-mlca, #numSiret-mlca, #fraisAgence-mlca {
 	text-align: inherit !important
 }
@@ -3255,6 +3289,14 @@ i.fas.fa-times.crossPlace {
 		height: 60px !important;
 		margin-bottom: 10px;
 	}
+}
+
+#descSupTolerence-ml {
+	border: navajowhite;
+	box-shadow: 0 0 2px 0 black;
+	border-radius: 5px;
+	padding: 4px 10px;
+	height: 100px !important;
 }
 
 #titleInfoPerso-ml {
@@ -3637,7 +3679,7 @@ i.fas.fa-times.crossPlace {
 	background-color: #f1f4c2;
 	padding: 10px;
 	border-radius: 10px;
-	margin-bottom: 40px;
+	margin-bottom: 20px;
 	position: relative;
 	display: flex;
 	flex-wrap: wrap;
@@ -3925,10 +3967,15 @@ i.fas.fa-times.crossPlace {
 	margin-right: auto;
 }
 
+#titleFinishCreateAnnonce {
+	margin-bottom: 25px;
+	font-size: 28px;
+}
+
 #divbtnCreate-mbca {
 	margin-bottom: 15px;
 }
-
+ 
 .div2InscriptionBtn-mcar {
 	display: flex;
 	box-shadow: 0 0 5px 0px black;
@@ -6242,4 +6289,12 @@ input.radioFibreEco-ayer {
 	height: 50px;
 	flex-wrap: wrap;
 	display: none;
+}
+
+.appearImgUplConvDev-main {
+	z-index: -1;
+	background-size: 150% !important;
+	width: 50px;
+	height: 50px;
+	margin: 0px 3.5px;
 }

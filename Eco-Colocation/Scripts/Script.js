@@ -45,19 +45,30 @@ $(document).ready(function () {
 	});
 
 	//ModalProjetCreation, when option 'Type d'engagement' list change.
+	$(document).on('change', 'select#select-engagementTypeTerrain-mpc', function () {
+		if ($(this).children(":selected").html() == 'Achat') {
+			$("#nbParticipantAchatTerrainResearch-mpc").fadeIn("slow")
+		}
+		else if ($(this).children(":selected").html() == 'Location') {
+			$("#nbParticipantAchatTerrainResearch-mpc").fadeOut("slow")
+		}
+	});
 	$(document).on('change', 'select#select-engagementType-mpc', function () {
 		if ($(this).children(":selected").html() == 'Achat') {
 			$('#tableLogement-mpc .rowByEngagement').fadeOut("slow");
 			$('#tableLogement-mpc #rowAchat').fadeIn("slow");
 			$('#tableLogement-mpc #rowLoyer').fadeIn("slow");
+			$("#nbParticipantAchatLogementResearch-mpc").fadeIn("slow")
 		}
 		else if ($(this).children(":selected").html() == 'Location') {
 			$('#tableLogement-mpc .rowByEngagement').fadeOut("slow");
 			$('#tableLogement-mpc #rowLoyer').fadeIn("slow");
+			$("#nbParticipantAchatLogementResearch-mpc").fadeOut("slow")
 		}
 		else if ($(this).children(":selected").html() == 'Construction') {
 			$('#tableLogement-mpc .rowByEngagement').fadeOut("slow");
 			$('#tableLogement-mpc #rowCreation').fadeIn("slow");
+			$("#nbParticipantAchatLogementResearch-mpc").fadeIn("slow")
 		}
 	});
 
@@ -1404,20 +1415,21 @@ function typeOfResearchLocation(item) {
 	}
 }
 
-function showPopUpInfoCharge(iconElement, elementPopUp) {
+function showPopUpInfo(iconElement, elementPopUp) {
 	$(elementPopUp).fadeIn("slow");
+	$(elementPopUp).attr("onmouseout", "closePopUpInfo(this)")
 
 	$(iconElement).mouseleave(function (e) {
 		setTimeout(function () {
 			//if ($('#element').data('clicked')) {
 			if ($(elementPopUp + ':hover').length == 0) {
-				closePopUpInfoCharge(elementPopUp)
+				closePopUpInfo(elementPopUp)
 			}
 		}, 500);
 	});
 }
 
-function closePopUpInfoCharge(elementPopUp) {
+function closePopUpInfo(elementPopUp) {
 	$(elementPopUp).fadeOut("slow");
 }
 
@@ -1515,8 +1527,8 @@ function openWindowsConvDev() {
 function sendMsgOnConvDev() {
 	//Regarder si le formulaire est valider (pour voir si le mail est bien un email)
 
-	if ($("#saisiMsgConvDev-main").val() != "") {
-		if ($("#inputEmailDev-main").val() != "") {
+	if ($("#inputEmailDev-main").val() != "") {
+		if ($("#saisiMsgConvDev-main").val() != "") {
 			var elementHtml =
 				'<div class="newMessageUserConvDev-main flex">' +
 				'<p class="txtUser-main">' + $("#saisiMsgConvDev-main").val() + '</p>' +
@@ -1530,15 +1542,34 @@ function sendMsgOnConvDev() {
 			var scroolHeight = $("#bdArticleConvDev-main")[0].scrollHeight;
 			$("#bdArticleConvDev-main").scrollTop(scroolHeight);
 		}
-		else {
-			alert("Pour envoyer un message vous devez saisir votre email.")
+		if ($(".divFileUplConvDev-main").length != 0) {
+			var chiffreAleatoire = Math.floor(100000 + Math.random() * 900000);
+
+			var elementHtml = '<div class="newMessageUserConvDev-main flex" id="newMessageUserConDev' + chiffreAleatoire + '"></div>'
+			$("#divAnswerUserConDev-main").append(elementHtml);
+
+			var classList = $(".fileUplConvDev-main");
+			for (var i = 0; i < classList.length; i++) {
+				debugger;
+				urlImg = $(classList[i]).css('background-image');
+
+				var elementHtml2 =
+					'<div class="appearImgUplConvDev-main" style=\'background: ' + urlImg + ' 50% no-repeat;\'></div>';
+
+				$("#newMessageUserConDev" + chiffreAleatoire).append(elementHtml2);
+			};
+
+			$(".divFileUplConvDev-main").remove();
+			$("#lstFilesUploadConvDev-main").css("display", "none")
+			$("#bdArticleConvDev-main").css("height", "66%")
+			$("#inputEmailDev-main").attr("disabled", "true")
+
+			var scroolHeight = $("#bdArticleConvDev-main")[0].scrollHeight;
+			$("#bdArticleConvDev-main").scrollTop(scroolHeight);
 		}
 	}
-	if ($(".divFileUplConvDev-main").length != 0) {
-		var elementHtml =
-			'<div style="background: url(' + picFile.result + ') 50% no-repeat;" class="fileUplConvDev-main" id="idFileUplConvDev"></div>'
-
-		$("#lstFilesUploadConvDev-main").append(elementHtml);
+	else {
+		alert("Pour envoyer un message vous devez saisir votre email.")
 	}
 }
 
@@ -1563,11 +1594,11 @@ function uploadImgConvDev(filesInputId) {
 				var elementHtml =
 					'<div class="divFileUplConvDev-main" id="divFileUplConvDev' + numberId + '">' +
 					'<i class="fas fa-times-circle imgCloseFileUplConvDev-main" onclick="removePictureConvDev(\'#divFileUplConvDev' + numberId + '\')"></i>' +
-					'<div style="background: url(' + picFile.result + ') 50% no-repeat;" class="fileUplConvDev-main" id="idFileUplConvDev"></div>' +
+					'<div style="color:white;background: url(' + picFile.result + ') 50% no-repeat;" class="fileUplConvDev-main" id="idFileUplConvDev' + numberId + '"></div>' +
 					'</div>';
 
 				$("#lstFilesUploadConvDev-main").append(elementHtml);
-				
+
 				if ($("#lstFilesUploadConvDev-main").css("display", "none")) {
 					$("#bdArticleConvDev-main").css("height", "49%")
 					$("#lstFilesUploadConvDev-main").css("display", "flex")

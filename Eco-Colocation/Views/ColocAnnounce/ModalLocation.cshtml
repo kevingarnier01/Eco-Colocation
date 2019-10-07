@@ -20,9 +20,6 @@
 		<div id="htmlBlockModalLocation-ml">
 			<div id="div1-contenu-ca" class="col-sm-12">
 				<div id="div1-1-contenu-ca" class="col-sm-11 col-xs-12">
-					<div class="childFlex overflow" id="infoChampsAnnonce-ml-mpc">
-						<p class="centerText">ATTENTION : Votre texte apparaîtra en seul bloc, merci de faire des phrases !</p>
-					</div>
 					<div id="divDescAnn-ca" class="col-sm-12 col-xs-12">
 						<div id="div1DescAnn-ca" class="col-sm-12 col-xs-12">
 							<div id="div1-1DescAnn-ca" class="col-sm-12 col-xs-12">
@@ -36,6 +33,9 @@
 							</div>
 						</div>
 					</div>
+					<div class="childFlex overflow" id="infoChampsAnnonce-ml-mpc">
+						<p class="centerText">ATTENTION : Votre texte apparaîtra en un seul bloc, merci de faire des phrases !</p>
+					</div>
 					<div id="divDescAnn-ca" class="col-sm-12 col-xs-12">
 						<div id="div1DescAnn-ca" class="col-sm-12 col-xs-12">
 							<div id="div1-1DescAnn-ca" class="col-sm-12 col-xs-12">
@@ -44,7 +44,7 @@
 						</div>
 						<div id="div2DescAnn-ca" class="col-sm-12 col-xs-12">
 							<div id="div2-1DescAnn-ca" class="col-sm-12 col-xs-12">
-								<textarea id="descPersonneRecherche-ml" name="descAnnonce" placeholder="Caractère, tranche d'âge, sexe, ..."></textarea>
+								<textarea id="descPersonneRecherche-ml" name="descAnnonce" placeholder="Caractère, façon de vivre, niveau d'implication écologique, ..."></textarea>
 							</div>
 						</div>
 					</div>
@@ -81,7 +81,7 @@
 						</div>
 						<div id="div2-ecoPratic-ca" class="col-sm-12 col-xs-12">
 							<div id="div2-1-ecoPratic-ca" class="col-sm-12 col-xs-12">
-								<textarea id="personnesPresentes-ml" name="descEcoPratique" placeholder="Personnalité / caractère ..."></textarea>
+								<textarea id="personnesPresentes-ml" name="descEcoPratique" placeholder="Caractère / façon de vivre, ..."></textarea>
 							</div>
 						</div>
 					</div>
@@ -93,7 +93,7 @@
 						</div>
 						<div id="div2-ecoPratic-ca" class="col-sm-12 col-xs-12">
 							<div id="div2-1-ecoPratic-ca" class="col-sm-12 col-xs-12">
-								<textarea id="convivialite-ml" name="descEcoPratique" placeholder="Activités communes, capacité d’accueil, ..."></textarea>
+								<textarea id="convivialite-ml" name="descEcoPratique" placeholder="Activités/intérêts en communs, capacité d’accueil, ..."></textarea>
 							</div>
 						</div>
 					</div>
@@ -134,7 +134,7 @@
 						</div>
 					</div>
 					<div class="childFlex overflow" id="infoChampsAnnonce-ml-mpc">
-						<p class="centerText">ATTENTION : Votre texte apparaîtra en seul bloc, merci de faire des phrases !</p>
+						<p class="centerText">ATTENTION : Votre texte apparaîtra en un seul bloc, merci de faire des phrases !</p>
 					</div>
 				</div>
 			</div>
@@ -164,8 +164,8 @@
 								<div id="div10-3-adresseLog-ca" class="flex col-sm-12 textInfoAdresse-ca">
 									<div id="div10-4-adresseLog-ca" class="col-sm-2"></div>
 									<i class="fas fa-info" id="iconPlace-ca"></i>
-									<p class="fontFamilyNote col-sm-12" style="margin: auto;">
-										L'addresse est nécessaire pour localiser votre logement sur la carte.
+									<p class="fontFamilyNote col-sm-12" style="margin: auto;">										
+										Votre logement apparaîtra sur la carte à cette adresse. Aucun numéro de ruelle n'est à préciser.
 									</p>
 								</div>
 							</div>
@@ -293,7 +293,7 @@
 											<td class="col-xs-6">
 												<select class="form-control" id="Implantation">
 													<option value="1">Campagne</option>
-													<option value="2">Ville</option>
+													<option value="2">Ville/village</option>
 												</select>
 											</td>
 										</tr>
@@ -365,29 +365,41 @@
 								<table class="table table-striped">
 									<tbody>
 										<tr>
-											<td class="col-xs-6"><label>Accessibilité fumeur</label></td>
+											<td class="col-xs-6"><label>Consommateur d'alcool</label></td>
 											<td style="padding: 0;padding-top: 4px;padding-left: 8px;">
 												<p class="onoff">
-													<input type="checkbox" value="1" id="fumeur-cb" >
+													<input type="checkbox" value="1" id="alcool-cb">
+													<label for="alcool-cb"></label>
+												</p>
+											</td>
+										</tr>
+										<tr>
+											<td class="col-xs-6"><label>Fumeur</label></td>
+											<td style="padding: 0;padding-top: 4px;padding-left: 8px;">
+												<p class="onoff">
+													<input type="checkbox" value="1" id="fumeur-cb">
 													<label for="fumeur-cb"></label>
 												</p>
 											</td>
 										</tr>
 										<tr>
-											<td class="col-xs-6"><label>Accessibilité animaux</label></td>
+											<td class="col-xs-6"><label>Animaux</label></td>
 											<td style="padding: 0;padding-top: 4px;padding-left: 8px;">
 												<p class="onoff">
-													<input type="checkbox" value="1" id="animaux-cb" >
+													<input type="checkbox" value="1" id="animaux-cb">
 													<label for="animaux-cb"></label>
 												</p>
 											</td>
+										</tr>
+										<tr>
+											<td><label id="lblDescSupTolerence-ml">Info supplémentaire</label></td>
+											<td><textarea type="text" id="descSupTolerence-ml"></textarea></td>
 										</tr>
 									</tbody>
 								</table>
 							</div>
 						</div>
 					</div>
-
 					<h2 class="title centerText" id="titleInfoPerso-ml">Informations Personnelles</h2>
 					<p class="underTitle centerText" id="underTitleInfoPerson-ml">(Uniquement si vous n'avez pas encore creé votre compte)</p>
 					<div class="div20-descInform-ca">

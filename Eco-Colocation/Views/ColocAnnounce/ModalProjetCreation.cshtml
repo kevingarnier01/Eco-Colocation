@@ -17,9 +17,6 @@
 		<div id="htmlBlockModalCreationProjet-mpc">
 			<div id="div1-contenu-ca" class="col-sm-12">
 				<div id="div1-1-contenu-ca" class="col-sm-11 col-xs-12">
-					<div class="childFlex overflow" id="infoChampsAnnonce-ml-mpc">
-						<p class="centerText">ATTENTION : Votre texte apparaîtra en seul bloc, merci de faire des phrases !</p>
-					</div>
 					<div id="divDescAnn-ca" class="col-sm-12 col-xs-12">
 						<div id="div1DescAnn-ca" class="col-sm-12 col-xs-12">
 							<div id="div1-1DescAnn-ca" class="col-sm-12 col-xs-12">
@@ -33,6 +30,9 @@
 							</div>
 						</div>
 					</div>
+					<div class="childFlex overflow" id="infoChampsAnnonce-ml-mpc">
+						<p class="centerText">ATTENTION : Votre texte apparaîtra en un seul bloc, merci de faire des phrases !</p>
+					</div>
 					<div id="divDescAnn-ca" class="col-sm-12 col-xs-12">
 						<div id="div1DescAnn-ca" class="col-sm-12 col-xs-12">
 							<div id="div1-1DescAnn-ca" class="col-sm-12 col-xs-12">
@@ -45,6 +45,18 @@
 							</div>
 						</div>
 					</div>
+					<div id="divDescAnn-ca" class="col-sm-12 col-xs-12">
+						<div id="div1DescAnn-ca" class="col-sm-12 col-xs-12">
+							<div id="div1-1DescAnn-ca" class="col-sm-12 col-xs-12">
+								<label for="descPersonneRecherche-ml">Description de la personne(s) recherchée(s)</label>
+							</div>
+						</div>
+						<div id="div2DescAnn-ca" class="col-sm-12 col-xs-12">
+							<div id="div2-1DescAnn-ca" class="col-sm-12 col-xs-12">
+								<textarea id="descPersonneRecherche-ml" name="descAnnonce" placeholder="Caractère, façon de vivre, niveau d'implication écologique, ..."></textarea>
+							</div>
+						</div>
+					</div>
 					<h2 class="col-xs-12 underTitle centerText" id="titleAboutColocation-ml">Ce que vous envisagez ...</h2>
 					<div id="divEcoPratic-ca" class="col-sm-12 col-xs-12">
 						<div id="div1-ecoPratic-ca" class="col-sm-12 col-xs-12">
@@ -54,7 +66,7 @@
 						</div>
 						<div id="div2-ecoPratic-ca" class="col-sm-12 col-xs-12">
 							<div id="div2-1-ecoPratic-ca" class="col-sm-12 col-xs-12">
-								<textarea id="convivialite-mpc" name="descEcoPratique" placeholder="Activités communes, capacité d’accueil, ..."></textarea>
+								<textarea id="convivialite-mpc" name="descEcoPratique" placeholder="Activités/intérêts en communs, capacité d’accueil, ..."></textarea>
 							</div>
 						</div>
 					</div>
@@ -95,7 +107,7 @@
 						</div>
 					</div>
 					<div class="childFlex overflow" id="infoChampsAnnonce-ml-mpc">
-						<p class="centerText">ATTENTION : Votre texte apparaîtra en seul bloc, merci de faire des phrases !</p>
+						<p class="centerText">ATTENTION : Votre texte apparaîtra en un seul bloc, merci de faire des phrases !</p>
 					</div>
 				</div>
 			</div>
@@ -178,7 +190,7 @@
 												<select id="select2-loyer-fh" class="form-control">
 													<option value="0">Toutes localisations</option>
 													<option value="1">Campagne</option>
-													<option value="2">Ville</option>
+													<option value="2">Ville/village</option>
 												</select>
 											</td>
 										</tr>
@@ -215,12 +227,12 @@
 													}
 												</select>
 											</td>
-										</tr>				
+										</tr>
 										<tr id="rowAchatTerrain" class="rowByEngagement" style="display: table-row;">
 											<td class="col-xs-6"><label for="Loyer">Cout de l'achat moyen</label></td>
 											<td class="col-xs-6">
 												<div class="flex">
- 													<input id="coutAchatMoy" name="coutAchatMoy" type="number" class="inputtable-ca" placeholder="Cout d'achat moyen" style="width: 150px;padding: 5px 8px;">
+													<input id="coutAchatMoy" name="coutAchatMoy" type="number" class="inputtable-ca" placeholder="Cout d'achat moyen" style="width: 150px;padding: 5px 8px;">
 													<p class="centerText signInputPropose-ml">€</p>
 												</div>
 											</td>
@@ -295,7 +307,7 @@
 												<select id="select2-loyer-fh" class="form-control">
 													<option value="0">Toutes localisations</option>
 													<option value="1">Campagne</option>
-													<option value="2">Ville</option>
+													<option value="2">Ville/village</option>
 												</select>
 											</td>
 										</tr>
@@ -379,36 +391,80 @@
 									<tbody>
 										<tr>
 											<td class="col-xs-6">
-												<label for="NbColocTotal">Nombre de personne au total</label>
+												<label for="NbColocTotal">Nombre de personne au total (m'incluant)</label>
 											</td>
 											<td class="col-xs-6">
-												<input id="NbColocTotal" name="NbColocTotal" type="number" class="inputtable-ca" style="width: 50px;">
+												<input id="NbColocTotal" name="NbColocTotal" type="number" class="inputtable-ca" style="width: 80px;">
+											</td>
+										</tr>
+										<tr id="nbParticipantAchatTerrainResearch-mpc">
+											<td class="col-xs-6"><label for="NbColocResearch">Nombre de participant recherché à l'achat du terrain</label></td>
+											<td class="col-xs-6">
+												<input id="NbColocResearch" name="NbColocResearch" type="number" class="inputtable-ca" style="width: 80px;">
+											</td>
+										</tr>
+										<tr id="nbParticipantAchatLogementResearch-mpc">
+											<td class="col-xs-6"><label for="NbColocResearch">Nombre de participant recherché à l'achat du logement</label></td>
+											<td class="col-xs-6">
+												<input id="NbColocResearch" name="NbColocResearch" type="number" class="inputtable-ca" style="width: 80px;">
 											</td>
 										</tr>
 										<tr>
-											<td class="col-xs-6"><label for="NbColocResearch">Nombre de colocataire recherchés</label></td>
+											<td class="col-xs-6"><label for="NbColocResearch">Nombre de colocataire simple recherchés</label></td>
 											<td class="col-xs-6">
-												<input id="NbColocResearch" name="NbColocResearch" type="number" class="inputtable-ca" style="width: 50px;">
+												<input id="NbColocResearch" name="NbColocResearch" type="number" class="inputtable-ca" style="width: 80px;">
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+					<div class="div20-descInform-ca">
+						<div class="div2-1-descInform-ca">
+							<div class="col-sm-4 div2-2-descInform-ca">
+								<div class="div2-3-descInform-ca" style="width: 119px;">
+									<div class="div2-4-descInform-ca">
+										<div class="flex">
+											<i class="fas fa-clipboard-list childFlex icon-ca"></i>
+										</div>
+										<p class="txtIcon-ca">TOLERANCES</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-8">
+								<table class="table table-striped">
+									<tbody>
+										<tr>
+											<td class="col-xs-6"><label>Consommateur d'alcool</label></td>
+											<td style="padding: 0;padding-top: 4px;padding-left: 8px;">
+												<p class="onoff">
+													<input type="checkbox" value="1" id="alcool-cb">
+													<label for="alcool-cb"></label>
+												</p>
 											</td>
 										</tr>
 										<tr>
-											<td class="col-xs-6"><label for="Caution">Tolerances</label></td>
-											<td>
-												<div style="display:inline-block;margin-right: 10px;">
-													<label>Fumeur</label><br>
-													<p class="onoff">
-														<input type="checkbox" value="1" id="fumeur-cb">
-														<label for="fumeur-cb"></label>
-													</p>
-												</div>
-												<div style="display:inline-block">
-													<label>Animaux</label><br>
-													<p class="onoff">
-														<input type="checkbox" value="1" id="animaux-cb">
-														<label for="animaux-cb"></label>
-													</p>
-												</div>
+											<td class="col-xs-6"><label>Fumeur</label></td>
+											<td style="padding: 0;padding-top: 4px;padding-left: 8px;">
+												<p class="onoff">
+													<input type="checkbox" value="1" id="fumeur-cb">
+													<label for="fumeur-cb"></label>
+												</p>
 											</td>
+										</tr>
+										<tr>
+											<td class="col-xs-6"><label>Animaux</label></td>
+											<td style="padding: 0;padding-top: 4px;padding-left: 8px;">
+												<p class="onoff">
+													<input type="checkbox" value="1" id="animaux-cb">
+													<label for="animaux-cb"></label>
+												</p>
+											</td>
+										</tr>
+										<tr>
+											<td><label id="lblDescSupTolerence-ml">Info supplémentaire</label></td>
+											<td><textarea type="text" id="descSupTolerence-ml"></textarea></td>
 										</tr>
 									</tbody>
 								</table>
