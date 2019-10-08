@@ -260,7 +260,7 @@ function initSearchColocMap() {
 			id: '2'
 		}
 	];
-
+	//randomNumber = Math.floor(100000 + Math.random() * 900000);
 	var markersCluster = initmarkersCluster();
 	var latlong = [];
 
@@ -269,7 +269,6 @@ function initSearchColocMap() {
 			var ii = i;
 			setTimeout(function () {
 				var marker = data[ii];
-
 
 				// specify popup options 
 				var customOptions =
@@ -292,10 +291,28 @@ function initSearchColocMap() {
 
 				$("#annonce" + (ii + 1) + "-alpv").on("mouseover", function (e) {
 					markerObject.setIcon(leafIconOver);
+					//var backgroundcolor = $(".markersCluster" + randomNumber).css("background-color");
+					
+					//this.iid = setInterval(function () {						
+					//	if (i = 0) {
+					//		setTimeout(function () {
+					//		$(".markersCluster" + randomNumber).css("background-color", "transparent")
+					//			i = 1;
+					//		}, 1000)
+					//	}
+					//	else {
+					//		setTimeout(function () {
+					//		$(".markersCluster" + randomNumber).css("background-color", backgroundcolor)
+					//			i = 0;
+					//		}, 1000)
+					//	}
+					//}, 25);
+
 				});
 
 				$("#annonce" + (ii + 1) + "-alpv").on("mouseout", function (e) {
 					markerObject.setIcon(leafIcon);
+					//clearInterval(this.iid)
 				});
 
 				showOthersEvents()
@@ -940,7 +957,7 @@ function loadEcoRoommateMap() {
 
 function loadEcoRoommateExistingMap(mymap) {
 	var markerIcon = L.icon({
-		iconUrl: '/Content/Images/Logos/markerColocExisting.png',
+		iconUrl: '/Content/Images/Logos/markerColocExistingOnMap.png',
 
 		iconSize: [30, 30], // size of the icon
 	});
