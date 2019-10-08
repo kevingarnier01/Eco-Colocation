@@ -237,7 +237,7 @@ function initSearchColocMap() {
 	var leafIcon = L.icon({
 		iconUrl: '/Content/Images/Logos/markerColocExisting.png',
 
-		iconSize: [30, 30], // size of the icon
+		iconSize: [35, 35], // size of the icon
 		//popupAnchor: [30, -76]  // point from which the popup should open relative to the iconAnchor
 	});
 
