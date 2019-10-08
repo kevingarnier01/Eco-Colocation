@@ -235,16 +235,16 @@ function initSearchColocMap() {
 	}).addTo(mymap);
 
 	var leafIcon = L.icon({
-		iconUrl: '/Content/Images/Logos/markerColocExisting.png',
+		iconUrl: '/Content/Images/Logos/mapLocalisationOver.png',
 
-		iconSize: [35, 35], // size of the icon
+		iconSize: [30, 30], // size of the icon
 		//popupAnchor: [30, -76]  // point from which the popup should open relative to the iconAnchor
 	});
 
 	var leafIconOver = L.icon({
-		iconUrl: '/Content/Images/Logos/mapLocalisationOver.png',
+		iconUrl: '/Content/Images/Logos/markerColocExisting.png',
 
-		iconSize: [35, 35], // size of the icon
+		iconSize: [40, 40], // size of the icon
 		//popupAnchor: [30, -76]  // point from which the popup should open relative to the iconAnchor
 	});
 
