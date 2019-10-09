@@ -15,7 +15,7 @@
 		</div>
 		<div class="sousDivFormColoc-ayer" id="divLabelNbColoc-ayer">
 			<label class="label-ayer">Nombre de colocataires *</label>
-			<input class="input-ayer" placeholder="Entrez le nombre" type="number" oninput="modifyMinValueToNbInfoColoc(this)">
+			<input class="input-ayer" placeholder="Entrez le nombre" type="number" min="1" oninput="modifyMinValueToNbInfoColoc(this)">
 			<div class="underInput-ayer"></div>
 		</div>
 		<div class="col-xs-12">
@@ -453,19 +453,19 @@
 				<div id="divPlaceResponsive-ayer">
 					<div id="divPlace-ayer">
 						<div>
-							<div class="divTxtPlace-ayer"><input type="number"><p>Cuisine(s)</p></div>
-							<div class="divTxtPlace-ayer"><input type="number"><p>Salle(s) à manger</p></div>
-							<div class="divTxtPlace-ayer"><input type="number"><p>Salon(s)</p></div>
-							<div class="divTxtPlace-ayer"><input type="number"><p>Chambre(s)</p></div>
-							<div class="divTxtPlace-ayer"><input type="number"><p>Toilettes</p></div>
-							<div class="divTxtPlace-ayer"><input type="number"><p>Salle(s) de bain</p></div>
+							<div class="divTxtPlace-ayer"><input type="number" min="0"><p>Cuisine(s)</p></div>
+							<div class="divTxtPlace-ayer"><input type="number" min="0"><p>Salle(s) à manger</p></div>
+							<div class="divTxtPlace-ayer"><input type="number" min="0"><p>Salon(s)</p></div>
+							<div class="divTxtPlace-ayer"><input type="number" min="0"><p>Chambre(s)</p></div>
+							<div class="divTxtPlace-ayer"><input type="number" min="0"><p>Toilettes</p></div>
+							<div class="divTxtPlace-ayer"><input type="number" min="0"><p>Salle(s) de bain</p></div>
 						</div>
 						<div>
-							<div class="divTxtPlace-ayer"><input type="number"><p>Garage(s)</p></div>
-							<div class="divTxtPlace-ayer"><input type="number"><p>Jardin(s)</p></div>
-							<div class="divTxtPlace-ayer"><input type="number"><p>Terrasse(s)</p></div>
-							<div class="divTxtPlace-ayer"><input type="number"><p>Balcon(s)</p></div>
-							<div class="divTxtPlace-ayer"><input type="number"><p>Bureau(s)</p></div>
+							<div class="divTxtPlace-ayer"><input type="number" min="0"><p>Garage(s)</p></div>
+							<div class="divTxtPlace-ayer"><input type="number" min="0"><p>Jardin(s)</p></div>
+							<div class="divTxtPlace-ayer"><input type="number" min="0"><p>Terrasse(s)</p></div>
+							<div class="divTxtPlace-ayer"><input type="number" min="0"><p>Balcon(s)</p></div>
+							<div class="divTxtPlace-ayer"><input type="number" min="0"><p>Bureau(s)</p></div>
 						</div>
 					</div>
 				</div>
@@ -509,11 +509,11 @@
 					<div id="divAddOthersColoc-ayer">
 						<div class="input-group">
 							<span class="input-group-btn">
-								<button id="buttonMinusOne-ayer" disabled="" onclick="removeOneColoc_ayer()" type="button" class="btn btn-default btn-number" data-type="minus" data-field="quant[1]">
+								<button id="buttonMinusOne-ayer" onclick="removeOneColoc_ayer()" type="button" class="btn btn-default btn-number" data-type="minus" data-field="quant[1]">
 									<span class="glyphicon glyphicon-minus"></span>
 								</button>
 							</span>
-							<input id="valueNbColocInfo-ayer" type="text" readonly="" name="quant[1]" class="form-control input-number" value="2" min="2">
+							<input id="valueNbColocInfo-ayer" type="text" readonly="" name="quant[1]" class="form-control input-number" value="2" min="1">
 							<span class="input-group-btn">
 								<button onclick="addOneColoc_ayer()" type="button" class="btn btn-default btn-number" data-type="plus" data-field="quant[1]">
 									<span class="glyphicon glyphicon-plus"></span>
@@ -560,7 +560,7 @@
 								</div>
 							</div>
 						</div>
-						<div id="coloc2-ayer">
+						@*<div id="coloc2-ayer">
 							<div id="titleInfoColoc2-ayer" class="titleInfoColocs-ayer" onclick="openThisColocRow_ayer('#titleInfoColoc2-ayer','#infoColoc2-ayer')">
 								<p class="txtColocTable-ayer">Colocataire 2</p>
 								<i class="fas fa-long-arrow-alt-right iconTxtColocTable-ayer"></i>
@@ -597,7 +597,7 @@
 									</div>
 								</div>
 							</div>
-						</div>
+						</div>*@
 						<div id="addOthersColoc">
 							<div id="colocCopie-ayer" style="display:none">
 								<div id="titleInfoColocCopie-ayer" class="titleInfoColocs-ayer" onclick="openThisColocRow_ayer('#titleInfoColocCopie-ayer','#infoColocCopie-ayer')">
@@ -607,6 +607,45 @@
 									<i class="fas fa-long-arrow-alt-right iconTxtColocTable-ayer"></i>
 								</div>
 								<div id="infoColocCopie-ayer" class="infoColoc-ayer infoColoc-ayer">
+									<div class="enterColocTable-ayer">
+										<div class="col-sm-6 divLabelInfoColoc-ayer">
+											<label class="label-ayer">Prénom</label>
+											<input type="text" placeholder="Entrez votre prénom" class="input-ayer prenomColoc-ayer">
+											<div class="underInput-ayer"></div>
+										</div>
+										<div class="col-sm-6 divLabelInfoColoc-ayer">
+											<label class="label-ayer">Nom</label>
+											<input type="text" placeholder="Entrez votre nom" class="input-ayer">
+											<div class="underInput-ayer"></div>
+										</div>
+										<div class="col-sm-12 divLabelInfoColoc-ayer">
+											<label class="label-ayer">Email</label>
+											<input type="text" placeholder="Entrez votre mail" class="input-ayer">
+											<div class="underInput-ayer"></div>
+										</div>
+										<div class="col-sm-6 divLabelInfoColoc-ayer">
+											<label class="label-ayer">Date de naissance</label>
+											<input type="date" class="input-ayer">
+											<div class="underInput-ayer"></div>
+										</div>
+										<div class="col-sm-6 divLabelInfoColoc-ayer">
+											<label class="label-ayer">Civilité</label>
+											<select class="form-control select-mcar">
+												<option value="0">Monsieur</option>
+												<option value="1">Madame</option>
+												<option value="3">Neutre</option>
+											</select>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div id="divColocInfo2" class="divColocInfo">
+								<div id="titleInfoColoc2-ayer" class="titleInfoColocs-ayer" onclick="openThisColocRow_ayer('#titleInfoColoc2-ayer','#infoColoc2-ayer')">
+									<i class="fas fa-times crossEcoColocExisting-ayere" id="crossEcoColocExist-ayere" onclick="removeSpecificColoc(event, '#divColocInfo2')"></i>
+									<p class="txtColocTable-ayer">Colocataire 2</p>
+									<i class="fas fa-long-arrow-alt-right iconTxtColocTable-ayer"></i>
+								</div>
+								<div id="infoColoc2-ayer" class="infoColoc-ayer infoColoc-ayer">
 									<div class="enterColocTable-ayer">
 										<div class="col-sm-6 divLabelInfoColoc-ayer">
 											<label class="label-ayer">Prénom</label>

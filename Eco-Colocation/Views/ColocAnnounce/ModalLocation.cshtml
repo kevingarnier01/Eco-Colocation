@@ -14,7 +14,7 @@
 			}
 			else
 			{
-				<h2 class="title">Inscrivez-vous et créez votre annonce de location</h2>
+				<h2 class="title">Créez votre annonce de location en vous inscrivant</h2>
 			}
 		</div>
 		<div id="htmlBlockModalLocation-ml">
@@ -164,7 +164,7 @@
 								<div id="div10-3-adresseLog-ca" class="flex col-sm-12 textInfoAdresse-ca">
 									<div id="div10-4-adresseLog-ca" class="col-sm-2"></div>
 									<i class="fas fa-info" id="iconPlace-ca"></i>
-									<p class="fontFamilyNote col-sm-12" style="margin: auto;">										
+									<p class="fontFamilyNote col-sm-12" style="margin: auto;">
 										Votre logement apparaîtra sur la carte à cette adresse. Aucun numéro de ruelle n'est à préciser.
 									</p>
 								</div>
@@ -203,7 +203,7 @@
 											</td>
 											<td class="col-xs-6">
 												<div class="flex">
-													<input id="Loyer" name="Loyer" type="number" value="" class="inputtable-ca">
+													<input id="Loyer" name="Loyer" type="number" value="" class="inputtable-ca" min="0">
 													<p class="centerText signInputPropose-ml">€</p>
 												</div>
 											</td>
@@ -212,7 +212,7 @@
 											<td class="col-xs-6"><label for="Charges">Charges</label></td>
 											<td class="col-xs-6">
 												<div class="flex">
-													<input id="Charges" name="Charges" type="number" value="" class="inputtable-ca">
+													<input id="Charges" name="Charges" type="number" value="" class="inputtable-ca" min="0">
 													<p class="centerText signInputPropose-ml">€</p>
 												</div>
 											</td>
@@ -229,7 +229,7 @@
 											<td class="col-xs-6"><label for="Caution">Caution</label></td>
 											<td class="col-xs-6">
 												<div class="flex">
-													<input id="Caution" name="Caution" type="number" value="" class="inputtable-ca">
+													<input id="Caution" name="Caution" type="number" value="" class="inputtable-ca" min="0">
 													<p class="centerText signInputPropose-ml">€</p>
 												</div>
 											</td>
@@ -238,7 +238,7 @@
 											<td class="col-xs-6"><label for="Superficie">Superficie</label></td>
 											<td class="col-xs-6">
 												<div class="flex">
-													<input id="Superficie" name="Superficie" type="number" value="" class="inputtable-ca">
+													<input id="Superficie" name="Superficie" type="number" value="" class="inputtable-ca" min="0">
 													<p class="centerText signInputPropose-ml">m²</p>
 												</div>
 											</td>
@@ -247,7 +247,7 @@
 											<td class="col-xs-6"><label>Meublée</label></td>
 											<td style="padding: 0;padding-top: 4px;padding-left: 8px;">
 												<p class="onoff">
-													<input type="checkbox" value="1" id="meuble-cb" >
+													<input type="checkbox" value="1" id="meuble-cb">
 													<label for="meuble-cb"></label>
 												</p>
 											</td>
@@ -301,7 +301,7 @@
 											<td class="col-xs-6"><label for="Superficie">Superficie</label></td>
 											<td class="col-xs-6">
 												<div class="flex">
-													<input id="Superficie" name="Superficie" type="number" class="inputtable-ca">
+													<input id="Superficie" name="Superficie" type="number" class="inputtable-ca" min="0">
 													<p class="centerText signInputPropose-ml">m²</p>
 												</div>
 											</td>
@@ -309,26 +309,26 @@
 										<tr>
 											<td class="col-xs-6"><label for="nbPieceLogement">Nombre de pièce</label></td>
 											<td class="col-xs-6">
-												<input id="nbPieceLogement" name="nbPieceLogement" type="number" class="inputtable-ca">
+												<input id="nbPieceLogement" name="nbPieceLogement" type="number" class="inputtable-ca" min="0">
 											</td>
 										</tr>
 										<tr>
 											<td class="col-xs-6"><label for="ColocationresRestants">Nombre de coloc restant</label></td>
 											<td class="col-xs-6">
-												<input id="ColocationresRestants" name="ColocationresPresents" type="number" class="inputtable-ca">
+												<input id="ColocationresRestants" name="ColocationresPresents" type="number" min="0" class="inputtable-ca">
 											</td>
 										</tr>
 										<tr>
 											<td class="col-xs-6"><label for="ColocationresMax">Nombre de colocs max</label></td>
 											<td class="col-xs-6">
-												<input id="ColocationresMax" name="ColocationresMax" type="number" class="inputtable-ca">
+												<input id="ColocationresMax" name="ColocationresMax" type="number" min="0" class="inputtable-ca">
 											</td>
 										</tr>
 										<tr>
 											<td class="col-xs-6"><label>Accès aux transports en communs</label></td>
 											<td style="padding: 0;padding-top: 4px;padding-left: 8px;">
 												<p class="onoff">
-													<input type="checkbox" value="1" id="accesEcolo-cb" >
+													<input type="checkbox" value="1" id="accesEcolo-cb">
 													<label for="accesEcolo-cb"></label>
 												</p>
 											</td>
@@ -339,7 +339,7 @@
 											</td>
 											<td style="padding: 0;padding-top: 4px;padding-left: 8px;">
 												<p class="onoff">
-													<input type="checkbox" value="1" id="accesHandicap-cb" >
+													<input type="checkbox" value="1" id="accesHandicap-cb">
 													<label for="accesHandicap-cb"></label>
 												</p>
 											</td>
@@ -441,7 +441,7 @@
 										<tr>
 											<td class="col-xs-6"><label>Frais d'agence</label></td>
 											<td style="padding: 0;padding-top: 4px;padding-left: 8px;">
-												<input id="fraisAgence-mlca" name="fraisAgence" type="number" value="" class="inputtable-ca">
+												<input id="fraisAgence-mlca" name="fraisAgence" type="number" min="0" value="" class="inputtable-ca">
 											</td>
 										</tr>
 									</tbody>
@@ -463,8 +463,15 @@
 		else
 		{
 			<div id="partialView-ml">
+				<div id="descTextAnnonceLocationDataPersonnal" class="flex col-sm-12 textInfoAdresse-ca">
+					<div id="div10-4-adresseLog-ca" class="col-sm-2"></div>
+					<i class="fas fa-info" id="iconPlace-ca"></i>
+					<p class="fontFamilyNote col-sm-12" style="margin: auto;">
+						Toutes ces données ne seront pas visibles publiquement, seulement votre prénom, votre âge et l'activité apparaîtra dans l'annonce.
+					</p>
+				</div>
 				@Html.Partial("~/Views/Account/PersonalDataForm.cshtml")
-				@Html.Partial("~/Views/Account/ButtonsCreateAccount.cshtml")				
+				@Html.Partial("~/Views/Account/ButtonsCreateAccount.cshtml")
 			</div>
 		}
 	</div>
@@ -475,12 +482,12 @@
 
 <script language="text/javascript">
 	$(document).ready(function () {
-		window.history.replaceState('data to be passed', 'Title of the page', 
+		window.history.replaceState('data to be passed', 'Title of the page',
 			'/Modal/ModalLocation_ColocAnnounce/?targetCity=' + "@ViewData["targetCity"]" + "&urlCurrentPage=" + $('#urlCurrentPage').val());
 
 		loadAccountConnexionToFinishOperation();
-
 		initButtonOnOff()
 		disableStatutAndAddTriggerOnAgence();
+		$('#descTextAnnonceLocationDataPersonnal').detach().prependTo('#extraElement-pdf');
 	});
 </script>

@@ -11,7 +11,7 @@
 			}
 			else
 			{
-				<h2 class="title centerText">Inscrivez-vous et partagez votre projet de création</h2>
+				<h2 class="title centerText">Publier votre projet de création en vous inscrivant</h2>
 			}
 		</div>
 		<div id="htmlBlockModalCreationProjet-mpc">
@@ -232,7 +232,7 @@
 											<td class="col-xs-6"><label for="Loyer">Cout de l'achat moyen</label></td>
 											<td class="col-xs-6">
 												<div class="flex">
-													<input id="coutAchatMoy" name="coutAchatMoy" type="number" class="inputtable-ca" placeholder="Cout d'achat moyen" style="width: 150px;padding: 5px 8px;">
+													<input id="coutAchatMoy" name="coutAchatMoy" type="number" min="0" class="inputtable-ca" placeholder="Cout d'achat moyen" style="width: 150px;padding: 5px 8px;">
 													<p class="centerText signInputPropose-ml">€</p>
 												</div>
 											</td>
@@ -333,7 +333,7 @@
 											<td class="col-xs-6"><label for="Loyer">Cout de création</label></td>
 											<td class="col-xs-6">
 												<div class="flex">
-													<input id="coutCreationMoy" name="coutCreationMoy" type="number" class="inputtable-ca" placeholder="Cout de création moyen" style="width: 150px;padding: 5px 8px;padding-right: 0;">
+													<input id="coutCreationMoy" name="coutCreationMoy" type="number" min="0" class="inputtable-ca" placeholder="Cout de création moyen" style="width: 150px;padding: 5px 8px;padding-right: 0;">
 													<p class="centerText signInputPropose-ml">€</p>
 												</div>
 											</td>
@@ -342,7 +342,7 @@
 											<td class="col-xs-6"><label for="Loyer">Cout de l'achat</label></td>
 											<td class="col-xs-6">
 												<div class="flex">
-													<input id="coutAchatMoy" name="coutAchatMoy" type="number" class="inputtable-ca" placeholder="Cout d'achat moyen" style="width: 150px;padding: 5px 8px;">
+													<input id="coutAchatMoy" name="coutAchatMoy" type="number" min="0" class="inputtable-ca" placeholder="Cout d'achat moyen" style="width: 150px;padding: 5px 8px;">
 													<p class="centerText signInputPropose-ml">€</p>
 												</div>
 											</td>
@@ -352,7 +352,7 @@
 											<td class="col-xs-6">
 												<div id="div-2-1-1-loyer-fh">
 													<div class="flex">
-														<input id="loyerMoy" name="loyerMoy" type="number" class="inputtable-ca" placeholder="Loyer moyen" style="width: 150px;padding: 5px 10px;">
+														<input id="loyerMoy" name="loyerMoy" type="number" min="0" class="inputtable-ca" placeholder="Loyer moyen" style="width: 150px;padding: 5px 10px;">
 														<p class="centerText signInputPropose-ml">€</p>
 													</div>
 												</div>
@@ -394,25 +394,25 @@
 												<label for="NbColocTotal">Nombre de personne au total (m'incluant)</label>
 											</td>
 											<td class="col-xs-6">
-												<input id="NbColocTotal" name="NbColocTotal" type="number" class="inputtable-ca" style="width: 80px;">
+												<input id="NbColocTotal" name="NbColocTotal" type="number" min="0" class="inputtable-ca" style="width: 80px;">
 											</td>
 										</tr>
 										<tr id="nbParticipantAchatTerrainResearch-mpc">
 											<td class="col-xs-6"><label for="NbColocResearch">Nombre de participant recherché à l'achat du terrain</label></td>
 											<td class="col-xs-6">
-												<input id="NbColocResearch" name="NbColocResearch" type="number" class="inputtable-ca" style="width: 80px;">
+												<input id="NbColocResearch" name="NbColocResearch" type="number" min="0" class="inputtable-ca" style="width: 80px;">
 											</td>
 										</tr>
 										<tr id="nbParticipantAchatLogementResearch-mpc">
 											<td class="col-xs-6"><label for="NbColocResearch">Nombre de participant recherché à l'achat du logement</label></td>
 											<td class="col-xs-6">
-												<input id="NbColocResearch" name="NbColocResearch" type="number" class="inputtable-ca" style="width: 80px;">
+												<input id="NbColocResearch" name="NbColocResearch" type="number" min="0" class="inputtable-ca" style="width: 80px;">
 											</td>
 										</tr>
 										<tr>
 											<td class="col-xs-6"><label for="NbColocResearch">Nombre de colocataire simple recherchés</label></td>
 											<td class="col-xs-6">
-												<input id="NbColocResearch" name="NbColocResearch" type="number" class="inputtable-ca" style="width: 80px;">
+												<input id="NbColocResearch" name="NbColocResearch" type="number" min="0" class="inputtable-ca" style="width: 80px;">
 											</td>
 										</tr>
 									</tbody>
@@ -505,6 +505,13 @@
 		else
 		{
 			<div id="partialView-ml">
+				<div id="descTextAnnonceLocationDataPersonnal" class="flex col-sm-12 textInfoAdresse-ca">
+					<div id="div10-4-adresseLog-ca" class="col-sm-2"></div>
+					<i class="fas fa-info" id="iconPlace-ca"></i>
+					<p class="fontFamilyNote col-sm-12" style="margin: auto;">
+						Toutes ces données ne seront pas visibles publiquement, seulement votre prénom, votre âge et l'activité apparaîtra dans l'annonce.
+					</p>
+				</div>
 				@Html.Partial("~/Views/Account/PersonalDataForm.cshtml")
 				@Html.Partial("~/Views/Account/ButtonsCreateAccount.cshtml")
 			</div>
@@ -530,5 +537,7 @@
 			'/Modal/ModalProjetCreation_ColocAnnounce/?targetCity=' + "@ViewData["targetCity"]" + "&urlCurrentPage=" + $('#urlCurrentPage').val());
 
 		initButtonOnOff();
+
+		$('#descTextAnnonceLocationDataPersonnal').detach().prependTo('#extraElement-pdf');
 	});
 </script>

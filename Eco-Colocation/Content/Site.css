@@ -504,7 +504,8 @@ select:-moz-focusring {
 	margin-left: 50%;
 	transform: translateX(-50%);
 	position: absolute;
-	max-width: 97%;un
+	max-width: 97%;
+	un
 }
 
 	.divCloseModal a {
@@ -997,6 +998,7 @@ select#typeResearchSct-ph:focus {
 	max-width: 97%;
 	font-weight: normal;
 	color: #666;
+	margin-right: 3px
 }
 
 .crossPlace {
@@ -1879,12 +1881,24 @@ div#divContenuPlSchDisable {
 	font-weight: bold;
 	line-height: 25px;
 	margin-top: 8px;
+	margin-bottom: 0;
 }
 
 #textTopDescriptionArt {
 	text-align: center;
-	margin-bottom: 10px;
+	margin-bottom: 5px;
 	font-weight: bold;
+}
+
+.divLocalisationAnnonce-alpv {
+	font-size: 15px;
+	font-style: italic;
+	color: #888;
+}
+
+.iconLocalisationAnnonce-alpv {
+	margin: auto;
+	margin-right: 5px;
 }
 
 #textDescriptionArt {
@@ -3311,7 +3325,15 @@ i.fas.fa-times.crossPlace {
 
 #partialView-ml {
 	display: inline-block;
-	width: 100%
+	width: 100%;
+	display: grid
+}
+
+#descTextAnnonceLocationDataPersonnal {
+	width: 100%;
+	padding: 5px 10px;
+	border-radius: 5px;
+	background-color: white;
 }
 
 #div2ConnectionWithAccount-mcar {
@@ -3975,7 +3997,7 @@ i.fas.fa-times.crossPlace {
 #divbtnCreate-mbca {
 	margin-bottom: 15px;
 }
- 
+
 .div2InscriptionBtn-mcar {
 	display: flex;
 	box-shadow: 0 0 5px 0px black;
@@ -4702,9 +4724,9 @@ i.fas.fa-times.crossPlace {
 	display: none;
 }
 
-#imgRoommate-erev .imgCoverEcoRoommate-erev:first-child {
-	display: inherit
-}
+	#imgRoommate-erev .imgCoverEcoRoommate-erev:first-child {
+		display: inherit
+	}
 
 #divDescriptionEcoRoom-erev {
 	margin-top: 15px;
@@ -6102,7 +6124,7 @@ input.radioFibreEco-ayer {
 
 /* Bulle de Conversation avec le développeur */
 #divConversationDev-main {
-	width: 230px;
+	width: 235px;
 	height: 300px;
 	position: fixed;
 	bottom: 0;
@@ -6124,7 +6146,7 @@ input.radioFibreEco-ayer {
 #bandeauConvDev-main {
 	background-color: #00c2d6;
 	height: 14%;
-	cursor:pointer;
+	cursor: pointer;
 }
 
 #bdPhotoConvDev-main {
@@ -6178,7 +6200,7 @@ input.radioFibreEco-ayer {
 }
 
 #secondImgProfilConv-main {
-	display:none
+	display: none
 }
 
 #firsMsgByMySelf-main {
@@ -6186,7 +6208,7 @@ input.radioFibreEco-ayer {
 }
 
 #secondMsgByMySelf-main {
-	display:none
+	display: none
 }
 
 .txtDev-main {

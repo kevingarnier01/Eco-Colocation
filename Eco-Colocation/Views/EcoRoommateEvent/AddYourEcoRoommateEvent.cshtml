@@ -133,7 +133,8 @@
 
 	@if (!User.Identity.IsAuthenticated)
 	{
-		<h2 class="title centerText">Valider l'événement en s'inscrivant</h2>
+		<div id="btnFinsihWithConnection-ayere"></div>
+		<h2 id="titleValidInscription-ayere" class="title centerText">Ou valider l'événement en s'inscrivant ci-dessous</h2>
 		<div id="createAccount-ayere">
 			@Html.Partial("~/Views/Account/PersonalDataForm.cshtml")
 		</div>
@@ -164,5 +165,7 @@
 <script language="javascript">
 	$(document).ready(function () {
 		checkToShowArrowDivEvents('#divContenerOtherEvents-ayere');
+		//Changement d'emplacement du bouton
+		$('#divConnectionToAccount-bca').detach().prependTo('#btnFinsihWithConnection-ayere');
 	});
 </script>

@@ -4,7 +4,7 @@
 }
 @if (!User.Identity.IsAuthenticated)
 {
-	<h2 class="title centerText">Inscrivez-vous et trouver votre future éco-colocation</h2>
+	<h2 class="title centerText">Créer un profil en vous inscrivant</h2>
 }
 else
 {
@@ -48,6 +48,13 @@ else
 			</div>
 		</div>
 	</div>
+</div>
+<div id="descTextAnnonceLocationDataPersonnal" class="flex col-sm-12 textInfoAdresse-ca">
+	<div id="div10-4-adresseLog-ca" class="col-sm-2"></div>
+	<i class="fas fa-info" id="iconPlace-ca"></i>
+	<p class="fontFamilyNote col-sm-12" style="margin: auto;">
+		Toutes ces données ne seront pas visibles publiquement, seulement votre prénom, votre âge et l'activité apparaîtra sur votre profil.
+	</p>
 </div>
 @Html.Partial("~/Views/Account/PersonalDataForm.cshtml")
 <div class="divEncadrer-mcar" id="divDesciptionInfo-mcar">
@@ -120,5 +127,6 @@ else
 		showMultiplesFilesUpload("file-upload", "divResultFilesUpl-mcar");
 		initSlidepicture();
 		showDivCritereRecherche();
+		$('#descTextAnnonceLocationDataPersonnal').detach().prependTo('#extraElement-pdf');
 	});
 </script>

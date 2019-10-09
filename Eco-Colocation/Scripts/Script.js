@@ -205,6 +205,7 @@ function initmarkersCluster(specialDigits) {
 	var markersCluster = new L.MarkerClusterGroup({
 		iconCreateFunction: function (cluster) {
 			var digits = cluster.getChildCount();
+			
 			if (digits < 10) {
 				digits = 1;
 			}
@@ -258,12 +259,20 @@ function initSearchColocMap() {
 			name: 'Marker2',
 			latLng: [48.131728, -1.636257],
 			id: '2'
+		},
+		{
+			name: 'Marker3',
+			latLng: [46.89, 2.67],
+			id: '2'
+		}, {
+			name: 'Marker4',
+			latLng: [46.91, 2.67],
+			id: '2'
 		}
 	];
 	//randomNumber = Math.floor(100000 + Math.random() * 900000);
 	var markersCluster = initmarkersCluster();
-	var latlong = [];
-
+	
 	for (var i = 0; i < data.length; i++) {
 		(function () {
 			var ii = i;
@@ -291,22 +300,12 @@ function initSearchColocMap() {
 
 				$("#annonce" + (ii + 1) + "-alpv").on("mouseover", function (e) {
 					markerObject.setIcon(leafIconOver);
+
 					//var backgroundcolor = $(".markersCluster" + randomNumber).css("background-color");
 					
 					//this.iid = setInterval(function () {						
-					//	if (i = 0) {
-					//		setTimeout(function () {
 					//		$(".markersCluster" + randomNumber).css("background-color", "transparent")
-					//			i = 1;
-					//		}, 1000)
-					//	}
-					//	else {
-					//		setTimeout(function () {
-					//		$(".markersCluster" + randomNumber).css("background-color", backgroundcolor)
-					//			i = 0;
-					//		}, 1000)
-					//	}
-					//}, 25);
+					//}, 1000);
 
 				});
 
@@ -972,7 +971,7 @@ function loadEcoRoommateExistingMap(mymap) {
 			name: 'Marker2',
 			latLng: [46.91, 2.67],
 			id: '2'
-		},
+		}
 	];
 
 	var markersCluster = initmarkersCluster('digitsColocExistante');
@@ -1101,10 +1100,13 @@ function modifyMinValueToNbInfoColoc(element) {
 }
 
 function removeOneColoc_ayer() {
-	if ($('#valueNbColocInfo-ayer').val() > 2) {
+	if ($('#valueNbColocInfo-ayer').val() > 1) {
 		$('#valueNbColocInfo-ayer').val(parseInt($('#valueNbColocInfo-ayer').val()) - 1)
-		if ($('#valueNbColocInfo-ayer').val() != 2) {
+		if ($('#valueNbColocInfo-ayer').val() != 1) {
 			$('#buttonMinusOne-ayer').attr("disabled", false);
+		}
+		else if ($('#valueNbColocInfo-ayer').val() <= 1) {
+			$('#buttonMinusOne-ayer').attr("disabled", true);
 		}
 
 		//divColocInfo => Ajouter dans jquery lors de la création	
@@ -1121,9 +1123,6 @@ function removeOneColoc_ayer() {
 			else {
 				$('.divColocInfo:last-child').remove();
 			}
-		}
-		else {
-			$('#buttonMinusOne-ayer').attr("disabled", true);
 		}
 	}
 	else {
@@ -1144,13 +1143,13 @@ function removeSpecificColoc(event, elementToRemove) {
 	}
 
 	function removeIt(elementToRemove) {
-		if ($('#valueNbColocInfo-ayer').val() > 2) {
+		if ($('#valueNbColocInfo-ayer').val() > 1) {
 			$(elementToRemove).remove();
 
 			var newValueNbBlockColocInfo = parseInt($('#valueNbColocInfo-ayer').val()) - 1;
 			$('#valueNbColocInfo-ayer').val(newValueNbBlockColocInfo)
 
-			var colocActual = 3
+			var colocActual = 2
 			$('.divColocInfo').each(function () {
 				$('#' + this.id).attr("id", "divColocInfo" + colocActual)
 				$('#' + this.id + ' .titleInfoColocs-ayer').attr("id", "titleInfoColoc" + colocActual + "-ayer")
@@ -1172,7 +1171,7 @@ function addOneColoc_ayer() {
 
 	$('#valueNbColocInfo-ayer').val(newValueNbBlockColocInfo)
 
-	if ($('#valueNbColocInfo-ayer').val() > 2) {
+	if ($('#valueNbColocInfo-ayer').val() > 1) {
 		$('#buttonMinusOne-ayer').attr("disabled", false);
 	}
 
@@ -1534,7 +1533,7 @@ function reduceWindowsConvDev() {
 
 function openWindowsConvDev() {
 	$("#divConversationDev-main").css("height", "300px")
-	$("#divConversationDev-main").css("width", "230px")
+	$("#divConversationDev-main").css("width", "235px")
 	$("#bandeauConvDev-main").css("height", "14%")
 	$("#bdArticleConvDev-main").fadeIn("fast")
 	$("#divFooterConDev-main").fadeIn("fast")
