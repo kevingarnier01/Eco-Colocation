@@ -205,7 +205,7 @@ function initmarkersCluster(specialDigits) {
 	var markersCluster = new L.MarkerClusterGroup({
 		iconCreateFunction: function (cluster) {
 			var digits = cluster.getChildCount();
-			
+
 			if (digits < 10) {
 				digits = 1;
 			}
@@ -272,7 +272,7 @@ function initSearchColocMap() {
 	];
 	//randomNumber = Math.floor(100000 + Math.random() * 900000);
 	var markersCluster = initmarkersCluster();
-	
+
 	for (var i = 0; i < data.length; i++) {
 		(function () {
 			var ii = i;
@@ -302,7 +302,7 @@ function initSearchColocMap() {
 					markerObject.setIcon(leafIconOver);
 
 					//var backgroundcolor = $(".markersCluster" + randomNumber).css("background-color");
-					
+
 					//this.iid = setInterval(function () {						
 					//		$(".markersCluster" + randomNumber).css("background-color", "transparent")
 					//}, 1000);
@@ -322,14 +322,6 @@ function initSearchColocMap() {
 			}, 1000);
 		})();
 	}
-
-	//var groupMarker = new L.featureGroup(data[0], data[1]);
-	//mymap.fitBounds(groupMarker.getBounds());
-
-	//mymap.fitBounds([
-	//	[48.0833, -1.6833],
-	//	[48.1212, -1.603]
-	//])
 
 	mymap.addLayer(markersCluster);
 }
@@ -1633,4 +1625,45 @@ function removePictureConvDev(element) {
 		$("#lstFilesUploadConvDev-main").css("display", "none")
 		$("#bdArticleConvDev-main").css("height", "66%")
 	}
+}
+
+function changeEndOfDispoVisibility() {
+	if ($("#dispoTemporaireChk-mlca").prop('checked')) {
+		$("#divEndDispo-mlca").fadeIn("slow");
+	}
+	else {
+		$("#divEndDispo-mlca").fadeOut("slow");
+	}
+}
+
+function changeOngletInModalLocation(selectedTab) {
+	if ($(selectedTab).attr("data-selected") != "true") {
+		$(".ongletAnnonce-ml").css("background-color", "white")
+		$(".ongletAnnonce-ml").css("color", "#888")
+		$(".ongletAnnonce-ml").attr("data-selected", "false")
+		$(".viewFromOnglet-ml").fadeOut("slow")
+
+		$(selectedTab).css("background-color", "#bbc800")
+		$(selectedTab).css("color", "white")
+		$(selectedTab).attr("data-selected", "true")
+		var idBlockToShow = $(selectedTab).attr("data-id")
+		$("#" + idBlockToShow).fadeIn("slow")
+
+		if ($(selectedTab).attr("data-showmap") == "true" && $(selectedTab).attr("data-mapisinit") == "false") {
+			showModalLocationMarker_onMap();
+			$(selectedTab).attr("data-mapisinit", "true");
+		}
+	}
+}
+
+function showModalLocationMarker_onMap() {
+	var mymap = L.map('localisationMarkerOnMap-ml').setView([48.101228, -1.686257], 15);
+
+	L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+		maxZoom: 18,
+		id: 'mapbox.streets',
+		accessToken: 'pk.eyJ1Ijoia2dhcm5pZXIiLCJhIjoiY2pyajlmOW1nMDlmNDQ5bzAwemRoNTNpeSJ9.7Evwr47aOCoVYOAnds_WZA'
+	}).addTo(mymap);
+
+	L.circle([48.101228, -1.686257], 200).addTo(mymap);
 }

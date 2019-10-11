@@ -365,6 +365,10 @@ a, p h1, h2, h3, h4, h5, h6, input, textarea, label, span, div, table {
 	flex-wrap: wrap
 }
 
+.autoMargin {
+	margin: auto !important;
+}
+
 .overflow {
 	overflow: auto;
 }
@@ -512,6 +516,7 @@ select:-moz-focusring {
 		float: right;
 		margin-top: 10px;
 		margin-right: 20px;
+		pointer-events: painted;
 	}
 
 .close-modal {
@@ -2318,6 +2323,10 @@ div#divContenuPlSchDisable {
 		width: 900px
 	}
 
+		#modalLocation ~ .divCloseModal {
+			pointer-events: none;
+		}
+
 #divMessage-ml {
 	display: none;
 }
@@ -2607,6 +2616,41 @@ d5-description-mpc {
 	margin-right: 11px !important;
 }
 
+.ongletAnnonce-ml {
+	box-shadow: 0 0 3px 0 black;
+	width: 33%;
+	height: 28px;
+	text-align: center;
+	display: table-cell;
+	vertical-align: middle;
+	font-weight: bold;
+	color: #888;
+	cursor: pointer;
+}
+
+#divOngletAnnonce-ml {
+	margin-bottom: 15px;
+	width: 97%;
+	display: table;
+}
+
+#annonceOnglet-ml {
+	background-color: #bbc800;
+	color: white;
+}
+
+#localisationOnglet-ml {
+	border-radius: 0 15px 5px 0;
+}
+
+#annonceOnglet-ml {
+	border-radius: 15px 0 0 5px;
+}
+
+#localisationMarkerOnMap-ml {
+	display:none;
+	height: 310px;
+}
 /*** End ModalLocation ***/
 /*** ModalMessage ***/
 #partialViewMessage {
@@ -3261,6 +3305,29 @@ i.fas.fa-times.crossPlace {
 
 #nomAgence-mlca, #numSiret-mlca, #fraisAgence-mlca {
 	text-align: inherit !important
+}
+
+#divDateDispo-mlca {
+	margin-bottom: 12px;
+}
+
+#pDispoTemp-mlca {
+	margin-right: 10px !important;
+	font-size: 17px !important;
+	color: #555;
+}
+
+#divDispoTemp-mlca {
+	margin-bottom: 15px;
+}
+
+#dispoTemporaireChk-mlca {
+	margin-top: auto;
+	margin-bottom: auto;
+}
+
+#divEndDispo-mlca {
+	display: none;
 }
 
 #ChargesDesc {

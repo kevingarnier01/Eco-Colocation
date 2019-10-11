@@ -29,261 +29,273 @@
 				</div>
 			</div>
 		</div>
-
 		<div id="div-description-mpc" class="col-sm-6 col-xs-12 fontFamilyNote">
-			<div id="d1-description-mpc">
-				<div id="d1-1-description-mpc" class="col-sm-4 col-xs-4">
-					<div id="d1-1-1-description-mpc">
-						<h2>390€</h2>
-						<h4>par mois</h4>
-					</div>
-				</div>
-				<div id="d1-2-description-mpc" class="col-sm-3 col-xs-3">
-					<div id="d1-2-1-description-mpc" style="background: url(https://lcdcfrance-prod.s3.amazonaws.com/profile_pictures/47aa8a5c7db1808139e223af6a4ab1e0_medium.jpg) 50% 50% no-repeat;"></div>
-				</div>
-				<div id="d1-3-description-mpc" class="col-sm-5 col-xs-5">
-					<h4>Clémentine</h4>
-					<p>25 ans, Salariée</p>
-					<p id="p-d1-3-description-mpc">Posté il y a 3 jours</p>
-				</div>
+			<div id="divOngletAnnonce-ml" class="flex">
+				<div class="ongletAnnonce-ml" id="annonceOnglet-ml" data-id="annonceInfo-ml" data-selected="true">Annonce</div>
+				<div class="ongletAnnonce-ml" id="streetViewOnglet-ml" data-id="streetViewMap-ml">Street View</div>
+				<div class="ongletAnnonce-ml" id="localisationOnglet-ml" data-id="localisationMarkerOnMap-ml" data-showmap="true" data-mapisinit="false">Localisation</div>
 			</div>
-			<div class="d2-description-mpc fontFamilyNote">
-				<div class="d2-1-description-mpc col-sm-3 col-xs-3">
-					<div class="d2-1-1-description-mpc">
-						<div class="d2-1-1-1-description-mpc">
-							<img src="https://img.icons8.com/ios/50/000000/building.png">
+			<div class="viewFromOnglet-ml" id="localisationMarkerOnMap-ml"></div>
+			<div class="viewFromOnglet-ml" id="streetViewMap-ml" ></div>
+			<div class="viewFromOnglet-ml" id="annonceInfo-ml">
+				<div id="d1-description-mpc">
+					<div id="d1-1-description-mpc" class="col-sm-4 col-xs-4">
+						<div id="d1-1-1-description-mpc">
+							<h2>390€</h2>
+							<h4>par mois</h4>
 						</div>
-						<p>Maison de 120 m²</p>
+					</div>
+					<div id="d1-2-description-mpc" class="col-sm-3 col-xs-3">
+						<div id="d1-2-1-description-mpc" style="background: url(https://lcdcfrance-prod.s3.amazonaws.com/profile_pictures/47aa8a5c7db1808139e223af6a4ab1e0_medium.jpg) 50% 50% no-repeat;"></div>
+					</div>
+					<div id="d1-3-description-mpc" class="col-sm-5 col-xs-5">
+						<h4>Clémentine</h4>
+						<p>25 ans, Salariée</p>
+						<p id="p-d1-3-description-mpc">Posté il y a 3 jours</p>
 					</div>
 				</div>
-				<div class="d2-1-description-mpc col-sm-3 col-xs-3">
-					<div class="d2-1-1-description-mpc">
-						<div class="d2-1-1-1-description-mpc">
-							<img src="https://img.icons8.com/ios/50/000000/resize-four-directions.png">
+				<div class="d2-description-mpc fontFamilyNote">
+					<div class="d2-1-description-mpc col-sm-3 col-xs-3">
+						<div class="d2-1-1-description-mpc">
+							<div class="d2-1-1-1-description-mpc">
+								<img src="https://img.icons8.com/ios/50/000000/building.png">
+							</div>
+							<p>Maison de 120 m²</p>
 						</div>
-						<p>Allée de la bome marudière, Rennes</p>
+					</div>
+					<div class="d2-1-description-mpc col-sm-3 col-xs-3">
+						<div class="d2-1-1-description-mpc">
+							<div class="d2-1-1-1-description-mpc">
+								<img src="https://img.icons8.com/ios/50/000000/resize-four-directions.png">
+							</div>
+							<p>Allée de la bome marudière, Rennes</p>
+						</div>
+					</div>
+					<div class="d2-1-description-mpc col-sm-3 col-xs-3">
+						<div class="d2-1-1-description-mpc">
+							<div class="d2-1-1-1-description-mpc">
+								<img src="https://img.icons8.com/ios/50/000000/conference-call.png">
+							</div>
+							<p id="p1-d2-1-description-mpc">2 place(s) sur 5</p>
+							<p id="p2-d2-1-description-mpc">restantes</p>
+						</div>
+					</div>
+					<div class="d2-1-description-mpc col-sm-3 col-xs-3">
+						<div class="d2-1-1-description-mpc">
+							<div class="d2-1-1-1-description-mpc">
+								<img src="https://img.icons8.com/wired/64/000000/event-declined.png">
+							</div>
+							<p id="p1-d2-1-description-mpc">01/08/2020</p>
+							<p id="p2-d2-1-description-mpc">(Disponibilité)</p>
+						</div>
 					</div>
 				</div>
-				<div class="d2-1-description-mpc col-sm-3 col-xs-3">
-					<div class="d2-1-1-description-mpc">
-						<div class="d2-1-1-1-description-mpc">
-							<img src="https://img.icons8.com/ios/50/000000/conference-call.png">
+				<div id="d3-description-mpc">
+					@if (User.Identity.IsAuthenticated)
+					{
+						<div class="d3-1-description-mpc btnGreen" onclick="displayPhoneNumber('#numberPhone-ml')">
+							<i class="fas fa-phone imgBtnContact-mpc"></i>
+							<span id="libelleTelephone-mpc">Afficher le numéro</span>
+							<span id="numberPhone-ml"></span>
 						</div>
-						<p id="p1-d2-1-description-mpc">3 colocs</p>
-						<p id="p2-d2-1-description-mpc">(présents)</p>
-					</div>
-				</div>
-				<div class="d2-1-description-mpc col-sm-3 col-xs-3">
-					<div class="d2-1-1-description-mpc">
-						<div class="d2-1-1-1-description-mpc">
-							<img src="https://img.icons8.com/wired/64/000000/event-declined.png">
-						</div>
-						<p id="p1-d2-1-description-mpc">01/03/2019</p>
-						<p id="p2-d2-1-description-mpc">(Disponibilité)</p>
-					</div>
-				</div>
-			</div>
-			<div id="d3-description-mpc">
-				@if (User.Identity.IsAuthenticated)
-				{
-					<div class="d3-1-description-mpc btnGreen" onclick="displayPhoneNumber('#numberPhone-ml')">
-						<i class="fas fa-phone imgBtnContact-mpc"></i>
-						<span id="libelleTelephone-mpc">Afficher le numéro</span>
-						<span id="numberPhone-ml"></span>
-					</div>
-				}
-				else
-				{
-					<a class="d3-1-description-mpc btnGreen" href="@Url.Action("ModalAccount", "Account", null)" rel="modal:open">
-						<i class="fas fa-phone imgBtnContact-mpc"></i>
-						<span id="libelleTelephone-mpc">Afficher le numéro</span>
-						<span id="numberPhone-ml"></span>
-					</a>
-				}
+					}
+					else
+					{
+						<a class="d3-1-description-mpc btnGreen" href="@Url.Action("ModalAccount", "Account", null)" rel="modal:open">
+							<i class="fas fa-phone imgBtnContact-mpc"></i>
+							<span id="libelleTelephone-mpc">Afficher le numéro</span>
+							<span id="numberPhone-ml"></span>
+						</a>
+					}
 
-				@if (User.Identity.IsAuthenticated)
-				{
-					<div id="d3-2-description-mpc" onclick="displayPVMessage();$('#modalLocation').scrollTop(0);" class="btnGreen">
-						<i class="far fa-envelope imgBtnContact-mpc"></i>Envoyer un message
-					</div>
-				}
-				else
-				{
-					<a id="d3-2-description-mpc" href="@Url.Action("ModalAccount", "Account", null)" rel="modal:open" class="btnGreen">
-						<i class="far fa-envelope imgBtnContact-mpc"></i>Envoyer un message
-					</a>
-				}
-			</div>
-			<div id="d4-description-mpc">
-				<p>Nous recherchons 2 hommes pour amener une mixité dans la colocation et qui seraient interressés pour co-habiter avec nous et participer à ces démarches écologiques.</p>
-				<p>Nous sommes 3 jeunes femmes entre 22 et 26 ans. Nous vivons dans une maison dans la campagne prêt de la mer. Deux de nos colocataires partent étudier dans hors Toulouse, deux nouvelles places sont alors disponibles.</p>
-				<p>Nous respectons les tri des dechets, essayons d'être proche du 0 déchets et nous cultivons notre jardin bio. Et enfin nous ne mangeons pas de viande.</p>
-			</div>
-			<div id="d5-description-mpc">
-				<table class="table table-striped">
-					<thead>
-						<tr>
-							<th scope="col" colspan="2">CHAMBRE 1</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>Loyer</td>
-							<td>320 €</td>
-						</tr>
-						<tr>
-							<td>Charges</td>
-							<td>
-								50 €
-								<i class="fas fa-question-circle iconQuestionCharge-ml" id="iconQuestionCharge1" 
-								   onmouseover="showPopUpInfo('#iconQuestionCharge1', '#divInfoSupCharge1')"></i>
-								<div class="divInfoSupCharge-ml" id="divInfoSupCharge1">
-									50 euros pour l'eau, électricité et chauffage.
-								</div>
-							</td>
-						</tr>
-						<tr>
-							<td>Caution</td>
-							<td>250 €</td>
-						</tr>
-						<tr>
-							<td>Superficie</td>
-							<td>18 m²</td>
-						</tr>
-						<tr>
-							<td>Meublée</td>
-							<td>Oui</td>
-						</tr>
-						<tr>
-							<td>Disponibilité</td>
-							<td>24/03/2019</td>
-						</tr>
-					</tbody>
-				</table>
-				<table class="table table-striped">
-					<thead>
-						<tr>
-							<th scope="col" colspan="2">CHAMBRE 2</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>Loyer</td>
-							<td>320 €</td>
-						</tr>
-						<tr>
-							<td>Charges</td>
-							<td>
-								50 €
-								<i class="fas fa-question-circle iconQuestionCharge-ml" id="iconQuestionCharge2" 
-								   onmouseover="showPopUpInfo('#iconQuestionCharge2', '#divInfoSupCharge2')"></i>
-								<div class="divInfoSupCharge-ml" id="divInfoSupCharge2">
-									50 euros pour l'eau, électricité et chauffage.
-								</div>
-							</td>
-						</tr>
-						<tr>
-							<td>Caution</td>
-							<td>200 €</td>
-						</tr>
-						<tr>
-							<td>Superficie</td>
-							<td>15 m²</td>
-						</tr>
-						<tr>
-							<td>Meublée</td>
-							<td>Oui</td>
-						</tr>
-						<tr>
-							<td>Disponibilité</td>
-							<td>25/03/2019</td>
-						</tr>
-					</tbody>
-				</table>
-				<table class="table table-striped">
-					<thead>
-						<tr>
-							<th scope="col" colspan="2">LOGEMENT</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>Type</td>
-							<td>Maison</td>
-						</tr>
-						<tr>
-							<td>Implantation</td>
-							<td>Campagne</td>
-						</tr>
-						<tr>
-							<td>Superficie</td>
-							<td>120 m²</td>
-						</tr>
-						<tr>
-							<td>Quartier</td>
-							<td>Allée de la bome marudière, Rennes</td>
-						</tr>
-						<tr>
-							<td>Nombre de pièce</td>
-							<td>5</td>
-						</tr>
-						<tr>
-							<td>Colocataires restants</td>
-							<td>3</td>
-						</tr>
-						<tr>
-							<td>Colocataires maximum</td>
-							<td>5</td>
-						</tr>
-						<tr>
-							<td>Accès aux transports en communs</td>
-							<td>Oui</td>
-						</tr>
-						<tr>
-							<td>Accessibilité handicapé</td>
-							<td>Oui</td>
-						</tr>
-					</tbody>
-				</table>
-				<table class="table table-striped">
-					<thead>
-						<tr>
-							<th scope="col" colspan="2">ANNONCE</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>Date de publication</td>
-							<td>16/02/2019 à 20h00</td>
-						</tr>
-					</tbody>
-				</table>
+					@if (User.Identity.IsAuthenticated)
+					{
+						<div id="d3-2-description-mpc" onclick="displayPVMessage();$('#modalLocation').scrollTop(0);" class="btnGreen">
+							<i class="far fa-envelope imgBtnContact-mpc"></i>Envoyer un message
+						</div>
+					}
+					else
+					{
+						<a id="d3-2-description-mpc" href="@Url.Action("ModalAccount", "Account", null)" rel="modal:open" class="btnGreen">
+							<i class="far fa-envelope imgBtnContact-mpc"></i>Envoyer un message
+						</a>
+					}
+				</div>
+				<div id="d4-description-mpc">
+					<p>Nous recherchons 2 hommes pour amener une mixité dans la colocation et qui seraient interressés pour co-habiter avec nous et participer à ces démarches écologiques.</p>
+					<p>Nous sommes 3 jeunes femmes entre 22 et 26 ans. Nous vivons dans une maison dans la campagne prêt de la mer. Deux de nos colocataires partent étudier dans hors Toulouse, deux nouvelles places sont alors disponibles.</p>
+					<p>Nous respectons les tri des dechets, essayons d'être proche du 0 déchets et nous cultivons notre jardin bio. Et enfin nous ne mangeons pas de viande.</p>
+				</div>
+				<div id="d5-description-mpc">
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th scope="col" colspan="2">CHAMBRE 1</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Loyer</td>
+								<td>320 €</td>
+							</tr>
+							<tr>
+								<td>Charges</td>
+								<td>
+									50 €
+									<i class="fas fa-question-circle iconQuestionCharge-ml" id="iconQuestionCharge1"
+									   onmouseover="showPopUpInfo('#iconQuestionCharge1', '#divInfoSupCharge1')"></i>
+									<div class="divInfoSupCharge-ml" id="divInfoSupCharge1">
+										50 euros pour l'eau, électricité et chauffage.
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>Caution</td>
+								<td>250 €</td>
+							</tr>
+							<tr>
+								<td>Superficie</td>
+								<td>18 m²</td>
+							</tr>
+							<tr>
+								<td>Meublée</td>
+								<td>Oui</td>
+							</tr>
+							<tr>
+								<td>Disponibilité</td>
+								<td>01/08/2020</td>
+							</tr>
+							<tr>
+								<td>Fin de la disponibilité</td>
+								<td>01/09/2020</td>
+							</tr>
+						</tbody>
+					</table>
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th scope="col" colspan="2">CHAMBRE 2</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Loyer</td>
+								<td>320 €</td>
+							</tr>
+							<tr>
+								<td>Charges</td>
+								<td>
+									50 €
+									<i class="fas fa-question-circle iconQuestionCharge-ml" id="iconQuestionCharge2"
+									   onmouseover="showPopUpInfo('#iconQuestionCharge2', '#divInfoSupCharge2')"></i>
+									<div class="divInfoSupCharge-ml" id="divInfoSupCharge2">
+										50 euros pour l'eau, électricité et chauffage.
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>Caution</td>
+								<td>200 €</td>
+							</tr>
+							<tr>
+								<td>Superficie</td>
+								<td>15 m²</td>
+							</tr>
+							<tr>
+								<td>Meublée</td>
+								<td>Oui</td>
+							</tr>
+							<tr>
+								<td>Disponibilité</td>
+								<td>25/03/2019</td>
+							</tr>
+						</tbody>
+					</table>
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th scope="col" colspan="2">LOGEMENT</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Type</td>
+								<td>Maison</td>
+							</tr>
+							<tr>
+								<td>Implantation</td>
+								<td>Campagne</td>
+							</tr>
+							<tr>
+								<td>Superficie</td>
+								<td>120 m²</td>
+							</tr>
+							<tr>
+								<td>Quartier</td>
+								<td>Allée de la bome marudière, Rennes</td>
+							</tr>
+							<tr>
+								<td>Nombre de pièce</td>
+								<td>5</td>
+							</tr>
+							<tr>
+								<td>Colocataires restants</td>
+								<td>3</td>
+							</tr>
+							<tr>
+								<td>Colocataires recherchés</td>
+								<td>2</td>
+							</tr>
+							<tr>
+								<td>Accès aux transports en communs</td>
+								<td>Oui</td>
+							</tr>
+							<tr>
+								<td>Accessibilité handicapé</td>
+								<td>Oui</td>
+							</tr>
+						</tbody>
+					</table>
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th scope="col" colspan="2">ANNONCE</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Date de publication</td>
+								<td>16/02/2019 à 20h00</td>
+							</tr>
+						</tbody>
+					</table>
 
-				<table class="table table-striped">
-					<thead>
-						<tr>
-							<th scope="col" colspan="2">TOLERENCES</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>Consommateur d'alcool</td>
-							<td>Oui</td>
-						</tr>
-						<tr>
-							<td>Fumeur</td>
-							<td>Oui</td>
-						</tr>
-						<tr>
-							<td>Animaux</td>
-							<td>Oui</td>
-						</tr>
-						<tr>
-							<td>Info supplémentaire</td>
-							<td>Peut fumer uniquement sur le balcon</td>
-						</tr>
-					</tbody>
-				</table>
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th scope="col" colspan="2">TOLERENCES</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Consommateur d'alcool</td>
+								<td>Oui</td>
+							</tr>
+							<tr>
+								<td>Fumeur</td>
+								<td>Oui</td>
+							</tr>
+							<tr>
+								<td>Animaux</td>
+								<td>Oui</td>
+							</tr>
+							<tr>
+								<td>Info supplémentaire</td>
+								<td>Peut fumer uniquement sur le balcon</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -295,5 +307,7 @@
 	$(document).ready(function () {
 		window.history.replaceState('data to be passed', 'Title of the page',
 			'/Modal/ModalLocation/?targetCity=' + "@ViewData["targetCity"]" + "&idModal=" + @ViewData["IdModal"] + "&urlCurrentPage=" + $('#urlCurrentPage').val());
+		
+		$(".ongletAnnonce-ml").on("click", function (e) { changeOngletInModalLocation(e.target) })
 	});
 </script>
