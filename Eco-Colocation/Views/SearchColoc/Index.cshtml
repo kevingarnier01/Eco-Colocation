@@ -25,7 +25,13 @@
 				<h3 id="annonceRubrique2" onclick="annonceLocationPage();">Annonces de locations</h3>
 			</div>
 			<div id="creationRubrique" class="col-sm-6 col-xs-12 fontFamilyNote">
-				<h3 id="creationRubrique2" onclick="projetCreationPage();">Projets de créations</h3>
+				<h3 id="creationRubrique2" onclick="projetCreationPage();">
+					Projets de créations
+					<i class="fas fa-question-circle" id="descriptionProjetCreationRubrique" onmouseover="showPopUpInfo('#descriptionProjetCreationRubrique', '#divInfoProjetCreationRubrique')"></i>
+				</h3>
+				<div id="divInfoProjetCreationRubrique" style="display: none;" onmouseout="closePopUpInfo(this)">
+					<p>Le projet de création d'une éco-colocation est un projet qui n'a pas encore été abouti mais qui a déjà été réfléchi préalablement. Il deviendra généralement concret si d'autres personne s'allie sur ce même projet.</p>
+				</div>
 			</div>
 		</div>
 	</div>

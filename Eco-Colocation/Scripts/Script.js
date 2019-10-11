@@ -216,9 +216,14 @@ function initmarkersCluster(specialDigits) {
 				digits = 3;
 			}
 
+			//var markers = cluster.getAllChildMarkers();
+			//var latlng = markers[1].getLatLng();
+			//var lat = latlng.lat.toString();
+			//var idCluster = lat.substr(lat.indexOf(".") + 1)
+			
 			return L.divIcon({
 				html: "<div><span>" + cluster.getChildCount() + "</span></div>",
-				className: 'markersCluster ' + ((specialDigits != null && specialDigits.length != 0) ? specialDigits : "") + ' digits-' + digits,
+				className: ' markersCluster ' + ((specialDigits != null && specialDigits.length != 0) ? specialDigits : "") + ' digits-' + digits,
 				iconSize: null
 			});
 		}
@@ -263,14 +268,14 @@ function initSearchColocMap() {
 		{
 			name: 'Marker3',
 			latLng: [46.89, 2.67],
-			id: '2'
+			id: '3'
 		}, {
 			name: 'Marker4',
 			latLng: [46.91, 2.67],
-			id: '2'
+			id: '4'
 		}
 	];
-	//randomNumber = Math.floor(100000 + Math.random() * 900000);
+
 	var markersCluster = initmarkersCluster();
 
 	for (var i = 0; i < data.length; i++) {
@@ -316,9 +321,8 @@ function initSearchColocMap() {
 
 				showOthersEvents()
 
-				markersCluster.addLayer(markerObject);
+				markersCluster.addLayer(markerObject);				
 				mymap.fitBounds(markersCluster.getBounds());
-
 			}, 1000);
 		})();
 	}
@@ -1429,8 +1433,7 @@ function showPopUpInfo(iconElement, elementPopUp) {
 
 	$(iconElement).mouseleave(function (e) {
 		setTimeout(function () {
-			//if ($('#element').data('clicked')) {
-			if ($(elementPopUp + ':hover').length == 0) {
+			if ($(elementPopUp + ':hover').length == 0 && $(elementPopUp + ' scroll:hover').length == 0) {
 				closePopUpInfo(elementPopUp)
 			}
 		}, 500);
@@ -1653,6 +1656,9 @@ function changeOngletInModalLocation(selectedTab) {
 			showModalLocationMarker_onMap();
 			$(selectedTab).attr("data-mapisinit", "true");
 		}
+		else if ($(selectedTab).attr("data-showstreetview") == "true") {
+			showStreetView();
+		}
 	}
 }
 
@@ -1665,5 +1671,23 @@ function showModalLocationMarker_onMap() {
 		accessToken: 'pk.eyJ1Ijoia2dhcm5pZXIiLCJhIjoiY2pyajlmOW1nMDlmNDQ5bzAwemRoNTNpeSJ9.7Evwr47aOCoVYOAnds_WZA'
 	}).addTo(mymap);
 
-	L.circle([48.101228, -1.686257], 200).addTo(mymap);
+	L.circle([48.101228, -1.686257], 100).addTo(mymap);
+}
+
+function showStreetView() {
+	var fenway = { lat: 48.101228, lng: -1.686257 };
+
+	var map = new google.maps.Map(document.getElementById('streetViewMap-ml'), {
+		center: fenway,
+		zoom: 14
+	});
+	var panorama = new google.maps.StreetViewPanorama(
+		document.getElementById('annonceInfo-ml'), {
+			position: fenway,
+			pov: {
+				heading: 34,
+				pitch: 10
+			}
+		});
+	map.setStreetView(panorama);
 }
