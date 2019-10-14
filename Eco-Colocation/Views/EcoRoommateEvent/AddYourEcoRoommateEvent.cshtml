@@ -38,8 +38,8 @@
 			</div>
 		</div>
 		<div id="divFacebookLinkEvent-ayere" class="sousDivFormColoc-ayer">
-			<label class="label-ayer">Lien externe lié à l'événement</label>
-			<input type="search" id="facebookLinkEvent-ayere" class="form-control">
+			<label class="label-ayer">Lien lié à l'événement *</label>
+			<input type="search" id="facebookLinkEvent-ayere" class="form-control" placeholder="Ex : http://www.facebookEvent-01452...">
 		</div>
 		<div class="col-xs-12 sousDivFormColoc-ayer" style="margin-bottom: 25px;">
 			<label class="label-ayer">Description de votre événement</label>
@@ -74,7 +74,7 @@
 		<div class="flex childFlex" id="divContenerOtherEvents-ayere">
 			<div class="flex divElementEvent-ayer">
 				<div>
-					<div class="divOtherLinkEvent-merev">
+					<div class="divOtherLinkEvent-merev" onclick="checkedOrNotAccordingToTheStatus('#chbEvent1')">
 						<div>
 							<p class="titleOtherLinkEvent-merev">Apero Eco-Colocation Strasbourg</p>
 							<p class="fontFamilyNote underTitleOLinkEvent-merev">Jeudi 2 Mai 2019</p>
@@ -84,7 +84,7 @@
 						</div>
 						<div class="flex">
 							<div class="childFlex">
-								<input id="CbxEvenement" name="CbxEvenement" type="checkbox" value="true"><input name="CbxEvenement" type="hidden" value="false">
+								<input id="chbEvent1" name="CbxEvenement" type="checkbox" value="true"><input name="CbxEvenement" type="hidden" value="false">
 							</div>
 						</div>
 					</div>
@@ -92,7 +92,7 @@
 			</div>
 			<div class="flex divElementEvent-ayer">
 				<div>
-					<div class="divOtherLinkEvent-merev">
+					<div class="divOtherLinkEvent-merev" onclick="checkedOrNotAccordingToTheStatus('#chbEvent2')">
 						<div>
 							<p class="titleOtherLinkEvent-merev">Apero Eco-Colocation Lille</p>
 							<p class="fontFamilyNote underTitleOLinkEvent-merev">02 Mai - 04 Mai 2019</p>
@@ -103,7 +103,7 @@
 						</div>
 						<div class="flex">
 							<div class="childFlex">
-								<input id="CbxEvenement" name="CbxEvenement" type="checkbox" value="true"><input name="CbxEvenement" type="hidden" value="false">
+								<input id="chbEvent2" name="CbxEvenement" type="checkbox" value="true"><input name="CbxEvenement" type="hidden" value="false">
 							</div>
 						</div>
 					</div>
@@ -111,7 +111,7 @@
 			</div>
 			<div class="flex divElementEvent-ayer">
 				<div class="centerOtherEvent-ayere">
-					<div class="divOtherLinkEvent-merev">
+					<div class="divOtherLinkEvent-merev" onclick="checkedOrNotAccordingToTheStatus('#chbEvent3')">
 						<div>
 							<p class="titleOtherLinkEvent-merev">Apero Eco-Colocation Lyon</p>
 							<p class="fontFamilyNote underTitleOLinkEvent-merev">Jeudi 2 Mai 2019</p>
@@ -122,7 +122,7 @@
 						</div>
 						<div class="flex">
 							<div class="childFlex">
-								<input id="CbxEvenement" name="CbxEvenement" type="checkbox" value="true"><input name="CbxEvenement" type="hidden" value="false">
+								<input id="chbEvent3" name="CbxEvenement" type="checkbox" value="true"><input name="CbxEvenement" type="hidden" value="false">
 							</div>
 						</div>
 					</div>
@@ -133,9 +133,9 @@
 
 	@if (!User.Identity.IsAuthenticated)
 	{
-		<div id="btnFinsihWithConnection-ayere"></div>
-		<h2 id="titleValidInscription-ayere" class="title centerText">Ou valider l'événement en s'inscrivant ci-dessous</h2>
 		<div id="createAccount-ayere">
+			<h2 id="titleValidInscription-ayere" class="title centerText">Valider l'événement en s'inscrivant</h2>
+			<p class="underTitle centerText" id="underTitleValidInscri-ayere">uniquement si vous n'avez pas encore de compte</p>
 			@Html.Partial("~/Views/Account/PersonalDataForm.cshtml")
 		</div>
 		@Html.Partial("~/Views/Account/ButtonsCreateAccount.cshtml")
@@ -166,6 +166,5 @@
 	$(document).ready(function () {
 		checkToShowArrowDivEvents('#divContenerOtherEvents-ayere');
 		//Changement d'emplacement du bouton
-		$('#divConnectionToAccount-bca').detach().prependTo('#btnFinsihWithConnection-ayere');
 	});
 </script>

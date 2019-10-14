@@ -865,6 +865,7 @@ function showMultiplesFilesUpload(filesInputId, elementIdToAppend) {
 				$('.labelDescFile-mcar').css('display', 'block');
 			}, 500);
 		}
+		$('input[type="file"]').val(null);
 	});
 }
 
@@ -1585,10 +1586,10 @@ function sendMsgOnConvDev() {
 }
 
 function uploadImgConvDev(filesInputId) {
-	var filesInput = document.getElementById(filesInputId);
-
-	filesInput.addEventListener("change", function (event) {
-
+	var filesInputOut = document.getElementById(filesInputId);
+	
+	filesInputOut.addEventListener("change", function (event) {
+		
 		var files = event.target.files; //FileList object
 
 		for (var i = 0; i < files.length; i++) {
@@ -1619,6 +1620,7 @@ function uploadImgConvDev(filesInputId) {
 			//Read the image
 			picReader.readAsDataURL(file);
 		}
+		$('input[type="file"]').val(null);
 	});
 }
 
@@ -1690,4 +1692,13 @@ function showStreetView() {
 			}
 		});
 	map.setStreetView(panorama);
+}
+
+function checkedOrNotAccordingToTheStatus(elementId) {
+	if ($(elementId).attr("checked") == "checked") {
+		$(elementId).prop("checked", false);
+	}
+	else {
+		$(elementId).prop("checked", true);
+	}
 }
