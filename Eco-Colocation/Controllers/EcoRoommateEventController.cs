@@ -27,7 +27,7 @@ namespace Eco_Colocation.Controllers
 
 		public ActionResult ModalDeleteEcoRoommateEvent()
 		{
-			return View("~/Views/EcoRoommateEvent/AddYourEcoRoommateEvent.cshtml");
+			return PartialView("~/Views/EcoRoommateEvent/ModalDeleteEcoRoommateEvent.cshtml");
 		}
 
 		public ActionResult ModalGoingOrInterested()

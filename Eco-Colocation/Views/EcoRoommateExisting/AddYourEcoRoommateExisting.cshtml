@@ -9,7 +9,7 @@
 	<h2 class="title centerText">Ajout d'une nouvelle Eco-Colocation</h2>
 	<div id="divDescEco-Coloc-ayer" class="flex flexWrap">
 		<div class="sousDivFormColoc-ayer" id="divLabelNomColoc-ayer">
-			<label class="label-ayer">Nom *</label>
+			<label class="label-ayer">Nom de la coloc *</label>
 			<input class="input-ayer" placeholder="Determiner un nom à votre colocation">
 			<div class="underInput-ayer"></div>
 		</div>
@@ -44,6 +44,9 @@
 				</div>
 			</div>
 		</div>
+		<div class="childFlex overflow" id="infoChampsAnnonce-ml-mpc">
+			<p class="centerText">ATTENTION : Votre texte apparaîtra en un seul bloc, merci de faire des phrases !</p>
+		</div>
 		<div id="divEcoPratic-ca" class="col-sm-12 col-xs-12">
 			<div id="div1-ecoPratic-ca" class="col-sm-12 col-xs-12">
 				<div id="div1-1-ecoPratic-ca" class="col-sm-12 col-xs-12">
@@ -52,12 +55,9 @@
 			</div>
 			<div id="div2-ecoPratic-ca" class="col-sm-12 col-xs-12">
 				<div id="div2-1-ecoPratic-ca" class="col-sm-12 col-xs-12">
-					<textarea id="presentationLogement-ml" name="descEcoPratique" placeholder="Description du logement et de sa localisation..."></textarea>
+					<textarea id="presentationLogement-ml" class="inpDescAnnonce" name="descEcoPratique" placeholder="Description du logement et de sa localisation..."></textarea>
 				</div>
 			</div>
-		</div>
-		<div class="childFlex overflow" id="infoChampsAnnonce-ml-mpc">
-			<p class="centerText">ATTENTION : Votre texte apparaîtra en un seul bloc, merci de faire des phrases !</p>
 		</div>
 		<div id="divEcoPratic-ca" class="col-sm-12 col-xs-12">
 			<div id="div1-ecoPratic-ca" class="col-sm-12 col-xs-12">
@@ -67,7 +67,7 @@
 			</div>
 			<div id="div2-ecoPratic-ca" class="col-sm-12 col-xs-12">
 				<div id="div2-1-ecoPratic-ca" class="col-sm-12 col-xs-12">
-					<textarea id="personnesPresentes-ml" name="descEcoPratique" placeholder="Caractère / façon de vivre, ..."></textarea>
+					<textarea id="personnesPresentes-ml" class="inpDescAnnonce" name="descEcoPratique" placeholder="Caractère / façon de vivre, ..."></textarea>
 				</div>
 			</div>
 		</div>
@@ -79,7 +79,7 @@
 			</div>
 			<div id="div2-ecoPratic-ca" class="col-sm-12 col-xs-12">
 				<div id="div2-1-ecoPratic-ca" class="col-sm-12 col-xs-12">
-					<textarea id="convivialite-ml" name="descEcoPratique" placeholder="Activités/intérêts en communs, capacité d’accueil, ..."></textarea>
+					<textarea id="convivialite-ml" class="inpDescAnnonce" name="descEcoPratique" placeholder="Activités/intérêts en communs, capacité d’accueil, ..."></textarea>
 				</div>
 			</div>
 		</div>
@@ -91,7 +91,7 @@
 			</div>
 			<div id="div2-ecoPratic-ca" class="col-sm-12 col-xs-12">
 				<div id="div2-1-ecoPratic-ca" class="col-sm-12 col-xs-12">
-					<textarea id="organisation-ml" name="descEcoPratique" placeholder="Organisations des tâches, ressources financières, ..."></textarea>
+					<textarea id="organisation-ml" class="inpDescAnnonce" name="descEcoPratique" placeholder="Organisations des tâches, ressources financières, ..."></textarea>
 				</div>
 			</div>
 		</div>
@@ -103,12 +103,30 @@
 			</div>
 			<div id="div2-ecoPratic-ca" class="col-sm-12 col-xs-12">
 				<div id="div2-1-ecoPratic-ca" class="col-sm-12 col-xs-12">
-					<textarea id="descEcoPratique" name="descEcoPratique" placeholder="Celles que vous réalisez / que vous envisagez ..."></textarea>
+					<textarea id="descEcoPratique" class="inpDescAnnonce" name="descEcoPratique" placeholder="Celles que vous réalisez / que vous envisagez ..."></textarea>
 				</div>
 			</div>
 		</div>
 		<div class="childFlex overflow" id="infoChampsAnnonce-ml-mpc">
 			<p class="centerText">ATTENTION : Votre texte apparaîtra en un seul bloc, merci de faire des phrases !</p>
+		</div>
+		<div class="flex globalDivShowUserDesc">
+			<div class="childFlex divShowUserDesc">
+				<p class="underTitle centerText titleshowUserDesc">Aperçu du rendu final de votre description</p>
+				<div class="btnGreen flex btnActuShowUserDesc">
+					<i class="fas fa-sync-alt autoMargin imgBtnActuShowUserDesc"></i>
+				</div>
+				<div class="divTextshowUserDesc">
+					<input type="text" placeholder="Rendu de votre description en attente..." disabled="" id="textShowUserDesc-ayer" class="textShowUserDesc">
+					<div>
+						<p id="presentationLogement-mlResult" class="inpDescAnnonceResult"></p>
+						<p id="personnesPresentes-mlResult" class="inpDescAnnonceResult"></p>
+						<p id="convivialite-mlResult" class="inpDescAnnonceResult"></p>
+						<p id="organisation-mlResult" class="inpDescAnnonceResult"></p>
+						<p id="descEcoPratiqueResult" class="inpDescAnnonceResult"></p>
+					</div>
+				</div>
+			</div>
 		</div>
 		<div class="col-xs-12 sousDivFormColoc-ayer">
 			<div>
@@ -177,10 +195,11 @@
 					<div class="encadrePratice-ayer">
 						<p class="txtPratice-ayer">Production alimentaire</p>
 						<div class="divEnterPraticeWord-ayer">
-							<input class="inputPraticeWord-ayer" placeholder="Entrez un mot clé. Ex: Bio">
-							<div class="btnAddPraticeWord-ayer">Ajouter</div>
+							<input class="inputPraticeWord-ayer" id="inputPraticeWord-ProdAlim" placeholder="Entrez un mot clé. Ex: Bio">
+							<div class="btnAddPraticeWord-ayer"
+								 onclick="addNewEcologieAction('prodAlimentaireEcoloAction-ayer', 'inputPraticeWord-ProdAlim')">Ajouter</div>
 						</div>
-						<div class="divDisplayPraticeWord-ayer">
+						<div class="divDisplayPraticeWord-ayer" id="prodAlimentaireEcoloAction-ayer">
 							<div class="flex">
 								<input class="ckboxPratice-ayer" type="checkbox" name="Bio">
 								<p class="showTxt-ayer" name="Bio">Bio</p>
@@ -196,10 +215,11 @@
 					<div class="encadrePratice-ayer">
 						<p class="txtPratice-ayer">Consommation</p>
 						<div class="divEnterPraticeWord-ayer">
-							<input class="inputPraticeWord-ayer" placeholder="Entrez un mot clé. Ex: Local">
-							<div class="btnAddPraticeWord-ayer">Ajouter</div>
+							<input class="inputPraticeWord-ayer" id="inputPraticeWord-consommation" placeholder="Entrez un mot clé. Ex: Local">
+							<div class="btnAddPraticeWord-ayer"
+								 onclick="addNewEcologieAction('consommationEcoloAction-ayer', 'inputPraticeWord-consommation')">Ajouter</div>
 						</div>
-						<div class="divDisplayPraticeWord-ayer">
+						<div class="divDisplayPraticeWord-ayer" id="consommationEcoloAction-ayer">
 							<div class="flex">
 								<input class="ckboxPratice-ayer" type="checkbox" name="Bio">
 								<p name="local" class="showTxt-ayer">local</p>
@@ -215,10 +235,11 @@
 					<div class="encadrePratice-ayer">
 						<p class="txtPratice-ayer">Déplacement</p>
 						<div class="divEnterPraticeWord-ayer">
-							<input class="inputPraticeWord-ayer" placeholder="Entrez un mot clé. Ex: Bus">
-							<div class="btnAddPraticeWord-ayer">Ajouter</div>
+							<input class="inputPraticeWord-ayer" id="inputPraticeWord-deplacement" placeholder="Entrez un mot clé. Ex: Bus">
+							<div class="btnAddPraticeWord-ayer"
+								 onclick="addNewEcologieAction('deplacementEcoloAction-ayer', 'inputPraticeWord-deplacement')">Ajouter</div>
 						</div>
-						<div class="divDisplayPraticeWord-ayer">
+						<div class="divDisplayPraticeWord-ayer" id="deplacementEcoloAction-ayer">
 							<div class="flex">
 								<input class="ckboxPratice-ayer" type="checkbox" name="Bio">
 								<p name="Bus" class="showTxt-ayer">Bus</p>
@@ -234,10 +255,11 @@
 					<div class="encadrePratice-ayer">
 						<p class="txtPratice-ayer">Vie en communauté</p>
 						<div class="divEnterPraticeWord-ayer">
-							<input class="inputPraticeWord-ayer" placeholder="Entrez un mot clé. Ex: Repas">
-							<div class="btnAddPraticeWord-ayer">Ajouter</div>
+							<input class="inputPraticeWord-ayer" id="inputPraticeWord-communityLife" placeholder="Entrez un mot clé. Ex: Repas">
+							<div class="btnAddPraticeWord-ayer"
+								 onclick="addNewEcologieAction('communityLifeEcoloAction-ayer', 'inputPraticeWord-communityLife')">Ajouter</div>
 						</div>
-						<div class="divDisplayPraticeWord-ayer">
+						<div class="divDisplayPraticeWord-ayer" id="communityLifeEcoloAction-ayer">
 							<div class="flex">
 								<input class="ckboxPratice-ayer" type="checkbox" name="Bio">
 								<p name="Repas" class="showTxt-ayer">Repas</p>
@@ -254,10 +276,11 @@
 						<p class="txtPratice-ayer">Atelier</p>
 						<div></div>
 						<div class="divEnterPraticeWord-ayer">
-							<input class="inputPraticeWord-ayer" placeholder="Entrez un mot clé. Ex: Peinture">
-							<div class="btnAddPraticeWord-ayer">Ajouter</div>
+							<input class="inputPraticeWord-ayer" id="inputPraticeWord-atelier" placeholder="Entrez un mot clé. Ex: Peinture">
+							<div class="btnAddPraticeWord-ayer"
+								 onclick="addNewEcologieAction('atelierEcoloAction-ayer', 'inputPraticeWord-atelier')">Ajouter</div>
 						</div>
-						<div class="divDisplayPraticeWord-ayer">
+						<div class="divDisplayPraticeWord-ayer" id="atelierEcoloAction-ayer">
 							<div class="flex">
 								<input class="ckboxPratice-ayer" type="checkbox" name="Bio">
 								<p name="Peinture" class="showTxt-ayer">Peinture</p>
@@ -440,13 +463,13 @@
 			<h2 class="titleH2-ayer flex">Comment est notre habitat</h2>
 			<div>
 				<div id="divHabitatDesc-ayer">
-					<div class="childFlex">
+					<div class="flex childFlex">
 						<label id="labelSurfaceTer-ayer">Surface du terrain</label>
-						<input class="inputSurface-ayer" type="text">
+						<div class="flex"><input class="inputSurface-ayer" type="number"><p>m²</p></div>
 					</div>
-					<div class="childFlex">
+					<div class="flex childFlex">
 						<label id="labelSurfaceHab-ayer">Surface de l'habitat</label>
-						<input class="inputSurface-ayer" type="text">
+						<div class="flex"><input class="inputSurface-ayer" type="number"><p>m²</p></div>
 					</div>
 				</div>
 				<p id="txtTitlePlace-ayer">Completer le nombre de pièces présentes</p>
@@ -476,58 +499,72 @@
 			</div>
 		</div>
 		@* si admin connecté : Ne pas demander la création d'un compte eco-colocation et l'enregistrement des colocataires *@
-		<div class="overflow">
-			<div class="flexWrap">
-				<div class="col-sm-6 col-xs-12">
-					<h2 class="titleH2-ayer">Création d'un compte éco-colocation *</h2>
-					<div class="flex">
-						<div id="divInfoUserMdp-ayer">
-							<i id="iconInfoUserMdp-ayer" class="fas fa-info"></i>
-							<p class="fontFamilyNote">L'identifiant et le mot de passe seront diffusés à chaque colocataire par email.</p>
-						</div>
-					</div>
-					<div class="overflow">
-						<div class="col-xs-10 rowLabelMdp-ayer">
-							<label class="label-ayer">Utilisateur</label>
-							<input type="email" placeholder="Addresse mail" class="input-ayer">
-							<div class="underInput-ayer"></div>
-						</div>
-						<div class="col-xs-10 rowLabelMdp-ayer">
-							<label class="label-ayer">Mot de passe</label>
-							<input type="password" placeholder="Entrez un mot de passe" class="input-ayer">
-							<div class="underInput-ayer"></div>
-						</div>
-						<div class="col-xs-10 rowLabelMdp-ayer">
-							<label class="label-ayer">Mot de passe</label>
-							<input type="password" placeholder="Confirmez le mot de passe" class="input-ayer">
-							<div class="underInput-ayer"></div>
-						</div>
+		<div class="overflow" id="lastEncadre-ayer">
+			<div class="col-sm-6 col-xs-12">
+				<h2 class="titleH2-ayer">Enregistrement des colocataires *</h2>
+				<div id="divAddOthersColoc-ayer">
+					<div class="input-group">
+						<span class="input-group-btn">
+							<button id="buttonMinusOne-ayer" onclick="removeOneColoc_ayer()" type="button" class="btn btn-default btn-number" data-type="minus" data-field="quant[1]">
+								<span class="glyphicon glyphicon-minus"></span>
+							</button>
+						</span>
+						<input id="valueNbColocInfo-ayer" type="text" readonly="" name="quant[1]" class="form-control input-number" value="2" min="1">
+						<span class="input-group-btn">
+							<button onclick="addOneColoc_ayer()" type="button" class="btn btn-default btn-number" data-type="plus" data-field="quant[1]">
+								<span class="glyphicon glyphicon-plus"></span>
+							</button>
+						</span>
 					</div>
 				</div>
-				<div class="col-sm-6 col-xs-12">
-					<h2 class="titleH2-ayer">Enregistrement des colocataires *</h2>
-					<div id="divAddOthersColoc-ayer">
-						<div class="input-group">
-							<span class="input-group-btn">
-								<button id="buttonMinusOne-ayer" onclick="removeOneColoc_ayer()" type="button" class="btn btn-default btn-number" data-type="minus" data-field="quant[1]">
-									<span class="glyphicon glyphicon-minus"></span>
-								</button>
-							</span>
-							<input id="valueNbColocInfo-ayer" type="text" readonly="" name="quant[1]" class="form-control input-number" value="2" min="1">
-							<span class="input-group-btn">
-								<button onclick="addOneColoc_ayer()" type="button" class="btn btn-default btn-number" data-type="plus" data-field="quant[1]">
-									<span class="glyphicon glyphicon-plus"></span>
-								</button>
-							</span>
+				<div id="tableColocInfo-ayer">
+					<div id="coloc1-ayer">
+						<div id="titleInfoColoc1-ayer" class="titleInfoColocs-ayer" onclick="openThisColocRow_ayer('#titleInfoColoc1-ayer','#infoColoc1-ayer')">
+							<p class="txtColocTable-ayer">Colocataire 1 (Vous)</p>
+							<i class="fas fa-long-arrow-alt-down iconTxtColocTable-ayer"></i>
+						</div>
+						<div id="infoColoc1-ayer" class="infoColoc-ayer">
+							<div class="enterColocTable-ayer">
+								<div class="col-sm-6 divLabelInfoColoc-ayer">
+									<label class="label-ayer">Prénom</label>
+									<input type="text" placeholder="Entrez votre prénom" class="input-ayer prenomColoc-ayer">
+									<div class="underInput-ayer"></div>
+								</div>
+								<div class="col-sm-6 divLabelInfoColoc-ayer">
+									<label class="label-ayer">Nom</label>
+									<input type="text" placeholder="Entrez votre nom" class="input-ayer">
+									<div class="underInput-ayer"></div>
+								</div>
+								<div class="col-sm-12 divLabelInfoColoc-ayer">
+									<label class="label-ayer">Email</label>
+									<input type="text" placeholder="Entrez votre mail" class="input-ayer">
+									<div class="underInput-ayer"></div>
+								</div>
+								<div class="col-sm-6 divLabelInfoColoc-ayer">
+									<label class="label-ayer">Date de naissance</label>
+									<input type="date" class="inputDate-ayer">
+									<div class="underInput-ayer"></div>
+								</div>
+								<div class="col-sm-6 divLabelInfoColoc-ayer">
+									<label class="label-ayer">Civilité</label>
+									<select class="form-control select-mcar">
+										<option value="0">Monsieur</option>
+										<option value="1">Madame</option>
+										<option value="3">Neutre</option>
+									</select>
+								</div>
+							</div>
 						</div>
 					</div>
-					<div id="tableColocInfo-ayer">
-						<div id="coloc1-ayer">
-							<div id="titleInfoColoc1-ayer" class="titleInfoColocs-ayer" onclick="openThisColocRow_ayer('#titleInfoColoc1-ayer','#infoColoc1-ayer')">
-								<p class="txtColocTable-ayer">Colocataire 1 (Vous)</p>
-								<i class="fas fa-long-arrow-alt-down iconTxtColocTable-ayer"></i>
+					<div id="addOthersColoc">
+						<div id="colocCopie-ayer" style="display:none">
+							<div id="titleInfoColocCopie-ayer" class="titleInfoColocs-ayer" onclick="openThisColocRow_ayer('#titleInfoColocCopie-ayer','#infoColocCopie-ayer')">
+								<i class="fas fa-times crossEcoColocExisting-ayere" id="crossEcoColocExist-ayere"
+								   onclick="removeSpecificColoc('colocCopie-ayer')"></i>
+								<p class="txtColocTable-ayer">Colocataire exemple</p>
+								<i class="fas fa-long-arrow-alt-right iconTxtColocTable-ayer"></i>
 							</div>
-							<div id="infoColoc1-ayer" class="infoColoc-ayer">
+							<div id="infoColocCopie-ayer" class="infoColoc-ayer infoColoc-ayer">
 								<div class="enterColocTable-ayer">
 									<div class="col-sm-6 divLabelInfoColoc-ayer">
 										<label class="label-ayer">Prénom</label>
@@ -546,7 +583,7 @@
 									</div>
 									<div class="col-sm-6 divLabelInfoColoc-ayer">
 										<label class="label-ayer">Date de naissance</label>
-										<input type="date" class="input-ayer">
+										<input type="date" class="inputDate-ayer">
 										<div class="underInput-ayer"></div>
 									</div>
 									<div class="col-sm-6 divLabelInfoColoc-ayer">
@@ -560,8 +597,9 @@
 								</div>
 							</div>
 						</div>
-						@*<div id="coloc2-ayer">
+						<div id="divColocInfo2" class="divColocInfo">
 							<div id="titleInfoColoc2-ayer" class="titleInfoColocs-ayer" onclick="openThisColocRow_ayer('#titleInfoColoc2-ayer','#infoColoc2-ayer')">
+								<i class="fas fa-times crossEcoColocExisting-ayere" id="crossEcoColocExist-ayere" onclick="removeSpecificColoc(event, '#divColocInfo2')"></i>
 								<p class="txtColocTable-ayer">Colocataire 2</p>
 								<i class="fas fa-long-arrow-alt-right iconTxtColocTable-ayer"></i>
 							</div>
@@ -584,7 +622,7 @@
 									</div>
 									<div class="col-sm-6 divLabelInfoColoc-ayer">
 										<label class="label-ayer">Date de naissance</label>
-										<input type="date" class="input-ayer">
+										<input type="date" class="inputDate-ayer">
 										<div class="underInput-ayer"></div>
 									</div>
 									<div class="col-sm-6 divLabelInfoColoc-ayer">
@@ -597,87 +635,34 @@
 									</div>
 								</div>
 							</div>
-						</div>*@
-						<div id="addOthersColoc">
-							<div id="colocCopie-ayer" style="display:none">
-								<div id="titleInfoColocCopie-ayer" class="titleInfoColocs-ayer" onclick="openThisColocRow_ayer('#titleInfoColocCopie-ayer','#infoColocCopie-ayer')">
-									<i class="fas fa-times crossEcoColocExisting-ayere" id="crossEcoColocExist-ayere"
-									   onclick="removeSpecificColoc('colocCopie-ayer')"></i>
-									<p class="txtColocTable-ayer">Colocataire exemple</p>
-									<i class="fas fa-long-arrow-alt-right iconTxtColocTable-ayer"></i>
-								</div>
-								<div id="infoColocCopie-ayer" class="infoColoc-ayer infoColoc-ayer">
-									<div class="enterColocTable-ayer">
-										<div class="col-sm-6 divLabelInfoColoc-ayer">
-											<label class="label-ayer">Prénom</label>
-											<input type="text" placeholder="Entrez votre prénom" class="input-ayer prenomColoc-ayer">
-											<div class="underInput-ayer"></div>
-										</div>
-										<div class="col-sm-6 divLabelInfoColoc-ayer">
-											<label class="label-ayer">Nom</label>
-											<input type="text" placeholder="Entrez votre nom" class="input-ayer">
-											<div class="underInput-ayer"></div>
-										</div>
-										<div class="col-sm-12 divLabelInfoColoc-ayer">
-											<label class="label-ayer">Email</label>
-											<input type="text" placeholder="Entrez votre mail" class="input-ayer">
-											<div class="underInput-ayer"></div>
-										</div>
-										<div class="col-sm-6 divLabelInfoColoc-ayer">
-											<label class="label-ayer">Date de naissance</label>
-											<input type="date" class="input-ayer">
-											<div class="underInput-ayer"></div>
-										</div>
-										<div class="col-sm-6 divLabelInfoColoc-ayer">
-											<label class="label-ayer">Civilité</label>
-											<select class="form-control select-mcar">
-												<option value="0">Monsieur</option>
-												<option value="1">Madame</option>
-												<option value="3">Neutre</option>
-											</select>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div id="divColocInfo2" class="divColocInfo">
-								<div id="titleInfoColoc2-ayer" class="titleInfoColocs-ayer" onclick="openThisColocRow_ayer('#titleInfoColoc2-ayer','#infoColoc2-ayer')">
-									<i class="fas fa-times crossEcoColocExisting-ayere" id="crossEcoColocExist-ayere" onclick="removeSpecificColoc(event, '#divColocInfo2')"></i>
-									<p class="txtColocTable-ayer">Colocataire 2</p>
-									<i class="fas fa-long-arrow-alt-right iconTxtColocTable-ayer"></i>
-								</div>
-								<div id="infoColoc2-ayer" class="infoColoc-ayer infoColoc-ayer">
-									<div class="enterColocTable-ayer">
-										<div class="col-sm-6 divLabelInfoColoc-ayer">
-											<label class="label-ayer">Prénom</label>
-											<input type="text" placeholder="Entrez votre prénom" class="input-ayer prenomColoc-ayer">
-											<div class="underInput-ayer"></div>
-										</div>
-										<div class="col-sm-6 divLabelInfoColoc-ayer">
-											<label class="label-ayer">Nom</label>
-											<input type="text" placeholder="Entrez votre nom" class="input-ayer">
-											<div class="underInput-ayer"></div>
-										</div>
-										<div class="col-sm-12 divLabelInfoColoc-ayer">
-											<label class="label-ayer">Email</label>
-											<input type="text" placeholder="Entrez votre mail" class="input-ayer">
-											<div class="underInput-ayer"></div>
-										</div>
-										<div class="col-sm-6 divLabelInfoColoc-ayer">
-											<label class="label-ayer">Date de naissance</label>
-											<input type="date" class="input-ayer">
-											<div class="underInput-ayer"></div>
-										</div>
-										<div class="col-sm-6 divLabelInfoColoc-ayer">
-											<label class="label-ayer">Civilité</label>
-											<select class="form-control select-mcar">
-												<option value="0">Monsieur</option>
-												<option value="1">Madame</option>
-												<option value="3">Neutre</option>
-											</select>
-										</div>
-									</div>
-								</div>
-							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="flexWrap">
+				<div class="col-sm-6 col-xs-12">
+					<h2 class="titleH2-ayer">Création d'un compte en commun *</h2>
+					<div class="flex">
+						<div id="divInfoUserMdp-ayer">
+							<i id="iconInfoUserMdp-ayer" class="fas fa-info"></i>
+							<p class="fontFamilyNote">L'identifiant et le mot de passe seront diffusés à chaque colocataire par email.</p>
+						</div>
+					</div>
+					<div class="overflow">
+						<div class="col-xs-10 rowLabelMdp-ayer">
+							<label class="label-ayer">Utilisateur</label>
+							<input type="email" placeholder="Addresse mail" class="input-ayer">
+							<div class="underInput-ayer"></div>
+						</div>
+						<div class="col-xs-10 rowLabelMdp-ayer">
+							<label class="label-ayer">Mot de passe</label>
+							<input type="password" placeholder="Entrez un mot de passe" class="input-ayer">
+							<div class="underInput-ayer"></div>
+						</div>
+						<div class="col-xs-10 rowLabelMdp-ayer">
+							<label class="label-ayer">Mot de passe</label>
+							<input type="password" placeholder="Confirmez le mot de passe" class="input-ayer">
+							<div class="underInput-ayer"></div>
 						</div>
 					</div>
 				</div>
@@ -707,5 +692,12 @@
 	$(document).ready(function () {
 		showMultiplesFilesUpload("fileUpload-ayer", "divResultFilesUpl-mcar");
 		initSlidepicture();
+		$('.inputPraticeWord-ayer').keypress(function (e) {
+			if (e.keyCode == 13) {
+				$("#" + e.target.id + " ~ .btnAddPraticeWord-ayer").click()
+			}
+		});
+
+		initAnnonceDescResult("#AddYourEcoRoommateExisting")
 	});
 </script>

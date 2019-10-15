@@ -25,7 +25,7 @@
 						</div>
 						<div id="div2DescAnn-ca" class="col-sm-12 col-xs-12">
 							<div id="div2-1DescAnn-ca" class="col-sm-12 col-xs-12">
-								<textarea id="descRecherche-mpc" name="descAnnonce"
+								<textarea id="descRecherche-mpc" class="inpDescAnnonce" name="descAnnonce"
 										  placeholder="Ex: Création de plusieurs grandes yourtes cotes à cotes."></textarea>
 							</div>
 						</div>
@@ -41,7 +41,7 @@
 						</div>
 						<div id="div2DescAnn-ca" class="col-sm-12 col-xs-12">
 							<div id="div2-1DescAnn-ca" class="col-sm-12 col-xs-12">
-								<textarea id="descAnnonce-mpc" name="descAnnonce" placeholder="Ce que vous proposez / recherchez ..."></textarea>
+								<textarea id="descAnnonce-mpc" class="inpDescAnnonce" name="descAnnonce" placeholder="Ce que vous proposez / recherchez ..."></textarea>
 							</div>
 						</div>
 					</div>
@@ -53,7 +53,7 @@
 						</div>
 						<div id="div2DescAnn-ca" class="col-sm-12 col-xs-12">
 							<div id="div2-1DescAnn-ca" class="col-sm-12 col-xs-12">
-								<textarea id="descPersonneRecherche-ml" name="descAnnonce" placeholder="Caractère, façon de vivre, niveau d'implication écologique, ..."></textarea>
+								<textarea id="descPersonneRecherche-ml" class="inpDescAnnonce" name="descAnnonce" placeholder="Caractère, façon de vivre, niveau d'implication écologique, ..."></textarea>
 							</div>
 						</div>
 					</div>
@@ -66,7 +66,7 @@
 						</div>
 						<div id="div2-ecoPratic-ca" class="col-sm-12 col-xs-12">
 							<div id="div2-1-ecoPratic-ca" class="col-sm-12 col-xs-12">
-								<textarea id="convivialite-mpc" name="descEcoPratique" placeholder="Activités/intérêts en communs, capacité d’accueil, ..."></textarea>
+								<textarea id="convivialite-mpc" class="inpDescAnnonce" name="descEcoPratique" placeholder="Activités/intérêts en communs, capacité d’accueil, ..."></textarea>
 							</div>
 						</div>
 					</div>
@@ -78,7 +78,7 @@
 						</div>
 						<div id="div2-ecoPratic-ca" class="col-sm-12 col-xs-12">
 							<div id="div2-1-ecoPratic-ca" class="col-sm-12 col-xs-12">
-								<textarea id="organisation-mpc" name="descEcoPratique" placeholder="Organisations des tâches, ressources financières, ..."></textarea>
+								<textarea id="organisation-mpc" class="inpDescAnnonce" name="descEcoPratique" placeholder="Organisations des tâches, ressources financières, ..."></textarea>
 							</div>
 						</div>
 					</div>
@@ -90,7 +90,7 @@
 						</div>
 						<div id="div2-ecoPratic-ca" class="col-sm-12 col-xs-12">
 							<div id="div2-1-ecoPratic-ca" class="col-sm-12 col-xs-12">
-								<textarea id="descEcoPratique-mpc" name="descEcoPratique" placeholder="Attitude, niveau d'investissement, ..."></textarea>
+								<textarea id="descEcoPratique-mpc" class="inpDescAnnonce" name="descEcoPratique" placeholder="Attitude, niveau d'investissement, ..."></textarea>
 							</div>
 						</div>
 					</div>
@@ -102,12 +102,32 @@
 						</div>
 						<div id="div2-ecoPratic-ca" class="col-sm-12 col-xs-12">
 							<div id="div2-1-ecoPratic-ca" class="col-sm-12 col-xs-12">
-								<textarea id="autresPrecisions-mpc" name="descEcoPratique"></textarea>
+								<textarea id="autresPrecisions-mpc" class="inpDescAnnonce" name="descEcoPratique"></textarea>
 							</div>
 						</div>
 					</div>
 					<div class="childFlex overflow" id="infoChampsAnnonce-ml-mpc">
 						<p class="centerText">ATTENTION : Votre texte apparaîtra en un seul bloc, merci de faire des phrases !</p>
+					</div>
+					<div class="flex globalDivShowUserDesc">
+						<div class="childFlex divShowUserDesc">
+							<p class="underTitle centerText titleshowUserDesc">Aperçu du rendu final de votre description</p>
+							<div class="btnGreen flex btnActuShowUserDesc">
+								<i class="fas fa-sync-alt autoMargin imgBtnActuShowUserDesc"></i>
+							</div>
+							<div class="divTextshowUserDesc">
+								<input type="text" placeholder="Rendu de votre description en attente..." disabled="" id="textShowUserDesc-ayer" class="textShowUserDesc">
+								<div>
+									<p id="descRecherche-mpcResult" class="inpDescAnnonceResult"></p>
+									<p id="descAnnonce-mpcResult" class="inpDescAnnonceResult"></p>
+									<p id="descPersonneRecherche-mlResult" class="inpDescAnnonceResult"></p>
+									<p id="convivialite-mpcResult" class="inpDescAnnonceResult"></p>
+									<p id="organisation-mpcResult" class="inpDescAnnonceResult"></p>
+									<p id="descEcoPratique-mpcResult" class="inpDescAnnonceResult"></p>
+									<p id="autresPrecisions-mpcResult" class="inpDescAnnonceResult"></p>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -539,5 +559,7 @@
 		initButtonOnOff();
 
 		$('#descTextAnnonceLocationDataPersonnal').detach().prependTo('#extraElement-pdf');
+
+		initAnnonceDescResult("#modalCreationProjet-ColocAnnounce")
 	});
 </script>

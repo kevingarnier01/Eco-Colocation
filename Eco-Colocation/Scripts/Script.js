@@ -220,7 +220,7 @@ function initmarkersCluster(specialDigits) {
 			//var latlng = markers[1].getLatLng();
 			//var lat = latlng.lat.toString();
 			//var idCluster = lat.substr(lat.indexOf(".") + 1)
-			
+
 			return L.divIcon({
 				html: "<div><span>" + cluster.getChildCount() + "</span></div>",
 				className: ' markersCluster ' + ((specialDigits != null && specialDigits.length != 0) ? specialDigits : "") + ' digits-' + digits,
@@ -321,7 +321,7 @@ function initSearchColocMap() {
 
 				showOthersEvents()
 
-				markersCluster.addLayer(markerObject);				
+				markersCluster.addLayer(markerObject);
 				mymap.fitBounds(markersCluster.getBounds());
 			}, 1000);
 		})();
@@ -1587,9 +1587,9 @@ function sendMsgOnConvDev() {
 
 function uploadImgConvDev(filesInputId) {
 	var filesInputOut = document.getElementById(filesInputId);
-	
+
 	filesInputOut.addEventListener("change", function (event) {
-		
+
 		var files = event.target.files; //FileList object
 
 		for (var i = 0; i < files.length; i++) {
@@ -1695,10 +1695,48 @@ function showStreetView() {
 }
 
 function checkedOrNotAccordingToTheStatus(elementId) {
-	if ($(elementId).attr("checked") == "checked") {
-		$(elementId).prop("checked", false);
+	if ($(elementId).is(':checked')) {
+		$(elementId).prop('checked', false);
 	}
 	else {
-		$(elementId).prop("checked", true);
+		$(elementId).prop('checked', true);
 	}
+}
+
+function addNewEcologieAction(elementIdToAppend, elementInput) {
+	var textWrite = $("#" + elementInput).val();
+
+	var elementHtml = '<div class="flex">' +
+		'<input class="ckboxPratice-ayer" type="checkbox" name="Permaculture" checked>' +
+		'<p class="showTxt-ayer" name="' + textWrite + '">' + textWrite + '</p>' +
+		'</div>';
+
+	$("#" + elementIdToAppend).append(elementHtml);
+
+	$("#" + elementInput).val("")
+}
+
+function initAnnonceDescResult(pageElementId) {
+	$(pageElementId + " .inpDescAnnonce").on('change', function (e) {
+		var textElement = $(pageElementId + " #" + e.target.id).val();
+		$(pageElementId + " #" + e.target.id + "Result").text(textElement);
+		
+		var isEmpty = true;
+		for (var i = 0; i < $(pageElementId + " .inpDescAnnonceResult").length; i++) {
+			var idElementResult = $(pageElementId + " .inpDescAnnonceResult").get(i).id;
+			var textResult = $(pageElementId + " #" + idElementResult).text()
+
+			if (textResult.length != 0) {
+				isEmpty = false;
+				break;
+			}
+		}
+
+		if (isEmpty == true) {
+			$(pageElementId + " .textShowUserDesc").fadeIn(0)
+		}
+		else {
+			$(pageElementId + " .textShowUserDesc").fadeOut(0)
+		}
+	})
 }

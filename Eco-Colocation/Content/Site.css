@@ -3998,8 +3998,8 @@ i.fas.fa-times.crossPlace {
 .imgCursorMove {
 	font-size: 18px;
 	position: absolute;
-	top: -3px;
-	right: -3px;
+	top: 2px;
+	right: 2px;
 	color: rgba(68, 68, 68, 0.6);
 }
 
@@ -4843,6 +4843,11 @@ i.fas.fa-times.crossPlace {
 	margin-bottom: 10px;
 }
 
+.displayUnderAction-erev {
+	max-height: 80px;
+	overflow: auto;
+}
+
 .textLevel2ProdAlim-erev {
 	text-align: center;
 	font-family: Noteworthy;
@@ -4983,10 +4988,6 @@ i.fas.fa-times.crossPlace {
 	font-style: italic;
 }
 
-#divDescEco-Coloc-ayer {
-	overflow: auto;
-}
-
 #divLabelNomColoc-ayer {
 	width: 270px;
 }
@@ -5022,6 +5023,19 @@ i.fas.fa-times.crossPlace {
 	background-color: transparent;
 }
 
+.inputDate-ayer {
+	border: none;
+	font-size: 15px;
+	line-height: 1.2;
+	padding: 0 5px;
+	padding-bottom: 13px;
+	width: 100%;
+	color: #6b6a6a;
+	font-weight: 100;
+	background-color: transparent;
+	width: 175px;
+}
+
 .underInput-ayer {
 	border-bottom: 2px solid #d9d9d9;
 	margin-bottom: 25px;
@@ -5033,6 +5047,43 @@ i.fas.fa-times.crossPlace {
 	overflow: auto;
 	height: 34px;
 	text-align: center;
+}
+
+.globalDivShowUserDesc {
+	width: 100%;
+}
+
+.divShowUserDesc {
+	background-color: white;
+	padding: 10px;
+	box-shadow: 0 0 2px 0 #666;
+	border-radius: 5px;
+}
+
+.titleshowUserDesc {
+	font-size: 18px;
+	margin-bottom: 15px;
+}
+
+.btnActuShowUserDesc {
+	font-size: 18px;
+}
+
+.divTextshowUserDesc {
+	width: 450px;
+	min-height: 30px;
+	max-height: 200px;
+	background-color: white;
+	box-shadow: 0 0 3px 0 #999;
+	padding: 5px 10px;
+	border-radius: 3px;
+	margin-top: 10px;
+}
+
+.textShowUserDesc {
+	background-color: transparent;
+	border: none;
+	width: 100%;
 }
 
 	#numRueInput-ayer:focus, #facebookLinkEvent-ayere:focus {
@@ -5332,6 +5383,7 @@ input.radioFibreEco-ayer {
 	border-radius: 5px;
 	height: 30px;
 	line-height: 11px;
+	cursor: pointer
 }
 
 .divDisplayPraticeWord-ayer {
@@ -5412,6 +5464,10 @@ input.radioFibreEco-ayer {
 	padding: 5px 10px;
 }
 
+#lastEncadre-ayer {
+	margin-top: 15px;
+}
+
 #divHabitatDesc-ayer {
 	display: flex;
 	flex-wrap: wrap;
@@ -5439,8 +5495,9 @@ input.radioFibreEco-ayer {
 	padding: 5px;
 	box-shadow: 0 0 2px black;
 	height: 23px;
-	width: 150px;
+	width: 80px;
 	font-family: Noteworthy;
+	margin-right: 15px;
 }
 
 #txtTitlePlace-ayer {
