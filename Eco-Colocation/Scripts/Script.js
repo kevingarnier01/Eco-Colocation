@@ -1717,26 +1717,39 @@ function addNewEcologieAction(elementIdToAppend, elementInput) {
 }
 
 function initAnnonceDescResult(pageElementId) {
-	$(pageElementId + " .inpDescAnnonce").on('change', function (e) {
-		var textElement = $(pageElementId + " #" + e.target.id).val();
-		$(pageElementId + " #" + e.target.id + "Result").text(textElement);
+	var typingTimer;
 		
-		var isEmpty = true;
-		for (var i = 0; i < $(pageElementId + " .inpDescAnnonceResult").length; i++) {
-			var idElementResult = $(pageElementId + " .inpDescAnnonceResult").get(i).id;
-			var textResult = $(pageElementId + " #" + idElementResult).text()
+	$(pageElementId + " .inpDescAnnonce").on('keypress', function (e) {
+		clearTimeout(typingTimer);
+		typingTimer = setTimeout(function () {
+			actionInitAnnonceDescResult(pageElementId, e)
+		}, 2000);
+	});
 
-			if (textResult.length != 0) {
-				isEmpty = false;
-				break;
-			}
-		}
-
-		if (isEmpty == true) {
-			$(pageElementId + " .textShowUserDesc").fadeIn(0)
-		}
-		else {
-			$(pageElementId + " .textShowUserDesc").fadeOut(0)
-		}
+	$(pageElementId + " .inpDescAnnonce").on('change', function (e) {
+		actionInitAnnonceDescResult(pageElementId, e);
 	})
+}
+
+function actionInitAnnonceDescResult(pageElementId, e) {
+	var textElement = $(pageElementId + " #" + e.target.id).val();
+	$(pageElementId + " #" + e.target.id + "Result").text(textElement);
+
+	var isEmpty = true;
+	for (var i = 0; i < $(pageElementId + " .inpDescAnnonceResult").length; i++) {
+		var idElementResult = $(pageElementId + " .inpDescAnnonceResult").get(i).id;
+		var textResult = $(pageElementId + " #" + idElementResult).text()
+
+		if (textResult.length != 0) {
+			isEmpty = false;
+			break;
+		}
+	}
+
+	if (isEmpty == true) {
+		$(pageElementId + " .textShowUserDesc").fadeIn(0)
+	}
+	else {
+		$(pageElementId + " .textShowUserDesc").fadeOut(0)
+	}
 }

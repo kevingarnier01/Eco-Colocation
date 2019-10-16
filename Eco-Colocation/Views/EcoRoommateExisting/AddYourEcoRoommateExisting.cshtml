@@ -50,12 +50,24 @@
 		<div id="divEcoPratic-ca" class="col-sm-12 col-xs-12">
 			<div id="div1-ecoPratic-ca" class="col-sm-12 col-xs-12">
 				<div id="div1-1-ecoPratic-ca" class="col-sm-12 col-xs-12">
-					<label for="presentationLogement-ml">Présentation du logement</label>
+					<label for="descRecherche-ml">Introduction de votre annonce</label>
 				</div>
 			</div>
 			<div id="div2-ecoPratic-ca" class="col-sm-12 col-xs-12">
 				<div id="div2-1-ecoPratic-ca" class="col-sm-12 col-xs-12">
-					<textarea id="presentationLogement-ml" class="inpDescAnnonce" name="descEcoPratique" placeholder="Description du logement et de sa localisation..."></textarea>
+					<textarea id="descRecherche-ml" class="inpDescAnnonce" name="descEcoPratique" placeholder="Ex : Une maison, un potager, 5 poules et deux chats et 4 colocataires." maxlength="100"></textarea>
+				</div>
+			</div>
+		</div>
+		<div id="divEcoPratic-ca" class="col-sm-12 col-xs-12">
+			<div id="div1-ecoPratic-ca" class="col-sm-12 col-xs-12">
+				<div id="div1-1-ecoPratic-ca" class="col-sm-12 col-xs-12">
+					<label for="presentationLogement-ml">Présentation du logement et du terrain</label>
+				</div>
+			</div>
+			<div id="div2-ecoPratic-ca" class="col-sm-12 col-xs-12">
+				<div id="div2-1-ecoPratic-ca" class="col-sm-12 col-xs-12">
+					<textarea id="presentationLogement-ml" class="inpDescAnnonce" name="descEcoPratique" placeholder="L'habitat/terrain est ... [Localisation, superficie, pièces/aménagement, etc]  ."></textarea>
 				</div>
 			</div>
 		</div>
@@ -67,7 +79,7 @@
 			</div>
 			<div id="div2-ecoPratic-ca" class="col-sm-12 col-xs-12">
 				<div id="div2-1-ecoPratic-ca" class="col-sm-12 col-xs-12">
-					<textarea id="personnesPresentes-ml" class="inpDescAnnonce" name="descEcoPratique" placeholder="Caractère / façon de vivre, ..."></textarea>
+					<textarea id="personnesPresentes-ml" class="inpDescAnnonce" name="descEcoPratique" placeholder="Nous sommmes ... [Nombre de coloc présent, caractère, façon de vivre, etc]  ."></textarea>
 				</div>
 			</div>
 		</div>
@@ -79,7 +91,7 @@
 			</div>
 			<div id="div2-ecoPratic-ca" class="col-sm-12 col-xs-12">
 				<div id="div2-1-ecoPratic-ca" class="col-sm-12 col-xs-12">
-					<textarea id="convivialite-ml" class="inpDescAnnonce" name="descEcoPratique" placeholder="Activités/intérêts en communs, capacité d’accueil, ..."></textarea>
+					<textarea id="convivialite-ml" class="inpDescAnnonce" name="descEcoPratique" placeholder="Nous faisons ... [Activités/intérêts en communs, capacité d’accueil, etc]  ."></textarea>
 				</div>
 			</div>
 		</div>
@@ -91,7 +103,7 @@
 			</div>
 			<div id="div2-ecoPratic-ca" class="col-sm-12 col-xs-12">
 				<div id="div2-1-ecoPratic-ca" class="col-sm-12 col-xs-12">
-					<textarea id="organisation-ml" class="inpDescAnnonce" name="descEcoPratique" placeholder="Organisations des tâches, ressources financières, ..."></textarea>
+					<textarea id="organisation-ml" class="inpDescAnnonce" name="descEcoPratique" placeholder="Notre organisation est ... [Organisations des tâches, ressources financières, etc]  ."></textarea>
 				</div>
 			</div>
 		</div>
@@ -103,7 +115,7 @@
 			</div>
 			<div id="div2-ecoPratic-ca" class="col-sm-12 col-xs-12">
 				<div id="div2-1-ecoPratic-ca" class="col-sm-12 col-xs-12">
-					<textarea id="descEcoPratique" class="inpDescAnnonce" name="descEcoPratique" placeholder="Celles que vous réalisez / que vous envisagez ..."></textarea>
+					<textarea id="descEcoPratique" class="inpDescAnnonce" name="descEcoPratique" placeholder="Nos pratiques écolos sont ... [Celles que vous réalisez/envisagez, attitude, niveau d'implication, etc]  ."></textarea>
 				</div>
 			</div>
 		</div>
@@ -113,12 +125,10 @@
 		<div class="flex globalDivShowUserDesc">
 			<div class="childFlex divShowUserDesc">
 				<p class="underTitle centerText titleshowUserDesc">Aperçu du rendu final de votre description</p>
-				<div class="btnGreen flex btnActuShowUserDesc">
-					<i class="fas fa-sync-alt autoMargin imgBtnActuShowUserDesc"></i>
-				</div>
 				<div class="divTextshowUserDesc">
 					<input type="text" placeholder="Rendu de votre description en attente..." disabled="" id="textShowUserDesc-ayer" class="textShowUserDesc">
-					<div>
+					<div>						
+						<p id="descRecherche-mlResult" class="inpDescAnnonceResult"></p>
 						<p id="presentationLogement-mlResult" class="inpDescAnnonceResult"></p>
 						<p id="personnesPresentes-mlResult" class="inpDescAnnonceResult"></p>
 						<p id="convivialite-mlResult" class="inpDescAnnonceResult"></p>
@@ -142,7 +152,7 @@
 				</div>
 			</div>
 			@*<img src="" id="resultImgUpl-ayer">
-				<i id="icondeletePicture-ayer" class="fas fa-times-circle" onclick="removeUploadPicture_ayer()"></i>*@
+			<i id="icondeletePicture-ayer" class="fas fa-times-circle" onclick="removeUploadPicture_ayer()"></i>*@
 		</div>
 	</div>
 	<div>
@@ -464,12 +474,12 @@
 			<div>
 				<div id="divHabitatDesc-ayer">
 					<div class="flex childFlex">
-						<label id="labelSurfaceTer-ayer">Surface du terrain</label>
-						<div class="flex"><input class="inputSurface-ayer" type="number"><p>m²</p></div>
+						<label id="labelSuperficieTer-ayer">Superficie du terrain</label>
+						<div class="flex"><input class="inputSuperficie-ayer" type="number"><p>m²</p></div>
 					</div>
 					<div class="flex childFlex">
-						<label id="labelSurfaceHab-ayer">Surface de l'habitat</label>
-						<div class="flex"><input class="inputSurface-ayer" type="number"><p>m²</p></div>
+						<label id="labelSuperficieHab-ayer">Superficie de l'habitat</label>
+						<div class="flex"><input class="inputSuperficie-ayer" type="number"><p>m²</p></div>
 					</div>
 				</div>
 				<p id="txtTitlePlace-ayer">Completer le nombre de pièces présentes</p>

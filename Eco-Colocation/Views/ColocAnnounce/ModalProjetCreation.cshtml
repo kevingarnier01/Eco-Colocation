@@ -25,8 +25,8 @@
 						</div>
 						<div id="div2DescAnn-ca" class="col-sm-12 col-xs-12">
 							<div id="div2-1DescAnn-ca" class="col-sm-12 col-xs-12">
-								<textarea id="descRecherche-mpc" class="inpDescAnnonce" name="descAnnonce"
-										  placeholder="Ex: Création de plusieurs grandes yourtes cotes à cotes."></textarea>
+								<textarea id="descRecherche-mpc" class="inpDescAnnonce" name="descAnnonce" maxlength="100"
+										  placeholder="Ex: Création en commun d'un éco-habitat pour 5 personnes." ></textarea>
 							</div>
 						</div>
 					</div>
@@ -41,7 +41,7 @@
 						</div>
 						<div id="div2DescAnn-ca" class="col-sm-12 col-xs-12">
 							<div id="div2-1DescAnn-ca" class="col-sm-12 col-xs-12">
-								<textarea id="descAnnonce-mpc" class="inpDescAnnonce" name="descAnnonce" placeholder="Ce que vous proposez / recherchez ..."></textarea>
+								<textarea id="descAnnonce-mpc" class="inpDescAnnonce" name="descAnnonce" placeholder="J'ai pour projet de ... [terrain/habitat, achat/location, nombre de coloc, façon de vivre, etc] ."></textarea>
 							</div>
 						</div>
 					</div>
@@ -53,7 +53,7 @@
 						</div>
 						<div id="div2DescAnn-ca" class="col-sm-12 col-xs-12">
 							<div id="div2-1DescAnn-ca" class="col-sm-12 col-xs-12">
-								<textarea id="descPersonneRecherche-ml" class="inpDescAnnonce" name="descAnnonce" placeholder="Caractère, façon de vivre, niveau d'implication écologique, ..."></textarea>
+								<textarea id="descPersonneRecherche-ml" class="inpDescAnnonce" name="descAnnonce" placeholder="Je recherche une personne(s) ... [investissement, façon de vivre, niveau d'implication écologique, etc] ."></textarea>
 							</div>
 						</div>
 					</div>
@@ -66,7 +66,7 @@
 						</div>
 						<div id="div2-ecoPratic-ca" class="col-sm-12 col-xs-12">
 							<div id="div2-1-ecoPratic-ca" class="col-sm-12 col-xs-12">
-								<textarea id="convivialite-mpc" class="inpDescAnnonce" name="descEcoPratique" placeholder="Activités/intérêts en communs, capacité d’accueil, ..."></textarea>
+								<textarea id="convivialite-mpc" class="inpDescAnnonce" name="descEcoPratique" placeholder="Je souhaiterai que ... [Activités/intérêts en communs, capacité d’accueil, etc] ."></textarea>
 							</div>
 						</div>
 					</div>
@@ -78,7 +78,7 @@
 						</div>
 						<div id="div2-ecoPratic-ca" class="col-sm-12 col-xs-12">
 							<div id="div2-1-ecoPratic-ca" class="col-sm-12 col-xs-12">
-								<textarea id="organisation-mpc" class="inpDescAnnonce" name="descEcoPratique" placeholder="Organisations des tâches, ressources financières, ..."></textarea>
+								<textarea id="organisation-mpc" class="inpDescAnnonce" name="descEcoPratique" placeholder="Je voudrais que ... [Organisations des tâches, ressources financières, etc] ."></textarea>
 							</div>
 						</div>
 					</div>
@@ -90,7 +90,7 @@
 						</div>
 						<div id="div2-ecoPratic-ca" class="col-sm-12 col-xs-12">
 							<div id="div2-1-ecoPratic-ca" class="col-sm-12 col-xs-12">
-								<textarea id="descEcoPratique-mpc" class="inpDescAnnonce" name="descEcoPratique" placeholder="Attitude, niveau d'investissement, ..."></textarea>
+								<textarea id="descEcoPratique-mpc" class="inpDescAnnonce" name="descEcoPratique" placeholder="J'aimerais que ... [attitude, niveau d'implication, etc] ."></textarea>
 							</div>
 						</div>
 					</div>
@@ -112,13 +112,12 @@
 					<div class="flex globalDivShowUserDesc">
 						<div class="childFlex divShowUserDesc">
 							<p class="underTitle centerText titleshowUserDesc">Aperçu du rendu final de votre description</p>
-							<div class="btnGreen flex btnActuShowUserDesc">
-								<i class="fas fa-sync-alt autoMargin imgBtnActuShowUserDesc"></i>
-							</div>
 							<div class="divTextshowUserDesc">
 								<input type="text" placeholder="Rendu de votre description en attente..." disabled="" id="textShowUserDesc-ayer" class="textShowUserDesc">
 								<div>
-									<p id="descRecherche-mpcResult" class="inpDescAnnonceResult"></p>
+									<div class="flex">
+										<p id="descRecherche-mpcResult" class="inpDescAnnonceResult childFlex centerText"></p>
+									</div>
 									<p id="descAnnonce-mpcResult" class="inpDescAnnonceResult"></p>
 									<p id="descPersonneRecherche-mlResult" class="inpDescAnnonceResult"></p>
 									<p id="convivialite-mpcResult" class="inpDescAnnonceResult"></p>
@@ -215,7 +214,7 @@
 											</td>
 										</tr>
 										<tr>
-											<td class="col-xs-6"><label for="Caution">Surface</label></td>
+											<td class="col-xs-6"><label for="Caution">Superficie</label></td>
 											<td>
 												<select id="select2-loyer-fh" class="form-control">
 													@for (var i = 100; i < 501; i++)
@@ -332,10 +331,10 @@
 											</td>
 										</tr>
 										<tr>
-											<td class="col-xs-6"><label for="Caution">Surface du logement</label></td>
+											<td class="col-xs-6"><label for="Caution">Superficie</label></td>
 											<td>
 												<select id="select2-loyer-fh" class="form-control">
-													<option value="0">Toutes surfaces</option>
+													<option value="0">Toutes superficies</option>
 													@for (var i = 20; i < 110; i++)
 													{
 														<option value=@i>~ @i m²</option>

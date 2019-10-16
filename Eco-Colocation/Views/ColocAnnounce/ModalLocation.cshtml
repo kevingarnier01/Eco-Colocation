@@ -29,7 +29,7 @@
 						<div id="div2DescAnn-ca" class="col-sm-12 col-xs-12">
 							<div id="div2-1DescAnn-ca" class="col-sm-12 col-xs-12">
 								<textarea id="descRecherche-ml" class="inpDescAnnonce" name="descAnnonce"
-										  placeholder="Ex: Deux chambres meublées de 10 m² se libères dans notre maison de 120m²." maxlength="100"></textarea>
+										  placeholder="Ex: Deux chambres se libères dans notre maison." maxlength="100"></textarea>
 							</div>
 						</div>
 					</div>
@@ -44,7 +44,7 @@
 						</div>
 						<div id="div2DescAnn-ca" class="col-sm-12 col-xs-12">
 							<div id="div2-1DescAnn-ca" class="col-sm-12 col-xs-12">
-								<textarea id="descPersonneRecherche-ml" class="inpDescAnnonce" name="descAnnonce" placeholder="Caractère, façon de vivre, niveau d'implication écologique, ..."></textarea>
+								<textarea id="descPersonneRecherche-ml" class="inpDescAnnonce" name="descAnnonce" placeholder="Nous recherchons une personne(s) ... [façon de vivre, niveau d'implication écologique, etc]  ."></textarea>
 							</div>
 						</div>
 					</div>
@@ -56,7 +56,7 @@
 						</div>
 						<div id="div2DescAnn-ca" class="col-sm-12 col-xs-12">
 							<div id="div2-1DescAnn-ca" class="col-sm-12 col-xs-12">
-								<textarea id="descChambrePropose-ml" class="inpDescAnnonce" name="descAnnonce" placeholder="Isolation sonore et thermique, luminosité, ..."></textarea>
+								<textarea id="descChambrePropose-ml" class="inpDescAnnonce" name="descAnnonce" placeholder="Nous proposons une chambre(s) ... [Superficie, isolation acoustique/thermique, luminosité, etc]  ."></textarea>
 							</div>
 						</div>
 					</div>
@@ -69,7 +69,7 @@
 						</div>
 						<div id="div2-ecoPratic-ca" class="col-sm-12 col-xs-12">
 							<div id="div2-1-ecoPratic-ca" class="col-sm-12 col-xs-12">
-								<textarea id="presentationLogement-ml" class="inpDescAnnonce" name="descEcoPratique" placeholder="Avantage et inconvénient du logement et de sa localisation..."></textarea>
+								<textarea id="presentationLogement-ml" class="inpDescAnnonce" name="descEcoPratique" placeholder="L'habitat/terrain est ... [Localisation, superficie, pièces/aménagement, etc]  ."></textarea>
 							</div>
 						</div>
 					</div>
@@ -81,7 +81,7 @@
 						</div>
 						<div id="div2-ecoPratic-ca" class="col-sm-12 col-xs-12">
 							<div id="div2-1-ecoPratic-ca" class="col-sm-12 col-xs-12">
-								<textarea id="personnesPresentes-ml" class="inpDescAnnonce" name="descEcoPratique" placeholder="Caractère / façon de vivre, ..."></textarea>
+								<textarea id="personnesPresentes-ml" class="inpDescAnnonce" name="descEcoPratique" placeholder="Nous sommmes ... [Nombre de coloc présent, caractère, façon de vivre, etc]  ."></textarea>
 							</div>
 						</div>
 					</div>
@@ -93,7 +93,7 @@
 						</div>
 						<div id="div2-ecoPratic-ca" class="col-sm-12 col-xs-12">
 							<div id="div2-1-ecoPratic-ca" class="col-sm-12 col-xs-12">
-								<textarea id="convivialite-ml" class="inpDescAnnonce" name="descEcoPratique" placeholder="Activités/intérêts en communs, capacité d’accueil, ..."></textarea>
+								<textarea id="convivialite-ml" class="inpDescAnnonce" name="descEcoPratique" placeholder="Nous faisons ... [Activités/intérêts en communs, capacité d’accueil, etc]  ."></textarea>
 							</div>
 						</div>
 					</div>
@@ -105,7 +105,7 @@
 						</div>
 						<div id="div2-ecoPratic-ca" class="col-sm-12 col-xs-12">
 							<div id="div2-1-ecoPratic-ca" class="col-sm-12 col-xs-12">
-								<textarea id="organisation-ml" class="inpDescAnnonce" name="descEcoPratique" placeholder="Organisations des tâches, ressources financières, ..."></textarea>
+								<textarea id="organisation-ml" class="inpDescAnnonce" name="descEcoPratique" placeholder="Notre organisation est ... [Organisations des tâches, ressources financières, etc]  ."></textarea>
 							</div>
 						</div>
 					</div>
@@ -117,7 +117,7 @@
 						</div>
 						<div id="div2-ecoPratic-ca" class="col-sm-12 col-xs-12">
 							<div id="div2-1-ecoPratic-ca" class="col-sm-12 col-xs-12">
-								<textarea id="descEcoPratique" class="inpDescAnnonce" name="descEcoPratique" placeholder="Celles que vous réalisez / que vous envisagez ..."></textarea>
+								<textarea id="descEcoPratique" class="inpDescAnnonce" name="descEcoPratique" placeholder="Nos pratiques écolos sont ... [Celles que vous réalisez/envisagez, attitude, niveau d'implication, etc]  ."></textarea>
 							</div>
 						</div>
 					</div>
@@ -139,13 +139,12 @@
 					<div class="flex globalDivShowUserDesc">
 						<div class="childFlex divShowUserDesc">
 							<p class="underTitle centerText titleshowUserDesc">Aperçu du rendu final de votre description</p>
-							<div class="btnGreen flex btnActuShowUserDesc">
-								<i class="fas fa-sync-alt autoMargin imgBtnActuShowUserDesc"></i>
-							</div>
 							<div class="divTextshowUserDesc">
 								<input type="text" placeholder="Rendu de votre description en attente..." disabled="" id="textShowUserDesc-ayer" class="textShowUserDesc">
 								<div>
-									<p id="descRecherche-mlResult" class="inpDescAnnonceResult"></p>
+									<div class="flex">
+										<p id="descRecherche-mpcResult" class="inpDescAnnonceResult childFlex centerText"></p>
+									</div>
 									<p id="descPersonneRecherche-mlResult" class="inpDescAnnonceResult"></p>
 									<p id="descChambrePropose-mlResult" class="inpDescAnnonceResult"></p>
 									<p id="presentationLogement-mlResult" class="inpDescAnnonceResult"></p>

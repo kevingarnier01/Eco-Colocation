@@ -2145,25 +2145,33 @@ div#divContenuPlSchDisable {
 #div1DescriptionPC {
 	border-left: 1px solid rgba(0,0,0,0.15);
 	border-radius: 10px;
-	overflow: auto;
 	padding: 5px;
 	padding-left: 10px;
 	padding-right: 10px;
 	height: 100%;
+	overflow: hidden;
+	display: -webkit-box;
+	-webkit-line-clamp: 4;
+	-webkit-box-orient: vertical;
 }
 
 	#div1DescriptionPC h3 {
 		text-align: center;
-		margin: 0;
-		margin-top: 5px;
-		margin-bottom: 2px;
 		color: #444;
 		font-weight: bold;
+		margin-bottom: 10px;
+		line-height: 35px;
+		margin-top: 10px;
 	}
 
-	#div1DescriptionPC #div2DescriptionPC p:first-child {
-		margin-bottom: 0
-	}
+#div2DescriptionPC {
+	overflow: hidden;
+}
+
+#div1DescriptionPC #div2DescriptionPC p:first-child {
+	margin-bottom: 0;
+	line-height: 35px;
+}
 
 #div1Desc-title-pc {
 	text-align: center;
@@ -2588,6 +2596,14 @@ d5-description-mpc {
 	background: #C4D102
 }
 
+#instroductionTitleAnnonce-mpc {
+	line-height: 25px !important;
+}
+
+#textAnnonce-mpc {
+	line-height: 26px;
+}
+
 #div-description-mpc .table-striped > tbody > tr:nth-of-type(odd) {
 	background-color: #f8fae0;
 }
@@ -2924,7 +2940,7 @@ d5-description-mpc {
 		height: 70px;
 	}
 
-	#div2-1DescAnn-ca #descRecherche-ml {
+	#div2-1DescAnn-ca #descRecherche-ml, #divEcoPratic-ca #descRecherche-ml, #div2-1DescAnn-ca #descRecherche-mpc {
 		min-height: 30px;
 		height: 30px;
 	}
@@ -4866,22 +4882,22 @@ i.fas.fa-times.crossPlace {
 	margin-bottom: 35px;
 }
 
-#divSurfaceTerrain-erev {
+#divSuperficieTerrain-erev {
 	display: flex;
 	margin-right: auto;
 }
 
-.txtSurface-erev {
+.txtSuperficie-erev {
 	text-align: center;
 	font-size: 18px;
 	margin-right: 15px;
 }
 
-.responseSurface-erev {
+.responseSuperficie-erev {
 	font-family: Noteworthy;
 }
 
-#divSurfaceHabitat-erev {
+#divSuperficieHabitat-erev {
 	display: flex;
 	margin-left: auto;
 	margin-right: auto;
@@ -4914,18 +4930,18 @@ i.fas.fa-times.crossPlace {
 	display: flex;
 }
 
-#divGlobalSurfaceHabitat-erev {
+#divGlobalSuperficieHabitat-erev {
 	display: flex;
 }
 
-#divGlobalSurfaceHabitat2-erev {
+#divGlobalSuperficieHabitat2-erev {
 	display: flex;
 	width: 500px;
 	max-width: 100%;
 }
 
 @media only screen and (max-width: 520px) {
-	#divGlobalSurfaceHabitat2-erev {
+	#divGlobalSuperficieHabitat2-erev {
 		display: initial;
 	}
 }
@@ -5078,6 +5094,12 @@ i.fas.fa-times.crossPlace {
 	padding: 5px 10px;
 	border-radius: 3px;
 	margin-top: 10px;
+	overflow: auto;
+}
+
+.inpDescAnnonceResult {
+	overflow: auto;
+	display: inline;
 }
 
 .textShowUserDesc {
@@ -5086,10 +5108,15 @@ i.fas.fa-times.crossPlace {
 	width: 100%;
 }
 
-	#numRueInput-ayer:focus, #facebookLinkEvent-ayere:focus {
-		border: none;
-		box-shadow: 0 0 2px black;
-	}
+#descRecherche-mpcResult {
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+#numRueInput-ayer:focus, #facebookLinkEvent-ayere:focus {
+	border: none;
+	box-shadow: 0 0 2px black;
+}
 
 .sousDivFormColoc-ayer {
 	padding: 0;
@@ -5474,7 +5501,7 @@ input.radioFibreEco-ayer {
 	max-width: 690px;
 }
 
-#labelSurfaceTer-ayer {
+#labelSuperficieTer-ayer {
 	font-size: 18px;
 	color: #555555;
 	font-weight: 100;
@@ -5482,14 +5509,14 @@ input.radioFibreEco-ayer {
 	margin-right: 15px;
 }
 
-#labelSurfaceHab-ayer {
+#labelSuperficieHab-ayer {
 	margin-right: 15px;
 	font-size: 18px;
 	color: #555555;
 	font-weight: 100;
 }
 
-.inputSurface-ayer {
+.inputSuperficie-ayer {
 	border: none;
 	border-radius: 3px;
 	padding: 5px;
