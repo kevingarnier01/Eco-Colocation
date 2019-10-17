@@ -10,11 +10,11 @@
 		<div id="div-title-ca">
 			@if (User.Identity.IsAuthenticated)
 			{
-				<h2 class="title">Création d'une annonce de location</h2>
+				<h2 class="title centerText">Création d'une annonce de location</h2>
 			}
 			else
 			{
-				<h2 class="title">Créez votre annonce de location en vous inscrivant</h2>
+				<h2 class="title centerText">Créez votre annonce de location en vous inscrivant</h2>
 			}
 		</div>
 		<div id="htmlBlockModalLocation-ml">
@@ -23,12 +23,12 @@
 					<div id="divDescAnn-ca" class="col-sm-12 col-xs-12">
 						<div id="div1DescAnn-ca" class="col-sm-12 col-xs-12">
 							<div id="div1-1DescAnn-ca" class="col-sm-12 col-xs-12">
-								<label for="descRecherche-ml">Introduction de votre annonce</label>
+								<label for="introAnnonce-ml">Introduction de votre annonce</label>
 							</div>
 						</div>
 						<div id="div2DescAnn-ca" class="col-sm-12 col-xs-12">
 							<div id="div2-1DescAnn-ca" class="col-sm-12 col-xs-12">
-								<textarea id="descRecherche-ml" class="inpDescAnnonce" name="descAnnonce"
+								<textarea id="introAnnonce-ml" class="inpDescAnnonce" name="descAnnonce"
 										  placeholder="Ex: Deux chambres se libères dans notre maison." maxlength="100"></textarea>
 							</div>
 						</div>
@@ -142,9 +142,7 @@
 							<div class="divTextshowUserDesc">
 								<input type="text" placeholder="Rendu de votre description en attente..." disabled="" id="textShowUserDesc-ayer" class="textShowUserDesc">
 								<div>
-									<div class="flex">
-										<p id="descRecherche-mpcResult" class="inpDescAnnonceResult childFlex centerText"></p>
-									</div>
+									<p id="introAnnonce-mlResult" class="inpDescAnnonceResult titleDescAnnonceResult centerText"></p>
 									<p id="descPersonneRecherche-mlResult" class="inpDescAnnonceResult"></p>
 									<p id="descChambrePropose-mlResult" class="inpDescAnnonceResult"></p>
 									<p id="presentationLogement-mlResult" class="inpDescAnnonceResult"></p>
@@ -256,10 +254,19 @@
 											</td>
 										</tr>
 										<tr>
-											<td class="col-xs-6"><label for="Superficie">Superficie</label></td>
+											<td class="col-xs-6"><label for="Superficie">Superficie du logement</label></td>
 											<td class="col-xs-6">
 												<div class="flex">
-													<input id="Superficie" name="Superficie" type="number" value="" class="inputtable-ca" min="0">
+													<input id="superficieLogement" name="Superficie" type="number" value="" class="inputtable-ca" min="0">
+													<p class="centerText signInputPropose-ml">m²</p>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td class="col-xs-6"><label for="Superficie">Superficie du terrain</label></td>
+											<td class="col-xs-6">
+												<div class="flex">
+													<input id="superficieTerrain" name="Superficie" type="number" value="" class="inputtable-ca" min="0">
 													<p class="centerText signInputPropose-ml">m²</p>
 												</div>
 											</td>
@@ -311,10 +318,10 @@
 								<table class="table table-striped">
 									<tbody>
 										<tr>
-											<td class="col-xs-6"><label for="Type">Type</label></td>
+											<td class="col-xs-6"><label for="Type">Type de logement</label></td>
 											<td class="col-xs-6">
 												<select class="form-control" id="Type">
-													<option value="1">Habitat léger</option>
+													<option value="1">Eco-habitat</option>
 													<option value="2">Appartement</option>
 													<option value="2">Maison</option>
 												</select>
@@ -356,15 +363,26 @@
 												<input id="ColocationresMax" name="ColocationresMax" type="number" min="0" class="inputtable-ca">
 											</td>
 										</tr>
-										<tr>
-											<td class="col-xs-6"><label>Accès aux transports en communs</label></td>
-											<td style="padding: 0;padding-top: 4px;padding-left: 8px;">
-												<p class="onoff">
-													<input type="checkbox" value="1" id="accesEcolo-cb">
-													<label for="accesEcolo-cb"></label>
-												</p>
-											</td>
-										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+					<div class="div20-descInform-ca">
+						<div class="div2-1-descInform-ca">
+							<div class="col-sm-4 div2-2-descInform-ca">
+								<div class="div2-3-descInform-ca" style="width: 119px;">
+									<div class="div2-4-descInform-ca">
+										<div class="flex">
+											<i class="fas fa-search-plus childFlex icon-ca"></i>
+										</div>
+										<p class="txtIcon-ca">ACCESSIBILITES</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-8">
+								<table class="table table-striped">
+									<tbody>
 										<tr>
 											<td class="col-xs-6">
 												<label>Accessibilité handicapé</label>
@@ -375,6 +393,21 @@
 													<label for="accesHandicap-cb"></label>
 												</p>
 											</td>
+										</tr>
+										<tr>
+											<td class="col-xs-6"><label>Transports en communs</label></td>
+											<td style="padding: 0;padding-top: 4px;padding-left: 8px;">
+												<div>
+													<p class="onoff">
+														<input type="checkbox" value="1" id="accesTransportEnCommun-ml">
+														<label for="accesTransportEnCommun-ml"></label>
+													</p>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td><label id="lblDescSupAccessibilite-ml">Info supplémentaire</label></td>
+											<td><textarea type="text" id="descSupAccessibilite-ml"></textarea></td>
 										</tr>
 									</tbody>
 								</table>
@@ -432,8 +465,6 @@
 							</div>
 						</div>
 					</div>
-					<h2 class="title centerText" id="titleInfoPerso-ml">Informations Personnelles</h2>
-					<p class="underTitle centerText" id="underTitleInfoPerson-ml">(Uniquement si vous n'avez pas encore creé votre compte)</p>
 					<div class="div20-descInform-ca">
 						<div class="div2-1-descInform-ca">
 							<div class="col-sm-4 div2-2-descInform-ca">
@@ -518,8 +549,8 @@
 			'/Modal/ModalLocation_ColocAnnounce/?targetCity=' + "@ViewData["targetCity"]" + "&urlCurrentPage=" + $('#urlCurrentPage').val());
 
 		loadAccountConnexionToFinishOperation();
+		triggerBtnOnOffOnAgence();
 		initButtonOnOff()
-		disableStatutAndAddTriggerOnAgence();
 		$('#descTextAnnonceLocationDataPersonnal').detach().prependTo('#extraElement-pdf');
 
 		initAnnonceDescResult("#modalLocation-ColocAnnounce")

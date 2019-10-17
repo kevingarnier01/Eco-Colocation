@@ -1451,30 +1451,59 @@ function loadAccountConnexionToFinishOperation() {
 	$('#btnConnexion-acc').attr('onclick', '')
 }
 
-function disableStatutAndAddTriggerOnAgence() {
+function triggerBtnOnOffOnAgence() {
 	$("#agence-cb").click(function (e) {
-		if ($("#agence-cb").val() == 0) {
-			$('#nomAgence-mlca').attr('disabled', 'true')
-			$('#numSiret-mlca').attr('disabled', 'true')
-			$('#fraisAgence-mlca').attr('disabled', 'true')
+		setTimeout(function () {
+			if ($("#agence-cb").val() == 0) {
+				$('#nomAgence-mlca').attr('disabled', 'true')
+				$('#numSiret-mlca').attr('disabled', 'true')
+				$('#fraisAgence-mlca').attr('disabled', 'true')
 
-			$("#divPersonnaliteInfo-mcar").fadeIn("slow");
-		}
-		else {
-			$('#nomAgence-mlca').removeAttr('disabled')
-			$('#numSiret-mlca').removeAttr('disabled')
-			$('#fraisAgence-mlca').removeAttr('disabled')
+				$("#divPersonnaliteInfo-mcar").fadeIn("slow");
+			}
+			else {
+				$('#nomAgence-mlca').removeAttr('disabled')
+				$('#numSiret-mlca').removeAttr('disabled')
+				$('#fraisAgence-mlca').removeAttr('disabled')
 
-			$("#divPersonnaliteInfo-mcar").fadeOut("slow");
-		}
+				$("#divPersonnaliteInfo-mcar").fadeOut("slow");
+			}
+		}, 250);
 	});
+}
 
+function triggerBtnOnOffOnTerain_mpc() {
+	$("#enableTerrain-mpc").click(function (e) {
+		setTimeout(function () {
+			if ($("#enableTerrain-mpc").val() == 0) {
+				$('#select-engagementTypeTerrain-mpc').attr('disabled', 'true')
+				$('#superficieTerrain-mpc').attr('disabled', 'true')
+				$('#coutAchatMoyTerrain-mpc').attr('disabled', 'true')
+				$('#nbParticipantAchatTerrainResearch-mpc').fadeOut("fast")
 
-	$("#agence-cb").val("1") // La valeur va repasser à 0
-	$("#agence-cb").click();
+				//$("#divPersonnaliteInfo-mcar").fadeIn("slow");
+			}
+			else {
+				$('#select-engagementTypeTerrain-mpc').removeAttr('disabled')
+				$('#coutAchatMoyTerrain-mpc').removeAttr('disabled')
+				$('#superficieTerrain-mpc').removeAttr('disabled')
+				$('#coutAchatMoyTerrain-mpc').removeAttr('disabled')
+				if ($("#select-engagementTypeTerrain-mpc").children(":selected").html() == 'Achat') {
+					$('#nbParticipantAchatTerrainResearch-mpc').fadeIn("fast")
+				}
+			}
+		}, 250);
+	});
 }
 
 function initButtonOnOff() {
+	for (var i = 0; i < $('.onoff input').length; i++) {
+		var elementId = "#" + $('.onoff input')[i].id;
+		if ($(elementId).attr('value') == '0') {
+			$(elementId).click()
+		}
+	}
+
 	$(".onoff input").click(function (e) {
 		if ($(this).attr('value') == '0') {
 			$(this).val("1")
@@ -1718,12 +1747,12 @@ function addNewEcologieAction(elementIdToAppend, elementInput) {
 
 function initAnnonceDescResult(pageElementId) {
 	var typingTimer;
-		
-	$(pageElementId + " .inpDescAnnonce").on('keypress', function (e) {
+
+	$(pageElementId + " .inpDescAnnonce").on('keyup', function (e) {
 		clearTimeout(typingTimer);
 		typingTimer = setTimeout(function () {
 			actionInitAnnonceDescResult(pageElementId, e)
-		}, 2000);
+		}, 1000);
 	});
 
 	$(pageElementId + " .inpDescAnnonce").on('change', function (e) {

@@ -20,13 +20,13 @@
 					<div id="divDescAnn-ca" class="col-sm-12 col-xs-12">
 						<div id="div1DescAnn-ca" class="col-sm-12 col-xs-12">
 							<div id="div1-1DescAnn-ca" class="col-sm-12 col-xs-12">
-								<label for="descRecherche-mpc">Introduction de votre annonce</label>
+								<label for="introAnnonce-mpc">Introduction de votre annonce</label>
 							</div>
 						</div>
 						<div id="div2DescAnn-ca" class="col-sm-12 col-xs-12">
 							<div id="div2-1DescAnn-ca" class="col-sm-12 col-xs-12">
-								<textarea id="descRecherche-mpc" class="inpDescAnnonce" name="descAnnonce" maxlength="100"
-										  placeholder="Ex: Création en commun d'un éco-habitat pour 5 personnes." ></textarea>
+								<textarea id="introAnnonce-mpc" class="inpDescAnnonce" name="descAnnonce" maxlength="100"
+										  placeholder="Ex: Création en commun d'un éco-habitat pour 5 personnes."></textarea>
 							</div>
 						</div>
 					</div>
@@ -115,9 +115,7 @@
 							<div class="divTextshowUserDesc">
 								<input type="text" placeholder="Rendu de votre description en attente..." disabled="" id="textShowUserDesc-ayer" class="textShowUserDesc">
 								<div>
-									<div class="flex">
-										<p id="descRecherche-mpcResult" class="inpDescAnnonceResult childFlex centerText"></p>
-									</div>
+									<p id="introAnnonce-mpcResult" class="inpDescAnnonceResult titleDescAnnonceResult centerText"></p>
 									<p id="descAnnonce-mpcResult" class="inpDescAnnonceResult"></p>
 									<p id="descPersonneRecherche-mlResult" class="inpDescAnnonceResult"></p>
 									<p id="convivialite-mpcResult" class="inpDescAnnonceResult"></p>
@@ -192,6 +190,20 @@
 								<table class="table table-striped">
 									<tbody>
 										<tr>
+											<td colspan="2">
+												<div class="flex">
+													<div class="flex childFlex">
+														<label id="lblEnableOrNotTerrain-mpc">Voulez-vous parler du terrain ?</label>
+														<p class="onoff">
+															<input type="checkbox" value="0" id="enableTerrain-mpc">
+															<label for="enableTerrain-mpc"></label>
+														</p>
+													</div>
+												</div>
+											</td>
+											<td></td>
+										</tr>
+										<tr>
 											<td class="col-xs-6">
 												<label for="Tarif_loyer">Engagement</label>
 											</td>
@@ -202,56 +214,18 @@
 												</select>
 											</td>
 										</tr>
-
-										<tr>
-											<td class="col-xs-6"><label for="Caution">Localisation</label></td>
-											<td class="col-xs-6">
-												<select id="select2-loyer-fh" class="form-control">
-													<option value="0">Toutes localisations</option>
-													<option value="1">Campagne</option>
-													<option value="2">Ville/village</option>
-												</select>
-											</td>
-										</tr>
 										<tr>
 											<td class="col-xs-6"><label for="Caution">Superficie</label></td>
-											<td>
-												<select id="select2-loyer-fh" class="form-control">
-													@for (var i = 100; i < 501; i++)
-													{
-														<option value=@i>@i m² ou plus</option>
-														i += 99;
-													}
-													@for (var i = 1000; i < 10000; i++)
-													{
-														<option value=@i>@i m² ou plus</option>
-														i += 999;
-													}
-													@for (var i = 0; i < 101; i++)
-													{
-														if (i == 0)
-														{
-															<option value=@i>1 ha ou plus</option>
-														}
-														else if (i == 100)
-														{
-															<option value=@i>@i ha ou plu</option>
-														}
-														else
-														{
-															<option value=@i>@i ha ou plu</option>
-														}
-
-														i += 9;
-													}
-												</select>
+											<td class="flex">
+												<input id="superficieTerrain-mpc" type="number" class="inputtable-ca" placeholder="Superficie" style="width: 150px;padding: 5px 8px;">
+												<p class="centerText signInputPropose-ml">m²</p>
 											</td>
 										</tr>
 										<tr id="rowAchatTerrain" class="rowByEngagement" style="display: table-row;">
 											<td class="col-xs-6"><label for="Loyer">Cout de l'achat moyen</label></td>
 											<td class="col-xs-6">
 												<div class="flex">
-													<input id="coutAchatMoy" name="coutAchatMoy" type="number" min="0" class="inputtable-ca" placeholder="Cout d'achat moyen" style="width: 150px;padding: 5px 8px;">
+													<input id="coutAchatMoyTerrain-mpc" name="coutAchatMoyTerrain-mpc" type="number" min="0" class="inputtable-ca" placeholder="Cout d'achat moyen" style="width: 150px;padding: 5px 8px;">
 													<p class="centerText signInputPropose-ml">€</p>
 												</div>
 											</td>
@@ -316,7 +290,7 @@
 													<option value="0">Tout type d'habitat</option>
 													<option value="1">Maison</option>
 													<option value="2">Appartement</option>
-													<option value="3">Habitat léger</option>
+													<option value="3">Eco-habitat</option>
 												</select>
 											</td>
 										</tr>
@@ -332,20 +306,9 @@
 										</tr>
 										<tr>
 											<td class="col-xs-6"><label for="Caution">Superficie</label></td>
-											<td>
-												<select id="select2-loyer-fh" class="form-control">
-													<option value="0">Toutes superficies</option>
-													@for (var i = 20; i < 110; i++)
-													{
-														<option value=@i>~ @i m²</option>
-														i += 9;
-													}
-													@for (var i = 125; i < 550; i++)
-													{
-														<option value=@i>~ @i m²</option>
-														i += 24;
-													}
-												</select>
+											<td class="flex">
+												<input id="superficieLogement" type="number" class="inputtable-ca" placeholder="Superficie" style="width: 150px;padding: 5px 8px;">
+												<p class="centerText signInputPropose-ml">m²</p>
 											</td>
 										</tr>
 										<tr id="rowCreation" class="rowByEngagement">
@@ -361,7 +324,7 @@
 											<td class="col-xs-6"><label for="Loyer">Cout de l'achat</label></td>
 											<td class="col-xs-6">
 												<div class="flex">
-													<input id="coutAchatMoy" name="coutAchatMoy" type="number" min="0" class="inputtable-ca" placeholder="Cout d'achat moyen" style="width: 150px;padding: 5px 8px;">
+													<input id="coutAchatMoyTerrain-mpc" name="coutAchatMoyTerrain-mpc" type="number" min="0" class="inputtable-ca" placeholder="Cout d'achat moyen" style="width: 150px;padding: 5px 8px;">
 													<p class="centerText signInputPropose-ml">€</p>
 												</div>
 											</td>
@@ -410,29 +373,74 @@
 									<tbody>
 										<tr>
 											<td class="col-xs-6">
-												<label for="NbColocTotal">Nombre de personne au total (m'incluant)</label>
+												<label for="NbColocTotal">Nombre de personne au totale (en m'incluant)</label>
 											</td>
 											<td class="col-xs-6">
 												<input id="NbColocTotal" name="NbColocTotal" type="number" min="0" class="inputtable-ca" style="width: 80px;">
 											</td>
 										</tr>
 										<tr id="nbParticipantAchatTerrainResearch-mpc">
-											<td class="col-xs-6"><label for="NbColocResearch">Nombre de participant recherché à l'achat du terrain</label></td>
+											<td class="col-xs-6"><label for="NbColocResearch">Nombre de personne recherché pour partager l'achat du terrain (en m'excluant)</label></td>
 											<td class="col-xs-6">
 												<input id="NbColocResearch" name="NbColocResearch" type="number" min="0" class="inputtable-ca" style="width: 80px;">
 											</td>
 										</tr>
 										<tr id="nbParticipantAchatLogementResearch-mpc">
-											<td class="col-xs-6"><label for="NbColocResearch">Nombre de participant recherché à l'achat du logement</label></td>
+											<td class="col-xs-6"><label for="NbColocResearch">Nombre de personne recherché pour partager l'achat du logement (en m'excluant)</label></td>
 											<td class="col-xs-6">
 												<input id="NbColocResearch" name="NbColocResearch" type="number" min="0" class="inputtable-ca" style="width: 80px;">
 											</td>
 										</tr>
 										<tr>
-											<td class="col-xs-6"><label for="NbColocResearch">Nombre de colocataire simple recherchés</label></td>
+											<td class="col-xs-6"><label for="NbColocResearch">Nombre de personne recherché pour louer le logement (en m'excluant)</label></td>
 											<td class="col-xs-6">
 												<input id="NbColocResearch" name="NbColocResearch" type="number" min="0" class="inputtable-ca" style="width: 80px;">
 											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+					<div class="div20-descInform-ca">
+						<div class="div2-1-descInform-ca">
+							<div class="col-sm-4 div2-2-descInform-ca">
+								<div class="div2-3-descInform-ca" style="width: 119px;">
+									<div class="div2-4-descInform-ca">
+										<div class="flex">
+											<i class="fas fa-search-plus childFlex icon-ca"></i>
+										</div>
+										<p class="txtIcon-ca">ACCESSIBILITES</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-8">
+								<table class="table table-striped">
+									<tbody>
+										<tr>
+											<td class="col-xs-6"><label>Transports en communs</label></td>
+											<td style="padding: 0;padding-top: 4px;padding-left: 8px;">
+												<div class="flex">
+													<div>
+														<div class="flex">
+															<input type="radio" name="AccesTransport" class="inpAccesTransport-mcp" id="yesAccesTransports-mcp">
+															<label for="yesAccesTransports-mcp">Oui</label>
+														</div>
+														<div class="flex">
+															<input type="radio" name="AccesTransport" class="inpAccesTransport-mcp" id="noAccesTransports-mcp">
+															<label for="noAccesTransports-mcp">Non</label>
+														</div>
+														<div class="flex">
+															<input type="radio" name="AccesTransport" class="inpAccesTransport-mcp" id="maybeAccesTransports-mcp" checked="">
+															<label for="maybeAccesTransports-mcp">Peut-importe</label>
+														</div>
+													</div>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td><label id="lblDescSupAccessibilite-ml">Info supplémentaire</label></td>
+											<td><textarea type="text" id="descSupAccessibilite-ml"></textarea></td>
 										</tr>
 									</tbody>
 								</table>
@@ -492,10 +500,9 @@
 					</div>
 				</div>
 			</div>
-			<div id="divDesciptionInfo-mcap" class="col-sm-12">
-				<div class="divEncadrer-mcar" id="divDesciptionInfo-mcar">
+			<div id="divDesciptionInfo-mcap" class="flex col-sm-12">
+				<div class="divEncadrer-mcar flex childFlex" id="underdivDesciptionInfo-mpc">
 					<div class="encadrer-mcar col-sm-11 col-xs-12" id="divProfil-mpc">
-						<p class="col-xs-12 centerText fontFamilyNote" id="titleInstrucePerson-mcap">Completer mon profil lié a ce compte</p>
 						<div class="col-sm-4 col-xs-12 divImgLogo-mcar" id="divImgLogoProfil-mpc">
 							<div class="divImgLogoHorizontal-mcar">
 								<div class="divImgLogoVertical-mcar">
@@ -555,10 +562,10 @@
 		window.history.replaceState('data to be passed', 'Title of the page',
 			'/Modal/ModalProjetCreation_ColocAnnounce/?targetCity=' + "@ViewData["targetCity"]" + "&urlCurrentPage=" + $('#urlCurrentPage').val());
 
+		triggerBtnOnOffOnTerain_mpc();
 		initButtonOnOff();
 
 		$('#descTextAnnonceLocationDataPersonnal').detach().prependTo('#extraElement-pdf');
-
 		initAnnonceDescResult("#modalCreationProjet-ColocAnnounce")
 	});
 </script>

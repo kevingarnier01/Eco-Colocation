@@ -73,7 +73,7 @@ main {
 
 @media only screen and (max-width: 767px) {
 	main {
-		margin: 0
+		margin: 15px
 	}
 }
 
@@ -615,7 +615,7 @@ select:-moz-focusring {
 }
 
 .form-control {
-	padding: 6px 2px;
+	padding: 5px 2px;
 }
 
 .form-group .form-control:last-child {
@@ -1962,8 +1962,40 @@ div#divContenuPlSchDisable {
 	display: none;
 }
 
+.divHighterProjetCreationPVLink {
+	max-width: 90%;
+	position: relative;
+}
+
+#divToolEditProjetCreation-al {
+	position: absolute;
+	top: 3px;
+	right: 4px;
+	background-color: rgba(188, 200, 2, 0.9);
+	border-radius: 5px;
+	color: white;
+	z-index: 1;
+	width: 80px;
+	display: flex;
+	font-size: 18px;
+	margin-right: 5%;
+}
+
+.iconToolEditPC-al {
+	padding: 6px 10px;
+	margin: 0;
+	border-radius: 5px;
+	width: 50%;
+	cursor: pointer;
+}
+
+	.iconToolEditPC-al:hover {
+		background-color: #adb800
+	}
+
 #div1PC {
 	display: grid;
+	padding: 0;
 }
 
 	#div1PC a {
@@ -2760,7 +2792,7 @@ d5-description-mpc {
 #colocAnnounce {
 	border-radius: 10px;
 	box-shadow: 0 0 5px 0px black;
-	padding: 10px;
+	padding: 10px 0;
 	background-color: white;
 	overflow: auto;
 	margin-top: 20px;
@@ -2940,7 +2972,7 @@ d5-description-mpc {
 		height: 70px;
 	}
 
-	#div2-1DescAnn-ca #descRecherche-ml, #divEcoPratic-ca #descRecherche-ml, #div2-1DescAnn-ca #descRecherche-mpc {
+	#div2-1DescAnn-ca #introAnnonce-ml, #divEcoPratic-ca #introAnnonce-ml, #div2-1DescAnn-ca #introAnnonce-mpc {
 		min-height: 30px;
 		height: 30px;
 	}
@@ -3119,6 +3151,11 @@ i.fas.fa-times.crossPlace {
 
 #divDesciptionInfo-mcap {
 	padding: 0;
+	width: 100%;
+}
+
+#underdivDesciptionInfo-mpc {
+	width: 100%
 }
 
 #titleInstrucePerson-mcap {
@@ -3158,6 +3195,7 @@ i.fas.fa-times.crossPlace {
 	box-shadow: 0 0 5px 0 #d9d9d9;
 	border-radius: 10px;
 	margin-bottom: 20px;
+	padding: 0px;
 }
 
 .div2-1-descInform-ca {
@@ -3179,7 +3217,7 @@ i.fas.fa-times.crossPlace {
 	margin-left: auto;
 	margin-right: auto;
 	display: flex;
-	width: 101px;
+	width: 80px;
 }
 
 .div2-4-descInform-ca {
@@ -3380,7 +3418,7 @@ i.fas.fa-times.crossPlace {
 	}
 }
 
-#descSupTolerence-ml {
+#descSupTolerence-ml, #descSupAccessibilite-ml {
 	border: navajowhite;
 	box-shadow: 0 0 2px 0 black;
 	border-radius: 5px;
@@ -3411,6 +3449,11 @@ i.fas.fa-times.crossPlace {
 	background-color: white;
 }
 
+#infoConfidentialityDataPersonnal {
+	margin: auto !important;
+	font-size: inherit !important;
+}
+
 #div2ConnectionWithAccount-mcar {
 	margin: 0;
 	display: flex;
@@ -3426,8 +3469,8 @@ i.fas.fa-times.crossPlace {
 
 .textInscriptionBtnByAccount-mcar {
 	line-height: 28px;
-	margin-left: 15px;
-	font-size: 15px;
+	margin-left: 15px !important;
+	font-size: 15px !important;
 }
 
 .iconInscriptionBtnByAccount-mcar.fas.fa-sign-in-alt {
@@ -3435,7 +3478,18 @@ i.fas.fa-times.crossPlace {
 	color: #555;
 }
 
+#divContenerInfoPerso {
+	box-shadow: 0 0 3px 0 #888;
+	border-radius: 5px;
+	padding: 2px 0px;
+	margin-bottom: 20px;
+}
+
 /**** colocAnnounce ****/
+
+#div1-1-al {
+	padding: 0
+}
 
 #div1-2-al {
 	width: 305px;
@@ -3473,6 +3527,7 @@ i.fas.fa-times.crossPlace {
 #modalCreationProjet-ColocAnnounce {
 	overflow: auto;
 	position: relative;
+	padding: 15px;
 }
 
 	#modalCreationProjet-ColocAnnounce, #modalCreationProjet-ColocAnnounce ~ .divCloseModal {
@@ -3500,9 +3555,16 @@ i.fas.fa-times.crossPlace {
 		box-shadow: 0 0 2px 0 #555;
 	}
 
-		#divProfil-mpc #txtareaPersoP-mcar::placeholder {
+		#divProfil-mpc #txtareaPersoP-mcar::-webkit-input-placeholder {
 			color: #555
 		}
+
+#lblEnableOrNotTerrain-mpc {
+	font-size: 18px !important;
+	margin: auto;
+	margin-right: 15px;
+}
+
 /*** Fin div-photos-mpc-ColocAnnounce ***/
 /**** Modal Account / Index *****/
 #modalAccount {
@@ -4023,7 +4085,7 @@ i.fas.fa-times.crossPlace {
 	.divImgLogo-mcar {
 		position: relative;
 		min-height: 60px;
-		margin-bottom: 10px;
+		margin-bottom: 20px;
 		width: 100%;
 		padding: 40px 0;
 	}
@@ -4065,8 +4127,9 @@ i.fas.fa-times.crossPlace {
 }
 
 #titleFinishCreateAnnonce {
-	margin-bottom: 25px;
-	font-size: 28px;
+	margin-bottom: 25px !important;
+	font-size: 28px !important;
+	font-weight: bold !important;
 }
 
 #divbtnCreate-mbca {
@@ -4111,10 +4174,11 @@ i.fas.fa-times.crossPlace {
 }
 
 .textInscriptionBtn-mcar {
+	margin: 0 !important;
 	line-height: 28px;
-	margin-left: 15px;
+	margin-left: 15px !important;
 	color: white;
-	font-size: 15px;
+	font-size: 15px !important;
 }
 
 #createProfilWindow {
@@ -5074,6 +5138,7 @@ i.fas.fa-times.crossPlace {
 	padding: 10px;
 	box-shadow: 0 0 2px 0 #666;
 	border-radius: 5px;
+	max-width: 100%;
 }
 
 .titleshowUserDesc {
@@ -5095,6 +5160,7 @@ i.fas.fa-times.crossPlace {
 	border-radius: 3px;
 	margin-top: 10px;
 	overflow: auto;
+	max-width: 100%;
 }
 
 .inpDescAnnonceResult {
@@ -5108,10 +5174,19 @@ i.fas.fa-times.crossPlace {
 	width: 100%;
 }
 
-#descRecherche-mpcResult {
+.titleDescAnnonceResult {
+	display: block;
 	font-weight: bold;
 	margin-bottom: 10px;
 }
+
+.inpDescAnnonce {
+	color: #555
+}
+
+	.inpDescAnnonce::-webkit-input-placeholder {
+		color: rgba(117, 117, 117, 0.7)
+	}
 
 #numRueInput-ayer:focus, #facebookLinkEvent-ayere:focus {
 	border: none;
