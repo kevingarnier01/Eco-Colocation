@@ -122,6 +122,28 @@ select {
 	color: #f7be68;
 }
 
+#main-menu {
+	margin-left: auto;
+}
+
+#navBarMenu li {
+	white-space: nowrap;
+}
+
+#divUnderMenuBar {
+	display: flex;
+}
+
+@media screen and (max-width: 768px) {
+	#navBarMenu li {
+		white-space: nowrap;
+	}
+
+	#divUnderMenuBar {
+		display: block;
+	}
+}
+
 .linkProfil-nb {
 	display: block;
 	text-decoration: none !important;
@@ -175,7 +197,7 @@ select {
 	-webkit-transition: visibility 0.15s, max-height 0.15s, margin 0.15s;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
 	#menu-main_menu {
 		display: grid;
 	}
