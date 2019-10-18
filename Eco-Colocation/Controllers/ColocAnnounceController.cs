@@ -38,6 +38,42 @@ namespace Eco_Colocation.Controllers
 			return PartialView();
 		}
 
+		public ActionResult ModalUpdateProjetCreation()
+		{
+			AllViewModel allViewModel = new AllViewModel();
+
+			return PartialView("~/Views/ColocAnnounce/ModalProjetCreation.cshtml", allViewModel);
+		}
+
+		public ActionResult ModalUpdateLocation()
+		{
+			AllViewModel allViewModel = new AllViewModel();
+
+			return PartialView("~/Views/ColocAnnounce/ModalLocation.cshtml", allViewModel);
+		}
+
+		public ActionResult ModalDeleteProjetCreation()
+		{
+			return PartialView();
+		}
+
+		public ActionResult DeleteProjetCreation()
+		{
+			//** A faire : Supprimer l'annonce **//
+
+			return RedirectToAction("ProjetCreation", "ColocAnnounce", null);
+		}
+
+		public ActionResult ProjetCreation(string targetCity)
+		{
+			ViewData["currentTab"] = "ProjetCreation";
+			ViewData["showProjetCreation"] = "true";
+
+			AllViewModel allViewModel = new AllViewModel();
+
+			return View("~/Views/ColocAnnounce/Index.cshtml", allViewModel);
+		}
+
 		public ActionResult AnnonceLocation(string targetCity)
 		{
 			ViewData["showAnnonceLocation"] = "true";
@@ -47,13 +83,14 @@ namespace Eco_Colocation.Controllers
 			return View("~/Views/ColocAnnounce/Index.cshtml", allViewModel);
 		}
 
-		public ActionResult ProjetCreation(string targetCity)
+		public ActionResult ModalDeleteLocation()
 		{
-			ViewData["showProjetCreation"] = "true";
+			return PartialView();
+		}
 
-			AllViewModel allViewModel = new AllViewModel();
-
-			return View("~/Views/ColocAnnounce/Index.cshtml", allViewModel);
+		public ActionResult DeleteLocation()
+		{
+			return RedirectToAction("AnnonceLocation", "ColocAnnounce", null);
 		}
 	}
 }

@@ -664,6 +664,8 @@
     <Content Include="Scripts\Leaflet.markercluster-1.4.1\package.json" />
     <Content Include="Scripts\Leaflet.markercluster-1.4.1\README.md" />
     <Content Include="Views\ContactUs\BulleConversation.cshtml" />
+    <Content Include="Views\ColocAnnounce\ModalDeleteProjetCreation.cshtml" />
+    <Content Include="Views\ColocAnnounce\ModalDeleteLocation.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -6,9 +6,13 @@
 <div class="flex childFlex divHighterProjetCreationPVLink">
 	@if (User.Identity.IsAuthenticated)
 	{
-		<div id="divToolEditProjetCreation-al">
-			<i class="fas fa-trash childFlex iconToolEditPC-al"></i>
-			<i class="fas fa-pencil-alt childFlex iconToolEditPC-al"></i>
+		<div class="divToolEditProjetCreation-al">
+			<a href="@Url.Action("ModalUpdateProjetCreation", "ColocAnnounce", null)" rel="modal:open" class="linkToolProjetCreation-al">
+				<i class="fas fa-pencil-alt childFlex iconToolEditPC-al" id="btnEditProjetCreation-al"></i>
+			</a>
+			<a href="@Url.Action("ModalDeleteProjetCreation", "ColocAnnounce" , null)" rel="modal:open" class="linkToolProjetCreation-al">
+				<i class="fas fa-trash childFlex iconToolEditPC-al" id="btnRemoveProjetCreation-al"></i>
+			</a>
 		</div>
 	}
 	<a id="projetCreationPVLink-1" href='@Url.Action("ModalProjetCreation","SearchColoc", new { @idModal = 1})' rel="modal:open" class="col-sm-11 col-xs-12">
@@ -69,9 +73,9 @@
 <div class="flex childFlex divHighterProjetCreationPVLink">
 	@if (User.Identity.IsAuthenticated)
 	{
-		<div id="divToolEditProjetCreation-al">
-			<i class="fas fa-trash childFlex iconToolEditPC-al"></i>
-			<i class="fas fa-pencil-alt childFlex iconToolEditPC-al"></i>
+		<div class="divToolEditProjetCreation-al">
+			<i class="fas fa-pencil-alt childFlex iconToolEditPC-al" id="btnEditProjetCreation-al"></i>
+			<i class="fas fa-trash childFlex iconToolEditPC-al" id="btnRemoveProjetCreation-al"></i>
 		</div>
 	}
 	<a id="projetCreationPVLink-2" href='@Url.Action("ModalProjetCreation","SearchColoc", new { @idModal = 2})' rel="modal:open" class="col-sm-11 col-xs-12">
@@ -131,6 +135,11 @@
 </div>
 <script language="javascript">
 	$(document).ready(function () {
-		lineMaxToShow("#personnalityProfilPC")
+		lineMaxToShow("#personnalityProfilPC");
+
+		//Ne pas afficher la possibilité d'editer si l'url contient SearchColoc
+		if (window.location.pathname.indexOf("SearchColoc") == 1) {
+			$(".divToolEditProjetCreation-al").remove();
+		}
 	});
 </script>

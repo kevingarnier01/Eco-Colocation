@@ -1773,6 +1773,7 @@ div#divContenuPlSchDisable {
 }
 
 #divBlocAnnonce2 {
+	position:relative;
 	padding: 0;
 	padding-left: 3px;
 	padding-right: 3px;
@@ -1967,31 +1968,60 @@ div#divContenuPlSchDisable {
 	position: relative;
 }
 
-#divToolEditProjetCreation-al {
+.divToolEditProjetCreation-al {
 	position: absolute;
-	top: 3px;
+	top: -20px;
 	right: 4px;
-	background-color: rgba(188, 200, 2, 0.9);
 	border-radius: 5px;
 	color: white;
 	z-index: 1;
-	width: 80px;
+	width: 85px;
 	display: flex;
 	font-size: 18px;
 	margin-right: 5%;
 }
 
+.divToolEditAnnonceLocation-alpv {
+	position: absolute;
+	top: 0;
+	right: 4px;
+	border-radius: 5px;
+	color: white;
+	z-index: 1;
+	width: 85px;
+	display: flex;
+	font-size: 18px;
+	margin-right: 5%;
+	padding-top: 1px;
+}
+
 .iconToolEditPC-al {
 	padding: 6px 10px;
-	margin: 0;
 	border-radius: 5px;
 	width: 50%;
 	cursor: pointer;
+	box-shadow: 0 0 2px 0 #999;
+	margin: 0 1px;
+	text-align: center;
 }
 
 	.iconToolEditPC-al:hover {
-		background-color: #adb800
+		box-shadow: 0 0 5px 0 #999;
 	}
+
+.linkToolProjetCreation-al {
+	display: contents !important;
+	color: white !important;
+}
+
+#btnEditProjetCreation-al {
+	background-color: white;
+	color: #888;
+}
+
+#btnRemoveProjetCreation-al {
+	background-color: rgb(249, 145, 145);
+}
 
 #div1PC {
 	display: grid;
@@ -2792,12 +2822,22 @@ d5-description-mpc {
 #colocAnnounce {
 	border-radius: 10px;
 	box-shadow: 0 0 5px 0px black;
-	padding: 10px 0;
+	padding: 10px;
 	background-color: white;
 	overflow: auto;
 	margin-top: 20px;
 	margin-bottom: 20px;
 }
+
+@media only screen and (max-width: 767px) {
+	#partialViewMessage {
+		margin-bottom: 30px
+	}
+	#colocAnnounce {
+		padding: 10px 0;
+	}
+}
+
 
 #divNbPeopleSearch-ca {
 	display: flex
@@ -3516,7 +3556,7 @@ i.fas.fa-times.crossPlace {
 	border-radius: 10px;
 	font-size: 20px;
 	padding: 5px 15px;
-	margin-bottom: 15px;
+	margin-bottom: 30px;
 	text-align: center;
 	background-color: #bcc802;
 	color: white;
@@ -5776,6 +5816,7 @@ input.radioFibreEco-ayer {
 	font-family: Noteworthy;
 	font-weight: bold;
 	margin-bottom: 25px;
+	font-size: 19px;
 }
 
 .divBtn-mder {
