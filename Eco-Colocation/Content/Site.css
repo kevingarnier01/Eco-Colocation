@@ -1791,7 +1791,9 @@ div#divContenuPlSchDisable {
 }
 
 .divBlocAnnonce1-ereom {
-	display: flex
+	display: flex;
+	margin-top: 15px;
+	margin-bottom: 5px;
 }
 
 #divBlocAnnonce2 {
@@ -1809,8 +1811,6 @@ div#divContenuPlSchDisable {
 
 .divAnnonceColoc {
 	display: flex;
-	margin-top: 15px;
-	margin-bottom: 5px;
 	padding: 1px;
 }
 
@@ -1921,7 +1921,7 @@ div#divContenuPlSchDisable {
 .divLocalisationAnnonce-alpv {
 	font-size: 15px;
 	font-style: italic;
-	color: #888;
+	color: #888 !important;
 }
 
 .iconLocalisationAnnonce-alpv {

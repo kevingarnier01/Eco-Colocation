@@ -215,15 +215,19 @@ function initmarkersCluster(specialDigits) {
 			else {
 				digits = 3;
 			}
+					   
+			var markers = cluster.getAllChildMarkers();
+			
+			//Permet que le marker soit lié au cluster lorsqu'on le survoles
+			var classCluster = "markersCluster" + Math.floor(100000 + Math.random() * 900000);
 
-			//var markers = cluster.getAllChildMarkers();
-			//var latlng = markers[1].getLatLng();
-			//var lat = latlng.lat.toString();
-			//var idCluster = lat.substr(lat.indexOf(".") + 1)
+			for (var i = 0; i < markers.length; i++) {
+				$(markers[i]).attr('class', classCluster);
+			}
 
 			return L.divIcon({
 				html: "<div><span>" + cluster.getChildCount() + "</span></div>",
-				className: ' markersCluster ' + ((specialDigits != null && specialDigits.length != 0) ? specialDigits : "") + ' digits-' + digits,
+				className: classCluster + ' markersCluster ' + ((specialDigits != null && specialDigits.length != 0) ? specialDigits : "") + ' digits-' + digits,
 				iconSize: null
 			});
 		}
@@ -264,15 +268,6 @@ function initSearchColocMap() {
 			name: 'Marker2',
 			latLng: [48.131728, -1.636257],
 			id: '2'
-		},
-		{
-			name: 'Marker3',
-			latLng: [46.89, 2.67],
-			id: '3'
-		}, {
-			name: 'Marker4',
-			latLng: [46.91, 2.67],
-			id: '4'
 		}
 	];
 
@@ -290,12 +285,6 @@ function initSearchColocMap() {
 					'className': 'leafletDivAnnounce'
 				}
 
-				//var markerObject = L.marker(marker.latLng, { icon: leafIcon }).on("mouseover", function () {
-				//	var numberId = ii + 1;
-				//	var idElement = $("#onHoverMarker" + numberId);
-				//	markerObject.bindPopup(idElement.html(), customOptions)
-				//});
-
 				var numberId = ii + 1;
 				var idElement = $("#onHoverMarker" + numberId);
 				var markerObject = L.marker(marker.latLng, { icon: leafIcon }).bindPopup(idElement.html(), customOptions).on("click", function () {
@@ -305,29 +294,35 @@ function initSearchColocMap() {
 
 				$("#annonce" + (ii + 1) + "-alpv").on("mouseover", function (e) {
 					markerObject.setIcon(leafIconOver);
-
-					//var backgroundcolor = $(".markersCluster" + randomNumber).css("background-color");
-
-					//this.iid = setInterval(function () {						
-					//		$(".markersCluster" + randomNumber).css("background-color", "transparent")
-					//}, 1000);
+					var markerCluster = $(markerObject).attr('class');
+					$('.' + markerCluster).css('background-color', 'rgb(191, 203, 3)')
+					$('.' + markerCluster + ' div').css('background-color', '#89901a')
 
 				});
 
 				$("#annonce" + (ii + 1) + "-alpv").on("mouseout", function (e) {
 					markerObject.setIcon(leafIcon);
 					//clearInterval(this.iid)
+					var markerCluster = $(markerObject).attr('class');
+					$('.' + markerCluster).css('background-color', 'rgba(191, 203, 3, 0.4)')
+					$('.' + markerCluster + ' div').css('background-color', '#bfcb03')
 				});
 
 				showOthersEvents()
 
 				markersCluster.addLayer(markerObject);
 				mymap.fitBounds(markersCluster.getBounds());
+							   				 				
 			}, 1000);
 		})();
 	}
 
 	mymap.addLayer(markersCluster);
+
+	//Permet de reinitialiser les valeurs afin de repasser dans la méthode initmarkersCluster()
+	mymap.on('zoom', function () {
+		markersCluster.refreshClusters();
+	});	
 }
 
 function selectSwitcher(element) {
@@ -1006,7 +1001,7 @@ function loadEcoRoommateEventMap(mymap) {
 	});
 
 	var markerIconOver = L.icon({
-		iconUrl: '/Content/Images/Logos/markerEvenement.png',
+		iconUrl: '/Content/Images/Logos/markerEvenementOver.png',
 
 		iconSize: [43, 43],
 	});
@@ -1050,10 +1045,16 @@ function loadEcoRoommateEventMap(mymap) {
 
 			$("#annonce" + (ii + 1) + "-ereom").on("mouseover", function (e) {
 				markerObject.setIcon(markerIconOver);
+				var markerCluster = $(markerObject).attr('class');
+				$('.' + markerCluster + ' div').css('background-color', '#cca32d')
+				$('.' + markerCluster + ' div').css('color', 'white')
 			});
 
 			$("#annonce" + (ii + 1) + "-ereom").on("mouseout", function (e) {
 				markerObject.setIcon(markerIcon2);
+				var markerCluster = $(markerObject).attr('class');
+				$('.' + markerCluster + ' div').css('background-color', 'white')
+				$('.' + markerCluster + ' div').css('color', '#555')
 			});
 
 
@@ -1061,6 +1062,10 @@ function loadEcoRoommateEventMap(mymap) {
 		})();
 	}
 	mymap.addLayer(markersCluster);
+
+	mymap.on('zoom', function () {
+		markersCluster.refreshClusters();
+	});	
 }
 
 //********* EcoRoommateExisting *************//
