@@ -583,6 +583,20 @@ select:-moz-focusring {
 	width: inherit !important;
 }
 
+@keyframes markeranimation {
+	0% {
+		box-shadow: 0 -5px 3px 5px rgba(255, 255, 255, 0.9);
+	}
+
+	50% {
+		box-shadow: 0 5px 3px 5px rgba(255, 255, 255, 0.9);
+	}
+
+	100% {
+		box-shadow: 0 -5px 3px 5px rgba(255, 255, 255, 0.9);
+	}
+}
+
 /* Attribute plugin */
 .address-input {
 	width: 100%

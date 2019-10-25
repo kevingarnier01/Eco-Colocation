@@ -215,9 +215,9 @@ function initmarkersCluster(specialDigits) {
 			else {
 				digits = 3;
 			}
-					   
+
 			var markers = cluster.getAllChildMarkers();
-			
+
 			//Permet que le marker soit lié au cluster lorsqu'on le survoles
 			var classCluster = "markersCluster" + Math.floor(100000 + Math.random() * 900000);
 
@@ -294,25 +294,30 @@ function initSearchColocMap() {
 
 				$("#annonce" + (ii + 1) + "-alpv").on("mouseover", function (e) {
 					markerObject.setIcon(leafIconOver);
-					var markerCluster = $(markerObject).attr('class');
-					$('.' + markerCluster).css('background-color', 'rgb(191, 203, 3)')
-					$('.' + markerCluster + ' div').css('background-color', '#89901a')
+					var markerCluster = "." + $(markerObject).attr('class');
+					$(markerCluster).css('background-color', 'rgb(191, 203, 3)')
+					$(markerCluster + ' div').css('background-color', '#89901a')
 
+					affectAnimationToMarker($(markerObject._icon))
+					affectAnimationToMarker(markerCluster)
 				});
 
 				$("#annonce" + (ii + 1) + "-alpv").on("mouseout", function (e) {
 					markerObject.setIcon(leafIcon);
 					//clearInterval(this.iid)
-					var markerCluster = $(markerObject).attr('class');
-					$('.' + markerCluster).css('background-color', 'rgba(191, 203, 3, 0.4)')
-					$('.' + markerCluster + ' div').css('background-color', '#bfcb03')
+					var markerCluster = "." + $(markerObject).attr('class');
+					$(markerCluster).css('background-color', 'rgba(191, 203, 3, 0.4)')
+					$(markerCluster + ' div').css('background-color', '#bfcb03')
+
+					stopAnimationToMarker($(markerObject._icon))
+					stopAnimationToMarker(markerCluster)
 				});
 
 				showOthersEvents()
 
 				markersCluster.addLayer(markerObject);
 				mymap.fitBounds(markersCluster.getBounds());
-							   				 				
+
 			}, 1000);
 		})();
 	}
@@ -322,7 +327,7 @@ function initSearchColocMap() {
 	//Permet de reinitialiser les valeurs afin de repasser dans la méthode initmarkersCluster()
 	mymap.on('zoom', function () {
 		markersCluster.refreshClusters();
-	});	
+	});
 }
 
 function selectSwitcher(element) {
@@ -1001,11 +1006,10 @@ function loadEcoRoommateEventMap(mymap) {
 	});
 
 	var markerIconOver = L.icon({
-		iconUrl: '/Content/Images/Logos/markerEvenementOver.png',
-
+		iconUrl: '/Content/Images/Logos/markerEvenementOver.png',		
 		iconSize: [43, 43],
 	});
-
+		
 	var data2 = [
 		{
 			name: 'eventMarker1',
@@ -1042,19 +1046,30 @@ function loadEcoRoommateEventMap(mymap) {
 				stopNewTabOppening();
 				openModalInThisTab();
 			});
-
+			markerObject.on('mouseover', function (e) {
+				
+				
+			})
 			$("#annonce" + (ii + 1) + "-ereom").on("mouseover", function (e) {
-				markerObject.setIcon(markerIconOver);
-				var markerCluster = $(markerObject).attr('class');
-				$('.' + markerCluster + ' div').css('background-color', '#cca32d')
-				$('.' + markerCluster + ' div').css('color', 'white')
+				markerObject.setIcon(markerIconOver);			
+				
+				var markerCluster = '.' + $(markerObject).attr('class');
+				$(markerCluster + ' div').css('background-color', '#cca32d')
+				$(markerCluster + ' div').css('color', 'white')
+
+				affectAnimationToMarker($(markerObject._icon))
+				affectAnimationToMarker(markerCluster)
 			});
 
 			$("#annonce" + (ii + 1) + "-ereom").on("mouseout", function (e) {
 				markerObject.setIcon(markerIcon2);
-				var markerCluster = $(markerObject).attr('class');
-				$('.' + markerCluster + ' div').css('background-color', 'white')
-				$('.' + markerCluster + ' div').css('color', '#555')
+
+				var markerCluster = '.' +$(markerObject).attr('class');
+				$(markerCluster + ' div').css('background-color', 'white')
+				$(markerCluster + ' div').css('color', '#555')
+
+				stopAnimationToMarker($(markerObject._icon))
+				stopAnimationToMarker(markerCluster)
 			});
 
 
@@ -1065,7 +1080,7 @@ function loadEcoRoommateEventMap(mymap) {
 
 	mymap.on('zoom', function () {
 		markersCluster.refreshClusters();
-	});	
+	});
 }
 
 //********* EcoRoommateExisting *************//
@@ -1525,14 +1540,22 @@ function updateLocalisationPeopleSearch() {
 }
 
 function appearAndOpenWindowsConvDev() {
-	setTimeout(function () {
-		$("#divConversationDev-main").fadeIn("fast")
+	if (sessionStorage.getItem("concersationDevView") == null) {
 		setTimeout(function () {
-			$("#firstImgProfilConv-main").fadeOut("fast")
-			$("#secondMsgByMySelf-main").fadeIn("fast")
-			$("#secondImgProfilConv-main").fadeIn("fast")
-		}, 4000)
-	}, 6000)
+			$("#divConversationDev-main").fadeIn("fast")
+			setTimeout(function () {
+				$("#firstImgProfilConv-main").fadeOut("fast")
+				$("#secondMsgByMySelf-main").fadeIn("fast")
+				$("#secondImgProfilConv-main").fadeIn("fast")
+				setTimeout(function () {
+					sessionStorage.setItem("concersationDevView", "true")
+				}, 3000)
+			}, 4000)
+		}, 6000)
+	}
+	else {
+		appearAndReduceWindowsConvDev()
+	}
 }
 
 function appearAndReduceWindowsConvDev() {
@@ -1786,4 +1809,17 @@ function actionInitAnnonceDescResult(pageElementId, e) {
 	else {
 		$(pageElementId + " .textShowUserDesc").fadeOut(0)
 	}
+}
+
+function affectAnimationToMarker(markerElement) {
+	$(markerElement).css("-webkit-box-shadow", "0 0px 3px 5px rgba(255, 255, 255, 0.9)")
+	$(markerElement).css("box-shadow", "0 0px 3px 5px rgba(255, 255, 255, 0.9)")
+	$(markerElement).css("border-radius", "50%")
+	$(markerElement).css("animation", "markeranimation 2s")
+	$(markerElement).css("animation-iteration-count", "infinite")
+}
+
+function stopAnimationToMarker(markerElement) {
+	$(markerElement).css("box-shadow", "none")
+	$(markerElement).css("animation", "none")
 }

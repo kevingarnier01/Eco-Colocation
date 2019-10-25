@@ -215,39 +215,18 @@
 											</td>
 										</tr>
 										<tr>
-											<td class="col-xs-6"><label for="Caution">Superficie</label></td>
+											<td class="col-xs-6"><label for="Caution">Superficie maximum</label></td>
 											<td class="flex">
-												<input id="superficieTerrain-mpc" type="number" class="inputtable-ca" placeholder="Superficie" style="width: 150px;padding: 5px 8px;">
+												<input id="superficieTerrain-mpc" type="number" class="inputtable-ca" placeholder="Superficie max" style="width: 150px;padding: 5px 8px;">
 												<p class="centerText signInputPropose-ml">m²</p>
 											</td>
 										</tr>
 										<tr id="rowAchatTerrain" class="rowByEngagement" style="display: table-row;">
-											<td class="col-xs-6"><label for="Loyer">Cout de l'achat moyen</label></td>
+											<td class="col-xs-6"><label for="Loyer">Cout de l'achat max</label></td>
 											<td class="col-xs-6">
 												<div class="flex">
-													<input id="coutAchatMoyTerrain-mpc" name="coutAchatMoyTerrain-mpc" type="number" min="0" class="inputtable-ca" placeholder="Cout d'achat moyen" style="width: 150px;padding: 5px 8px;">
+													<input id="coutAchatMoyTerrain-mpc" name="coutAchatMoyTerrain-mpc" type="number" min="0" class="inputtable-ca" placeholder="Cout d'achat max" style="width: 150px;padding: 5px 8px;">
 													<p class="centerText signInputPropose-ml">€</p>
-												</div>
-											</td>
-										</tr>
-										<tr>
-											<td class="col-xs-6"><label>Accès aux transports en communs</label></td>
-											<td style="padding: 0;padding-top: 4px;padding-left: 8px;">
-												<div class="flex">
-													<div>
-														<div class="flex">
-															<input type="radio" name="AccesTransport" class="inpAccesTransport-mcp" id="yesAccesTransports-mcp">
-															<label for="yesAccesTransports-mcp">Oui</label>
-														</div>
-														<div class="flex">
-															<input type="radio" name="AccesTransport" class="inpAccesTransport-mcp" id="noAccesTransports-mcp">
-															<label for="noAccesTransports-mcp">Non</label>
-														</div>
-														<div class="flex">
-															<input type="radio" name="AccesTransport" class="inpAccesTransport-mcp" id="maybeAccesTransports-mcp" checked="">
-															<label for="maybeAccesTransports-mcp">Peut-importe</label>
-														</div>
-													</div>
 												</div>
 											</td>
 										</tr>
@@ -301,40 +280,41 @@
 													<option value="0">Toutes localisations</option>
 													<option value="1">Campagne</option>
 													<option value="2">Ville/village</option>
-												</select>
+													<option value="3">Ville ou campagne/option>
+</select>
 											</td>
 										</tr>
 										<tr>
-											<td class="col-xs-6"><label for="Caution">Superficie</label></td>
+											<td class="col-xs-6"><label for="Caution">Superficie maximun</label></td>
 											<td class="flex">
-												<input id="superficieLogement" type="number" class="inputtable-ca" placeholder="Superficie" style="width: 150px;padding: 5px 8px;">
+												<input id="superficieLogement" type="number" class="inputtable-ca" placeholder="Superficie max" style="width: 150px;padding: 5px 8px;">
 												<p class="centerText signInputPropose-ml">m²</p>
 											</td>
 										</tr>
 										<tr id="rowCreation" class="rowByEngagement">
-											<td class="col-xs-6"><label for="Loyer">Cout de création</label></td>
+											<td class="col-xs-6"><label for="Loyer">Cout de création maximun</label></td>
 											<td class="col-xs-6">
 												<div class="flex">
-													<input id="coutCreationMoy" name="coutCreationMoy" type="number" min="0" class="inputtable-ca" placeholder="Cout de création moyen" style="width: 150px;padding: 5px 8px;padding-right: 0;">
+													<input id="coutCreationMoy" name="coutCreationMoy" type="number" min="0" class="inputtable-ca" placeholder="Cout de création max" style="width: 150px;padding: 5px 8px;padding-right: 0;">
 													<p class="centerText signInputPropose-ml">€</p>
 												</div>
 											</td>
 										</tr>
 										<tr id="rowAchat" class="rowByEngagement">
-											<td class="col-xs-6"><label for="Loyer">Cout de l'achat</label></td>
+											<td class="col-xs-6"><label for="Loyer">Cout de l'achat maximun</label></td>
 											<td class="col-xs-6">
 												<div class="flex">
-													<input id="coutAchatMoyTerrain-mpc" name="coutAchatMoyTerrain-mpc" type="number" min="0" class="inputtable-ca" placeholder="Cout d'achat moyen" style="width: 150px;padding: 5px 8px;">
+													<input id="coutAchatMoyTerrain-mpc" name="coutAchatMoyTerrain-mpc" type="number" min="0" class="inputtable-ca" placeholder="Cout d'achat max" style="width: 150px;padding: 5px 8px;">
 													<p class="centerText signInputPropose-ml">€</p>
 												</div>
 											</td>
 										</tr>
 										<tr id="rowLoyer" class="rowByEngagement">
-											<td class="col-xs-6"><label for="Loyer">Loyer / personne</label></td>
+											<td class="col-xs-6"><label for="Loyer">Loyer / personne maximun</label></td>
 											<td class="col-xs-6">
 												<div id="div-2-1-1-loyer-fh">
 													<div class="flex">
-														<input id="loyerMoy" name="loyerMoy" type="number" min="0" class="inputtable-ca" placeholder="Loyer moyen" style="width: 150px;padding: 5px 10px;">
+														<input id="loyerMoy" name="loyerMoy" type="number" min="0" class="inputtable-ca" placeholder="Loyer max" style="width: 150px;padding: 5px 10px;">
 														<p class="centerText signInputPropose-ml">€</p>
 													</div>
 												</div>
