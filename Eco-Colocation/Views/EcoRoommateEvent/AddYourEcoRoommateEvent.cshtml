@@ -4,31 +4,37 @@
 }
 <div id="addYourEcoRoommateEvent">
 	<h2 id="titleTop-ayer" class="title">Ajout d'un nouvel événement</h2>
+	<div class="divSommaireFormulaire sousDivFormColoc-ayer">
+		<div class="flex">
+			<p class="etoileObligation">*</p>
+			<p class="txtEtoileObligation">Champ obligatoire</p>
+		</div>
+	</div>
 	<div class="overflow flex flexWrap">
 		<div class="sousDivFormColoc-ayere">
-			<label class="label-ayer">Nom</label>
+			<label class="label-ayer">Nom *</label>
 			<input class="input-ayer" placeholder="Entrez un nom d'événement" maxlength="70">
 			<div class="underInput-ayer"></div>
 		</div>
 		<div class="sousDivFormColoc-ayere">
-			<label class="label-ayer">Date et Heure de début</label>
+			<label class="label-ayer">Date et Heure de début *</label>
 			<input class="input-ayer" type="datetime-local">
 			<div class="underInput-ayer"></div>
 		</div>
 		<div class="sousDivFormColoc-ayere">
-			<label class="label-ayer">Date et Heure de fin</label>
+			<label class="label-ayer">Date et Heure de fin *</label>
 			<input class="input-ayer" type="datetime-local">
 			<div class="underInput-ayer"></div>
 		</div>
 		<div class="flex" id="divLocation-ayere">
 			<div id="divNumRue-ayere" class="sousDivFormColoc-ayere">
-				<label class="label-ayer">N° Rue *</label>
+				<label class="label-ayer">N° Rue</label>
 				<div class="flex">
 					<input type="search" id="numRueInput-ayer" class="form-control">
 				</div>
 			</div>
 			<div id="inputlieu-ayere" class="sousDivFormColoc-ayer">
-				<label class="label-ayer">Adresse</label>
+				<label class="label-ayer">Adresse *</label>
 				<input id="inputSearchPlace-ayere" oninput="addr_searchStreet(this);" autocomplete="off" type="text" class="inputSearchPlace form-control ui-autocomplete-input" placeholder="Où recherchez-vous ?" name="inputAutoComplete0.7781171855692355">
 				<div class="listAutoCompleteToModal"><ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none; top: 346.5px; left: 189.5px; width: 530px;"><li class="ui-menu-item"><a id="ui-id-22" tabindex="-1" class="ui-menu-item-wrapper"><i class="iconAutoComplete fas fa-map-marker-alt"></i><strong id="txtLabelAutoCompletion">René Descartes 38230 Charvieu-Chavagneux</strong><p id="txtContextAutoCompletion">38, Isère, Auvergne-Rhône-Alpes</p></a></li><li class="ui-menu-item"><a id="ui-id-23" tabindex="-1" class="ui-menu-item-wrapper"><i class="iconAutoComplete fas fa-map-marker-alt"></i><strong id="txtLabelAutoCompletion">Rene Coty 91330 Yerres</strong><p id="txtContextAutoCompletion">91, Essonne, Île-de-France</p></a></li><li class="ui-menu-item"><a id="ui-id-24" tabindex="-1" class="ui-menu-item-wrapper"><i class="iconAutoComplete fas fa-map-marker-alt"></i><strong id="txtLabelAutoCompletion">René 56130 Férel</strong><p id="txtContextAutoCompletion">56, Morbihan, Bretagne</p></a></li><li class="ui-menu-item"><a id="ui-id-25" tabindex="-1" class="ui-menu-item-wrapper"><i class="iconAutoComplete fas fa-map-marker-alt"></i><strong id="txtLabelAutoCompletion">Rene Tacquet 01510 Artemare</strong><p id="txtContextAutoCompletion">01, Ain, Auvergne-Rhône-Alpes</p></a></li><li class="ui-menu-item"><a id="ui-id-26" tabindex="-1" class="ui-menu-item-wrapper"><i class="iconAutoComplete fas fa-map-marker-alt"></i><strong id="txtLabelAutoCompletion">Rene 33670 Saint-Genès-de-Lombaud</strong><p id="txtContextAutoCompletion">33, Gironde, Nouvelle-Aquitaine</p></a></li></ul></div>
 			</div>
@@ -38,13 +44,13 @@
 			<input type="search" id="facebookLinkEvent-ayere" class="form-control" placeholder="Ex : http://www.facebookEvent-01452...">
 		</div>
 		<div class="col-xs-12 sousDivFormColoc-ayer" style="margin-bottom: 25px;">
-			<label class="label-ayer">Description de votre événement</label>
+			<label class="label-ayer">Description de votre événement *</label>
 			<textarea id="txtareaDescColoc-ayer"></textarea>
 		</div>
 	</div>
 	<div class="overflow">
 		<div class="col-xs-12">
-			<label class="label-ayer">Ajouter une photo à l'image de l'évènement </label>
+			<label class="label-ayer">Ajouter une photo à l'image de l'évènement *</label>
 			<label id="btnAddPicture-ayer" for="fileUpload-ayer">Ajouter une photo</label>
 			<input id="fileUpload-ayer" type="file" onchange="uploadImgEcoRoommate();">
 			<div id="divResultFilesUpl-ayer">

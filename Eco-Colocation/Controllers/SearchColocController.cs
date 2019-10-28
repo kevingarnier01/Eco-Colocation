@@ -35,10 +35,10 @@ namespace Eco_Colocation.Controllers
 			return PartialView();
 		}
 
-		public PartialViewResult ModalSendMessage()
-		{
-			return PartialView();
-		}
+		//public PartialViewResult ModalSendMessage()
+		//{
+		//	return PartialView();
+		//}
 
 		public PartialViewResult ModalProjetCreation(string idModal)
 		{

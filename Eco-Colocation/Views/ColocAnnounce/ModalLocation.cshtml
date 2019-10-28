@@ -17,13 +17,19 @@
 				<h2 class="title centerText">Créez votre annonce de location en vous inscrivant</h2>
 			}
 		</div>
+		<div class="divSommaireFormulaire sousDivFormColoc-ayer divSommaireFormulaireProposition" >
+			<div class="flex">
+				<p class="etoileObligation">*</p>
+				<p class="txtEtoileObligation">Champ obligatoire</p>
+			</div>
+		</div>
 		<div id="htmlBlockModalLocation-ml">
 			<div id="div1-contenu-ca" class="col-sm-12">
 				<div id="div1-1-contenu-ca" class="col-sm-11 col-xs-12">
 					<div id="divDescAnn-ca" class="col-sm-12 col-xs-12">
 						<div id="div1DescAnn-ca" class="col-sm-12 col-xs-12">
 							<div id="div1-1DescAnn-ca" class="col-sm-12 col-xs-12">
-								<label for="introAnnonce-ml">Introduction de votre annonce</label>
+								<label for="introAnnonce-ml">Introduction de votre annonce *</label>
 							</div>
 						</div>
 						<div id="div2DescAnn-ca" class="col-sm-12 col-xs-12">
@@ -64,7 +70,7 @@
 					<div id="divEcoPratic-ca" class="col-sm-12 col-xs-12">
 						<div id="div1-ecoPratic-ca" class="col-sm-12 col-xs-12">
 							<div id="div1-1-ecoPratic-ca" class="col-sm-12 col-xs-12">
-								<label for="presentationLogement-ml">Présentation du logement et du terrain </label>
+								<label for="presentationLogement-ml">Présentation du logement et du terrain</label>
 							</div>
 						</div>
 						<div id="div2-ecoPratic-ca" class="col-sm-12 col-xs-12">
@@ -168,18 +174,18 @@
 						<div id="div10-1-adresseLog-ca" class="col-sm-8 col-xs-12">
 							<div id="div10-2-adresseLog-ca">
 								@*<input id="inputAddresseMap-ML" type="text" oninput="addr_search('inputAddresseMap-ML','listAutoCompletePlaceML');" list="listAutoCompletePlaceML" autocomplete="off" class="inputAdresseLog-ca">
-									<datalist id="listAutoCompletePlaceML"></datalist>*@
+								<datalist id="listAutoCompletePlaceML"></datalist>*@
 								@*<input type="search" id="address-input-ml" class="address-input"
-									placeholder="Localisation de l'endroit" />*@
-								<input id="inputSearchPlace-ml" oninput="addr_searchStreet(this);" autocomplete="off" type="text" class="inputSearchPlace form-control" placeholder="Entrez l'adresse de votre colocation">
+								placeholder="Localisation de l'endroit" />*@
+								<input id="inputSearchPlace-ml" oninput="addr_searchStreet(this);" autocomplete="off" type="text" class="inputSearchPlace form-control" placeholder="Entrez l'adresse de votre colocation*">
 								<div class="listAutoCompleteToModal"></div>
 								@*@for (int i = 0; i < 4; i++)
-									{
-										@Html.Hidden("adresseVille", null, new { @class = "addresseVille" + i })
-										@Html.Hidden("adresseRegion", null, new { @class = "adresseRegion" + i })
-										@Html.Hidden("adressePays", null, new { @class = "adressePays" + i })
-										@Html.Hidden("adresseLatLng", null, new { @class = "adresseLatLng" + i })
-									}*@
+								{
+									@Html.Hidden("adresseVille", null, new { @class = "addresseVille" + i })
+									@Html.Hidden("adresseRegion", null, new { @class = "adresseRegion" + i })
+									@Html.Hidden("adressePays", null, new { @class = "adressePays" + i })
+									@Html.Hidden("adresseLatLng", null, new { @class = "adresseLatLng" + i })
+								}*@
 								<div id="div10-3-adresseLog-ca" class="flex col-sm-12 textInfoAdresse-ca">
 									<div id="div10-4-adresseLog-ca" class="col-sm-2"></div>
 									<i class="fas fa-info" id="iconPlace-ca"></i>
@@ -194,7 +200,7 @@
 			</div>
 			<div class="flex col-xs-12" id="divGlobalNbChambre-ml" flex="">
 				<div class="flex childFlex" id="divNbChambres-ml">
-					<p for="nbChambre-ml" id="lbNbChambre-ml">Nombre de chambre disponible</p>
+					<p for="nbChambre-ml" id="lbNbChambre-ml">Nombre de chambre disponible *</p>
 					<input id="nbChambre-ml" type="number" min="1" value="1" class="inputtable-ca" oninput="modifyNbChambreDisponible(this, '.divGlobalChambre-ml')">
 					<input type="hidden" id="msgJqueryNbChambre-ml" value="0" />
 				</div>
@@ -218,7 +224,7 @@
 									<tbody>
 										<tr>
 											<td class="col-xs-6">
-												<label for="Loyer">Loyer (sans charges)</label>
+												<label for="Loyer">Loyer (sans charges) *</label>
 											</td>
 											<td class="col-xs-6">
 												<div class="flex">
@@ -228,7 +234,7 @@
 											</td>
 										</tr>
 										<tr>
-											<td class="col-xs-6"><label for="Charges">Charges</label></td>
+											<td class="col-xs-6"><label for="Charges">Charges *</label></td>
 											<td class="col-xs-6">
 												<div class="flex">
 													<input id="Charges" name="Charges" type="number" value="" class="inputtable-ca" min="0">
@@ -237,7 +243,7 @@
 											</td>
 										</tr>
 										<tr>
-											<td class="col-xs-6"><label for="ChargesDesc">Détail des charges</label></td>
+											<td class="col-xs-6"><label for="ChargesDesc">Détail des charges *</label></td>
 											<td class="col-xs-6">
 												<div class="flex">
 													<textarea id="ChargesDesc" name="Charges" type="text" value="" class="inputtable-ca"></textarea>
@@ -245,7 +251,7 @@
 											</td>
 										</tr>
 										<tr>
-											<td class="col-xs-6"><label for="Caution">Caution</label></td>
+											<td class="col-xs-6"><label for="Caution">Caution *</label></td>
 											<td class="col-xs-6">
 												<div class="flex">
 													<input id="Caution" name="Caution" type="number" value="" class="inputtable-ca" min="0">
@@ -254,7 +260,7 @@
 											</td>
 										</tr>
 										<tr>
-											<td class="col-xs-6"><label for="Superficie">Superficie du logement</label></td>
+											<td class="col-xs-6"><label for="Superficie">Superficie du logement *</label></td>
 											<td class="col-xs-6">
 												<div class="flex">
 													<input id="superficieLogement" name="Superficie" type="number" value="" class="inputtable-ca" min="0">
@@ -263,7 +269,7 @@
 											</td>
 										</tr>
 										<tr>
-											<td class="col-xs-6"><label for="Superficie">Superficie du terrain</label></td>
+											<td class="col-xs-6"><label for="Superficie">Superficie du terrain *</label></td>
 											<td class="col-xs-6">
 												<div class="flex">
 													<input id="superficieTerrain" name="Superficie" type="number" value="" class="inputtable-ca" min="0">
@@ -272,7 +278,7 @@
 											</td>
 										</tr>
 										<tr>
-											<td class="col-xs-6"><label>Meublée</label></td>
+											<td class="col-xs-6"><label>Meublée*</label></td>
 											<td style="padding: 0;padding-top: 4px;padding-left: 8px;">
 												<p class="onoff">
 													<input type="checkbox" value="1" id="meuble-cb">
@@ -281,18 +287,18 @@
 											</td>
 										</tr>
 										<tr>
-											<td class="col-xs-6"><label for="Disponibilite">Disponibilité</label></td>
+											<td class="col-xs-6"><label for="Disponibilite">Disponibilité *</label></td>
 											<td class="col-xs-6">
 												<div class="flex" id="divDispoTemp-mlca">
-													<p id="pDispoTemp-mlca">Disponibilité temporaire</p>
+													<p id="pDispoTemp-mlca">Disponibilité temporaire *</p>
 													<input id="dispoTemporaireChk-mlca" type="checkbox" onchange="changeEndOfDispoVisibility()">
 												</div>
 												<div id="divDateDispo-mlca">
-													<label for="dateDispo-mlca">Date de la disponibilité</label>
+													<label for="dateDispo-mlca">Date de la disponibilité *</label>
 													<input id="dateDispo-mlca" name="Disponibilite" type="date" class="inputtable-ca inputtableDate-ca">
 												</div>
 												<div id="divEndDispo-mlca">
-													<label for="dateEndDispo-mlca">Fin de la disponibilité</label>
+													<label for="dateEndDispo-mlca">Fin de la disponibilité *</label>
 													<input id="dateEndDispo-mlca" name="Disponibilite" type="date" class="inputtable-ca inputtableDate-ca">
 												</div>
 											</td>
@@ -318,7 +324,7 @@
 								<table class="table table-striped">
 									<tbody>
 										<tr>
-											<td class="col-xs-6"><label for="Type">Type de logement</label></td>
+											<td class="col-xs-6"><label for="Type">Type de logement *</label></td>
 											<td class="col-xs-6">
 												<select class="form-control" id="Type">
 													<option value="1">Eco-habitat</option>
@@ -328,7 +334,7 @@
 											</td>
 										</tr>
 										<tr>
-											<td class="col-xs-6"><label for="Implantation">Implantation</label></td>
+											<td class="col-xs-6"><label for="Implantation">Implantation *</label></td>
 											<td class="col-xs-6">
 												<select class="form-control" id="Implantation">
 													<option value="1">Campagne</option>
@@ -337,7 +343,7 @@
 											</td>
 										</tr>
 										<tr>
-											<td class="col-xs-6"><label for="Superficie">Superficie</label></td>
+											<td class="col-xs-6"><label for="Superficie">Superficie *</label></td>
 											<td class="col-xs-6">
 												<div class="flex">
 													<input id="Superficie" name="Superficie" type="number" class="inputtable-ca" min="0">
@@ -346,19 +352,19 @@
 											</td>
 										</tr>
 										<tr>
-											<td class="col-xs-6"><label for="nbPieceLogement">Nombre de pièce</label></td>
+											<td class="col-xs-6"><label for="nbPieceLogement">Nombre de pièce *</label></td>
 											<td class="col-xs-6">
 												<input id="nbPieceLogement" name="nbPieceLogement" type="number" class="inputtable-ca" min="0">
 											</td>
 										</tr>
 										<tr>
-											<td class="col-xs-6"><label for="ColocationresRestants">Nombre de colocs restants</label></td>
+											<td class="col-xs-6"><label for="ColocationresRestants">Nombre de colocs restants *</label></td>
 											<td class="col-xs-6">
 												<input id="ColocationresRestants" name="ColocationresPresents" type="number" min="0" class="inputtable-ca">
 											</td>
 										</tr>
 										<tr>
-											<td class="col-xs-6"><label for="ColocationresMax">Nombre de colocs recherchés</label></td>
+											<td class="col-xs-6"><label for="ColocationresMax">Nombre de colocs recherchés *</label></td>
 											<td class="col-xs-6">
 												<input id="ColocationresMax" name="ColocationresMax" type="number" min="0" class="inputtable-ca">
 											</td>
@@ -385,7 +391,7 @@
 									<tbody>
 										<tr>
 											<td class="col-xs-6">
-												<label>Accessibilité handicapé</label>
+												<label>Accessibilité handicapé *</label>
 											</td>
 											<td style="padding: 0;padding-top: 4px;padding-left: 8px;">
 												<p class="onoff">
@@ -395,7 +401,7 @@
 											</td>
 										</tr>
 										<tr>
-											<td class="col-xs-6"><label>Transports en communs</label></td>
+											<td class="col-xs-6"><label>Transports en communs *</label></td>
 											<td style="padding: 0;padding-top: 4px;padding-left: 8px;">
 												<div>
 													<p class="onoff">
@@ -430,7 +436,7 @@
 								<table class="table table-striped">
 									<tbody>
 										<tr>
-											<td class="col-xs-6"><label>Consommateur d'alcool</label></td>
+											<td class="col-xs-6"><label>Consommateur d'alcool *</label></td>
 											<td style="padding: 0;padding-top: 4px;padding-left: 8px;">
 												<p class="onoff">
 													<input type="checkbox" value="1" id="alcool-cb">
@@ -439,7 +445,7 @@
 											</td>
 										</tr>
 										<tr>
-											<td class="col-xs-6"><label>Fumeur</label></td>
+											<td class="col-xs-6"><label>Fumeur *</label></td>
 											<td style="padding: 0;padding-top: 4px;padding-left: 8px;">
 												<p class="onoff">
 													<input type="checkbox" value="1" id="fumeur-cb">
@@ -448,7 +454,7 @@
 											</td>
 										</tr>
 										<tr>
-											<td class="col-xs-6"><label>Animaux</label></td>
+											<td class="col-xs-6"><label>Animaux *</label></td>
 											<td style="padding: 0;padding-top: 4px;padding-left: 8px;">
 												<p class="onoff">
 													<input type="checkbox" value="1" id="animaux-cb">
@@ -481,7 +487,7 @@
 								<table class="table table-striped">
 									<tbody>
 										<tr>
-											<td class="col-xs-6"><label>Êtes-vous une agence ?</label></td>
+											<td class="col-xs-6"><label>Êtes-vous une agence ? *</label></td>
 											<td style="padding: 0;padding-top: 4px;padding-left: 8px;">
 												<p class="onoff">
 													<input type="checkbox" value="0" id="agence-cb">
@@ -490,19 +496,19 @@
 											</td>
 										</tr>
 										<tr>
-											<td class="col-xs-6"><label>Nom de l'agence</label></td>
+											<td class="col-xs-6"><label>Nom de l'agence *</label></td>
 											<td style="padding: 0;padding-top: 4px;padding-left: 8px;">
 												<input id="nomAgence-mlca" name="nomAgence" type="text" value="" class="inputtable-ca">
 											</td>
 										</tr>
 										<tr>
-											<td class="col-xs-6"><label>Numéro de siret</label></td>
+											<td class="col-xs-6"><label>Numéro de siret *</label></td>
 											<td style="padding: 0;padding-top: 4px;padding-left: 8px;">
 												<input id="numSiret-mlca" name="SiretNumber" type="text" value="" class="inputtable-ca">
 											</td>
 										</tr>
 										<tr>
-											<td class="col-xs-6"><label>Frais d'agence</label></td>
+											<td class="col-xs-6"><label>Frais d'agence *</label></td>
 											<td style="padding: 0;padding-top: 4px;padding-left: 8px;">
 												<input id="fraisAgence-mlca" name="fraisAgence" type="number" min="0" value="" class="inputtable-ca">
 											</td>

@@ -1006,10 +1006,10 @@ function loadEcoRoommateEventMap(mymap) {
 	});
 
 	var markerIconOver = L.icon({
-		iconUrl: '/Content/Images/Logos/markerEvenementOver.png',		
+		iconUrl: '/Content/Images/Logos/markerEvenementOver.png',
 		iconSize: [43, 43],
 	});
-		
+
 	var data2 = [
 		{
 			name: 'eventMarker1',
@@ -1047,12 +1047,12 @@ function loadEcoRoommateEventMap(mymap) {
 				openModalInThisTab();
 			});
 			markerObject.on('mouseover', function (e) {
-				
-				
+
+
 			})
 			$("#annonce" + (ii + 1) + "-ereom").on("mouseover", function (e) {
-				markerObject.setIcon(markerIconOver);			
-				
+				markerObject.setIcon(markerIconOver);
+
 				var markerCluster = '.' + $(markerObject).attr('class');
 				$(markerCluster + ' div').css('background-color', '#cca32d')
 				$(markerCluster + ' div').css('color', 'white')
@@ -1064,7 +1064,7 @@ function loadEcoRoommateEventMap(mymap) {
 			$("#annonce" + (ii + 1) + "-ereom").on("mouseout", function (e) {
 				markerObject.setIcon(markerIcon2);
 
-				var markerCluster = '.' +$(markerObject).attr('class');
+				var markerCluster = '.' + $(markerObject).attr('class');
 				$(markerCluster + ' div').css('background-color', 'white')
 				$(markerCluster + ' div').css('color', '#555')
 
@@ -1449,15 +1449,36 @@ function typeOfResearchLocation(item) {
 }
 
 function showPopUpInfo(iconElement, elementPopUp) {
-	$(elementPopUp).fadeIn("slow");
+	var timeToShow;
+
 	$(elementPopUp).attr("onmouseout", "closePopUpInfo(this)")
 
+	timeToShow = setTimeout(function () {
+		$(elementPopUp).fadeIn("slow");
+	}, 500);
+
 	$(iconElement).mouseleave(function (e) {
+		clearTimeout(timeToShow);
 		setTimeout(function () {
 			if ($(elementPopUp + ':hover').length == 0 && $(elementPopUp + ' scroll:hover').length == 0) {
 				closePopUpInfo(elementPopUp)
 			}
 		}, 500);
+	});
+	$(elementPopUp).bind('mousewheel DOMMouseScroll', function (e) {
+		$(elementPopUp).css('overflow', 'hidden')
+
+		var scrollTo = null;
+
+		if (e.type == 'mousewheel') {
+			scrollTo = (e.originalEvent.wheelDelta * -1);
+		}
+		else if (e.type == 'DOMMouseScroll') {
+			scrollTo = 40 * e.originalEvent.detail;
+		} if (scrollTo) {
+			e.preventDefault();
+			$(this).scrollTop(scrollTo + $(this).scrollTop());
+		}
 	});
 }
 
@@ -1822,4 +1843,18 @@ function affectAnimationToMarker(markerElement) {
 function stopAnimationToMarker(markerElement) {
 	$(markerElement).css("box-shadow", "none")
 	$(markerElement).css("animation", "none")
+}
+
+function addOperationRealized_sp(typeOperation, idAnnonce) {
+	localStorage.setItem(typeOperation + idAnnonce, true);
+	checkIfOperationRealized_sp(typeOperation, idAnnonce)
+}
+
+function checkIfOperationRealized_sp(typeOperation, idAnnonce) {
+	if (typeOperation == "SPView" && localStorage.getItem('SPView' + idAnnonce) != null) {
+		$("#eyesImg-ps" + idAnnonce).css('color', '#C4D102')
+	}
+	else if (typeOperation == "SPSendMsg" && localStorage.getItem('SPSendMsg' + idAnnonce) != null) {
+		$("#msgImg-ps" + idAnnonce).css('color', '#C4D102')
+	}
 }

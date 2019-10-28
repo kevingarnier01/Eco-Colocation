@@ -42,7 +42,8 @@
 			</div>
 		}
 		<div class="col-lg-3 col-sm-4 col-xs-6 divPeoplesSearching">
-			<a id="peopleSearchingLink-2" class="col-sm-9 col-xs-9 divPeopleSearching" href="@Url.Action("ModalPeopleSearch", "PeopleSearching", new { @idModal = "2" })" rel="modal:open">
+			<a id="peopleSearchingLink-2" class="col-sm-9 col-xs-9 divPeopleSearching" href="@Url.Action("ModalPeopleSearch", "PeopleSearching", new { @idModal = "2" })" 
+			   rel="modal:open" onclick="addOperationRealized_sp('SPView', '2')">
 				<div id="divImgPlSch">
 					<div id="imgPlSch" style="background: url(https://lcdcfrance-prod.s3.amazonaws.com/profile_pictures/3be2c07f20221b84fdc52e32c5cd4f9e_large.jpg) 50% 50% no-repeat;">
 						<i class="far fa-heart" id="heartImg"></i>
@@ -63,8 +64,8 @@
 					<div id="divMembrePl">Membre depuis 6 jours</div>
 
 					<div id="logoPl">
-						<i class="fas fa-eye imgToCheck-ps" id="eyesImg-ps"></i>
-						<i class="far fa-envelope imgToCheck-ps"></i>
+						<i class="fas fa-eye imgToCheck-ps" id="eyesImg-ps2" onload="checkIfOperationRealized_sp('SPView', '2')"></i>
+						<i class="far fa-envelope imgToCheck-ps" id="msgImg-ps2" onload="checkIfOperationRealized_sp('SPSendMsg', '2')"></i>
 					</div>
 				</div>
 			</a>
@@ -76,7 +77,8 @@
 			}
 		</div>
 		<div class="col-lg-3 col-sm-4 col-xs-6 divPeoplesSearching">
-			<a id="peopleSearchingLink-3" class="col-sm-9 col-xs-9 divPeopleSearching" href="@Url.Action("ModalPeopleSearch", "PeopleSearching", new { @idModal = "3" })" rel="modal:open">
+			<a id="peopleSearchingLink-3" class="col-sm-9 col-xs-9 divPeopleSearching" href="@Url.Action("ModalPeopleSearch", "PeopleSearching", new { @idModal = "3" })" 
+			   rel="modal:open" onclick="addOperationRealized_sp('SPView', '3')">
 				<div id="divImgPlSch">
 					<div id="imgPlSch" style="background: url(https://lcdcfrance-prod.s3.amazonaws.com/profile_pictures/3be2c07f20221b84fdc52e32c5cd4f9e_large.jpg) 50% 50% no-repeat;">
 						<i class="far fa-heart" id="heartImg"></i>
@@ -97,14 +99,15 @@
 					<div id="divMembrePl">Membre depuis 6 jours</div>
 
 					<div id="logoPl">
-						<i class="fas fa-eye imgToCheck-ps" id="eyesImg-ps"></i>
-						<i class="far fa-envelope imgToCheck-ps"></i>
+						<i class="fas fa-eye imgToCheck-ps" id="eyesImg-ps3" onload="checkIfOperationRealized_sp('SPView', '3')"></i>
+						<i class="far fa-envelope imgToCheck-ps" id="msgImg-ps3" onload="checkIfOperationRealized_sp('SPSendMsg', '3')"></i>
 					</div>
 				</div>
 			</a>
 		</div>
 		<div class="col-lg-3 col-sm-4 col-xs-6 divPeoplesSearching">
-			<a id="peopleSearchingLink-4" class="col-sm-9 col-xs-9 divPeopleSearching" href="@Url.Action("ModalPeopleSearch", "PeopleSearching", new { @idModal = "4" })" rel="modal:open">
+			<a id="peopleSearchingLink-4" class="col-sm-9 col-xs-9 divPeopleSearching" href="@Url.Action("ModalPeopleSearch", "PeopleSearching", new { @idModal = "4" })" 
+			   rel="modal:open" onclick="addOperationRealized_sp('SPView', '4')">
 				<div id="divImgPlSch">
 					<div id="imgPlSch" style="background: url(https://lcdcfrance-prod.s3.amazonaws.com/profile_pictures/3be2c07f20221b84fdc52e32c5cd4f9e_large.jpg) 50% 50% no-repeat;">
 						<i class="far fa-heart" id="heartImg"></i>
@@ -125,14 +128,15 @@
 					<div id="divMembrePl">Membre depuis 6 jours</div>
 
 					<div id="logoPl">
-						<i class="fas fa-eye imgToCheck-ps" id="eyesImg-ps"></i>
-						<i class="far fa-envelope imgToCheck-ps"></i>
+						<i class="fas fa-eye imgToCheck-ps" id="eyesImg-ps4" onload="checkIfOperationRealized_sp('SPView', '4')"></i>
+						<i class="far fa-envelope imgToCheck-ps" id="msgImg-ps4" onload="checkIfOperationRealized_sp('SPSendMsg', '4')"></i>
 					</div>
 				</div>
 			</a>
 		</div>
 		<div class="col-lg-3 col-sm-4 col-xs-6 divPeoplesSearching">
-			<a id="peopleSearchingLink-5" class="col-sm-9 col-xs-9 divPeopleSearching" href="@Url.Action("ModalPeopleSearch", "PeopleSearching", new { @idModal = "5" })" rel="modal:open">
+			<a id="peopleSearchingLink-5" class="col-sm-9 col-xs-9 divPeopleSearching" href="@Url.Action("ModalPeopleSearch", "PeopleSearching", new { @idModal = "5" })"
+			   rel="modal:open" onclick="addOperationRealized_sp('SPView', '5')">
 				<div id="divImgPlSch">
 					<div id="imgPlSch" style="background: url(https://lcdcfrance-prod.s3.amazonaws.com/profile_pictures/3be2c07f20221b84fdc52e32c5cd4f9e_large.jpg) 50% 50% no-repeat;">
 						<i class="far fa-heart" id="heartImg"></i>
@@ -153,14 +157,15 @@
 					<div id="divMembrePl">Membre depuis 6 jours</div>
 
 					<div id="logoPl">
-						<i class="fas fa-eye imgToCheck-ps" id="eyesImg-ps"></i>
-						<i class="far fa-envelope imgToCheck-ps"></i>
+						<i class="fas fa-eye imgToCheck-ps" id="eyesImg-ps5" onload="checkIfOperationRealized_sp('SPView', '5')"></i>
+						<i class="far fa-envelope imgToCheck-ps" id="msgImg-ps5" onload="checkIfOperationRealized_sp('SPSendMsg', '5')"></i>
 					</div>
 				</div>
 			</a>
 		</div>
 		<div class="col-lg-3 col-sm-4 col-xs-6 divPeoplesSearching">
-			<a id="peopleSearchingLink-6" class="col-sm-9 col-xs-9 divPeopleSearching" href="@Url.Action("ModalPeopleSearch", "PeopleSearching", new { @idModal = "6" })" rel="modal:open">
+			<a id="peopleSearchingLink-6" class="col-sm-9 col-xs-9 divPeopleSearching" href="@Url.Action("ModalPeopleSearch", "PeopleSearching", new { @idModal = "6" })"
+			   rel="modal:open" onclick="addOperationRealized_sp('SPView', '6')">
 				<div id="divImgPlSch">
 					<div id="imgPlSch" style="background: url(https://lcdcfrance-prod.s3.amazonaws.com/profile_pictures/3be2c07f20221b84fdc52e32c5cd4f9e_large.jpg) 50% 50% no-repeat;">
 						<i class="far fa-heart" id="heartImg"></i>
@@ -181,14 +186,15 @@
 					<div id="divMembrePl">Membre depuis 6 jours</div>
 
 					<div id="logoPl">
-						<i class="fas fa-eye imgToCheck-ps" id="eyesImg-ps"></i>
-						<i class="far fa-envelope imgToCheck-ps"></i>
+						<i class="fas fa-eye imgToCheck-ps" id="eyesImg-ps6" onload="checkIfOperationRealized_sp('SPView', '6')"></i>
+						<i class="far fa-envelope imgToCheck-ps" id="msgImg-ps6" onload="checkIfOperationRealized_sp('SPSendMsg', '6')"></i>
 					</div>
 				</div>
 			</a>
 		</div>
 		<div class="col-lg-3 col-sm-4 col-xs-6 divPeoplesSearching">
-			<a id="peopleSearchingLink-7" class="col-sm-9 col-xs-9 divPeopleSearching" href="@Url.Action("ModalPeopleSearch", "PeopleSearching", new { @idModal = "7" })" rel="modal:open">
+			<a id="peopleSearchingLink-7" class="col-sm-9 col-xs-9 divPeopleSearching" href="@Url.Action("ModalPeopleSearch", "PeopleSearching", new { @idModal = "7" })" 
+			   rel="modal:open" onclick="addOperationRealized_sp('SPView', '7')">
 				<div id="divImgPlSch">
 					<div id="imgPlSch" style="background: url(https://lcdcfrance-prod.s3.amazonaws.com/profile_pictures/3be2c07f20221b84fdc52e32c5cd4f9e_large.jpg) 50% 50% no-repeat;">
 						<i class="far fa-heart" id="heartImg"></i>
@@ -209,8 +215,8 @@
 					<div id="divMembrePl">Membre depuis 6 jours</div>
 
 					<div id="logoPl">
-						<i class="fas fa-eye imgToCheck-ps" id="eyesImg-ps"></i>
-						<i class="far fa-envelope imgToCheck-ps"></i>
+						<i class="fas fa-eye imgToCheck-ps" id="eyesImg-ps7" onload="checkIfOperationRealized_sp('SPView', '7')"></i>
+						<i class="far fa-envelope imgToCheck-ps" id="msgImg-ps7" onload="checkIfOperationRealized_sp('SPSendMsg', '7')"></i>
 					</div>
 				</div>
 			</a>
@@ -225,3 +231,9 @@
 		</div>
 	</div>
 </div>
+
+<script type="text/javascript">
+	$(document).ready(function () {
+		$('.imgToCheck-ps').load();
+	})
+</script>

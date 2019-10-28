@@ -339,7 +339,7 @@ a {
 }
 
 	a :hover {
-		color: inherit;
+		/*color: inherit;*/
 		text-decoration: none;
 	}
 
@@ -1473,11 +1473,6 @@ div#divContenuPlSchDisable {
 	width: 63px
 }
 
-	#logoPl img {
-		width: 20px
-	}
-
-
 .btnModifyEvent-mps {
 	font-size: 15px;
 	position: absolute;
@@ -1502,6 +1497,8 @@ div#divContenuPlSchDisable {
 	top: 0;
 	bottom: 0;
 	margin: auto;
+	width: 45%;
+	font-size: 22px;
 }
 
 #img-mps {
@@ -1596,7 +1593,7 @@ div#divContenuPlSchDisable {
 	right: 0;
 	top: 30px;
 	z-index: 1;
-	overflow: auto;
+	overflow: hidden;
 	font-size: 16px;
 	line-height: 25px;
 	border-radius: 5px;
@@ -1811,7 +1808,7 @@ div#divContenuPlSchDisable {
 }
 
 #divBlocAnnonce2 {
-	position:relative;
+	position: relative;
 	padding: 0;
 	padding-left: 3px;
 	padding-right: 3px;
@@ -2455,7 +2452,7 @@ div#divContenuPlSchDisable {
 .divInfoSupCharge-ml {
 	position: absolute;
 	width: 209px;
-	overflow: auto;
+	overflow: hidden;
 	padding: 0;
 	background-color: white;
 	box-shadow: 0 0 2px black;
@@ -2465,6 +2462,7 @@ div#divContenuPlSchDisable {
 	max-height: 150px;
 	padding: 5px 8px;
 	display: none;
+	right: 2px;
 }
 
 a, p h1, h2, h3, h4, h5, h6, input, textarea, label, span, div, table {
@@ -2869,6 +2867,7 @@ d5-description-mpc {
 	#partialViewMessage {
 		margin-bottom: 30px
 	}
+
 	#colocAnnounce {
 		padding: 10px 0;
 	}
@@ -6625,3 +6624,27 @@ input.radioFibreEco-ayer {
 	height: 50px;
 	margin: 0px 3.5px;
 }
+
+/* Formulaire */
+.divSommaireFormulaire {
+	font-size: 18px;
+	margin-bottom: 15px;
+}
+
+.divSommaireFormulaireProposition {
+	margin-left: 35px;
+	color: #888
+}
+
+.etoileObligation {
+	height: 10px;
+	margin-top: auto;
+	margin-bottom: auto;
+	margin-right: 10px;
+}
+
+.txtEtoileObligation {
+	border-bottom: 1px solid #999;
+	padding-bottom: 2px;
+}
+/* Fin Formulaire */

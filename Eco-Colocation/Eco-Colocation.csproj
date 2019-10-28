@@ -611,7 +611,7 @@
     <Content Include="Views\ColocAnnounce\Index.cshtml" />
     <Content Include="Views\PeopleSearching\Index.cshtml" />
     <Content Include="Views\SearchColoc\ModalLocation.cshtml" />
-    <Content Include="Views\SearchColoc\PartialViewMessage.cshtml" />
+    <Content Include="Views\ContactUs\PartialViewMessage.cshtml" />
     <Content Include="Views\ColocAnnounce\AnnonceLocation.cshtml" />
     <Content Include="Views\ColocAnnounce\ModalLocation.cshtml" />
     <Content Include="Views\ColocAnnounce\ProjetCreation.cshtml" />

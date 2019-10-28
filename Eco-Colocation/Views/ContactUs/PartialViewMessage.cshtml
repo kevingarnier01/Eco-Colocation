@@ -1,0 +1,46 @@
+﻿
+@{
+	ViewBag.Title = "ModalMessage";
+	var idModal = (string)ViewData["elementId"]; ;
+	var viewPageName = (string)ViewData["viewPageName"]; ;
+	//var viewPageName = Model.viewPageName
+}
+
+<div id="partialViewMessage">
+	<div id="divTitre-pvm">
+		<h2 class="Envoyer un message">Envoyer un message</h2>
+	</div>
+	<div id="divInput-pvml" class="divInput-pvml">
+		<div class="div1Input-pvm col-sm-12">
+			<div class="div2Input-pvm">
+				<div id="div3InputNom-pvm" class="div3Input-pvm col-sm-6">
+					<input id="Nom" name="Nom" placeholder="Votre nom *" type="text">
+				</div>
+				<div class="div3Input-pvm col-sm-6">
+					<input id="Prenom" name="Prenom" placeholder="Votre prénom *" type="text">
+				</div>
+			</div>
+		</div>
+		<div class="div1Input-pvm col-sm-12">
+			<div class="div2Input-pvm">
+				@Html.TextBox("Email", null, new { @placeholder = "Votre Email" })
+			</div>
+		</div>
+		<div class="div1Input-pvm col-sm-12">
+			<div class="div2Input-pvm">
+				@Html.TextBox("Sujet", null, new { @placeholder = "Sujet" })
+			</div>
+		</div>
+		<div class="div1Input-pvm col-sm-12">
+			<div class="div2Input-pvm">
+				<textarea placeholder="Message *"></textarea>
+			</div>
+		</div>
+	</div>
+	<div class="div1Input-pvm col-sm-12" style="margin-top: 20px;">
+		<div class="div2Input-pvm">
+			<div id="btnSendMsg-pvm" onclick="addOperationRealized_sp('@viewPageName', '@idModal')">Envoyer l'email</div>
+			@* Revoir le onclick, dire qu'il faut que le formulaire soit validé *@
+		</div>
+	</div>
+</div>

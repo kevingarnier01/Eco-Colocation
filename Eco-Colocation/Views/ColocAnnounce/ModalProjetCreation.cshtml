@@ -14,13 +14,19 @@
 				<h2 class="title centerText">Publier votre projet de création en vous inscrivant</h2>
 			}
 		</div>
+		<div class="divSommaireFormulaire sousDivFormColoc-ayer divSommaireFormulaireProposition">
+			<div class="flex">
+				<p class="etoileObligation">*</p>
+				<p class="txtEtoileObligation">Champ obligatoire</p>
+			</div>
+		</div>
 		<div id="htmlBlockModalCreationProjet-mpc">
 			<div id="div1-contenu-ca" class="col-sm-12">
 				<div id="div1-1-contenu-ca" class="col-sm-11 col-xs-12">
 					<div id="divDescAnn-ca" class="col-sm-12 col-xs-12">
 						<div id="div1DescAnn-ca" class="col-sm-12 col-xs-12">
 							<div id="div1-1DescAnn-ca" class="col-sm-12 col-xs-12">
-								<label for="introAnnonce-mpc">Introduction de votre annonce</label>
+								<label for="introAnnonce-mpc">Introduction de votre annonce *</label>
 							</div>
 						</div>
 						<div id="div2DescAnn-ca" class="col-sm-12 col-xs-12">
@@ -36,7 +42,7 @@
 					<div id="divDescAnn-ca" class="col-sm-12 col-xs-12">
 						<div id="div1DescAnn-ca" class="col-sm-12 col-xs-12">
 							<div id="div1-1DescAnn-ca" class="col-sm-12 col-xs-12">
-								<label for="descAnnonce-mpc">Description de votre projet</label>
+								<label for="descAnnonce-mpc">Description de votre projet *</label>
 							</div>
 						</div>
 						<div id="div2DescAnn-ca" class="col-sm-12 col-xs-12">
@@ -97,7 +103,7 @@
 					<div id="divEcoPratic-ca" class="col-sm-12 col-xs-12">
 						<div id="div1-ecoPratic-ca" class="col-sm-12 col-xs-12">
 							<div id="div1-1-ecoPratic-ca" class="col-sm-12 col-xs-12">
-								<label for="autresPrecisions-mpc">Autres précisions ... *</label>
+								<label for="autresPrecisions-mpc">Autres précisions ... </label>
 							</div>
 						</div>
 						<div id="div2-ecoPratic-ca" class="col-sm-12 col-xs-12">
@@ -138,28 +144,14 @@
 						</div>
 						<div id="div10-1-adresseLog-ca" class="col-sm-8 col-xs-12">
 							<div id="div10-2-adresseLog-ca" style="position:relative">
-								<input id="inputSearchPlace-mpc" oninput="addr_searchCity(this);" autocomplete="off" type="text" class="inputSearchPlace form-control" placeholder="Où recherchez-vous ?">
+								<input id="inputSearchPlace-mpc" oninput="addr_searchCity(this);" autocomplete="off" type="text" class="inputSearchPlace form-control" placeholder="Où recherchez-vous ? *">
 								<input id="inputSearchPlace-mpcHidden" name="inputSearchPlace-mpcHidden" type="hidden" value="">
 								<div class="listAutoCompleteToModal"></div>
-								@*<input oninput="addr_search('inputLocalisation-cpc','listAutoCompletePlace2');" list="listAutoCompletePlace2" autocomplete="off" type="text" class="inputAdresseLog-ca" id="inputLocalisation-cpc" style="padding: 5px 8px;padding-right: 65px;">*@
-								@*<datalist id="listAutoCompletePlace2"></datalist>*@
-
 								@* C'est ici que les villes qu'ils valident seront affichées *@
 								<div id="placeSaved-mpc" class="placeSaved">
 									<div id="place-mpc" class="place">
 									</div>
 								</div>
-
-								@*<input type="search" id="address-input-mpc" class="address-input" placeholder="Localisation de l'endroit" onload="initAutoComplete('#address-input-mpc')" />*@
-								@*@for (int i = 0; i < 4; i++)
-									{
-										@Html.Hidden("adresseVille", null, new { @class = "addresseVille" + i })
-										@Html.Hidden("adresseRegion", null, new { @class = "adresseRegion" + i })
-										@Html.Hidden("adressePays", null, new { @class = "adressePays" + i })
-										@Html.Hidden("adresseLatLng", null, new { @class = "adresseLatLng" + i })
-									}*@
-
-								@*<input id="listAutoCompletePlace2Hidden" name="listAutoCompletePlace2Hidden" type="hidden" value="">*@
 								<div id="div10-3-adresseLog-ca" class="flex col-sm-12 textInfoAdresse-ca">
 									<div id="div10-4-adresseLog-ca" class="col-sm-2"></div>
 									<i class="fas fa-info" id="iconPlace-ca"></i>
@@ -205,7 +197,7 @@
 										</tr>
 										<tr>
 											<td class="col-xs-6">
-												<label for="Tarif_loyer">Engagement</label>
+												<label for="Tarif_loyer">Engagement *</label>
 											</td>
 											<td class="col-xs-6">
 												<select id="select-engagementTypeTerrain-mpc" class="form-control ">
@@ -215,14 +207,14 @@
 											</td>
 										</tr>
 										<tr>
-											<td class="col-xs-6"><label for="Caution">Superficie maximum</label></td>
+											<td class="col-xs-6"><label for="Caution">Superficie maximum *</label></td>
 											<td class="flex">
 												<input id="superficieTerrain-mpc" type="number" class="inputtable-ca" placeholder="Superficie max" style="width: 150px;padding: 5px 8px;">
 												<p class="centerText signInputPropose-ml">m²</p>
 											</td>
 										</tr>
 										<tr id="rowAchatTerrain" class="rowByEngagement" style="display: table-row;">
-											<td class="col-xs-6"><label for="Loyer">Cout de l'achat max</label></td>
+											<td class="col-xs-6"><label for="Loyer">Cout de l'achat max *</label></td>
 											<td class="col-xs-6">
 												<div class="flex">
 													<input id="coutAchatMoyTerrain-mpc" name="coutAchatMoyTerrain-mpc" type="number" min="0" class="inputtable-ca" placeholder="Cout d'achat max" style="width: 150px;padding: 5px 8px;">
@@ -252,7 +244,7 @@
 									<tbody>
 										<tr>
 											<td class="col-xs-6">
-												<label for="Tarif_loyer">Engagement</label>
+												<label for="Tarif_loyer">Engagement *</label>
 											</td>
 											<td class="col-xs-6">
 												<select id="select-engagementType-mpc" class="form-control ">
@@ -263,7 +255,7 @@
 											</td>
 										</tr>
 										<tr>
-											<td class="col-xs-6"><label for="Charges">Type d'habitat</label></td>
+											<td class="col-xs-6"><label for="Charges">Type d'habitat *</label></td>
 											<td class="col-xs-6">
 												<select id="select2-loyer-fh" class="form-control ">
 													<option value="0">Tout type d'habitat</option>
@@ -274,25 +266,25 @@
 											</td>
 										</tr>
 										<tr>
-											<td class="col-xs-6"><label for="Caution">Localisation</label></td>
+											<td class="col-xs-6"><label for="Caution">Localisation *</label></td>
 											<td class="col-xs-6">
 												<select id="select2-loyer-fh" class="form-control">
 													<option value="0">Toutes localisations</option>
 													<option value="1">Campagne</option>
 													<option value="2">Ville/village</option>
 													<option value="3">Ville ou campagne/option>
-</select>
+												</select>
 											</td>
 										</tr>
 										<tr>
-											<td class="col-xs-6"><label for="Caution">Superficie maximun</label></td>
+											<td class="col-xs-6"><label for="Caution">Superficie maximun *</label></td>
 											<td class="flex">
 												<input id="superficieLogement" type="number" class="inputtable-ca" placeholder="Superficie max" style="width: 150px;padding: 5px 8px;">
 												<p class="centerText signInputPropose-ml">m²</p>
 											</td>
 										</tr>
 										<tr id="rowCreation" class="rowByEngagement">
-											<td class="col-xs-6"><label for="Loyer">Cout de création maximun</label></td>
+											<td class="col-xs-6"><label for="Loyer">Cout de création maximun *</label></td>
 											<td class="col-xs-6">
 												<div class="flex">
 													<input id="coutCreationMoy" name="coutCreationMoy" type="number" min="0" class="inputtable-ca" placeholder="Cout de création max" style="width: 150px;padding: 5px 8px;padding-right: 0;">
@@ -301,7 +293,7 @@
 											</td>
 										</tr>
 										<tr id="rowAchat" class="rowByEngagement">
-											<td class="col-xs-6"><label for="Loyer">Cout de l'achat maximun</label></td>
+											<td class="col-xs-6"><label for="Loyer">Cout de l'achat maximun *</label></td>
 											<td class="col-xs-6">
 												<div class="flex">
 													<input id="coutAchatMoyTerrain-mpc" name="coutAchatMoyTerrain-mpc" type="number" min="0" class="inputtable-ca" placeholder="Cout d'achat max" style="width: 150px;padding: 5px 8px;">
@@ -310,7 +302,7 @@
 											</td>
 										</tr>
 										<tr id="rowLoyer" class="rowByEngagement">
-											<td class="col-xs-6"><label for="Loyer">Loyer / personne maximun</label></td>
+											<td class="col-xs-6"><label for="Loyer">Loyer / personne maximun *</label></td>
 											<td class="col-xs-6">
 												<div id="div-2-1-1-loyer-fh">
 													<div class="flex">
@@ -322,7 +314,7 @@
 										</tr>
 										<tr>
 											<td class="col-xs-6">
-												<label>Accessibilité handicapé</label>
+												<label>Accessibilité handicapé *</label>
 											</td>
 											<td style="padding: 0;padding-top: 4px;padding-left: 8px;">
 												<p class="onoff">
@@ -353,26 +345,26 @@
 									<tbody>
 										<tr>
 											<td class="col-xs-6">
-												<label for="NbColocTotal">Nombre de personne au totale (en m'incluant)</label>
+												<label for="NbColocTotal">Nombre de personne au totale (en m'incluant) *</label>
 											</td>
 											<td class="col-xs-6">
 												<input id="NbColocTotal" name="NbColocTotal" type="number" min="0" class="inputtable-ca" style="width: 80px;">
 											</td>
 										</tr>
 										<tr id="nbParticipantAchatTerrainResearch-mpc">
-											<td class="col-xs-6"><label for="NbColocResearch">Nombre de personne recherché pour partager l'achat du terrain (en m'excluant)</label></td>
+											<td class="col-xs-6"><label for="NbColocResearch">Nombre de personne recherché pour partager l'achat du terrain (en m'excluant) *</label></td>
 											<td class="col-xs-6">
 												<input id="NbColocResearch" name="NbColocResearch" type="number" min="0" class="inputtable-ca" style="width: 80px;">
 											</td>
 										</tr>
 										<tr id="nbParticipantAchatLogementResearch-mpc">
-											<td class="col-xs-6"><label for="NbColocResearch">Nombre de personne recherché pour partager l'achat du logement (en m'excluant)</label></td>
+											<td class="col-xs-6"><label for="NbColocResearch">Nombre de personne recherché pour partager l'achat du logement (en m'excluant) *</label></td>
 											<td class="col-xs-6">
 												<input id="NbColocResearch" name="NbColocResearch" type="number" min="0" class="inputtable-ca" style="width: 80px;">
 											</td>
 										</tr>
 										<tr>
-											<td class="col-xs-6"><label for="NbColocResearch">Nombre de personne recherché pour louer le logement (en m'excluant)</label></td>
+											<td class="col-xs-6"><label for="NbColocResearch">Nombre de personne recherché pour louer le logement (en m'excluant) *</label></td>
 											<td class="col-xs-6">
 												<input id="NbColocResearch" name="NbColocResearch" type="number" min="0" class="inputtable-ca" style="width: 80px;">
 											</td>
@@ -398,7 +390,7 @@
 								<table class="table table-striped">
 									<tbody>
 										<tr>
-											<td class="col-xs-6"><label>Transports en communs</label></td>
+											<td class="col-xs-6"><label>Transports en communs *</label></td>
 											<td style="padding: 0;padding-top: 4px;padding-left: 8px;">
 												<div class="flex">
 													<div>
@@ -443,7 +435,7 @@
 								<table class="table table-striped">
 									<tbody>
 										<tr>
-											<td class="col-xs-6"><label>Consommateur d'alcool</label></td>
+											<td class="col-xs-6"><label>Consommateur d'alcool *</label></td>
 											<td style="padding: 0;padding-top: 4px;padding-left: 8px;">
 												<p class="onoff">
 													<input type="checkbox" value="1" id="alcool-cb">
@@ -452,7 +444,7 @@
 											</td>
 										</tr>
 										<tr>
-											<td class="col-xs-6"><label>Fumeur</label></td>
+											<td class="col-xs-6"><label>Fumeur *</label></td>
 											<td style="padding: 0;padding-top: 4px;padding-left: 8px;">
 												<p class="onoff">
 													<input type="checkbox" value="1" id="fumeur-cb">
@@ -461,7 +453,7 @@
 											</td>
 										</tr>
 										<tr>
-											<td class="col-xs-6"><label>Animaux</label></td>
+											<td class="col-xs-6"><label>Animaux *</label></td>
 											<td style="padding: 0;padding-top: 4px;padding-left: 8px;">
 												<p class="onoff">
 													<input type="checkbox" value="1" id="animaux-cb">
@@ -492,7 +484,7 @@
 						</div>
 						<div class="col-sm-8 col-xs-12" id="divGlobalPresent-mcar">
 							<div class="col-sm-12" id="divDesciptionInfo2-mcar">
-								<label class="lbl-mcar" id="tktIntroduceProfil-mpc">Présentation de votre personnalité</label>
+								<label class="lbl-mcar" id="tktIntroduceProfil-mpc">Présentation de votre personnalité *</label>
 								<textarea class="txtareaDesc-mcar input-mcar" id="txtareaPersoP-mcar" placeholder="Présentez-vous en quelque ligne..." style=""></textarea>
 							</div>
 						</div>
