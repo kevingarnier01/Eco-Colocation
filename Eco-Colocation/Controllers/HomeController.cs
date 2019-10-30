@@ -9,6 +9,15 @@ namespace Eco_Colocation.Controllers
 		public ActionResult Index()
 		{
 			AllViewModel allViewModel = new AllViewModel();
+			allViewModel.PeopleSearchingViewModel = new PeopleSearchingViewModel();
+
+
+			PeopleSearchingViewModel peopleSearching = new PeopleSearchingViewModel();
+			for (int i = 0; i < 6; i++)
+			{
+				peopleSearching.IdPeopleSearching = i;
+				allViewModel.PeopleSearchingViewModel.LstPeopleSearchingVM.Add(peopleSearching);
+			}
 
 			return View(allViewModel);
 		}
@@ -16,7 +25,7 @@ namespace Eco_Colocation.Controllers
 		public ActionResult TypeRecherche(AllViewModel allViewModel)
 		{
 			TempData["allViewModel"] = allViewModel;
-			
+
 			if (allViewModel.HomeViewModel.TypeRecherche == "searching")
 			{
 				return RedirectToAction("Index", "SearchColoc", null);

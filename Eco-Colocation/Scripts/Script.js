@@ -1403,37 +1403,16 @@ function showOthersAnnounces() {
 }
 
 function showOthersPeople() {
-	var nbAnnonceGet = 15;
-	var idModal;
-
-	for (var i = 0; i < nbAnnonceGet; i++) {
-		var people = $('.divPatronPeoplesSearching')[0].outerHTML;
-		$("#divPanelPl #divBtnOtherAnnoncePeople-ps").before(people);
-
-		var divConcerned = $('#divPanelPl .divPatronPeoplesSearching #peopleSearchingLink-VALUE')[0];
-
-		idModal = Math.floor(100000 + Math.random() * 900000); //Variable temporaire, ce sera l'id lorsque la bdd sera mise en place
-
-		$(divConcerned).attr('id', 'peopleSearchingLink-' + idModal)
-		var divConcerned = $('#divPanelPl #peopleSearchingLink-' + idModal)[0];
-
-		var hrefOfElement = $(divConcerned).attr("jshref");
-		hrefOfElement = hrefOfElement.replace("idModal=VALUE", "idModal=" + idModal);
-		$(divConcerned).attr('jshref', hrefOfElement);
-		$(divConcerned).attr('onclick', 'addOperationRealized_sp("SPView", "' + idModal + '")')
-		$("#divPanelPl #eyesImg-psVALUE").attr('onload', 'checkIfOperationRealized_sp("SPView", "' + idModal + '")')
-		$('#divPanelPl #eyesImg-psVALUE').attr('id', 'eyesImg-ps' + idModal);
-		$('#divPanelPl #msgImg-psVALUE').attr('onload', 'checkIfOperationRealized_sp("SPSendMsg", "' + idModal + '")')
-		$('#divPanelPl #msgImg-psVALUE').attr('id', 'msgImg-ps' + idModal);
-
-		$("#divPanelPl .divPatronPeoplesSearching").addClass('divPeoplesSearching');
-		$("#divPanelPl .divPatronPeoplesSearching").removeClass('divPatronPeoplesSearching');
-
-		$('.heartImg').on('click', function (e) {
-			$(e.target).css("color", "rgba(196, 209, 2, 0.6)")
-		})
+	for (var i = 0; i < 6; i++) {
+		$.ajax({
+			// edit to add steve's suggestion.
+			//url: "/ControllerName/ActionName",
+			url: '/PeopleSearching/HtmlAnnoncePeople',
+			success: function (data) {
+				$("#divPanelPl #divBtnOtherAnnoncePeople-ps").before(data);			
+			}
+		});
 	}
-	openModalInThisTab();
 }
 
 function lineMaxToShow(textElement) {
@@ -1879,9 +1858,9 @@ function addOperationRealized_sp(typeOperation, idAnnonce) {
 
 function checkIfOperationRealized_sp(typeOperation, idAnnonce) {
 	if (typeOperation == "SPView" && localStorage.getItem('SPView' + idAnnonce) != null) {
-		$("#eyesImg-ps" + idAnnonce).css('color', '#C4D102')
+		$("#eyesImg-ps-" + idAnnonce).css('color', '#C4D102')
 	}
 	else if (typeOperation == "SPSendMsg" && localStorage.getItem('SPSendMsg' + idAnnonce) != null) {
-		$("#msgImg-ps" + idAnnonce).css('color', '#C4D102')
+		$("#msgImg-ps-" + idAnnonce).css('color', '#C4D102')
 	}
 }

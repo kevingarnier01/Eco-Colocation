@@ -9,6 +9,17 @@ namespace Eco_Colocation.Controllers
 		// GET: ColocAnnounce
 		public ActionResult Index(string currentTab, string idModal)
 		{
+			AllViewModel allViewModel = new AllViewModel();
+			allViewModel.PeopleSearchingViewModel = new PeopleSearchingViewModel();
+
+
+			PeopleSearchingViewModel peopleSearching = new PeopleSearchingViewModel();
+			for (int i = 0; i < 6; i++)
+			{
+				peopleSearching.IdPeopleSearching = i;
+				allViewModel.PeopleSearchingViewModel.LstPeopleSearchingVM.Add(peopleSearching);
+			}
+
 			if (currentTab != null && currentTab.Length != 0)
 			{
 				ViewData["currentTab"] = currentTab;
@@ -18,8 +29,7 @@ namespace Eco_Colocation.Controllers
 				ViewData["currentTab"] = "AnnonceLocation";
 			}
 			ViewData["idModalToTrigger"] = idModal;
-
-			AllViewModel allViewModel = new AllViewModel();
+			
 			allViewModel.HomeViewModel.TypeRecherche = "offering";
 			allViewModel.ColocAnnounceViewModel = new ColocAnnounceViewModel();
 

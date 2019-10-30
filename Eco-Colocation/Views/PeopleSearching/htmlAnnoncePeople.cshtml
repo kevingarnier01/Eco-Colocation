@@ -1,12 +1,12 @@
-﻿@model  Eco_Colocation.ViewModel.PeopleSearchingViewModel
+﻿@model  Eco_Colocation.ViewModel.AllViewModel
 @{
 	ViewBag.Title = "HtmlAnnoncePeople";
 }
 
 <div class="col-lg-3 col-sm-4 col-xs-6 divPeoplesSearching">
-	<i class="fas fa-heart heartImg"></i>
-	<a id="peopleSearchingLink-@Model.IdPeopleSearching" class="col-sm-9 col-xs-9 divPeopleSearching" href="@Url.Action("ModalPeopleSearch", "PeopleSearching", new { @idModal = Model.IdPeopleSearching })"
-	   rel="modal:open" onclick="addOperationRealized_sp('SPView', '@Model.IdPeopleSearching')">
+	<i class="fas fa-heart heartImg" id="heartImgPs-@Model.PeopleSearchingViewModel.IdPeopleSearching"></i>
+	<a id="peopleSearchingLink-@Model.PeopleSearchingViewModel.IdPeopleSearching" class="col-sm-9 col-xs-9 divPeopleSearching" href="@Url.Action("ModalPeopleSearch", "PeopleSearching", new { @idModal = Model.PeopleSearchingViewModel.IdPeopleSearching })"
+	   rel="modal:open" onclick="addOperationRealized_sp('SPView', '@Model.PeopleSearchingViewModel.IdPeopleSearching')">
 		<div id="divImgPlSch">
 			<div id="imgPlSch" style="background: url(https://lcdcfrance-prod.s3.amazonaws.com/profile_pictures/3be2c07f20221b84fdc52e32c5cd4f9e_large.jpg) 50% 50% no-repeat;"></div>
 		</div>
@@ -25,10 +25,19 @@
 			<div id="divMembrePl">Membre depuis 6 jours</div>
 
 			<div id="logoPl">
-				<i class="fas fa-eye imgToCheck-ps" id="eyesImg-ps@Model.IdPeopleSarching" onload="checkIfOperationRealized_sp('SPView', '@Model.IdPeopleSearching')"></i>
-				<i class="far fa-envelope imgToCheck-ps" id="msgImg-ps @Model.IdPeopleSearching" onload="checkIfOperationRealized_sp('SPSendMsg', '@Model.IdPeopleSearching')"></i>
+				<i class="fas fa-eye imgToCheck-ps" id="eyesImg-ps-@Model.PeopleSearchingViewModel.IdPeopleSearching" onload="checkIfOperationRealized_sp('SPView', '@Model.PeopleSearchingViewModel.IdPeopleSearching')"></i>
+				<i class="far fa-envelope imgToCheck-ps" id="msgImg-ps-@Model.PeopleSearchingViewModel.IdPeopleSearching" onload="checkIfOperationRealized_sp('SPSendMsg', '@Model.PeopleSearchingViewModel.IdPeopleSearching')"></i>
 			</div>
 		</div>
 	</a>
 </div>
 
+<script type="text/javascript">
+	$(document).ready(function () {
+		openModalInThisTab();
+
+		$('.heartImg').on('click', function (e) {
+			$(e.target).css("color", "rgba(196, 209, 2, 0.6)")
+		})
+	})
+</script>

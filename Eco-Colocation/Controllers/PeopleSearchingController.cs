@@ -1,4 +1,5 @@
 ﻿using Eco_Colocation.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
 
@@ -9,17 +10,19 @@ namespace Eco_Colocation.Controllers
 		// GET: PeopleSearching
 		public ActionResult Index()
 		{
-			PeopleSearchingViewModel peopleSearchingVM = new PeopleSearchingViewModel();
-
-			peopleSearchingVM.LstPeopleSearchingVM = new List<PeopleSearchingViewModel>();
-			for (int i = 0; i < 15; i++)
-			{
-				peopleSearchingVM.IdPeopleSearching = i;
-				peopleSearchingVM.LstPeopleSearchingVM.Add(peopleSearchingVM);
-			}
+			AllViewModel allVM = new AllViewModel();
+			allVM.PeopleSearchingViewModel = new PeopleSearchingViewModel();
+			allVM.PeopleSearchingViewModel.LstPeopleSearchingVM = new List<PeopleSearchingViewModel>();
 			
+			PeopleSearchingViewModel peopleSearchingVM2 = new PeopleSearchingViewModel();
 
-			return View(peopleSearchingVM);
+			for (int i = 0; i < 6; i++)
+			{
+				peopleSearchingVM2.IdPeopleSearching = i;
+				allVM.PeopleSearchingViewModel.LstPeopleSearchingVM.Add(peopleSearchingVM2);
+			}
+
+			return View(allVM);
 		}
 
 		public ActionResult ModalPeopleSearch(string idModal)
@@ -36,6 +39,19 @@ namespace Eco_Colocation.Controllers
 			ViewData["targetCity"] = "Rennes";
 
 			return PartialView("~/Views/PeopleSearching/ModalUpdateDataProfil.cshtml");
+		}
+
+		public ActionResult HtmlAnnoncePeople()
+		{
+			AllViewModel allVM = new AllViewModel();
+			allVM.PeopleSearchingViewModel = new PeopleSearchingViewModel();
+
+			Random rnd = new Random();
+			int id = rnd.Next(100, 200);
+
+			allVM.PeopleSearchingViewModel.IdPeopleSearching = id;
+
+			return PartialView(allVM);
 		}
 	}
 }

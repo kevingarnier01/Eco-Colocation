@@ -18,6 +18,8 @@ namespace Eco_Colocation.ViewModel
         {
             PersonneModel = new PersonneModel();
 			LstPeopleSearchingVM = new List<PeopleSearchingViewModel>();
-        }
+			IdPeopleSearching = new int();
+
+		}
     }
 }
