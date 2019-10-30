@@ -666,6 +666,7 @@
     <Content Include="Views\ContactUs\BulleConversation.cshtml" />
     <Content Include="Views\ColocAnnounce\ModalDeleteProjetCreation.cshtml" />
     <Content Include="Views\ColocAnnounce\ModalDeleteLocation.cshtml" />
+    <Content Include="Views\PeopleSearching\HtmlAnnoncePeople.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
