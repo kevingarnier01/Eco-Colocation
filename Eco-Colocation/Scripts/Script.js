@@ -1403,8 +1403,36 @@ function showOthersAnnounces() {
 }
 
 function showOthersPeople() {
-	var people = $(".divPeoplesSearching:first-child")[0].outerHTML;
-	$("#divPanelPl #divBtnOtherAnnonceLocation-alpv").before(people);
+	var nbAnnonceGet = 15;
+	var idModal;
+
+	for (var i = 0; i < nbAnnonceGet; i++) {
+		var people = $('.divPatronPeoplesSearching')[0].outerHTML;
+		$("#divPanelPl #divBtnOtherAnnoncePeople-ps").before(people);
+
+		var divConcerned = $('#divPanelPl .divPatronPeoplesSearching #peopleSearchingLink-VALUE')[0];
+
+		idModal = Math.floor(100000 + Math.random() * 900000); //Variable temporaire, ce sera l'id lorsque la bdd sera mise en place
+
+		$(divConcerned).attr('id', 'peopleSearchingLink-' + idModal)
+		var divConcerned = $('#divPanelPl #peopleSearchingLink-' + idModal)[0];
+
+		var hrefOfElement = $(divConcerned).attr("jshref");
+		hrefOfElement = hrefOfElement.replace("idModal=VALUE", "idModal=" + idModal);
+		$(divConcerned).attr('jshref', hrefOfElement);
+		$(divConcerned).attr('onclick', 'addOperationRealized_sp("SPView", "' + idModal + '")')
+		$("#divPanelPl #eyesImg-psVALUE").attr('onload', 'checkIfOperationRealized_sp("SPView", "' + idModal + '")')
+		$('#divPanelPl #eyesImg-psVALUE').attr('id', 'eyesImg-ps' + idModal);
+		$('#divPanelPl #msgImg-psVALUE').attr('onload', 'checkIfOperationRealized_sp("SPSendMsg", "' + idModal + '")')
+		$('#divPanelPl #msgImg-psVALUE').attr('id', 'msgImg-ps' + idModal);
+
+		$("#divPanelPl .divPatronPeoplesSearching").addClass('divPeoplesSearching');
+		$("#divPanelPl .divPatronPeoplesSearching").removeClass('divPatronPeoplesSearching');
+
+		$('.heartImg').on('click', function (e) {
+			$(e.target).css("color", "rgba(196, 209, 2, 0.6)")
+		})
+	}
 	openModalInThisTab();
 }
 
@@ -1640,7 +1668,6 @@ function sendMsgOnConvDev() {
 
 			var classList = $(".fileUplConvDev-main");
 			for (var i = 0; i < classList.length; i++) {
-				debugger;
 				urlImg = $(classList[i]).css('background-image');
 
 				var elementHtml2 =

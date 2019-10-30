@@ -27,27 +27,26 @@
 	<div id="divPanelPl">
 		@if (User.Identity.IsAuthenticated)
 		{
-			<div class="col-lg-3 col-sm-4 col-xs-6 divPeoplesSearching">
-				<a id="peopleSearchingUpdateLink-1" class="col-sm-9 col-xs-9 divPeopleSearching" href="@Url.Action("ModalUpdateDataProfil", "PeopleSearching", new { @idModal = "1" })" rel="modal:open">
-					<div id="divImgPlSch">
-						<div id="imgPlSch" style="background: url(https://lcdcfrance-prod.s3.amazonaws.com/profile_pictures/3be2c07f20221b84fdc52e32c5cd4f9e_large.jpg) 50% 50% no-repeat;">
-							<i class="far fa-heart" id="heartImg"></i>
-						</div>
-					</div>
-					<div id="divContenuPlSchDisable" class="fontFamilyNote">
-						<p class="fontFamilyNote childFlexVertical childFlex" id="txt1ContenuDisable">Votre annonce est désactivée.</p>
-						<p class="fontFamilyNote">Cliquer dessus pour la mettre à jour.</p>
-					</div>
-				</a>
-			</div>
-		}
 		<div class="col-lg-3 col-sm-4 col-xs-6 divPeoplesSearching">
-			<a id="peopleSearchingLink-2" class="col-sm-9 col-xs-9 divPeopleSearching" href="@Url.Action("ModalPeopleSearch", "PeopleSearching", new { @idModal = "2" })" 
-			   rel="modal:open" onclick="addOperationRealized_sp('SPView', '2')">
+			<i class="fas fa-heart heartImg"></i>
+			<a id="peopleSearchingUpdateLink-1" class="col-sm-9 col-xs-9 divPeopleSearching" href="@Url.Action("ModalUpdateDataProfil", "PeopleSearching", new { @idModal = "1" })" rel="modal:open">
 				<div id="divImgPlSch">
 					<div id="imgPlSch" style="background: url(https://lcdcfrance-prod.s3.amazonaws.com/profile_pictures/3be2c07f20221b84fdc52e32c5cd4f9e_large.jpg) 50% 50% no-repeat;">
-						<i class="far fa-heart" id="heartImg"></i>
 					</div>
+				</div>
+				<div id="divContenuPlSchDisable" class="fontFamilyNote">
+					<p class="fontFamilyNote childFlexVertical childFlex" id="txt1ContenuDisable">Votre annonce est désactivée.</p>
+					<p class="fontFamilyNote">Cliquer dessus pour la mettre à jour.</p>
+				</div>
+			</a>
+		</div>
+		}
+		<div class="col-lg-3 col-sm-4 col-xs-6 divPeoplesSearching">
+			<i class="fas fa-heart heartImg"></i>
+			<a id="peopleSearchingLink-2" class="col-sm-9 col-xs-9 divPeopleSearching" href="@Url.Action("ModalPeopleSearch", "PeopleSearching", new { @idModal = "2" })"
+			   rel="modal:open" onclick="addOperationRealized_sp('SPView', '2')">
+				<div id="divImgPlSch">
+					<div id="imgPlSch" style="background: url(https://lcdcfrance-prod.s3.amazonaws.com/profile_pictures/3be2c07f20221b84fdc52e32c5cd4f9e_large.jpg) 50% 50% no-repeat;"></div>
 				</div>
 				<div id="divContenuPlSch" class="fontFamilyNote">
 					<div id="titlePrenom-ps">
@@ -77,12 +76,11 @@
 			}
 		</div>
 		<div class="col-lg-3 col-sm-4 col-xs-6 divPeoplesSearching">
-			<a id="peopleSearchingLink-3" class="col-sm-9 col-xs-9 divPeopleSearching" href="@Url.Action("ModalPeopleSearch", "PeopleSearching", new { @idModal = "3" })" 
+			<i class="fas fa-heart heartImg"></i>
+			<a id="peopleSearchingLink-3" class="col-sm-9 col-xs-9 divPeopleSearching" href="@Url.Action("ModalPeopleSearch", "PeopleSearching", new { @idModal = "3" })"
 			   rel="modal:open" onclick="addOperationRealized_sp('SPView', '3')">
 				<div id="divImgPlSch">
-					<div id="imgPlSch" style="background: url(https://lcdcfrance-prod.s3.amazonaws.com/profile_pictures/3be2c07f20221b84fdc52e32c5cd4f9e_large.jpg) 50% 50% no-repeat;">
-						<i class="far fa-heart" id="heartImg"></i>
-					</div>
+					<div id="imgPlSch" style="background: url(https://lcdcfrance-prod.s3.amazonaws.com/profile_pictures/3be2c07f20221b84fdc52e32c5cd4f9e_large.jpg) 50% 50% no-repeat;"></div>
 				</div>
 				<div id="divContenuPlSch" class="fontFamilyNote">
 					<div id="titlePrenom-ps">
@@ -106,12 +104,11 @@
 			</a>
 		</div>
 		<div class="col-lg-3 col-sm-4 col-xs-6 divPeoplesSearching">
-			<a id="peopleSearchingLink-4" class="col-sm-9 col-xs-9 divPeopleSearching" href="@Url.Action("ModalPeopleSearch", "PeopleSearching", new { @idModal = "4" })" 
+			<i class="fas fa-heart heartImg"></i>
+			<a id="peopleSearchingLink-4" class="col-sm-9 col-xs-9 divPeopleSearching" href="@Url.Action("ModalPeopleSearch", "PeopleSearching", new { @idModal = "4" })"
 			   rel="modal:open" onclick="addOperationRealized_sp('SPView', '4')">
 				<div id="divImgPlSch">
-					<div id="imgPlSch" style="background: url(https://lcdcfrance-prod.s3.amazonaws.com/profile_pictures/3be2c07f20221b84fdc52e32c5cd4f9e_large.jpg) 50% 50% no-repeat;">
-						<i class="far fa-heart" id="heartImg"></i>
-					</div>
+					<div id="imgPlSch" style="background: url(https://lcdcfrance-prod.s3.amazonaws.com/profile_pictures/3be2c07f20221b84fdc52e32c5cd4f9e_large.jpg) 50% 50% no-repeat;"></div>
 				</div>
 				<div id="divContenuPlSch" class="fontFamilyNote">
 					<div id="titlePrenom-ps">
@@ -135,12 +132,11 @@
 			</a>
 		</div>
 		<div class="col-lg-3 col-sm-4 col-xs-6 divPeoplesSearching">
+			<i class="fas fa-heart heartImg"></i>
 			<a id="peopleSearchingLink-5" class="col-sm-9 col-xs-9 divPeopleSearching" href="@Url.Action("ModalPeopleSearch", "PeopleSearching", new { @idModal = "5" })"
 			   rel="modal:open" onclick="addOperationRealized_sp('SPView', '5')">
 				<div id="divImgPlSch">
-					<div id="imgPlSch" style="background: url(https://lcdcfrance-prod.s3.amazonaws.com/profile_pictures/3be2c07f20221b84fdc52e32c5cd4f9e_large.jpg) 50% 50% no-repeat;">
-						<i class="far fa-heart" id="heartImg"></i>
-					</div>
+					<div id="imgPlSch" style="background: url(https://lcdcfrance-prod.s3.amazonaws.com/profile_pictures/3be2c07f20221b84fdc52e32c5cd4f9e_large.jpg) 50% 50% no-repeat;"></div>
 				</div>
 				<div id="divContenuPlSch" class="fontFamilyNote">
 					<div id="titlePrenom-ps">
@@ -164,12 +160,11 @@
 			</a>
 		</div>
 		<div class="col-lg-3 col-sm-4 col-xs-6 divPeoplesSearching">
+			<i class="fas fa-heart heartImg"></i>
 			<a id="peopleSearchingLink-6" class="col-sm-9 col-xs-9 divPeopleSearching" href="@Url.Action("ModalPeopleSearch", "PeopleSearching", new { @idModal = "6" })"
 			   rel="modal:open" onclick="addOperationRealized_sp('SPView', '6')">
 				<div id="divImgPlSch">
-					<div id="imgPlSch" style="background: url(https://lcdcfrance-prod.s3.amazonaws.com/profile_pictures/3be2c07f20221b84fdc52e32c5cd4f9e_large.jpg) 50% 50% no-repeat;">
-						<i class="far fa-heart" id="heartImg"></i>
-					</div>
+					<div id="imgPlSch" style="background: url(https://lcdcfrance-prod.s3.amazonaws.com/profile_pictures/3be2c07f20221b84fdc52e32c5cd4f9e_large.jpg) 50% 50% no-repeat;"></div>
 				</div>
 				<div id="divContenuPlSch" class="fontFamilyNote">
 					<div id="titlePrenom-ps">
@@ -193,12 +188,11 @@
 			</a>
 		</div>
 		<div class="col-lg-3 col-sm-4 col-xs-6 divPeoplesSearching">
-			<a id="peopleSearchingLink-7" class="col-sm-9 col-xs-9 divPeopleSearching" href="@Url.Action("ModalPeopleSearch", "PeopleSearching", new { @idModal = "7" })" 
+			<i class="fas fa-heart heartImg"></i>
+			<a id="peopleSearchingLink-7" class="col-sm-9 col-xs-9 divPeopleSearching" href="@Url.Action("ModalPeopleSearch", "PeopleSearching", new { @idModal = "7" })"
 			   rel="modal:open" onclick="addOperationRealized_sp('SPView', '7')">
 				<div id="divImgPlSch">
-					<div id="imgPlSch" style="background: url(https://lcdcfrance-prod.s3.amazonaws.com/profile_pictures/3be2c07f20221b84fdc52e32c5cd4f9e_large.jpg) 50% 50% no-repeat;">
-						<i class="far fa-heart" id="heartImg"></i>
-					</div>
+					<div id="imgPlSch" style="background: url(https://lcdcfrance-prod.s3.amazonaws.com/profile_pictures/3be2c07f20221b84fdc52e32c5cd4f9e_large.jpg) 50% 50% no-repeat;"></div>
 				</div>
 				<div id="divContenuPlSch" class="fontFamilyNote">
 					<div id="titlePrenom-ps">
@@ -220,10 +214,10 @@
 					</div>
 				</div>
 			</a>
-		</div>
-		<div class="col-xs-12" id="divBtnOtherAnnonceLocation-alpv">
+		</div>		
+		<div class="col-xs-12" id="divBtnOtherAnnoncePeople-ps">
 			<div class="flex col-xs-12">
-				<div class="btnGreen childFlex" id="btnOtherAnnonceLocation-alpv" onclick="showOthersPeople()">
+				<div class="btnGreen childFlex" id="btnOtherAnnoncePeople-ps" onclick="showOthersPeople()">
 					<p id="txtShowNewEvent-alpv">Voir plus de personnes</p>
 					<div class="flex"><i class="fas fa-sort-down childFlex" id="iconShowNewEvent-alpv"></i></div>
 				</div>
@@ -232,8 +226,40 @@
 	</div>
 </div>
 
+<div class="col-lg-3 col-sm-4 col-xs-6 divPatronPeoplesSearching">
+	<i class="fas fa-heart heartImg"></i>
+	<a id="peopleSearchingLink-VALUE" class="col-sm-9 col-xs-9 divPeopleSearching" href="@Url.Action("ModalPeopleSearch", "PeopleSearching", new { @idModal = "VALUE" })"
+	   rel="modal:open" onclick="addOperationRealized_sp('SPView', 'VALUE')">
+		<div id="divImgPlSch">
+			<div id="imgPlSch" style="background: url(https://lcdcfrance-prod.s3.amazonaws.com/profile_pictures/3be2c07f20221b84fdc52e32c5cd4f9e_large.jpg) 50% 50% no-repeat;"></div>
+		</div>
+		<div id="divContenuPlSch" class="fontFamilyNote">
+			<div id="titlePrenom-ps">
+				<p>Victoire</p>
+				<img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg">
+			</div>
+			<div id="infoPlusPerson-ps">
+				<p id="statutPl">Etudiante, 22 ans</p>
+				<p>Budget max de 450 €</p>
+			</div>
+			<div id="descriptionPl">
+				Salarié à Hipoco dans la décoration. J'envisage aujourd'hui de faire une eco-colocation pour être...
+			</div>
+			<div id="divMembrePl">Membre depuis 6 jours</div>
+
+			<div id="logoPl">
+				<i class="fas fa-eye imgToCheck-ps" id="eyesImg-psVALUE" onload="checkIfOperationRealized_sp('SPView', 'VALUE')"></i>
+				<i class="far fa-envelope imgToCheck-ps" id="msgImg-psVALUE" onload="checkIfOperationRealized_sp('SPSendMsg', 'VALUE')"></i>
+			</div>
+		</div>
+	</a>
+</div>
+
 <script type="text/javascript">
 	$(document).ready(function () {
 		$('.imgToCheck-ps').load();
+		$('.heartImg').on('click', function (e) {
+			$(e.target).css("color", "rgba(196, 209, 2, 0.6)")
+		})
 	})
 </script>

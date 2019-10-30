@@ -1371,6 +1371,14 @@ select#typeResearchSct-ph:focus {
 	width: 240px;
 }
 
+.divPatronPeoplesSearching {
+	display: none;
+}
+
+.peopleSearchingLink-VALUE {
+	display: none
+}
+
 @media only screen and (max-width: 500px) {
 	.divPeoplesSearching {
 		width: 100%
@@ -1389,6 +1397,7 @@ select#typeResearchSct-ph:focus {
 	color: black !important;
 	width: 225px;
 	position: relative;
+	cursor: pointer
 }
 
 #divImgPlSch {
@@ -1397,14 +1406,22 @@ select#typeResearchSct-ph:focus {
 	border-radius: 10px 10px 0 0;
 }
 
-#heartImg {
+.heartImg {
 	position: absolute;
 	left: 10px;
 	top: 5px;
 	font-size: 32px;
 	color: #555;
+	z-index: 1;
+	margin: 5px;
+	cursor: pointer;
+	color: rgba(153, 153, 153, 0.3);
 }
 
+	.heartImg:hover {
+		color: rgba(196, 209, 2, 0.6)
+	}
+	
 #divImgPlSch #imgPlSch {
 	background-size: 100% !important;
 	width: 100%;
