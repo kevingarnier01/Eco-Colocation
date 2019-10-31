@@ -585,15 +585,23 @@ select:-moz-focusring {
 
 @keyframes markeranimation {
 	0% {
-		box-shadow: 0 -5px 3px 5px rgba(255, 255, 255, 0.9);
+		box-shadow: 0 -5px 30px 30px rgba(255, 255, 255, 0.97);
+	}
+
+	20% {
+		box-shadow: 0 -5px 30px 30px rgba(255, 255, 255, 0.97);
 	}
 
 	50% {
-		box-shadow: 0 5px 3px 5px rgba(255, 255, 255, 0.9);
+		box-shadow: 0 5px 30px 0px rgba(255, 255, 255, 0.97);
+	}
+
+	80% {
+		box-shadow: 0 -5px 30px 30px rgba(255, 255, 255, 0.97);
 	}
 
 	100% {
-		box-shadow: 0 -5px 3px 5px rgba(255, 255, 255, 0.9);
+		box-shadow: 0 -5px 30px 30px rgba(255, 255, 255, 0.97);
 	}
 }
 
@@ -1421,7 +1429,7 @@ select#typeResearchSct-ph:focus {
 	.heartImg:hover {
 		color: rgba(196, 209, 2, 0.6)
 	}
-	
+
 #divImgPlSch #imgPlSch {
 	background-size: 100% !important;
 	width: 100%;
@@ -3553,7 +3561,7 @@ i.fas.fa-times.crossPlace {
 	padding: 5px 15px;
 	border-radius: 3px;
 	background-color: white;
-	margin-top: 30px;
+	margin-top: 15px;
 	width: 300px;
 	margin-left: auto;
 	margin-right: auto;
@@ -3729,6 +3737,7 @@ i.fas.fa-times.crossPlace {
 #divMdpForget-acc {
 	display: flex;
 	text-decoration: none;
+	margin-bottom: 30px;
 }
 
 	#divMdpForget-acc p {
@@ -4258,6 +4267,7 @@ i.fas.fa-times.crossPlace {
 	padding: 5px 15px;
 	border-radius: 3px;
 	background-color: #C4D102;
+	width: 100%;
 }
 
 .iconInscriptionBtn-mcar {
@@ -4314,7 +4324,16 @@ i.fas.fa-times.crossPlace {
 	color: white;
 }
 
-/***** ModalCARecherche *****/
+/***** Fin ModalCARecherche *****/
+
+/*** PersonnalData ***/
+.textInfoIfAccountExist-pdf {
+	margin-bottom: 20px;
+	font-size: 15px;
+	display:none;
+}
+/*** Fin PersonnalData ***/
+
 #modalCAPropose {
 	width: 900px;
 	padding: 15px;

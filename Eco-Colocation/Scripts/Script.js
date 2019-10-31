@@ -669,9 +669,15 @@ function addr_search(url, inputId, typeResearch) {
 		}
 	};
 	//Permet de contourner l'attribute autoCompelte off qui ne fonctionne pas sur otut les navigateurs.
+	var randomNumber = Math.random();
 	if ($(inputId).attr("name") == null) {
-		$(inputId).attr("name", "inputAutoComplete" + Math.random())
+		$(inputId).attr("name", "inputAutoComplete" + randomNumber)
 	}
+
+	if ($(inputId).attr("autocomplete") == null || $(inputId).attr("autocomplete").substring(0, 4) != "nope") {
+		$(inputId).attr("autocomplete", "nope" + randomNumber)
+	}
+
 	xmlhttp.open("GET", url, true);
 	xmlhttp.send();
 

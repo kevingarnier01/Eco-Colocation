@@ -6,14 +6,9 @@
 <p class="underTitle centerText" id="titleFinishCreateAnnonce">Finaliser l'opération avec Eco-Colocation.fr</p>
 <div class="flex">
 	<div id="divbtnCreate-mbca" class="childFlex">
-		<div class="div2InscriptionBtn-mcar" id="div2InscriptionBtnFb-mcar">
-			<i class="iconInscriptionBtn-mcar fab fa-facebook"></i>
-			<p class="textInscriptionBtn-mcar">Finaliser l'opération en s'inscrivant avec Facebook</p>
-		</div>
-
-		<div class="div2InscriptionBtn-mcar" id="div2InscriptionBtnMail-mcar">
+		<div class="div2InscriptionBtn-mcar" id="div2InscriptionBtnMail-mcar" onclick="openDivElement('#createProfilWindow')">
 			<i class="iconInscriptionBtn-mcar fas fa-envelope"></i>
-			<p class="textInscriptionBtn-mcar" onclick="openDivElement('#createProfilWindow')">Finaliser l'opération en s'inscrivant avec un e-mail</p>
+			<p class="textInscriptionBtn-mcar">Finaliser l'opération en s'inscrivant</p>
 		</div>
 		<div id="createProfilWindow">
 			<div id="divCreateProfil-mcar">
@@ -43,9 +38,9 @@
 				</div>
 			</div>
 		</div>
-		<div class="flex" id="divConnectionToAccount-bca">
+		<div class="flex" id="divConnectionToAccount-bca" onclick="openDivElement('#connectProfilWindow')">
 			<div class="childFlex">
-				<div class="div2InscriptionBtn-mcar" id="div2ConnectionWithAccount-mcar" onclick="openDivElement('#connectProfilWindow')">
+				<div class="div2InscriptionBtn-mcar" id="div2ConnectionWithAccount-mcar">
 					<i class="iconInscriptionBtnByAccount-mcar fas fa-sign-in-alt"></i>
 					<p class="textInscriptionBtnByAccount-mcar">Finaliser l'opération en se connectant</p>
 				</div>

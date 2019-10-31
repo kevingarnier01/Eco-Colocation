@@ -144,7 +144,7 @@
 						</div>
 						<div id="div10-1-adresseLog-ca" class="col-sm-8 col-xs-12">
 							<div id="div10-2-adresseLog-ca" style="position:relative">
-								<input id="inputSearchPlace-mpc" oninput="addr_searchCity(this);" autocomplete="off" type="text" class="inputSearchPlace form-control" placeholder="Où recherchez-vous ? *">
+								<input id="inputSearchPlace-mpc" oninput="addr_searchCity(this);" type="text" class="inputSearchPlace form-control" placeholder="Où recherchez-vous ? *">
 								<input id="inputSearchPlace-mpcHidden" name="inputSearchPlace-mpcHidden" type="hidden" value="">
 								<div class="listAutoCompleteToModal"></div>
 								@* C'est ici que les villes qu'ils valident seront affichées *@
@@ -261,7 +261,7 @@
 													<option value="0">Tout type d'habitat</option>
 													<option value="1">Maison</option>
 													<option value="2">Appartement</option>
-													<option value="3">Eco-habitat</option>
+													<option value="3">Habitat insolite</option>
 												</select>
 											</td>
 										</tr>
@@ -539,5 +539,7 @@
 
 		$('#descTextAnnonceLocationDataPersonnal').detach().prependTo('#extraElement-pdf');
 		initAnnonceDescResult("#modalCreationProjet-ColocAnnounce")		
+
+		$(".textInfoIfAccountExist-pdf").fadeIn(0)
 	});
 </script>

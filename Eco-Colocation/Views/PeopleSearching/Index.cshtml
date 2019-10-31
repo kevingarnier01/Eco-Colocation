@@ -72,10 +72,12 @@
 			</div>
 		}
 
-
-		@foreach (var peopleSearching in Model?.PeopleSearchingViewModel?.LstPeopleSearchingVM)
+		@if (Model != null)
 		{
-			@Html.Partial("~/Views/PeopleSearching/HtmlAnnoncePeople.cshtml", Model)
+			foreach (var peopleSearching in Model?.PeopleSearchingViewModel?.LstPeopleSearchingVM)
+			{
+				@Html.Partial("~/Views/PeopleSearching/HtmlAnnoncePeople.cshtml", Model)
+			}
 		}
 		<div class="col-xs-12" id="divBtnOtherAnnoncePeople-ps">
 			<div class="flex col-xs-12">
