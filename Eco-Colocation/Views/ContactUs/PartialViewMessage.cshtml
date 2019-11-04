@@ -39,8 +39,14 @@
 	</div>
 	<div class="div1Input-pvm col-sm-12" style="margin-top: 20px;">
 		<div class="div2Input-pvm">
-			<div id="btnSendMsg-pvm" onclick="addOperationRealized_sp('@viewPageName', '@idModal')">Envoyer l'email</div>
+			<div id="btnSendMsg-pvm" onclick="addOperationRealized_sp('@viewPageName', '@idModal');sendMsgToEmail('#popupMsgSend-merev')">
+				Envoyer l'email
+				<i class="fas fa-spinner" id="loadSendMsg-pvm"></i>
+			</div>
 			@* Revoir le onclick, dire qu'il faut que le formulaire soit validé *@
 		</div>
+	</div>
+	<div class="flex" id="popupMsgSend-merev">
+		<p class="childFlex childFlexVertical">Votre message à bien été envoyé.</p>
 	</div>
 </div>

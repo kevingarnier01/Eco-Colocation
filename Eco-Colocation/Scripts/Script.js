@@ -25,7 +25,7 @@ $(document).ready(function () {
 	//Si le button close-modal à été cliqué, alors nous l'indiquons et l'evenement au dessus  (click sur modal)
 	//se charge de ne pas faire disparaitre le scroll bar du body
 	$(document).on('click', '.close-modal, .closeModal', function (e) {
-		stopNewTabOppening();
+		forceToOpenModalOnlyInThisTab();
 
 		$('body').css('overflow', 'auto');
 		//closemodalhasbeenclicked = true;
@@ -117,30 +117,52 @@ $(document).ready(function () {
 	//Fin "Permet aux onglets ..."
 
 	//Permet de ne plus pouvoir ouvrir le modal sur un autre onglet
-	stopNewTabOppening();
-	openModalInThisTab();
+	//stopNewTabOppening();
+	forceToOpenModalOnlyInThisTab();
 
 	//Affiche la bulle de conversation réduite uniquement s'il n'est pas sur la page d'accueil
 	if (window.location.pathname != "/" && window.location.pathname != "/Home" && window.location.pathname != "/Home/Index") {
 		appearAndReduceWindowsConvDev()
 	}
+
+	$(document).on("focus", ".inputSearchPlace", function (e) {
+		var randomNumber = Math.floor(100000 + Math.random() * 900000);
+		if ($(e.target).attr("name") == null) {
+			$(e.target).attr("name", "inputAutoComplete" + randomNumber)
+		}
+
+		if ($(e.target).attr("autocomplete") == null || $(e.target).attr("autocomplete").substring(0, 4) != "nope") {
+			$(e.target).attr("autocomplete", "nope" + randomNumber)
+		}
+	})
 });
 
 /***** Permet de ne plus pouvoir ouvrir le modal sur un autre onglet *****/
-function stopNewTabOppening() {
+//function stopNewTabOppening() {
+//	$('a').each(function () {
+//		if ($(this).attr('rel')) {
+//			var href = $(this).attr('href');
+//			$(this).removeAttr('href');
+//			//$(this).attr('onclick', "forceToOpenModalOnlyInThisTab()");
+//			if (!$(this).attr('jshref')) {
+//				$(this).attr('jshref', href); //add new attribte
+//			}
+//		}
+//	});
+//}
+
+function forceToOpenModalOnlyInThisTab() {
 	$('a').each(function () {
 		if ($(this).attr('rel')) {
 			var href = $(this).attr('href');
 			$(this).removeAttr('href');
-			//$(this).attr('onclick', "openModalInThisTab()");
+			//$(this).attr('onclick', "forceToOpenModalOnlyInThisTab()");
 			if (!$(this).attr('jshref')) {
 				$(this).attr('jshref', href); //add new attribte
 			}
 		}
 	});
-}
 
-function openModalInThisTab() {
 	$('a').bind('click', function (e) {
 		if ($(this).attr('jshref')) {
 			var href = $(this).attr('jshref');
@@ -288,8 +310,8 @@ function initSearchColocMap() {
 				var numberId = ii + 1;
 				var idElement = $("#onHoverMarker" + numberId);
 				var markerObject = L.marker(marker.latLng, { icon: leafIcon }).bindPopup(idElement.html(), customOptions).on("click", function () {
-					stopNewTabOppening();
-					openModalInThisTab();
+					//stopNewTabOppening();
+					forceToOpenModalOnlyInThisTab();
 				});
 
 				$("#annonce" + (ii + 1) + "-alpv").on("mouseover", function (e) {
@@ -669,11 +691,7 @@ function addr_search(url, inputId, typeResearch) {
 		}
 	};
 	//Permet de contourner l'attribute autoCompelte off qui ne fonctionne pas sur otut les navigateurs.
-	var randomNumber = Math.random();
-	if ($(inputId).attr("name") == null) {
-		$(inputId).attr("name", "inputAutoComplete" + randomNumber)
-	}
-
+	var randomNumber = Math.floor(100000 + Math.random() * 900000);
 	if ($(inputId).attr("autocomplete") == null || $(inputId).attr("autocomplete").substring(0, 4) != "nope") {
 		$(inputId).attr("autocomplete", "nope" + randomNumber)
 	}
@@ -993,8 +1011,8 @@ function loadEcoRoommateExistingMap(mymap) {
 			}
 
 			var markerObject = L.marker(marker.latLng, { icon: markerIcon }).bindPopup(customPopup, customOptions).on("click", function () {
-				stopNewTabOppening();
-				openModalInThisTab();
+				//stopNewTabOppening();
+				forceToOpenModalOnlyInThisTab();
 			});
 
 			markersCluster.addLayer(markerObject);
@@ -1049,8 +1067,8 @@ function loadEcoRoommateEventMap(mymap) {
 
 			var markerObject = L.marker(marker.latLng, { icon: markerIcon2 }).bindPopup(customPopup, customOptions).on("click", function () {
 				checkIfBtnInteretIsNotEmpty_erevom('.leafletDivEcoRommateEvent #eventMarker' + marker.id);
-				stopNewTabOppening();
-				openModalInThisTab();
+				//stopNewTabOppening();
+				forceToOpenModalOnlyInThisTab();
 			});
 			markerObject.on('mouseover', function (e) {
 
@@ -1399,13 +1417,19 @@ function showOthersEvents() {
 	// Appeler le controller pour recuperer quelques événements et les afficher
 	var event = $('#divBlocAnnonce2').html();
 	$("#divOthersEvents-ereom").append(event);
-	openModalInThisTab();
+	forceToOpenModalOnlyInThisTab();
 }
 
-function showOthersAnnounces() {
+function showOthersLocationAnnounces() {
 	var announce = $("#annonce2-alpv")[0].outerHTML;
 	$("#divOthersAnnounces-alpv").append(announce);
-	openModalInThisTab();
+	forceToOpenModalOnlyInThisTab();
+}
+
+function showOthersProjetCreationAnnounces() {
+	var announce = $(".divHighterProjetCreationPVLink")[0].outerHTML;
+	$("#divOthersAnnounces-pcpv").append(announce);
+	forceToOpenModalOnlyInThisTab();
 }
 
 function showOthersPeople() {
@@ -1415,7 +1439,7 @@ function showOthersPeople() {
 			//url: "/ControllerName/ActionName",
 			url: '/PeopleSearching/HtmlAnnoncePeople',
 			success: function (data) {
-				$("#divPanelPl #divBtnOtherAnnoncePeople-ps").before(data);			
+				$("#divPanelPl #divBtnOtherAnnoncePeople-ps").before(data);
 			}
 		});
 	}
@@ -1869,4 +1893,17 @@ function checkIfOperationRealized_sp(typeOperation, idAnnonce) {
 	else if (typeOperation == "SPSendMsg" && localStorage.getItem('SPSendMsg' + idAnnonce) != null) {
 		$("#msgImg-ps-" + idAnnonce).css('color', '#C4D102')
 	}
+}
+
+function sendMsgToEmail(idElementPopUp) {
+	$("#loadSendMsg-pvm").css("animation", "loadSendMsg 1s")
+	$("#loadSendMsg-pvm").css("animation-iteration-count", "infinite")
+	$("#loadSendMsg-pvm").fadeIn("slow");
+	$("#divInput-pvml input, #partialViewMessage textarea").val("")
+	$(idElementPopUp).css("display", "flex").hide().fadeIn(2000);
+	
+	setTimeout(function () {
+		$(idElementPopUp).fadeOut(2000);
+		$("#loadSendMsg-pvm").fadeOut(1000);
+	}, 5000)
 }

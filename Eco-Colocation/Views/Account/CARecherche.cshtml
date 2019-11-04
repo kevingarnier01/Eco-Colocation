@@ -4,11 +4,11 @@
 }
 @if (!User.Identity.IsAuthenticated)
 {
-	<h2 class="title centerText">Créer un profil en vous inscrivant</h2>
+	<h2 class="title centerText">Publier vos intérêts de recherche en vous inscrivant</h2>
 }
 else
 {
-	<div class="titleForm-mcar">Ajouter mon annonce de recherche d'éco-colocation</div>
+	<div class="underTitle titleForm-mcar">Ajouter mon annonce de recherche d'éco-colocation</div>
 }
 <div class="divEncadrer-mcar">
 	<div class="encadrer-mcar col-sm-11 col-xs-12">
@@ -56,7 +56,15 @@ else
 		Toutes ces données ne seront pas visibles publiquement, seulement votre prénom, votre âge et l'activité apparaîtra sur votre profil.
 	</p>
 </div>
-@Html.Partial("~/Views/Account/PersonalDataForm.cshtml")
+@if (!User.Identity.IsAuthenticated)
+{
+	@Html.Partial("~/Views/Account/PersonalDataForm.cshtml")
+}
+else
+{
+	@Html.Partial("~/Views/Account/PersonalDataForm.cshtml")
+	<div id="divMethodToBeContact-car"></div>
+}
 <div class="divEncadrer-mcar" id="divDesciptionInfo-mcar">
 	<div class="encadrer-mcar col-sm-11 col-xs-12">
 		<div class="col-sm-4 col-xs-12 divImgLogo-mcar">
@@ -96,7 +104,7 @@ else
 				</div>
 			</div>
 			<div id="divGlobalBtnUplFile-mcar">
-				<label id="btnUplFile-mcar" for="file-upload">Ajouter des photos de vous *</label>
+				<label id="btnUplFile-mcar" for="file-upload">Ajouter des photos de vous</label>
 				<input id="file-upload" type="file" multiple="multiple">
 			</div>
 		</div>
@@ -128,5 +136,9 @@ else
 		initSlidepicture();
 		showDivCritereRecherche();
 		$('#descTextAnnonceLocationDataPersonnal').detach().prependTo('#extraElement-pdf');
+
+		if ($("#divMethodToBeContact-car").length != 0) {
+			$("#divPersonnaliteInfo-mcar").remove();
+		}
 	});
 </script>

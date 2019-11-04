@@ -45,15 +45,16 @@
 					<div id="divDescAnn-ca" class="col-sm-12 col-xs-12">
 						<div id="div1DescAnn-ca" class="col-sm-12 col-xs-12">
 							<div id="div1-1DescAnn-ca" class="col-sm-12 col-xs-12">
-								<label for="descPersonneRecherche-ml">Description de la personne(s) recherchée(s)</label>
+								<label for="descPersonneRecherche-ml">Description de la recherche</label>
 							</div>
 						</div>
 						<div id="div2DescAnn-ca" class="col-sm-12 col-xs-12">
 							<div id="div2-1DescAnn-ca" class="col-sm-12 col-xs-12">
-								<textarea id="descPersonneRecherche-ml" class="inpDescAnnonce" name="descAnnonce" placeholder="Nous recherchons une personne(s) ... [façon de vivre, niveau d'implication écologique, etc]  ."></textarea>
+								<textarea id="descPersonneRecherche-ml" class="inpDescAnnonce" name="descAnnonce" placeholder="Nous recherchons ... [Nombre de personne, type de personne, etc]  ."></textarea>
 							</div>
 						</div>
 					</div>
+					<h3 class="col-xs-12 underTitle centerText" id="titleAboutColocation-ml">Concernant votre collocation</h3>
 					<div id="divDescAnn-ca" class="col-sm-12 col-xs-12">
 						<div id="div1DescAnn-ca" class="col-sm-12 col-xs-12">
 							<div id="div1-1DescAnn-ca" class="col-sm-12 col-xs-12">
@@ -66,19 +67,31 @@
 							</div>
 						</div>
 					</div>
-					<h3 class="col-xs-12 underTitle centerText" id="titleAboutColocation-ml">Concernant votre collocation</h3>
 					<div id="divEcoPratic-ca" class="col-sm-12 col-xs-12">
 						<div id="div1-ecoPratic-ca" class="col-sm-12 col-xs-12">
 							<div id="div1-1-ecoPratic-ca" class="col-sm-12 col-xs-12">
-								<label for="presentationLogement-ml">Présentation du logement, du terrain et de la commune</label>
+								<label for="presentationLogement-ml">Présentation du logement</label>
 							</div>
 						</div>
 						<div id="div2-ecoPratic-ca" class="col-sm-12 col-xs-12">
 							<div id="div2-1-ecoPratic-ca" class="col-sm-12 col-xs-12">
-								<textarea id="presentationLogement-ml" class="inpDescAnnonce" name="descEcoPratique" placeholder="L'habitat/terrain/commune est ... [Pièces/aménagement, localisation, etc]."></textarea>
+								<textarea id="presentationLogement-ml" class="inpDescAnnonce" name="descEcoPratique" placeholder="Le logement est ... [Pièces/etat, jardin, etc]."></textarea>
 							</div>
 						</div>
 					</div>
+					<div id="divEcoPratic-ca" class="col-sm-12 col-xs-12">
+						<div id="div1-ecoPratic-ca" class="col-sm-12 col-xs-12">
+							<div id="div1-1-ecoPratic-ca" class="col-sm-12 col-xs-12">
+								<label for="presentationCommune-ml">Présentation de la ville/commune</label>
+							</div>
+						</div>
+						<div id="div2-ecoPratic-ca" class="col-sm-12 col-xs-12">
+							<div id="div2-1-ecoPratic-ca" class="col-sm-12 col-xs-12">
+								<textarea id="presentationCommune-ml" class="inpDescAnnonce" name="descEcoPratique" placeholder="La commune est ... [Proximité : activité, commerce, transport, etc]."></textarea>
+							</div>
+						</div>
+					</div>
+					<h3 class="col-xs-12 underTitle centerText" id="titleAboutColocation-ml">Concernant les colocataires</h3>
 					<div id="divEcoPratic-ca" class="col-sm-12 col-xs-12">
 						<div id="div1-ecoPratic-ca" class="col-sm-12 col-xs-12">
 							<div id="div1-1-ecoPratic-ca" class="col-sm-12 col-xs-12">
@@ -94,7 +107,7 @@
 					<div id="divEcoPratic-ca" class="col-sm-12 col-xs-12">
 						<div id="div1-ecoPratic-ca" class="col-sm-12 col-xs-12">
 							<div id="div1-1-ecoPratic-ca" class="col-sm-12 col-xs-12">
-								<label for="convivialite-ml">Présentation de la convivialité commune</label>
+								<label for="convivialite-ml">Présentation de la convivialité au sein de l'habitat</label>
 							</div>
 						</div>
 						<div id="div2-ecoPratic-ca" class="col-sm-12 col-xs-12">
@@ -139,9 +152,6 @@
 							</div>
 						</div>
 					</div>
-					<div class="childFlex overflow" id="infoChampsAnnonce-ml-mpc">
-						<p class="centerText">ATTENTION : Votre texte apparaîtra en un seul bloc, merci de faire des phrases !</p>
-					</div>
 					<div class="flex globalDivShowUserDesc">
 						<div class="childFlex divShowUserDesc">
 							<p class="underTitle centerText titleshowUserDesc">Aperçu du rendu final de votre description</p>
@@ -152,6 +162,7 @@
 									<p id="descPersonneRecherche-mlResult" class="inpDescAnnonceResult"></p>
 									<p id="descChambrePropose-mlResult" class="inpDescAnnonceResult"></p>
 									<p id="presentationLogement-mlResult" class="inpDescAnnonceResult"></p>
+									<p id="presentationCommune-mlResult" class="inpDescAnnonceResult"></p>
 									<p id="personnesPresentes-mlResult" class="inpDescAnnonceResult"></p>
 									<p id="convivialite-mlResult" class="inpDescAnnonceResult"></p>
 									<p id="organisation-mlResult" class="inpDescAnnonceResult"></p>
@@ -224,7 +235,7 @@
 									<tbody>
 										<tr>
 											<td class="col-xs-6">
-												<label for="Loyer">Loyer (sans charges) *</label>
+												<label for="Loyer">Loyer (hors charges) *</label>
 											</td>
 											<td class="col-xs-6">
 												<div class="flex">
@@ -329,7 +340,7 @@
 											<td class="col-xs-6">
 												<select class="form-control" id="Implantation">
 													<option value="1">Campagne</option>
-													<option value="2">Ville/village</option>
+													<option value="2">Ville/commune</option>
 												</select>
 											</td>
 										</tr>
@@ -413,7 +424,7 @@
 										</tr>
 										<tr>
 											<td><label id="lblDescSupAccessibilite-ml">Info supplémentaire</label></td>
-											<td><textarea type="text" id="descSupAccessibilite-ml"></textarea></td>
+											<td><textarea type="text" id="descSupAccessibilite-ml" maxlength="250"></textarea></td>
 										</tr>
 									</tbody>
 								</table>
@@ -464,7 +475,7 @@
 										</tr>
 										<tr>
 											<td><label id="lblDescSupTolerence-ml">Info supplémentaire</label></td>
-											<td><textarea type="text" id="descSupTolerence-ml"></textarea></td>
+											<td><textarea type="text" id="descSupTolerence-ml" maxlength="250"></textarea></td>
 										</tr>
 									</tbody>
 								</table>

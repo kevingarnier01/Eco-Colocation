@@ -585,23 +585,23 @@ select:-moz-focusring {
 
 @keyframes markeranimation {
 	0% {
-		box-shadow: 0 -5px 30px 30px rgba(255, 255, 255, 0.97);
+		box-shadow: 0 -5px 30px 30px rgba(255, 165, 0, 0.97);
 	}
 
 	20% {
-		box-shadow: 0 -5px 30px 30px rgba(255, 255, 255, 0.97);
+		box-shadow: 0 -5px 30px 30px rgba(255, 165, 0, 0.97);
 	}
 
 	50% {
-		box-shadow: 0 5px 30px 0px rgba(255, 255, 255, 0.97);
+		box-shadow: 0 5px 30px 0px rgba(255, 165, 0, 0.97);
 	}
 
 	80% {
-		box-shadow: 0 -5px 30px 30px rgba(255, 255, 255, 0.97);
+		box-shadow: 0 -5px 30px 30px rgba(255, 165, 0, 0.97);
 	}
 
 	100% {
-		box-shadow: 0 -5px 30px 30px rgba(255, 255, 255, 0.97);
+		box-shadow: 0 -5px 30px 30px rgba(255, 165, 0, 0.97);
 	}
 }
 
@@ -2024,6 +2024,7 @@ div#divContenuPlSchDisable {
 .divHighterProjetCreationPVLink {
 	max-width: 90%;
 	position: relative;
+	padding-top: 4px;
 }
 
 .divToolEditProjetCreation-al {
@@ -2379,6 +2380,13 @@ div#divContenuPlSchDisable {
 	#logo-pcpv img {
 		width: 20px
 	}
+
+#btnOtherAnnonceLocation-pcpv {
+	background-color: white;
+	margin-top: 15px;
+	color: #636161 !important;
+	margin-bottom: 5px;
+}
 
 /** Pagination **/
 /* Pagination links */
@@ -2874,6 +2882,25 @@ d5-description-mpc {
 @media only screen and (max-width: 767px) {
 	#partialViewMessage {
 		margin-bottom: 30px
+	}
+}
+
+#loadSendMsg-pvm {
+	color: white;
+	display: none
+}
+
+@keyframes loadSendMsg {
+	0% {
+		color: white;
+	}
+
+	50% {
+		color: rgba(255, 255, 255, 0.2);
+	}
+
+	100% {
+		color: white;
 	}
 }
 
@@ -3923,7 +3950,6 @@ i.fas.fa-times.crossPlace {
 	text-align: center;
 	font-family: cursive;
 	font-size: 27px;
-	color: #333333;
 	line-height: 1.2;
 	margin-top: 15px;
 	margin-bottom: 45px;
@@ -4330,7 +4356,7 @@ i.fas.fa-times.crossPlace {
 .textInfoIfAccountExist-pdf {
 	margin-bottom: 20px;
 	font-size: 15px;
-	display:none;
+	display: none;
 }
 /*** Fin PersonnalData ***/
 
@@ -6309,6 +6335,21 @@ input.radioFibreEco-ayer {
 
 #divModalGoingOrInterested-merev {
 	display: none;
+}
+
+#popupMsgSend-merev {
+	display: none;
+	position: absolute;
+	height: 50px;
+	width: 200px;
+	background-color: white;
+	border-radius: 15px;
+	box-shadow: 0 0 15px 0 #999;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto;
 }
 
 /*********** AddYourEcoRoommateEvent ************/

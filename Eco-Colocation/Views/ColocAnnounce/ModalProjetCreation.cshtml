@@ -54,12 +54,12 @@
 					<div id="divDescAnn-ca" class="col-sm-12 col-xs-12">
 						<div id="div1DescAnn-ca" class="col-sm-12 col-xs-12">
 							<div id="div1-1DescAnn-ca" class="col-sm-12 col-xs-12">
-								<label for="descPersonneRecherche-ml">Description de la personne(s) recherchée(s)</label>
+								<label for="descPersonneRecherche-ml">Description de la recherche</label>
 							</div>
 						</div>
 						<div id="div2DescAnn-ca" class="col-sm-12 col-xs-12">
 							<div id="div2-1DescAnn-ca" class="col-sm-12 col-xs-12">
-								<textarea id="descPersonneRecherche-ml" class="inpDescAnnonce" name="descAnnonce" placeholder="Je recherche une personne(s) ... [investissement, façon de vivre, niveau d'implication écologique, etc] ."></textarea>
+								<textarea id="descPersonneRecherche-ml" class="inpDescAnnonce" name="descAnnonce" placeholder="Je recherche  ... [Nombre de personne, type de personne, implication attendu, etc] ."></textarea>
 							</div>
 						</div>
 					</div>
@@ -67,12 +67,12 @@
 					<div id="divEcoPratic-ca" class="col-sm-12 col-xs-12">
 						<div id="div1-ecoPratic-ca" class="col-sm-12 col-xs-12">
 							<div id="div1-1-ecoPratic-ca" class="col-sm-12 col-xs-12">
-								<label for="convivialite-mpc">Convivialité commune souhaitée</label>
+								<label for="convivialite-mpc">Convivialité souhaitée au sein de l'habitat</label>
 							</div>
 						</div>
 						<div id="div2-ecoPratic-ca" class="col-sm-12 col-xs-12">
 							<div id="div2-1-ecoPratic-ca" class="col-sm-12 col-xs-12">
-								<textarea id="convivialite-mpc" class="inpDescAnnonce" name="descEcoPratique" placeholder="Je souhaiterai que ... [Activités/intérêts en communs, capacité d’accueil, etc] ."></textarea>
+								<textarea id="convivialite-mpc" class="inpDescAnnonce" name="descEcoPratique" placeholder="Je souhaiterai que ... [Activités partagés, capacité d’accueil, etc] ."></textarea>
 							</div>
 						</div>
 					</div>
@@ -111,9 +111,6 @@
 								<textarea id="autresPrecisions-mpc" class="inpDescAnnonce" name="descEcoPratique"></textarea>
 							</div>
 						</div>
-					</div>
-					<div class="childFlex overflow" id="infoChampsAnnonce-ml-mpc">
-						<p class="centerText">ATTENTION : Votre texte apparaîtra en un seul bloc, merci de faire des phrases !</p>
 					</div>
 					<div class="flex globalDivShowUserDesc">
 						<div class="childFlex divShowUserDesc">
@@ -271,20 +268,20 @@
 												<select id="select2-loyer-fh" class="form-control">
 													<option value="0">Toutes localisations</option>
 													<option value="1">Campagne</option>
-													<option value="2">Ville/village</option>
+													<option value="2">Ville/commune</option>
 													<option value="3">Ville ou campagne/option>
 												</select>
 											</td>
 										</tr>
 										<tr>
-											<td class="col-xs-6"><label for="Caution">Superficie maximun *</label></td>
+											<td class="col-xs-6"><label for="Caution">Superficie maximum *</label></td>
 											<td class="flex">
 												<input id="superficieLogement" type="number" class="inputtable-ca" placeholder="Superficie max" style="width: 150px;padding: 5px 8px;">
 												<p class="centerText signInputPropose-ml">m²</p>
 											</td>
 										</tr>
 										<tr id="rowCreation" class="rowByEngagement">
-											<td class="col-xs-6"><label for="Loyer">Cout de création maximun *</label></td>
+											<td class="col-xs-6"><label for="Loyer">Cout de création maximum *</label></td>
 											<td class="col-xs-6">
 												<div class="flex">
 													<input id="coutCreationMoy" name="coutCreationMoy" type="number" min="0" class="inputtable-ca" placeholder="Cout de création max" style="width: 150px;padding: 5px 8px;padding-right: 0;">
@@ -293,7 +290,7 @@
 											</td>
 										</tr>
 										<tr id="rowAchat" class="rowByEngagement">
-											<td class="col-xs-6"><label for="Loyer">Cout de l'achat maximun *</label></td>
+											<td class="col-xs-6"><label for="Loyer">Cout de l'achat maximum *</label></td>
 											<td class="col-xs-6">
 												<div class="flex">
 													<input id="coutAchatMoyTerrain-mpc" name="coutAchatMoyTerrain-mpc" type="number" min="0" class="inputtable-ca" placeholder="Cout d'achat max" style="width: 150px;padding: 5px 8px;">
@@ -302,7 +299,7 @@
 											</td>
 										</tr>
 										<tr id="rowLoyer" class="rowByEngagement">
-											<td class="col-xs-6"><label for="Loyer">Loyer / personne maximun *</label></td>
+											<td class="col-xs-6"><label for="Loyer">Loyer / personne maximum *</label></td>
 											<td class="col-xs-6">
 												<div id="div-2-1-1-loyer-fh">
 													<div class="flex">
@@ -412,7 +409,7 @@
 										</tr>
 										<tr>
 											<td><label id="lblDescSupAccessibilite-ml">Info supplémentaire</label></td>
-											<td><textarea type="text" id="descSupAccessibilite-ml"></textarea></td>
+											<td><textarea type="text" id="descSupAccessibilite-ml" maxlength="250"></textarea></td>
 										</tr>
 									</tbody>
 								</table>
@@ -463,7 +460,7 @@
 										</tr>
 										<tr>
 											<td><label id="lblDescSupTolerence-ml">Info supplémentaire</label></td>
-											<td><textarea type="text" id="descSupTolerence-ml"></textarea></td>
+											<td><textarea type="text" id="descSupTolerence-ml" maxlength="250"></textarea></td>
 										</tr>
 									</tbody>
 								</table>

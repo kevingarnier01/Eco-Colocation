@@ -125,13 +125,15 @@
 		</div>
 	</a>
 </div>
+<div id="divOthersAnnounces-pcpv" class="overflow"></div>
+<div class="flex">
+	<div class="btnGreen childFlex" id="btnOtherAnnonceLocation-pcpv" onclick="showOthersProjetCreationAnnounces()">
+		<p id="txtShowNewEvent-alpv">Voir plus d'annonces</p>
+		<div class="flex"><i class="fas fa-sort-down childFlex" id="iconShowNewEvent-alpv"></i></div>
+	</div>
+</div>
 <script language="javascript">
 	$(document).ready(function () {
 		lineMaxToShow("#personnalityProfilPC");
-
-		//Ne pas afficher la possibilité d'editer si l'url contient SearchColoc
-		if (window.location.pathname.indexOf("SearchColoc") == 1) {
-			$(".divToolEditProjetCreation-al").remove();
-		}
 	});
 </script>
