@@ -1,0 +1,44 @@
+﻿
+@{
+	ViewBag.Title = "PopupMarkerLocations";
+}
+
+<div class="onHoverMarker" id="onHoverMarker1">
+	<div id="divPrixAnnonce">
+		<div id="prixAnnonce">340€<span id="rentCosts">/mois</span></div>
+	</div>
+	<div id="markerPhoto" class="col-md-5 col-xs-5">
+		<img class="img-responsive col-xs-12" src="https://lcdcfrance-prod.s3.amazonaws.com/pictures/5971704b03891a82ae95f895a7700705_small.jpg" style="padding: 0;">
+	</div>
+	<div id="description" class="col-md-7 col-xs-7">
+		<p class="nameColoc-al">Maison de 5 collocataires</p>
+		<p class="fontFamilyNote centerText underTitlePopup-al">1 chambre disponible dès le 11/12/2019</p>
+		<p class="descriptionHabitat-al fontFamilyNote">Nous recherchons 2 hommes pour amener une mixité...</p>
+	</div>
+	<div id="divLinkDetailEvent-erevom" class="col-xs-12">
+		<a id="annonceLocationPVLink-1" class="linkDetailEvent-al" rel="modal:open" href="@Url.Action("ModalLocation","SearchColoc", new { @idModal = "1" })">
+			<i id="iconDetailEvent-erevom" class="fas fa-angle-double-right"></i>
+			<p class="fontFamilyNote">En savoir plus</p>
+		</a>
+	</div>
+</div>
+
+<div class="onHoverMarker" id="onHoverMarker2">
+	<div id="divPrixAnnonce">
+		<div id="prixAnnonce">340€<span id="rentCosts">/mois</span></div>
+	</div>
+	<div id="markerPhoto" class="col-md-5 col-xs-5">
+		<img class="img-responsive col-xs-12" src="https://lcdcfrance-prod.s3.amazonaws.com/pictures/5971704b03891a82ae95f895a7700705_small.jpg" style="padding: 0;">
+	</div>
+	<div id="description" class="col-md-7 col-xs-7">
+		<p class="nameColoc-al">Maison de 5 collocataires</p>
+		<p class="fontFamilyNote centerText underTitlePopup-al">2 chambres disponibles dès le 01/08/2020</p>
+		<p class="descriptionHabitat-al fontFamilyNote">Nous recherchons 2 hommes pour amener une mixité...</p>
+	</div>
+	<div id="divLinkDetailEvent-erevom" class="col-xs-12">
+		<a id="annonceLocationPVLink-2" class="linkDetailEvent-al" rel="modal:open" href="@Url.Action("ModalLocation","SearchColoc", new { @idModal = "2" })">
+			<i id="iconDetailEvent-erevom" class="fas fa-angle-double-right"></i>
+			<p class="fontFamilyNote">En savoir plus</p>
+		</a>
+	</div>
+</div>

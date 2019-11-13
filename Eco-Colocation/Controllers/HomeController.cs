@@ -10,11 +10,10 @@ namespace Eco_Colocation.Controllers
 		{
 			AllViewModel allViewModel = new AllViewModel();
 			allViewModel.PeopleSearchingViewModel = new PeopleSearchingViewModel();
-
-
-			PeopleSearchingViewModel peopleSearching = new PeopleSearchingViewModel();
+									
 			for (int i = 0; i < 6; i++)
 			{
+				PeopleSearchingViewModel peopleSearching = new PeopleSearchingViewModel();
 				peopleSearching.IdPeopleSearching = i;
 				allViewModel.PeopleSearchingViewModel.LstPeopleSearchingVM.Add(peopleSearching);
 			}

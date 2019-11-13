@@ -76,6 +76,7 @@
 		{
 			foreach (var peopleSearching in Model?.PeopleSearchingViewModel?.LstPeopleSearchingVM)
 			{
+				Model.PeopleSearchingViewModel.IdPeopleSearching = peopleSearching.IdPeopleSearching;
 				@Html.Partial("~/Views/PeopleSearching/HtmlAnnoncePeople.cshtml", Model)
 			}
 		}

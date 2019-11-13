@@ -335,8 +335,6 @@ function initSearchColocMap() {
 					stopAnimationToMarker(markerCluster)
 				});
 
-				showOthersEvents()
-
 				markersCluster.addLayer(markerObject);
 				mymap.fitBounds(markersCluster.getBounds());
 
@@ -344,12 +342,82 @@ function initSearchColocMap() {
 		})();
 	}
 
+	initPartenaireOnMap_Sc(mymap);
+
 	mymap.addLayer(markersCluster);
 
 	//Permet de reinitialiser les valeurs afin de repasser dans la méthode initmarkersCluster()
 	mymap.on('zoom', function () {
 		markersCluster.refreshClusters();
 	});
+}
+
+//Enumeration
+var TypeActivitePartenaire = {
+	Producteur: 1,
+	Epicerie: 2,
+};
+
+function initPartenaireOnMap_Sc(mymap) {
+	var leafIcon = [];
+	leafIcon[TypeActivitePartenaire.Producteur] = L.divIcon({
+		className: 'custom-div-icon',
+		html: "<div class='flex popupPartenaire'><i class='fas fa-shopping-basket imgPopupPartenaire'></i></div>",
+		iconSize: [25, 25]
+	});
+
+	leafIcon[TypeActivitePartenaire.Epicerie] = L.divIcon({
+		className: 'custom-div-icon',
+		html: "<div class='flex popupPartenaire'><i class='fas fa-shopping-cart imgPopupPartenaire'></i></div>",
+		iconSize: [25, 25]
+	});
+	
+	var data = [
+		{
+			dataActivite: '1',
+			name: 'Marker10',
+			latLng: [48.101228, -1.626257],
+			id: '10'
+		},
+		{
+			dataActivite: '2',
+			name: 'Marker20',
+			latLng: [48.131728, -1.656257],
+			id: '20'
+		}
+	];
+
+	for (var i = 0; i < data.length; i++) {
+		(function () {
+			var ii = i;
+			setTimeout(function () {
+				var marker = data[ii];
+
+				// specify popup options 
+				var customOptions =
+				{
+					'className': 'leafletDivAnnounce'
+				}
+
+				var numberId = ii + 1;
+				var idElement = $("#popupPartenaire" + numberId);
+				
+				var markerObject = L.marker(marker.latLng, { icon: leafIcon[marker.dataActivite] }).bindPopup(idElement.html(), customOptions).on("click", function () {
+					forceToOpenModalOnlyInThisTab();
+				}).addTo(mymap);
+
+				mymap.on('zoomend', function () {
+					if (mymap.getZoom() < 11) {
+						mymap.removeLayer(markerObject);
+					}
+					else {
+						mymap.addLayer(markerObject);
+					}
+				});
+			}, 1000);
+		})();
+	}
+	
 }
 
 function selectSwitcher(element) {
@@ -1901,7 +1969,7 @@ function sendMsgToEmail(idElementPopUp) {
 	$("#loadSendMsg-pvm").fadeIn("slow");
 	$("#divInput-pvml input, #partialViewMessage textarea").val("")
 	$(idElementPopUp).css("display", "flex").hide().fadeIn(2000);
-	
+
 	setTimeout(function () {
 		$(idElementPopUp).fadeOut(2000);
 		$("#loadSendMsg-pvm").fadeOut(1000);
