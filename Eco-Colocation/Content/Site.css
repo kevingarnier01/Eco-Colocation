@@ -5480,6 +5480,10 @@ input.radioFibreEco-ayer {
 	width: max-content;
 }
 
+#infoEmailEcoColoc-ayer {
+	width: 450px;
+}
+
 #btnAddPicture-ayer {
 	padding: 7px;
 	box-shadow: 0 0 5px 0px black;
@@ -6020,6 +6024,7 @@ input.radioFibreEco-ayer {
 
 #iconDetailEvent-erevom {
 	line-height: 20px;
+	margin: auto;
 	margin-right: 6px;
 }
 

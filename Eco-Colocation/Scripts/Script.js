@@ -371,7 +371,7 @@ function initPartenaireOnMap_Sc(mymap) {
 		html: "<div class='flex popupPartenaire'><i class='fas fa-shopping-cart imgPopupPartenaire'></i></div>",
 		iconSize: [25, 25]
 	});
-	
+
 	var data = [
 		{
 			dataActivite: '1',
@@ -401,7 +401,7 @@ function initPartenaireOnMap_Sc(mymap) {
 
 				var numberId = ii + 1;
 				var idElement = $("#popupPartenaire" + numberId);
-				
+
 				var markerObject = L.marker(marker.latLng, { icon: leafIcon[marker.dataActivite] }).bindPopup(idElement.html(), customOptions).on("click", function () {
 					forceToOpenModalOnlyInThisTab();
 				}).addTo(mymap);
@@ -417,7 +417,7 @@ function initPartenaireOnMap_Sc(mymap) {
 			}, 1000);
 		})();
 	}
-	
+
 }
 
 function selectSwitcher(element) {
@@ -911,6 +911,45 @@ function openSecondModal() {
 	}, 1000);
 }
 
+function showfile(elementIdToAppend) {
+	$('body').addClass('waiting');
+
+	var file = document.querySelector('input[name="filePicture-mcar"]').files[0];
+	var reader = new FileReader();
+
+	reader.addEventListener("load", function () {
+
+		var imgResult = $("#pictureUpl1-mcar")
+		imgResult.attr('background', "url(" + reader.result + ") 50% no-repeat");
+		if ($(".div2ResultFilesUpl-mcar").length != 0) {
+			$(".div2ResultFilesUpl-mcar").remove()
+		}
+		var elementHtml =
+			'<li class="div2ResultFilesUpl-mcar">' +
+			'<div class="div3ResultFilesUpl-mcar" >' +
+			'<label class="labelDescFile-mcar">Photo de couverture</label>' +
+			'<div class="resultPictureUpl-mcar" id="pictureUpl-mcar"' +
+			'style="background: url(' + reader.result + ') 50% no-repeat;" ></div >' +
+			'<i class="crossPictureUpl-mcar fas fa-times-circle" onclick="removeFileImg(\'.div2ResultFilesUpl-mcar\')"></i>' +
+			'</div>' +
+			'</li >';
+
+		$("#" + elementIdToAppend).append(elementHtml);
+
+		$('body').removeClass('waiting');
+		$('input[name="filePicture-mcar"]').val(null);
+
+	}, false);
+
+	if (file) {
+		reader.readAsDataURL(file);
+	}
+}
+
+function removeFileImg(elementId) {
+	$(elementId).remove();
+}
+
 function showMultiplesFilesUpload(filesInputId, elementIdToAppend) {
 	var filesInput = document.getElementById(filesInputId);
 
@@ -1329,6 +1368,7 @@ function uploadImgEcoRoommate() {
 	if (file) {
 		reader.readAsDataURL(file);
 	}
+	$('input[type=file]').val(null);
 }
 
 function removeUploadPicture_ayer() {

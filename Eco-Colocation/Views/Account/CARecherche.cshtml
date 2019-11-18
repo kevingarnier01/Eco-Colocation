@@ -100,12 +100,12 @@ else
 			<div id="divGlobalMsgPhoto-mcar">
 				<i class="fas fa-info" id="iconMsgPhoto-mcar"></i>
 				<div>
-					<p>Les profils accompagnées de photos sont 7 fois plus consultés que les autres.</p>
+					<p>Les profils accompagnées d'une photo sont 7 fois plus consultés que les autres.</p>
 				</div>
 			</div>
 			<div id="divGlobalBtnUplFile-mcar">
-				<label id="btnUplFile-mcar" for="file-upload">Ajouter des photos de vous</label>
-				<input id="file-upload" type="file" multiple="multiple">
+				<label id="btnUplFile-mcar" for="file-upload">Ajouter une photo de vous</label>
+				<input id="file-upload" type="file" name="filePicture-mcar" onchange="showfile('divResultFilesUpl-mcar')">
 			</div>
 		</div>
 	</div>
@@ -113,9 +113,12 @@ else
 <div id="divGlobalResultFilesUpl-mcar">
 	<div class="childFlex">
 		<ul id="divResultFilesUpl-mcar" class='all-slides'>
-			@* Html généré par javascript dans la fonction showMultiplesFilesUpload() *@
+			@*Html généré par javascript dans la fonction showMultiplesFilesUpload()*@
 		</ul>
 	</div>
+	@*<img src="" id="resultImgUpl-mcar">
+		<i id="icondeletePicture-ayer" class="fas fa-times-circle" onclick="removeUploadPicture_ayer()"></i>
+		<i class="fas fa-check-circle" id="checkPicture-ayer"></i>*@
 </div>
 @if (!User.Identity.IsAuthenticated)
 {
@@ -132,7 +135,7 @@ else
 
 <script type="text/javascript">
 	$(document).ready(function () {
-		showMultiplesFilesUpload("file-upload", "divResultFilesUpl-mcar");
+		//showMultiplesFilesUpload("file-upload", "divResultFilesUpl-mcar");
 		initSlidepicture();
 		showDivCritereRecherche();
 		$('#descTextAnnonceLocationDataPersonnal').detach().prependTo('#extraElement-pdf');

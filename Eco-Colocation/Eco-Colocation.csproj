@@ -51,6 +51,8 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -131,6 +133,11 @@
     <Compile Include="App_Start\_Enums.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ColocAnnounceController.cs" />
+    <Compile Include="Controllers\EcoColocationModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EcoColocationModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\EcoRoommateEventController.cs" />
     <Compile Include="Controllers\EcoRoommateExistingController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -281,6 +288,13 @@
     <Content Include="bin\roslyn\vbc.exe.config" />
     <Content Include="bin\roslyn\vbc.rsp" />
     <Content Include="bin\roslyn\VBCSCompiler.exe.config" />
+    <EntityDeploy Include="Controllers\EcoColocationModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>EcoColocationModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Controllers\EcoColocationModel.edmx.diagram">
+      <DependentUpon>EcoColocationModel.edmx</DependentUpon>
+    </Content>
     <None Include="Properties\PublishProfiles\Eco-Colocation - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.5.1.js" />
