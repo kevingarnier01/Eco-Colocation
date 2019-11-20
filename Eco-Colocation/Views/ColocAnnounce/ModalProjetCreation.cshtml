@@ -161,6 +161,29 @@
 					</div>
 				</div>
 			</div>
+			<div class="divEncadrer-mcar" id="divPhotoProjetCreation-mpc">
+				<div class="encadrer-mcar col-sm-11 col-xs-12">
+					<div class="col-sm-4 divLeftSideEncadrer-mcar divImgLogo-mcar">
+						<div class="divImgLogoHorizontal-mcar">
+							<div class="divImgLogoVertical-mcar">
+								<i class="fas fa-camera-retro icon-ca"></i>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-8 divRightSideEncadrer-mcar">
+						<p class="centerText" id="txtPhotoProjetCreation-mpc">Ajouter des photos pour illustrer votre projet de création d'éco-colocation</p>
+						<div id="divGlobalBtnUplFile-mcar">
+							<label id="btnUplFile-mpc" for="fileUploadMpc">Ajouter des photos</label>
+							<input id="fileUploadMpc" type="file" name="filePicture-mpc" multiple="multiple">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="divGlobalResultFilesUpl-mcar">
+				<div class="childFlex">
+					<ul id="divResultFilesUpl-mcar" class="all-slides ui-sortable"></ul>
+				</div>
+			</div>
 			<div id="div1-descInform-ca" class="col-sm-12" style="">
 				<div id="div2-descInform-ca" class="col-sm-11 col-xs-12">
 					<div class="div20-descInform-ca" id="tableTerrain-mpc">
@@ -489,6 +512,36 @@
 				</div>
 			</div>
 		</div>
+		<div class="divEncadrer-mcar" id="divPhotoUser-mpc">
+			<div class="encadrer-mcar col-sm-11 col-xs-12">
+				<div class="col-sm-4 divLeftSideEncadrer-mcar divImgLogo-mcar">
+					<div class="divImgLogoHorizontal-mcar">
+						<div class="divImgLogoVertical-mcar">
+							<i class="fas fa-camera-retro icon-ca"></i>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-8 divRightSideEncadrer-mcar">
+					<div id="divGlobalMsgPhoto-mcar">
+						<i class="fas fa-info" id="iconMsgPhoto-mcar"></i>
+						<div>
+							<p>Les profils accompagnées d'une photo sont 7 fois plus consultés que les autres.</p>
+						</div>
+					</div>
+					<div id="divGlobalBtnUplFile-mcar">
+						<label id="btnUplFile-mcar" for="file-upload">Ajouter une photo de vous</label>
+						<input id="file-upload" type="file" name="filePicture-mcar" onchange="showfile('divResultFilesUpl2-mcar')">
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="divGlobalResultFilesUpl-mcar">
+			<div class="childFlex">
+				<ul id="divResultFilesUpl2-mcar" class='all-slides'>
+					@*Html généré par javascript dans la fonction showMultiplesFilesUpload()*@
+				</ul>
+			</div>
+		</div>
 		@if (User.Identity.IsAuthenticated)
 		{
 			<div id="divBtn-mpc" class="col-sm-12">
@@ -538,5 +591,8 @@
 		initAnnonceDescResult("#modalCreationProjet-ColocAnnounce")		
 
 		$(".textInfoIfAccountExist-pdf").fadeIn(0)
+
+		showMultiplesFilesUpload("fileUploadMpc", "divResultFilesUpl-mcar");
+		initSlidepicture()
 	});
 </script>

@@ -3039,6 +3039,14 @@ d5-description-mpc {
 		padding-right: 15px;
 	}
 
+#txtAlertEmail-car {
+	font-size: 17px;
+	text-align: center;
+	margin-bottom: 10px;
+	color: #555;
+	margin-top: 15px;
+}
+
 #div1-contenu-ca {
 	overflow: auto;
 	display: flex;
@@ -3230,6 +3238,40 @@ d5-description-mpc {
 #inputSearchPlace-mpc {
 	padding-right: 80px;
 	line-height: 11px
+}
+
+#txtPhotoProjetCreation-mpc {
+	color: #555;
+	margin-bottom: 10px;
+}
+
+#divPhotoProjetCreation-mpc {
+	width: 100%;
+}
+
+#divPhotoUser-mpc {
+	width: 100%;
+}
+
+#fileUploadMpc {
+	display: none;
+}
+
+#btnUplFile-mpc {
+	padding: 7px;
+	box-shadow: 0 0 2px 0px black;
+	text-align: center;
+	border-radius: 5px;
+	width: 70%;
+	margin-left: auto;
+	margin-right: auto;
+	cursor: pointer;
+	font-weight: 100;
+	margin-bottom: 0;
+	max-width: 500px;
+	margin-top: 8px;
+	color: white;
+	background-color: #C4D102;
 }
 
 .inputAdresseLog-ca {
@@ -4173,11 +4215,26 @@ i.fas.fa-times.crossPlace {
 	max-width: 1050px;
 }
 
+#divResultFilesUpl2-mcar {
+	flex-wrap: wrap;
+	margin-left: auto;
+	margin-right: auto;
+	list-style-type: none;
+	padding: 0 65px;
+	max-width: 1050px;
+}
+
 .div2ResultFilesUpl-mcar {
 	margin-left: auto;
 	margin-right: auto;
-	/*display: flex;
-	flex-wrap: wrap-reverse;*/
+	padding: 0 5px 0;
+	float: left;
+	cursor: move
+}
+
+.div2ResultFilesUpl2-mcar {
+	margin-left: auto;
+	margin-right: auto;
 	padding: 0 5px 0;
 	float: left;
 	cursor: move

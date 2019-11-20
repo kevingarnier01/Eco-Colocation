@@ -921,16 +921,16 @@ function showfile(elementIdToAppend) {
 
 		var imgResult = $("#pictureUpl1-mcar")
 		imgResult.attr('background', "url(" + reader.result + ") 50% no-repeat");
-		if ($(".div2ResultFilesUpl-mcar").length != 0) {
-			$(".div2ResultFilesUpl-mcar").remove()
+		if ($(".div2ResultFilesUpl2-mcar").length != 0) {
+			$(".div2ResultFilesUpl2-mcar").remove()
 		}
 		var elementHtml =
-			'<li class="div2ResultFilesUpl-mcar">' +
+			'<li class="div2ResultFilesUpl2-mcar">' +
 			'<div class="div3ResultFilesUpl-mcar" >' +
 			'<label class="labelDescFile-mcar">Photo de couverture</label>' +
 			'<div class="resultPictureUpl-mcar" id="pictureUpl-mcar"' +
 			'style="background: url(' + reader.result + ') 50% no-repeat;" ></div >' +
-			'<i class="crossPictureUpl-mcar fas fa-times-circle" onclick="removeFileImg(\'.div2ResultFilesUpl-mcar\')"></i>' +
+			'<i class="crossPictureUpl-mcar fas fa-times-circle" onclick="removeFileImg(\'.div2ResultFilesUpl2-mcar\')"></i>' +
 			'</div>' +
 			'</li >';
 

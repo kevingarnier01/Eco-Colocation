@@ -4,40 +4,41 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="afe1a16872294579808ea830b34c2a11" Name="Diagram1" ZoomLevel="72" >
-        <EntityTypeShape EntityType="EcoColocationModel.AnnonceLocation" Width="1.625" PointX="7.25" PointY="3.125" />
-        <EntityTypeShape EntityType="EcoColocationModel.ChambreLocation" Width="1.625" PointX="3.375" PointY="3.125" />
+      <Diagram DiagramId="afe1a16872294579808ea830b34c2a11" Name="Diagram1" ZoomLevel="42" >
+        <EntityTypeShape EntityType="EcoColocationModel.AnnonceLocation" Width="1.625" PointX="4.75" PointY="3.125" />
+        <EntityTypeShape EntityType="EcoColocationModel.ChambreLocation" Width="1.625" PointX="0.875" PointY="3.125" />
         <AssociationConnector Association="EcoColocationModel.LocationChambreLocation" />
-        <EntityTypeShape EntityType="EcoColocationModel.AnnonceProjetCreation" Width="1.5" PointX="19.125" PointY="4.875" />
-        <EntityTypeShape EntityType="EcoColocationModel.Lieu" Width="1.5" PointX="22" PointY="9.375" />
+        <EntityTypeShape EntityType="EcoColocationModel.AnnonceProjetCreation" Width="1.875" PointX="16.5" PointY="11.625" />
+        <EntityTypeShape EntityType="EcoColocationModel.Lieu" Width="1.5" PointX="19.375" PointY="9" />
         <AssociationConnector Association="EcoColocationModel.ProjetCreationLieuProjetCreation" />
-        <EntityTypeShape EntityType="EcoColocationModel.Evenement" Width="1.5" PointX="13.625" PointY="1.75" />
-        <EntityTypeShape EntityType="EcoColocationModel.EvenementPresence" Width="1.5" PointX="11.25" PointY="3.375" />
-        <EntityTypeShape EntityType="EcoColocationModel.EvenementAssocie" Width="1.5" PointX="16.125" PointY="2.5" />
-        <EntityTypeShape EntityType="EcoColocationModel.EvenementPublication" Width="1.5" PointX="11.25" PointY="0.625" />
-        <EntityTypeShape EntityType="EcoColocationModel.EcoColocExistante" Width="1.5" PointX="9.125" PointY="11.125" />
-        <EntityTypeShape EntityType="EcoColocationModel.Image" Width="1.5" PointX="9.125" PointY="16.125" />
-        <EntityTypeShape EntityType="EcoColocationModel.Colocataire" Width="1.5" PointX="5.5" PointY="12.25" />
+        <EntityTypeShape EntityType="EcoColocationModel.Evenement" Width="1.5" PointX="11.125" PointY="1.75" />
+        <EntityTypeShape EntityType="EcoColocationModel.EvenementPresence" Width="1.75" PointX="8.5" PointY="3.375" />
+        <EntityTypeShape EntityType="EcoColocationModel.EvenementPublication" Width="1.875" PointX="8.75" PointY="0.625" />
+        <EntityTypeShape EntityType="EcoColocationModel.EcoColocExistante" Width="1.5" PointX="6.625" PointY="11.125" />
+        <EntityTypeShape EntityType="EcoColocationModel.Image" Width="1.5" PointX="6.625" PointY="16.125" />
+        <EntityTypeShape EntityType="EcoColocationModel.Colocataire" Width="1.5" PointX="3" PointY="12.25" />
         <AssociationConnector Association="EcoColocationModel.EcoColocExistanteColocataire" />
         <AssociationConnector Association="EcoColocationModel.EcoColocExistanteEcoColocImage" />
-        <EntityTypeShape EntityType="EcoColocationModel.ConversationDev" Width="1.625" PointX="6.25" PointY="17.5" />
-        <AssociationConnector Association="EcoColocationModel.ConversationDevImage" />
+        <EntityTypeShape EntityType="EcoColocationModel.ConversationDev" Width="1.625" PointX="3.625" PointY="16.125" />
         <AssociationConnector Association="EcoColocationModel.EvenementEvenementPublication" />
-        <AssociationConnector Association="EcoColocationModel.EvenementEvenementAssocie" />
-        <AssociationConnector Association="EcoColocationModel.EvenementAssocieEvenement" />
-        <AssociationConnector Association="EcoColocationModel.EvenementEvenementPresence" />
-        <EntityTypeShape EntityType="EcoColocationModel.RechercheColocation" Width="1.875" PointX="19.125" PointY="11.25" />
+        <EntityTypeShape EntityType="EcoColocationModel.RechercheColocation" Width="1.875" PointX="15.5" PointY="8.25" />
         <AssociationConnector Association="EcoColocationModel.PersonneEnRechercheLieu" />
-        <EntityTypeShape EntityType="EcoColocationModel.webpages_Membership" Width="1.5" PointX="12.375" PointY="14.25" />
-        <EntityTypeShape EntityType="EcoColocationModel.webpages_Roles" Width="1.5" PointX="15.125" PointY="14.5" />
-        <EntityTypeShape EntityType="EcoColocationModel.webpages_Users" Width="1.5" PointX="13.875" PointY="8.125" />
+        <EntityTypeShape EntityType="EcoColocationModel.webpages_Membership" Width="1.5" PointX="9.875" PointY="14.25" />
+        <EntityTypeShape EntityType="EcoColocationModel.webpages_Roles" Width="1.5" PointX="12.625" PointY="14.5" />
+        <EntityTypeShape EntityType="EcoColocationModel.webpages_Users" Width="1.5" PointX="11.375" PointY="8.125" />
         <AssociationConnector Association="EcoColocationModel.webpages_Userswebpages_Roles" />
         <AssociationConnector Association="EcoColocationModel.webpages_Userswebpages_Membership" />
         <AssociationConnector Association="EcoColocationModel.webpages_UsersRechercheColocation" />
-        <AssociationConnector Association="EcoColocationModel.webpages_UsersEvenement" />
         <AssociationConnector Association="EcoColocationModel.webpages_UsersProjetCreation" />
         <AssociationConnector Association="EcoColocationModel.webpages_UsersLocation" />
         <AssociationConnector Association="EcoColocationModel.webpages_UsersEcoColocExistante" />
+        <AssociationConnector Association="EcoColocationModel.AnnonceProjetCreationImage" />
+        <AssociationConnector Association="EcoColocationModel.webpages_UsersEvenementPresence" />
+        <AssociationConnector Association="EcoColocationModel.EvenementEvenementPresence" />
+        <EntityTypeShape EntityType="EcoColocationModel.EvenementAssocie" Width="1.5" PointX="13.375" PointY="2.875" />
+        <AssociationConnector Association="EcoColocationModel.EvenementEvenementAssocie" />
+        <AssociationConnector Association="EcoColocationModel.EvenementEvenementAssocie1" />
+        <AssociationConnector Association="EcoColocationModel.ConversationDevImage" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
