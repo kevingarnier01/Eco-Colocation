@@ -38,7 +38,7 @@
         <AssociationConnector Association="EcoColocationModel.EvenementEvenementAssocie1" />
         <AssociationConnector Association="EcoColocationModel.ConversationDevImage" />
         <AssociationConnector Association="EcoColocationModel.RechercheColocationwebpages_Users" />
-        <AssociationConnector Association="EcoColocationModel.webpages_UsersEcoColocExistante" />
+        <AssociationConnector Association="EcoColocationModel.EcoColocExistantewebpages_Users" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

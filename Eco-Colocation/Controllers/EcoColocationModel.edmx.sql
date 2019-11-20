@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 11/20/2019 14:28:08
+-- Date Created: 11/20/2019 16:26:26
 -- Generated from EDMX file: C:\Users\kev-gar\Documents\Projet personnel\Eco-colocation\Application\Développement\Eco-Colocation\Eco-Colocation\Controllers\EcoColocationModel.edmx
 -- --------------------------------------------------
 
@@ -17,11 +17,131 @@ GO
 -- Dropping existing FOREIGN KEY constraints
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[FK_LocationChambreLocation]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ChambreLocationSet] DROP CONSTRAINT [FK_LocationChambreLocation];
+GO
+IF OBJECT_ID(N'[dbo].[FK_ProjetCreationLieuProjetCreation_ProjetCreation]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ProjetCreationLieuProjetCreation] DROP CONSTRAINT [FK_ProjetCreationLieuProjetCreation_ProjetCreation];
+GO
+IF OBJECT_ID(N'[dbo].[FK_ProjetCreationLieuProjetCreation_LieuProjetCreation]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ProjetCreationLieuProjetCreation] DROP CONSTRAINT [FK_ProjetCreationLieuProjetCreation_LieuProjetCreation];
+GO
+IF OBJECT_ID(N'[dbo].[FK_EcoColocExistanteColocataire]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ColocataireSet] DROP CONSTRAINT [FK_EcoColocExistanteColocataire];
+GO
+IF OBJECT_ID(N'[dbo].[FK_EcoColocExistanteEcoColocImage]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ImageSet] DROP CONSTRAINT [FK_EcoColocExistanteEcoColocImage];
+GO
+IF OBJECT_ID(N'[dbo].[FK_EvenementEvenementPublication]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[EvenementPublicationSet] DROP CONSTRAINT [FK_EvenementEvenementPublication];
+GO
+IF OBJECT_ID(N'[dbo].[FK_PersonneEnRechercheLieu_PersonneEnRecherche]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[PersonneEnRechercheLieu] DROP CONSTRAINT [FK_PersonneEnRechercheLieu_PersonneEnRecherche];
+GO
+IF OBJECT_ID(N'[dbo].[FK_PersonneEnRechercheLieu_Lieu]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[PersonneEnRechercheLieu] DROP CONSTRAINT [FK_PersonneEnRechercheLieu_Lieu];
+GO
+IF OBJECT_ID(N'[dbo].[FK_webpages_Userswebpages_Roles_webpages_Users]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[webpages_Userswebpages_Roles] DROP CONSTRAINT [FK_webpages_Userswebpages_Roles_webpages_Users];
+GO
+IF OBJECT_ID(N'[dbo].[FK_webpages_Userswebpages_Roles_webpages_Roles]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[webpages_Userswebpages_Roles] DROP CONSTRAINT [FK_webpages_Userswebpages_Roles_webpages_Roles];
+GO
+IF OBJECT_ID(N'[dbo].[FK_webpages_Userswebpages_Membership]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[webpages_MembershipSet] DROP CONSTRAINT [FK_webpages_Userswebpages_Membership];
+GO
+IF OBJECT_ID(N'[dbo].[FK_webpages_UsersProjetCreation]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[AnnonceProjetCreationSet] DROP CONSTRAINT [FK_webpages_UsersProjetCreation];
+GO
+IF OBJECT_ID(N'[dbo].[FK_webpages_UsersLocation]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[AnnonceLocationSet] DROP CONSTRAINT [FK_webpages_UsersLocation];
+GO
+IF OBJECT_ID(N'[dbo].[FK_AnnonceProjetCreationImage]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ImageSet] DROP CONSTRAINT [FK_AnnonceProjetCreationImage];
+GO
+IF OBJECT_ID(N'[dbo].[FK_webpages_UsersEvenementPresence]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[EvenementPresenceSet] DROP CONSTRAINT [FK_webpages_UsersEvenementPresence];
+GO
+IF OBJECT_ID(N'[dbo].[FK_EvenementEvenementPresence]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[EvenementPresenceSet] DROP CONSTRAINT [FK_EvenementEvenementPresence];
+GO
+IF OBJECT_ID(N'[dbo].[FK_EvenementEvenementAssocie]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[EvenementAssocieSet] DROP CONSTRAINT [FK_EvenementEvenementAssocie];
+GO
+IF OBJECT_ID(N'[dbo].[FK_EvenementEvenementAssocie1]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[EvenementAssocieSet] DROP CONSTRAINT [FK_EvenementEvenementAssocie1];
+GO
+IF OBJECT_ID(N'[dbo].[FK_ConversationDevImage]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ImageSet] DROP CONSTRAINT [FK_ConversationDevImage];
+GO
+IF OBJECT_ID(N'[dbo].[FK_RechercheColocationwebpages_Users]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[RechercheColocationSet] DROP CONSTRAINT [FK_RechercheColocationwebpages_Users];
+GO
+IF OBJECT_ID(N'[dbo].[FK_webpages_UsersEcoColocExistante]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[webpages_UsersSet] DROP CONSTRAINT [FK_webpages_UsersEcoColocExistante];
+GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[AnnonceLocationSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[AnnonceLocationSet];
+GO
+IF OBJECT_ID(N'[dbo].[ChambreLocationSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[ChambreLocationSet];
+GO
+IF OBJECT_ID(N'[dbo].[AnnonceProjetCreationSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[AnnonceProjetCreationSet];
+GO
+IF OBJECT_ID(N'[dbo].[LieuSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[LieuSet];
+GO
+IF OBJECT_ID(N'[dbo].[EvenementSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[EvenementSet];
+GO
+IF OBJECT_ID(N'[dbo].[EvenementPresenceSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[EvenementPresenceSet];
+GO
+IF OBJECT_ID(N'[dbo].[EvenementPublicationSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[EvenementPublicationSet];
+GO
+IF OBJECT_ID(N'[dbo].[EcoColocExistanteSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[EcoColocExistanteSet];
+GO
+IF OBJECT_ID(N'[dbo].[ImageSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[ImageSet];
+GO
+IF OBJECT_ID(N'[dbo].[ColocataireSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[ColocataireSet];
+GO
+IF OBJECT_ID(N'[dbo].[ConversationDevSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[ConversationDevSet];
+GO
+IF OBJECT_ID(N'[dbo].[RechercheColocationSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[RechercheColocationSet];
+GO
+IF OBJECT_ID(N'[dbo].[webpages_MembershipSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[webpages_MembershipSet];
+GO
+IF OBJECT_ID(N'[dbo].[webpages_RolesSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[webpages_RolesSet];
+GO
+IF OBJECT_ID(N'[dbo].[webpages_UsersSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[webpages_UsersSet];
+GO
+IF OBJECT_ID(N'[dbo].[EvenementAssocieSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[EvenementAssocieSet];
+GO
+IF OBJECT_ID(N'[dbo].[ProjetCreationLieuProjetCreation]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[ProjetCreationLieuProjetCreation];
+GO
+IF OBJECT_ID(N'[dbo].[PersonneEnRechercheLieu]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[PersonneEnRechercheLieu];
+GO
+IF OBJECT_ID(N'[dbo].[webpages_Userswebpages_Roles]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[webpages_Userswebpages_Roles];
+GO
 
 -- --------------------------------------------------
 -- Creating all tables
@@ -202,7 +322,8 @@ CREATE TABLE [dbo].[RechercheColocationSet] (
     [DescriptionPersonnalite] nvarchar(max)  NOT NULL,
     [CritereRecherche] nvarchar(max)  NOT NULL,
     [PratiqueEcolo] nvarchar(max)  NOT NULL,
-    [NomPhoto] nvarchar(max)  NOT NULL
+    [NomPhoto] nvarchar(max)  NOT NULL,
+    [webpages_Users_UsersId] int  NOT NULL
 );
 GO
 
@@ -224,7 +345,6 @@ GO
 -- Creating table 'webpages_UsersSet'
 CREATE TABLE [dbo].[webpages_UsersSet] (
     [UsersId] int IDENTITY(1,1) NOT NULL,
-    [UserName] nvarchar(max)  NOT NULL,
     [Email] nvarchar(max)  NOT NULL,
     [FirstName] nvarchar(max)  NOT NULL,
     [LastName] nvarchar(max)  NOT NULL,
@@ -236,8 +356,7 @@ CREATE TABLE [dbo].[webpages_UsersSet] (
     [TypeContact] tinyint  NOT NULL,
     [DateInscription] datetime  NOT NULL,
     [Activited] bit  NOT NULL,
-    [RechercheColocation_IdRechercheColocation] int  NOT NULL,
-    [EcoColocExistante_IdEcoColocExistante] int  NOT NULL
+    [webpages_UsersEcoColocExistante_webpages_Users_IdEcoColocExistante] int  NOT NULL
 );
 GO
 
@@ -539,21 +658,6 @@ ON [dbo].[webpages_MembershipSet]
     ([UsersId]);
 GO
 
--- Creating foreign key on [RechercheColocation_IdRechercheColocation] in table 'webpages_UsersSet'
-ALTER TABLE [dbo].[webpages_UsersSet]
-ADD CONSTRAINT [FK_webpages_UsersRechercheColocation]
-    FOREIGN KEY ([RechercheColocation_IdRechercheColocation])
-    REFERENCES [dbo].[RechercheColocationSet]
-        ([IdRechercheColocation])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating non-clustered index for FOREIGN KEY 'FK_webpages_UsersRechercheColocation'
-CREATE INDEX [IX_FK_webpages_UsersRechercheColocation]
-ON [dbo].[webpages_UsersSet]
-    ([RechercheColocation_IdRechercheColocation]);
-GO
-
 -- Creating foreign key on [IdUsers] in table 'AnnonceProjetCreationSet'
 ALTER TABLE [dbo].[AnnonceProjetCreationSet]
 ADD CONSTRAINT [FK_webpages_UsersProjetCreation]
@@ -582,21 +686,6 @@ GO
 CREATE INDEX [IX_FK_webpages_UsersLocation]
 ON [dbo].[AnnonceLocationSet]
     ([UsersId]);
-GO
-
--- Creating foreign key on [EcoColocExistante_IdEcoColocExistante] in table 'webpages_UsersSet'
-ALTER TABLE [dbo].[webpages_UsersSet]
-ADD CONSTRAINT [FK_webpages_UsersEcoColocExistante]
-    FOREIGN KEY ([EcoColocExistante_IdEcoColocExistante])
-    REFERENCES [dbo].[EcoColocExistanteSet]
-        ([IdEcoColocExistante])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating non-clustered index for FOREIGN KEY 'FK_webpages_UsersEcoColocExistante'
-CREATE INDEX [IX_FK_webpages_UsersEcoColocExistante]
-ON [dbo].[webpages_UsersSet]
-    ([EcoColocExistante_IdEcoColocExistante]);
 GO
 
 -- Creating foreign key on [IdAnnonceProjetCreation] in table 'ImageSet'
@@ -687,6 +776,36 @@ GO
 CREATE INDEX [IX_FK_ConversationDevImage]
 ON [dbo].[ImageSet]
     ([IdConversationDev]);
+GO
+
+-- Creating foreign key on [webpages_Users_UsersId] in table 'RechercheColocationSet'
+ALTER TABLE [dbo].[RechercheColocationSet]
+ADD CONSTRAINT [FK_RechercheColocationwebpages_Users]
+    FOREIGN KEY ([webpages_Users_UsersId])
+    REFERENCES [dbo].[webpages_UsersSet]
+        ([UsersId])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_RechercheColocationwebpages_Users'
+CREATE INDEX [IX_FK_RechercheColocationwebpages_Users]
+ON [dbo].[RechercheColocationSet]
+    ([webpages_Users_UsersId]);
+GO
+
+-- Creating foreign key on [webpages_UsersEcoColocExistante_webpages_Users_IdEcoColocExistante] in table 'webpages_UsersSet'
+ALTER TABLE [dbo].[webpages_UsersSet]
+ADD CONSTRAINT [FK_webpages_UsersEcoColocExistante]
+    FOREIGN KEY ([webpages_UsersEcoColocExistante_webpages_Users_IdEcoColocExistante])
+    REFERENCES [dbo].[EcoColocExistanteSet]
+        ([IdEcoColocExistante])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_webpages_UsersEcoColocExistante'
+CREATE INDEX [IX_FK_webpages_UsersEcoColocExistante]
+ON [dbo].[webpages_UsersSet]
+    ([webpages_UsersEcoColocExistante_webpages_Users_IdEcoColocExistante]);
 GO
 
 -- --------------------------------------------------
