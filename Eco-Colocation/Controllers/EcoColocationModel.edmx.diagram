@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="afe1a16872294579808ea830b34c2a11" Name="Diagram1" ZoomLevel="63" >
+      <Diagram DiagramId="afe1a16872294579808ea830b34c2a11" Name="Diagram1" ZoomLevel="64" >
         <EntityTypeShape EntityType="EcoColocationModel.AnnonceLocation" Width="1.625" PointX="4.75" PointY="3.125" />
         <EntityTypeShape EntityType="EcoColocationModel.ChambreLocation" Width="1.625" PointX="0.875" PointY="3.125" />
         <AssociationConnector Association="EcoColocationModel.LocationChambreLocation" />
@@ -23,22 +23,22 @@
         <AssociationConnector Association="EcoColocationModel.EvenementEvenementPublication" />
         <EntityTypeShape EntityType="EcoColocationModel.RechercheColocation" Width="1.875" PointX="15.5" PointY="8.25" />
         <AssociationConnector Association="EcoColocationModel.PersonneEnRechercheLieu" />
-        <EntityTypeShape EntityType="EcoColocationModel.webpages_Membership" Width="1.5" PointX="9.875" PointY="14.25" />
-        <EntityTypeShape EntityType="EcoColocationModel.webpages_Roles" Width="1.5" PointX="12.625" PointY="14.5" />
+        <EntityTypeShape EntityType="EcoColocationModel.webpages_Membership" Width="1.5" PointX="9.875" PointY="14.125" />
+        <EntityTypeShape EntityType="EcoColocationModel.webpages_Roles" Width="1.5" PointX="12.625" PointY="14.375" />
         <EntityTypeShape EntityType="EcoColocationModel.webpages_Users" Width="1.5" PointX="11.375" PointY="8.125" />
         <AssociationConnector Association="EcoColocationModel.webpages_Userswebpages_Roles" />
         <AssociationConnector Association="EcoColocationModel.webpages_Userswebpages_Membership" />
-        <AssociationConnector Association="EcoColocationModel.webpages_UsersRechercheColocation" />
         <AssociationConnector Association="EcoColocationModel.webpages_UsersProjetCreation" />
         <AssociationConnector Association="EcoColocationModel.webpages_UsersLocation" />
-        <AssociationConnector Association="EcoColocationModel.webpages_UsersEcoColocExistante" />
         <AssociationConnector Association="EcoColocationModel.AnnonceProjetCreationImage" />
         <AssociationConnector Association="EcoColocationModel.webpages_UsersEvenementPresence" />
         <AssociationConnector Association="EcoColocationModel.EvenementEvenementPresence" />
-        <EntityTypeShape EntityType="EcoColocationModel.EvenementAssocie" Width="1.5" PointX="13.375" PointY="2.875" />
+        <EntityTypeShape EntityType="EcoColocationModel.EvenementAssocie" Width="1.625" PointX="13.375" PointY="2.875" />
         <AssociationConnector Association="EcoColocationModel.EvenementEvenementAssocie" />
         <AssociationConnector Association="EcoColocationModel.EvenementEvenementAssocie1" />
         <AssociationConnector Association="EcoColocationModel.ConversationDevImage" />
+        <AssociationConnector Association="EcoColocationModel.RechercheColocationwebpages_Users" />
+        <AssociationConnector Association="EcoColocationModel.webpages_UsersEcoColocExistante" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

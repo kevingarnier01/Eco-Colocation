@@ -24,7 +24,7 @@
     <EntitySet Name="EvenementAssocieSet" EntityType="EcoColocationModel.Store.EvenementAssocieSet" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="ProjetCreationLieuProjetCreation" EntityType="EcoColocationModel.Store.ProjetCreationLieuProjetCreation" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="PersonneEnRechercheLieu" EntityType="EcoColocationModel.Store.PersonneEnRechercheLieu" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="webpages_Userswebpages_Roles" EntityType="EcoColocationModel.Store.webpages_Userswebpages_Roles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="webpages_Userswebpages_Roles" EntityType="EcoColocationModel.Store.webpages_Userswebpages_Roles" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="LocationChambreLocation" Association="EcoColocationModel.Store.LocationChambreLocation">
       <End Role="Location" EntitySet="AnnonceLocationSet" />
       <End Role="ChambreLocation" EntitySet="ChambreLocationSet" />
@@ -58,12 +58,12 @@
       <End Role="PersonneEnRechercheLieu" EntitySet="PersonneEnRechercheLieu" />
     </AssociationSet>
     <AssociationSet Name="FK_webpages_Userswebpages_Roles_webpages_Users" Association="EcoColocationModel.Store.FK_webpages_Userswebpages_Roles_webpages_Users">
-      <End Role="webpages_Users" EntitySet="webpages_UsersSet" />
-      <End Role="webpages_Userswebpages_Roles" EntitySet="webpages_Userswebpages_Roles" />
+      <End EntitySet="webpages_UsersSet" Role="webpages_Users" />
+      <End EntitySet="webpages_Userswebpages_Roles" Role="webpages_Userswebpages_Roles" />
     </AssociationSet>
     <AssociationSet Name="FK_webpages_Userswebpages_Roles_webpages_Roles" Association="EcoColocationModel.Store.FK_webpages_Userswebpages_Roles_webpages_Roles">
-      <End Role="webpages_Roles" EntitySet="webpages_RolesSet" />
-      <End Role="webpages_Userswebpages_Roles" EntitySet="webpages_Userswebpages_Roles" />
+      <End EntitySet="webpages_RolesSet" Role="webpages_Roles" />
+      <End EntitySet="webpages_Userswebpages_Roles" Role="webpages_Userswebpages_Roles" />
     </AssociationSet>
     <AssociationSet Name="webpages_Userswebpages_Membership" Association="EcoColocationModel.Store.webpages_Userswebpages_Membership">
       <End Role="webpages_Users" EntitySet="webpages_UsersSet" />
@@ -353,8 +353,8 @@
       <PropertyRef Name="webpages_Users_UsersId" />
       <PropertyRef Name="webpages_Roles_IdRole" />
     </Key>
-    <Property Name="webpages_Users_UsersId" Type="int" Nullable="false" />
-    <Property Name="webpages_Roles_IdRole" Type="int" Nullable="false" />
+    <Property Name="webpages_Users_UsersId" Nullable="false" Type="int" />
+    <Property Name="webpages_Roles_IdRole" Nullable="false" Type="int" />
   </EntityType>
   <Association Name="LocationChambreLocation">
     <End Role="Location" Type="EcoColocationModel.Store.AnnonceLocationSet" Multiplicity="1" />
@@ -585,8 +585,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_webpages_Userswebpages_Roles_webpages_Users">
-    <End Role="webpages_Users" Type="EcoColocationModel.Store.webpages_UsersSet" Multiplicity="1" />
-    <End Role="webpages_Userswebpages_Roles" Type="EcoColocationModel.Store.webpages_Userswebpages_Roles" Multiplicity="*" />
+    <End Type="EcoColocationModel.Store.webpages_UsersSet" Multiplicity="1" Role="webpages_Users" />
+    <End Type="EcoColocationModel.Store.webpages_Userswebpages_Roles" Multiplicity="*" Role="webpages_Userswebpages_Roles" />
     <ReferentialConstraint>
       <Principal Role="webpages_Users">
         <PropertyRef Name="UsersId" />
@@ -597,8 +597,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_webpages_Userswebpages_Roles_webpages_Roles">
-    <End Role="webpages_Userswebpages_Roles" Type="EcoColocationModel.Store.webpages_Userswebpages_Roles" Multiplicity="*" />
-    <End Role="webpages_Roles" Type="EcoColocationModel.Store.webpages_RolesSet" Multiplicity="1" />
+    <End Type="EcoColocationModel.Store.webpages_Userswebpages_Roles" Multiplicity="*" Role="webpages_Userswebpages_Roles" />
+    <End Type="EcoColocationModel.Store.webpages_RolesSet" Multiplicity="1" Role="webpages_Roles" />
     <ReferentialConstraint>
       <Principal Role="webpages_Roles">
         <PropertyRef Name="IdRole" />
@@ -653,16 +653,12 @@
           <EntitySet Name="webpages_RolesSet" EntityType="EcoColocationModel.webpages_Roles" />
           <EntitySet Name="webpages_UsersSet" EntityType="EcoColocationModel.webpages_Users" />
           <AssociationSet Name="webpages_Userswebpages_Roles" Association="EcoColocationModel.webpages_Userswebpages_Roles">
-            <End Role="webpages_Users" EntitySet="webpages_UsersSet" />
-            <End Role="webpages_Roles" EntitySet="webpages_RolesSet" />
+            <End EntitySet="webpages_UsersSet" Role="webpages_Users" />
+            <End EntitySet="webpages_RolesSet" Role="webpages_Roles" />
           </AssociationSet>
           <AssociationSet Name="webpages_Userswebpages_Membership" Association="EcoColocationModel.webpages_Userswebpages_Membership">
             <End Role="webpages_Users" EntitySet="webpages_UsersSet" />
             <End Role="webpages_Membership" EntitySet="webpages_MembershipSet" />
-          </AssociationSet>
-          <AssociationSet Name="webpages_UsersRechercheColocation" Association="EcoColocationModel.webpages_UsersRechercheColocation">
-            <End Role="webpages_Users" EntitySet="webpages_UsersSet" />
-            <End Role="RechercheColocation" EntitySet="RechercheColocationSet" />
           </AssociationSet>
           <AssociationSet Name="webpages_UsersProjetCreation" Association="EcoColocationModel.webpages_UsersProjetCreation">
             <End Role="webpages_Users" EntitySet="webpages_UsersSet" />
@@ -671,10 +667,6 @@
           <AssociationSet Name="webpages_UsersLocation" Association="EcoColocationModel.webpages_UsersLocation">
             <End Role="webpages_Users" EntitySet="webpages_UsersSet" />
             <End Role="Location" EntitySet="AnnonceLocationSet" />
-          </AssociationSet>
-          <AssociationSet Name="webpages_UsersEcoColocExistante" Association="EcoColocationModel.webpages_UsersEcoColocExistante">
-            <End Role="webpages_Users" EntitySet="webpages_UsersSet" />
-            <End Role="EcoColocExistante" EntitySet="EcoColocExistanteSet" />
           </AssociationSet>
           <AssociationSet Name="AnnonceProjetCreationImage" Association="EcoColocationModel.AnnonceProjetCreationImage">
             <End Role="AnnonceProjetCreation" EntitySet="AnnonceProjetCreationSet" />
@@ -700,6 +692,14 @@
           <AssociationSet Name="ConversationDevImage" Association="EcoColocationModel.ConversationDevImage">
             <End Role="ConversationDev" EntitySet="ConversationDevSet" />
             <End Role="Image" EntitySet="ImageSet" />
+          </AssociationSet>
+          <AssociationSet Name="RechercheColocationwebpages_Users" Association="EcoColocationModel.RechercheColocationwebpages_Users">
+            <End Role="RechercheColocation" EntitySet="RechercheColocationSet" />
+            <End Role="webpages_Users" EntitySet="webpages_UsersSet" />
+          </AssociationSet>
+          <AssociationSet Name="webpages_UsersEcoColocExistante" Association="EcoColocationModel.webpages_UsersEcoColocExistante">
+            <End Role="webpages_Users" EntitySet="webpages_UsersSet" />
+            <End Role="EcoColocExistante" EntitySet="EcoColocExistanteSet" />
           </AssociationSet>
           </EntityContainer>
         <EntityType Name="AnnonceLocation">
@@ -956,7 +956,7 @@
           <Property Name="PratiqueEcolo" Type="String" Nullable="false" />
           <Property Name="NomPhoto" Type="String" Nullable="false" />
           <NavigationProperty Name="Lieu" Relationship="EcoColocationModel.PersonneEnRechercheLieu" FromRole="PersonneEnRecherche" ToRole="Lieu" />
-          <NavigationProperty Name="webpages_Users" Relationship="EcoColocationModel.webpages_UsersRechercheColocation" FromRole="RechercheColocation" ToRole="webpages_Users" />
+          <NavigationProperty Name="webpages_Users" Relationship="EcoColocationModel.RechercheColocationwebpages_Users" FromRole="RechercheColocation" ToRole="webpages_Users" />
         </EntityType>
         <Association Name="PersonneEnRechercheLieu">
           <End Type="EcoColocationModel.RechercheColocation" Role="PersonneEnRecherche" Multiplicity="*" />
@@ -984,7 +984,6 @@
             <PropertyRef Name="UsersId" />
           </Key>
           <Property Name="UsersId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="UserName" Type="String" Nullable="false" />
           <Property Name="Email" Type="String" Nullable="false" />
           <Property Name="FirstName" Type="String" Nullable="false" />
           <Property Name="LastName" Type="String" Nullable="false" />
@@ -998,15 +997,13 @@
           <Property Name="Activited" Type="Boolean" Nullable="false" DefaultValue="True" />
           <NavigationProperty Name="webpages_Roles" Relationship="EcoColocationModel.webpages_Userswebpages_Roles" FromRole="webpages_Users" ToRole="webpages_Roles" />
           <NavigationProperty Name="webpages_Membership" Relationship="EcoColocationModel.webpages_Userswebpages_Membership" FromRole="webpages_Users" ToRole="webpages_Membership" />
-          <NavigationProperty Name="RechercheColocation" Relationship="EcoColocationModel.webpages_UsersRechercheColocation" FromRole="webpages_Users" ToRole="RechercheColocation" />
           <NavigationProperty Name="AnnonceProjetCreation" Relationship="EcoColocationModel.webpages_UsersProjetCreation" FromRole="webpages_Users" ToRole="ProjetCreation" />
           <NavigationProperty Name="AnnonceLocation" Relationship="EcoColocationModel.webpages_UsersLocation" FromRole="webpages_Users" ToRole="Location" />
-          <NavigationProperty Name="EcoColocExistante" Relationship="EcoColocationModel.webpages_UsersEcoColocExistante" FromRole="webpages_Users" ToRole="EcoColocExistante" />
           <NavigationProperty Name="EvenementPresence" Relationship="EcoColocationModel.webpages_UsersEvenementPresence" FromRole="webpages_Users" ToRole="EvenementPresence" />
         </EntityType>
         <Association Name="webpages_Userswebpages_Roles">
-          <End Type="EcoColocationModel.webpages_Users" Role="webpages_Users" Multiplicity="*" />
-          <End Type="EcoColocationModel.webpages_Roles" Role="webpages_Roles" Multiplicity="*" />
+          <End Type="EcoColocationModel.webpages_Users" Multiplicity="*" Role="webpages_Users" />
+          <End Type="EcoColocationModel.webpages_Roles" Multiplicity="*" Role="webpages_Roles" />
         </Association>
         <Association Name="webpages_Userswebpages_Membership">
           <End Type="EcoColocationModel.webpages_Users" Role="webpages_Users" Multiplicity="1" />
@@ -1019,10 +1016,6 @@
               <PropertyRef Name="UsersId" />
             </Dependent>
           </ReferentialConstraint>
-        </Association>
-        <Association Name="webpages_UsersRechercheColocation">
-          <End Type="EcoColocationModel.webpages_Users" Role="webpages_Users" Multiplicity="1" />
-          <End Type="EcoColocationModel.RechercheColocation" Role="RechercheColocation" Multiplicity="1" />
         </Association>
         <Association Name="webpages_UsersProjetCreation">
           <End Type="EcoColocationModel.webpages_Users" Role="webpages_Users" Multiplicity="1" />
@@ -1047,10 +1040,6 @@
               <PropertyRef Name="UsersId" />
             </Dependent>
           </ReferentialConstraint>
-        </Association>
-        <Association Name="webpages_UsersEcoColocExistante">
-          <End Type="EcoColocationModel.webpages_Users" Role="webpages_Users" Multiplicity="1" />
-          <End Type="EcoColocationModel.EcoColocExistante" Role="EcoColocExistante" Multiplicity="1" />
         </Association>
         <Association Name="AnnonceProjetCreationImage">
           <End Type="EcoColocationModel.AnnonceProjetCreation" Role="AnnonceProjetCreation" Multiplicity="1" />
@@ -1133,6 +1122,14 @@
               <PropertyRef Name="IdConversationDev" />
             </Dependent>
           </ReferentialConstraint>
+        </Association>
+        <Association Name="RechercheColocationwebpages_Users">
+          <End Type="EcoColocationModel.RechercheColocation" Role="RechercheColocation" Multiplicity="1" />
+          <End Type="EcoColocationModel.webpages_Users" Role="webpages_Users" Multiplicity="1" />
+        </Association>
+        <Association Name="webpages_UsersEcoColocExistante">
+          <End Type="EcoColocationModel.webpages_Users" Role="webpages_Users" Multiplicity="1" />
+          <End Type="EcoColocationModel.EcoColocExistante" Role="EcoColocExistante" Multiplicity="1" />
         </Association>
         </Schema>
     </edmx:ConceptualModels>
@@ -1352,7 +1349,6 @@
       <EntityTypeMapping TypeName="IsTypeOf(EcoColocationModel.webpages_Users)">
         <MappingFragment StoreEntitySet="webpages_UsersSet">
           <ScalarProperty Name="UsersId" ColumnName="UsersId" />
-          <ScalarProperty Name="UserName" ColumnName="UserName" />
           <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="FirstName" ColumnName="FirstName" />
           <ScalarProperty Name="LastName" ColumnName="LastName" />
@@ -1398,22 +1394,6 @@
       </EndProperty>
       <EndProperty Name="webpages_Roles">
         <ScalarProperty Name="IdRole" ColumnName="webpages_Roles_IdRole" />
-      </EndProperty>
-    </AssociationSetMapping>
-    <AssociationSetMapping Name="webpages_UsersRechercheColocation" TypeName="EcoColocationModel.webpages_UsersRechercheColocation" StoreEntitySet="webpages_UsersSet">
-      <EndProperty Name="RechercheColocation">
-        <ScalarProperty Name="IdRechercheColocation" ColumnName="RechercheColocation_IdRechercheColocation" />
-      </EndProperty>
-      <EndProperty Name="webpages_Users">
-        <ScalarProperty Name="UsersId" ColumnName="UsersId" />
-      </EndProperty>
-    </AssociationSetMapping>
-    <AssociationSetMapping Name="webpages_UsersEcoColocExistante" TypeName="EcoColocationModel.webpages_UsersEcoColocExistante" StoreEntitySet="webpages_UsersSet">
-      <EndProperty Name="EcoColocExistante">
-        <ScalarProperty Name="IdEcoColocExistante" ColumnName="EcoColocExistante_IdEcoColocExistante" />
-      </EndProperty>
-      <EndProperty Name="webpages_Users">
-        <ScalarProperty Name="UsersId" ColumnName="UsersId" />
       </EndProperty>
     </AssociationSetMapping>
   </EntityContainerMapping>

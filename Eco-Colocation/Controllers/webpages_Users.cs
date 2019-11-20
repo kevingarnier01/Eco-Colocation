@@ -25,7 +25,6 @@ namespace Eco_Colocation.Controllers
         }
     
         public int UsersId { get; set; }
-        public string UserName { get; set; }
         public string Email { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -40,10 +39,8 @@ namespace Eco_Colocation.Controllers
     
         public virtual ICollection<webpages_Roles> webpages_Roles { get; set; }
         public virtual ICollection<webpages_Membership> webpages_Membership { get; set; }
-        public virtual RechercheColocation RechercheColocation { get; set; }
         public virtual ICollection<AnnonceProjetCreation> AnnonceProjetCreation { get; set; }
         public virtual ICollection<AnnonceLocation> AnnonceLocation { get; set; }
-        public virtual EcoColocExistante EcoColocExistante { get; set; }
         public virtual ICollection<EvenementPresence> EvenementPresence { get; set; }
     }
 }
