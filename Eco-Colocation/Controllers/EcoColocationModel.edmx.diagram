@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="afe1a16872294579808ea830b34c2a11" Name="Diagram1" ZoomLevel="42" >
+      <Diagram DiagramId="afe1a16872294579808ea830b34c2a11" Name="Diagram1" ZoomLevel="63" >
         <EntityTypeShape EntityType="EcoColocationModel.AnnonceLocation" Width="1.625" PointX="4.75" PointY="3.125" />
         <EntityTypeShape EntityType="EcoColocationModel.ChambreLocation" Width="1.625" PointX="0.875" PointY="3.125" />
         <AssociationConnector Association="EcoColocationModel.LocationChambreLocation" />

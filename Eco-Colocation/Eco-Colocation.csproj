@@ -342,6 +342,7 @@
       <LastGenOutput>EcoColocationModel.Context.cs</LastGenOutput>
       <DependentUpon>EcoColocationModel.edmx</DependentUpon>
     </Content>
+    <Content Include="Controllers\EcoColocationModel.edmx.sql" />
     <Content Include="Controllers\EcoColocationModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>EcoColocationModel.cs</LastGenOutput>
