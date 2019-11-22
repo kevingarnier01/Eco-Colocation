@@ -293,13 +293,14 @@
 											<td class="col-xs-6">
 												<div class="flex" id="divDispoTemp-mlca">
 													<p id="pDispoTemp-mlca">Disponibilité temporaire *</p>
-													<input id="dispoTemporaireChk-mlca" type="checkbox" onchange="changeEndOfDispoVisibility()">
+													<input id="dispoTemporaireChk-mlca" class="dispoTemporaireChk-mlca" type="checkbox" 
+														   onchange="changeEndOfDispoVisibility('#dispoTemporaireChk-mlca', '#divEndDispo-mlca')">
 												</div>
 												<div id="divDateDispo-mlca">
 													<label for="dateDispo-mlca">Date de la disponibilité *</label>
 													<input id="dateDispo-mlca" name="Disponibilite" type="date" class="inputtable-ca inputtableDate-ca">
 												</div>
-												<div id="divEndDispo-mlca">
+												<div id="divEndDispo-mlca" class="divEndDispo-mlca">
 													<label for="dateEndDispo-mlca">Fin de la disponibilité *</label>
 													<input id="dateEndDispo-mlca" name="Disponibilite" type="date" class="inputtable-ca inputtableDate-ca">
 												</div>
@@ -520,8 +521,9 @@
 										</tr>
 										<tr>
 											<td class="col-xs-6"><label>Frais d'agence *</label></td>
-											<td style="padding: 0;padding-top: 4px;padding-left: 8px;">
+											<td class="flex" style="padding: 0;padding-top: 4px;padding-left: 8px;border: none;">
 												<input id="fraisAgence-mlca" name="fraisAgence" type="number" min="0" value="" class="inputtable-ca">
+												<p class="centerText signInputPropose-ml">€</p>
 											</td>
 										</tr>
 									</tbody>

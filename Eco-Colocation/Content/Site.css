@@ -3563,12 +3563,12 @@ i.fas.fa-times.crossPlace {
 	margin-bottom: 15px;
 }
 
-#dispoTemporaireChk-mlca {
+.dispoTemporaireChk-mlca {
 	margin-top: auto;
 	margin-bottom: auto;
 }
 
-#divEndDispo-mlca {
+.divEndDispo-mlca {
 	display: none;
 }
 

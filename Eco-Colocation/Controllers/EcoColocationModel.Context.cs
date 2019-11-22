@@ -27,19 +27,20 @@ namespace Eco_Colocation.Controllers
     
         public DbSet<AnnonceLocation> AnnonceLocationSet { get; set; }
         public DbSet<ChambreLocation> ChambreLocationSet { get; set; }
-        public DbSet<AnnonceProjetCreation> AnnonceProjetCreationSet { get; set; }
+        public DbSet<ProjetCreation> ProjetCreationSet { get; set; }
         public DbSet<Lieu> LieuSet { get; set; }
         public DbSet<Evenement> EvenementSet { get; set; }
         public DbSet<EvenementPresence> EvenementPresenceSet { get; set; }
-        public DbSet<EvenementPublication> EvenementPublicationSet { get; set; }
         public DbSet<EcoColocExistante> EcoColocExistanteSet { get; set; }
-        public DbSet<Image> ImageSet { get; set; }
+        public DbSet<ImageConversationDev> ImageConversationDevSet { get; set; }
         public DbSet<Colocataire> ColocataireSet { get; set; }
         public DbSet<ConversationDev> ConversationDevSet { get; set; }
         public DbSet<RechercheColocation> RechercheColocationSet { get; set; }
-        public DbSet<webpages_Membership> webpages_MembershipSet { get; set; }
-        public DbSet<webpages_Roles> webpages_RolesSet { get; set; }
-        public DbSet<webpages_Users> webpages_UsersSet { get; set; }
+        public DbSet<Role> RoleSet { get; set; }
+        public DbSet<Utilisateur> UtilisateurSet { get; set; }
         public DbSet<EvenementAssocie> EvenementAssocieSet { get; set; }
+        public DbSet<Adhesion> AdhesionSet { get; set; }
+        public DbSet<ImageEcoColocEx> ImageEcoColocExSet { get; set; }
+        public DbSet<ImageProjetCreation> ImageProjetCreationSet { get; set; }
     }
 }

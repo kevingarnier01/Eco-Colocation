@@ -12,19 +12,19 @@ namespace Eco_Colocation.Controllers
     using System;
     using System.Collections.Generic;
     
-    public partial class webpages_Users
+    public partial class User
     {
-        public webpages_Users()
+        public User()
         {
             this.Activited = true;
-            this.webpages_Roles = new HashSet<webpages_Roles>();
-            this.webpages_Membership = new HashSet<webpages_Membership>();
-            this.AnnonceProjetCreation = new HashSet<AnnonceProjetCreation>();
+            this.Role = new HashSet<Role>();
+            this.ProjetCreation = new HashSet<ProjetCreation>();
             this.AnnonceLocation = new HashSet<AnnonceLocation>();
             this.EvenementPresence = new HashSet<EvenementPresence>();
+            this.Evenement = new HashSet<Evenement>();
         }
     
-        public int UsersId { get; set; }
+        public int IdUser { get; set; }
         public string Email { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -35,12 +35,13 @@ namespace Eco_Colocation.Controllers
         public string Telephone { get; set; }
         public byte TypeContact { get; set; }
         public System.DateTime DateInscription { get; set; }
+        public string LastActivityDate { get; set; }
         public bool Activited { get; set; }
     
-        public virtual ICollection<webpages_Roles> webpages_Roles { get; set; }
-        public virtual ICollection<webpages_Membership> webpages_Membership { get; set; }
-        public virtual ICollection<AnnonceProjetCreation> AnnonceProjetCreation { get; set; }
+        public virtual ICollection<Role> Role { get; set; }
+        public virtual ICollection<ProjetCreation> ProjetCreation { get; set; }
         public virtual ICollection<AnnonceLocation> AnnonceLocation { get; set; }
         public virtual ICollection<EvenementPresence> EvenementPresence { get; set; }
+        public virtual ICollection<Evenement> Evenement { get; set; }
     }
 }

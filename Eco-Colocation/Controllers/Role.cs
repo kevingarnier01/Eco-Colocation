@@ -12,13 +12,17 @@ namespace Eco_Colocation.Controllers
     using System;
     using System.Collections.Generic;
     
-    public partial class EvenementPresence
+    public partial class Role
     {
-        public int IdUtilisateur { get; set; }
-        public int IdEvenement { get; set; }
-        public byte Statut { get; set; }
+        public Role()
+        {
+            this.Utilisateur = new HashSet<Utilisateur>();
+        }
     
-        public virtual Utilisateur Utilisateur { get; set; }
-        public virtual Evenement Evenement { get; set; }
+        public int IdRole { get; set; }
+        public string NomRole { get; set; }
+        public string Description { get; set; }
+    
+        public virtual ICollection<Utilisateur> Utilisateur { get; set; }
     }
 }

@@ -16,12 +16,14 @@ namespace Eco_Colocation.Controllers
     {
         public ConversationDev()
         {
-            this.Image = new HashSet<Image>();
+            this.Image = new HashSet<ImageConversationDev>();
         }
     
         public int IdConversationDev { get; set; }
         public string Message { get; set; }
+        public string DateDernierEnvoi { get; set; }
     
-        public virtual ICollection<Image> Image { get; set; }
+        public virtual ICollection<ImageConversationDev> Image { get; set; }
+        public virtual Utilisateur Utilisateur { get; set; }
     }
 }

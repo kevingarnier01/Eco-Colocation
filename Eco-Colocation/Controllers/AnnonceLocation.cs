@@ -20,6 +20,7 @@ namespace Eco_Colocation.Controllers
         }
     
         public int IdAnnonceLocation { get; set; }
+        public int IdUtilisateur { get; set; }
         public string Introduction { get; set; }
         public string Description { get; set; }
         public string Rue { get; set; }
@@ -45,10 +46,9 @@ namespace Eco_Colocation.Controllers
         public bool AnimauxTolerence { get; set; }
         public string InfoSupTolerence { get; set; }
         public System.DateTime DatePublication { get; set; }
-        public bool StatutAnnonce { get; set; }
-        public int UsersId { get; set; }
+        public bool Activation { get; set; }
     
         public virtual ICollection<ChambreLocation> ChambreLocation { get; set; }
-        public virtual webpages_Users webpages_Users { get; set; }
+        public virtual Utilisateur Utilisateur { get; set; }
     }
 }

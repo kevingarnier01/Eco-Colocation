@@ -16,7 +16,7 @@ namespace Eco_Colocation.Controllers
     {
         public Lieu()
         {
-            this.AnnonceProjetCreation = new HashSet<AnnonceProjetCreation>();
+            this.ProjetCreation = new HashSet<ProjetCreation>();
             this.RechercheColocation = new HashSet<RechercheColocation>();
         }
     
@@ -27,7 +27,7 @@ namespace Eco_Colocation.Controllers
         public string Region { get; set; }
         public string Pays { get; set; }
     
-        public virtual ICollection<AnnonceProjetCreation> AnnonceProjetCreation { get; set; }
+        public virtual ICollection<ProjetCreation> ProjetCreation { get; set; }
         public virtual ICollection<RechercheColocation> RechercheColocation { get; set; }
     }
 }

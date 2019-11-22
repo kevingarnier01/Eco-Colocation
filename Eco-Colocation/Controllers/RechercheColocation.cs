@@ -26,6 +26,6 @@ namespace Eco_Colocation.Controllers
         public string NomPhoto { get; set; }
     
         public virtual ICollection<Lieu> Lieu { get; set; }
-        public virtual webpages_Users webpages_Users { get; set; }
+        public virtual Utilisateur Utilisateur { get; set; }
     }
 }

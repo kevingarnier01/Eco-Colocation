@@ -143,9 +143,6 @@
     <Compile Include="Controllers\AnnonceLocation.cs">
       <DependentUpon>EcoColocationModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Controllers\AnnonceProjetCreation.cs">
-      <DependentUpon>EcoColocationModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Controllers\ChambreLocation.cs">
       <DependentUpon>EcoColocationModel.tt</DependentUpon>
     </Compile>
@@ -171,6 +168,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EcoColocationModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\EcoColocationModel1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EcoColocationModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\EcoColocExistante.cs">
       <DependentUpon>EcoColocationModel.tt</DependentUpon>
     </Compile>
@@ -189,26 +191,35 @@
       <DependentUpon>EcoColocationModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\Image.cs">
+    <Compile Include="Controllers\ImageConversationDev.cs">
+      <DependentUpon>EcoColocationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\ImageEcoColocEx.cs">
+      <DependentUpon>EcoColocationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\ImageProjetCreation.cs">
       <DependentUpon>EcoColocationModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Controllers\Lieu.cs">
       <DependentUpon>EcoColocationModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\Membership.cs">
+      <DependentUpon>EcoColocationModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\ModalController.cs" />
     <Compile Include="Controllers\PeopleSearchingController.cs" />
     <Compile Include="Controllers\ProfilController.cs" />
+    <Compile Include="Controllers\ProjetCreation.cs">
+      <DependentUpon>EcoColocationModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\RechercheColocation.cs">
       <DependentUpon>EcoColocationModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\Role.cs">
+      <DependentUpon>EcoColocationModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\SearchColocController.cs" />
-    <Compile Include="Controllers\webpages_Membership.cs">
-      <DependentUpon>EcoColocationModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Controllers\webpages_Roles.cs">
-      <DependentUpon>EcoColocationModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Controllers\webpages_Users.cs">
+    <Compile Include="Controllers\User.cs">
       <DependentUpon>EcoColocationModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
@@ -367,7 +378,7 @@
     <Content Include="bin\roslyn\VBCSCompiler.exe.config" />
     <EntityDeploy Include="Controllers\EcoColocationModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>EcoColocationModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>EcoColocationModel1.Designer.cs</LastGenOutput>
     </EntityDeploy>
     <Content Include="Controllers\EcoColocationModel.edmx.diagram">
       <DependentUpon>EcoColocationModel.edmx</DependentUpon>

@@ -16,8 +16,7 @@ namespace Eco_Colocation.Controllers
     {
         public EcoColocExistante()
         {
-            this.Colocataire = new HashSet<Colocataire>();
-            this.EcoColocImage = new HashSet<Image>();
+            this.ImageEcoColocEx = new HashSet<ImageEcoColocEx>();
         }
     
         public int IdEcoColocExistante { get; set; }
@@ -34,8 +33,7 @@ namespace Eco_Colocation.Controllers
         public string TableauEcolo { get; set; }
         public string TableauHabitat { get; set; }
     
-        public virtual ICollection<Colocataire> Colocataire { get; set; }
-        public virtual ICollection<Image> EcoColocImage { get; set; }
-        public virtual webpages_Users webpages_Users { get; set; }
+        public virtual Utilisateur Utilisateur { get; set; }
+        public virtual ICollection<ImageEcoColocEx> ImageEcoColocEx { get; set; }
     }
 }

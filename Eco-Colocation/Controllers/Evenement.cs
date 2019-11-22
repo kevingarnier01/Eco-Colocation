@@ -16,28 +16,30 @@ namespace Eco_Colocation.Controllers
     {
         public Evenement()
         {
-            this.EvenementPublication = new HashSet<EvenementPublication>();
             this.EvenementPresence = new HashSet<EvenementPresence>();
             this.EvenementAssocie = new HashSet<EvenementAssocie>();
             this.EvenementAssocie1 = new HashSet<EvenementAssocie>();
         }
     
         public int IdEvenement { get; set; }
+        public int IdUser { get; set; }
+        public string NomImage { get; set; }
         public System.DateTime DateDebut { get; set; }
-        public string Pays { get; set; }
-        public string Region { get; set; }
-        public string Departement { get; set; }
+        public string DateFin { get; set; }
+        public string NumRue { get; set; }
+        public string NomRue { get; set; }
         public string Ville { get; set; }
         public int CodePostal { get; set; }
-        public string NumRue { get; set; }
+        public string Departement { get; set; }
+        public string Region { get; set; }
+        public string Pays { get; set; }
         public string Lien { get; set; }
         public string Description { get; set; }
-        public string NomImage { get; set; }
-        public int webpages_UsersIdUsers { get; set; }
+        public string DatePublication { get; set; }
     
-        public virtual ICollection<EvenementPublication> EvenementPublication { get; set; }
         public virtual ICollection<EvenementPresence> EvenementPresence { get; set; }
         public virtual ICollection<EvenementAssocie> EvenementAssocie { get; set; }
         public virtual ICollection<EvenementAssocie> EvenementAssocie1 { get; set; }
+        public virtual Utilisateur Utilisateur { get; set; }
     }
 }

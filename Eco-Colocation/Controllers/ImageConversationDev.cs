@@ -12,16 +12,12 @@ namespace Eco_Colocation.Controllers
     using System;
     using System.Collections.Generic;
     
-    public partial class webpages_Roles
+    public partial class ImageConversationDev
     {
-        public webpages_Roles()
-        {
-            this.webpages_Users = new HashSet<webpages_Users>();
-        }
+        public int IdImgConversationDev { get; set; }
+        public int IdConversationDev { get; set; }
+        public string NomImage { get; set; }
     
-        public int IdRole { get; set; }
-        public string RoleName { get; set; }
-    
-        public virtual ICollection<webpages_Users> webpages_Users { get; set; }
+        public virtual ConversationDev ConversationDev { get; set; }
     }
 }

@@ -14,9 +14,8 @@ namespace Eco_Colocation.Controllers
     
     public partial class EvenementAssocie
     {
-        public int IdEvenementAssocie { get; set; }
         public int IdEvenement { get; set; }
-        public int IdEvenementLink { get; set; }
+        public int IdEvenementAssocie { get; set; }
     
         public virtual Evenement Evenement { get; set; }
         public virtual Evenement Evenement1 { get; set; }

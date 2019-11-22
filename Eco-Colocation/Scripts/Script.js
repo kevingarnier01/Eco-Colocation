@@ -868,6 +868,11 @@ function modifyNbChambreDisponible(elementNbChambreAsk, blockElementRoom) {
 				var divChambre = $(blockElementRoom)[0].outerHTML;
 				$(blockElementRoom).last().after(divChambre);
 				$(blockElementRoom + ':last #titleChambre-ml').text('CHAMBRE ' + $(blockElementRoom).length);
+				var chiffreAleatoire = Math.floor(100000 + Math.random() * 900000);
+				$(blockElementRoom + ':last .divEndDispo-mlca').fadeOut(0);
+				$(blockElementRoom + ':last .dispoTemporaireChk-mlca').attr('id', 'dispoTemporaireChk-mlca' + chiffreAleatoire)
+				$(blockElementRoom + ':last .divEndDispo-mlca').attr('id', 'divEndDispo-mlca' + chiffreAleatoire)
+				$(blockElementRoom + ':last .dispoTemporaireChk-mlca').attr('onchange', 'changeEndOfDispoVisibility("#dispoTemporaireChk-mlca' + chiffreAleatoire + '", "#divEndDispo-mlca' + chiffreAleatoire + '")')
 			}
 			else if ($(elementNbChambreAsk).val() < $(blockElementRoom).length && $(blockElementRoom).length > 1) {
 				var numberDifference = $(blockElementRoom).length - $(elementNbChambreAsk).val();
@@ -1854,12 +1859,12 @@ function removePictureConvDev(element) {
 	}
 }
 
-function changeEndOfDispoVisibility() {
-	if ($("#dispoTemporaireChk-mlca").prop('checked')) {
-		$("#divEndDispo-mlca").fadeIn("slow");
+function changeEndOfDispoVisibility(elementCheck, elementToMove) {
+	if ($(elementCheck).prop('checked')) {
+		$(elementToMove).fadeIn("slow");
 	}
 	else {
-		$("#divEndDispo-mlca").fadeOut("slow");
+		$(elementToMove).fadeOut("slow");
 	}
 }
 
