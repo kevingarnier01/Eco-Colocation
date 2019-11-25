@@ -16,8 +16,6 @@ namespace Eco_Colocation.Controllers
     {
         public int IdAdhesion { get; set; }
         public string MotDePasse { get; set; }
-        public string DateCreation { get; set; }
-    
-        public virtual Utilisateur Utilisateur { get; set; }
+        public System.DateTime DateCreation { get; set; }
     }
 }

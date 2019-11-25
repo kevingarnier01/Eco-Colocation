@@ -136,12 +136,12 @@
 					<div style="width: 100%;">
 						<div class="col-sm-4 div2-2-descInform-ca" style="padding: 0;">
 							<div class="flex childFlex">
-								<i class="fas fa-map-signs childFlex icon-ca" style="margin-top: 12px;"></i>
+								<i class="fas fa-map-signs childFlex icon-ca" style="margin-top: auto;margin-bottom: auto;"></i>
 							</div>
 						</div>
 						<div id="div10-1-adresseLog-ca" class="col-sm-8 col-xs-12">
 							<div id="div10-2-adresseLog-ca" style="position:relative">
-								<input id="inputSearchPlace-mpc" oninput="addr_searchCity(this);" type="text" class="inputSearchPlace form-control" placeholder="Où recherchez-vous ? *">
+								<input id="inputSearchPlace-mpc" oninput="addr_searchCity(this);" type="text" class="inputSearchPlace form-control" placeholder="Entrez le(s) lieu(x) envisagé(s) *">
 								<input id="inputSearchPlace-mpcHidden" name="inputSearchPlace-mpcHidden" type="hidden" value="">
 								<div class="listAutoCompleteToModal"></div>
 								@* C'est ici que les villes qu'ils valident seront affichées *@
@@ -192,7 +192,7 @@
 								<div class="div2-3-descInform-ca">
 									<div class="div2-4-descInform-ca">
 										<div class="flex">
-											<i class="fas fa-home childFlex icon-ca"></i>
+											<img src="/Content/Images/Logos/ground.png" class="icon-ca">
 										</div>
 										<p class="txtIcon-ca">TERRAIN</p>
 									</div>
@@ -290,9 +290,8 @@
 											<td class="col-xs-6">
 												<select id="select2-loyer-fh" class="form-control">
 													<option value="0">Toutes implantations</option>
-													<option value="1">Campagne</option>
-													<option value="2">Ville/commune</option>
-													<option value="3">Ville ou campagne/option>
+													<option value="2">Campagne</option>
+													<option value="1">Ville/commune</option>
 												</select>
 											</td>
 										</tr>
@@ -340,7 +339,7 @@
 					<div class="div20-descInform-ca">
 						<div class="div2-1-descInform-ca">
 							<div class="col-sm-4 div2-2-descInform-ca">
-								<div class="div2-3-descInform-ca" style="width: 119px;margin: 0;">
+								<div class="div2-3-descInform-ca" style="width: 119px;margin: auto;">
 									<div class="div2-4-descInform-ca">
 										<div class="flex">
 											<i class="fas fa-users childFlex icon-ca"></i>
@@ -354,7 +353,7 @@
 									<tbody>
 										<tr>
 											<td class="col-xs-6">
-												<label for="NbColocTotal">Nombre de personne au totale (en m'incluant) *</label>
+												<label for="NbColocTotal">Nombre de personne au totale (en m'incluant si c'est le cas) *</label>
 											</td>
 											<td class="col-xs-6">
 												<input id="NbColocTotal" name="NbColocTotal" type="number" min="0" class="inputtable-ca" style="width: 80px;">

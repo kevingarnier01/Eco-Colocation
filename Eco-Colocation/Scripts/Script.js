@@ -999,7 +999,7 @@ function showMultiplesFilesUpload(filesInputId, elementIdToAppend) {
 					$('body').removeClass('waiting');
 				}, 2000);
 				$('.labelDescFile-mcar').css('display', 'block');
-			}, 500);
+			}, 1000);
 		}
 		$('input[type="file"]').val(null);
 	});

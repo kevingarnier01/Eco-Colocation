@@ -44,7 +44,7 @@ namespace Eco_Colocation.Controllers
         public bool FumeurTolerence { get; set; }
         public bool AnimauxTolerence { get; set; }
         public string InfoSupTolerence { get; set; }
-        public string DescriptionPersonnalite { get; set; }
+        public string ActivationAnnonce { get; set; }
     
         public virtual ICollection<Lieu> Lieu { get; set; }
         public virtual Utilisateur Utilisateur { get; set; }

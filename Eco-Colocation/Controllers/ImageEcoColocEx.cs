@@ -14,7 +14,7 @@ namespace Eco_Colocation.Controllers
     
     public partial class ImageEcoColocEx
     {
-        public int Id { get; set; }
+        public int IdImageEcoColocEx { get; set; }
         public int IdEcoColocExistante { get; set; }
         public string NomImage { get; set; }
         public byte NumOrdre { get; set; }

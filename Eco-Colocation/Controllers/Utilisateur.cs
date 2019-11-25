@@ -16,7 +16,7 @@ namespace Eco_Colocation.Controllers
     {
         public Utilisateur()
         {
-            this.Activation = true;
+            this.ActivationCompte = true;
             this.Role = new HashSet<Role>();
             this.ProjetCreation = new HashSet<ProjetCreation>();
             this.AnnonceLocation = new HashSet<AnnonceLocation>();
@@ -32,16 +32,21 @@ namespace Eco_Colocation.Controllers
         public string Pays { get; set; }
         public string DateNaissance { get; set; }
         public Nullable<byte> Activite { get; set; }
+        public string CodeTelPays { get; set; }
         public string Telephone { get; set; }
-        public byte TypeContact { get; set; }
+        public Nullable<byte> TypeContact { get; set; }
+        public string DescriptionPersonnalite { get; set; }
         public System.DateTime DateInscription { get; set; }
-        public string DateDerniereActivite { get; set; }
-        public bool Activation { get; set; }
+        public System.DateTime DateDerniereActivite { get; set; }
+        public bool ActivationCompte { get; set; }
     
         public virtual ICollection<Role> Role { get; set; }
         public virtual ICollection<ProjetCreation> ProjetCreation { get; set; }
         public virtual ICollection<AnnonceLocation> AnnonceLocation { get; set; }
         public virtual ICollection<EvenementPresence> EvenementPresence { get; set; }
         public virtual ICollection<Evenement> Evenement { get; set; }
+        public virtual RechercheColocation RechercheColocation { get; set; }
+        public virtual EcoColocExistante EcoColocExistante { get; set; }
+        public virtual Adhesion Adhesion { get; set; }
     }
 }

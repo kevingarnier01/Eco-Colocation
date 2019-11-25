@@ -15,7 +15,6 @@ namespace Eco_Colocation.Controllers
     public partial class ImageProjetCreation
     {
         public int IdImgProjetCreation { get; set; }
-        public int IdProjetCreation { get; set; }
         public string NomImage { get; set; }
         public byte NumOrdre { get; set; }
     

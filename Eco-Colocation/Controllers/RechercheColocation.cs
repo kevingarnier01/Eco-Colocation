@@ -20,10 +20,12 @@ namespace Eco_Colocation.Controllers
         }
     
         public int IdRechercheColocation { get; set; }
-        public string DescriptionPersonnalite { get; set; }
+        public string BudgetMax { get; set; }
+        public string AlerteParEmail { get; set; }
         public string CritereRecherche { get; set; }
         public string PratiqueEcolo { get; set; }
         public string NomPhoto { get; set; }
+        public string ActivationAnnonce { get; set; }
     
         public virtual ICollection<Lieu> Lieu { get; set; }
         public virtual Utilisateur Utilisateur { get; set; }

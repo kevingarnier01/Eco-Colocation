@@ -140,6 +140,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\_Enums.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\Adhesion.cs">
+      <DependentUpon>EcoColocationModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\AnnonceLocation.cs">
       <DependentUpon>EcoColocationModel.tt</DependentUpon>
     </Compile>
@@ -187,9 +190,6 @@
     <Compile Include="Controllers\EvenementPresence.cs">
       <DependentUpon>EcoColocationModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Controllers\EvenementPublication.cs">
-      <DependentUpon>EcoColocationModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImageConversationDev.cs">
       <DependentUpon>EcoColocationModel.tt</DependentUpon>
@@ -201,9 +201,6 @@
       <DependentUpon>EcoColocationModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Controllers\Lieu.cs">
-      <DependentUpon>EcoColocationModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Controllers\Membership.cs">
       <DependentUpon>EcoColocationModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Controllers\ModalController.cs" />
@@ -219,7 +216,7 @@
       <DependentUpon>EcoColocationModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Controllers\SearchColocController.cs" />
-    <Compile Include="Controllers\User.cs">
+    <Compile Include="Controllers\Utilisateur.cs">
       <DependentUpon>EcoColocationModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">

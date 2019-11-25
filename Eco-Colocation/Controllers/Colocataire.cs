@@ -19,7 +19,7 @@ namespace Eco_Colocation.Controllers
         public string Nom { get; set; }
         public string Email { get; set; }
         public string DateNaissance { get; set; }
-        public string Civilite { get; set; }
+        public byte Civilite { get; set; }
     
         public virtual EcoColocExistante EcoColocExistante { get; set; }
     }

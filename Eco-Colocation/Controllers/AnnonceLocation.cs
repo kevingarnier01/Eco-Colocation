@@ -29,8 +29,8 @@ namespace Eco_Colocation.Controllers
         public string Departement { get; set; }
         public string Region { get; set; }
         public string Pays { get; set; }
-        public string Latitude { get; set; }
-        public string Longitude { get; set; }
+        public int Latitude { get; set; }
+        public int Longitude { get; set; }
         public byte TypeLogement { get; set; }
         public byte ImplantationLogement { get; set; }
         public int SuperficieLogement { get; set; }
@@ -46,7 +46,7 @@ namespace Eco_Colocation.Controllers
         public bool AnimauxTolerence { get; set; }
         public string InfoSupTolerence { get; set; }
         public System.DateTime DatePublication { get; set; }
-        public bool Activation { get; set; }
+        public bool ActivationAnnonce { get; set; }
     
         public virtual ICollection<ChambreLocation> ChambreLocation { get; set; }
         public virtual Utilisateur Utilisateur { get; set; }

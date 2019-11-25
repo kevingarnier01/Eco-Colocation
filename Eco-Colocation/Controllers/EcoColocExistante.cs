@@ -33,7 +33,7 @@ namespace Eco_Colocation.Controllers
         public string TableauEcolo { get; set; }
         public string TableauHabitat { get; set; }
     
-        public virtual Utilisateur Utilisateur { get; set; }
         public virtual ICollection<ImageEcoColocEx> ImageEcoColocEx { get; set; }
+        public virtual Utilisateur Utilisateur { get; set; }
     }
 }

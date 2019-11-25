@@ -20,10 +20,10 @@ namespace Eco_Colocation.Controllers
         }
     
         public int IdConversationDev { get; set; }
+        public string Email { get; set; }
         public string Message { get; set; }
-        public string DateDernierEnvoi { get; set; }
+        public System.DateTime DateDernierEnvoi { get; set; }
     
         public virtual ICollection<ImageConversationDev> Image { get; set; }
-        public virtual Utilisateur Utilisateur { get; set; }
     }
 }

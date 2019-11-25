@@ -25,22 +25,23 @@ namespace Eco_Colocation.Controllers
             throw new UnintentionalCodeFirstException();
         }
     
-        public DbSet<AnnonceLocation> AnnonceLocationSet { get; set; }
-        public DbSet<ChambreLocation> ChambreLocationSet { get; set; }
-        public DbSet<ProjetCreation> ProjetCreationSet { get; set; }
-        public DbSet<Lieu> LieuSet { get; set; }
-        public DbSet<Evenement> EvenementSet { get; set; }
-        public DbSet<EvenementPresence> EvenementPresenceSet { get; set; }
-        public DbSet<EcoColocExistante> EcoColocExistanteSet { get; set; }
-        public DbSet<ImageConversationDev> ImageConversationDevSet { get; set; }
-        public DbSet<Colocataire> ColocataireSet { get; set; }
-        public DbSet<ConversationDev> ConversationDevSet { get; set; }
-        public DbSet<RechercheColocation> RechercheColocationSet { get; set; }
-        public DbSet<Role> RoleSet { get; set; }
-        public DbSet<Utilisateur> UtilisateurSet { get; set; }
-        public DbSet<EvenementAssocie> EvenementAssocieSet { get; set; }
-        public DbSet<Adhesion> AdhesionSet { get; set; }
-        public DbSet<ImageEcoColocEx> ImageEcoColocExSet { get; set; }
-        public DbSet<ImageProjetCreation> ImageProjetCreationSet { get; set; }
+        public DbSet<AnnonceLocation> AnnonceLocation { get; set; }
+        public DbSet<ChambreLocation> ChambreLocation { get; set; }
+        public DbSet<ProjetCreation> ProjetCreation { get; set; }
+        public DbSet<Lieu> Lieu { get; set; }
+        public DbSet<Evenement> Evenement { get; set; }
+        public DbSet<EvenementPresence> EvenementPresence { get; set; }
+        public DbSet<EcoColocExistante> EcoColocExistante { get; set; }
+        public DbSet<ImageConversationDev> ImageConversationDev { get; set; }
+        public DbSet<Colocataire> Colocataire { get; set; }
+        public DbSet<ConversationDev> ConversationDev { get; set; }
+        public DbSet<RechercheColocation> RechercheColocation { get; set; }
+        public DbSet<Role> Role { get; set; }
+        public DbSet<Utilisateur> Utilisateur { get; set; }
+        public DbSet<EvenementAssocie> EvenementAssocie { get; set; }
+        public DbSet<Adhesion> Adhesion { get; set; }
+        public DbSet<ImageEcoColocEx> ImageEcoColocEx { get; set; }
+        public DbSet<ImageProjetCreation> ImageProjetCreation { get; set; }
+        public DbSet<Agence> AgenceSet { get; set; }
     }
 }
