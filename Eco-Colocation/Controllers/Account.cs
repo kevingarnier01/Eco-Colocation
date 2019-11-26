@@ -16,13 +16,16 @@ namespace Eco_Colocation.Controllers
     {
         public Account()
         {
-            this.Role = new HashSet<Role>();
             this.AnnonceLocation = new HashSet<AnnonceLocation>();
+            this.Role = new HashSet<Role>();
         }
     
         public int IdAccount { get; set; }
+        public System.DateTime DateCreation { get; set; }
     
-        public virtual ICollection<Role> Role { get; set; }
         public virtual ICollection<AnnonceLocation> AnnonceLocation { get; set; }
+        public virtual Utilisateur Utilisateur { get; set; }
+        public virtual Adhesion Adhesion { get; set; }
+        public virtual ICollection<Role> Role { get; set; }
     }
 }

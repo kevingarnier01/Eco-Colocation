@@ -46,6 +46,5 @@ namespace Eco_Colocation.Controllers
         public string ActivationAnnonce { get; set; }
     
         public virtual ICollection<Lieu> Lieu { get; set; }
-        public virtual Utilisateur Utilisateur { get; set; }
     }
 }

@@ -12,7 +12,7 @@ namespace Eco_Colocation.Controllers
     using System;
     using System.Collections.Generic;
     
-    public partial class Agence : Account
+    public partial class Agence
     {
         public int IdAgence { get; set; }
         public string Nom { get; set; }
@@ -21,5 +21,7 @@ namespace Eco_Colocation.Controllers
         public string AdresseSiegeSocial { get; set; }
         public string NumSiret { get; set; }
         public short FraisAgence { get; set; }
+    
+        public virtual Account Account { get; set; }
     }
 }

@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 11/25/2019 12:44:47
+-- Date Created: 11/26/2019 13:30:51
 -- Generated from EDMX file: C:\Users\kev-gar\Documents\Projet personnel\Eco-colocation\Application\Développement\Eco-Colocation\Eco-Colocation\Controllers\EcoColocationModel.edmx
 -- --------------------------------------------------
 
@@ -31,12 +31,6 @@ IF OBJECT_ID(N'[dbo].[FK_Lieu_RechercheColoc_RechercheColoc]', 'F') IS NOT NULL
 GO
 IF OBJECT_ID(N'[dbo].[FK_Lieu_RechercheColoc_Lieu]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Lieu_RechercheColoc] DROP CONSTRAINT [FK_Lieu_RechercheColoc_Lieu];
-GO
-IF OBJECT_ID(N'[dbo].[FK_Utilisateur_Role_Utilisateur]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Utilisateur_Role] DROP CONSTRAINT [FK_Utilisateur_Role_Utilisateur];
-GO
-IF OBJECT_ID(N'[dbo].[FK_Utilisateur_Role_Role]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Utilisateur_Role] DROP CONSTRAINT [FK_Utilisateur_Role_Role];
 GO
 IF OBJECT_ID(N'[dbo].[FK_Utilisateur_ProjetCreation]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[ProjetCreation] DROP CONSTRAINT [FK_Utilisateur_ProjetCreation];
@@ -145,9 +139,6 @@ GO
 IF OBJECT_ID(N'[dbo].[Lieu_RechercheColoc]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Lieu_RechercheColoc];
 GO
-IF OBJECT_ID(N'[dbo].[Utilisateur_Role]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Utilisateur_Role];
-GO
 
 -- --------------------------------------------------
 -- Creating all tables
@@ -156,7 +147,7 @@ GO
 -- Creating table 'AnnonceLocation'
 CREATE TABLE [dbo].[AnnonceLocation] (
     [IdAnnonceLocation] int IDENTITY(1,1) NOT NULL,
-    [IdUtilisateur] int  NOT NULL,
+    [IdAccount] int  NOT NULL,
     [Introduction] nvarchar(110)  NOT NULL,
     [Description] nvarchar(max)  NOT NULL,
     [Rue] nvarchar(80)  NOT NULL,
@@ -182,7 +173,7 @@ CREATE TABLE [dbo].[AnnonceLocation] (
     [AnimauxTolerence] bit  NOT NULL,
     [InfoSupTolerence] nvarchar(100)  NULL,
     [DatePublication] datetime  NOT NULL,
-    [Activation] bit  NOT NULL
+    [ActivationAnnonce] bit  NOT NULL
 );
 GO
 
@@ -227,17 +218,17 @@ CREATE TABLE [dbo].[ProjetCreation] (
     [FumeurTolerence] bit  NOT NULL,
     [AnimauxTolerence] bit  NOT NULL,
     [InfoSupTolerence] nvarchar(100)  NULL,
-    [DescriptionPersonnalite] nvarchar(max)  NOT NULL
+    [ActivationAnnonce] nvarchar(max)  NOT NULL
 );
 GO
 
 -- Creating table 'Lieu'
 CREATE TABLE [dbo].[Lieu] (
     [IdLieu] int IDENTITY(1,1) NOT NULL,
-    [Ville] nvarchar(50)  NOT NULL,
-    [CodePostal] nvarchar(15)  NOT NULL,
-    [Departement] nvarchar(50)  NOT NULL,
-    [Region] nvarchar(50)  NOT NULL,
+    [Ville] nvarchar(50)  NULL,
+    [CodePostal] nvarchar(15)  NULL,
+    [Departement] nvarchar(50)  NULL,
+    [Region] nvarchar(50)  NULL,
     [Pays] nvarchar(50)  NOT NULL
 );
 GO
@@ -273,6 +264,7 @@ GO
 -- Creating table 'EcoColocExistante'
 CREATE TABLE [dbo].[EcoColocExistante] (
     [IdEcoColocExistante] int IDENTITY(1,1) NOT NULL,
+    [IdUtilisateur] int  NOT NULL,
     [NomEcoColoc] nvarchar(50)  NOT NULL,
     [NbColocataire] int  NOT NULL,
     [Pays] nvarchar(50)  NOT NULL,
@@ -284,8 +276,7 @@ CREATE TABLE [dbo].[EcoColocExistante] (
     [Description] nvarchar(max)  NOT NULL,
     [ImplicationEcologique] tinyint  NOT NULL,
     [TableauEcolo] nvarchar(max)  NOT NULL,
-    [TableauHabitat] nvarchar(max)  NOT NULL,
-    [Utilisateur_IdUtilisateur] int  NOT NULL
+    [TableauHabitat] nvarchar(max)  NOT NULL
 );
 GO
 
@@ -300,32 +291,34 @@ GO
 -- Creating table 'Colocataire'
 CREATE TABLE [dbo].[Colocataire] (
     [IdColocataire] int IDENTITY(1,1) NOT NULL,
+    [IdEcoColocExistante] int  NOT NULL,
     [Prenom] nvarchar(50)  NOT NULL,
     [Nom] nvarchar(50)  NOT NULL,
     [Email] nvarchar(60)  NOT NULL,
     [DateNaissance] nvarchar(10)  NOT NULL,
-    [Civilite] tinyint  NOT NULL,
-    [EcoColocExistante_IdEcoColocExistante] int  NOT NULL
+    [Civilite] tinyint  NOT NULL
 );
 GO
 
 -- Creating table 'ConversationDev'
 CREATE TABLE [dbo].[ConversationDev] (
     [IdConversationDev] int IDENTITY(1,1) NOT NULL,
+    [Email] nvarchar(max)  NOT NULL,
     [Message] nvarchar(max)  NOT NULL,
-    [DateDernierEnvoi] datetime  NOT NULL,
-    [Utilisateur_IdUtilisateur] int  NOT NULL
+    [DateDernierEnvoi] datetime  NOT NULL
 );
 GO
 
 -- Creating table 'RechercheColocation'
 CREATE TABLE [dbo].[RechercheColocation] (
     [IdRechercheColocation] int IDENTITY(1,1) NOT NULL,
-    [DescriptionPersonnalite] nvarchar(500)  NOT NULL,
+    [IdUtilisateur] int  NOT NULL,
+    [BudgetMax] nvarchar(max)  NOT NULL,
+    [AlerteParEmail] nvarchar(max)  NOT NULL,
     [CritereRecherche] nvarchar(max)  NOT NULL,
     [PratiqueEcolo] nvarchar(max)  NOT NULL,
     [NomPhoto] nvarchar(50)  NOT NULL,
-    [Utilisateur_IdUtilisateur] int  NOT NULL
+    [ActivationAnnonce] nvarchar(max)  NOT NULL
 );
 GO
 
@@ -334,25 +327,6 @@ CREATE TABLE [dbo].[Role] (
     [IdRole] int IDENTITY(1,1) NOT NULL,
     [NomRole] nvarchar(50)  NOT NULL,
     [Description] nvarchar(100)  NULL
-);
-GO
-
--- Creating table 'Utilisateur'
-CREATE TABLE [dbo].[Utilisateur] (
-    [IdUtilisateur] int IDENTITY(1,1) NOT NULL,
-    [Email] nvarchar(60)  NOT NULL,
-    [Prenom] nvarchar(50)  NOT NULL,
-    [Nom] nvarchar(50)  NOT NULL,
-    [Civilite] tinyint  NOT NULL,
-    [Pays] nvarchar(50)  NOT NULL,
-    [DateNaissance] nvarchar(10)  NOT NULL,
-    [Activite] tinyint  NULL,
-    [CodeTelPays] nvarchar(15)  NOT NULL,
-    [Telephone] nvarchar(12)  NOT NULL,
-    [TypeContact] tinyint  NOT NULL,
-    [DateInscription] datetime  NOT NULL,
-    [DateDerniereActivite] datetime  NOT NULL,
-    [Activation] bit  NOT NULL
 );
 GO
 
@@ -367,8 +341,7 @@ GO
 CREATE TABLE [dbo].[Adhesion] (
     [IdAdhesion] int IDENTITY(1,1) NOT NULL,
     [MotDePasse] nvarchar(50)  NOT NULL,
-    [DateCreation] datetime  NOT NULL,
-    [Utilisateur_IdUtilisateur] int  NOT NULL
+    [Adhesion_Account_Adhesion_IdAccount] int  NOT NULL
 );
 GO
 
@@ -384,14 +357,55 @@ GO
 -- Creating table 'ImageProjetCreation'
 CREATE TABLE [dbo].[ImageProjetCreation] (
     [IdImgProjetCreation] int IDENTITY(1,1) NOT NULL,
+    [IdProjetCreation] int  NOT NULL,
     [NomImage] nvarchar(50)  NOT NULL,
-    [NumOrdre] tinyint  NOT NULL,
-    [ProjetCreation_IdProjetCreation] int  NOT NULL
+    [NumOrdre] tinyint  NOT NULL
 );
 GO
 
--- Creating table 'ProjetCreation_Lieu'
-CREATE TABLE [dbo].[ProjetCreation_Lieu] (
+-- Creating table 'Account'
+CREATE TABLE [dbo].[Account] (
+    [IdAccount] int IDENTITY(1,1) NOT NULL,
+    [DateCreation] datetime  NOT NULL
+);
+GO
+
+-- Creating table 'AgenceSet'
+CREATE TABLE [dbo].[AgenceSet] (
+    [IdAgence] int IDENTITY(1,1) NOT NULL,
+    [Nom] nvarchar(50)  NOT NULL,
+    [Email] nvarchar(60)  NOT NULL,
+    [Telephone] nvarchar(12)  NOT NULL,
+    [AdresseSiegeSocial] nvarchar(max)  NOT NULL,
+    [NumSiret] nvarchar(14)  NOT NULL,
+    [FraisAgence] smallint  NOT NULL,
+    [Account_IdAccount] int  NOT NULL
+);
+GO
+
+-- Creating table 'UtilisateurSet'
+CREATE TABLE [dbo].[UtilisateurSet] (
+    [IdUtilisateur] int IDENTITY(1,1) NOT NULL,
+    [Email] nvarchar(60)  NOT NULL,
+    [Prenom] nvarchar(50)  NOT NULL,
+    [Nom] nvarchar(50)  NOT NULL,
+    [Civilite] tinyint  NOT NULL,
+    [Pays] nvarchar(50)  NOT NULL,
+    [DateNaissance] nvarchar(10)  NOT NULL,
+    [Activite] tinyint  NULL,
+    [CodeTelPays] nvarchar(15)  NOT NULL,
+    [Telephone] nvarchar(12)  NOT NULL,
+    [TypeContact] tinyint  NULL,
+    [DescriptionPersonnalite] nvarchar(500)  NULL,
+    [DateInscription] datetime  NOT NULL,
+    [DateDerniereActivite] datetime  NOT NULL,
+    [ActivationCompte] bit  NOT NULL,
+    [UtilisateurAccount_Utilisateur_IdAccount] int  NOT NULL
+);
+GO
+
+-- Creating table 'Lieu_ProjetCreation'
+CREATE TABLE [dbo].[Lieu_ProjetCreation] (
     [ProjetCreation_IdProjetCreation] int  NOT NULL,
     [Lieu_IdLieu] int  NOT NULL
 );
@@ -404,9 +418,9 @@ CREATE TABLE [dbo].[Lieu_RechercheColoc] (
 );
 GO
 
--- Creating table 'Utilisateur_Role'
-CREATE TABLE [dbo].[Utilisateur_Role] (
-    [Utilisateur_IdUtilisateur] int  NOT NULL,
+-- Creating table 'AccountRole'
+CREATE TABLE [dbo].[AccountRole] (
+    [Account_IdAccount] int  NOT NULL,
     [Role_IdRole] int  NOT NULL
 );
 GO
@@ -445,10 +459,10 @@ ADD CONSTRAINT [PK_Evenement]
     PRIMARY KEY CLUSTERED ([IdEvenement] ASC);
 GO
 
--- Creating primary key on [IdUtilisateur], [IdEvenement] in table 'EvenementPresence'
+-- Creating primary key on [IdEvenement], [IdUtilisateur] in table 'EvenementPresence'
 ALTER TABLE [dbo].[EvenementPresence]
 ADD CONSTRAINT [PK_EvenementPresence]
-    PRIMARY KEY CLUSTERED ([IdUtilisateur], [IdEvenement] ASC);
+    PRIMARY KEY CLUSTERED ([IdEvenement], [IdUtilisateur] ASC);
 GO
 
 -- Creating primary key on [IdEcoColocExistante] in table 'EcoColocExistante'
@@ -487,12 +501,6 @@ ADD CONSTRAINT [PK_Role]
     PRIMARY KEY CLUSTERED ([IdRole] ASC);
 GO
 
--- Creating primary key on [IdUtilisateur] in table 'Utilisateur'
-ALTER TABLE [dbo].[Utilisateur]
-ADD CONSTRAINT [PK_Utilisateur]
-    PRIMARY KEY CLUSTERED ([IdUtilisateur] ASC);
-GO
-
 -- Creating primary key on [IdEvenement], [IdEvenementAssocie] in table 'EvenementAssocie'
 ALTER TABLE [dbo].[EvenementAssocie]
 ADD CONSTRAINT [PK_EvenementAssocie]
@@ -517,9 +525,27 @@ ADD CONSTRAINT [PK_ImageProjetCreation]
     PRIMARY KEY CLUSTERED ([IdImgProjetCreation] ASC);
 GO
 
--- Creating primary key on [ProjetCreation_IdProjetCreation], [Lieu_IdLieu] in table 'ProjetCreation_Lieu'
-ALTER TABLE [dbo].[ProjetCreation_Lieu]
-ADD CONSTRAINT [PK_ProjetCreation_Lieu]
+-- Creating primary key on [IdAccount] in table 'Account'
+ALTER TABLE [dbo].[Account]
+ADD CONSTRAINT [PK_Account]
+    PRIMARY KEY CLUSTERED ([IdAccount] ASC);
+GO
+
+-- Creating primary key on [IdAgence] in table 'AgenceSet'
+ALTER TABLE [dbo].[AgenceSet]
+ADD CONSTRAINT [PK_AgenceSet]
+    PRIMARY KEY CLUSTERED ([IdAgence] ASC);
+GO
+
+-- Creating primary key on [IdUtilisateur] in table 'UtilisateurSet'
+ALTER TABLE [dbo].[UtilisateurSet]
+ADD CONSTRAINT [PK_UtilisateurSet]
+    PRIMARY KEY CLUSTERED ([IdUtilisateur] ASC);
+GO
+
+-- Creating primary key on [ProjetCreation_IdProjetCreation], [Lieu_IdLieu] in table 'Lieu_ProjetCreation'
+ALTER TABLE [dbo].[Lieu_ProjetCreation]
+ADD CONSTRAINT [PK_Lieu_ProjetCreation]
     PRIMARY KEY CLUSTERED ([ProjetCreation_IdProjetCreation], [Lieu_IdLieu] ASC);
 GO
 
@@ -529,10 +555,10 @@ ADD CONSTRAINT [PK_Lieu_RechercheColoc]
     PRIMARY KEY CLUSTERED ([RechercheColocation_IdRechercheColocation], [Lieu_IdLieu] ASC);
 GO
 
--- Creating primary key on [Utilisateur_IdUtilisateur], [Role_IdRole] in table 'Utilisateur_Role'
-ALTER TABLE [dbo].[Utilisateur_Role]
-ADD CONSTRAINT [PK_Utilisateur_Role]
-    PRIMARY KEY CLUSTERED ([Utilisateur_IdUtilisateur], [Role_IdRole] ASC);
+-- Creating primary key on [Account_IdAccount], [Role_IdRole] in table 'AccountRole'
+ALTER TABLE [dbo].[AccountRole]
+ADD CONSTRAINT [PK_AccountRole]
+    PRIMARY KEY CLUSTERED ([Account_IdAccount], [Role_IdRole] ASC);
 GO
 
 -- --------------------------------------------------
@@ -554,27 +580,27 @@ ON [dbo].[ChambreLocation]
     ([IdAnnonceLocation]);
 GO
 
--- Creating foreign key on [ProjetCreation_IdProjetCreation] in table 'ProjetCreation_Lieu'
-ALTER TABLE [dbo].[ProjetCreation_Lieu]
-ADD CONSTRAINT [FK_ProjetCreation_Lieu_ProjetCreation]
+-- Creating foreign key on [ProjetCreation_IdProjetCreation] in table 'Lieu_ProjetCreation'
+ALTER TABLE [dbo].[Lieu_ProjetCreation]
+ADD CONSTRAINT [FK_Lieu_ProjetCreation_ProjetCreation]
     FOREIGN KEY ([ProjetCreation_IdProjetCreation])
     REFERENCES [dbo].[ProjetCreation]
         ([IdProjetCreation])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
--- Creating foreign key on [Lieu_IdLieu] in table 'ProjetCreation_Lieu'
-ALTER TABLE [dbo].[ProjetCreation_Lieu]
-ADD CONSTRAINT [FK_ProjetCreation_Lieu_Lieu]
+-- Creating foreign key on [Lieu_IdLieu] in table 'Lieu_ProjetCreation'
+ALTER TABLE [dbo].[Lieu_ProjetCreation]
+ADD CONSTRAINT [FK_Lieu_ProjetCreation_Lieu]
     FOREIGN KEY ([Lieu_IdLieu])
     REFERENCES [dbo].[Lieu]
         ([IdLieu])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
--- Creating non-clustered index for FOREIGN KEY 'FK_ProjetCreation_Lieu_Lieu'
-CREATE INDEX [IX_FK_ProjetCreation_Lieu_Lieu]
-ON [dbo].[ProjetCreation_Lieu]
+-- Creating non-clustered index for FOREIGN KEY 'FK_Lieu_ProjetCreation_Lieu'
+CREATE INDEX [IX_FK_Lieu_ProjetCreation_Lieu]
+ON [dbo].[Lieu_ProjetCreation]
     ([Lieu_IdLieu]);
 GO
 
@@ -602,69 +628,6 @@ ON [dbo].[Lieu_RechercheColoc]
     ([Lieu_IdLieu]);
 GO
 
--- Creating foreign key on [Utilisateur_IdUtilisateur] in table 'Utilisateur_Role'
-ALTER TABLE [dbo].[Utilisateur_Role]
-ADD CONSTRAINT [FK_Utilisateur_Role_Utilisateur]
-    FOREIGN KEY ([Utilisateur_IdUtilisateur])
-    REFERENCES [dbo].[Utilisateur]
-        ([IdUtilisateur])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating foreign key on [Role_IdRole] in table 'Utilisateur_Role'
-ALTER TABLE [dbo].[Utilisateur_Role]
-ADD CONSTRAINT [FK_Utilisateur_Role_Role]
-    FOREIGN KEY ([Role_IdRole])
-    REFERENCES [dbo].[Role]
-        ([IdRole])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating non-clustered index for FOREIGN KEY 'FK_Utilisateur_Role_Role'
-CREATE INDEX [IX_FK_Utilisateur_Role_Role]
-ON [dbo].[Utilisateur_Role]
-    ([Role_IdRole]);
-GO
-
--- Creating foreign key on [IdUtilisateur] in table 'ProjetCreation'
-ALTER TABLE [dbo].[ProjetCreation]
-ADD CONSTRAINT [FK_Utilisateur_ProjetCreation]
-    FOREIGN KEY ([IdUtilisateur])
-    REFERENCES [dbo].[Utilisateur]
-        ([IdUtilisateur])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating non-clustered index for FOREIGN KEY 'FK_Utilisateur_ProjetCreation'
-CREATE INDEX [IX_FK_Utilisateur_ProjetCreation]
-ON [dbo].[ProjetCreation]
-    ([IdUtilisateur]);
-GO
-
--- Creating foreign key on [IdUtilisateur] in table 'AnnonceLocation'
-ALTER TABLE [dbo].[AnnonceLocation]
-ADD CONSTRAINT [FK_Utilisateur_Location]
-    FOREIGN KEY ([IdUtilisateur])
-    REFERENCES [dbo].[Utilisateur]
-        ([IdUtilisateur])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating non-clustered index for FOREIGN KEY 'FK_Utilisateur_Location'
-CREATE INDEX [IX_FK_Utilisateur_Location]
-ON [dbo].[AnnonceLocation]
-    ([IdUtilisateur]);
-GO
-
--- Creating foreign key on [IdUtilisateur] in table 'EvenementPresence'
-ALTER TABLE [dbo].[EvenementPresence]
-ADD CONSTRAINT [FK_Utilisateur_EvenementPresence]
-    FOREIGN KEY ([IdUtilisateur])
-    REFERENCES [dbo].[Utilisateur]
-        ([IdUtilisateur])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
 -- Creating foreign key on [IdEvenement] in table 'EvenementPresence'
 ALTER TABLE [dbo].[EvenementPresence]
 ADD CONSTRAINT [FK_Evenement_EvenementPresence]
@@ -672,12 +635,6 @@ ADD CONSTRAINT [FK_Evenement_EvenementPresence]
     REFERENCES [dbo].[Evenement]
         ([IdEvenement])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating non-clustered index for FOREIGN KEY 'FK_Evenement_EvenementPresence'
-CREATE INDEX [IX_FK_Evenement_EvenementPresence]
-ON [dbo].[EvenementPresence]
-    ([IdEvenement]);
 GO
 
 -- Creating foreign key on [IdEvenement] in table 'EvenementAssocie'
@@ -719,21 +676,6 @@ ON [dbo].[ImageConversationDev]
     ([IdConversationDev]);
 GO
 
--- Creating foreign key on [Utilisateur_IdUtilisateur] in table 'Adhesion'
-ALTER TABLE [dbo].[Adhesion]
-ADD CONSTRAINT [FK_Adhesion_Utilisateur]
-    FOREIGN KEY ([Utilisateur_IdUtilisateur])
-    REFERENCES [dbo].[Utilisateur]
-        ([IdUtilisateur])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating non-clustered index for FOREIGN KEY 'FK_Adhesion_Utilisateur'
-CREATE INDEX [IX_FK_Adhesion_Utilisateur]
-ON [dbo].[Adhesion]
-    ([Utilisateur_IdUtilisateur]);
-GO
-
 -- Creating foreign key on [IdEcoColocExistante] in table 'ImageEcoColocEx'
 ALTER TABLE [dbo].[ImageEcoColocEx]
 ADD CONSTRAINT [FK_EcoColocExistante_ImageEcoColocEx]
@@ -749,11 +691,101 @@ ON [dbo].[ImageEcoColocEx]
     ([IdEcoColocExistante]);
 GO
 
+-- Creating foreign key on [IdAccount] in table 'AnnonceLocation'
+ALTER TABLE [dbo].[AnnonceLocation]
+ADD CONSTRAINT [FK_AnnonceLocation_Account]
+    FOREIGN KEY ([IdAccount])
+    REFERENCES [dbo].[Account]
+        ([IdAccount])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_AnnonceLocation_Account'
+CREATE INDEX [IX_FK_AnnonceLocation_Account]
+ON [dbo].[AnnonceLocation]
+    ([IdAccount]);
+GO
+
+-- Creating foreign key on [IdProjetCreation] in table 'ImageProjetCreation'
+ALTER TABLE [dbo].[ImageProjetCreation]
+ADD CONSTRAINT [FK_ProjetCreationImage_ProjetCreation]
+    FOREIGN KEY ([IdProjetCreation])
+    REFERENCES [dbo].[ProjetCreation]
+        ([IdProjetCreation])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_ProjetCreationImage_ProjetCreation'
+CREATE INDEX [IX_FK_ProjetCreationImage_ProjetCreation]
+ON [dbo].[ImageProjetCreation]
+    ([IdProjetCreation]);
+GO
+
+-- Creating foreign key on [IdEcoColocExistante] in table 'Colocataire'
+ALTER TABLE [dbo].[Colocataire]
+ADD CONSTRAINT [FK_EcoColocExistanteColocataire]
+    FOREIGN KEY ([IdEcoColocExistante])
+    REFERENCES [dbo].[EcoColocExistante]
+        ([IdEcoColocExistante])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_EcoColocExistanteColocataire'
+CREATE INDEX [IX_FK_EcoColocExistanteColocataire]
+ON [dbo].[Colocataire]
+    ([IdEcoColocExistante]);
+GO
+
+-- Creating foreign key on [IdUtilisateur] in table 'RechercheColocation'
+ALTER TABLE [dbo].[RechercheColocation]
+ADD CONSTRAINT [FK_Utilisateur_RechercheColocation]
+    FOREIGN KEY ([IdUtilisateur])
+    REFERENCES [dbo].[UtilisateurSet]
+        ([IdUtilisateur])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_Utilisateur_RechercheColocation'
+CREATE INDEX [IX_FK_Utilisateur_RechercheColocation]
+ON [dbo].[RechercheColocation]
+    ([IdUtilisateur]);
+GO
+
+-- Creating foreign key on [IdUtilisateur] in table 'EcoColocExistante'
+ALTER TABLE [dbo].[EcoColocExistante]
+ADD CONSTRAINT [FK_UtilisateurEcoColocExistante]
+    FOREIGN KEY ([IdUtilisateur])
+    REFERENCES [dbo].[UtilisateurSet]
+        ([IdUtilisateur])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_UtilisateurEcoColocExistante'
+CREATE INDEX [IX_FK_UtilisateurEcoColocExistante]
+ON [dbo].[EcoColocExistante]
+    ([IdUtilisateur]);
+GO
+
+-- Creating foreign key on [IdUtilisateur] in table 'EvenementPresence'
+ALTER TABLE [dbo].[EvenementPresence]
+ADD CONSTRAINT [FK_Utilisateur_EvenementPresence]
+    FOREIGN KEY ([IdUtilisateur])
+    REFERENCES [dbo].[UtilisateurSet]
+        ([IdUtilisateur])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_Utilisateur_EvenementPresence'
+CREATE INDEX [IX_FK_Utilisateur_EvenementPresence]
+ON [dbo].[EvenementPresence]
+    ([IdUtilisateur]);
+GO
+
 -- Creating foreign key on [IdUtilisateur] in table 'Evenement'
 ALTER TABLE [dbo].[Evenement]
 ADD CONSTRAINT [FK_Utilisateur_Evenement]
     FOREIGN KEY ([IdUtilisateur])
-    REFERENCES [dbo].[Utilisateur]
+    REFERENCES [dbo].[UtilisateurSet]
         ([IdUtilisateur])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
@@ -764,79 +796,88 @@ ON [dbo].[Evenement]
     ([IdUtilisateur]);
 GO
 
--- Creating foreign key on [Utilisateur_IdUtilisateur] in table 'ConversationDev'
-ALTER TABLE [dbo].[ConversationDev]
-ADD CONSTRAINT [FK_ConversationDev_Utilisateur]
-    FOREIGN KEY ([Utilisateur_IdUtilisateur])
-    REFERENCES [dbo].[Utilisateur]
+-- Creating foreign key on [UtilisateurAccount_Utilisateur_IdAccount] in table 'UtilisateurSet'
+ALTER TABLE [dbo].[UtilisateurSet]
+ADD CONSTRAINT [FK_UtilisateurAccount]
+    FOREIGN KEY ([UtilisateurAccount_Utilisateur_IdAccount])
+    REFERENCES [dbo].[Account]
+        ([IdAccount])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_UtilisateurAccount'
+CREATE INDEX [IX_FK_UtilisateurAccount]
+ON [dbo].[UtilisateurSet]
+    ([UtilisateurAccount_Utilisateur_IdAccount]);
+GO
+
+-- Creating foreign key on [Account_IdAccount] in table 'AgenceSet'
+ALTER TABLE [dbo].[AgenceSet]
+ADD CONSTRAINT [FK_Agence_Account]
+    FOREIGN KEY ([Account_IdAccount])
+    REFERENCES [dbo].[Account]
+        ([IdAccount])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_Agence_Account'
+CREATE INDEX [IX_FK_Agence_Account]
+ON [dbo].[AgenceSet]
+    ([Account_IdAccount]);
+GO
+
+-- Creating foreign key on [Adhesion_Account_Adhesion_IdAccount] in table 'Adhesion'
+ALTER TABLE [dbo].[Adhesion]
+ADD CONSTRAINT [FK_Adhesion_Account]
+    FOREIGN KEY ([Adhesion_Account_Adhesion_IdAccount])
+    REFERENCES [dbo].[Account]
+        ([IdAccount])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_Adhesion_Account'
+CREATE INDEX [IX_FK_Adhesion_Account]
+ON [dbo].[Adhesion]
+    ([Adhesion_Account_Adhesion_IdAccount]);
+GO
+
+-- Creating foreign key on [Account_IdAccount] in table 'AccountRole'
+ALTER TABLE [dbo].[AccountRole]
+ADD CONSTRAINT [FK_AccountRole_Account]
+    FOREIGN KEY ([Account_IdAccount])
+    REFERENCES [dbo].[Account]
+        ([IdAccount])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating foreign key on [Role_IdRole] in table 'AccountRole'
+ALTER TABLE [dbo].[AccountRole]
+ADD CONSTRAINT [FK_AccountRole_Role]
+    FOREIGN KEY ([Role_IdRole])
+    REFERENCES [dbo].[Role]
+        ([IdRole])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_AccountRole_Role'
+CREATE INDEX [IX_FK_AccountRole_Role]
+ON [dbo].[AccountRole]
+    ([Role_IdRole]);
+GO
+
+-- Creating foreign key on [IdUtilisateur] in table 'ProjetCreation'
+ALTER TABLE [dbo].[ProjetCreation]
+ADD CONSTRAINT [FK_ProjetCreation_Utilisateur]
+    FOREIGN KEY ([IdUtilisateur])
+    REFERENCES [dbo].[UtilisateurSet]
         ([IdUtilisateur])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
--- Creating non-clustered index for FOREIGN KEY 'FK_ConversationDev_Utilisateur'
-CREATE INDEX [IX_FK_ConversationDev_Utilisateur]
-ON [dbo].[ConversationDev]
-    ([Utilisateur_IdUtilisateur]);
-GO
-
--- Creating foreign key on [EcoColocExistante_IdEcoColocExistante] in table 'Colocataire'
-ALTER TABLE [dbo].[Colocataire]
-ADD CONSTRAINT [FK_Colocataire_EcoColocExistante]
-    FOREIGN KEY ([EcoColocExistante_IdEcoColocExistante])
-    REFERENCES [dbo].[EcoColocExistante]
-        ([IdEcoColocExistante])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating non-clustered index for FOREIGN KEY 'FK_Colocataire_EcoColocExistante'
-CREATE INDEX [IX_FK_Colocataire_EcoColocExistante]
-ON [dbo].[Colocataire]
-    ([EcoColocExistante_IdEcoColocExistante]);
-GO
-
--- Creating foreign key on [ProjetCreation_IdProjetCreation] in table 'ImageProjetCreation'
-ALTER TABLE [dbo].[ImageProjetCreation]
-ADD CONSTRAINT [FK_ImageProjetCreation_ProjetCreation]
-    FOREIGN KEY ([ProjetCreation_IdProjetCreation])
-    REFERENCES [dbo].[ProjetCreation]
-        ([IdProjetCreation])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating non-clustered index for FOREIGN KEY 'FK_ImageProjetCreation_ProjetCreation'
-CREATE INDEX [IX_FK_ImageProjetCreation_ProjetCreation]
-ON [dbo].[ImageProjetCreation]
-    ([ProjetCreation_IdProjetCreation]);
-GO
-
--- Creating foreign key on [Utilisateur_IdUtilisateur] in table 'RechercheColocation'
-ALTER TABLE [dbo].[RechercheColocation]
-ADD CONSTRAINT [FK_RechercheColocation_Utilisateur]
-    FOREIGN KEY ([Utilisateur_IdUtilisateur])
-    REFERENCES [dbo].[Utilisateur]
-        ([IdUtilisateur])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating non-clustered index for FOREIGN KEY 'FK_RechercheColocation_Utilisateur'
-CREATE INDEX [IX_FK_RechercheColocation_Utilisateur]
-ON [dbo].[RechercheColocation]
-    ([Utilisateur_IdUtilisateur]);
-GO
-
--- Creating foreign key on [Utilisateur_IdUtilisateur] in table 'EcoColocExistante'
-ALTER TABLE [dbo].[EcoColocExistante]
-ADD CONSTRAINT [FK_EcoColocExistante_Utilisateur]
-    FOREIGN KEY ([Utilisateur_IdUtilisateur])
-    REFERENCES [dbo].[Utilisateur]
-        ([IdUtilisateur])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating non-clustered index for FOREIGN KEY 'FK_EcoColocExistante_Utilisateur'
-CREATE INDEX [IX_FK_EcoColocExistante_Utilisateur]
-ON [dbo].[EcoColocExistante]
-    ([Utilisateur_IdUtilisateur]);
+-- Creating non-clustered index for FOREIGN KEY 'FK_ProjetCreation_Utilisateur'
+CREATE INDEX [IX_FK_ProjetCreation_Utilisateur]
+ON [dbo].[ProjetCreation]
+    ([IdUtilisateur]);
 GO
 
 -- --------------------------------------------------

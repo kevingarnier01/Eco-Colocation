@@ -18,7 +18,7 @@ namespace Eco_Colocation.Controllers
         public int IdEvenement { get; set; }
         public byte Statut { get; set; }
     
-        public virtual Utilisateur Utilisateur { get; set; }
         public virtual Evenement Evenement { get; set; }
+        public virtual Utilisateur Utilisateur { get; set; }
     }
 }
