@@ -12,13 +12,14 @@ namespace Eco_Colocation.Controllers
     using System;
     using System.Collections.Generic;
     
-    public partial class Agence
+    public partial class Agence : Account
     {
         public int IdAgence { get; set; }
         public string Nom { get; set; }
         public string Email { get; set; }
         public string Telephone { get; set; }
+        public string AdresseSiegeSocial { get; set; }
         public string NumSiret { get; set; }
-        public string FraisAgence { get; set; }
+        public short FraisAgence { get; set; }
     }
 }

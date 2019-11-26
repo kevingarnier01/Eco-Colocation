@@ -20,7 +20,7 @@ namespace Eco_Colocation.Controllers
         }
     
         public int IdAnnonceLocation { get; set; }
-        public int IdUtilisateur { get; set; }
+        public int IdAccount { get; set; }
         public string Introduction { get; set; }
         public string Description { get; set; }
         public string Rue { get; set; }
@@ -49,6 +49,6 @@ namespace Eco_Colocation.Controllers
         public bool ActivationAnnonce { get; set; }
     
         public virtual ICollection<ChambreLocation> ChambreLocation { get; set; }
-        public virtual Utilisateur Utilisateur { get; set; }
+        public virtual Account Account { get; set; }
     }
 }

@@ -17,7 +17,6 @@ namespace Eco_Colocation.Controllers
         public ProjetCreation()
         {
             this.Lieu = new HashSet<Lieu>();
-            this.ImageProjetCreation = new HashSet<ImageProjetCreation>();
         }
     
         public int IdProjetCreation { get; set; }
@@ -48,6 +47,5 @@ namespace Eco_Colocation.Controllers
     
         public virtual ICollection<Lieu> Lieu { get; set; }
         public virtual Utilisateur Utilisateur { get; set; }
-        public virtual ICollection<ImageProjetCreation> ImageProjetCreation { get; set; }
     }
 }

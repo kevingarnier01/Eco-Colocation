@@ -20,6 +20,7 @@ namespace Eco_Colocation.Controllers
         }
     
         public int IdEcoColocExistante { get; set; }
+        public int IdAccount { get; set; }
         public string NomEcoColoc { get; set; }
         public int NbColocataire { get; set; }
         public string Pays { get; set; }

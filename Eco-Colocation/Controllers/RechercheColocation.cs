@@ -20,6 +20,7 @@ namespace Eco_Colocation.Controllers
         }
     
         public int IdRechercheColocation { get; set; }
+        public int IdAccount { get; set; }
         public string BudgetMax { get; set; }
         public string AlerteParEmail { get; set; }
         public string CritereRecherche { get; set; }

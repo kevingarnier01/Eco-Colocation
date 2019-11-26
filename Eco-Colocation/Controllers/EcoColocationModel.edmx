@@ -25,7 +25,6 @@
     <EntitySet Name="ImageProjetCreation" EntityType="EcoColocationModel.Store.ImageProjetCreation" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="ProjetCreation_Lieu" EntityType="EcoColocationModel.Store.ProjetCreation_Lieu" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Lieu_RechercheColoc" EntityType="EcoColocationModel.Store.Lieu_RechercheColoc" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Utilisateur_Role" EntityType="EcoColocationModel.Store.Utilisateur_Role" store:Type="Tables" Schema="dbo" />
     <AssociationSet Name="Location_ChambreLocation" Association="EcoColocationModel.Store.Location_ChambreLocation">
       <End Role="Location" EntitySet="AnnonceLocation" />
       <End Role="ChambreLocation" EntitySet="ChambreLocation" />
@@ -45,14 +44,6 @@
     <AssociationSet Name="FK_Lieu_RechercheColoc_Lieu" Association="EcoColocationModel.Store.FK_Lieu_RechercheColoc_Lieu">
       <End Role="Lieu" EntitySet="Lieu" />
       <End Role="Lieu_RechercheColoc" EntitySet="Lieu_RechercheColoc" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Utilisateur_Role_Utilisateur" Association="EcoColocationModel.Store.FK_Utilisateur_Role_Utilisateur">
-      <End Role="Utilisateur" EntitySet="Utilisateur" />
-      <End Role="Utilisateur_Role" EntitySet="Utilisateur_Role" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Utilisateur_Role_Role" Association="EcoColocationModel.Store.FK_Utilisateur_Role_Role">
-      <End Role="Role" EntitySet="Role" />
-      <End Role="Utilisateur_Role" EntitySet="Utilisateur_Role" />
     </AssociationSet>
     <AssociationSet Name="Utilisateur_ProjetCreation" Association="EcoColocationModel.Store.Utilisateur_ProjetCreation">
       <End Role="Utilisateur" EntitySet="Utilisateur" />
@@ -370,14 +361,6 @@
     <Property Name="RechercheColocation_IdRechercheColocation" Type="int" Nullable="false" />
     <Property Name="Lieu_IdLieu" Type="int" Nullable="false" />
   </EntityType>
-  <EntityType Name="Utilisateur_Role">
-    <Key>
-      <PropertyRef Name="Utilisateur_IdUtilisateur" />
-      <PropertyRef Name="Role_IdRole" />
-    </Key>
-    <Property Name="Utilisateur_IdUtilisateur" Type="int" Nullable="false" />
-    <Property Name="Role_IdRole" Type="int" Nullable="false" />
-  </EntityType>
   <Association Name="Location_ChambreLocation">
     <End Role="Location" Type="EcoColocationModel.Store.AnnonceLocation" Multiplicity="1" />
     <End Role="ChambreLocation" Type="EcoColocationModel.Store.ChambreLocation" Multiplicity="*" />
@@ -618,30 +601,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Utilisateur_Role_Utilisateur">
-    <End Role="Utilisateur" Type="EcoColocationModel.Store.Utilisateur" Multiplicity="1" />
-    <End Role="Utilisateur_Role" Type="EcoColocationModel.Store.Utilisateur_Role" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Utilisateur">
-        <PropertyRef Name="IdUtilisateur" />
-      </Principal>
-      <Dependent Role="Utilisateur_Role">
-        <PropertyRef Name="Utilisateur_IdUtilisateur" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Utilisateur_Role_Role">
-    <End Role="Utilisateur_Role" Type="EcoColocationModel.Store.Utilisateur_Role" Multiplicity="*" />
-    <End Role="Role" Type="EcoColocationModel.Store.Role" Multiplicity="1" />
-    <ReferentialConstraint>
-      <Principal Role="Role">
-        <PropertyRef Name="IdRole" />
-      </Principal>
-      <Dependent Role="Utilisateur_Role">
-        <PropertyRef Name="Role_IdRole" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
 </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -671,26 +630,13 @@
             <End Role="Lieu" EntitySet="Lieu" />
           </AssociationSet>
           <EntitySet Name="Role" EntityType="EcoColocationModel.Role" />
-          <EntitySet Name="Utilisateur" EntityType="EcoColocationModel.Utilisateur" />
-          <AssociationSet Name="Utilisateur_Role" Association="EcoColocationModel.Utilisateur_Role">
-            <End EntitySet="Utilisateur" Role="Utilisateur" />
-            <End EntitySet="Role" Role="Role" />
-          </AssociationSet>
           <AssociationSet Name="Utilisateur_ProjetCreation" Association="EcoColocationModel.Utilisateur_ProjetCreation">
-            <End Role="Utilisateur" EntitySet="Utilisateur" />
+            <End Role="Utilisateur" EntitySet="UtilisateurSet" />
             <End Role="ProjetCreation" EntitySet="ProjetCreation" />
           </AssociationSet>
-          <AssociationSet Name="Utilisateur_Location" Association="EcoColocationModel.Utilisateur_Location">
-            <End Role="Utilisateur" EntitySet="Utilisateur" />
-            <End Role="Location" EntitySet="AnnonceLocation" />
-          </AssociationSet>
-          <AssociationSet Name="Utilisateur_EvenementPresence" Association="EcoColocationModel.Utilisateur_EvenementPresence">
-            <End Role="Utilisateur" EntitySet="Utilisateur" />
-            <End Role="EvenementPresence" EntitySet="EvenementPresence" />
-          </AssociationSet>
           <AssociationSet Name="Evenement_EvenementPresence" Association="EcoColocationModel.Evenement_EvenementPresence">
-            <End Role="Evenement" EntitySet="Evenement" />
-            <End Role="EvenementPresence" EntitySet="EvenementPresence" />
+            <End EntitySet="Evenement" Role="Evenement" />
+            <End EntitySet="EvenementPresence" Role="EvenementPresence" />
           </AssociationSet>
           <EntitySet Name="EvenementAssocie" EntityType="EcoColocationModel.EvenementAssocie" />
           <AssociationSet Name="Evenement_EvenementAssocie" Association="EcoColocationModel.Evenement_EvenementAssocie">
@@ -712,30 +658,52 @@
             <End Role="ImageEcoColocEx" EntitySet="ImageEcoColocEx" />
           </AssociationSet>
           <EntitySet Name="ImageProjetCreation" EntityType="EcoColocationModel.ImageProjetCreation" />
-          <AssociationSet Name="Utilisateur_Evenement" Association="EcoColocationModel.Utilisateur_Evenement">
-            <End Role="Utilisateur" EntitySet="Utilisateur" />
-            <End Role="Evenement" EntitySet="Evenement" />
+          <EntitySet Name="Account" EntityType="EcoColocationModel.Account" />
+          <AssociationSet Name="AnnonceLocation_Account" Association="EcoColocationModel.AnnonceLocation_Account">
+            <End Role="AnnonceLocation" EntitySet="AnnonceLocation" />
+            <End Role="Account" EntitySet="Account" />
           </AssociationSet>
-          <AssociationSet Name="Colocataire_EcoColocExistante" Association="EcoColocationModel.Colocataire_EcoColocExistante">
-            <End Role="Colocataire" EntitySet="Colocataire" />
-            <End Role="EcoColocExistante" EntitySet="EcoColocExistante" />
-          </AssociationSet>
-          <AssociationSet Name="ImageProjetCreation_ProjetCreation" Association="EcoColocationModel.ImageProjetCreation_ProjetCreation">
-            <End Role="ImageProjetCreation" EntitySet="ImageProjetCreation" />
+          <AssociationSet Name="ProjetCreationImage_ProjetCreation" Association="EcoColocationModel.ProjetCreationImage_ProjetCreation">
             <End Role="ProjetCreation" EntitySet="ProjetCreation" />
+            <End Role="ImageProjetCreation" EntitySet="ImageProjetCreation" />
           </AssociationSet>
-          <AssociationSet Name="RechercheColocation_Utilisateur" Association="EcoColocationModel.RechercheColocation_Utilisateur">
-            <End Role="RechercheColocation" EntitySet="RechercheColocation" />
-            <End Role="Utilisateur" EntitySet="Utilisateur" />
-          </AssociationSet>
-          <AssociationSet Name="EcoColocExistante_Utilisateur" Association="EcoColocationModel.EcoColocExistante_Utilisateur">
+          <AssociationSet Name="EcoColocExistanteColocataire" Association="EcoColocationModel.EcoColocExistanteColocataire">
             <End Role="EcoColocExistante" EntitySet="EcoColocExistante" />
-            <End Role="Utilisateur" EntitySet="Utilisateur" />
+            <End Role="Colocataire" EntitySet="Colocataire" />
           </AssociationSet>
           <EntitySet Name="AgenceSet" EntityType="EcoColocationModel.Agence" />
-          <AssociationSet Name="UtilisateurAdhesion" Association="EcoColocationModel.UtilisateurAdhesion">
-            <End Role="Utilisateur" EntitySet="Utilisateur" />
+          <EntitySet Name="UtilisateurSet" EntityType="EcoColocationModel.Utilisateur" />
+          <AssociationSet Name="Utilisateur_RechercheColocation" Association="EcoColocationModel.Utilisateur_RechercheColocation">
+            <End Role="Utilisateur" EntitySet="UtilisateurSet" />
+            <End Role="RechercheColocation" EntitySet="RechercheColocation" />
+          </AssociationSet>
+          <AssociationSet Name="UtilisateurEcoColocExistante" Association="EcoColocationModel.UtilisateurEcoColocExistante">
+            <End Role="Utilisateur" EntitySet="UtilisateurSet" />
+            <End Role="EcoColocExistante" EntitySet="EcoColocExistante" />
+          </AssociationSet>
+          <AssociationSet Name="Utilisateur_EvenementPresence" Association="EcoColocationModel.Utilisateur_EvenementPresence">
+            <End Role="Utilisateur" EntitySet="UtilisateurSet" />
+            <End Role="EvenementPresence" EntitySet="EvenementPresence" />
+          </AssociationSet>
+          <AssociationSet Name="Utilisateur_Evenement" Association="EcoColocationModel.Utilisateur_Evenement">
+            <End Role="Utilisateur" EntitySet="UtilisateurSet" />
+            <End Role="Evenement" EntitySet="Evenement" />
+          </AssociationSet>
+          <AssociationSet Name="UtilisateurAccount" Association="EcoColocationModel.UtilisateurAccount">
+            <End Role="Utilisateur" EntitySet="UtilisateurSet" />
+            <End Role="Account" EntitySet="Account" />
+          </AssociationSet>
+          <AssociationSet Name="Agence_Account" Association="EcoColocationModel.Agence_Account">
+            <End Role="Agence" EntitySet="AgenceSet" />
+            <End Role="Account" EntitySet="Account" />
+          </AssociationSet>
+          <AssociationSet Name="Adhesion_Account" Association="EcoColocationModel.Adhesion_Account">
             <End Role="Adhesion" EntitySet="Adhesion" />
+            <End Role="Account" EntitySet="Account" />
+          </AssociationSet>
+          <AssociationSet Name="AccountRole" Association="EcoColocationModel.AccountRole">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="Role" EntitySet="Role" />
           </AssociationSet>
           </EntityContainer>
         <EntityType Name="AnnonceLocation">
@@ -743,7 +711,7 @@
             <PropertyRef Name="IdAnnonceLocation" />
           </Key>
           <Property Name="IdAnnonceLocation" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IdUtilisateur" Type="Int32" Nullable="false" />
+          <Property Name="IdAccount" Type="Int32" Nullable="false" />
           <Property Name="Introduction" Type="String" Nullable="false" MaxLength="110" />
           <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" />
           <Property Name="Rue" Type="String" Nullable="false" MaxLength="80" />
@@ -771,7 +739,7 @@
           <NavigationProperty Name="ChambreLocation" Relationship="EcoColocationModel.Location_ChambreLocation" FromRole="Location" ToRole="ChambreLocation" />
           <Property Name="DatePublication" Type="DateTime" Nullable="false" />
           <Property Name="ActivationAnnonce" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Utilisateur" Relationship="EcoColocationModel.Utilisateur_Location" FromRole="Location" ToRole="Utilisateur" />
+          <NavigationProperty Name="Account" Relationship="EcoColocationModel.AnnonceLocation_Account" FromRole="AnnonceLocation" ToRole="Account" />
         </EntityType>
         <EntityType Name="ChambreLocation">
           <Key>
@@ -831,7 +799,6 @@
           <Property Name="InfoSupTolerence" Type="String" Nullable="true" MaxLength="100" />
           <NavigationProperty Name="Lieu" Relationship="EcoColocationModel.Lieu_ProjetCreation" FromRole="ProjetCreation" ToRole="Lieu" />
           <NavigationProperty Name="Utilisateur" Relationship="EcoColocationModel.Utilisateur_ProjetCreation" FromRole="ProjetCreation" ToRole="Utilisateur" />
-          <NavigationProperty Name="ImageProjetCreation" Relationship="EcoColocationModel.ImageProjetCreation_ProjetCreation" FromRole="ProjetCreation" ToRole="ImageProjetCreation" />
           <Property Name="ActivationAnnonce" Type="String" Nullable="false" />
         </EntityType>
         <EntityType Name="Lieu">
@@ -877,20 +844,21 @@
         </EntityType>
         <EntityType Name="EvenementPresence">
           <Key>
-            <PropertyRef Name="IdUtilisateur" />
             <PropertyRef Name="IdEvenement" />
+            <PropertyRef Name="IdUtilisateur" />
           </Key>
-          <NavigationProperty Name="Utilisateur" Relationship="EcoColocationModel.Utilisateur_EvenementPresence" FromRole="EvenementPresence" ToRole="Utilisateur" />
-          <Property Name="IdUtilisateur" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Evenement" Relationship="EcoColocationModel.Evenement_EvenementPresence" FromRole="EvenementPresence" ToRole="Evenement" />
-          <Property Name="IdEvenement" Type="Int32" Nullable="false" />
-          <Property Name="Statut" Type="Byte" Nullable="false" />
+          <Property Name="IdUtilisateur" Type="Int32" Nullable="false" />
+          <Property Name="IdEvenement" Nullable="false" Type="Int32" />
+          <Property Name="Statut" Nullable="false" Type="Byte" />
+          <NavigationProperty Name="Utilisateur" Relationship="EcoColocationModel.Utilisateur_EvenementPresence" FromRole="EvenementPresence" ToRole="Utilisateur" />
         </EntityType>
         <EntityType Name="EcoColocExistante">
           <Key>
             <PropertyRef Name="IdEcoColocExistante" />
           </Key>
           <Property Name="IdEcoColocExistante" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdUtilisateur" Type="Int32" Nullable="false" />
           <Property Name="NomEcoColoc" Type="String" Nullable="false" MaxLength="50" />
           <Property Name="NbColocataire" Type="Int32" Nullable="false" />
           <Property Name="Pays" Type="String" Nullable="false" MaxLength="50" />
@@ -904,7 +872,7 @@
           <Property Name="TableauEcolo" Type="String" Nullable="false" />
           <Property Name="TableauHabitat" Type="String" Nullable="false" />
           <NavigationProperty Name="ImageEcoColocEx" Relationship="EcoColocationModel.EcoColocExistante_ImageEcoColocEx" FromRole="EcoColocExistante" ToRole="ImageEcoColocEx" />
-          <NavigationProperty Name="Utilisateur" Relationship="EcoColocationModel.EcoColocExistante_Utilisateur" FromRole="EcoColocExistante" ToRole="Utilisateur" />
+          <NavigationProperty Name="Utilisateur" Relationship="EcoColocationModel.UtilisateurEcoColocExistante" FromRole="EcoColocExistante" ToRole="Utilisateur" />
         </EntityType>
         <EntityType Name="ImageConversationDev">
           <Key>
@@ -920,12 +888,13 @@
             <PropertyRef Name="IdColocataire" />
           </Key>
           <Property Name="IdColocataire" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdEcoColocExistante" Type="Int32" Nullable="false" />
           <Property Name="Prenom" Type="String" Nullable="false" MaxLength="50" />
           <Property Name="Nom" Type="String" Nullable="false" MaxLength="50" />
           <Property Name="Email" Type="String" Nullable="false" MaxLength="60" />
           <Property Name="DateNaissance" Type="String" Nullable="false" MaxLength="10" />
           <Property Name="Civilite" Type="Byte" Nullable="false" />
-          <NavigationProperty Name="EcoColocExistante" Relationship="EcoColocationModel.Colocataire_EcoColocExistante" FromRole="Colocataire" ToRole="EcoColocExistante" />
+          <NavigationProperty Name="EcoColocExistante" Relationship="EcoColocationModel.EcoColocExistanteColocataire" FromRole="Colocataire" ToRole="EcoColocExistante" />
         </EntityType>
         <EntityType Name="ConversationDev">
           <Key>
@@ -942,14 +911,15 @@
             <PropertyRef Name="IdRechercheColocation" />
           </Key>
           <Property Name="IdRechercheColocation" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdUtilisateur" Type="Int32" Nullable="false" />
           <Property Name="BudgetMax" Type="String" Nullable="false" />
           <Property Name="AlerteParEmail" Type="String" Nullable="false" />
           <Property Name="CritereRecherche" Type="String" Nullable="false" MaxLength="Max" />
           <Property Name="PratiqueEcolo" Type="String" Nullable="false" MaxLength="Max" />
           <Property Name="NomPhoto" Type="String" Nullable="false" MaxLength="50" />
           <NavigationProperty Name="Lieu" Relationship="EcoColocationModel.Lieu_RechercheColoc" FromRole="RechercheColoc" ToRole="Lieu" />
-          <NavigationProperty Name="Utilisateur" Relationship="EcoColocationModel.RechercheColocation_Utilisateur" FromRole="RechercheColocation" ToRole="Utilisateur" />
           <Property Name="ActivationAnnonce" Type="String" Nullable="false" />
+          <NavigationProperty Name="Utilisateur" Relationship="EcoColocationModel.Utilisateur_RechercheColocation" FromRole="RechercheColocation" ToRole="Utilisateur" />
         </EntityType>
         <Association Name="Lieu_RechercheColoc">
           <End Type="EcoColocationModel.RechercheColocation" Role="RechercheColoc" Multiplicity="*" />
@@ -961,15 +931,15 @@
           </Key>
           <Property Name="IdRole" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NomRole" Type="String" Nullable="false" MaxLength="50" />
-          <NavigationProperty Name="Utilisateur" Relationship="EcoColocationModel.Utilisateur_Role" FromRole="Role" ToRole="Utilisateur" />
           <Property Name="Description" Type="String" Nullable="true" MaxLength="100" />
+          <NavigationProperty Name="Account" Relationship="EcoColocationModel.AccountRole" FromRole="Role" ToRole="Account" />
         </EntityType>
         <EntityType Name="Utilisateur">
           <Key>
             <PropertyRef Name="IdUtilisateur" />
           </Key>
           <Property Name="IdUtilisateur" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Email" Type="String" Nullable="false" MaxLength="60" />
+          <Property Name="Email" Nullable="false" MaxLength="60" Type="String" />
           <Property Name="Prenom" Type="String" Nullable="false" MaxLength="50" />
           <Property Name="Nom" Type="String" Nullable="false" MaxLength="50" />
           <Property Name="Civilite" Type="Byte" Nullable="false" />
@@ -983,58 +953,21 @@
           <Property Name="DateInscription" Type="DateTime" Nullable="false" />
           <Property Name="DateDerniereActivite" Type="DateTime" Nullable="false" />
           <Property Name="ActivationCompte" Type="Boolean" Nullable="false" DefaultValue="True" />
-          <NavigationProperty Name="Role" Relationship="EcoColocationModel.Utilisateur_Role" FromRole="Utilisateur" ToRole="Role" />
           <NavigationProperty Name="ProjetCreation" Relationship="EcoColocationModel.Utilisateur_ProjetCreation" FromRole="Utilisateur" ToRole="ProjetCreation" />
-          <NavigationProperty Name="AnnonceLocation" Relationship="EcoColocationModel.Utilisateur_Location" FromRole="Utilisateur" ToRole="Location" />
-          <NavigationProperty Name="EvenementPresence" Relationship="EcoColocationModel.Utilisateur_EvenementPresence" FromRole="Utilisateur" ToRole="EvenementPresence" />
-          <NavigationProperty Name="Evenement" Relationship="EcoColocationModel.Utilisateur_Evenement" FromRole="Utilisateur" ToRole="Evenement" />
-          <NavigationProperty Name="RechercheColocation" Relationship="EcoColocationModel.RechercheColocation_Utilisateur" FromRole="Utilisateur" ToRole="RechercheColocation" />
-          <NavigationProperty Name="EcoColocExistante" Relationship="EcoColocationModel.EcoColocExistante_Utilisateur" FromRole="Utilisateur" ToRole="EcoColocExistante" />
-          <NavigationProperty Name="Adhesion" Relationship="EcoColocationModel.UtilisateurAdhesion" FromRole="Utilisateur" ToRole="Adhesion" />
         </EntityType>
-        <Association Name="Utilisateur_Role">
-          <End Type="EcoColocationModel.Utilisateur" Multiplicity="*" Role="Utilisateur" />
-          <End Type="EcoColocationModel.Role" Multiplicity="*" Role="Role" />
-        </Association>
         <Association Name="Utilisateur_ProjetCreation">
           <End Type="EcoColocationModel.Utilisateur" Role="Utilisateur" Multiplicity="1" />
           <End Type="EcoColocationModel.ProjetCreation" Role="ProjetCreation" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Utilisateur">
-              <PropertyRef Name="IdUtilisateur" />
             </Principal>
             <Dependent Role="ProjetCreation">
-              <PropertyRef Name="IdUtilisateur" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="Utilisateur_Location">
-          <End Type="EcoColocationModel.Utilisateur" Role="Utilisateur" Multiplicity="1" />
-          <End Type="EcoColocationModel.AnnonceLocation" Role="Location" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Utilisateur">
-              <PropertyRef Name="IdUtilisateur" />
-            </Principal>
-            <Dependent Role="Location">
-              <PropertyRef Name="IdUtilisateur" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="Utilisateur_EvenementPresence">
-          <End Type="EcoColocationModel.Utilisateur" Role="Utilisateur" Multiplicity="1" />
-          <End Type="EcoColocationModel.EvenementPresence" Role="EvenementPresence" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Utilisateur">
-              <PropertyRef Name="IdUtilisateur" />
-            </Principal>
-            <Dependent Role="EvenementPresence">
-              <PropertyRef Name="IdUtilisateur" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="Evenement_EvenementPresence">
-          <End Type="EcoColocationModel.Evenement" Role="Evenement" Multiplicity="1" />
-          <End Type="EcoColocationModel.EvenementPresence" Role="EvenementPresence" Multiplicity="*" />
+          <End Type="EcoColocationModel.Evenement" Multiplicity="1" Role="Evenement" />
+          <End Type="EcoColocationModel.EvenementPresence" Multiplicity="*" Role="EvenementPresence" />
           <ReferentialConstraint>
             <Principal Role="Evenement">
               <PropertyRef Name="IdEvenement" />
@@ -1096,7 +1029,6 @@
           </Key>
           <Property Name="IdAdhesion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="MotDePasse" Type="String" Nullable="false" MaxLength="50" />
-          <Property Name="DateCreation" Type="DateTime" Nullable="false" />
         </EntityType>
         <EntityType Name="ImageEcoColocEx">
           <Key>
@@ -1125,10 +1057,107 @@
             <PropertyRef Name="IdImgProjetCreation" />
           </Key>
           <Property Name="IdImgProjetCreation" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdProjetCreation" Type="Int32" Nullable="false" />
           <Property Name="NomImage" Type="String" Nullable="false" MaxLength="50" />
           <Property Name="NumOrdre" Type="Byte" Nullable="false" />
-          <NavigationProperty Name="ProjetCreation" Relationship="EcoColocationModel.ImageProjetCreation_ProjetCreation" FromRole="ImageProjetCreation" ToRole="ProjetCreation" />
+          <NavigationProperty Name="ProjetCreation" Relationship="EcoColocationModel.ProjetCreationImage_ProjetCreation" FromRole="ImageProjetCreation" ToRole="ProjetCreation" />
         </EntityType>
+        <EntityType Name="Agence">
+          <Key>
+            <PropertyRef Name="IdAgence" />
+          </Key>
+          <Property Name="IdAgence" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nom" Nullable="false" Type="String" MaxLength="50" />
+          <Property Name="Email" Nullable="false" Type="String" MaxLength="60" />
+          <Property Name="Telephone" Nullable="false" Type="String" MaxLength="12" />
+          <Property Name="AdresseSiegeSocial" Type="String" Nullable="false" />
+          <Property Name="NumSiret" Type="String" Nullable="false" MaxLength="14" />
+          <Property Name="FraisAgence" Type="Int16" Nullable="false" />
+          <NavigationProperty Name="Account" Relationship="EcoColocationModel.Agence_Account" FromRole="Agence" ToRole="Account" />
+        </EntityType>
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="IdAccount" />
+          </Key>
+          <Property Name="IdAccount" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="AnnonceLocation" Relationship="EcoColocationModel.AnnonceLocation_Account" FromRole="Account" ToRole="AnnonceLocation" />
+          <NavigationProperty Name="Utilisateur" Relationship="EcoColocationModel.UtilisateurAccount" FromRole="Account" ToRole="Utilisateur" />
+          <Property Name="DateCreation" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="Adhesion" Relationship="EcoColocationModel.Adhesion_Account" FromRole="Account" ToRole="Adhesion" />
+          <NavigationProperty Name="Role" Relationship="EcoColocationModel.AccountRole" FromRole="Account" ToRole="Role" />
+        </EntityType>
+        <Association Name="AnnonceLocation_Account">
+          <End Type="EcoColocationModel.AnnonceLocation" Role="AnnonceLocation" Multiplicity="*" />
+          <End Type="EcoColocationModel.Account" Role="Account" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="IdAccount" />
+            </Principal>
+            <Dependent Role="AnnonceLocation">
+              <PropertyRef Name="IdAccount" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ProjetCreationImage_ProjetCreation">
+          <End Type="EcoColocationModel.ProjetCreation" Role="ProjetCreation" Multiplicity="1" />
+          <End Type="EcoColocationModel.ImageProjetCreation" Role="ImageProjetCreation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProjetCreation">
+              <PropertyRef Name="IdProjetCreation" />
+            </Principal>
+            <Dependent Role="ImageProjetCreation">
+              <PropertyRef Name="IdProjetCreation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EcoColocExistanteColocataire">
+          <End Type="EcoColocationModel.EcoColocExistante" Role="EcoColocExistante" Multiplicity="1" />
+          <End Type="EcoColocationModel.Colocataire" Role="Colocataire" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EcoColocExistante">
+              <PropertyRef Name="IdEcoColocExistante" />
+            </Principal>
+            <Dependent Role="Colocataire">
+              <PropertyRef Name="IdEcoColocExistante" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Utilisateur_RechercheColocation">
+          <End Type="EcoColocationModel.Utilisateur" Role="Utilisateur" Multiplicity="1" />
+          <End Type="EcoColocationModel.RechercheColocation" Role="RechercheColocation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Utilisateur">
+              <PropertyRef Name="IdUtilisateur" />
+            </Principal>
+            <Dependent Role="RechercheColocation">
+              <PropertyRef Name="IdUtilisateur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UtilisateurEcoColocExistante">
+          <End Type="EcoColocationModel.Utilisateur" Role="Utilisateur" Multiplicity="1" />
+          <End Type="EcoColocationModel.EcoColocExistante" Role="EcoColocExistante" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Utilisateur">
+              <PropertyRef Name="IdUtilisateur" />
+            </Principal>
+            <Dependent Role="EcoColocExistante">
+              <PropertyRef Name="IdUtilisateur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Utilisateur_EvenementPresence">
+          <End Type="EcoColocationModel.Utilisateur" Role="Utilisateur" Multiplicity="1" />
+          <End Type="EcoColocationModel.EvenementPresence" Role="EvenementPresence" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Utilisateur">
+              <PropertyRef Name="IdUtilisateur" />
+            </Principal>
+            <Dependent Role="EvenementPresence">
+              <PropertyRef Name="IdUtilisateur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="Utilisateur_Evenement">
           <End Type="EcoColocationModel.Utilisateur" Role="Utilisateur" Multiplicity="1" />
           <End Type="EcoColocationModel.Evenement" Role="Evenement" Multiplicity="*" />
@@ -1141,36 +1170,21 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="Colocataire_EcoColocExistante">
-          <End Type="EcoColocationModel.Colocataire" Role="Colocataire" Multiplicity="*" />
-          <End Type="EcoColocationModel.EcoColocExistante" Role="EcoColocExistante" Multiplicity="1" />
+        <Association Name="UtilisateurAccount">
+          <End Type="EcoColocationModel.Utilisateur" Role="Utilisateur" Multiplicity="0..1" />
+          <End Type="EcoColocationModel.Account" Role="Account" Multiplicity="1" />
         </Association>
-        <Association Name="ImageProjetCreation_ProjetCreation">
-          <End Type="EcoColocationModel.ImageProjetCreation" Role="ImageProjetCreation" Multiplicity="*" />
-          <End Type="EcoColocationModel.ProjetCreation" Role="ProjetCreation" Multiplicity="1" />
+        <Association Name="Agence_Account">
+          <End Type="EcoColocationModel.Agence" Role="Agence" Multiplicity="0..1" />
+          <End Type="EcoColocationModel.Account" Role="Account" Multiplicity="1" />
         </Association>
-        <Association Name="RechercheColocation_Utilisateur">
-          <End Type="EcoColocationModel.RechercheColocation" Role="RechercheColocation" Multiplicity="1" />
-          <End Type="EcoColocationModel.Utilisateur" Role="Utilisateur" Multiplicity="1" />
-        </Association>
-        <Association Name="EcoColocExistante_Utilisateur">
-          <End Type="EcoColocationModel.EcoColocExistante" Role="EcoColocExistante" Multiplicity="1" />
-          <End Type="EcoColocationModel.Utilisateur" Role="Utilisateur" Multiplicity="1" />
-        </Association>
-        <EntityType Name="Agence">
-          <Key>
-            <PropertyRef Name="IdAgence" />
-          </Key>
-          <Property Name="IdAgence" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Nom" Type="String" Nullable="false" />
-          <Property Name="Email" Type="String" Nullable="false" />
-          <Property Name="Telephone" Type="String" Nullable="false" />
-          <Property Name="NumSiret" Type="String" Nullable="false" />
-          <Property Name="FraisAgence" Type="String" Nullable="false" />
-        </EntityType>
-        <Association Name="UtilisateurAdhesion">
-          <End Type="EcoColocationModel.Utilisateur" Role="Utilisateur" Multiplicity="1" />
+        <Association Name="Adhesion_Account">
           <End Type="EcoColocationModel.Adhesion" Role="Adhesion" Multiplicity="1" />
+          <End Type="EcoColocationModel.Account" Role="Account" Multiplicity="1" />
+        </Association>
+        <Association Name="AccountRole">
+          <End Type="EcoColocationModel.Account" Role="Account" Multiplicity="*" />
+          <End Type="EcoColocationModel.Role" Role="Role" Multiplicity="*" />
         </Association>
         </Schema>
     </edmx:ConceptualModels>
@@ -1182,7 +1196,6 @@
       <EntityTypeMapping TypeName="IsTypeOf(EcoColocationModel.AnnonceLocation)">
         <MappingFragment StoreEntitySet="AnnonceLocation">
           <ScalarProperty Name="IdAnnonceLocation" ColumnName="IdAnnonceLocation" />
-          <ScalarProperty Name="IdUtilisateur" ColumnName="IdUtilisateur" />
           <ScalarProperty Name="Introduction" ColumnName="Introduction" />
           <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="Rue" ColumnName="Rue" />
@@ -1274,7 +1287,6 @@
       <EntityTypeMapping TypeName="IsTypeOf(EcoColocationModel.Evenement)">
         <MappingFragment StoreEntitySet="Evenement">
           <ScalarProperty Name="IdEvenement" ColumnName="IdEvenement" />
-          <ScalarProperty Name="IdUtilisateur" ColumnName="IdUtilisateur" />
           <ScalarProperty Name="NomImage" ColumnName="NomImage" />
           <ScalarProperty Name="DateDebut" ColumnName="DateDebut" />
           <ScalarProperty Name="DateFin" ColumnName="DateFin" />
@@ -1294,7 +1306,6 @@
     <EntitySetMapping Name="EvenementPresence">
       <EntityTypeMapping TypeName="IsTypeOf(EcoColocationModel.EvenementPresence)">
         <MappingFragment StoreEntitySet="EvenementPresence">
-          <ScalarProperty Name="IdUtilisateur" ColumnName="IdUtilisateur" />
           <ScalarProperty Name="IdEvenement" ColumnName="IdEvenement" />
           <ScalarProperty Name="Statut" ColumnName="Statut" />
         </MappingFragment>
@@ -1368,26 +1379,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Utilisateur">
-      <EntityTypeMapping TypeName="IsTypeOf(EcoColocationModel.Utilisateur)">
-        <MappingFragment StoreEntitySet="Utilisateur">
-          <ScalarProperty Name="IdUtilisateur" ColumnName="IdUtilisateur" />
-          <ScalarProperty Name="Email" ColumnName="Email" />
-          <ScalarProperty Name="Prenom" ColumnName="Prenom" />
-          <ScalarProperty Name="Nom" ColumnName="Nom" />
-          <ScalarProperty Name="Civilite" ColumnName="Civilite" />
-          <ScalarProperty Name="Pays" ColumnName="Pays" />
-          <ScalarProperty Name="DateNaissance" ColumnName="DateNaissance" />
-          <ScalarProperty Name="Activite" ColumnName="Activite" />
-          <ScalarProperty Name="CodeTelPays" ColumnName="CodeTelPays" />
-          <ScalarProperty Name="Telephone" ColumnName="Telephone" />
-          <ScalarProperty Name="TypeContact" ColumnName="TypeContact" />
-          <ScalarProperty Name="DateInscription" ColumnName="DateInscription" />
-          <ScalarProperty Name="DateDerniereActivite" ColumnName="DateDerniereActivite" />
-          <ScalarProperty Name="ActivationCompte" ColumnName="Activation" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="EvenementAssocie">
       <EntityTypeMapping TypeName="IsTypeOf(EcoColocationModel.EvenementAssocie)">
         <MappingFragment StoreEntitySet="EvenementAssocie">
@@ -1401,7 +1392,6 @@
         <MappingFragment StoreEntitySet="Adhesion">
           <ScalarProperty Name="IdAdhesion" ColumnName="IdAdhesion" />
           <ScalarProperty Name="MotDePasse" ColumnName="MotDePasse" />
-          <ScalarProperty Name="DateCreation" ColumnName="DateCreation" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -1440,46 +1430,27 @@
         <ScalarProperty Name="IdLieu" ColumnName="Lieu_IdLieu" />
       </EndProperty>
     </AssociationSetMapping>
-    <AssociationSetMapping Name="Utilisateur_Role" TypeName="EcoColocationModel.Utilisateur_Role" StoreEntitySet="Utilisateur_Role">
-      <EndProperty Name="Utilisateur">
-        <ScalarProperty Name="IdUtilisateur" ColumnName="Utilisateur_IdUtilisateur" />
-      </EndProperty>
-      <EndProperty Name="Role">
-        <ScalarProperty Name="IdRole" ColumnName="Role_IdRole" />
-      </EndProperty>
-    </AssociationSetMapping>
-    <AssociationSetMapping Name="Colocataire_EcoColocExistante" TypeName="EcoColocationModel.Colocataire_EcoColocExistante" StoreEntitySet="Colocataire">
-      <EndProperty Name="EcoColocExistante">
-        <ScalarProperty Name="IdEcoColocExistante" ColumnName="EcoColocExistante_IdEcoColocExistante" />
-      </EndProperty>
-      <EndProperty Name="Colocataire">
-        <ScalarProperty Name="IdColocataire" ColumnName="IdColocataire" />
-      </EndProperty>
-    </AssociationSetMapping>
-    <AssociationSetMapping Name="ImageProjetCreation_ProjetCreation" TypeName="EcoColocationModel.ImageProjetCreation_ProjetCreation" StoreEntitySet="ImageProjetCreation">
-      <EndProperty Name="ProjetCreation">
-        <ScalarProperty Name="IdProjetCreation" ColumnName="ProjetCreation_IdProjetCreation" />
-      </EndProperty>
-      <EndProperty Name="ImageProjetCreation">
-        <ScalarProperty Name="IdImgProjetCreation" ColumnName="IdImgProjetCreation" />
-      </EndProperty>
-    </AssociationSetMapping>
-    <AssociationSetMapping Name="RechercheColocation_Utilisateur" TypeName="EcoColocationModel.RechercheColocation_Utilisateur" StoreEntitySet="RechercheColocation">
-      <EndProperty Name="Utilisateur">
-        <ScalarProperty Name="IdUtilisateur" ColumnName="Utilisateur_IdUtilisateur" />
-      </EndProperty>
-      <EndProperty Name="RechercheColocation">
-        <ScalarProperty Name="IdRechercheColocation" ColumnName="IdRechercheColocation" />
-      </EndProperty>
-    </AssociationSetMapping>
-    <AssociationSetMapping Name="EcoColocExistante_Utilisateur" TypeName="EcoColocationModel.EcoColocExistante_Utilisateur" StoreEntitySet="EcoColocExistante">
-      <EndProperty Name="Utilisateur">
-        <ScalarProperty Name="IdUtilisateur" ColumnName="Utilisateur_IdUtilisateur" />
-      </EndProperty>
-      <EndProperty Name="EcoColocExistante">
-        <ScalarProperty Name="IdEcoColocExistante" ColumnName="IdEcoColocExistante" />
-      </EndProperty>
-    </AssociationSetMapping>
+          <EntitySetMapping Name="AgenceSet" />
+          <EntitySetMapping Name="UtilisateurSet">
+            <EntityTypeMapping TypeName="IsTypeOf(EcoColocationModel.Utilisateur)" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+              <MappingFragment StoreEntitySet="Utilisateur">
+                <ScalarProperty Name="IdUtilisateur" ColumnName="IdUtilisateur" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Prenom" ColumnName="Prenom" />
+                <ScalarProperty Name="Nom" ColumnName="Nom" />
+                <ScalarProperty Name="Civilite" ColumnName="Civilite" />
+                <ScalarProperty Name="Pays" ColumnName="Pays" />
+                <ScalarProperty Name="DateNaissance" ColumnName="DateNaissance" />
+                <ScalarProperty Name="Activite" ColumnName="Activite" />
+                <ScalarProperty Name="CodeTelPays" ColumnName="CodeTelPays" />
+                <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+                <ScalarProperty Name="TypeContact" ColumnName="TypeContact" />
+                <ScalarProperty Name="DateInscription" ColumnName="DateInscription" />
+                <ScalarProperty Name="DateDerniereActivite" ColumnName="DateDerniereActivite" />
+                <ScalarProperty Name="ActivationCompte" ColumnName="Activation" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping></edmx:Mappings>
   </edmx:Runtime>

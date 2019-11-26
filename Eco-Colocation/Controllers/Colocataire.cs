@@ -15,6 +15,7 @@ namespace Eco_Colocation.Controllers
     public partial class Colocataire
     {
         public int IdColocataire { get; set; }
+        public int IdEcoColocExistante { get; set; }
         public string Prenom { get; set; }
         public string Nom { get; set; }
         public string Email { get; set; }

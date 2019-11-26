@@ -16,13 +16,13 @@ namespace Eco_Colocation.Controllers
     {
         public Role()
         {
-            this.Utilisateur = new HashSet<Utilisateur>();
+            this.Account = new HashSet<Account>();
         }
     
         public int IdRole { get; set; }
         public string NomRole { get; set; }
         public string Description { get; set; }
     
-        public virtual ICollection<Utilisateur> Utilisateur { get; set; }
+        public virtual ICollection<Account> Account { get; set; }
     }
 }

@@ -12,14 +12,12 @@ namespace Eco_Colocation.Controllers
     using System;
     using System.Collections.Generic;
     
-    public partial class Utilisateur
+    public partial class Utilisateur : Account
     {
         public Utilisateur()
         {
             this.ActivationCompte = true;
-            this.Role = new HashSet<Role>();
             this.ProjetCreation = new HashSet<ProjetCreation>();
-            this.AnnonceLocation = new HashSet<AnnonceLocation>();
             this.EvenementPresence = new HashSet<EvenementPresence>();
             this.Evenement = new HashSet<Evenement>();
         }
@@ -40,13 +38,8 @@ namespace Eco_Colocation.Controllers
         public System.DateTime DateDerniereActivite { get; set; }
         public bool ActivationCompte { get; set; }
     
-        public virtual ICollection<Role> Role { get; set; }
         public virtual ICollection<ProjetCreation> ProjetCreation { get; set; }
-        public virtual ICollection<AnnonceLocation> AnnonceLocation { get; set; }
         public virtual ICollection<EvenementPresence> EvenementPresence { get; set; }
         public virtual ICollection<Evenement> Evenement { get; set; }
-        public virtual RechercheColocation RechercheColocation { get; set; }
-        public virtual EcoColocExistante EcoColocExistante { get; set; }
-        public virtual Adhesion Adhesion { get; set; }
     }
 }
