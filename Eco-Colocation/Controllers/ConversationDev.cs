@@ -16,6 +16,7 @@ namespace Eco_Colocation.Controllers
     {
         public ConversationDev()
         {
+            this.Vu = 0;
             this.Image = new HashSet<ImageConversationDev>();
         }
     
@@ -23,6 +24,7 @@ namespace Eco_Colocation.Controllers
         public string Email { get; set; }
         public string Message { get; set; }
         public System.DateTime DateDernierEnvoi { get; set; }
+        public byte Vu { get; set; }
     
         public virtual ICollection<ImageConversationDev> Image { get; set; }
     }

@@ -133,13 +133,14 @@
     <Property Name="Ville" Type="nvarchar" Nullable="false" MaxLength="50" />
     <Property Name="CodePostal" Type="nvarchar" Nullable="false" MaxLength="15" />
     <Property Name="Departement" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="NumDepartement" Type="nvarchar" Nullable="false" MaxLength="8" />
     <Property Name="Region" Type="nvarchar" Nullable="false" MaxLength="50" />
     <Property Name="Pays" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="Latitude" Type="int" Nullable="false" />
-    <Property Name="Longitude" Type="int" Nullable="false" />
+    <Property Name="Latitude" Type="decimal" Nullable="false" Precision="9" Scale="6" />
+    <Property Name="Longitude" Type="decimal" Nullable="false" Precision="9" Scale="6" />
     <Property Name="TypeLogement" Type="tinyint" Nullable="false" />
     <Property Name="ImplantationLogement" Type="tinyint" Nullable="false" />
-    <Property Name="SuperficieLogement" Type="int" Nullable="false" />
+    <Property Name="SuperficieLogement" Type="smallint" Nullable="false" />
     <Property Name="SuperficieTerrain" Type="int" Nullable="false" />
     <Property Name="NbPieceLogement" Type="smallint" Nullable="false" />
     <Property Name="NbHabitantRestant" Type="smallint" Nullable="false" />
@@ -160,11 +161,11 @@
     </Key>
     <Property Name="IdChambreLocation" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="IdAnnonceLocation" Type="int" Nullable="false" />
-    <Property Name="Loyer" Type="int" Nullable="false" />
-    <Property Name="Charges" Type="int" Nullable="false" />
+    <Property Name="Loyer" Type="decimal" Nullable="false" Precision="7" Scale="2" />
+    <Property Name="Charges" Type="decimal" Nullable="false" Precision="7" Scale="2" />
     <Property Name="DetailCharges" Type="nvarchar" Nullable="false" MaxLength="100" />
-    <Property Name="Caution" Type="int" Nullable="true" />
-    <Property Name="Superficie" Type="int" Nullable="false" />
+    <Property Name="Caution" Type="decimal" Nullable="true" Precision="7" Scale="2" />
+    <Property Name="Superficie" Type="smallint" Nullable="false" />
     <Property Name="Meublee" Type="bit" Nullable="false" />
     <Property Name="DateDisponibilite" Type="datetime" Nullable="false" />
     <Property Name="DateFinDisponibilite" Type="datetime" Nullable="true" />
@@ -183,9 +184,9 @@
     <Property Name="EngagementLogement" Type="tinyint" Nullable="false" />
     <Property Name="TypeHabitat" Type="tinyint" Nullable="false" />
     <Property Name="ImplantationLogement" Type="tinyint" Nullable="false" />
-    <Property Name="SuperficieMaxLogement" Type="int" Nullable="false" />
+    <Property Name="SuperficieMaxLogement" Type="smallint" Nullable="false" />
     <Property Name="CoutAchatMaxLogement" Type="int" Nullable="true" />
-    <Property Name="LoyerMaxLogement" Type="int" Nullable="true" />
+    <Property Name="LoyerMaxLogement" Type="smallint" Nullable="true" />
     <Property Name="CoutConstructionMaxLogement" Type="int" Nullable="true" />
     <Property Name="NbPersoTotal" Type="smallint" Nullable="false" />
     <Property Name="NbPersAchatTerrain" Type="smallint" Nullable="true" />
@@ -207,6 +208,7 @@
     <Property Name="Ville" Type="nvarchar" Nullable="true" MaxLength="50" />
     <Property Name="CodePostal" Type="nvarchar" Nullable="true" MaxLength="15" />
     <Property Name="Departement" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="NumDepartement" Type="nvarchar" Nullable="false" MaxLength="8" />
     <Property Name="Region" Type="nvarchar" Nullable="true" MaxLength="50" />
     <Property Name="Pays" Type="nvarchar" Nullable="false" MaxLength="50" />
   </EntityType>
@@ -216,7 +218,6 @@
     </Key>
     <Property Name="IdEvenement" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="IdUtilisateur" Type="int" Nullable="false" />
-    <Property Name="NomImage" Type="nvarchar" Nullable="true" MaxLength="50" />
     <Property Name="DateDebut" Type="datetime" Nullable="false" />
     <Property Name="DateFin" Type="datetime" Nullable="false" />
     <Property Name="NumRue" Type="nvarchar" Nullable="false" MaxLength="10" />
@@ -224,11 +225,13 @@
     <Property Name="Ville" Type="nvarchar" Nullable="false" MaxLength="60" />
     <Property Name="CodePostal" Type="nvarchar" Nullable="false" MaxLength="15" />
     <Property Name="Departement" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="NumDepartement" Type="nvarchar" Nullable="false" MaxLength="8" />
     <Property Name="Region" Type="nvarchar" Nullable="false" MaxLength="50" />
     <Property Name="Pays" Type="nvarchar" Nullable="false" MaxLength="50" />
     <Property Name="Lien" Type="nvarchar" Nullable="true" MaxLength="500" />
     <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="DatePublication" Type="datetime" Nullable="true" />
+    <Property Name="NomImage" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="DatePublication" Type="datetime" Nullable="false" />
   </EntityType>
   <EntityType Name="EvenementPresence">
     <Key>
@@ -246,10 +249,11 @@
     <Property Name="IdEcoColocExistante" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="IdUtilisateur" Type="int" Nullable="false" />
     <Property Name="NomEcoColoc" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="NbColocataire" Type="int" Nullable="false" />
+    <Property Name="NbColocataire" Type="smallint" Nullable="false" />
     <Property Name="Pays" Type="nvarchar" Nullable="false" MaxLength="50" />
     <Property Name="Region" Type="nvarchar" Nullable="false" MaxLength="50" />
     <Property Name="Departement" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="NumDepartement" Type="nvarchar" Nullable="false" MaxLength="8" />
     <Property Name="Ville" Type="nvarchar" Nullable="false" MaxLength="50" />
     <Property Name="CodePostal" Type="nvarchar" Nullable="false" MaxLength="15" />
     <Property Name="Email" Type="nvarchar" Nullable="true" MaxLength="60" />
@@ -286,6 +290,7 @@
     <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Message" Type="nvarchar(max)" Nullable="false" />
     <Property Name="DateDernierEnvoi" Type="datetime" Nullable="false" />
+    <Property Name="Vu" Type="tinyint" Nullable="false" DefaultValue="0" />
   </EntityType>
   <EntityType Name="RechercheColocation">
     <Key>
@@ -293,8 +298,8 @@
     </Key>
     <Property Name="IdRechercheColocation" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="IdUtilisateur" Type="int" Nullable="false" />
-    <Property Name="BudgetMax" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="AlerteParEmail" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="BudgetMax" Type="smallint" Nullable="false" />
+    <Property Name="AlerteParEmail" Type="tinyint" Nullable="false" />
     <Property Name="CritereRecherche" Type="nvarchar(max)" Nullable="false" />
     <Property Name="PratiqueEcolo" Type="nvarchar(max)" Nullable="false" />
     <Property Name="NomPhoto" Type="nvarchar" Nullable="false" MaxLength="50" />
@@ -357,9 +362,16 @@
     <Property Name="Nom" Type="nvarchar" Nullable="false" MaxLength="50" />
     <Property Name="Email" Type="nvarchar" Nullable="false" MaxLength="60" />
     <Property Name="Telephone" Type="nvarchar" Nullable="false" MaxLength="12" />
-    <Property Name="AdresseSiegeSocial" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="NumRue" Type="nvarchar" Nullable="false" MaxLength="10" />
+    <Property Name="Rue" Type="nvarchar" Nullable="false" MaxLength="80" />
+    <Property Name="Ville" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="CodePostal" Type="nvarchar" Nullable="false" MaxLength="15" />
+    <Property Name="Departement" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="NumDepartement" Type="nvarchar" Nullable="false" MaxLength="8" />
+    <Property Name="Region" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Pays" Type="nvarchar" Nullable="false" MaxLength="50" />
     <Property Name="NumSiret" Type="nvarchar" Nullable="false" MaxLength="14" />
-    <Property Name="FraisAgence" Type="smallint" Nullable="false" />
+    <Property Name="FraisAgence" Type="decimal" Nullable="false" Precision="7" Scale="2" />
     <Property Name="Account_IdAccount" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Utilisateur">
@@ -800,13 +812,14 @@
           <Property Name="Ville" Type="String" Nullable="false" MaxLength="50" />
           <Property Name="CodePostal" Type="String" Nullable="false" MaxLength="15" />
           <Property Name="Departement" Type="String" Nullable="false" MaxLength="50" />
+          <Property Name="NumDepartement" Type="String" Nullable="false" MaxLength="8" />
           <Property Name="Region" Type="String" Nullable="false" MaxLength="50" />
           <Property Name="Pays" Type="String" Nullable="false" MaxLength="50" />
-          <Property Name="Latitude" Type="Int32" Nullable="false" />
-          <Property Name="Longitude" Type="Int32" Nullable="false" />
+          <Property Name="Latitude" Type="Decimal" Nullable="false" Scale="6" Precision="9" />
+          <Property Name="Longitude" Type="Decimal" Nullable="false" Scale="6" Precision="9" />
           <Property Name="TypeLogement" Type="Byte" Nullable="false" />
           <Property Name="ImplantationLogement" Type="Byte" Nullable="false" />
-          <Property Name="SuperficieLogement" Type="Int32" Nullable="false" />
+          <Property Name="SuperficieLogement" Type="Int16" Nullable="false" />
           <Property Name="SuperficieTerrain" Type="Int32" Nullable="false" />
           <Property Name="NbPieceLogement" Type="Int16" Nullable="false" />
           <Property Name="NbHabitantRestant" Type="Int16" Nullable="false" />
@@ -829,11 +842,11 @@
           </Key>
           <Property Name="IdChambreLocation" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IdAnnonceLocation" Type="Int32" Nullable="false" />
-          <Property Name="Loyer" Type="Int32" Nullable="false" />
-          <Property Name="Charges" Type="Int32" Nullable="false" />
+          <Property Name="Loyer" Type="Decimal" Nullable="false" Precision="7" Scale="2" />
+          <Property Name="Charges" Type="Decimal" Nullable="false" Precision="7" Scale="2" />
           <Property Name="DetailCharges" Type="String" Nullable="false" MaxLength="100" />
-          <Property Name="Caution" Type="Int32" Nullable="true" />
-          <Property Name="Superficie" Type="Int32" Nullable="false" />
+          <Property Name="Caution" Type="Decimal" Nullable="true" Precision="7" Scale="2" />
+          <Property Name="Superficie" Type="Int16" Nullable="false" />
           <Property Name="Meublee" Type="Boolean" Nullable="false" />
           <Property Name="DateDisponibilite" Type="DateTime" Nullable="false" />
           <Property Name="DateFinDisponibilite" Type="DateTime" Nullable="true" />
@@ -865,9 +878,9 @@
           <Property Name="EngagementLogement" Type="Byte" Nullable="false" />
           <Property Name="TypeHabitat" Type="Byte" Nullable="false" />
           <Property Name="ImplantationLogement" Type="Byte" Nullable="false" />
-          <Property Name="SuperficieMaxLogement" Type="Int32" Nullable="false" />
+          <Property Name="SuperficieMaxLogement" Type="Int16" Nullable="false" />
           <Property Name="CoutAchatMaxLogement" Type="Int32" Nullable="true" />
-          <Property Name="LoyerMaxLogement" Type="Int32" Nullable="true" />
+          <Property Name="LoyerMaxLogement" Type="Int16" Nullable="true" />
           <Property Name="CoutConstructionMaxLogement" Type="Int32" Nullable="true" />
           <Property Name="NbPersoTotal" Type="Int16" Nullable="false" />
           <Property Name="NbPersAchatTerrain" Type="Int16" Nullable="true" />
@@ -890,6 +903,7 @@
           <Property Name="Ville" Type="String" Nullable="true" MaxLength="50" />
           <Property Name="CodePostal" Type="String" Nullable="true" MaxLength="15" />
           <Property Name="Departement" Type="String" Nullable="true" MaxLength="50" />
+          <Property Name="NumDepartement" Type="String" Nullable="false" MaxLength="8" />
           <Property Name="Region" Type="String" Nullable="true" MaxLength="50" />
           <NavigationProperty Name="ProjetCreation" Relationship="EcoColocationModel.Lieu_ProjetCreation" FromRole="Lieu" ToRole="ProjetCreation" />
           <Property Name="Pays" Type="String" Nullable="false" MaxLength="50" />
@@ -905,7 +919,6 @@
           </Key>
           <Property Name="IdEvenement" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IdUtilisateur" Type="Int32" Nullable="false" />
-          <Property Name="NomImage" Type="String" Nullable="true" MaxLength="50" />
           <Property Name="DateDebut" Type="DateTime" Nullable="false" />
           <Property Name="DateFin" Type="DateTime" Nullable="false" />
           <Property Name="NumRue" Type="String" Nullable="false" MaxLength="10" />
@@ -913,6 +926,7 @@
           <Property Name="Ville" Type="String" Nullable="false" MaxLength="60" />
           <Property Name="CodePostal" Type="String" Nullable="false" MaxLength="15" />
           <Property Name="Departement" Type="String" Nullable="false" MaxLength="50" />
+          <Property Name="NumDepartement" Type="String" Nullable="false" MaxLength="8" />
           <Property Name="Region" Type="String" Nullable="false" MaxLength="50" />
           <Property Name="Pays" Type="String" Nullable="false" MaxLength="50" />
           <Property Name="Lien" Type="String" Nullable="true" MaxLength="500" />
@@ -920,7 +934,8 @@
           <NavigationProperty Name="EvenementPresence" Relationship="EcoColocationModel.Evenement_EvenementPresence" FromRole="Evenement" ToRole="EvenementPresence" />
           <NavigationProperty Name="EvenementAssocie" Relationship="EcoColocationModel.Evenement_EvenementAssocie" FromRole="Evenement" ToRole="EvenementAssocie" />
           <NavigationProperty Name="EvenementAssocie1" Relationship="EcoColocationModel.Evenement_EvenementAssocie1" FromRole="Evenement" ToRole="EvenementAssocie" />
-          <Property Name="DatePublication" Type="DateTime" Nullable="true" />
+          <Property Name="NomImage" Type="String" Nullable="true" MaxLength="50" />
+          <Property Name="DatePublication" Type="DateTime" Nullable="false" />
           <NavigationProperty Name="Utilisateur" Relationship="EcoColocationModel.Utilisateur_Evenement" FromRole="Evenement" ToRole="Utilisateur" />
         </EntityType>
         <EntityType Name="EvenementPresence">
@@ -941,10 +956,11 @@
           <Property Name="IdEcoColocExistante" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IdUtilisateur" Type="Int32" Nullable="false" />
           <Property Name="NomEcoColoc" Type="String" Nullable="false" MaxLength="50" />
-          <Property Name="NbColocataire" Type="Int32" Nullable="false" />
+          <Property Name="NbColocataire" Type="Int16" Nullable="false" />
           <Property Name="Pays" Type="String" Nullable="false" MaxLength="50" />
           <Property Name="Region" Type="String" Nullable="false" MaxLength="50" />
           <Property Name="Departement" Type="String" Nullable="false" MaxLength="50" />
+          <Property Name="NumDepartement" Type="String" Nullable="false" MaxLength="8" />
           <Property Name="Ville" Type="String" Nullable="false" MaxLength="50" />
           <Property Name="CodePostal" Type="String" Nullable="false" MaxLength="15" />
           <Property Name="Email" Type="String" Nullable="true" MaxLength="60" />
@@ -986,6 +1002,7 @@
           <Property Name="Message" Type="String" Nullable="false" MaxLength="Max" />
           <NavigationProperty Name="Image" Relationship="EcoColocationModel.ConversationDev_ImageConversationDev" FromRole="ConversationDev" ToRole="Image" />
           <Property Name="DateDernierEnvoi" Type="DateTime" Nullable="false" />
+          <Property Name="Vu" Type="Byte" Nullable="false" DefaultValue="0" />
         </EntityType>
         <EntityType Name="RechercheColocation">
           <Key>
@@ -993,8 +1010,8 @@
           </Key>
           <Property Name="IdRechercheColocation" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IdUtilisateur" Type="Int32" Nullable="false" />
-          <Property Name="BudgetMax" Type="String" Nullable="false" />
-          <Property Name="AlerteParEmail" Type="String" Nullable="false" />
+          <Property Name="BudgetMax" Type="Int16" Nullable="false" />
+          <Property Name="AlerteParEmail" Type="Byte" Nullable="false" />
           <Property Name="CritereRecherche" Type="String" Nullable="false" MaxLength="Max" />
           <Property Name="PratiqueEcolo" Type="String" Nullable="false" MaxLength="Max" />
           <Property Name="NomPhoto" Type="String" Nullable="false" MaxLength="50" />
@@ -1141,9 +1158,16 @@
           <Property Name="Nom" Nullable="false" Type="String" MaxLength="50" />
           <Property Name="Email" Nullable="false" Type="String" MaxLength="60" />
           <Property Name="Telephone" Nullable="false" Type="String" MaxLength="12" />
-          <Property Name="AdresseSiegeSocial" Type="String" Nullable="false" />
+          <Property Name="NumRue" Type="String" Nullable="false" MaxLength="10" />
+          <Property Name="Rue" Type="String" Nullable="false" MaxLength="80" />
+          <Property Name="Ville" Type="String" Nullable="false" MaxLength="50" />
+          <Property Name="CodePostal" Type="String" Nullable="false" MaxLength="15" />
+          <Property Name="Departement" Type="String" Nullable="false" MaxLength="50" />
+          <Property Name="NumDepartement" Type="String" Nullable="false" MaxLength="8" />
+          <Property Name="Region" Type="String" Nullable="false" MaxLength="50" />
+          <Property Name="Pays" Type="String" Nullable="false" MaxLength="50" />
           <Property Name="NumSiret" Type="String" Nullable="false" MaxLength="14" />
-          <Property Name="FraisAgence" Type="Int16" Nullable="false" />
+          <Property Name="FraisAgence" Type="Decimal" Nullable="false" Precision="7" Scale="2" />
           <NavigationProperty Name="Account" Relationship="EcoColocationModel.Agence_Account" FromRole="Agence" ToRole="Account" />
         </EntityType>
         <EntityType Name="Account">
@@ -1286,6 +1310,7 @@
           <ScalarProperty Name="Ville" ColumnName="Ville" />
           <ScalarProperty Name="CodePostal" ColumnName="CodePostal" />
           <ScalarProperty Name="Departement" ColumnName="Departement" />
+          <ScalarProperty Name="NumDepartement" ColumnName="NumDepartement" />
           <ScalarProperty Name="Region" ColumnName="Region" />
           <ScalarProperty Name="Pays" ColumnName="Pays" />
           <ScalarProperty Name="Latitude" ColumnName="Latitude" />
@@ -1363,6 +1388,7 @@
           <ScalarProperty Name="Ville" ColumnName="Ville" />
           <ScalarProperty Name="CodePostal" ColumnName="CodePostal" />
           <ScalarProperty Name="Departement" ColumnName="Departement" />
+          <ScalarProperty Name="NumDepartement" ColumnName="NumDepartement" />
           <ScalarProperty Name="Region" ColumnName="Region" />
           <ScalarProperty Name="Pays" ColumnName="Pays" />
         </MappingFragment>
@@ -1373,7 +1399,6 @@
         <MappingFragment StoreEntitySet="Evenement">
           <ScalarProperty Name="IdEvenement" ColumnName="IdEvenement" />
           <ScalarProperty Name="IdUtilisateur" ColumnName="IdUtilisateur" />
-          <ScalarProperty Name="NomImage" ColumnName="NomImage" />
           <ScalarProperty Name="DateDebut" ColumnName="DateDebut" />
           <ScalarProperty Name="DateFin" ColumnName="DateFin" />
           <ScalarProperty Name="NumRue" ColumnName="NumRue" />
@@ -1381,10 +1406,12 @@
           <ScalarProperty Name="Ville" ColumnName="Ville" />
           <ScalarProperty Name="CodePostal" ColumnName="CodePostal" />
           <ScalarProperty Name="Departement" ColumnName="Departement" />
+          <ScalarProperty Name="NumDepartement" ColumnName="NumDepartement" />
           <ScalarProperty Name="Region" ColumnName="Region" />
           <ScalarProperty Name="Pays" ColumnName="Pays" />
           <ScalarProperty Name="Lien" ColumnName="Lien" />
           <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="NomImage" ColumnName="NomImage" />
           <ScalarProperty Name="DatePublication" ColumnName="DatePublication" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -1408,6 +1435,7 @@
           <ScalarProperty Name="Pays" ColumnName="Pays" />
           <ScalarProperty Name="Region" ColumnName="Region" />
           <ScalarProperty Name="Departement" ColumnName="Departement" />
+          <ScalarProperty Name="NumDepartement" ColumnName="NumDepartement" />
           <ScalarProperty Name="Ville" ColumnName="Ville" />
           <ScalarProperty Name="CodePostal" ColumnName="CodePostal" />
           <ScalarProperty Name="Email" ColumnName="Email" />
@@ -1447,6 +1475,7 @@
           <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="Message" ColumnName="Message" />
           <ScalarProperty Name="DateDernierEnvoi" ColumnName="DateDernierEnvoi" />
+          <ScalarProperty Name="Vu" ColumnName="Vu" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -1524,7 +1553,14 @@
           <ScalarProperty Name="Nom" ColumnName="Nom" />
           <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="Telephone" ColumnName="Telephone" />
-          <ScalarProperty Name="AdresseSiegeSocial" ColumnName="AdresseSiegeSocial" />
+          <ScalarProperty Name="NumRue" ColumnName="NumRue" />
+          <ScalarProperty Name="Rue" ColumnName="Rue" />
+          <ScalarProperty Name="Ville" ColumnName="Ville" />
+          <ScalarProperty Name="CodePostal" ColumnName="CodePostal" />
+          <ScalarProperty Name="Departement" ColumnName="Departement" />
+          <ScalarProperty Name="NumDepartement" ColumnName="NumDepartement" />
+          <ScalarProperty Name="Region" ColumnName="Region" />
+          <ScalarProperty Name="Pays" ColumnName="Pays" />
           <ScalarProperty Name="NumSiret" ColumnName="NumSiret" />
           <ScalarProperty Name="FraisAgence" ColumnName="FraisAgence" />
         </MappingFragment>

@@ -23,7 +23,6 @@ namespace Eco_Colocation.Controllers
     
         public int IdEvenement { get; set; }
         public int IdUtilisateur { get; set; }
-        public string NomImage { get; set; }
         public System.DateTime DateDebut { get; set; }
         public System.DateTime DateFin { get; set; }
         public string NumRue { get; set; }
@@ -31,11 +30,13 @@ namespace Eco_Colocation.Controllers
         public string Ville { get; set; }
         public string CodePostal { get; set; }
         public string Departement { get; set; }
+        public string NumDepartement { get; set; }
         public string Region { get; set; }
         public string Pays { get; set; }
         public string Lien { get; set; }
         public string Description { get; set; }
-        public Nullable<System.DateTime> DatePublication { get; set; }
+        public string NomImage { get; set; }
+        public System.DateTime DatePublication { get; set; }
     
         public virtual ICollection<EvenementPresence> EvenementPresence { get; set; }
         public virtual ICollection<EvenementAssocie> EvenementAssocie { get; set; }

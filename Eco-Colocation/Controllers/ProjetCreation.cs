@@ -29,9 +29,9 @@ namespace Eco_Colocation.Controllers
         public byte EngagementLogement { get; set; }
         public byte TypeHabitat { get; set; }
         public byte ImplantationLogement { get; set; }
-        public int SuperficieMaxLogement { get; set; }
+        public short SuperficieMaxLogement { get; set; }
         public Nullable<int> CoutAchatMaxLogement { get; set; }
-        public Nullable<int> LoyerMaxLogement { get; set; }
+        public Nullable<short> LoyerMaxLogement { get; set; }
         public Nullable<int> CoutConstructionMaxLogement { get; set; }
         public short NbPersoTotal { get; set; }
         public Nullable<short> NbPersAchatTerrain { get; set; }

@@ -18,9 +18,16 @@ namespace Eco_Colocation.Controllers
         public string Nom { get; set; }
         public string Email { get; set; }
         public string Telephone { get; set; }
-        public string AdresseSiegeSocial { get; set; }
+        public string NumRue { get; set; }
+        public string Rue { get; set; }
+        public string Ville { get; set; }
+        public string CodePostal { get; set; }
+        public string Departement { get; set; }
+        public string NumDepartement { get; set; }
+        public string Region { get; set; }
+        public string Pays { get; set; }
         public string NumSiret { get; set; }
-        public short FraisAgence { get; set; }
+        public decimal FraisAgence { get; set; }
     
         public virtual Account Account { get; set; }
     }

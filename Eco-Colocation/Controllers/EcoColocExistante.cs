@@ -22,10 +22,11 @@ namespace Eco_Colocation.Controllers
         public int IdEcoColocExistante { get; set; }
         public int IdUtilisateur { get; set; }
         public string NomEcoColoc { get; set; }
-        public int NbColocataire { get; set; }
+        public short NbColocataire { get; set; }
         public string Pays { get; set; }
         public string Region { get; set; }
         public string Departement { get; set; }
+        public string NumDepartement { get; set; }
         public string Ville { get; set; }
         public string CodePostal { get; set; }
         public string Email { get; set; }

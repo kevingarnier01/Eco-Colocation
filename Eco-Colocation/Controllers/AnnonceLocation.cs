@@ -27,13 +27,14 @@ namespace Eco_Colocation.Controllers
         public string Ville { get; set; }
         public string CodePostal { get; set; }
         public string Departement { get; set; }
+        public string NumDepartement { get; set; }
         public string Region { get; set; }
         public string Pays { get; set; }
-        public int Latitude { get; set; }
-        public int Longitude { get; set; }
+        public decimal Latitude { get; set; }
+        public decimal Longitude { get; set; }
         public byte TypeLogement { get; set; }
         public byte ImplantationLogement { get; set; }
-        public int SuperficieLogement { get; set; }
+        public short SuperficieLogement { get; set; }
         public int SuperficieTerrain { get; set; }
         public short NbPieceLogement { get; set; }
         public short NbHabitantRestant { get; set; }

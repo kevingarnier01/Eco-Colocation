@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 11/26/2019 15:25:22
+-- Date Created: 11/27/2019 14:59:27
 -- Generated from EDMX file: C:\Users\kev-gar\Documents\Projet personnel\Eco-colocation\Application\Développement\Eco-Colocation\Eco-Colocation\Controllers\EcoColocationModel.edmx
 -- --------------------------------------------------
 
@@ -53,14 +53,14 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_ProjetCreationImage_ProjetCreation]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[ImageProjetCreation] DROP CONSTRAINT [FK_ProjetCreationImage_ProjetCreation];
 GO
-IF OBJECT_ID(N'[dbo].[FK_EcoColocExistanteColocataire]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Colocataire] DROP CONSTRAINT [FK_EcoColocExistanteColocataire];
+IF OBJECT_ID(N'[dbo].[FK_EcoColocExistante_Colocataire]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Colocataire] DROP CONSTRAINT [FK_EcoColocExistante_Colocataire];
 GO
 IF OBJECT_ID(N'[dbo].[FK_Utilisateur_RechercheColocation]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[RechercheColocation] DROP CONSTRAINT [FK_Utilisateur_RechercheColocation];
 GO
-IF OBJECT_ID(N'[dbo].[FK_UtilisateurEcoColocExistante]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[EcoColocExistante] DROP CONSTRAINT [FK_UtilisateurEcoColocExistante];
+IF OBJECT_ID(N'[dbo].[FK_Utilisateur_EcoColocExistante]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[EcoColocExistante] DROP CONSTRAINT [FK_Utilisateur_EcoColocExistante];
 GO
 IF OBJECT_ID(N'[dbo].[FK_Utilisateur_EvenementPresence]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[EvenementPresence] DROP CONSTRAINT [FK_Utilisateur_EvenementPresence];
@@ -68,20 +68,20 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_Utilisateur_Evenement]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Evenement] DROP CONSTRAINT [FK_Utilisateur_Evenement];
 GO
-IF OBJECT_ID(N'[dbo].[FK_UtilisateurAccount]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[UtilisateurSet] DROP CONSTRAINT [FK_UtilisateurAccount];
+IF OBJECT_ID(N'[dbo].[FK_Utilisateur_Account]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Utilisateur] DROP CONSTRAINT [FK_Utilisateur_Account];
 GO
 IF OBJECT_ID(N'[dbo].[FK_Agence_Account]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[AgenceSet] DROP CONSTRAINT [FK_Agence_Account];
+    ALTER TABLE [dbo].[Agence] DROP CONSTRAINT [FK_Agence_Account];
 GO
 IF OBJECT_ID(N'[dbo].[FK_Adhesion_Account]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Adhesion] DROP CONSTRAINT [FK_Adhesion_Account];
 GO
-IF OBJECT_ID(N'[dbo].[FK_AccountRole_Account]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[AccountRole] DROP CONSTRAINT [FK_AccountRole_Account];
+IF OBJECT_ID(N'[dbo].[FK_Account_Role_Account]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Account_Role] DROP CONSTRAINT [FK_Account_Role_Account];
 GO
-IF OBJECT_ID(N'[dbo].[FK_AccountRole_Role]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[AccountRole] DROP CONSTRAINT [FK_AccountRole_Role];
+IF OBJECT_ID(N'[dbo].[FK_Account_Role_Role]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Account_Role] DROP CONSTRAINT [FK_Account_Role_Role];
 GO
 IF OBJECT_ID(N'[dbo].[FK_ProjetCreation_Utilisateur]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[ProjetCreation] DROP CONSTRAINT [FK_ProjetCreation_Utilisateur];
@@ -142,11 +142,11 @@ GO
 IF OBJECT_ID(N'[dbo].[Account]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Account];
 GO
-IF OBJECT_ID(N'[dbo].[AgenceSet]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[AgenceSet];
+IF OBJECT_ID(N'[dbo].[Agence]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Agence];
 GO
-IF OBJECT_ID(N'[dbo].[UtilisateurSet]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[UtilisateurSet];
+IF OBJECT_ID(N'[dbo].[Utilisateur]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Utilisateur];
 GO
 IF OBJECT_ID(N'[dbo].[Lieu_ProjetCreation]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Lieu_ProjetCreation];
@@ -154,8 +154,8 @@ GO
 IF OBJECT_ID(N'[dbo].[Lieu_RechercheColoc]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Lieu_RechercheColoc];
 GO
-IF OBJECT_ID(N'[dbo].[AccountRole]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[AccountRole];
+IF OBJECT_ID(N'[dbo].[Account_Role]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Account_Role];
 GO
 
 -- --------------------------------------------------
@@ -172,13 +172,14 @@ CREATE TABLE [dbo].[AnnonceLocation] (
     [Ville] nvarchar(50)  NOT NULL,
     [CodePostal] nvarchar(15)  NOT NULL,
     [Departement] nvarchar(50)  NOT NULL,
+    [NumDepartement] nvarchar(8)  NOT NULL,
     [Region] nvarchar(50)  NOT NULL,
     [Pays] nvarchar(50)  NOT NULL,
-    [Latitude] int  NOT NULL,
-    [Longitude] int  NOT NULL,
+    [Latitude] decimal(9,6)  NOT NULL,
+    [Longitude] decimal(9,6)  NOT NULL,
     [TypeLogement] tinyint  NOT NULL,
     [ImplantationLogement] tinyint  NOT NULL,
-    [SuperficieLogement] int  NOT NULL,
+    [SuperficieLogement] smallint  NOT NULL,
     [SuperficieTerrain] int  NOT NULL,
     [NbPieceLogement] smallint  NOT NULL,
     [NbHabitantRestant] smallint  NOT NULL,
@@ -199,11 +200,11 @@ GO
 CREATE TABLE [dbo].[ChambreLocation] (
     [IdChambreLocation] int IDENTITY(1,1) NOT NULL,
     [IdAnnonceLocation] int  NOT NULL,
-    [Loyer] int  NOT NULL,
-    [Charges] int  NOT NULL,
+    [Loyer] decimal(7,2)  NOT NULL,
+    [Charges] decimal(7,2)  NOT NULL,
     [DetailCharges] nvarchar(100)  NOT NULL,
-    [Caution] int  NULL,
-    [Superficie] int  NOT NULL,
+    [Caution] decimal(7,2)  NULL,
+    [Superficie] smallint  NOT NULL,
     [Meublee] bit  NOT NULL,
     [DateDisponibilite] datetime  NOT NULL,
     [DateFinDisponibilite] datetime  NULL
@@ -222,9 +223,9 @@ CREATE TABLE [dbo].[ProjetCreation] (
     [EngagementLogement] tinyint  NOT NULL,
     [TypeHabitat] tinyint  NOT NULL,
     [ImplantationLogement] tinyint  NOT NULL,
-    [SuperficieMaxLogement] int  NOT NULL,
+    [SuperficieMaxLogement] smallint  NOT NULL,
     [CoutAchatMaxLogement] int  NULL,
-    [LoyerMaxLogement] int  NULL,
+    [LoyerMaxLogement] smallint  NULL,
     [CoutConstructionMaxLogement] int  NULL,
     [NbPersoTotal] smallint  NOT NULL,
     [NbPersAchatTerrain] smallint  NULL,
@@ -246,6 +247,7 @@ CREATE TABLE [dbo].[Lieu] (
     [Ville] nvarchar(50)  NULL,
     [CodePostal] nvarchar(15)  NULL,
     [Departement] nvarchar(50)  NULL,
+    [NumDepartement] nvarchar(8)  NOT NULL,
     [Region] nvarchar(50)  NULL,
     [Pays] nvarchar(50)  NOT NULL
 );
@@ -255,7 +257,6 @@ GO
 CREATE TABLE [dbo].[Evenement] (
     [IdEvenement] int IDENTITY(1,1) NOT NULL,
     [IdUtilisateur] int  NOT NULL,
-    [NomImage] nvarchar(50)  NULL,
     [DateDebut] datetime  NOT NULL,
     [DateFin] datetime  NOT NULL,
     [NumRue] nvarchar(10)  NOT NULL,
@@ -263,11 +264,13 @@ CREATE TABLE [dbo].[Evenement] (
     [Ville] nvarchar(60)  NOT NULL,
     [CodePostal] nvarchar(15)  NOT NULL,
     [Departement] nvarchar(50)  NOT NULL,
+    [NumDepartement] nvarchar(8)  NOT NULL,
     [Region] nvarchar(50)  NOT NULL,
     [Pays] nvarchar(50)  NOT NULL,
     [Lien] nvarchar(500)  NULL,
     [Description] nvarchar(max)  NOT NULL,
-    [DatePublication] datetime  NULL
+    [NomImage] nvarchar(50)  NULL,
+    [DatePublication] datetime  NOT NULL
 );
 GO
 
@@ -284,10 +287,11 @@ CREATE TABLE [dbo].[EcoColocExistante] (
     [IdEcoColocExistante] int IDENTITY(1,1) NOT NULL,
     [IdUtilisateur] int  NOT NULL,
     [NomEcoColoc] nvarchar(50)  NOT NULL,
-    [NbColocataire] int  NOT NULL,
+    [NbColocataire] smallint  NOT NULL,
     [Pays] nvarchar(50)  NOT NULL,
     [Region] nvarchar(50)  NOT NULL,
     [Departement] nvarchar(50)  NOT NULL,
+    [NumDepartement] nvarchar(8)  NOT NULL,
     [Ville] nvarchar(50)  NOT NULL,
     [CodePostal] nvarchar(15)  NOT NULL,
     [Email] nvarchar(60)  NULL,
@@ -323,7 +327,8 @@ CREATE TABLE [dbo].[ConversationDev] (
     [IdConversationDev] int IDENTITY(1,1) NOT NULL,
     [Email] nvarchar(max)  NOT NULL,
     [Message] nvarchar(max)  NOT NULL,
-    [DateDernierEnvoi] datetime  NOT NULL
+    [DateDernierEnvoi] datetime  NOT NULL,
+    [Vu] tinyint  NOT NULL
 );
 GO
 
@@ -331,8 +336,8 @@ GO
 CREATE TABLE [dbo].[RechercheColocation] (
     [IdRechercheColocation] int IDENTITY(1,1) NOT NULL,
     [IdUtilisateur] int  NOT NULL,
-    [BudgetMax] nvarchar(max)  NOT NULL,
-    [AlerteParEmail] nvarchar(max)  NOT NULL,
+    [BudgetMax] smallint  NOT NULL,
+    [AlerteParEmail] tinyint  NOT NULL,
     [CritereRecherche] nvarchar(max)  NOT NULL,
     [PratiqueEcolo] nvarchar(max)  NOT NULL,
     [NomPhoto] nvarchar(50)  NOT NULL,
@@ -394,9 +399,16 @@ CREATE TABLE [dbo].[Agence] (
     [Nom] nvarchar(50)  NOT NULL,
     [Email] nvarchar(60)  NOT NULL,
     [Telephone] nvarchar(12)  NOT NULL,
-    [AdresseSiegeSocial] nvarchar(max)  NOT NULL,
+    [NumRue] nvarchar(10)  NOT NULL,
+    [Rue] nvarchar(80)  NOT NULL,
+    [Ville] nvarchar(50)  NOT NULL,
+    [CodePostal] nvarchar(15)  NOT NULL,
+    [Departement] nvarchar(50)  NOT NULL,
+    [NumDepartement] nvarchar(8)  NOT NULL,
+    [Region] nvarchar(50)  NOT NULL,
+    [Pays] nvarchar(50)  NOT NULL,
     [NumSiret] nvarchar(14)  NOT NULL,
-    [FraisAgence] smallint  NOT NULL,
+    [FraisAgence] decimal(7,2)  NOT NULL,
     [Account_IdAccount] int  NOT NULL
 );
 GO

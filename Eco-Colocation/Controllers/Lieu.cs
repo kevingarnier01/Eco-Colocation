@@ -24,6 +24,7 @@ namespace Eco_Colocation.Controllers
         public string Ville { get; set; }
         public string CodePostal { get; set; }
         public string Departement { get; set; }
+        public string NumDepartement { get; set; }
         public string Region { get; set; }
         public string Pays { get; set; }
     
