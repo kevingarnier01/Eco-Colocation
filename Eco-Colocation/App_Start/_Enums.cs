@@ -7,5 +7,6 @@ namespace Eco_Colocation.App_Start
 {
 	public class _Enums
 	{
+		
 	}
 }

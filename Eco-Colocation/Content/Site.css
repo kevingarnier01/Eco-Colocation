@@ -957,8 +957,8 @@ select#typeResearchSct-ph:focus {
 	outline: none;
 }
 
-#typeResearchSct-ph {
-	width: 110px;
+.typeResearchSct {
+	width: 110px !important;
 	margin-right: 2px;
 	color: #999;
 	height: 35px;
@@ -984,12 +984,15 @@ select#typeResearchSct-ph:focus {
 		width: 315px
 	}
 
-	#typeResearchSct-ph {
-		width: 100px;
-		border-radius: 3px;
-		margin-bottom: 5px;
-		width: 130px;
+	.typeResearchSct {
+		border-radius: 3px !important;
+		margin-bottom: 5px !important;
+		width: 130px !important;
 		text-align-last: center;
+	}
+
+	.divResearchLocation {
+		display: block;
 	}
 
 	#div2BtnFiltre {
@@ -1387,7 +1390,8 @@ select#typeResearchSct-ph:focus {
 	margin-right: auto;
 	display: flex;
 	flex-wrap: wrap;
-	padding-bottom: 10px
+	padding-bottom: 10px;
+	padding-top: 2px;
 }
 
 #divOthersPeople-ps {
@@ -3043,7 +3047,6 @@ d5-description-mpc {
 
 #txtAlertEmail-car {
 	font-size: 17px;
-	text-align: center;
 	margin-bottom: 10px;
 	color: #555;
 	margin-top: 15px;
@@ -4415,6 +4418,10 @@ i.fas.fa-times.crossPlace {
 	padding: 15px 5px;
 	overflow: auto;
 	display: inline-grid;
+}
+
+.sousDivCreateProfil-mcar:first-child {
+	margin-bottom: 10px;
 }
 
 .sousDivCreateProfil-mcar {
@@ -6901,3 +6908,17 @@ input.radioFibreEco-ayer {
 	margin-top: 10px;
 }
 /**** Fin SearchColoc/PopupPartenaire.cshtml ****/
+
+/**** PasswordDiv ****/
+.underDivPassw {
+	width: 250px;
+}
+
+.divPassw {
+	padding: 0 15px;
+}
+
+.underDivPassw:first-child {
+	margin-bottom: 10px;
+}
+/**** Fin PasswordDiv ****/

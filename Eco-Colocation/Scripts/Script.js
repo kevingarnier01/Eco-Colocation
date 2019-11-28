@@ -620,9 +620,9 @@ function deletePlace(element, identityPage) {
 
 	if ($('#placeSaved-' + identityPage + ' .divPlace').length == 0) {
 		$("#placeSaved-" + identityPage).css('display', 'none');
-		if (identityPage == "ph") {
-			$('#inputSearchPlace-ph').val("")
-			$('#typeResearchSct-ph').removeAttr('disabled')
+		if (identityPage == "ph" || identityPage == "car" || identityPage == "mpc") {
+			$('#inputSearchPlace-' + identityPage).val("")
+			$('#typeResearchSct-' + identityPage).removeAttr('disabled')
 		}
 	}
 }
@@ -852,12 +852,12 @@ function initHtmlTagToAutoComplete() {
 //});
 // -------------- Fin nominatim.openstreetmap.org  ---------------
 
-function checkToDisableLstOrNot(element) {
+function checkToDisableLstOrNot(element, lstElement) {
 	if (element.value.length != 0) {
-		$('#typeResearchSct-ph').attr('disabled', 'true')
+		$(lstElement).attr('disabled', 'true')
 	}
 	else {
-		$('#typeResearchSct-ph').removeAttr('disabled')
+		$(lstElement).removeAttr('disabled')
 	}
 }
 
@@ -1571,30 +1571,30 @@ function getOtherMarkerFromThisNewPlace(ui) {
 
 }
 
-function typeOfResearchLocation(item) {
+function typeOfResearchLocation(item, elementToChange) {
 	if (item.value == "communes") {
-		$("#inputSearchPlace-ph").attr("placeholder", "Veuillez indiquer la commune concernée")
-		$("#inputSearchPlace-ph").attr("oninput", "addr_searchCity(this);checkToDisableLstOrNot(this)")
-		$("#inputSearchPlace-ph").removeAttr("disabled")
+		$(elementToChange).attr("placeholder", "Veuillez indiquer la commune concernée *")
+		$(elementToChange).attr("oninput", "addr_searchCity(this);checkToDisableLstOrNot(this, '#" + $(item).attr('id') + "')")
+		$(elementToChange).removeAttr("disabled")
 	}
 	else if (item.value == "departements") {
-		$("#inputSearchPlace-ph").attr("placeholder", "Veuillez indiquer le département concerné")
-		$("#inputSearchPlace-ph").attr("oninput", "addr_searchDepartement(this);checkToDisableLstOrNot(this)")
-		$("#inputSearchPlace-ph").removeAttr("disabled")
+		$(elementToChange).attr("placeholder", "Veuillez indiquer le département concerné *")
+		$(elementToChange).attr("oninput", "addr_searchDepartement(this);checkToDisableLstOrNot(this, '#" + $(item).attr('id') + "')")
+		$(elementToChange).removeAttr("disabled")
 	}
 	else if (item.value == "regions") {
-		$("#inputSearchPlace-ph").attr("placeholder", "Veuillez indiquer la région concernée")
-		$("#inputSearchPlace-ph").attr("oninput", "addr_searchRegion(this);checkToDisableLstOrNot(this)")
-		$("#inputSearchPlace-ph").removeAttr("disabled")
+		$(elementToChange).attr("placeholder", "Veuillez indiquer la région concernée *")
+		$(elementToChange).attr("oninput", "addr_searchRegion(this);checkToDisableLstOrNot(this, '#" + $(item).attr('id') + "')")
+		$(elementToChange).removeAttr("disabled")
 	}
 	else if (item.value == "france") {
-		$("#inputSearchPlace-ph").attr("placeholder", "Dans toute la France")
-		$("#inputSearchPlace-ph").attr("disabled", "true")
+		$(elementToChange).attr("placeholder", "Dans toute la France")
+		$(elementToChange).attr("disabled", "true")
 	}
 	else {
-		$("#inputSearchPlace-ph").attr("placeholder", "Veuillez indiquer la commune concernée")
-		$("#inputSearchPlace-ph").attr("oninput", "addr_searchCity(this)")
-		$("#inputSearchPlace-ph").removeAttr("disabled")
+		$(elementToChange).attr("placeholder", "Veuillez indiquer la commune concernée *")
+		$(elementToChange).attr("oninput", "addr_searchCity(this);checkToDisableLstOrNot(this, '#" + $(item).attr('id') + "')")
+		$(elementToChange).removeAttr("disabled")
 	}
 }
 
@@ -2019,4 +2019,11 @@ function sendMsgToEmail(idElementPopUp) {
 		$(idElementPopUp).fadeOut(2000);
 		$("#loadSendMsg-pvm").fadeOut(1000);
 	}, 5000)
+}
+
+function copyEmailToUserAuthentification(emailElement, elementDestination) {
+	if ($(elementDestination).length != 0) {
+		var emailElement = $(emailElement).val();
+		$(elementDestination).val(emailElement);
+	}
 }

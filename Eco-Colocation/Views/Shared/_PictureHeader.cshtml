@@ -14,10 +14,10 @@
 					</div>
 					@Html.HiddenFor(m => Model.HomeViewModel.TypeRecherche, new { @id = "typeRecherche", @value = "ah" })
 					@*<input id="typeRecherche" name="@Model.HomeViewModel.TypeRecherche" type="hidden" value="@ViewData["currentTab"]">*@
-					<div class="input-group flex" id="adv-search">
+					<div class="input-group flex overflow" id="adv-search">
 						<div class="flex">
 							<div class="childFlex">
-								<select id="typeResearchSct-ph" class="form-control" onchange="typeOfResearchLocation(this)">
+								<select id="typeResearchSct-ph" class="form-control typeResearchSct" onchange="typeOfResearchLocation(this, '#inputSearchPlace-ph')">
 									<option value="communes" selected>Communes</option>
 									<option value="departements">Départements</option>
 									<option value="regions">Régions</option>
@@ -25,8 +25,8 @@
 								</select>
 							</div>
 						</div>
-						<input id="inputSearchPlace-ph" oninput="addr_searchCity(this);checkToDisableLstOrNot(this)" type="text"
-							   class="form-control inputSearchPlace" placeholder="Veuillez indiquer la commune concernée">
+						<input id="inputSearchPlace-ph" oninput="addr_searchCity(this);checkToDisableLstOrNot(this, '#typeResearchSct-ph')" type="text"
+							   class="form-control inputSearchPlace" placeholder="Veuillez indiquer la commune concernée *">
 						@*<input type="search" id="address-input-ph" class="address-input inputSearchPlace" placeholder="Saisir un lieu. Ex: Ville, Département, Région" />*@
 					</div>
 					<div id="placeSaved-ph">

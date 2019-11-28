@@ -775,6 +775,7 @@
     <Content Include="Views\PeopleSearching\HtmlAnnoncePeople.cshtml" />
     <Content Include="Views\SearchColoc\PopupMarkerLocations.cshtml" />
     <Content Include="Views\SearchColoc\PopupMarkerPartenaire.cshtml" />
+    <Content Include="Views\Account\PasswordDiv.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

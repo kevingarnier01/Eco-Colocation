@@ -15,7 +15,7 @@
         <EntityTypeShape EntityType="EcoColocationModel.EvenementPresence" PointX="10.125" PointY="3" Width="1.75" />
         <EntityTypeShape EntityType="EcoColocationModel.EcoColocExistante" Width="1.5" PointX="6.875" PointY="5.875" />
         <EntityTypeShape EntityType="EcoColocationModel.ImageConversationDev" Width="1.5" PointX="6.25" PointY="18.125" />
-        <EntityTypeShape EntityType="EcoColocationModel.Colocataire" Width="1.5" PointX="6.75" PointY="2.625" />
+        <EntityTypeShape EntityType="EcoColocationModel.Colocataire" Width="1.5" PointX="6.75" PointY="2.5" />
         <EntityTypeShape EntityType="EcoColocationModel.ConversationDev" Width="1.625" PointX="3.25" PointY="18" />
         <EntityTypeShape EntityType="EcoColocationModel.RechercheColocation" Width="1.875" PointX="15.5" PointY="8.25" />
         <AssociationConnector Association="EcoColocationModel.Lieu_RechercheColoc" />

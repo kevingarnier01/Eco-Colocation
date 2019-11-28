@@ -1,10 +1,16 @@
-﻿
-@{
+﻿@{
 	ViewBag.Title = "CARecherche";
 }
 @if (!User.Identity.IsAuthenticated)
 {
-	<h2 class="title centerText">Publier vos intérêts de recherche en vous inscrivant</h2>
+	if (@ViewData["modalByInscription"] == null)
+	{
+		<h2 class="title centerText">Ajouter mon annonce de recherche d'éco-colocation</h2>
+	}
+	else
+	{
+		<h2 class="title centerText">Publier vos intérêts de recherche en vous inscrivant</h2>
+	}
 }
 else
 {
@@ -22,7 +28,7 @@ else
 		<div class="col-sm-8 divRightSideEncadrer-mcar">
 			<div class="col-sm-12">
 				<div id="divBudgMax-mcar" class="col-sm-4">
-					<label class="lbl-mcar">Budget maximum *</label>
+					<label class="lbl-mcar">Budget maximum&nbsp;*</label>
 				</div>
 				<div id="divInputBudgMax" class="col-sm-7">
 					<input type="number" class="input-mcar" placeholder="Entrez le buget max">
@@ -32,7 +38,20 @@ else
 			</div>
 			<div class="col-sm-12">
 				<div id="div10-2-adresseLog-ca" style="position:relative" class="fontFamilyNote">
-					<input id="inputSearchPlace-car" oninput="addr_searchCity(this);" type="text" class="inputSearchPlace form-control ui-autocomplete-input" placeholder="Où recherchez-vous ? *">
+					<div class="divResearchLocation flex">
+						<div class="flex">
+							<div class="childFlex">
+								<select id="typeResearchSct-car" class="form-control typeResearchSct" onchange="typeOfResearchLocation(this, '#inputSearchPlace-car')">
+									<option value="communes" selected="">Communes</option>
+									<option value="departements">Départements</option>
+									<option value="regions">Régions</option>
+									<option value="france">Toute la France</option>
+								</select>
+							</div>
+						</div>
+						<input id="inputSearchPlace-car" oninput="addr_searchCity(this);checkToDisableLstOrNot(this, '#typeResearchSct-car')" type="text"
+							   class="form-control inputSearchPlace" placeholder="Veuillez indiquer la commune concernée&nbsp;*">
+					</div>
 					<input id="inputSearchPlace-mpcHidden" name="inputSearchPlace-mpcHidden" type="hidden">
 					<div class="listAutoCompleteToModal"></div>
 					<div id="placeSaved-car" class="placeSaved">
@@ -87,11 +106,11 @@ else
 		</div>
 		<div class="col-sm-8 col-xs-12" id="divGlobalPresent-mcar">
 			<div class="col-sm-12" id="divDesciptionInfo2-mcar">
-				<label class="lbl-mcar">Présentation de votre personnalité *</label>
+				<label class="lbl-mcar">Présentation de votre personnalité&nbsp;*</label>
 				<textarea class="txtareaDesc-mcar input-mcar" id="txtareaPersoP-mcar" placeholder="Présentez-vous en quelque ligne..."></textarea>
 			</div>
 			<div class="col-sm-12" id="divCritereRecherche-mcar">
-				<label class="lbl-mcar" id="lblCritereRecherche-mcar">Information sur vos critères de recherche *</label>
+				<label class="lbl-mcar" id="lblCritereRecherche-mcar">Information sur vos critères de recherche&nbsp;*</label>
 				<textarea class="txtareaDesc-mcar input-mcar" placeholder="Présenter le type d'éco-colocation recherchée..."></textarea>
 				<textarea class="txtareaDesc-mcar input-mcar" placeholder="Présenter les pratiques écologiques envisagées..."></textarea>
 			</div>
@@ -133,9 +152,19 @@ else
 </div>
 @if (!User.Identity.IsAuthenticated)
 {
-	<div id="divInscriptionButtons-mcar">
-		@Html.Partial("~/Views/Account/ButtonsCreateAccount.cshtml")
-	</div>
+	if (@ViewData["modalByInscription"] == null)
+	{
+		<div id="divInscriptionButtons-mcar">
+			@Html.Partial("~/Views/Account/ButtonsCreateAccount.cshtml")
+		</div>
+	}
+	else
+	{
+		@Html.Partial("~/Views/Account/PasswordDiv.cshtml")
+		<div class="flex" id="divInscriptionButtons-mcar">
+			<div class="childFlex btnGreen">Valider</div>
+		</div>
+	}
 }
 else
 {
@@ -154,5 +183,10 @@ else
 		if ($("#divMethodToBeContact-car").length != 0) {
 			$("#divPersonnaliteInfo-mcar").remove();
 		}
+
+		$(document).on('input', '#emailInp-pdf', function (e) {
+			copyEmailToUserAuthentification("#emailInp-pdf", "#emailInpt-pd")
+			copyEmailToUserAuthentification("#emailInp-pdf", "#emailInp-bca")
+		});
 	});
 </script>

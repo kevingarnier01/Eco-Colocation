@@ -11,7 +11,14 @@
 			}
 			else
 			{
-				<h2 class="title centerText">Publier votre projet de création en vous inscrivant</h2>
+				if (@ViewData["modalByInscription"] == null)
+				{
+					<h2 class="title centerText">Creer un projet de création</h2>
+				}
+				else
+				{
+					<h2 class="title centerText">Publier votre projet de création en vous inscrivant</h2>
+				}
 			}
 		</div>
 		<div class="divSommaireFormulaire sousDivFormColoc-ayer divSommaireFormulaireProposition">
@@ -141,7 +148,20 @@
 						</div>
 						<div id="div10-1-adresseLog-ca" class="col-sm-8 col-xs-12">
 							<div id="div10-2-adresseLog-ca" style="position:relative">
-								<input id="inputSearchPlace-mpc" oninput="addr_searchCity(this);" type="text" class="inputSearchPlace form-control" placeholder="Entrez le(s) lieu(x) envisagé(s) *">
+
+								<div class="divResearchLocation flex">
+									<div class="flex">
+										<div class="childFlex">
+											<select id="typeResearchSct-mpc" class="form-control typeResearchSct" onchange="typeOfResearchLocation(this, '#inputSearchPlace-mpc')">
+												<option value="communes" selected="">Communes</option>
+												<option value="departements">Départements</option>
+												<option value="regions">Régions</option>
+												<option value="france">Toute la France</option>
+											</select>
+										</div>
+									</div>
+									<input id="inputSearchPlace-mpc" oninput="addr_searchCity(this);checkToDisableLstOrNot(this, '#typeResearchSct-mpc')" type="text" class="inputSearchPlace form-control" placeholder="Veuillez indiquer la commune concernée *">
+								</div>
 								<input id="inputSearchPlace-mpcHidden" name="inputSearchPlace-mpcHidden" type="hidden" value="">
 								<div class="listAutoCompleteToModal"></div>
 								@* C'est ici que les villes qu'ils valident seront affichées *@
@@ -549,7 +569,18 @@
 					</p>
 				</div>
 				@Html.Partial("~/Views/Account/PersonalDataForm.cshtml")
-				@Html.Partial("~/Views/Account/ButtonsCreateAccount.cshtml")
+
+				@if (ViewData["modalByInscription"] == null)
+				{
+					@Html.Partial("~/Views/Account/ButtonsCreateAccount.cshtml")
+				}
+				else
+				{
+					@Html.Partial("~/Views/Account/PasswordDiv.cshtml")
+					<div class="flex" id="divInscriptionButtons-mcar">
+						<div class="childFlex btnGreen">Valider</div>
+					</div>
+				}
 			</div>
 		}
 	</div>
@@ -576,11 +607,16 @@
 		initButtonOnOff();
 
 		$('#descTextAnnonceLocationDataPersonnal').detach().prependTo('#extraElement-pdf');
-		initAnnonceDescResult("#modalCreationProjet-ColocAnnounce")		
+		initAnnonceDescResult("#modalCreationProjet-ColocAnnounce")
 
 		$(".textInfoIfAccountExist-pdf").fadeIn(0)
 
 		showMultiplesFilesUpload("fileUploadMpc", "divResultFilesUpl-mcar");
 		initSlidepicture()
+
+		$(document).on('input', '#emailInp-pdf', function (e) {
+			copyEmailToUserAuthentification("#emailInp-pdf", "#emailInpt-pd")
+			copyEmailToUserAuthentification("#emailInp-pdf", "#emailInp-bca")
+		});
 	});
 </script>

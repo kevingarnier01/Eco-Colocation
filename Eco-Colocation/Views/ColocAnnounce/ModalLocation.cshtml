@@ -14,10 +14,17 @@
 			}
 			else
 			{
-				<h2 class="title centerText">Créez votre annonce de location en vous inscrivant</h2>
+				if (@ViewData["modalByInscription"] == null)
+				{
+					<h2 class="title centerText">Création d'une annonce de location</h2>
+				}
+				else
+				{
+					<h2 class="title centerText">Créez votre annonce de location en vous inscrivant</h2>
+				}
 			}
 		</div>
-		<div class="divSommaireFormulaire sousDivFormColoc-ayer divSommaireFormulaireProposition" >
+		<div class="divSommaireFormulaire sousDivFormColoc-ayer divSommaireFormulaireProposition">
 			<div class="flex">
 				<p class="etoileObligation">*</p>
 				<p class="txtEtoileObligation">Champ obligatoire</p>
@@ -185,18 +192,18 @@
 						<div id="div10-1-adresseLog-ca" class="col-sm-8 col-xs-12">
 							<div id="div10-2-adresseLog-ca">
 								@*<input id="inputAddresseMap-ML" type="text" oninput="addr_search('inputAddresseMap-ML','listAutoCompletePlaceML');" list="listAutoCompletePlaceML" class="inputAdresseLog-ca">
-								<datalist id="listAutoCompletePlaceML"></datalist>*@
+									<datalist id="listAutoCompletePlaceML"></datalist>*@
 								@*<input type="search" id="address-input-ml" class="address-input"
-								placeholder="Localisation de l'endroit" />*@
+									placeholder="Localisation de l'endroit" />*@
 								<input id="inputSearchPlace-ml" oninput="addr_searchStreet(this);" type="text" class="inputSearchPlace form-control" placeholder="Entrez l'adresse de votre colocation*">
 								<div class="listAutoCompleteToModal"></div>
 								@*@for (int i = 0; i < 4; i++)
-								{
-									@Html.Hidden("adresseVille", null, new { @class = "addresseVille" + i })
-									@Html.Hidden("adresseRegion", null, new { @class = "adresseRegion" + i })
-									@Html.Hidden("adressePays", null, new { @class = "adressePays" + i })
-									@Html.Hidden("adresseLatLng", null, new { @class = "adresseLatLng" + i })
-								}*@
+									{
+										@Html.Hidden("adresseVille", null, new { @class = "addresseVille" + i })
+										@Html.Hidden("adresseRegion", null, new { @class = "adresseRegion" + i })
+										@Html.Hidden("adressePays", null, new { @class = "adressePays" + i })
+										@Html.Hidden("adresseLatLng", null, new { @class = "adresseLatLng" + i })
+									}*@
 								<div id="div10-3-adresseLog-ca" class="flex col-sm-12 textInfoAdresse-ca">
 									<div id="div10-4-adresseLog-ca" class="col-sm-2"></div>
 									<i class="fas fa-info" id="iconPlace-ca"></i>
@@ -293,7 +300,7 @@
 											<td class="col-xs-6">
 												<div class="flex" id="divDispoTemp-mlca">
 													<p id="pDispoTemp-mlca">Disponibilité temporaire *</p>
-													<input id="dispoTemporaireChk-mlca" class="dispoTemporaireChk-mlca" type="checkbox" 
+													<input id="dispoTemporaireChk-mlca" class="dispoTemporaireChk-mlca" type="checkbox"
 														   onchange="changeEndOfDispoVisibility('#dispoTemporaireChk-mlca', '#divEndDispo-mlca')">
 												</div>
 												<div id="divDateDispo-mlca">
@@ -553,7 +560,17 @@
 					</p>
 				</div>
 				@Html.Partial("~/Views/Account/PersonalDataForm.cshtml")
-				@Html.Partial("~/Views/Account/ButtonsCreateAccount.cshtml")
+				@if (ViewData["modalByInscription"] == null)
+				{
+					@Html.Partial("~/Views/Account/ButtonsCreateAccount.cshtml")
+				}
+				else
+				{
+					@Html.Partial("~/Views/Account/PasswordDiv.cshtml")
+					<div class="flex" id="divInscriptionButtons-mcar">
+						<div class="childFlex btnGreen">Valider</div>
+					</div>
+				}
 			</div>
 		}
 	</div>
@@ -572,8 +589,13 @@
 		initButtonOnOff()
 		$('#descTextAnnonceLocationDataPersonnal').detach().prependTo('#extraElement-pdf');
 
-		initAnnonceDescResult("#modalLocation-ColocAnnounce")	
+		initAnnonceDescResult("#modalLocation-ColocAnnounce")
 
 		$(".textInfoIfAccountExist-pdf").fadeIn(0)
+
+		$(document).on('input', '#emailInp-pdf', function (e) {
+			copyEmailToUserAuthentification("#emailInp-pdf", "#emailInpt-pd")
+			copyEmailToUserAuthentification("#emailInp-pdf", "#emailInp-bca")
+		});
 	});
 </script>

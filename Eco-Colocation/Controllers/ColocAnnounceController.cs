@@ -36,15 +36,25 @@ namespace Eco_Colocation.Controllers
 			return View(allViewModel);
 		}
 
-		public ActionResult ModalLocation()
+		public ActionResult ModalLocation(string modalByInscription)
 		{
+			if (modalByInscription != null)
+			{
+				ViewData["modalByInscription"] = modalByInscription;
+			}
+
 			ViewData["targetCity"] = "Rennes";
 
 			return PartialView();
 		}
 
-		public ActionResult ModalProjetCreation()
+		public ActionResult ModalProjetCreation(string modalByInscription)
 		{
+			if (modalByInscription != null)
+			{
+				ViewData["modalByInscription"] = modalByInscription;
+			}
+
 			return PartialView();
 		}
 
