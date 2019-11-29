@@ -1,10 +1,10 @@
 ﻿
 @{
-	ViewBag.Title = "ModalPeopleSearch";
+	ViewBag.Title = "Read_ModalPeopleSearch";
 }
 
 <div class="underModal col-sm-12 col-xs-12">
-	<div id="modalPeopleSearch" class="reelModal">
+	<div id="read_ModalPeopleSearch" class="reelModal">
 		<div id="divMessage-ml">
 			<img onclick="displayPVMessage()" src="https://img.icons8.com/material-outlined/40/000000/circled-chevron-left.png">
 			<div class="col-sm-6 col-xs-12" style="padding:0">
@@ -99,6 +99,6 @@
 <script language="javascript">
 	$(document).ready(function () {
 		window.history.replaceState('data to be passed', 'Title of the page',
-			'/Modal/ModalPeopleSearch/?idModal=' + @ViewData["idModal"] + "&targetCity=" + "@ViewData["targetCity"]");
+			'/Modal/Read_ModalPeopleSearch/?idModal=' + @ViewData["idModal"] + "&targetCity=" + "@ViewData["targetCity"]");
 	});
 </script>

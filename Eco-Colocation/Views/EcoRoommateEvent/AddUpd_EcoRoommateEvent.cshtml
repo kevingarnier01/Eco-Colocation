@@ -1,9 +1,17 @@
 ﻿
 @{
-	ViewBag.Title = "AddYourEcoRoommateExistingEvent";
+	ViewBag.Title = "AddUpd_EcoRoommateExistingEvent";
+	ViewBag.Operation = ViewData["operation"];
 }
-<div id="addYourEcoRoommateEvent">
-	<h2 id="titleTop-ayer" class="title">Ajout d'un nouvel événement</h2>
+<div id="AddUpd_EcoRoommateEvent">
+	@if (ViewBag.Operation != "Update")
+	{
+		<h2 id="titleTop-ayer" class="title">Ajout d'un nouvel événement</h2>
+	}
+	else
+	{
+		<h2 id="titleTop-ayer" class="title">Modification de votre événement</h2>
+	}
 	<div class="divSommaireFormulaire sousDivFormColoc-ayer">
 		<div class="flex">
 			<p class="etoileObligation">*</p>
@@ -172,5 +180,6 @@
 	$(document).ready(function () {
 		checkToShowArrowDivEvents('#divContenerOtherEvents-ayere');
 		//Changement d'emplacement du bouton
-	});
+		
+		});
 </script>

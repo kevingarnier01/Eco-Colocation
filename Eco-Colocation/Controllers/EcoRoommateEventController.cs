@@ -3,19 +3,24 @@ using Eco_Colocation.ViewModel;
 
 namespace Eco_Colocation.Controllers
 {
-    public class EcoRoommateEventController : Controller
-    {
-        // GET: EcoRoommateEvent
-        public ActionResult Index()
-        {
-            return View();
-        }
-		public ActionResult AddYourEcoRoommateEvent()
+	public class EcoRoommateEventController : Controller
+	{
+		// GET: EcoRoommateEvent
+		public ActionResult Index()
 		{
 			return View();
 		}
-		
-		public ActionResult ModalEcoRoommateEventVisual(string idModal)
+		public ActionResult AddUpd_EcoRoommateEvent(string operation)
+		{
+			if (operation != null)
+			{
+				ViewData["operation"] = operation;
+			}
+
+			return View();
+		}
+
+		public ActionResult Read_ModalEcoRoommateEvent(string idModal)
 		{
 			EcoRoommateEventViewModel EcoRoommateEventViewModel = new EcoRoommateEventViewModel();
 			EcoRoommateEventViewModel.Id = 2;
@@ -37,7 +42,7 @@ namespace Eco_Colocation.Controllers
 
 		public ActionResult AddPublication()
 		{
-			return PartialView("~/Views/EcoRoommateEvent/ModalEcoRoommateEventVisual.cshtml");
+			return PartialView("~/Views/EcoRoommateEvent/Read_ModalEcoRoommateEvent.cshtml");
 		}
 	}
 }

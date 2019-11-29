@@ -1220,7 +1220,7 @@ function loadEcoRoommateEventMap(mymap) {
 }
 
 //********* EcoRoommateExisting *************//
-// ---- Page AddYourEcoRoommateExisting ---- //
+// ---- Page AddUpd_EcoRoommateExisting ---- //
 function openThisColocRow_ayer(elementTitle, elementBlockIdToOpen) {
 	if ($(elementBlockIdToOpen).css('max-height') == '0px') {
 		close_ayer();

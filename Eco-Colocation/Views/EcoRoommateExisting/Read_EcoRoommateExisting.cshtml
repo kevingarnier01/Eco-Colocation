@@ -1,15 +1,15 @@
 ﻿
 @{
-	ViewBag.Title = "EcoRoommateVisual";
-	ViewBag.urlCurrentPage = "/EcoRoommateExisting/EcoRoommateExistingVisual";
+	ViewBag.Title = "Read_EcoRoommateExisting";
+	ViewBag.urlCurrentPage = "/EcoRoommateExisting/Read_EcoRoommateExisting";
 }
 
-<div id="ecoRoommateExistingVisual">
+<div id="Read_EcoRoommateExisting">
 	<p id="titleTop-erev">Colokitri</p>@* Facultatif *@
 	@if (User.Identity.IsAuthenticated)
 	{
 		<div id="divBtnModifierEcoRoom-erev">
-			<a id="btnModifierEcoRoom-erev" href="@Url.Action("ModifiyYourEcoRoommateExisting", "EcoRoommateExisting", null)">Modifier nos informations</a>
+			<a id="btnModifierEcoRoom-erev" href="@Url.Action("AddUpd_EcoRoommateExisting", "EcoRoommateExisting", new { @operation = "Update" })">Modifier nos informations</a>
 		</div>
 	}
 	<div id="divTopInfoEcoColoc-erev">

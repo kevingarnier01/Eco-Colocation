@@ -2454,19 +2454,19 @@ div#divContenuPlSchDisable {
 		background-color: #ddd;
 	}
 
-/* modalPeopleSearch*/
-#modalPeopleSearch {
+/* Read_ModalPeopleSearch*/
+#read_ModalPeopleSearch {
 	overflow: auto;
 	position: relative;
 	height: 348px;
 }
 
-	#modalPeopleSearch, #modalPeopleSearch ~ .divCloseModal {
+	#read_ModalPeopleSearch, #read_ModalPeopleSearch ~ .divCloseModal {
 		width: 900px
 	}
 
 @media only screen and (max-width: 767px) {
-	#modalPeopleSearch {
+	#read_ModalPeopleSearch {
 		height: 100%;
 		height: max-content;
 		top: 0;
@@ -2786,7 +2786,7 @@ d5-description-mpc {
 
 
 @media only screen and (max-width: 767px) {
-	#modalLocation, #modalCreationProjet, #modalEcoRoommateEventVisual {
+	#modalLocation, #modalCreationProjet, #read_ModalEcoRoommateEvent {
 		min-width: 360px;
 		height: inherit !important;
 	}
@@ -4037,14 +4037,14 @@ d5-description-mpc {
 	display: none;
 }
 
-/**** ModalCARecherche ****/
-#modalCARecherche {
+/**** AddUpd_Read_ModalPeopleSearch ****/
+#addUpd_ModalPeopleSearch {
 	padding: 15px;
 	overflow: auto;
 	position: relative;
 }
 
-	#modalCARecherche, #modalCARecherche ~ .divCloseModal {
+	#addUpd_ModalPeopleSearch, #addUpd_ModalPeopleSearch ~ .divCloseModal {
 		width: 900px
 	}
 
@@ -4472,7 +4472,7 @@ d5-description-mpc {
 	color: white;
 }
 
-/***** Fin ModalCARecherche *****/
+/***** Fin AddUpd_ModalPeopleSearch *****/
 
 /*** PersonnalData ***/
 .textInfoIfAccountExist-pdf {
@@ -4893,7 +4893,7 @@ d5-description-mpc {
 
 
 /********************************* Eco-Roommate ********************************/
-/**** EcoRoommateExistingVisual ****/
+/**** Read_EcoRoommateExisting ****/
 .leafletDivEcoRommateExisting {
 	width: 300px;
 }
@@ -5010,8 +5010,8 @@ d5-description-mpc {
 	text-decoration: none;
 }
 
-/**** EcoRoommateExistingVisual ****/
-#ecoRoommateExistingVisual {
+/**** Read_EcoRoommateExisting ****/
+#read_EcoRoommateExisting {
 	padding: 10px;
 	position: relative;
 }
@@ -5300,8 +5300,8 @@ d5-description-mpc {
 	min-width: 150px;
 	text-align: center;
 }
-/**** AddYourEcoRoommateExisting ****/
-#AddYourEcoRoommateExisting {
+/**** AddUpd_EcoRoommateExisting ****/
+#addUpd_EcoRoommateExisting {
 	padding: 10px
 }
 
@@ -6087,7 +6087,7 @@ input.radioFibreEco-ayer {
 }
 
 /********************************* Eco-Roommate ********************************/
-/**** EcoRoommateExistingVisual****/
+/**** Read_EcoRoommateExisting****/
 .leafletDivEcoRommateEvent {
 	width: 400px;
 }
@@ -6313,15 +6313,15 @@ input.radioFibreEco-ayer {
 	text-decoration: none;
 }
 
-/**** ModalEcoRoommateEventVisual ****/
-#modalEcoRoommateEventVisual {
+/**** Read_ModalEcoRoommateEvent ****/
+#read_ModalEcoRoommateEvent {
 	overflow: auto;
 	padding: 15px;
 	position: relative;
 	height: 400px;
 }
 
-	#modalEcoRoommateEventVisual, #modalEcoRoommateEventVisual ~ .divCloseModal {
+	#read_ModalEcoRoommateEvent, #read_ModalEcoRoommateEvent ~ .divCloseModal {
 		width: 900px
 	}
 
@@ -6479,8 +6479,8 @@ input.radioFibreEco-ayer {
 	margin: auto;
 }
 
-/*********** AddYourEcoRoommateEvent ************/
-#addYourEcoRoommateEvent {
+/*********** AddUpd_EcoRoommateEvent ************/
+#addUpd_EcoRoommateEvent {
 	padding: 10px;
 }
 

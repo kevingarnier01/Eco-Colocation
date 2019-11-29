@@ -1,10 +1,10 @@
 ﻿
 @{
 	ViewBag.operation = @ViewData["operation"];
-	ViewBag.Title = "ModalCARecherche";
+	ViewBag.Title = "AddUpd_ModalPeopleSearch";
 }
 <div class="underModal col-sm-12 col-xs-12">
-	<div id="modalCARecherche" class="reelModal">
+	<div id="addUpd_ModalPeopleSearch" class="reelModal">
 		@if (!User.Identity.IsAuthenticated)
 		{
 			if (ViewBag.operation == "Inscription")
@@ -232,9 +232,9 @@
 	var operation = "@ViewData["operation"]";
 	if (operation == "Update") {
 		window.history.replaceState('data to be passed', 'Title of the page',
-				'/Modal/ModalCARechercheUpdate/?idModal=' + @ViewData["idModal"] + "&targetCity=" + "@ViewData["targetCity"]");
+				'/Modal/AddUpd_ModalPeopleSearchUpdate/?idModal=' + @ViewData["idModal"] + "&targetCity=" + "@ViewData["targetCity"]");
 	} else {
-		window.history.replaceState('data to be passed', 'Title of the page', '/Modal/ModalCARecherche');
+		window.history.replaceState('data to be passed', 'Title of the page', '/Modal/AddUpd_ModalPeopleSearch');
 	}
 	
 </script>

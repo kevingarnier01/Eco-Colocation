@@ -25,7 +25,7 @@ namespace Eco_Colocation.Controllers
 			return View(allVM);
 		}
 
-		public ActionResult ModalCARecherche(string operation, string idModal)
+		public ActionResult AddUpd_ModalPeopleSearch(string operation, string idModal)
 		{
 			ViewData["idModal"] = idModal;
 			ViewData["targetCity"] = "Rennes";
@@ -38,7 +38,7 @@ namespace Eco_Colocation.Controllers
 			return PartialView();
 		}
 
-		public ActionResult ModalPeopleSearch(string idModal)
+		public ActionResult Read_ModalPeopleSearch(string idModal)
 		{
 			ViewData["idModal"] = idModal;
 			ViewData["targetCity"] = "Rennes";

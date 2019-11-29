@@ -1,12 +1,19 @@
 ﻿
 @{
-	/**/
-
-	ViewBag.Title = "AddYourEcoRoommateExisting";
+	ViewBag.Title = "AddUpd_EcoRoommateExisting";
+	ViewBag.Operation = ViewData["operation"];
 }
 
-<div id="AddYourEcoRoommateExisting">
-	<h2 class="title centerText">Ajout d'une nouvelle Eco-Colocation</h2>
+<div id="addUpd_EcoRoommateExisting">
+	@if (ViewBag.Operation != "Update")
+	{
+		<h2 class="title centerText">Ajout d'une nouvelle Eco-Colocation</h2>
+	}
+	else
+	{
+		<h2 class="title centerText">Modification de votre Eco-Colocation</h2>
+	}
+
 	<div class="divSommaireFormulaire sousDivFormColoc-ayer">
 		<div class="flex">
 			<p class="etoileObligation">*</p>
@@ -714,6 +721,6 @@
 			}
 		});
 
-		initAnnonceDescResult("#AddYourEcoRoommateExisting")
+		initAnnonceDescResult("#addUpd_EcoRoommateExisting")
 	});
 </script>

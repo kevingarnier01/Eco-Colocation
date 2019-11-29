@@ -32,7 +32,7 @@ namespace Eco_Colocation.Controllers
 		}
 
 		[HttpGet]
-		public ActionResult ModalPeopleSearch(string idModal, string targetCity)
+		public ActionResult Read_ModalPeopleSearch(string idModal, string targetCity)
 		{
 			ViewData["idModalToTrigger"] = "#peopleSearchingLink-" + idModal;
 
@@ -51,7 +51,7 @@ namespace Eco_Colocation.Controllers
 		}
 
 		[HttpGet]
-		public ActionResult ModalCARecherche()
+		public ActionResult AddUpd_ModalPeopleSearch()
 		{
 			ViewData["idModalToTrigger"] = "#addSearchingAnnonceLink-ps";
 
@@ -59,7 +59,7 @@ namespace Eco_Colocation.Controllers
 		}
 		
 		[HttpGet]
-		public ActionResult ModalCARechercheUpdate(string idModal, string targetCity)
+		public ActionResult AddUpd_ModalPeopleSearchUpdate(string idModal, string targetCity)
 		{
 			ViewData["idModalToTrigger"] = "#peopleSearchingUpdateLink-" + idModal;
 
@@ -67,7 +67,7 @@ namespace Eco_Colocation.Controllers
 		}
 
 		[HttpGet]
-		public ActionResult ModalEcoRoommateEventVisual(string idModal)
+		public ActionResult Read_ModalEcoRoommateEvent(string idModal)
 		{
 
 			ViewData["idModalToTrigger"] = "#ecoRoommateEventLink-" + idModal;

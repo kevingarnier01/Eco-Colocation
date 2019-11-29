@@ -1,10 +1,10 @@
 ﻿
 @{
-	ViewBag.Title = "ModalEcoRoommateEventVisual";
+	ViewBag.Title = "Read_ModalEcoRoommateEvent";
 }
 
 <div class="underModal col-sm-12 col-xs-12">
-	<div id="modalEcoRoommateEventVisual" class="reelModal">
+	<div id="read_ModalEcoRoommateEvent" class="reelModal">
 		<div id="divInterestedEmail-merev">
 			<img onclick="closeWindow()" src="https://img.icons8.com/material-outlined/40/000000/circled-chevron-left.png">
 			<div class="col-sm-6 col-xs-12" style="padding:0">
@@ -76,7 +76,7 @@
 			@if (User.Identity.IsAuthenticated)
 			{
 				<div class="flex">
-					<a href="@Url.Action("AddYourEcoRoommateEvent", "EcoRoommateEvent", null)" class="btnGreen childFlex" id="btnModifyEvent-merev">Modifier mon événement</a>
+					<a href="@Url.Action("AddUpd_EcoRoommateEvent", "EcoRoommateEvent", new { @operation = "Update" })" class="btnGreen childFlex" id="btnModifyEvent-merev">Modifier mon événement</a>
 				</div>
 			}
 			<div class="overflow" id="introduceAnnonce-merev">
@@ -222,7 +222,7 @@
 			<p class="centerText">Date de publication le 02/05/2019</p>
 		</div>
 	</div>
-	<div id="modalEcoRoommateEventVisual" class="blockerCenterToHideWindows"></div>
+	<div id="read_ModalEcoRoommateEvent" class="blockerCenterToHideWindows"></div>
 	<div class="divCloseModal">
 		<a href="#close-modal" rel="modal:close"><i class="fas fa-times close-modal"></i></a>
 	</div>
@@ -230,7 +230,7 @@
 
 <script language="javascript">
 	$(document).ready(function () {
-		window.history.replaceState('data to be passed', 'Title of the page', '/Modal/ModalEcoRoommateEventVisual/?idModal=' + @ViewData["idModal"]);
+		window.history.replaceState('data to be passed', 'Title of the page', '/Modal/Read_ModalEcoRoommateEvent/?idModal=' + @ViewData["idModal"]);
 		checkIfBtnInteretIsNotEmpty_erevom('#divInterested-merev');
 	});
 </script>
