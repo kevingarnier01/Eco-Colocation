@@ -246,7 +246,7 @@
 											</td>
 											<td class="col-xs-6">
 												<div class="flex">
-													<input id="Loyer" name="Loyer" type="number" value="" class="inputtable-ca" min="0">
+													<input id="Loyer" name="Loyer" type="number" value="" class="inputtable-ca decimal" min="0">
 													<p class="centerText signInputPropose-ml">€</p>
 												</div>
 											</td>
@@ -255,7 +255,7 @@
 											<td class="col-xs-6"><label for="Charges">Charges *</label></td>
 											<td class="col-xs-6">
 												<div class="flex">
-													<input id="Charges" name="Charges" type="number" value="" class="inputtable-ca" min="0">
+													<input id="Charges" name="Charges" type="number" value="" class="inputtable-ca decimal" min="0">
 													<p class="centerText signInputPropose-ml">€</p>
 												</div>
 											</td>
@@ -272,7 +272,7 @@
 											<td class="col-xs-6"><label for="Caution">Caution</label></td>
 											<td class="col-xs-6">
 												<div class="flex">
-													<input id="Caution" name="Caution" type="number" value="" class="inputtable-ca" min="0">
+													<input id="Caution" name="Caution" type="number" value="" class="inputtable-ca decimal" min="0">
 													<p class="centerText signInputPropose-ml">€</p>
 												</div>
 											</td>
@@ -288,7 +288,7 @@
 										</tr>
 										<tr>
 											<td class="col-xs-6"><label>Meublée*</label></td>
-											<td style="padding: 0;padding-top: 4px;padding-left: 8px;">
+											<td class="paddingTd">
 												<p class="onoff">
 													<input type="checkbox" value="1" id="meuble-cb">
 													<label for="meuble-cb"></label>
@@ -412,7 +412,7 @@
 											<td class="col-xs-6">
 												<label>Accessibilité handicapé *</label>
 											</td>
-											<td style="padding: 0;padding-top: 4px;padding-left: 8px;">
+											<td class="paddingTd">
 												<p class="onoff">
 													<input type="checkbox" value="1" id="accesHandicap-cb">
 													<label for="accesHandicap-cb"></label>
@@ -421,7 +421,7 @@
 										</tr>
 										<tr>
 											<td class="col-xs-6"><label>Transports en communs *</label></td>
-											<td style="padding: 0;padding-top: 4px;padding-left: 8px;">
+											<td class="paddingTd">
 												<div>
 													<p class="onoff">
 														<input type="checkbox" value="1" id="accesTransportEnCommun-ml">
@@ -456,7 +456,7 @@
 									<tbody>
 										<tr>
 											<td class="col-xs-6"><label>Consommateur d'alcool *</label></td>
-											<td style="padding: 0;padding-top: 4px;padding-left: 8px;">
+											<td class="paddingTd">
 												<p class="onoff">
 													<input type="checkbox" value="1" id="alcool-cb">
 													<label for="alcool-cb"></label>
@@ -465,7 +465,7 @@
 										</tr>
 										<tr>
 											<td class="col-xs-6"><label>Fumeur *</label></td>
-											<td style="padding: 0;padding-top: 4px;padding-left: 8px;">
+											<td class="paddingTd">
 												<p class="onoff">
 													<input type="checkbox" value="1" id="fumeur-cb">
 													<label for="fumeur-cb"></label>
@@ -474,7 +474,7 @@
 										</tr>
 										<tr>
 											<td class="col-xs-6"><label>Animaux *</label></td>
-											<td style="padding: 0;padding-top: 4px;padding-left: 8px;">
+											<td class="paddingTd">
 												<p class="onoff">
 													<input type="checkbox" value="1" id="animaux-cb">
 													<label for="animaux-cb"></label>
@@ -507,7 +507,7 @@
 									<tbody>
 										<tr>
 											<td class="col-xs-6"><label>Êtes-vous une agence ? *</label></td>
-											<td style="padding: 0;padding-top: 4px;padding-left: 8px;">
+											<td class="paddingTd">
 												<p class="onoff">
 													<input type="checkbox" value="0" id="agence-cb">
 													<label for="agence-cb"></label>
@@ -516,21 +516,28 @@
 										</tr>
 										<tr>
 											<td class="col-xs-6"><label>Nom de l'agence *</label></td>
-											<td style="padding: 0;padding-top: 4px;padding-left: 8px;">
+											<td class="paddingTd">
 												<input id="nomAgence-mlca" name="nomAgence" type="text" value="" class="inputtable-ca">
 											</td>
 										</tr>
 										<tr>
 											<td class="col-xs-6"><label>Numéro de siret *</label></td>
-											<td style="padding: 0;padding-top: 4px;padding-left: 8px;">
+											<td class="paddingTd">
 												<input id="numSiret-mlca" name="SiretNumber" type="text" value="" class="inputtable-ca">
 											</td>
 										</tr>
 										<tr>
 											<td class="col-xs-6"><label>Frais d'agence *</label></td>
-											<td class="flex" style="padding: 0;padding-top: 4px;padding-left: 8px;border: none;">
-												<input id="fraisAgence-mlca" name="fraisAgence" type="number" min="0" value="" class="inputtable-ca">
+											<td class="flex paddingTd" style="border: none;">
+												<input id="fraisAgence-mlca" name="fraisAgence" type="number" min="0" value="" class="inputtable-ca decimal">
 												<p class="centerText signInputPropose-ml">€</p>
+											</td>
+										</tr>
+										<tr>
+											<td><label>Adresse * </label></td>
+											<td>
+												<input type="text" placeholder="N° Rue" class="inputStyle" id="numRueAgence-ml">
+												<input id="inputSearchPlaceAgence-ml" oninput="addr_searchStreet(this);" type="text" class="inputSearchPlace form-control inputStyle" placeholder="Entrez l'adresse de votre agence">
 											</td>
 										</tr>
 									</tbody>

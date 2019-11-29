@@ -1649,6 +1649,8 @@ function triggerBtnOnOffOnAgence() {
 				$('#nomAgence-mlca').attr('disabled', 'true')
 				$('#numSiret-mlca').attr('disabled', 'true')
 				$('#fraisAgence-mlca').attr('disabled', 'true')
+				$('#numRueAgence-ml').attr('disabled', 'true')
+				$('#inputSearchPlaceAgence-ml').attr('disabled', 'true')
 
 				$("#divPersonnaliteInfo-mcar").fadeIn("slow");
 			}
@@ -1656,6 +1658,8 @@ function triggerBtnOnOffOnAgence() {
 				$('#nomAgence-mlca').removeAttr('disabled')
 				$('#numSiret-mlca').removeAttr('disabled')
 				$('#fraisAgence-mlca').removeAttr('disabled')
+				$('#numRueAgence-ml').removeAttr('disabled')
+				$('#inputSearchPlaceAgence-ml').removeAttr('disabled')
 
 				$("#divPersonnaliteInfo-mcar").fadeOut("slow");
 			}
@@ -2026,4 +2030,22 @@ function copyEmailToUserAuthentification(emailElement, elementDestination) {
 		var emailElement = $(emailElement).val();
 		$(elementDestination).val(emailElement);
 	}
+}
+
+function inputNumber() {
+	$(document).on('keypress', '.decimal', function (e) {
+		if (e.which != 44 && e.which != 46 && e.which < 48 || e.which > 57) {
+			e.preventDefault();
+		}
+	});
+}
+
+function integerNumber() {
+	$(document).on('keypress', 'input[type="number"]', function (e) {
+		if (!$(e.target).hasClass('decimal')) {
+			if (e.which != 8 && e.which != 0 && e.which < 48 || e.which > 57) {
+				e.preventDefault();
+			}
+		}
+	});
 }
