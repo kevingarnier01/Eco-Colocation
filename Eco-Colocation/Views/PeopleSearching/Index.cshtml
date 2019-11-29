@@ -21,7 +21,7 @@
 		@* !!! A faire au future : S'il est connecté et qu'il a déja ajouté une annonce de recherche, alors ne pas afficher le lien ci-dessous*@
 		<div class="childFlex fontFamilyNote" id="divLinkPublishInteresse-ps">
 			<i class="far fa-id-badge"></i>
-			<a id="addSearchingAnnonceLink-ps" href="@Url.Action("ModalCARecherche", "Account", null)" rel="modal:open" class="noLink">Ajouter mon annonce de recherche d'éco-colocation</a>
+			<a id="addSearchingAnnonceLink-ps" href="@Url.Action("ModalCARecherche", "PeopleSearching", null)" rel="modal:open" class="noLink">Ajouter mon annonce de recherche d'éco-colocation</a>
 		</div>
 	</div>
 	<div id="divPanelPl">
@@ -29,7 +29,7 @@
 		{
 			<div class="col-lg-3 col-sm-4 col-xs-6 divPeoplesSearching">
 				<i class="fas fa-heart heartImg"></i>
-				<a id="peopleSearchingUpdateLink-1" class="col-sm-9 col-xs-9 divPeopleSearching" href="@Url.Action("ModalUpdateDataProfil", "PeopleSearching", new { @idModal = "1" })" rel="modal:open">
+				<a id="peopleSearchingUpdateLink-1" class="col-sm-9 col-xs-9 divPeopleSearching" href="@Url.Action("ModalCARecherche", "PeopleSearching", new { @operation = "Update", @idModal = "1" })" rel="modal:open">
 					<div id="divImgPlSch">
 						<div id="imgPlSch" style="background: url(https://lcdcfrance-prod.s3.amazonaws.com/profile_pictures/3be2c07f20221b84fdc52e32c5cd4f9e_large.jpg) 50% 50% no-repeat;">
 						</div>
@@ -67,7 +67,7 @@
 					</div>
 				</a>
 				<div class="flex">
-					<a id="peopleSearchingUpdateLink-2" href="@Url.Action("ModalUpdateDataProfil", "PeopleSearching", new { @idModal = "2" })" rel="modal:open" class="btnGreen flex childFlex btnModifyEvent-mps">Mettre à jour mon profil</a>
+					<a id="peopleSearchingUpdateLink-2" href="@Url.Action("ModalCARecherche", "PeopleSearching", new { @operation = "Update", @idModal = "2" })" rel="modal:open" class="btnGreen flex childFlex btnModifyEvent-mps">Mettre à jour mon profil</a>
 				</div>
 			</div>
 		}

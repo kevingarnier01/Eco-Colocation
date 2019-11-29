@@ -45,21 +45,6 @@ namespace Eco_Colocation.Controllers
 			return PartialView();
 		}
 
-		public ActionResult ModalCAPropose()
-		{
-			return PartialView();
-		}
-
-		public ActionResult ModalCARecherche(string modalByInscription)
-		{
-			if(modalByInscription != null)
-			{
-				ViewData["modalByInscription"] = modalByInscription;
-			}
-
-			return PartialView();
-		}
-
 		public ActionResult FindAccountByEmail()
 		{
 			return View("~/Views/Account/ForgetAccount/FindAccountByEmail.cshtml");

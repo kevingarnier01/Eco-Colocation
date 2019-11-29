@@ -25,6 +25,19 @@ namespace Eco_Colocation.Controllers
 			return View(allVM);
 		}
 
+		public ActionResult ModalCARecherche(string operation, string idModal)
+		{
+			ViewData["idModal"] = idModal;
+			ViewData["targetCity"] = "Rennes";
+
+			if (operation != null)
+			{
+				ViewData["operation"] = operation;
+			}
+
+			return PartialView();
+		}
+
 		public ActionResult ModalPeopleSearch(string idModal)
 		{
 			ViewData["idModal"] = idModal;
@@ -32,15 +45,7 @@ namespace Eco_Colocation.Controllers
 
 			return PartialView();
 		}
-
-		public ActionResult ModalUpdateDataProfil(string idModal)
-		{
-			ViewData["idModal"] = idModal;
-			ViewData["targetCity"] = "Rennes";
-
-			return PartialView("~/Views/PeopleSearching/ModalUpdateDataProfil.cshtml");
-		}
-
+		
 		public ActionResult HtmlAnnoncePeople()
 		{
 			AllViewModel allVM = new AllViewModel();

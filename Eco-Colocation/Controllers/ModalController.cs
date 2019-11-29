@@ -32,14 +32,6 @@ namespace Eco_Colocation.Controllers
 		}
 
 		[HttpGet]
-		public ActionResult ModalUpdateDataProfil(string idModal, string targetCity)
-		{
-			ViewData["idModalToTrigger"] = "#peopleSearchingUpdateLink-" + idModal;
-
-			return View("~/Views/PeopleSearching/Index.cshtml");
-		}
-
-		[HttpGet]
 		public ActionResult ModalPeopleSearch(string idModal, string targetCity)
 		{
 			ViewData["idModalToTrigger"] = "#peopleSearchingLink-" + idModal;
@@ -64,6 +56,14 @@ namespace Eco_Colocation.Controllers
 			ViewData["idModalToTrigger"] = "#addSearchingAnnonceLink-ps";
 
 			return View("~/Views/home/Index.cshtml");
+		}
+		
+		[HttpGet]
+		public ActionResult ModalCARechercheUpdate(string idModal, string targetCity)
+		{
+			ViewData["idModalToTrigger"] = "#peopleSearchingUpdateLink-" + idModal;
+
+			return View("~/Views/PeopleSearching/Index.cshtml");
 		}
 
 		[HttpGet]
