@@ -1,8 +1,6 @@
 ﻿
 @{
-	/**/
-
-	ViewBag.Title = "ModalLocation";
+	ViewBag.Title = "AddUpd_ModalRentalAd";
 }
 
 <div class="underModal col-sm-12 col-xs-12">
@@ -589,7 +587,7 @@
 <script language="text/javascript">
 	$(document).ready(function () {
 		window.history.replaceState('data to be passed', 'Title of the page',
-			'/Modal/ModalLocation_ColocAnnounce/?targetCity=' + "@ViewData["targetCity"]" + "&urlCurrentPage=" + $('#urlCurrentPage').val());
+			'/Modal/AddUpd_ModalRentalAd/?targetCity=' + "@ViewData["targetCity"]" + "&urlCurrentPage=" + $('#urlCurrentPage').val() + "&researchType=" + $("#researchType").val());
 
 		loadAccountConnexionToFinishOperation();
 		triggerBtnOnOffOnAgence();

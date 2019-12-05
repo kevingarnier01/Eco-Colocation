@@ -686,6 +686,7 @@ select:-moz-focusring {
 #adv-search {
 	z-index: 2;
 	display: flex;
+	padding: 2px;
 }
 
 @media screen and (min-width: 768px) {
@@ -1019,7 +1020,6 @@ select#typeResearchSct-ph:focus {
 
 	#adv-search {
 		display: inherit;
-		padding: 2px;
 	}
 }
 
@@ -1865,6 +1865,7 @@ div#divContenuPlSchDisable {
 
 #divContenerBlocAnnonce {
 	width: 100%;
+	display: none;
 }
 
 #divBlocAnnonce a {
@@ -2063,6 +2064,10 @@ div#divContenuPlSchDisable {
 
 
 #projetCreation {
+	display: none;
+}
+
+#projetCreationAnnounce {
 	display: none;
 }
 

@@ -1,0 +1,172 @@
+﻿
+@{
+	ViewBag.Title = "RentalView";
+	ViewBag.researchType = ViewData["researchType"];
+}
+
+@if (ViewBag.researchType == "offering")
+{
+	<div id="div1-annonceLocation" class="col-xs-12">
+		<div id="div1-1-al" class="col-sm-12">
+			<div id="div1-2-al">
+				<a href="@Url.Action("AddUpd_ModalRentalAd", "Ad_Rental", null)" rel="modal:open">
+					<div id="btnCreer-al" class="createAnnounceLocationLink-al">Creer une annonce de location</div>
+				</a>
+			</div>
+		</div>
+
+		<div class="col-sm-12" style="display: flex;padding:0">
+			<div id="divDivBlocAnnonce" class="col-md-9 col-sm-12">
+				@if (User.Identity.IsAuthenticated)
+				{
+					<div id="lstRentalAd-rad"></div>
+				}
+			</div>
+		</div>
+	</div>
+}
+else if (ViewBag.researchType == "searching")
+{
+	@Html.Partial("~/Views/Ad_Rental/Read_PopupMarkerRental.cshtml")
+	@Html.Partial("~/Views/Ad_Rental/Read_PopupMarkerPartner.cshtml")
+
+	<div class="col-md-6 col-sm-12" id="globalDivMapSearchColoc">
+		<div id="divMultiPlaceToSearch-al" class="flex">
+			<div id="underDivMultiPlaceToSearch-al" class="flex">
+				<label for="inpMultiPlace-al"><i class="fas fa-map-marker-alt" id="iMarkerMultiPlace-al"></i></label>
+				<input type="text" placeholder="Rajouter des communes" id="inpMultiPlace-al" oninput="addr_searchCity(this);">
+				@*<input type="text" placeholder="Rajouter des départements" id="inpMultiPlace-al" oninput="addr_searchDepartement(this);">*@
+			</div>
+			<div class="flex overflow" id="place-al">
+				<div id="place1" class="divPlace"><p class="placeName">Rennes 35, Ille-et-Vilaine, Bretagne</p><div class="crossPlace"><i onclick="deletePlace(place1, 'al')" class="fas fa-times crossplace"></i></div></div>
+			</div>
+		</div>
+		<div id="divMapSearchColoc"><div id="mapSearchColoc"></div></div>
+	</div>
+	@*****@
+
+	<div id="divDivBlocAnnonce" class="col-md-6 col-sm-12">
+		<div id="divDivBlocAnnonce2" class="col-xs-12">
+			@Html.Partial("~/Views/Ad_Rental/FiltersRentalAd.cshtml")
+		</div>
+		<div id="lstRentalAd-rad"></div>
+	</div>
+}
+
+<div id="divContenerBlocAnnonce" class="flex">
+	<div id="divBlocAnnonce" class="col-xs-12">
+		<div id="annonce1-alpv" class="divBlocAnnonce1-ereom">
+			<div id="divBlocAnnonce2" class="col-sm-12 col-xs-12">
+				@if (User.Identity.IsAuthenticated && ViewBag.researchType == "offering")
+				{
+					<div class="divToolEditAnnonceLocation-alpv">
+						<a href="@Url.Action("AddUpd_ModalRentalAd", "Ad_Rental", null)" rel="modal:open" class="linkToolProjetCreation-al">
+							<i class="fas fa-pencil-alt childFlex iconToolEditPC-al" id="btnEditProjetCreation-al"></i>
+						</a>
+						<a href="@Url.Action("Del_MsgModalRentalAd", "Ad_Rental", null)" rel="modal:open" class="linkToolProjetCreation-al">
+							<i class="fas fa-trash childFlex iconToolEditPC-al" id="btnRemoveProjetCreation-al"></i>
+						</a>
+					</div>
+				}
+				<a id="annonceLocationPVLink-1" href="@Url.Action("Read_ModalRentalAd","Ad_Rental", new { @idModal = "1" })" rel="modal:open">
+					<div id="underAnnonce2-alpv" class="col-md-12 col-sm-12 divAnnonceColoc">
+						<div id="div2AnnonceColoc" class="col-md-12 col-sm-12 col-xs-12">
+							<input id="valueGps10" name="valueGps10" type="hidden" value="46.89, 2.67">
+							<div id="divPrixAnnonce">
+								<div id="prixAnnonce">340€<span id="rentCosts">/mois</span></div>
+							</div>
+							<div id="annonceColoc" class="col-md-12">
+								<div id="annonceColoc" class="col-md-4 col-sm-4 col-xs-12">
+									<div id="photoAnnonce" class="col-md-12 col-sm-12 col-xs-12">
+										<div id="photoAnnonce" style="background: url(https://lcdcfrance-prod.s3.amazonaws.com/pictures/1fcfb11b21b7a9b1246992c16d340f7c_medium.jpg) 50% 50% no-repeat;"></div>
+									</div>
+								</div>
+								<div id="divContenDescriptionAnnonce" class="col-md-8 col-sm-8 col-xs-12">
+									<div id="descriptionAnnonce" class="col-md-12 col-sm-12 col-xs-12">
+										<h4>Maison de 5 collocataires</h4>
+										<p class="fontFamilyNote" id="textTopDescriptionArt">1 chambre disponible dès le 11/12/2019</p>
+										<div class="flex">
+											<div class="flex childFlex divLocalisationAnnonce-alpv">
+												<i class="fas fa-map-marker-alt iconLocalisationAnnonce-alpv"></i>
+												<p>Rennes</p>
+											</div>
+										</div>
+										<p class="fontFamilyNote" id="textDescriptionArt">
+											Nous recherchons 2 hommes pour amener une mixité dans la colocation et qui seraient interressés pour co-habiter avec ...
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</a>
+			</div>
+		</div>
+		<div id="annonce2-alpv" class="divBlocAnnonce1-ereom">
+			<div id="divBlocAnnonce2" class="col-sm-12 col-xs-12">
+				@if (User.Identity.IsAuthenticated && ViewBag.researchType == "offering")
+				{
+					<div class="divToolEditAnnonceLocation-alpv">
+						<a href="@Url.Action("AddUpd_ModalRentalAd", "Ad_Rental", null)" rel="modal:open" class="linkToolProjetCreation-al">
+							<i class="fas fa-pencil-alt childFlex iconToolEditPC-al" id="btnEditProjetCreation-al"></i>
+						</a>
+						<a href="@Url.Action("Del_MsgModalRentalAd", "Ad_Rental", null)" rel="modal:open" class="linkToolProjetCreation-al">
+							<i class="fas fa-trash childFlex iconToolEditPC-al" id="btnRemoveProjetCreation-al"></i>
+						</a>
+					</div>
+				}
+				<a id="annonceLocationPVLink-2" href="@Url.Action("Read_ModalRentalAd","Ad_Rental", new { @idModal = "2" })" rel="modal:open">
+					<div id="underAnnonce2-alpv" class="col-md-12 col-sm-12 divAnnonceColoc">
+						<div id="div2AnnonceColoc" class="col-md-12 col-sm-12 col-xs-12">
+							<input id="valueGps10" name="valueGps10" type="hidden" value="46.89, 2.67">
+							<div id="divPrixAnnonce">
+								<div id="prixAnnonce">340€<span id="rentCosts">/mois</span></div>
+							</div>
+							<div id="annonceColoc" class="col-md-12">
+								<div id="annonceColoc" class="col-md-4 col-sm-4 col-xs-12">
+									<div id="photoAnnonce" class="col-md-12 col-sm-12 col-xs-12">
+										<div id="photoAnnonce" style="background: url(https://lcdcfrance-prod.s3.amazonaws.com/pictures/1fcfb11b21b7a9b1246992c16d340f7c_medium.jpg) 50% 50% no-repeat;"></div>
+									</div>
+								</div>
+								<div id="divContenDescriptionAnnonce" class="col-md-8 col-sm-8 col-xs-12">
+									<div id="descriptionAnnonce" class="col-md-12 col-sm-12 col-xs-12">
+										<h4>Maison de 5 collocataires</h4>
+										<p class="fontFamilyNote" id="textTopDescriptionArt">2 chambres disponibles dès le 01/08/2020</p>
+										<div class="flex">
+											<div class="flex childFlex divLocalisationAnnonce-alpv">
+												<i class="fas fa-map-marker-alt iconLocalisationAnnonce-alpv"></i>
+												<p>Rennes</p>
+											</div>
+										</div>
+										<p class="fontFamilyNote" id="textDescriptionArt">
+											Nous recherchons 2 hommes pour amener une mixité dans la colocation et qui seraient interressés pour co-habiter avec ...
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</a>
+			</div>
+		</div>
+		<div id="divOthersAnnounces-alpv" class="overflow"></div>
+		<div class="flex">
+			<div class="btnGreen childFlex" id="btnOtherAnnonceLocation-alpv" onclick="showOthersLocationAnnounces()">
+				<p id="txtShowNewEvent-alpv">Voir plus d'annonces</p>
+				<div class="flex"><i class="fas fa-sort-down childFlex" id="iconShowNewEvent-alpv"></i></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script language="javascript">
+	$(document).ready(function () {
+		var researchType = "@ViewData["researchType"]"
+
+		if (researchType == "searching") {
+			$(".divToolEditAnnonceLocation-alpv").remove();
+		}
+
+		copyDivToOtherElement("#divContenerBlocAnnonce", "#lstRentalAd-rad")
+	});
+</script>

@@ -1,9 +1,8 @@
-﻿@model  Eco_Colocation.ViewModel.AllViewModel
+﻿
 @{
-	ViewBag.Title = "ModalLocation";
+	ViewBag.Title = "Read_ModalRentalAd";
 }
 
-@* https://jquerymodal.com/ *@
 <div class="underModal col-sm-12 col-xs-12">
 	<div id="modalLocation" class="reelModal col-sm-8 col-xs-12">
 		<div id="divMessage-ml">
@@ -323,8 +322,8 @@
 <script language="text/javascript">
 	$(document).ready(function () {
 		window.history.replaceState('data to be passed', 'Title of the page',
-			'/Modal/ModalLocation/?targetCity=' + "@ViewData["targetCity"]" + "&idModal=" + @ViewData["IdModal"] + "&urlCurrentPage=" + $('#urlCurrentPage').val());
-		
+			'/Modal/Read_ModalRentalAd/?targetCity=' + "@ViewData["targetCity"]" + "&idModal=" + @ViewData["IdModal"] + "&urlCurrentPage=" + $('#urlCurrentPage').val());
+
 		$(".ongletAnnonce-ml").on("click", function (e) { changeOngletInModalLocation(e.target) })
 	});
 </script>

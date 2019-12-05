@@ -1,5 +1,6 @@
-﻿@{
-	ViewBag.Title = "ModalProjetCreation";
+﻿
+@{
+	ViewBag.Title = "Read_ModalCreationProjectAd";
 }
 
 <div class="underModal col-sm-12 col-xs-12">
@@ -82,7 +83,7 @@
 					<h4 class="centerText childFlex" id="instroductionTitleAnnonce-mpc">Auto-construction d'un éco-habitat pour y vivre en eco-colocation. </h4>
 				</div>
 				<p id="textAnnonce-mpc">
-					Bonjour, j'ai dernièrement acheté un terrain, 
+					Bonjour, j'ai dernièrement acheté un terrain,
 					je souhaiterai trouver des personnes qui veulent se lancer dans l'aventure de vivre dans un Habitat insolite à
 					5 colocataires. L'objectif est qu'on puisse tous ensemble être acheteur du terrain et des matériaux pour
 					auto-construire. Je recherche donc 4 autres personnes qui s'investirai dans le projet d'auto-construction.
@@ -267,6 +268,6 @@
 <script language="javascript">
 	$(document).ready(function () {
 		window.history.replaceState('data to be passed', 'Title of the page',
-			'/Modal/ModalProjetCreation/?targetCity=' + "@ViewData["targetCity"]" + "&idModal=" + @ViewData["IdModal"]  + "&urlCurrentPage=" + $('#urlCurrentPage').val());
+			'/Modal/Read_ModalCreationProjectAd/?targetCity=' + "@ViewData["targetCity"]" + "&idModal=" + @ViewData["IdModal"]  + "&urlCurrentPage=" + $('#urlCurrentPage').val() + "&researchType=" + $("#researchType").val());
 	});
 </script>

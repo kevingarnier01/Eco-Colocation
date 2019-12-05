@@ -168,8 +168,8 @@
 				</ul>
 			</div>
 			@*<img src="" id="resultImgUpl-mcar">
-			<i id="icondeletePicture-ayer" class="fas fa-times-circle" onclick="removeUploadPicture_ayer()"></i>
-			<i class="fas fa-check-circle" id="checkPicture-ayer"></i>*@
+				<i id="icondeletePicture-ayer" class="fas fa-times-circle" onclick="removeUploadPicture_ayer()"></i>
+				<i class="fas fa-check-circle" id="checkPicture-ayer"></i>*@
 		</div>
 		@if (!User.Identity.IsAuthenticated)
 		{
@@ -228,13 +228,13 @@
 	if ($("#divMethodToBeContact-car").length != 0) {
 		$("#divPersonnaliteInfo-mcar").remove();
 	}
-	
+
 	var operation = "@ViewData["operation"]";
 	if (operation == "Update") {
 		window.history.replaceState('data to be passed', 'Title of the page',
 				'/Modal/AddUpd_ModalPeopleSearchUpdate/?idModal=' + @ViewData["idModal"] + "&targetCity=" + "@ViewData["targetCity"]");
 	} else {
-		window.history.replaceState('data to be passed', 'Title of the page', '/Modal/AddUpd_ModalPeopleSearch');
+		window.history.replaceState('data to be passed', 'Title of the page',
+			"/Modal/AddUpd_ModalPeopleSearch?urlCurrentPage=" + $('#urlCurrentPage').val());
 	}
-	
 </script>

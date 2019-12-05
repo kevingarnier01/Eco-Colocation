@@ -7,6 +7,7 @@
 	<title>@ViewBag.Title</title>
 	@Html.Hidden("urlCurrentPage", (object)ViewBag.urlCurrentPage)
 	@Html.Hidden("currentTab", (object)ViewBag.CurrentTab)
+	@Html.Hidden("researchType", (object)ViewBag.researchType)
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.css">
 	@Styles.Render("~/Content/css")
 	@Scripts.Render("~/bundles/jquery")

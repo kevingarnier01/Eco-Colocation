@@ -10,7 +10,7 @@ namespace Eco_Colocation.Controllers
 		{
 			AllViewModel allViewModel = new AllViewModel();
 			allViewModel.PeopleSearchingViewModel = new PeopleSearchingViewModel();
-									
+
 			for (int i = 0; i < 6; i++)
 			{
 				PeopleSearchingViewModel peopleSearching = new PeopleSearchingViewModel();
@@ -25,15 +25,35 @@ namespace Eco_Colocation.Controllers
 		{
 			TempData["allViewModel"] = allViewModel;
 
-			if (allViewModel.HomeViewModel.TypeRecherche == "searching")
+			return RedirectToAction("CommonAd", new { researchType = allViewModel.HomeViewModel.TypeRecherche });
+		}
+
+		public ActionResult CommonAd(string currentTab, string idModal, string researchType)
+		{
+			AllViewModel allViewModel = new AllViewModel();
+			allViewModel.PeopleSearchingViewModel = new PeopleSearchingViewModel();
+
+			PeopleSearchingViewModel peopleSearching = new PeopleSearchingViewModel();
+			for (int i = 0; i < 6; i++)
 			{
-				return RedirectToAction("Index", "SearchColoc", null);
+				peopleSearching.IdPeopleSearching = i;
+				allViewModel.PeopleSearchingViewModel.LstPeopleSearchingVM.Add(peopleSearching);
+			}
+
+			if (currentTab != null && currentTab.Length != 0)
+			{
+				ViewData["currentTab"] = currentTab;
 			}
 			else
 			{
-				return RedirectToAction("Index", "ColocAnnounce", null);
+				ViewData["currentTab"] = "AnnonceLocation";
 			}
-			//return View("~/Views/Home/Index.cshtml", allViewModel);
+
+			ViewData["idModalToTrigger"] = idModal;
+
+			ViewData["researchType"] = (researchType != null) ? researchType : "searching";
+
+			return View("~/Views/Ad_Common/RubriqueAd.cshtml", allViewModel);
 		}
 	}
 }

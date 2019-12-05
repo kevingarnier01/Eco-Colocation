@@ -1,5 +1,6 @@
-﻿@{
-	ViewBag.Title = "ModalProjetCreation";
+﻿
+@{
+	ViewBag.Title = "AddUpd_ModalCreationProjectAd";
 }
 
 <div class="underModal col-sm-12 col-xs-12">
@@ -601,7 +602,7 @@
 		});
 
 		window.history.replaceState('data to be passed', 'Title of the page',
-			'/Modal/ModalProjetCreation_ColocAnnounce/?targetCity=' + "@ViewData["targetCity"]" + "&urlCurrentPage=" + $('#urlCurrentPage').val());
+			'/Modal/AddUpd_ModalCreationProjectAd/?targetCity=' + "@ViewData["targetCity"]" + "&urlCurrentPage=" + $('#urlCurrentPage').val() + "&researchType=" + $("#researchType").val());
 
 		triggerBtnOnOffOnTerain_mpc();
 		initButtonOnOff();
@@ -620,3 +621,5 @@
 		});
 	});
 </script>
+
+

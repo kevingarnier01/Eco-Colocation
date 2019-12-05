@@ -1,10 +1,11 @@
-﻿@{
-	ViewBag.Title = "ModalDeleteLocation";
+﻿
+@{
+	ViewBag.Title = "Del_MsgModalCreationProjectAd";
 }
 
 <div class="underModal col-sm-12 col-xs-12">
 	<div id="ModalDeleteEcoRoommateExisting" class="reelModal">
-		<h2 class="title centerText">Suppression de votre location</h2>
+		<h2 class="title centerText">Suppression de votre projet de création</h2>
 		<p id="titleTop-mder">Voulez êtes sur le point de supprimer votre annonce "TITRE DE L'ANNONCE". Confirmez-vous l'opération ?</p>
 		<div class="flex">
 			<div style="margin-left:auto;flex-wrap: wrap;display: flex;">
@@ -12,7 +13,7 @@
 					<a href="#close-modal" rel="modal:close" class="closeModal" id="btnCancelInfo-mder">Annuler</a>
 				</div>
 				<div class="divBtn-mder">
-					<a id="btnDeleteInfo-mder" href="@Url.Action("DeleteLocation", "ColocAnnounce", null)">Oui, je confirme</a>
+					<a id="btnDeleteInfo-mder" href="@Url.Action("DeleteProjectCreation", "Ad_CreationProject", null)">Oui, je confirme</a>
 				</div>
 			</div>
 		</div>

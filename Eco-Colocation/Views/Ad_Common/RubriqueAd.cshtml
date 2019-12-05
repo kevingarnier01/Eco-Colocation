@@ -1,10 +1,12 @@
 ﻿@model  Eco_Colocation.ViewModel.AllViewModel
 @{
-	ViewBag.Title = "Index";
-	ViewBag.urlCurrentPage = "/SearchColoc/Index";
+	ViewBag.Title = "RubriqueAd";
+	ViewBag.researchType = ViewData["researchType"];
+	ViewBag.urlCurrentPage = "/Home/CommonAd";
 }
 
 <div id="searchColoc">
+
 	<div id="divNbPeopleSearch-ca" class="fontFamilyNote">
 		<a href="#peopleSearching" id="btnPeopleSearch-ca">
 			<p id="localisation-ca">Rennes</p>
@@ -16,7 +18,14 @@
 	</div>
 	<div id="divLibelleRecherche">
 		<div>
-			<h3 class="title">Je recherche une éco-colocation</h3>
+			@if (ViewBag.researchType != null && ViewBag.researchType == "searching")
+			{
+				<h3 class="title">Je recherche une éco-colocation</h3>
+			}
+			else if (ViewBag.researchType != null && ViewBag.researchType == "offering")
+			{
+				<h3 class="title">Je propose une éco-colocation</h3>
+			}
 		</div>
 	</div>
 	<div id="divRubriqueRecherche">
@@ -37,12 +46,24 @@
 	</div>
 
 	@*Miniature sur la map*@
-	<div id="annonceLocation">
-		@Html.Partial("~/Views/SearchColoc/AnnonceLocation.cshtml", Model.SearchColocViewModel)
-	</div>
-	<div id="projetCreation">
-		@Html.Partial("~/Views/SearchColoc/ProjetCreation.cshtml", Model.SearchColocViewModel)
-	</div>
+	@if (ViewBag.researchType != null && ViewBag.researchType == "searching")
+	{
+		<div id="annonceLocation">
+			@Html.Partial("~/Views/Ad_Rental/RentalView.cshtml", Model.SearchColocViewModel)
+		</div>
+		<div id="projetCreation">
+			@Html.Partial("~/Views/Ad_CreationProject/CreationProjectView.cshtml", Model.SearchColocViewModel)
+		</div>
+	}
+	else 
+	{
+		<div id="annonceLocation">
+			@Html.Partial("~/Views/Ad_Rental/RentalView.cshtml", Model.ColocAnnounceViewModel)
+		</div>
+		<div id="projetCreation">
+			@Html.Partial("~/Views/Ad_CreationProject/CreationProjectView.cshtml", Model.ColocAnnounceViewModel)
+		</div>
+	}
 </div>
 
 <div id="partialViewPeopleSearching">
@@ -53,12 +74,28 @@
 	$(document).ready(function () {
 		$('#_PictureHeader').css('display', "block")
 
-		updateSwitcher('searching');
+		updateSwitcher('@ViewData["researchType"]');
+		
+		var researchType = "@ViewData["researchType"]"
+
+		if (researchType == "searching") {
+			//Charge la map
+			window.onload = function (e) {
+				initSearchColocMap();
+			}
+		}
+
+		setTimeout(function () {
+			var url = document.location.href;
+
+			if (url.indexOf("researchType") == -1 && url.indexOf("?") != -1) {
+				url +='&researchType=' + "@ViewData["researchType"]";
+			}
+			else if (url.indexOf("researchType") == -1 && url.indexOf("?") == -1){
+				url +='?researchType=' + "@ViewData["researchType"]";
+			}
+
+			window.history.replaceState('data to be passed', 'Title of the page', url);
+		}, 2000)
 	});
-
-	//Charge la map
-	window.onload = function (e) {
-		initSearchColocMap();
-	}
 </script>
-

@@ -201,8 +201,10 @@ function forceToOpenModalOnlyInThisTab() {
 
 //change de l'url quand le modal se ferme
 function updateUrlModalAfterClosing() {
-	if ($('#currentTab').val().length != 0) {
-		window.history.replaceState("", "", $("#urlCurrentPage").val() + "/?currentTab=" + $('#currentTab').val());
+	if ($('#currentTab').val().length != 0 && $('#researchType').val().length != 0) {
+		var currentTab = "/?currentTab=" + $('#currentTab').val();
+		var researchType = "&researchType=" + $('#researchType').val();
+		window.history.replaceState("", "", $("#urlCurrentPage").val() + currentTab + researchType);
 	}
 	else {
 		window.history.replaceState("", "", $("#urlCurrentPage").val());
@@ -454,8 +456,16 @@ function annonceLocationPage() {
 	$("#creationRubrique2").css("border-bottom", "none");
 	$("#annonceRubrique2").css("border-bottom", "3px solid #e9e5c3");
 
+	var url = document.location.href;
+	if (url.indexOf("currentTab") != -1) {
+		url = url.replace("ProjetCreation", "AnnonceLocation");
+		window.history.replaceState('data to be passed', 'Title of the page', url)
+	}
+	else {
+		window.history.replaceState('data to be passed', 'Title of the page', $('#urlCurrentPage').val() + '/?currentTab=AnnonceLocation')
+	}
+
 	$('#currentTab').val("AnnonceLocation");
-	window.history.replaceState('data to be passed', 'Title of the page', $('#urlCurrentPage').val() + '/?currentTab=AnnonceLocation')
 }
 
 function projetCreationPage() {
@@ -463,9 +473,17 @@ function projetCreationPage() {
 	$("#projetCreation").css("display", "block");
 	$("#annonceRubrique2").css("border-bottom", "none");
 	$("#creationRubrique2").css("border-bottom", "3px solid #e9e5c3");
-
+		
+	var url = document.location.href;
+	if (url.indexOf("currentTab") != -1) {
+		url = url.replace("AnnonceLocation", "ProjetCreation");
+		window.history.replaceState('data to be passed', 'Title of the page', url);
+	}
+	else {
+		window.history.replaceState('data to be passed', 'Title of the page', $('#urlCurrentPage').val() + '/?currentTab=ProjetCreation')
+	}
+	
 	$('#currentTab').val("ProjetCreation");
-	window.history.replaceState('data to be passed', 'Title of the page', $('#urlCurrentPage').val() + '/?currentTab=ProjetCreation')
 }
 
 /* SlideShow */
@@ -2048,4 +2066,11 @@ function integerNumber() {
 			}
 		}
 	});
+}
+
+function copyDivToOtherElement(elementToCut, elementToPast) {
+	var div = $(elementToCut).html()
+	//$(elementToCut).remove();
+	$(elementToPast).append(div)
+	//$(elementToCut).fadeIn(0)
 }

@@ -1,0 +1,161 @@
+﻿
+@{
+	ViewBag.Title = "CreationProjectView";
+}
+
+@if (ViewBag.researchType == "searching")
+{
+	<div id="lstCreationProjectAd-cpv"></div>
+}
+else if (ViewBag.researchType == "offering")
+{
+	<div id="div1-2-ProjetCreation-al">
+		<a href="@Url.Action("AddUpd_ModalCreationProjectAd", "Ad_CreationProject", null)" rel="modal:open">
+			<div id="btnCreer-al" class="createProjetCreationLink-al">Creer un projet de création</div>
+		</a>
+	</div>
+	if (User.Identity.IsAuthenticated)
+	{
+		<div id="lstCreationProjectAd-cpv"></div>
+	}
+}
+
+<div id="projetCreationAnnounce">
+	<div class="flex childFlex divHighterProjetCreationPVLink">
+		@if (User.Identity.IsAuthenticated & ViewBag.researchType == "offering")
+		{
+			<div class="divToolEditProjetCreation-al">
+				<a href="@Url.Action("AddUpd_ModalCreationProjectAd", "Ad_CreationProject", null)" rel="modal:open" class="linkToolProjetCreation-al">
+					<i class="fas fa-pencil-alt childFlex iconToolEditPC-al" id="btnEditProjetCreation-al"></i>
+				</a>
+				<a href="@Url.Action("Del_MsgModalCreationProjectAd", "Ad_CreationProject" , null)" rel="modal:open" class="linkToolProjetCreation-al">
+					<i class="fas fa-trash childFlex iconToolEditPC-al" id="btnRemoveProjetCreation-al"></i>
+				</a>
+			</div>
+		}
+		<a id="projetCreationPVLink-1" href='@Url.Action("Read_ModalCreationProjectAd","Ad_CreationProject", new { @idModal = 1})' rel="modal:open" class="col-sm-11 col-xs-12 childFlex noLink">
+			<div id="div1-1PC">
+				<div id="div2PC" class="fontFamilyNote">
+					<div id="div1ProfilPC" class="col-sm-4">
+						<div id="divIdentitePC" class="col-sm-12 col-xs-6">
+							<div id="divPhotoProfilPC" class="col-sm-5 col-xs-5">
+								<div id="photoProfilPC"></div>
+							</div>
+							<div id="div0DecriptionIdentitePC">
+								<div id="div1DecriptionIdentitePC">
+									<div id="div2DecriptionIdentitePC">
+										<p>Matias.</p>
+										<p>indépendent</p>
+										<p>22 ans</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="div1PersonnalitePC" class="col-sm-12 col-xs-6">
+							<div id="div2PersonnalitePC" class="div2PersonnaliteColorPC">
+								<p id="personnalityProfilPC">Etudiant dans les soins énergétiques. J'ai un tempérament calme et à la fois très sociable. J'aime m'amuser et partager des bons moments entres amis.</p>
+							</div>
+						</div>
+						<div id="div1InscriptionPC" class="col-sm-12 col-xs-12">
+							<div id="div11InscriptionPC" class="col-sm-12 col-xs-5">
+								<div id="div2InscriptionPC">
+									<div>Membre depuis hier</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="div1DescriptionPC" class="col-sm-8">
+						<h3>Auto-construction d'un éco-habitat pour y vivre en eco-colocation.</h3>
+						<div id="div2DescriptionPC">
+							<p>
+								J'ai dernièrement acheté un terrain, je souhaiterai trouver des personnes qui veulent se lancer
+								dans l'aventure de vivre dans un Habitat insolite à 5 colocataires. L'objectif est qu'on puisse tous
+								ensemble être acheteur du terrain et des matériaux pour auto-construire. Je recherche donc 4
+								autres personnes qui s'investirai dans le projet d'auto-construction. Au niveau de la
+								convivialité commune j'aimerai qu'on puisse tous ensemble partager des repas et pourquoi pas
+								des soirées ensemble. Au niveau de la gestion des taches et des ressoruces financières je n'ai
+								pas encore réflechi à l'organisation mais je pense qu'il sera important d'y réflechir tous ensemble.
+								Concernant les pratiques écologiques il y aura un grand potager et puis je souhaiterai
+								qu'on tendent vers du zéro déchet.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>
+	<div class="flex childFlex divHighterProjetCreationPVLink">
+		@if (User.Identity.IsAuthenticated & ViewBag.researchType == "offering")
+		{
+			<div class="divToolEditProjetCreation-al">
+				<i class="fas fa-pencil-alt childFlex iconToolEditPC-al" id="btnEditProjetCreation-al"></i>
+				<i class="fas fa-trash childFlex iconToolEditPC-al" id="btnRemoveProjetCreation-al"></i>
+			</div>
+		}
+		<a id="projetCreationPVLink-2" href='@Url.Action("Read_ModalCreationProjectAd","Ad_CreationProject", new { @idModal = 2})' rel="modal:open" class="col-sm-11 col-xs-12 childFlex  noLink">
+			<div id="div1-1PC">
+				<div id="div2PC" class="fontFamilyNote">
+					<div id="div1ProfilPC" class="col-sm-4">
+						<div id="divIdentitePC" class="col-sm-12 col-xs-6">
+							<div id="divPhotoProfilPC" class="col-sm-5 col-xs-5">
+								<div id="photoProfilPC"></div>
+							</div>
+							<div id="div0DecriptionIdentitePC">
+								<div id="div1DecriptionIdentitePC">
+									<div id="div2DecriptionIdentitePC">
+										<p>Matias.</p>
+										<p>indépendent</p>
+										<p>22 ans</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="div1PersonnalitePC" class="col-sm-12 col-xs-6">
+							<div id="div2PersonnalitePC" class="div2PersonnaliteColorPC">
+								<p id="personnalityProfilPC">Etudiant dans les soins énergétiques. J'ai un tempérament calme et à la fois très sociable. J'aime m'amuser et partager des bons moments entres amis.</p>
+							</div>
+						</div>
+						<div id="div1InscriptionPC" class="col-sm-12 col-xs-12">
+							<div id="div11InscriptionPC" class="col-sm-12 col-xs-5">
+								<div id="div2InscriptionPC">
+									<div>Membre depuis hier</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="div1DescriptionPC" class="col-sm-8">
+						<h3>Auto-construction d'un éco-habitat pour y vivre en eco-colocation.</h3>
+						<div id="div2DescriptionPC">
+							<p>
+								J'ai dernièrement acheté un terrain, je souhaiterai trouver des personnes qui veulent se lancer
+								dans l'aventure de vivre dans un Habitat insolite à 5 colocataires. L'objectif est qu'on puisse tous
+								ensemble être acheteur du terrain et des matériaux pour auto-construire. Je recherche donc 4
+								autres personnes qui s'investirai dans le projet d'auto-construction. Au niveau de la
+								convivialité commune j'aimerai qu'on puisse tous ensemble partager des repas et pourquoi pas
+								des soirées ensemble. Au niveau de la gestion des taches et des ressoruces financières je n'ai
+								pas encore réflechi à l'organisation mais je pense qu'il sera important d'y réflechir tous ensemble.
+								Concernant les pratiques écologiques il y aura un grand potager et puis je souhaiterai
+								qu'on tendent vers du zéro déchet.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>
+	<div id="divOthersAnnounces-pcpv" class="overflow"></div>
+	<div class="flex">
+		<div class="btnGreen childFlex" id="btnOtherAnnonceLocation-pcpv" onclick="showOthersProjetCreationAnnounces()">
+			<p id="txtShowNewEvent-alpv">Voir plus d'annonces</p>
+			<div class="flex"><i class="fas fa-sort-down childFlex" id="iconShowNewEvent-alpv"></i></div>
+		</div>
+	</div>
+</div>
+
+<script language="javascript">
+	$(document).ready(function () {
+		lineMaxToShow("#personnalityProfilPC");
+
+		copyDivToOtherElement("#projetCreationAnnounce", "#lstCreationProjectAd-cpv")
+	});
+</script>

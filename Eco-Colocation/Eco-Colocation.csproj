@@ -146,6 +146,8 @@
     <Compile Include="Controllers\Adhesion.cs">
       <DependentUpon>EcoColocationModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\Ad_CreationProjectController.cs" />
+    <Compile Include="Controllers\Ad_RentalController.cs" />
     <Compile Include="Controllers\Agence.cs">
       <DependentUpon>EcoColocationModel.tt</DependentUpon>
     </Compile>
@@ -211,7 +213,6 @@
     </Compile>
     <Compile Include="Controllers\ModalController.cs" />
     <Compile Include="Controllers\PeopleSearchingController.cs" />
-    <Compile Include="Controllers\ProfilController.cs" />
     <Compile Include="Controllers\ProjetCreation.cs">
       <DependentUpon>EcoColocationModel.tt</DependentUpon>
     </Compile>
@@ -710,26 +711,15 @@
     <Content Include="Scripts\waypoints\package.json" />
     <Content Include="Scripts\waypoints\README.md" />
     <Content Include="Scripts\waypoints\testem.json" />
-    <Content Include="Views\SearchColoc\Index.cshtml" />
     <Content Include="Scripts\leaflet\leaflet-src.esm.js.map" />
     <Content Include="Scripts\leaflet\leaflet-src.js.map" />
     <Content Include="Scripts\leaflet\leaflet.js.map" />
-    <Content Include="Views\ColocAnnounce\Index.cshtml" />
     <Content Include="Views\PeopleSearching\Index.cshtml" />
-    <Content Include="Views\SearchColoc\ModalLocation.cshtml" />
     <Content Include="Views\ContactUs\PartialViewMessage.cshtml" />
-    <Content Include="Views\ColocAnnounce\AnnonceLocation.cshtml" />
-    <Content Include="Views\ColocAnnounce\ModalLocation.cshtml" />
-    <Content Include="Views\ColocAnnounce\ProjetCreation.cshtml" />
-    <Content Include="Views\SearchColoc\AnnonceLocation.cshtml" />
-    <Content Include="Views\SearchColoc\ProjetCreation.cshtml" />
     <Content Include="Views\Shared\AnnonceLocation\AnnonceLocationPV.cshtml" />
-    <Content Include="Views\ColocAnnounce\ModalProjetCreation.cshtml" />
-    <Content Include="Views\SearchColoc\ModalProjetCreation.cshtml" />
     <Content Include="Views\Shared\ProjetCreation\ProjetCreationPV.cshtml" />
     <Content Include="Views\PeopleSearching\Read_ModalPeopleSearch.cshtml" />
     <Content Include="Views\Shared\_PictureHeader.cshtml" />
-    <Content Include="Views\SearchColoc\FiltresAnnonceLocation.cshtml" />
     <Content Include="Views\Account\Index.cshtml" />
     <Content Include="Views\Account\ModalAccount.cshtml" />
     <Content Include="Views\Account\ModalCreateAccount.cshtml" />
@@ -768,17 +758,24 @@
     <Content Include="Scripts\Leaflet.markercluster-1.4.1\package.json" />
     <Content Include="Scripts\Leaflet.markercluster-1.4.1\README.md" />
     <Content Include="Views\ContactUs\BulleConversation.cshtml" />
-    <Content Include="Views\ColocAnnounce\ModalDeleteProjetCreation.cshtml" />
-    <Content Include="Views\ColocAnnounce\ModalDeleteLocation.cshtml" />
     <Content Include="Views\PeopleSearching\HtmlAnnoncePeople.cshtml" />
-    <Content Include="Views\SearchColoc\PopupMarkerLocations.cshtml" />
-    <Content Include="Views\SearchColoc\PopupMarkerPartenaire.cshtml" />
     <Content Include="Views\Account\PasswordDiv.cshtml" />
+    <Content Include="Views\Ad_Rental\RentalView.cshtml" />
+    <Content Include="Views\Ad_Rental\Read_PopupMarkerPartner.cshtml" />
+    <Content Include="Views\Ad_Rental\Read_PopupMarkerRental.cshtml" />
+    <Content Include="Views\Ad_Rental\Read_ModalRentalAd.cshtml" />
+    <Content Include="Views\Ad_Rental\FiltersRentalAd.cshtml" />
+    <Content Include="Views\Ad_Rental\Del_MsgModalRentalAd.cshtml" />
+    <Content Include="Views\Ad_Rental\AddUpd_ModalRentalAd.cshtml" />
+    <Content Include="Views\Ad_CreationProject\CreationProjectView.cshtml" />
+    <Content Include="Views\Ad_CreationProject\Read_ModalCreationProjectAd.cshtml" />
+    <Content Include="Views\Ad_CreationProject\Del_MsgModalCreationProjectAd.cshtml" />
+    <Content Include="Views\Ad_CreationProject\AddUpd_ModalCreationProjectAd.cshtml" />
+    <Content Include="Views\Ad_Common\RubriqueAd.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Modal\" />
-    <Folder Include="Views\Profil\" />
+    <Folder Include="Views\RentalAd\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

@@ -30,6 +30,14 @@ namespace Eco_Colocation.Controllers
 
 			return View("~/Views/Home/Index.cshtml");
 		}
+				
+		[HttpGet]
+		public ActionResult ModalCreateEmptyAccount()
+		{
+			ViewData["idModalToTrigger"] = "#createEmptyAccountLing-h";
+
+			return View("~/Views/Home/Index.cshtml");
+		}
 
 		[HttpGet]
 		public ActionResult Read_ModalPeopleSearch(string idModal, string targetCity)
@@ -57,7 +65,7 @@ namespace Eco_Colocation.Controllers
 
 			return View("~/Views/home/Index.cshtml");
 		}
-		
+
 		[HttpGet]
 		public ActionResult AddUpd_ModalPeopleSearchUpdate(string idModal, string targetCity)
 		{
@@ -76,7 +84,7 @@ namespace Eco_Colocation.Controllers
 		}
 
 		[HttpGet]
-		public ActionResult ModalLocation(string targetCity, string idModal, string urlCurrentPage)
+		public ActionResult Read_ModalRentalAd(string targetCity, string idModal, string urlCurrentPage, string researchType)
 		{
 			AllViewModel allViewModel = new AllViewModel();
 			//...Recuperer les données necessaire en fonction de la veriable targetCity qui représente la ville qu'il à saisi
@@ -86,16 +94,34 @@ namespace Eco_Colocation.Controllers
 
 			if (urlCurrentPage != null && urlCurrentPage.Length != 0)
 			{
-				return Redirect(urlCurrentPage + "/?currentTab=" + currentTab + "&idModal=" + Uri.EscapeDataString(idModalDestination));
+				return Redirect(urlCurrentPage + "/?currentTab=" + currentTab + "&researchType=" + researchType + "&idModal=" + Uri.EscapeDataString(idModalDestination));
 			}
 			else
 			{
-				return View("~/Views/SearchColoc/Index.cshtml", allViewModel);
+				return RedirectToAction("CommonAd", "Home", new { @currentTab = "AnnonceLocation" });
 			}
 		}
 
 		[HttpGet]
-		public ActionResult ModalProjetCreation(string targetCity, string idModal, string urlCurrentPage)
+		public ActionResult AddUpd_ModalRentalAd(string targetCity, string urlCurrentPage, string researchType)
+		{
+			AllViewModel allViewModel = new AllViewModel();
+
+			string idModalDestination = ".createAnnounceLocationLink-al";
+			string currentTab = "AnnonceLocation";
+
+			if (urlCurrentPage.Length != 0)
+			{
+				return Redirect(urlCurrentPage + "/?currentTab=" + currentTab + "&researchType=" + researchType + "&idModal=" + Uri.EscapeDataString(idModalDestination));
+			}
+			else
+			{
+				return RedirectToAction("CommonAd", "Home", new { @currentTab = "ProjetCreation", @researchType = "offering"});
+			}
+		}
+
+		[HttpGet]
+		public ActionResult Read_ModalCreationProjectAd(string targetCity, string idModal, string urlCurrentPage, string researchType)
 		{
 			AllViewModel allViewModel = new AllViewModel();
 			//...Recuperer les données necessaire en fonction de la veriable targetCity qui représente la ville qu'il à saisi
@@ -105,34 +131,16 @@ namespace Eco_Colocation.Controllers
 
 			if (urlCurrentPage.Length != 0)
 			{
-				return Redirect(urlCurrentPage + "/?currentTab=" + currentTab + "&idModal=" + Uri.EscapeDataString(idModalDestination));
+				return Redirect(urlCurrentPage + "/?currentTab=" + currentTab + "&researchType=" + researchType + "&idModal=" + Uri.EscapeDataString(idModalDestination));
 			}
 			else
 			{
-				return View("~/Views/SearchColoc/Index.cshtml", allViewModel);
+				return RedirectToAction("CommonAd", "Home", new { @currentTab = "AnnonceLocation" });
 			}
 		}
 
 		[HttpGet]
-		public ActionResult ModalLocation_ColocAnnounce(string targetCity, string urlCurrentPage)
-		{
-			AllViewModel allViewModel = new AllViewModel();
-
-			string idModalDestination = ".createAnnounceLocationLink-al";
-			string currentTab = "AnnonceLocation";
-
-			if (urlCurrentPage.Length != 0)
-			{
-				return Redirect(urlCurrentPage + "/?currentTab=" + currentTab + "&idModal=" + Uri.EscapeDataString(idModalDestination));
-			}
-			else
-			{
-				return View("~/Views/ColocAnnounce/Index.cshtml", allViewModel);
-			}
-		}
-
-		[HttpGet]
-		public ActionResult ModalProjetCreation_ColocAnnounce(string targetCity, string urlCurrentPage)
+		public ActionResult AddUpd_ModalCreationProjectAd(string targetCity, string urlCurrentPage, string researchType)
 		{
 			AllViewModel allViewModel = new AllViewModel();
 
@@ -141,21 +149,12 @@ namespace Eco_Colocation.Controllers
 
 			if (urlCurrentPage.Length != 0)
 			{
-				return Redirect(urlCurrentPage + "/?currentTab=" + currentTab + "&idModal=" + Uri.EscapeDataString(idModalDestination));
+				return Redirect(urlCurrentPage + "/?currentTab=" + currentTab + "&researchType=" + researchType + "&idModal=" + Uri.EscapeDataString(idModalDestination));
 			}
 			else
 			{
-				return View("~/Views/ColocAnnounce/Index.cshtml", allViewModel);
+				return RedirectToAction("CommonAd", "Home", new { @currentTab = "ProjetCreation", @researchType = "offering" });
 			}
-		}
-		
-
-					[HttpGet]
-		public ActionResult ModalCreateEmptyAccount()
-		{
-			ViewData["idModalToTrigger"] = "#createEmptyAccountLing-h";
-
-			return View("~/Views/Home/Index.cshtml");
 		}
 	}
 }
