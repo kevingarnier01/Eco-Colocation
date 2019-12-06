@@ -4,7 +4,40 @@
 }
 <div class="underModal col-sm-12 col-xs-12">
 	<div id="modalAccount" class="reelModal">
-		@Html.Partial("~/Views/Account/Index.cshtml")
+		<div id="account">
+			<div id="divAccesMembre-acc">
+				<h2 class="title centerText">Accès Membre</h2>
+			</div>
+			<div class="flex">
+				<div id="divGlobalInput-acc" class="childFlex">
+					<div class="divInputWrite-acc">
+						<div class="div2InputWrite-acc">
+							<i class="fa fa-envelope" aria-hidden="true"></i><input placeholder="Email">
+						</div>
+					</div>
+					<div class="divInputWrite-acc">
+						<div class="div2InputWrite-acc">
+							<i class="fa fa-lock" aria-hidden="true"></i><input placeholder="Mot de passe">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="divbtnConnexion-acc">
+				<div class="flex">
+					<div onclick="redirectAfterConnection()" class="btnGreen childFlex fontFamilyNote" id="btnConnexion-acc">CONNEXION</div>
+				</div>
+			</div>
+			<a id="divMdpForget-acc" href="@Url.Action("FindAccountByEmail","Account" ,null)">
+				<p class="childFlex">[Nom d'utilisateur / Mot de passe] Oublié ?</p>
+			</a>
+			<div id="div1CreateAccount-acc">
+				<div id="div2CreateAccount-acc">
+					<a href="@Url.Action("ModalInscriptionWay", "Account", null)" rel="modal:open" onclick="openSecondModal()">
+						<p>Creer un compte</p><i class="fas fa-long-arrow-alt-right"></i>
+					</a>
+				</div>
+			</div>
+		</div>
 	</div>
 	<div class="divCloseModal">
 		<a href="#close-modal" rel="modal:close"><i class="fas fa-times close-modal"></i></a>

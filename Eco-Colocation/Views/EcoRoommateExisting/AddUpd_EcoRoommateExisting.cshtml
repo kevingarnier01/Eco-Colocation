@@ -694,17 +694,17 @@
 	</div>
 	<div id="divBottomBtn-ayer">
 		<div class="flex">
-			<a id="btnValidateInfo-ayer" href="@Url.Action("Index", "Home", null)">Valider mes informations</a>
+			<a id="btnValidateInfo-ayer" href="@Url.Action("EcoRoommateHomeView", "EcoRoommateHome", null)">Valider mes informations</a>
 		</div>
 		<div class="flex">
-			<a id="btnCancelInfo-ayer" href="@Url.Action("Index", "Home", null)">Retour</a>
+			<a id="btnCancelInfo-ayer" href="@Url.Action("EcoRoommateHomeView", "EcoRoommateHome", null)">Retour</a>
 		</div>
 
 		@* Rajouter des conditions d'affichage *@
 		@if (User.Identity.IsAuthenticated)
 		{
 			<div class="flex">
-				<a id="btnSupColoc-ayer" href="@Url.Action("ModalDeleteEcoRoommateExisting", "EcoRoommateExisting", null)" rel="modal:open">Supprimer notre éco-colocation</a>
+				<a id="btnSupColoc-ayer" href="@Url.Action("Del_MsgModalEcoRoommateExisting", "EcoRoommateExisting", null)" rel="modal:open">Supprimer notre éco-colocation</a>
 			</div>
 		}
 	</div>

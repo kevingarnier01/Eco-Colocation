@@ -12,16 +12,23 @@ namespace Eco_Colocation.Controllers
     using System;
     using System.Collections.Generic;
     
-    public partial class Colocataire
+    public partial class Agency
     {
-        public int IdColocataire { get; set; }
-        public int IdEcoColocExistante { get; set; }
-        public string Prenom { get; set; }
+        public int IdAgency { get; set; }
         public string Nom { get; set; }
         public string Email { get; set; }
-        public string DateNaissance { get; set; }
-        public byte Civilite { get; set; }
+        public string Telephone { get; set; }
+        public string NumRue { get; set; }
+        public string Rue { get; set; }
+        public string Ville { get; set; }
+        public string CodePostal { get; set; }
+        public string Departement { get; set; }
+        public string NumDepartement { get; set; }
+        public string Region { get; set; }
+        public string Pays { get; set; }
+        public string NumSiret { get; set; }
+        public decimal FraisAgence { get; set; }
     
-        public virtual EcoColocExistante EcoColocExistante { get; set; }
+        public virtual Account Account { get; set; }
     }
 }

@@ -30,9 +30,9 @@ namespace Eco_Colocation.Controllers
 			return PartialView();
 		}
 
-		public ActionResult ModalDeleteEcoRoommateEvent()
+		public ActionResult Del_MsgModalEcoRoommateEvent()
 		{
-			return PartialView("~/Views/EcoRoommateEvent/ModalDeleteEcoRoommateEvent.cshtml");
+			return PartialView("~/Views/EcoRoommateEvent/Del_MsgModalEcoRoommateEvent.cshtml");
 		}
 
 		public ActionResult ModalGoingOrInterested()

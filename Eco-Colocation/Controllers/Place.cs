@@ -12,15 +12,15 @@ namespace Eco_Colocation.Controllers
     using System;
     using System.Collections.Generic;
     
-    public partial class Lieu
+    public partial class Place
     {
-        public Lieu()
+        public Place()
         {
-            this.ProjetCreation = new HashSet<ProjetCreation>();
-            this.RechercheColocation = new HashSet<RechercheColocation>();
+            this.CreationProject = new HashSet<CreationProjectAd>();
+            this.ResearchRoommate = new HashSet<ResearchRoommate>();
         }
     
-        public int IdLieu { get; set; }
+        public int IdPlace { get; set; }
         public string Ville { get; set; }
         public string CodePostal { get; set; }
         public string Departement { get; set; }
@@ -28,7 +28,7 @@ namespace Eco_Colocation.Controllers
         public string Region { get; set; }
         public string Pays { get; set; }
     
-        public virtual ICollection<ProjetCreation> ProjetCreation { get; set; }
-        public virtual ICollection<RechercheColocation> RechercheColocation { get; set; }
+        public virtual ICollection<CreationProjectAd> CreationProject { get; set; }
+        public virtual ICollection<ResearchRoommate> ResearchRoommate { get; set; }
     }
 }

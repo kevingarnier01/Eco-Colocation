@@ -586,8 +586,11 @@
 
 <script language="text/javascript">
 	$(document).ready(function () {
+		var modalByInscription = ("@ViewData["modalByInscription"]" != "") ? "&modalByInscription=true" : "";
+		var researchType = ($("#researchType").val() != "") ? "&researchType=" + $("#researchType").val() : "";
+		
 		window.history.replaceState('data to be passed', 'Title of the page',
-			'/Modal/AddUpd_ModalRentalAd/?targetCity=' + "@ViewData["targetCity"]" + "&urlCurrentPage=" + $('#urlCurrentPage').val() + "&researchType=" + $("#researchType").val());
+			'/Modal/AddUpd_ModalRentalAd/?targetCity=' + "@ViewData["targetCity"]" + "&urlCurrentPage=" + $('#urlCurrentPage').val() + researchType + modalByInscription);
 
 		loadAccountConnexionToFinishOperation();
 		triggerBtnOnOffOnAgence();

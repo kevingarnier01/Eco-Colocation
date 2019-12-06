@@ -1,10 +1,10 @@
 ﻿
 @{
-	ViewBag.Title = "ModalDeleteEcoRoommateEvent";
+	ViewBag.Title = "Del_MsgModalEcoRoommateEvent";
 }
 
 <div class="underModal col-sm-12 col-xs-12">
-	<div id="ModalDeleteEcoRoommateExisting" class="reelModal">
+	<div id="Del_MsgModalEcoRoommateExisting" class="reelModal">
 		<h2 id="titleTop-mder">Suppression de votre évenement</h2>
 		<h2 id="titleTop-mder">Vous êtes sur le point de supprimer l'événement du site web. Confirmez-vous l'opération ?</h2>
 		<div class="flex">
@@ -13,7 +13,7 @@
 					<a href="#close-modal" rel="modal:close" class="closeModal" id="btnCancelInfo-mder">Annuler</a>
 				</div>
 				<div class="divBtn-mder">
-					<a id="btnDeleteInfo-mder" href="@Url.Action("Index", "Home", null)">Oui, je confirme</a>
+					<a id="btnDeleteInfo-mder" href="@Url.Action("EcoRoommateHomeView", "EcoRoommateHome", null)">Oui, je confirme</a>
 				</div>
 			</div>
 		</div>

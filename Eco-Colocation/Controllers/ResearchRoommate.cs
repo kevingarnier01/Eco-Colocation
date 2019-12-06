@@ -12,15 +12,15 @@ namespace Eco_Colocation.Controllers
     using System;
     using System.Collections.Generic;
     
-    public partial class RechercheColocation
+    public partial class ResearchRoommate
     {
-        public RechercheColocation()
+        public ResearchRoommate()
         {
-            this.Lieu = new HashSet<Lieu>();
+            this.Place = new HashSet<Place>();
         }
     
-        public int IdRechercheColocation { get; set; }
-        public int IdUtilisateur { get; set; }
+        public int IdResearchRoommate { get; set; }
+        public int IdUser { get; set; }
         public short BudgetMax { get; set; }
         public byte AlerteParEmail { get; set; }
         public string CritereRecherche { get; set; }
@@ -28,7 +28,7 @@ namespace Eco_Colocation.Controllers
         public string NomPhoto { get; set; }
         public string ActivationAnnonce { get; set; }
     
-        public virtual ICollection<Lieu> Lieu { get; set; }
-        public virtual Utilisateur Utilisateur { get; set; }
+        public virtual ICollection<Place> Place { get; set; }
+        public virtual User User { get; set; }
     }
 }

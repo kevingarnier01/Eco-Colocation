@@ -19,30 +19,30 @@ namespace Eco_Colocation.Controllers
 		[HttpGet]
 		public ActionResult ModalConnection()
 		{
-			ViewData["idModalToTrigger"] = "#modalConnectionLink";
+			TempData["idModalToTrigger"] = "#modalConnectionLink";
 
-			return View("~/Views/Home/Index.cshtml");
+			return View("~/Views/EcoRoommateHome/EcoRoommateHomeView.cshtml");
 		}
 
 		public ActionResult ModalInscription()
 		{
-			ViewData["idModalToTrigger"] = "#modalInscriptionLink";
+			TempData["idModalToTrigger"] = "#modalInscriptionLink";
 
-			return View("~/Views/Home/Index.cshtml");
+			return View("~/Views/EcoRoommateHome/EcoRoommateHomeView.cshtml");
 		}
-				
+
 		[HttpGet]
 		public ActionResult ModalCreateEmptyAccount()
 		{
-			ViewData["idModalToTrigger"] = "#createEmptyAccountLing-h";
+			TempData["idModalToTrigger"] = "#createEmptyAccountLing-h";
 
-			return View("~/Views/Home/Index.cshtml");
+			return View("~/Views/EcoRoommateHome/EcoRoommateHomeView.cshtml");
 		}
 
 		[HttpGet]
 		public ActionResult Read_ModalPeopleSearch(string idModal, string targetCity)
 		{
-			ViewData["idModalToTrigger"] = "#peopleSearchingLink-" + idModal;
+			TempData["idModalToTrigger"] = "#peopleSearchingLink-" + idModal;
 
 			AllViewModel allViewModel = new AllViewModel();
 			allViewModel.PeopleSearchingViewModel = new PeopleSearchingViewModel();
@@ -55,32 +55,32 @@ namespace Eco_Colocation.Controllers
 				allViewModel.PeopleSearchingViewModel.LstPeopleSearchingVM.Add(peopleSearching);
 			}
 
-			return View("~/Views/PeopleSearching/Index.cshtml", allViewModel);
+			return View("~/Views/PeopleSearching/PeopleSearchingView.cshtml", allViewModel);
 		}
 
 		[HttpGet]
 		public ActionResult AddUpd_ModalPeopleSearch()
 		{
-			ViewData["idModalToTrigger"] = "#addSearchingAnnonceLink-ps";
+			TempData["idModalToTrigger"] = "#addSearchingAnnonceLink-ps";
 
-			return View("~/Views/home/Index.cshtml");
+			return View("~/Views/EcoRoommateHome/EcoRoommateHomeView.cshtml");
 		}
 
 		[HttpGet]
 		public ActionResult AddUpd_ModalPeopleSearchUpdate(string idModal, string targetCity)
 		{
-			ViewData["idModalToTrigger"] = "#peopleSearchingUpdateLink-" + idModal;
+			TempData["idModalToTrigger"] = "#peopleSearchingUpdateLink-" + idModal;
 
-			return View("~/Views/PeopleSearching/Index.cshtml");
+			return View("~/Views/PeopleSearching/PeopleSearchingView.cshtml");
 		}
 
 		[HttpGet]
 		public ActionResult Read_ModalEcoRoommateEvent(string idModal)
 		{
 
-			ViewData["idModalToTrigger"] = "#ecoRoommateEventLink-" + idModal;
+			TempData["idModalToTrigger"] = "#ecoRoommateEventLink-" + idModal;
 
-			return View("~/Views/Home/Index.cshtml");
+			return View("~/Views/EcoRoommateHome/EcoRoommateHomeView.cshtml");
 		}
 
 		[HttpGet]
@@ -89,34 +89,40 @@ namespace Eco_Colocation.Controllers
 			AllViewModel allViewModel = new AllViewModel();
 			//...Recuperer les données necessaire en fonction de la veriable targetCity qui représente la ville qu'il à saisi
 
-			string idModalDestination = "#annonceLocationPVLink-" + idModal;
+			TempData["idModalToTrigger"] = "#annonceLocationPVLink-" + idModal;
 			string currentTab = "AnnonceLocation";
 
 			if (urlCurrentPage != null && urlCurrentPage.Length != 0)
 			{
-				return Redirect(urlCurrentPage + "/?currentTab=" + currentTab + "&researchType=" + researchType + "&idModal=" + Uri.EscapeDataString(idModalDestination));
+				return Redirect(urlCurrentPage + "/?currentTab=" + currentTab + "&researchType=" + researchType);
 			}
 			else
 			{
-				return RedirectToAction("CommonAd", "Home", new { @currentTab = "AnnonceLocation" });
+				return RedirectToAction("CommonAd", "EcoRoommateHome", new { @currentTab = "AnnonceLocation" });
 			}
 		}
 
 		[HttpGet]
-		public ActionResult AddUpd_ModalRentalAd(string targetCity, string urlCurrentPage, string researchType)
+		public ActionResult AddUpd_ModalRentalAd(string targetCity, string urlCurrentPage, string researchType, string modalByInscription)
 		{
 			AllViewModel allViewModel = new AllViewModel();
 
-			string idModalDestination = ".createAnnounceLocationLink-al";
+			if (modalByInscription == "true")
+			{
+				return ModalInscription();
+			}
+
+			TempData["idModalToTrigger"] = ".createAnnounceLocationLink-al";
+
 			string currentTab = "AnnonceLocation";
 
-			if (urlCurrentPage.Length != 0)
+			if (urlCurrentPage.Length != 0 && modalByInscription == null)
 			{
-				return Redirect(urlCurrentPage + "/?currentTab=" + currentTab + "&researchType=" + researchType + "&idModal=" + Uri.EscapeDataString(idModalDestination));
+				return Redirect(urlCurrentPage + "/?currentTab=" + currentTab + "&researchType=" + researchType);
 			}
 			else
 			{
-				return RedirectToAction("CommonAd", "Home", new { @currentTab = "ProjetCreation", @researchType = "offering"});
+				return RedirectToAction("CommonAd", "EcoRoommateHome", new { @currentTab = "ProjetCreation", @researchType = "offering" });
 			}
 		}
 
@@ -126,34 +132,39 @@ namespace Eco_Colocation.Controllers
 			AllViewModel allViewModel = new AllViewModel();
 			//...Recuperer les données necessaire en fonction de la veriable targetCity qui représente la ville qu'il à saisi
 
-			string idModalDestination = "#projetCreationPVLink-" + idModal;
+			TempData["idModalToTrigger"] = "#projetCreationPVLink-" + idModal;
 			string currentTab = "ProjetCreation";
 
 			if (urlCurrentPage.Length != 0)
 			{
-				return Redirect(urlCurrentPage + "/?currentTab=" + currentTab + "&researchType=" + researchType + "&idModal=" + Uri.EscapeDataString(idModalDestination));
+				return Redirect(urlCurrentPage + "/?currentTab=" + currentTab + "&researchType=" + researchType);
 			}
 			else
 			{
-				return RedirectToAction("CommonAd", "Home", new { @currentTab = "AnnonceLocation" });
+				return RedirectToAction("CommonAd", "EcoRoommateHome", new { @currentTab = "AnnonceLocation" });
 			}
 		}
 
 		[HttpGet]
-		public ActionResult AddUpd_ModalCreationProjectAd(string targetCity, string urlCurrentPage, string researchType)
+		public ActionResult AddUpd_ModalCreationProjectAd(string targetCity, string urlCurrentPage, string researchType, string modalByInscription)
 		{
 			AllViewModel allViewModel = new AllViewModel();
 
-			string idModalDestination = ".createProjetCreationLink-al";
+			if (modalByInscription == "true")
+			{
+				return ModalInscription();
+			}
+
+			TempData["idModalToTrigger"] = ".createProjetCreationLink-al";
 			string currentTab = "ProjetCreation";
 
 			if (urlCurrentPage.Length != 0)
 			{
-				return Redirect(urlCurrentPage + "/?currentTab=" + currentTab + "&researchType=" + researchType + "&idModal=" + Uri.EscapeDataString(idModalDestination));
+				return Redirect(urlCurrentPage + "/?currentTab=" + currentTab + "&researchType=" + researchType);
 			}
 			else
 			{
-				return RedirectToAction("CommonAd", "Home", new { @currentTab = "ProjetCreation", @researchType = "offering" });
+				return RedirectToAction("CommonAd", "EcoRoommateHome", new { @currentTab = "ProjetCreation", @researchType = "offering" });
 			}
 		}
 	}

@@ -12,9 +12,16 @@ namespace Eco_Colocation.Controllers
     using System;
     using System.Collections.Generic;
     
-    public partial class Adhesion
+    public partial class PeopleEcoRoommateExisting
     {
-        public int IdAdhesion { get; set; }
-        public string MotDePasse { get; set; }
+        public int IdPeopleEcoRoommateExisting { get; set; }
+        public int IdEcoRoommateExisting { get; set; }
+        public string Prenom { get; set; }
+        public string Nom { get; set; }
+        public string Email { get; set; }
+        public string DateNaissance { get; set; }
+        public byte Civilite { get; set; }
+    
+        public virtual EcoRoommateExisting EcoRoommateExisting { get; set; }
     }
 }

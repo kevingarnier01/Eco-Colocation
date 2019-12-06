@@ -7,9 +7,7 @@
 	<div id="read_ModalEcoRoommateEvent" class="reelModal">
 		<div id="divInterestedEmail-merev">
 			<img onclick="closeWindow()" src="https://img.icons8.com/material-outlined/40/000000/circled-chevron-left.png">
-			<div class="col-sm-6 col-xs-12" style="padding:0">
-				@Html.Partial("~/Views/EcoRoommateEvent/PartialGoingOrInterested.cshtml")
-			</div>
+			<div class="col-sm-6 col-xs-12 viewPartialGoingOrInterested-mere" style="padding:0"></div>
 		</div>
 		<div id="divMessage-ml">
 			<img onclick="openMessageWindow_merev()" src="https://img.icons8.com/material-outlined/40/000000/circled-chevron-left.png">
@@ -55,7 +53,7 @@
 		</div>
 		<div id="divPhoto-ml">
 			<div id="div-photos-mpc" class="col-sm-6 col-xs-12">
-				<div class="photo-mpc mySlides" style="background: url(https://www.izroom.com/blog/wp-content/uploads/2017/06/ap%C3%A9ro-2.jpg) 50% 50% no-repeat;"></div>
+				<div class="photo-mpc mySlides" style="background: url(https://resize.prod.docfr.doc-media.fr/img/var/doctissimo/storage/images/media/images/fr/www/apero-sain/7764125-1-fre-FR/Apero-sain.jpg) 50% 50% no-repeat;"></div>
 			</div>
 		</div>
 
@@ -192,7 +190,7 @@
 								<p class="fontFamilyNote underTitleOLinkEvent-merev">Jeudi 2 Mai 2019</p>
 							</div>
 							<div class="flex">
-								<div style="background: url(https://www.izroom.com/blog/wp-content/uploads/2017/06/ap%C3%A9ro-2.jpg) 50% 50% no-repeat;" class="imgOtherLink-merev"></div>
+								<div style="background: url(https://resize.prod.docfr.doc-media.fr/img/var/doctissimo/storage/images/media/images/fr/www/apero-sain/7764125-1-fre-FR/Apero-sain.jpg) 50% 50% no-repeat;" class="imgOtherLink-merev"></div>
 							</div>
 						</div>
 
@@ -232,5 +230,7 @@
 	$(document).ready(function () {
 		window.history.replaceState('data to be passed', 'Title of the page', '/Modal/Read_ModalEcoRoommateEvent/?idModal=' + @ViewData["idModal"]);
 		checkIfBtnInteretIsNotEmpty_erevom('#divInterested-merev');
+
+		$(".viewPartialGoingOrInterested-mere").load("/EcoRoommateEvent/ModalGoingOrInterested #goingOrInterested-mgoi");
 	});
 </script>

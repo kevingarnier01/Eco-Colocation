@@ -12,10 +12,10 @@ namespace Eco_Colocation.Controllers
     using System;
     using System.Collections.Generic;
     
-    public partial class ChambreLocation
+    public partial class RentalRoom
     {
-        public int IdChambreLocation { get; set; }
-        public int IdAnnonceLocation { get; set; }
+        public int IdRentalRoom { get; set; }
+        public int IdRentalAd { get; set; }
         public decimal Loyer { get; set; }
         public decimal Charges { get; set; }
         public string DetailCharges { get; set; }
@@ -25,6 +25,6 @@ namespace Eco_Colocation.Controllers
         public System.DateTime DateDisponibilite { get; set; }
         public Nullable<System.DateTime> DateFinDisponibilite { get; set; }
     
-        public virtual AnnonceLocation AnnonceLocation { get; set; }
+        public virtual RentalAd RentalAd { get; set; }
     }
 }

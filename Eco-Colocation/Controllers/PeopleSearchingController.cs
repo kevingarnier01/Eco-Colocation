@@ -8,7 +8,7 @@ namespace Eco_Colocation.Controllers
 	public class PeopleSearchingController : Controller
 	{
 		// GET: PeopleSearching
-		public ActionResult Index()
+		public ActionResult PeopleSearchingView()
 		{
 			AllViewModel allVM = new AllViewModel();
 			allVM.PeopleSearchingViewModel = new PeopleSearchingViewModel();

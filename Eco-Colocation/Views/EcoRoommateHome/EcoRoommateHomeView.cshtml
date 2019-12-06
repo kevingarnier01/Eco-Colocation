@@ -1,0 +1,26 @@
+﻿@model  Eco_Colocation.ViewModel.AllViewModel
+@{
+	ViewBag.Title = "Home Page";
+	ViewBag.urlCurrentPage = "/EcoRoommateHome/EcoRoommateHomeView";
+}
+
+<a id="createEmptyAccountLing-h" href="@Url.Action("ModalCreateEmptyAccount", "Account", null)" rel="modal:open" class="childFlex noLink">Autres</a>
+
+<div id="home">	
+	<div id="partialViewEcoRoommateEventView" class="col-sm-6 col-xs-12">
+		@Html.Partial("~/Views/EcoRoommateEvent/EcoRoommateEventView.cshtml")
+	</div>
+	<div id="partialViewEcoRoommateExistingView" class="col-sm-6 col-xs-12">
+		@Html.Partial("~/Views/EcoRoommateExisting/EcoRoommateExistingView.cshtml")
+	</div>
+	<div id="partialViewPeopleSearching" class="col-xs-12">
+		@Html.Partial("~/Views/PeopleSearching/PeopleSearchingView.cshtml", Model)
+	</div>
+</div><br />
+
+<script language="javascript">
+	$(document).ready(function () {
+		$('#_PictureHeader').css('display', "block");
+		appearAndOpenWindowsConvDev();
+	});
+</script>

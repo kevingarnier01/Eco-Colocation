@@ -601,8 +601,10 @@
 			}
 		});
 
+		var modalByInscription = ("@ViewData["modalByInscription"]" != "") ? "&modalByInscription=true" : "";
+		var researchType = ($("#researchType").val() != "") ? "&researchType=" + $("#researchType").val() : "";
 		window.history.replaceState('data to be passed', 'Title of the page',
-			'/Modal/AddUpd_ModalCreationProjectAd/?targetCity=' + "@ViewData["targetCity"]" + "&urlCurrentPage=" + $('#urlCurrentPage').val() + "&researchType=" + $("#researchType").val());
+			'/Modal/AddUpd_ModalCreationProjectAd/?targetCity=' + "@ViewData["targetCity"]" + "&urlCurrentPage=" + $('#urlCurrentPage').val() + researchType + modalByInscription);
 
 		triggerBtnOnOffOnTerain_mpc();
 		initButtonOnOff();

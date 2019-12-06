@@ -91,7 +91,7 @@
 								<p class="fontFamilyNote underTitleOLinkEvent-merev">Jeudi 2 Mai 2019</p>
 							</div>
 							<div class="flex">
-								<div style="background: url(https://www.izroom.com/blog/wp-content/uploads/2017/06/ap%C3%A9ro-2.jpg) 50% 50% no-repeat;" class="imgOtherLink-merev"></div>
+								<div style="background: url(https://resize.prod.docfr.doc-media.fr/img/var/doctissimo/storage/images/media/images/fr/www/apero-sain/7764125-1-fre-FR/Apero-sain.jpg) 50% 50% no-repeat;" class="imgOtherLink-merev"></div>
 							</div>
 						</div>
 						<div class="flex">
@@ -159,11 +159,11 @@
 		@if (User.Identity.IsAuthenticated)
 		{
 			<div class="flex">
-				<a id="btnValidateInfo-ayer" href="@Url.Action("Index", "Home", null)">Valider mes informations</a>
+				<a id="btnValidateInfo-ayer" href="@Url.Action("EcoRoommateHomeView", "EcoRoommateHome", null)">Valider mes informations</a>
 			</div>
 		}
 		<div class="flex">
-			<a id="btnCancelInfo-ayer" href="@Url.Action("Index", "Home", null)">Retour</a>
+			<a id="btnCancelInfo-ayer" href="@Url.Action("EcoRoommateHomeView", "EcoRoommateHome", null)">Retour</a>
 		</div>
 	</div>
 
@@ -171,7 +171,7 @@
 	@if (User.Identity.IsAuthenticated)
 	{
 		<div class="flex">
-			<a id="btnSupColoc-ayer" href="@Url.Action("ModalDeleteEcoRoommateEvent", "EcoRoommateEvent", null)" rel="modal:open">Supprimer l'événement</a>
+			<a id="btnSupColoc-ayer" href="@Url.Action("Del_MsgModalEcoRoommateEvent", "EcoRoommateEvent", null)" rel="modal:open">Supprimer l'événement</a>
 		</div>
 	}
 </div>

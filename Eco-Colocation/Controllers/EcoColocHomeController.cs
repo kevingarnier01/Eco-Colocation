@@ -1,12 +1,11 @@
 ﻿using Eco_Colocation.ViewModel;
-using System;
 using System.Web.Mvc;
 
 namespace Eco_Colocation.Controllers
 {
-	public class HomeController : Controller
+	public class EcoRoommateHomeController : Controller
 	{
-		public ActionResult Index()
+		public ActionResult EcoRoommateHomeView()
 		{
 			AllViewModel allViewModel = new AllViewModel();
 			allViewModel.PeopleSearchingViewModel = new PeopleSearchingViewModel();
@@ -25,10 +24,10 @@ namespace Eco_Colocation.Controllers
 		{
 			TempData["allViewModel"] = allViewModel;
 
-			return RedirectToAction("CommonAd", new { researchType = allViewModel.HomeViewModel.TypeRecherche });
+			return RedirectToAction("CommonAd", new { researchType = allViewModel.EcoRoommateHome.TypeRecherche });
 		}
 
-		public ActionResult CommonAd(string currentTab, string idModal, string researchType)
+		public ActionResult CommonAd(string currentTab, string researchType)
 		{
 			AllViewModel allViewModel = new AllViewModel();
 			allViewModel.PeopleSearchingViewModel = new PeopleSearchingViewModel();
@@ -48,9 +47,7 @@ namespace Eco_Colocation.Controllers
 			{
 				ViewData["currentTab"] = "AnnonceLocation";
 			}
-
-			ViewData["idModalToTrigger"] = idModal;
-
+			
 			ViewData["researchType"] = (researchType != null) ? researchType : "searching";
 
 			return View("~/Views/Ad_Common/RubriqueAd.cshtml", allViewModel);

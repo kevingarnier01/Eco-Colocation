@@ -16,7 +16,7 @@ namespace Eco_Colocation
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "EcoRoommateHome", action = "EcoRoommateHomeView", id = UrlParameter.Optional }
             );
         }
     }

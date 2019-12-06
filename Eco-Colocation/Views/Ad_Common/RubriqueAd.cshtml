@@ -2,7 +2,7 @@
 @{
 	ViewBag.Title = "RubriqueAd";
 	ViewBag.researchType = ViewData["researchType"];
-	ViewBag.urlCurrentPage = "/Home/CommonAd";
+	ViewBag.urlCurrentPage = "/EcoRoommateHome/CommonAd";
 }
 
 <div id="searchColoc">
@@ -49,25 +49,25 @@
 	@if (ViewBag.researchType != null && ViewBag.researchType == "searching")
 	{
 		<div id="annonceLocation">
-			@Html.Partial("~/Views/Ad_Rental/RentalView.cshtml", Model.SearchColocViewModel)
+			@Html.Partial("~/Views/Ad_Rental/RentalView.cshtml")
 		</div>
 		<div id="projetCreation">
-			@Html.Partial("~/Views/Ad_CreationProject/CreationProjectView.cshtml", Model.SearchColocViewModel)
+			@Html.Partial("~/Views/Ad_CreationProject/CreationProjectView.cshtml")
 		</div>
 	}
 	else 
 	{
 		<div id="annonceLocation">
-			@Html.Partial("~/Views/Ad_Rental/RentalView.cshtml", Model.ColocAnnounceViewModel)
+			@Html.Partial("~/Views/Ad_Rental/RentalView.cshtml")
 		</div>
 		<div id="projetCreation">
-			@Html.Partial("~/Views/Ad_CreationProject/CreationProjectView.cshtml", Model.ColocAnnounceViewModel)
+			@Html.Partial("~/Views/Ad_CreationProject/CreationProjectView.cshtml")
 		</div>
 	}
 </div>
 
 <div id="partialViewPeopleSearching">
-	@Html.Partial("~/Views/PeopleSearching/Index.cshtml", Model)
+	@Html.Partial("~/Views/PeopleSearching/PeopleSearchingView.cshtml", Model)
 </div>
 
 <script language="javascript">

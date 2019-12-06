@@ -1042,11 +1042,11 @@ select#typeResearchSct-ph:focus {
 	display: none !important
 }
 
-#partialViewEcoRoommateExisting_OnMap {
+#partialViewEcoRoommateExistingView {
 	padding: 5px 10px;
 }
 
-#partialViewEcoRoommateEvent_OnMap {
+#partialViewEcoRoommateEventView {
 	padding: 5px 10px;
 }
 
@@ -3961,8 +3961,8 @@ d5-description-mpc {
 	color: #d09c92;
 }
 
-/*ModalCreateAccount*/
-#modalCreateAccount {
+/*ModalInscriptionWay*/
+#modalInscriptionWay {
 	overflow: auto;
 	padding: 15px;
 	position: relative;
@@ -3972,7 +3972,7 @@ d5-description-mpc {
 	margin: auto
 }
 
-	#modalCreateAccount, #modalCreateAccount ~ .divCloseModal {
+	#modalInscriptionWay, #modalInscriptionWay ~ .divCloseModal {
 		width: 400px
 	}
 
@@ -6031,8 +6031,8 @@ input.radioFibreEco-ayer {
 	text-align: center;
 }
 
-/***** ModalDeleteEcoRoommateExisting *****/
-#ModalDeleteEcoRoommateExisting {
+/***** Del_MsgModalEcoRoommateExisting *****/
+#del_MsgModalEcoRoommateExisting {
 	overflow: auto;
 	width: 900px;
 	padding: 15px;

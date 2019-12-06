@@ -41,7 +41,7 @@ namespace Eco_Colocation.Controllers
 
 		public ActionResult DeleteRentalAd()
 		{
-			return RedirectToAction("CommonAd", "Home", new { currentTab = "AnnonceLocation", researchType = "offering" });
+			return RedirectToAction("CommonAd", "EcoRoommateHome", new { currentTab = "AnnonceLocation", researchType = "offering" });
 		}		
 	}
 }

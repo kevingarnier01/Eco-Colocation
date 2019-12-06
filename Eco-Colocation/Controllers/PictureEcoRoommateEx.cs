@@ -12,12 +12,13 @@ namespace Eco_Colocation.Controllers
     using System;
     using System.Collections.Generic;
     
-    public partial class ImageConversationDev
+    public partial class PictureEcoRoommateEx
     {
-        public int IdImgConversationDev { get; set; }
-        public int IdConversationDev { get; set; }
+        public int IdPictureEcoRoommateEx { get; set; }
+        public int IdEcoRoommateExisting { get; set; }
         public string NomImage { get; set; }
+        public byte NumOrdre { get; set; }
     
-        public virtual ConversationDev ConversationDev { get; set; }
+        public virtual EcoRoommateExisting EcoRoommateExisting { get; set; }
     }
 }

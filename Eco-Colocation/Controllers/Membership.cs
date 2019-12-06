@@ -12,20 +12,9 @@ namespace Eco_Colocation.Controllers
     using System;
     using System.Collections.Generic;
     
-    public partial class Account
+    public partial class Membership
     {
-        public Account()
-        {
-            this.RentalAd = new HashSet<RentalAd>();
-            this.Role = new HashSet<Role>();
-        }
-    
-        public int IdAccount { get; set; }
-        public System.DateTime DateCreation { get; set; }
-    
-        public virtual ICollection<RentalAd> RentalAd { get; set; }
-        public virtual User User { get; set; }
-        public virtual Membership Membership { get; set; }
-        public virtual ICollection<Role> Role { get; set; }
+        public int IdAdhesion { get; set; }
+        public string MotDePasse { get; set; }
     }
 }

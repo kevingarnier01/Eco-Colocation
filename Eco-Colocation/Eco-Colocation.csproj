@@ -143,25 +143,18 @@
       <DependentUpon>EcoColocationModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\Adhesion.cs">
-      <DependentUpon>EcoColocationModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Controllers\Ad_CreationProjectController.cs" />
     <Compile Include="Controllers\Ad_RentalController.cs" />
-    <Compile Include="Controllers\Agence.cs">
+    <Compile Include="Controllers\Agency.cs">
       <DependentUpon>EcoColocationModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Controllers\AnnonceLocation.cs">
+    <Compile Include="Controllers\AssociatedEvent.cs">
       <DependentUpon>EcoColocationModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Controllers\ChambreLocation.cs">
+    <Compile Include="Controllers\CreationProjectAd.cs">
       <DependentUpon>EcoColocationModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Controllers\ColocAnnounceController.cs" />
-    <Compile Include="Controllers\Colocataire.cs">
-      <DependentUpon>EcoColocationModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Controllers\ConversationDev.cs">
+    <Compile Include="Controllers\DevConversation.cs">
       <DependentUpon>EcoColocationModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Controllers\EcoColocationModel.Context.cs">
@@ -184,46 +177,51 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EcoColocationModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Controllers\EcoColocExistante.cs">
-      <DependentUpon>EcoColocationModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Controllers\EcoRoommateEventController.cs" />
+    <Compile Include="Controllers\EcoRoommateExisting.cs">
+      <DependentUpon>EcoColocationModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\EcoRoommateExistingController.cs" />
-    <Compile Include="Controllers\Evenement.cs">
+    <Compile Include="Controllers\EcoColocHomeController.cs" />
+    <Compile Include="Controllers\Event.cs">
       <DependentUpon>EcoColocationModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Controllers\EvenementAssocie.cs">
-      <DependentUpon>EcoColocationModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Controllers\EvenementPresence.cs">
-      <DependentUpon>EcoColocationModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ImageConversationDev.cs">
-      <DependentUpon>EcoColocationModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Controllers\ImageEcoColocEx.cs">
-      <DependentUpon>EcoColocationModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Controllers\ImageProjetCreation.cs">
-      <DependentUpon>EcoColocationModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Controllers\Lieu.cs">
+    <Compile Include="Controllers\Membership.cs">
       <DependentUpon>EcoColocationModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Controllers\ModalController.cs" />
-    <Compile Include="Controllers\PeopleSearchingController.cs" />
-    <Compile Include="Controllers\ProjetCreation.cs">
+    <Compile Include="Controllers\PeopleEcoRoommateExisting.cs">
       <DependentUpon>EcoColocationModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Controllers\RechercheColocation.cs">
+    <Compile Include="Controllers\PeopleSearchingController.cs" />
+    <Compile Include="Controllers\PictureCreationProject.cs">
+      <DependentUpon>EcoColocationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\PictureDevConversation.cs">
+      <DependentUpon>EcoColocationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\PictureEcoRoommateEx.cs">
+      <DependentUpon>EcoColocationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\Place.cs">
+      <DependentUpon>EcoColocationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\PresenceEvent.cs">
+      <DependentUpon>EcoColocationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\RentalAd.cs">
+      <DependentUpon>EcoColocationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\RentalRoom.cs">
+      <DependentUpon>EcoColocationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\ResearchRoommate.cs">
       <DependentUpon>EcoColocationModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Controllers\Role.cs">
       <DependentUpon>EcoColocationModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Controllers\SearchColocController.cs" />
-    <Compile Include="Controllers\Utilisateur.cs">
+    <Compile Include="Controllers\User.cs">
       <DependentUpon>EcoColocationModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
@@ -232,11 +230,9 @@
     <Compile Include="Models\PersonneModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModel\AllViewModel.cs" />
-    <Compile Include="ViewModel\ColocAnnounceViewModel.cs" />
     <Compile Include="ViewModel\EcoRoommateEventViewModel.cs" />
-    <Compile Include="ViewModel\HomeViewModel.cs" />
+    <Compile Include="ViewModel\EcoColocHomeModel.cs" />
     <Compile Include="ViewModel\PeopleSearchingViewModel.cs" />
-    <Compile Include="ViewModel\SearchColocViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="bin\Antlr3.Runtime.dll" />
@@ -714,34 +710,30 @@
     <Content Include="Scripts\leaflet\leaflet-src.esm.js.map" />
     <Content Include="Scripts\leaflet\leaflet-src.js.map" />
     <Content Include="Scripts\leaflet\leaflet.js.map" />
-    <Content Include="Views\PeopleSearching\Index.cshtml" />
+    <Content Include="Views\PeopleSearching\PeopleSearchingView.cshtml" />
     <Content Include="Views\ContactUs\PartialViewMessage.cshtml" />
-    <Content Include="Views\Shared\AnnonceLocation\AnnonceLocationPV.cshtml" />
-    <Content Include="Views\Shared\ProjetCreation\ProjetCreationPV.cshtml" />
     <Content Include="Views\PeopleSearching\Read_ModalPeopleSearch.cshtml" />
     <Content Include="Views\Shared\_PictureHeader.cshtml" />
-    <Content Include="Views\Account\Index.cshtml" />
     <Content Include="Views\Account\ModalAccount.cshtml" />
-    <Content Include="Views\Account\ModalCreateAccount.cshtml" />
+    <Content Include="Views\Account\ModalInscriptionWay.cshtml" />
     <Content Include="Views\PeopleSearching\AddUpd_ModalPeopleSearch.cshtml" />
     <Content Include="Views\Account\ForgetAccount\FindAccountByEmail.cshtml" />
     <Content Include="Views\Account\ForgetAccount\CheckCodeSend.cshtml" />
     <Content Include="Views\Account\ForgetAccount\ChangePassword.cshtml" />
     <Content Include="Views\Account\ForgetAccount\SendCode.cshtml" />
-    <Content Include="Views\EcoRoommateExisting\EcoRoommateExisting_OnMap.cshtml" />
+    <Content Include="Views\EcoRoommateExisting\EcoRoommateExistingView.cshtml" />
     <Content Include="Views\EcoRoommateExisting\AddUpd_EcoRoommateExisting.cshtml" />
     <Content Include="Views\EcoRoommateExisting\Read_EcoRoommateExisting.cshtml" />
-    <Content Include="Views\EcoRoommateExisting\ModalDeleteEcoRoommateExisting.cshtml" />
-    <Content Include="Views\EcoRoommateEvent\EcoRoommateEvent_OnMap.cshtml" />
+    <Content Include="Views\EcoRoommateExisting\Del_MsgModalEcoRoommateExisting.cshtml" />
+    <Content Include="Views\EcoRoommateEvent\EcoRoommateEventView.cshtml" />
     <Content Include="Views\EcoRoommateEvent\Read_ModalEcoRoommateEvent.cshtml" />
     <Content Include="Views\EcoRoommateEvent\AddUpd_EcoRoommateEvent.cshtml" />
-    <Content Include="Views\EcoRoommateEvent\ModalDeleteEcoRoommateEvent.cshtml" />
+    <Content Include="Views\EcoRoommateEvent\Del_MsgModalEcoRoommateEvent.cshtml" />
     <Content Include="Views\EcoRoommateEvent\ModalGoingOrInterested.cshtml" />
-    <Content Include="Views\EcoRoommateEvent\PartialGoingOrInterested.cshtml" />
     <Content Include="Views\Account\ModalCreateEmptyAccount.cshtml" />
     <Content Include="Views\Account\PersonalDataForm.cshtml" />
     <Content Include="Views\Account\ButtonsCreateAccount.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\EcoRoommateHome\EcoRoommateHomeView.cshtml" />
     <Content Include="Scripts\Leaflet.markercluster-0.5.0\.travis.yml" />
     <Content Include="Scripts\Leaflet.markercluster-0.5.0\bower.json" />
     <Content Include="Scripts\Leaflet.markercluster-0.5.0\CHANGELOG.md" />
@@ -775,7 +767,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\RentalAd\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

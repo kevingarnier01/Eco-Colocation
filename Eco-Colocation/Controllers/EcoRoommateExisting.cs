@@ -12,15 +12,15 @@ namespace Eco_Colocation.Controllers
     using System;
     using System.Collections.Generic;
     
-    public partial class EcoColocExistante
+    public partial class EcoRoommateExisting
     {
-        public EcoColocExistante()
+        public EcoRoommateExisting()
         {
-            this.ImageEcoColocEx = new HashSet<ImageEcoColocEx>();
+            this.PictureEcoRoommateEx = new HashSet<PictureEcoRoommateEx>();
         }
     
-        public int IdEcoColocExistante { get; set; }
-        public int IdUtilisateur { get; set; }
+        public int IdEcoRoommateExisting { get; set; }
+        public int IdUser { get; set; }
         public string NomEcoColoc { get; set; }
         public short NbColocataire { get; set; }
         public string Pays { get; set; }
@@ -35,7 +35,7 @@ namespace Eco_Colocation.Controllers
         public string TableauEcolo { get; set; }
         public string TableauHabitat { get; set; }
     
-        public virtual ICollection<ImageEcoColocEx> ImageEcoColocEx { get; set; }
-        public virtual Utilisateur Utilisateur { get; set; }
+        public virtual ICollection<PictureEcoRoommateEx> PictureEcoRoommateEx { get; set; }
+        public virtual User User { get; set; }
     }
 }

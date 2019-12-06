@@ -12,14 +12,14 @@ namespace Eco_Colocation.Controllers
     using System;
     using System.Collections.Generic;
     
-    public partial class AnnonceLocation
+    public partial class RentalAd
     {
-        public AnnonceLocation()
+        public RentalAd()
         {
-            this.ChambreLocation = new HashSet<ChambreLocation>();
+            this.RentalRoom = new HashSet<RentalRoom>();
         }
     
-        public int IdAnnonceLocation { get; set; }
+        public int IdRentalAd { get; set; }
         public int IdAccount { get; set; }
         public string Introduction { get; set; }
         public string Description { get; set; }
@@ -49,7 +49,7 @@ namespace Eco_Colocation.Controllers
         public System.DateTime DatePublication { get; set; }
         public bool ActivationAnnonce { get; set; }
     
-        public virtual ICollection<ChambreLocation> ChambreLocation { get; set; }
+        public virtual ICollection<RentalRoom> RentalRoom { get; set; }
         public virtual Account Account { get; set; }
     }
 }

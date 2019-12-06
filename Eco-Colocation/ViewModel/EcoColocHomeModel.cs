@@ -1,8 +1,8 @@
 ﻿namespace Eco_Colocation.ViewModel
 {
-    public class HomeViewModel
+    public class EcoRoommateHomeModel
     {
-        public HomeViewModel()
+        public EcoRoommateHomeModel()
         {
             InitData();
         }

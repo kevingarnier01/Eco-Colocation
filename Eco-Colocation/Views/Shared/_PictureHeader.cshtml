@@ -3,7 +3,7 @@
 	ViewBag.Title = "_PictureHeader";
 }
 <div class="parallax-window" data-parallax="scroll" data-image-src="/Content/Images/Autres/coverPicture.jpg">
-	@using (Html.BeginForm("TypeRecherche", "Home"))
+	@using (Html.BeginForm("TypeRecherche", "EcoRoommateHome"))
 	{
 		<div id="switcher-wrapper">
 			<div id="divGlobal1-sw">
@@ -12,8 +12,8 @@
 						<input id="btnCherche" type="button" value="Je recherche une éco-colocation" onclick="selectSwitcher(this);">
 						<input id="btnProposition" type="button" value="Je propose une éco-colocation" onclick="selectSwitcher(this);">
 					</div>
-					@Html.HiddenFor(m => Model.HomeViewModel.TypeRecherche, new { @id = "typeRecherche", @value = "ah" })
-					@*<input id="typeRecherche" name="@Model.HomeViewModel.TypeRecherche" type="hidden" value="@ViewData["currentTab"]">*@
+					@Html.HiddenFor(m => Model.EcoRoommateHome.TypeRecherche, new { @id = "typeRecherche", @value = "ah" })
+					@*<input id="typeRecherche" name="@Model.EcoRoommateHomeModel.TypeRecherche" type="hidden" value="@ViewData["currentTab"]">*@
 					<div class="input-group flex overflow" id="adv-search">
 						<div class="flex">
 							<div class="childFlex">

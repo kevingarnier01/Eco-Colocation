@@ -1,8 +1,8 @@
 ﻿@{
-	ViewBag.Title = "ModalCreateAccount";
+	ViewBag.Title = "ModalInscriptionWay";
 }
 <div class="underModal col-sm-12 col-xs-12">
-	<div id="modalCreateAccount" class="reelModal">
+	<div id="modalInscriptionWay" class="reelModal">
 		<div>
 			<div id="divInscriptionTitle-mca">
 				<h3 id="title-mca" class="title">Inscription du membre</h3>
@@ -14,8 +14,8 @@
 				<div class="flex flexWrap childFlex" id="divLinkTypeInterest-mca">
 					<p onclick="openDivElement('#divUnderLinkPropose-mca');" class="btnGreen" id="linkModalCAPropose-mca">Je propose</p>
 					<div class="childFlex" id="divUnderLinkPropose-mca">
-						<a href="@Url.Action("ModalLocation", "ColocAnnounce", new { @modalByInscription = "true"})" rel="modal:open" onclick="openSecondModal()" class="linkProposeEcoColoc-mca centerText noLink fontFamilyNote">Une annonce de location</a>
-						<a href="@Url.Action("ModalProjetCreation", "ColocAnnounce", new { @modalByInscription = "true"})" rel="modal:open" onclick="openSecondModal()" class="linkProposeEcoColoc-mca centerText noLink fontFamilyNote" id="secondLinkProposeEcoColoc-mca">Un projet de création</a>
+						<a href="@Url.Action("AddUpd_ModalRentalAd", "Ad_Rental", new { @modalByInscription = "true"})" rel="modal:open" onclick="openSecondModal()" class="linkProposeEcoColoc-mca centerText noLink fontFamilyNote">Une annonce de location</a>
+						<a href="@Url.Action("AddUpd_ModalCreationProjectAd", "Ad_CreationProject", new { @modalByInscription = "true"})" rel="modal:open" onclick="openSecondModal()" class="linkProposeEcoColoc-mca centerText noLink fontFamilyNote" id="secondLinkProposeEcoColoc-mca">Un projet de création</a>
 					</div>
 				</div>
 				<div class="btnGreen flex childFlex" id="btnOthersSubscribe-mca">

@@ -12,17 +12,17 @@ namespace Eco_Colocation.Controllers
     using System;
     using System.Collections.Generic;
     
-    public partial class Evenement
+    public partial class Event
     {
-        public Evenement()
+        public Event()
         {
-            this.EvenementPresence = new HashSet<EvenementPresence>();
-            this.EvenementAssocie = new HashSet<EvenementAssocie>();
-            this.EvenementAssocie1 = new HashSet<EvenementAssocie>();
+            this.PresenceEvent = new HashSet<PresenceEvent>();
+            this.AssociatedEvent = new HashSet<AssociatedEvent>();
+            this.AssociatedEvent1 = new HashSet<AssociatedEvent>();
         }
     
-        public int IdEvenement { get; set; }
-        public int IdUtilisateur { get; set; }
+        public int IdEvent { get; set; }
+        public int IdUser { get; set; }
         public System.DateTime DateDebut { get; set; }
         public System.DateTime DateFin { get; set; }
         public string NumRue { get; set; }
@@ -38,9 +38,9 @@ namespace Eco_Colocation.Controllers
         public string NomImage { get; set; }
         public System.DateTime DatePublication { get; set; }
     
-        public virtual ICollection<EvenementPresence> EvenementPresence { get; set; }
-        public virtual ICollection<EvenementAssocie> EvenementAssocie { get; set; }
-        public virtual ICollection<EvenementAssocie> EvenementAssocie1 { get; set; }
-        public virtual Utilisateur Utilisateur { get; set; }
+        public virtual ICollection<PresenceEvent> PresenceEvent { get; set; }
+        public virtual ICollection<AssociatedEvent> AssociatedEvent { get; set; }
+        public virtual ICollection<AssociatedEvent> AssociatedEvent1 { get; set; }
+        public virtual User User { get; set; }
     }
 }

@@ -12,15 +12,15 @@ namespace Eco_Colocation.Controllers
     using System;
     using System.Collections.Generic;
     
-    public partial class ProjetCreation
+    public partial class CreationProjectAd
     {
-        public ProjetCreation()
+        public CreationProjectAd()
         {
-            this.Lieu = new HashSet<Lieu>();
+            this.Place = new HashSet<Place>();
         }
     
-        public int IdProjetCreation { get; set; }
-        public int IdUtilisateur { get; set; }
+        public int IdCreationProject { get; set; }
+        public int IdUser { get; set; }
         public string Introduction { get; set; }
         public string Description { get; set; }
         public Nullable<byte> EngagementTerrain { get; set; }
@@ -45,6 +45,6 @@ namespace Eco_Colocation.Controllers
         public string InfoSupTolerence { get; set; }
         public string ActivationAnnonce { get; set; }
     
-        public virtual ICollection<Lieu> Lieu { get; set; }
+        public virtual ICollection<Place> Place { get; set; }
     }
 }

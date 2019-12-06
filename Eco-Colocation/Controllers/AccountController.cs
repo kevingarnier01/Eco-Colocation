@@ -31,11 +31,11 @@ namespace Eco_Colocation.Controllers
 			HttpContext.User =
 				new System.Security.Principal.GenericPrincipal(new System.Security.Principal.GenericIdentity(string.Empty), null);
 
-			return RedirectToAction("Index", "Home", null);
+			return RedirectToAction("EcoRoommateHomeView", "EcoRoommateHome", null);
 			//return View("~/Views/Home/Index.csthml");
 		}
 
-		public ActionResult ModalCreateAccount()
+		public ActionResult ModalInscriptionWay()
 		{
 			return PartialView();
 		}
@@ -66,7 +66,7 @@ namespace Eco_Colocation.Controllers
 
 		public ActionResult ChangePasswordFinish()
 		{
-			return View("~/Views/Home/Index.cshtml");
+			return View("~/Views/EcoRoommateHome/EcoRoommateHomeView.cshtml");
 		}
 	}
 }

@@ -67,9 +67,9 @@
 				annonceLocationPage()
 			}
 		}
-
+		
 		// Si idModalToTrigger n'est pas vide c'est que l'utilisateur à saisi l'url d'un modal et qu'il faut déclancher le click de l'element.
-		var idModalToTrigger = "@ViewData["idModalToTrigger"]";
+		var idModalToTrigger = "@TempData["idModalToTrigger"]";
 		if (idModalToTrigger.length != 0 && $(idModalToTrigger).length != 0) {
 			//Simule l'appel au modal qui est en lien avec l'url saisi
 			$(idModalToTrigger)[0].click();

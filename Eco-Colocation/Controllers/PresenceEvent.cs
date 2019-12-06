@@ -12,20 +12,13 @@ namespace Eco_Colocation.Controllers
     using System;
     using System.Collections.Generic;
     
-    public partial class ConversationDev
+    public partial class PresenceEvent
     {
-        public ConversationDev()
-        {
-            this.Vu = 0;
-            this.Image = new HashSet<ImageConversationDev>();
-        }
+        public int IdUser { get; set; }
+        public int IdEvent { get; set; }
+        public byte Statut { get; set; }
     
-        public int IdConversationDev { get; set; }
-        public string Email { get; set; }
-        public string Message { get; set; }
-        public System.DateTime DateDernierEnvoi { get; set; }
-        public byte Vu { get; set; }
-    
-        public virtual ICollection<ImageConversationDev> Image { get; set; }
+        public virtual Event Event { get; set; }
+        public virtual User User { get; set; }
     }
 }

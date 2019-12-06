@@ -25,24 +25,24 @@ namespace Eco_Colocation.Controllers
             throw new UnintentionalCodeFirstException();
         }
     
-        public DbSet<AnnonceLocation> AnnonceLocation { get; set; }
-        public DbSet<ChambreLocation> ChambreLocation { get; set; }
-        public DbSet<ProjetCreation> ProjetCreation { get; set; }
-        public DbSet<Lieu> Lieu { get; set; }
-        public DbSet<Evenement> Evenement { get; set; }
-        public DbSet<EvenementPresence> EvenementPresence { get; set; }
-        public DbSet<EcoColocExistante> EcoColocExistante { get; set; }
-        public DbSet<ImageConversationDev> ImageConversationDev { get; set; }
-        public DbSet<Colocataire> Colocataire { get; set; }
-        public DbSet<ConversationDev> ConversationDev { get; set; }
-        public DbSet<RechercheColocation> RechercheColocation { get; set; }
+        public DbSet<RentalAd> AnnonceLocation { get; set; }
+        public DbSet<RentalRoom> ChambreLocation { get; set; }
+        public DbSet<CreationProjectAd> ProjetCreation { get; set; }
+        public DbSet<Place> Lieu { get; set; }
+        public DbSet<Event> Evenement { get; set; }
+        public DbSet<PresenceEvent> EvenementPresence { get; set; }
+        public DbSet<EcoRoommateExisting> EcoColocExistante { get; set; }
+        public DbSet<PictureDevConversation> ImageConversationDev { get; set; }
+        public DbSet<PeopleEcoRoommateExisting> Colocataire { get; set; }
+        public DbSet<DevConversation> ConversationDev { get; set; }
+        public DbSet<ResearchRoommate> RechercheColocation { get; set; }
         public DbSet<Role> Role { get; set; }
-        public DbSet<EvenementAssocie> EvenementAssocie { get; set; }
-        public DbSet<Adhesion> Adhesion { get; set; }
-        public DbSet<ImageEcoColocEx> ImageEcoColocEx { get; set; }
-        public DbSet<ImageProjetCreation> ImageProjetCreation { get; set; }
+        public DbSet<AssociatedEvent> EvenementAssocie { get; set; }
+        public DbSet<Membership> Adhesion { get; set; }
+        public DbSet<PictureEcoRoommateEx> ImageEcoColocEx { get; set; }
+        public DbSet<PictureCreationProject> ImageProjetCreation { get; set; }
         public DbSet<Account> Account { get; set; }
-        public DbSet<Agence> Agence { get; set; }
-        public DbSet<Utilisateur> Utilisateur { get; set; }
+        public DbSet<Agency> Agence { get; set; }
+        public DbSet<User> Utilisateur { get; set; }
     }
 }
