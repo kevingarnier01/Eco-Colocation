@@ -15,6 +15,6 @@ namespace Eco_Colocation.Controllers
     public partial class Membership
     {
         public int IdAdhesion { get; set; }
-        public string MotDePasse { get; set; }
+        public string Password { get; set; }
     }
 }

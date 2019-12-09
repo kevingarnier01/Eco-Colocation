@@ -21,12 +21,12 @@ namespace Eco_Colocation.Controllers
     
         public int IdResearchRoommate { get; set; }
         public int IdUser { get; set; }
-        public short BudgetMax { get; set; }
-        public byte AlerteParEmail { get; set; }
-        public string CritereRecherche { get; set; }
-        public string PratiqueEcolo { get; set; }
-        public string NomPhoto { get; set; }
-        public string ActivationAnnonce { get; set; }
+        public short MaxBudget { get; set; }
+        public byte EmailAlert { get; set; }
+        public string SearchCriteria { get; set; }
+        public string EcoPractice { get; set; }
+        public string PictureName { get; set; }
+        public string ActivatedAnnouncement { get; set; }
     
         public virtual ICollection<Place> Place { get; set; }
         public virtual User User { get; set; }

@@ -16,12 +16,14 @@ namespace Eco_Colocation.Controllers
     {
         public Account()
         {
+            this.Activited = true;
             this.RentalAd = new HashSet<RentalAd>();
             this.Role = new HashSet<Role>();
         }
     
         public int IdAccount { get; set; }
-        public System.DateTime DateCreation { get; set; }
+        public System.DateTime CreationDate { get; set; }
+        public bool Activited { get; set; }
     
         public virtual ICollection<RentalAd> RentalAd { get; set; }
         public virtual User User { get; set; }

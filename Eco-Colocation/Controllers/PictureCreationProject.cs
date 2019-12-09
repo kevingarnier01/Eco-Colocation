@@ -16,9 +16,9 @@ namespace Eco_Colocation.Controllers
     {
         public int IdPictureCreationProject { get; set; }
         public int IdProjetCreation { get; set; }
-        public string NomImage { get; set; }
-        public byte NumOrdre { get; set; }
+        public string PictureName { get; set; }
+        public byte OrderNumber { get; set; }
     
-        public virtual CreationProjectAd CreationProject { get; set; }
+        public virtual CreationProjectAd CreationProjectAd { get; set; }
     }
 }

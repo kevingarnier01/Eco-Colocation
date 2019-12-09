@@ -16,14 +16,14 @@ namespace Eco_Colocation.Controllers
     {
         public int IdRentalRoom { get; set; }
         public int IdRentalAd { get; set; }
-        public decimal Loyer { get; set; }
+        public decimal RentPrice { get; set; }
         public decimal Charges { get; set; }
-        public string DetailCharges { get; set; }
+        public string ChargesDetail { get; set; }
         public Nullable<decimal> Caution { get; set; }
-        public short Superficie { get; set; }
-        public bool Meublee { get; set; }
-        public System.DateTime DateDisponibilite { get; set; }
-        public Nullable<System.DateTime> DateFinDisponibilite { get; set; }
+        public short Surface { get; set; }
+        public bool Furnished { get; set; }
+        public System.DateTime AvalaibleDate { get; set; }
+        public Nullable<System.DateTime> AvalaibleEndDate { get; set; }
     
         public virtual RentalAd RentalAd { get; set; }
     }

@@ -190,9 +190,6 @@
       <DependentUpon>EcoColocationModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Controllers\ModalController.cs" />
-    <Compile Include="Controllers\PeopleEcoRoommateExisting.cs">
-      <DependentUpon>EcoColocationModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Controllers\PeopleSearchingController.cs" />
     <Compile Include="Controllers\PictureCreationProject.cs">
       <DependentUpon>EcoColocationModel.tt</DependentUpon>
@@ -219,6 +216,9 @@
       <DependentUpon>EcoColocationModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Controllers\Role.cs">
+      <DependentUpon>EcoColocationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\Roommate.cs">
       <DependentUpon>EcoColocationModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Controllers\User.cs">

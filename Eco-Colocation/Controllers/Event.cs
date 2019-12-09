@@ -23,20 +23,20 @@ namespace Eco_Colocation.Controllers
     
         public int IdEvent { get; set; }
         public int IdUser { get; set; }
-        public System.DateTime DateDebut { get; set; }
-        public System.DateTime DateFin { get; set; }
-        public string NumRue { get; set; }
-        public string Rue { get; set; }
-        public string Ville { get; set; }
-        public string CodePostal { get; set; }
-        public string Departement { get; set; }
-        public string NumDepartement { get; set; }
+        public System.DateTime DateStart { get; set; }
+        public System.DateTime DateEnd { get; set; }
+        public string StreetNumber { get; set; }
+        public string StreetName { get; set; }
+        public string City { get; set; }
+        public string PostalCode { get; set; }
+        public string Department { get; set; }
+        public string DepartmentNumber { get; set; }
         public string Region { get; set; }
-        public string Pays { get; set; }
-        public string Lien { get; set; }
+        public string Country { get; set; }
+        public string Link { get; set; }
         public string Description { get; set; }
-        public string NomImage { get; set; }
-        public System.DateTime DatePublication { get; set; }
+        public string PictureName { get; set; }
+        public System.DateTime DatePublish { get; set; }
     
         public virtual ICollection<PresenceEvent> PresenceEvent { get; set; }
         public virtual ICollection<AssociatedEvent> AssociatedEvent { get; set; }

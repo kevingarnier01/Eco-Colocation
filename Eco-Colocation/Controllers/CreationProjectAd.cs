@@ -23,27 +23,27 @@ namespace Eco_Colocation.Controllers
         public int IdUser { get; set; }
         public string Introduction { get; set; }
         public string Description { get; set; }
-        public Nullable<byte> EngagementTerrain { get; set; }
-        public Nullable<int> SuperficieMaxTerrain { get; set; }
-        public Nullable<int> CoutAchatMaxTerrain { get; set; }
-        public byte EngagementLogement { get; set; }
-        public byte TypeHabitat { get; set; }
-        public byte ImplantationLogement { get; set; }
-        public short SuperficieMaxLogement { get; set; }
-        public Nullable<int> CoutAchatMaxLogement { get; set; }
-        public Nullable<short> LoyerMaxLogement { get; set; }
-        public Nullable<int> CoutConstructionMaxLogement { get; set; }
-        public short NbPersoTotal { get; set; }
-        public Nullable<short> NbPersAchatTerrain { get; set; }
-        public Nullable<short> NbPersAchatLogement { get; set; }
-        public Nullable<short> NbPersLocationLogement { get; set; }
-        public byte AccesTransportCommun { get; set; }
-        public string InfoSupAccessibilite { get; set; }
-        public bool ConsoAlcoolTolerence { get; set; }
-        public bool FumeurTolerence { get; set; }
-        public bool AnimauxTolerence { get; set; }
-        public string InfoSupTolerence { get; set; }
-        public string ActivationAnnonce { get; set; }
+        public Nullable<byte> LandEngagement { get; set; }
+        public Nullable<int> LandMaxSurface { get; set; }
+        public Nullable<int> LandMaxPrice { get; set; }
+        public byte HousingEngagement { get; set; }
+        public byte HousingType { get; set; }
+        public byte HousingImplantation { get; set; }
+        public short HousingMaxSurface { get; set; }
+        public Nullable<int> HousingMaxPrice { get; set; }
+        public Nullable<short> HousingMaxRent { get; set; }
+        public Nullable<int> HousingMaxPriceBuilt { get; set; }
+        public short TotalNumberPerson { get; set; }
+        public Nullable<short> NbPersonToBuyLand { get; set; }
+        public Nullable<short> NbPersonToBuyHousing { get; set; }
+        public Nullable<short> NbPersonToRentHousing { get; set; }
+        public byte AccesPublicTransport { get; set; }
+        public string AccesInfoSup { get; set; }
+        public bool TolerationAlcoholConsommation { get; set; }
+        public bool TolerationSmoker { get; set; }
+        public bool TolerationPets { get; set; }
+        public string TolerationInfoSup { get; set; }
+        public string ActivatedAnnouncement { get; set; }
     
         public virtual ICollection<Place> Place { get; set; }
     }

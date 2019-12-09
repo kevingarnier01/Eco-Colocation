@@ -21,19 +21,19 @@ namespace Eco_Colocation.Controllers
     
         public int IdEcoRoommateExisting { get; set; }
         public int IdUser { get; set; }
-        public string NomEcoColoc { get; set; }
-        public short NbColocataire { get; set; }
-        public string Pays { get; set; }
+        public string EcoRoommateName { get; set; }
+        public short RommateNumber { get; set; }
+        public string Country { get; set; }
         public string Region { get; set; }
-        public string Departement { get; set; }
-        public string NumDepartement { get; set; }
-        public string Ville { get; set; }
-        public string CodePostal { get; set; }
+        public string Department { get; set; }
+        public string DepartmentNumber { get; set; }
+        public string City { get; set; }
+        public string PostalCode { get; set; }
         public string Email { get; set; }
         public string Description { get; set; }
-        public byte ImplicationEcologique { get; set; }
-        public string TableauEcolo { get; set; }
-        public string TableauHabitat { get; set; }
+        public byte EcoImplication { get; set; }
+        public string TableEco { get; set; }
+        public string TableHousing { get; set; }
     
         public virtual ICollection<PictureEcoRoommateEx> PictureEcoRoommateEx { get; set; }
         public virtual User User { get; set; }

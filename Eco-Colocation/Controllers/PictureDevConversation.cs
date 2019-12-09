@@ -16,7 +16,7 @@ namespace Eco_Colocation.Controllers
     {
         public int IdPictureDevConversation { get; set; }
         public int IdDevConversation { get; set; }
-        public string NomImage { get; set; }
+        public string PictureName { get; set; }
     
         public virtual DevConversation DevConversation { get; set; }
     }

@@ -16,19 +16,19 @@ namespace Eco_Colocation.Controllers
     {
         public Place()
         {
-            this.CreationProject = new HashSet<CreationProjectAd>();
+            this.CreationProjectAd = new HashSet<CreationProjectAd>();
             this.ResearchRoommate = new HashSet<ResearchRoommate>();
         }
     
         public int IdPlace { get; set; }
-        public string Ville { get; set; }
-        public string CodePostal { get; set; }
-        public string Departement { get; set; }
-        public string NumDepartement { get; set; }
+        public string City { get; set; }
+        public string PostalCode { get; set; }
+        public string Department { get; set; }
+        public string DepartmentNumber { get; set; }
         public string Region { get; set; }
-        public string Pays { get; set; }
+        public string County { get; set; }
     
-        public virtual ICollection<CreationProjectAd> CreationProject { get; set; }
+        public virtual ICollection<CreationProjectAd> CreationProjectAd { get; set; }
         public virtual ICollection<ResearchRoommate> ResearchRoommate { get; set; }
     }
 }

@@ -16,15 +16,15 @@ namespace Eco_Colocation.Controllers
     {
         public DevConversation()
         {
-            this.Vu = 0;
+            this.Viewed = 0;
             this.PictureDevConversation = new HashSet<PictureDevConversation>();
         }
     
         public int IdDevConversation { get; set; }
         public string Email { get; set; }
         public string Message { get; set; }
-        public System.DateTime DateDernierEnvoi { get; set; }
-        public byte Vu { get; set; }
+        public System.DateTime DateLastSend { get; set; }
+        public byte Viewed { get; set; }
     
         public virtual ICollection<PictureDevConversation> PictureDevConversation { get; set; }
     }

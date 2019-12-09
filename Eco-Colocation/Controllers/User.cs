@@ -16,25 +16,23 @@ namespace Eco_Colocation.Controllers
     {
         public User()
         {
-            this.ActivationCompte = true;
             this.CreationProjectAd = new HashSet<CreationProjectAd>();
         }
     
         public int IdUser { get; set; }
         public string Email { get; set; }
-        public string Prenom { get; set; }
-        public string Nom { get; set; }
-        public byte Civilite { get; set; }
-        public string Pays { get; set; }
-        public string DateNaissance { get; set; }
-        public Nullable<byte> Activite { get; set; }
-        public string CodeTelPays { get; set; }
-        public string Telephone { get; set; }
-        public Nullable<byte> TypeContact { get; set; }
-        public string DescriptionPersonnalite { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public byte Civility { get; set; }
+        public string Country { get; set; }
+        public string DateBirth { get; set; }
+        public Nullable<byte> Activity { get; set; }
+        public string PhoneCode { get; set; }
+        public string PhoneNumber { get; set; }
+        public Nullable<byte> ContactType { get; set; }
+        public string PersonnalityDescription { get; set; }
         public System.DateTime DateInscription { get; set; }
-        public System.DateTime DateDerniereActivite { get; set; }
-        public bool ActivationCompte { get; set; }
+        public System.DateTime DateLastActivity { get; set; }
     
         public virtual ICollection<CreationProjectAd> CreationProjectAd { get; set; }
     }

@@ -20,7 +20,7 @@ namespace Eco_Colocation.Controllers
         }
     
         public int IdRole { get; set; }
-        public string NomRole { get; set; }
+        public string RoleName { get; set; }
         public string Description { get; set; }
     
         public virtual ICollection<Account> Account { get; set; }

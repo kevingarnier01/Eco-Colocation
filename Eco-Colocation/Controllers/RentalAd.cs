@@ -23,31 +23,31 @@ namespace Eco_Colocation.Controllers
         public int IdAccount { get; set; }
         public string Introduction { get; set; }
         public string Description { get; set; }
-        public string Rue { get; set; }
-        public string Ville { get; set; }
-        public string CodePostal { get; set; }
-        public string Departement { get; set; }
-        public string NumDepartement { get; set; }
+        public string Street { get; set; }
+        public string City { get; set; }
+        public string PostalCode { get; set; }
+        public string Department { get; set; }
+        public string DepartmentNumber { get; set; }
         public string Region { get; set; }
-        public string Pays { get; set; }
+        public string Country { get; set; }
         public decimal Latitude { get; set; }
         public decimal Longitude { get; set; }
-        public byte TypeLogement { get; set; }
-        public byte ImplantationLogement { get; set; }
-        public short SuperficieLogement { get; set; }
-        public int SuperficieTerrain { get; set; }
-        public short NbPieceLogement { get; set; }
-        public short NbHabitantRestant { get; set; }
-        public short NbColocRecherche { get; set; }
-        public bool AccesHandicape { get; set; }
-        public bool AccesTransportCommun { get; set; }
-        public string InfoSupAccessibilite { get; set; }
-        public bool ConsoAlcoolTolerence { get; set; }
-        public bool FumeurTolerence { get; set; }
-        public bool AnimauxTolerence { get; set; }
-        public string InfoSupTolerence { get; set; }
-        public System.DateTime DatePublication { get; set; }
-        public bool ActivationAnnonce { get; set; }
+        public byte HousingType { get; set; }
+        public byte HousingImplantation { get; set; }
+        public short HousingSurface { get; set; }
+        public int LandSurface { get; set; }
+        public short HousingPieceNumber { get; set; }
+        public short RoommateNumberStaying { get; set; }
+        public short RoommateNumberResearched { get; set; }
+        public bool AccessHandicapped { get; set; }
+        public bool AccesPublicTransport { get; set; }
+        public string AccesInfoSup { get; set; }
+        public bool TolerationAlcoholConsommation { get; set; }
+        public bool TolerationSmoker { get; set; }
+        public bool TolerationPets { get; set; }
+        public string TolerationInfoSup { get; set; }
+        public System.DateTime DatePublish { get; set; }
+        public bool ActivatedAnnouncement { get; set; }
     
         public virtual ICollection<RentalRoom> RentalRoom { get; set; }
         public virtual Account Account { get; set; }

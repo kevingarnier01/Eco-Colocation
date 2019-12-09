@@ -12,15 +12,15 @@ namespace Eco_Colocation.Controllers
     using System;
     using System.Collections.Generic;
     
-    public partial class PeopleEcoRoommateExisting
+    public partial class Roommate
     {
-        public int IdPeopleEcoRoommateExisting { get; set; }
+        public int IdRoommate { get; set; }
         public int IdEcoRoommateExisting { get; set; }
-        public string Prenom { get; set; }
-        public string Nom { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
         public string Email { get; set; }
-        public string DateNaissance { get; set; }
-        public byte Civilite { get; set; }
+        public string DateBirth { get; set; }
+        public byte Civility { get; set; }
     
         public virtual EcoRoommateExisting EcoRoommateExisting { get; set; }
     }

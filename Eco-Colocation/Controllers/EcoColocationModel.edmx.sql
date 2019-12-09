@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 11/27/2019 14:59:27
+-- Date Created: 12/09/2019 14:43:00
 -- Generated from EDMX file: C:\Users\kev-gar\Documents\Projet personnel\Eco-colocation\Application\Développement\Eco-Colocation\Eco-Colocation\Controllers\EcoColocationModel.edmx
 -- --------------------------------------------------
 
@@ -17,65 +17,65 @@ GO
 -- Dropping existing FOREIGN KEY constraints
 -- --------------------------------------------------
 
-IF OBJECT_ID(N'[dbo].[FK_Location_ChambreLocation]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[ChambreLocation] DROP CONSTRAINT [FK_Location_ChambreLocation];
+IF OBJECT_ID(N'[dbo].[FK_RentalAd_RentalRoom]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[RentalRoom] DROP CONSTRAINT [FK_RentalAd_RentalRoom];
 GO
-IF OBJECT_ID(N'[dbo].[FK_Lieu_ProjetCreation_ProjetCreation]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Lieu_ProjetCreation] DROP CONSTRAINT [FK_Lieu_ProjetCreation_ProjetCreation];
+IF OBJECT_ID(N'[dbo].[FK_Place_CreationProjectAd_CreationProjectAd]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Place_CreationProjectAd] DROP CONSTRAINT [FK_Place_CreationProjectAd_CreationProjectAd];
 GO
-IF OBJECT_ID(N'[dbo].[FK_Lieu_ProjetCreation_Lieu]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Lieu_ProjetCreation] DROP CONSTRAINT [FK_Lieu_ProjetCreation_Lieu];
+IF OBJECT_ID(N'[dbo].[FK_Place_CreationProjectAd_Place]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Place_CreationProjectAd] DROP CONSTRAINT [FK_Place_CreationProjectAd_Place];
 GO
-IF OBJECT_ID(N'[dbo].[FK_Lieu_RechercheColoc_RechercheColoc]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Lieu_RechercheColoc] DROP CONSTRAINT [FK_Lieu_RechercheColoc_RechercheColoc];
+IF OBJECT_ID(N'[dbo].[FK_Place_ResearchRoommate_ResearchRoommate]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Place_ResearchRoommate] DROP CONSTRAINT [FK_Place_ResearchRoommate_ResearchRoommate];
 GO
-IF OBJECT_ID(N'[dbo].[FK_Lieu_RechercheColoc_Lieu]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Lieu_RechercheColoc] DROP CONSTRAINT [FK_Lieu_RechercheColoc_Lieu];
+IF OBJECT_ID(N'[dbo].[FK_Place_ResearchRoommate_Place]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Place_ResearchRoommate] DROP CONSTRAINT [FK_Place_ResearchRoommate_Place];
 GO
-IF OBJECT_ID(N'[dbo].[FK_Evenement_EvenementPresence]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[EvenementPresence] DROP CONSTRAINT [FK_Evenement_EvenementPresence];
+IF OBJECT_ID(N'[dbo].[FK_Event_PresenceEvent]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[PresenceEvent] DROP CONSTRAINT [FK_Event_PresenceEvent];
 GO
-IF OBJECT_ID(N'[dbo].[FK_Evenement_EvenementAssocie]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[EvenementAssocie] DROP CONSTRAINT [FK_Evenement_EvenementAssocie];
+IF OBJECT_ID(N'[dbo].[FK_Event_AssociatedEvent]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[AssociatedEvent] DROP CONSTRAINT [FK_Event_AssociatedEvent];
 GO
-IF OBJECT_ID(N'[dbo].[FK_Evenement_EvenementAssocie1]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[EvenementAssocie] DROP CONSTRAINT [FK_Evenement_EvenementAssocie1];
+IF OBJECT_ID(N'[dbo].[FK_Event_AssociatedEvent1]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[AssociatedEvent] DROP CONSTRAINT [FK_Event_AssociatedEvent1];
 GO
-IF OBJECT_ID(N'[dbo].[FK_ConversationDev_ImageConversationDev]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[ImageConversationDev] DROP CONSTRAINT [FK_ConversationDev_ImageConversationDev];
+IF OBJECT_ID(N'[dbo].[FK_DevConversation_PictureDevConversation]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[PictureDevConversation] DROP CONSTRAINT [FK_DevConversation_PictureDevConversation];
 GO
-IF OBJECT_ID(N'[dbo].[FK_EcoColocExistante_ImageEcoColocEx]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[ImageEcoColocEx] DROP CONSTRAINT [FK_EcoColocExistante_ImageEcoColocEx];
+IF OBJECT_ID(N'[dbo].[FK_EcoRoommateExisting_PictureEcoRoommateEx]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[PictureEcoRoommateEx] DROP CONSTRAINT [FK_EcoRoommateExisting_PictureEcoRoommateEx];
 GO
-IF OBJECT_ID(N'[dbo].[FK_AnnonceLocation_Account]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[AnnonceLocation] DROP CONSTRAINT [FK_AnnonceLocation_Account];
+IF OBJECT_ID(N'[dbo].[FK_RentalAd_Account]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[RentalAd] DROP CONSTRAINT [FK_RentalAd_Account];
 GO
-IF OBJECT_ID(N'[dbo].[FK_ProjetCreationImage_ProjetCreation]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[ImageProjetCreation] DROP CONSTRAINT [FK_ProjetCreationImage_ProjetCreation];
+IF OBJECT_ID(N'[dbo].[FK_PictureCreationProject_CreationProjectAd]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[PictureCreationProject] DROP CONSTRAINT [FK_PictureCreationProject_CreationProjectAd];
 GO
-IF OBJECT_ID(N'[dbo].[FK_EcoColocExistante_Colocataire]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Colocataire] DROP CONSTRAINT [FK_EcoColocExistante_Colocataire];
+IF OBJECT_ID(N'[dbo].[FK_EcoRoommateExisting_Roommate]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Roommate] DROP CONSTRAINT [FK_EcoRoommateExisting_Roommate];
 GO
-IF OBJECT_ID(N'[dbo].[FK_Utilisateur_RechercheColocation]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[RechercheColocation] DROP CONSTRAINT [FK_Utilisateur_RechercheColocation];
+IF OBJECT_ID(N'[dbo].[FK_User_ResearchRoommate]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ResearchRoommate] DROP CONSTRAINT [FK_User_ResearchRoommate];
 GO
-IF OBJECT_ID(N'[dbo].[FK_Utilisateur_EcoColocExistante]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[EcoColocExistante] DROP CONSTRAINT [FK_Utilisateur_EcoColocExistante];
+IF OBJECT_ID(N'[dbo].[FK_User_EcoRoommateExisting]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[EcoRoommateExisting] DROP CONSTRAINT [FK_User_EcoRoommateExisting];
 GO
-IF OBJECT_ID(N'[dbo].[FK_Utilisateur_EvenementPresence]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[EvenementPresence] DROP CONSTRAINT [FK_Utilisateur_EvenementPresence];
+IF OBJECT_ID(N'[dbo].[FK_User_PresenceEvent]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[PresenceEvent] DROP CONSTRAINT [FK_User_PresenceEvent];
 GO
-IF OBJECT_ID(N'[dbo].[FK_Utilisateur_Evenement]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Evenement] DROP CONSTRAINT [FK_Utilisateur_Evenement];
+IF OBJECT_ID(N'[dbo].[FK_User_Event]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Event] DROP CONSTRAINT [FK_User_Event];
 GO
-IF OBJECT_ID(N'[dbo].[FK_Utilisateur_Account]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Utilisateur] DROP CONSTRAINT [FK_Utilisateur_Account];
+IF OBJECT_ID(N'[dbo].[FK_User_Account]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[User] DROP CONSTRAINT [FK_User_Account];
 GO
-IF OBJECT_ID(N'[dbo].[FK_Agence_Account]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Agence] DROP CONSTRAINT [FK_Agence_Account];
+IF OBJECT_ID(N'[dbo].[FK_Agency_Account]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Agency] DROP CONSTRAINT [FK_Agency_Account];
 GO
-IF OBJECT_ID(N'[dbo].[FK_Adhesion_Account]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Adhesion] DROP CONSTRAINT [FK_Adhesion_Account];
+IF OBJECT_ID(N'[dbo].[FK_Membership_Account]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Membership] DROP CONSTRAINT [FK_Membership_Account];
 GO
 IF OBJECT_ID(N'[dbo].[FK_Account_Role_Account]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Account_Role] DROP CONSTRAINT [FK_Account_Role_Account];
@@ -83,76 +83,76 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_Account_Role_Role]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Account_Role] DROP CONSTRAINT [FK_Account_Role_Role];
 GO
-IF OBJECT_ID(N'[dbo].[FK_ProjetCreation_Utilisateur]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[ProjetCreation] DROP CONSTRAINT [FK_ProjetCreation_Utilisateur];
+IF OBJECT_ID(N'[dbo].[FK_CreationProjectAd_User]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[CreationProjectAd] DROP CONSTRAINT [FK_CreationProjectAd_User];
 GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
 -- --------------------------------------------------
 
-IF OBJECT_ID(N'[dbo].[AnnonceLocation]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[AnnonceLocation];
+IF OBJECT_ID(N'[dbo].[RentalAd]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[RentalAd];
 GO
-IF OBJECT_ID(N'[dbo].[ChambreLocation]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[ChambreLocation];
+IF OBJECT_ID(N'[dbo].[RentalRoom]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[RentalRoom];
 GO
-IF OBJECT_ID(N'[dbo].[ProjetCreation]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[ProjetCreation];
+IF OBJECT_ID(N'[dbo].[CreationProjectAd]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[CreationProjectAd];
 GO
-IF OBJECT_ID(N'[dbo].[Lieu]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Lieu];
+IF OBJECT_ID(N'[dbo].[Place]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Place];
 GO
-IF OBJECT_ID(N'[dbo].[Evenement]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Evenement];
+IF OBJECT_ID(N'[dbo].[Event]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Event];
 GO
-IF OBJECT_ID(N'[dbo].[EvenementPresence]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[EvenementPresence];
+IF OBJECT_ID(N'[dbo].[PresenceEvent]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[PresenceEvent];
 GO
-IF OBJECT_ID(N'[dbo].[EcoColocExistante]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[EcoColocExistante];
+IF OBJECT_ID(N'[dbo].[EcoRoommateExisting]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[EcoRoommateExisting];
 GO
-IF OBJECT_ID(N'[dbo].[ImageConversationDev]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[ImageConversationDev];
+IF OBJECT_ID(N'[dbo].[PictureDevConversation]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[PictureDevConversation];
 GO
-IF OBJECT_ID(N'[dbo].[Colocataire]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Colocataire];
+IF OBJECT_ID(N'[dbo].[Roommate]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Roommate];
 GO
-IF OBJECT_ID(N'[dbo].[ConversationDev]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[ConversationDev];
+IF OBJECT_ID(N'[dbo].[DevConversation]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[DevConversation];
 GO
-IF OBJECT_ID(N'[dbo].[RechercheColocation]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[RechercheColocation];
+IF OBJECT_ID(N'[dbo].[ResearchRoommate]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[ResearchRoommate];
 GO
 IF OBJECT_ID(N'[dbo].[Role]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Role];
 GO
-IF OBJECT_ID(N'[dbo].[EvenementAssocie]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[EvenementAssocie];
+IF OBJECT_ID(N'[dbo].[AssociatedEvent]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[AssociatedEvent];
 GO
-IF OBJECT_ID(N'[dbo].[Adhesion]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Adhesion];
+IF OBJECT_ID(N'[dbo].[Membership]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Membership];
 GO
-IF OBJECT_ID(N'[dbo].[ImageEcoColocEx]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[ImageEcoColocEx];
+IF OBJECT_ID(N'[dbo].[PictureEcoRoommateEx]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[PictureEcoRoommateEx];
 GO
-IF OBJECT_ID(N'[dbo].[ImageProjetCreation]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[ImageProjetCreation];
+IF OBJECT_ID(N'[dbo].[PictureCreationProject]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[PictureCreationProject];
 GO
 IF OBJECT_ID(N'[dbo].[Account]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Account];
 GO
-IF OBJECT_ID(N'[dbo].[Agence]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Agence];
+IF OBJECT_ID(N'[dbo].[Agency]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Agency];
 GO
-IF OBJECT_ID(N'[dbo].[Utilisateur]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Utilisateur];
+IF OBJECT_ID(N'[dbo].[User]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[User];
 GO
-IF OBJECT_ID(N'[dbo].[Lieu_ProjetCreation]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Lieu_ProjetCreation];
+IF OBJECT_ID(N'[dbo].[Place_CreationProjectAd]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Place_CreationProjectAd];
 GO
-IF OBJECT_ID(N'[dbo].[Lieu_RechercheColoc]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Lieu_RechercheColoc];
+IF OBJECT_ID(N'[dbo].[Place_ResearchRoommate]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Place_ResearchRoommate];
 GO
 IF OBJECT_ID(N'[dbo].[Account_Role]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Account_Role];
@@ -162,289 +162,289 @@ GO
 -- Creating all tables
 -- --------------------------------------------------
 
--- Creating table 'AnnonceLocation'
-CREATE TABLE [dbo].[AnnonceLocation] (
-    [IdAnnonceLocation] int IDENTITY(1,1) NOT NULL,
+-- Creating table 'RentalAd'
+CREATE TABLE [dbo].[RentalAd] (
+    [IdRentalAd] int IDENTITY(1,1) NOT NULL,
     [IdAccount] int  NOT NULL,
     [Introduction] nvarchar(110)  NOT NULL,
     [Description] nvarchar(max)  NOT NULL,
-    [Rue] nvarchar(80)  NOT NULL,
-    [Ville] nvarchar(50)  NOT NULL,
-    [CodePostal] nvarchar(15)  NOT NULL,
-    [Departement] nvarchar(50)  NOT NULL,
-    [NumDepartement] nvarchar(8)  NOT NULL,
+    [Street] nvarchar(80)  NOT NULL,
+    [City] nvarchar(50)  NOT NULL,
+    [PostalCode] nvarchar(15)  NOT NULL,
+    [Department] nvarchar(50)  NOT NULL,
+    [DepartmentNumber] nvarchar(8)  NOT NULL,
     [Region] nvarchar(50)  NOT NULL,
-    [Pays] nvarchar(50)  NOT NULL,
+    [Country] nvarchar(50)  NOT NULL,
     [Latitude] decimal(9,6)  NOT NULL,
     [Longitude] decimal(9,6)  NOT NULL,
-    [TypeLogement] tinyint  NOT NULL,
-    [ImplantationLogement] tinyint  NOT NULL,
-    [SuperficieLogement] smallint  NOT NULL,
-    [SuperficieTerrain] int  NOT NULL,
-    [NbPieceLogement] smallint  NOT NULL,
-    [NbHabitantRestant] smallint  NOT NULL,
-    [NbColocRecherche] smallint  NOT NULL,
-    [AccesHandicape] bit  NOT NULL,
-    [AccesTransportCommun] bit  NOT NULL,
-    [InfoSupAccessibilite] nvarchar(100)  NULL,
-    [ConsoAlcoolTolerence] bit  NOT NULL,
-    [FumeurTolerence] bit  NOT NULL,
-    [AnimauxTolerence] bit  NOT NULL,
-    [InfoSupTolerence] nvarchar(100)  NULL,
-    [DatePublication] datetime  NOT NULL,
-    [ActivationAnnonce] bit  NOT NULL
+    [HousingType] tinyint  NOT NULL,
+    [HousingImplantation] tinyint  NOT NULL,
+    [HousingSurface] smallint  NOT NULL,
+    [LandSurface] int  NOT NULL,
+    [HousingPieceNumber] smallint  NOT NULL,
+    [RoommateNumberStaying] smallint  NOT NULL,
+    [RoommateNumberResearched] smallint  NOT NULL,
+    [AccessHandicapped] bit  NOT NULL,
+    [AccesPublicTransport] bit  NOT NULL,
+    [AccesInfoSup] nvarchar(100)  NULL,
+    [TolerationAlcoholConsommation] bit  NOT NULL,
+    [TolerationSmoker] bit  NOT NULL,
+    [TolerationPets] bit  NOT NULL,
+    [TolerationInfoSup] nvarchar(100)  NULL,
+    [DatePublish] datetime  NOT NULL,
+    [ActivatedAnnouncement] bit  NOT NULL
 );
 GO
 
--- Creating table 'ChambreLocation'
-CREATE TABLE [dbo].[ChambreLocation] (
-    [IdChambreLocation] int IDENTITY(1,1) NOT NULL,
-    [IdAnnonceLocation] int  NOT NULL,
-    [Loyer] decimal(7,2)  NOT NULL,
+-- Creating table 'RentalRoom'
+CREATE TABLE [dbo].[RentalRoom] (
+    [IdRentalRoom] int IDENTITY(1,1) NOT NULL,
+    [IdRentalAd] int  NOT NULL,
+    [RentPrice] decimal(7,2)  NOT NULL,
     [Charges] decimal(7,2)  NOT NULL,
-    [DetailCharges] nvarchar(100)  NOT NULL,
+    [ChargesDetail] nvarchar(100)  NOT NULL,
     [Caution] decimal(7,2)  NULL,
-    [Superficie] smallint  NOT NULL,
-    [Meublee] bit  NOT NULL,
-    [DateDisponibilite] datetime  NOT NULL,
-    [DateFinDisponibilite] datetime  NULL
+    [Surface] smallint  NOT NULL,
+    [Furnished] bit  NOT NULL,
+    [AvalaibleDate] datetime  NOT NULL,
+    [AvalaibleEndDate] datetime  NULL
 );
 GO
 
--- Creating table 'ProjetCreation'
-CREATE TABLE [dbo].[ProjetCreation] (
-    [IdProjetCreation] int IDENTITY(1,1) NOT NULL,
-    [IdUtilisateur] int  NOT NULL,
+-- Creating table 'CreationProjectAd'
+CREATE TABLE [dbo].[CreationProjectAd] (
+    [IdCreationProject] int IDENTITY(1,1) NOT NULL,
+    [IdUser] int  NOT NULL,
     [Introduction] nvarchar(100)  NOT NULL,
     [Description] nvarchar(max)  NOT NULL,
-    [EngagementTerrain] tinyint  NULL,
-    [SuperficieMaxTerrain] int  NULL,
-    [CoutAchatMaxTerrain] int  NULL,
-    [EngagementLogement] tinyint  NOT NULL,
-    [TypeHabitat] tinyint  NOT NULL,
-    [ImplantationLogement] tinyint  NOT NULL,
-    [SuperficieMaxLogement] smallint  NOT NULL,
-    [CoutAchatMaxLogement] int  NULL,
-    [LoyerMaxLogement] smallint  NULL,
-    [CoutConstructionMaxLogement] int  NULL,
-    [NbPersoTotal] smallint  NOT NULL,
-    [NbPersAchatTerrain] smallint  NULL,
-    [NbPersAchatLogement] smallint  NULL,
-    [NbPersLocationLogement] smallint  NULL,
-    [AccesTransportCommun] tinyint  NOT NULL,
-    [InfoSupAccessibilite] nvarchar(100)  NULL,
-    [ConsoAlcoolTolerence] bit  NOT NULL,
-    [FumeurTolerence] bit  NOT NULL,
-    [AnimauxTolerence] bit  NOT NULL,
-    [InfoSupTolerence] nvarchar(100)  NULL,
-    [ActivationAnnonce] nvarchar(max)  NOT NULL
+    [LandEngagement] tinyint  NULL,
+    [LandMaxSurface] int  NULL,
+    [LandMaxPrice] int  NULL,
+    [HousingEngagement] tinyint  NOT NULL,
+    [HousingType] tinyint  NOT NULL,
+    [HousingImplantation] tinyint  NOT NULL,
+    [HousingMaxSurface] smallint  NOT NULL,
+    [HousingMaxPrice] int  NULL,
+    [HousingMaxRent] smallint  NULL,
+    [HousingMaxPriceBuilt] int  NULL,
+    [TotalNumberPerson] smallint  NOT NULL,
+    [NbPersonToBuyLand] smallint  NULL,
+    [NbPersonToBuyHousing] smallint  NULL,
+    [NbPersonToRentHousing] smallint  NULL,
+    [AccesPublicTransport] tinyint  NOT NULL,
+    [AccesInfoSup] nvarchar(100)  NULL,
+    [TolerationAlcoholConsommation] bit  NOT NULL,
+    [TolerationSmoker] bit  NOT NULL,
+    [TolerationPets] bit  NOT NULL,
+    [TolerationInfoSup] nvarchar(100)  NULL,
+    [ActivatedAnnouncement] nvarchar(max)  NOT NULL
 );
 GO
 
--- Creating table 'Lieu'
-CREATE TABLE [dbo].[Lieu] (
-    [IdLieu] int IDENTITY(1,1) NOT NULL,
-    [Ville] nvarchar(50)  NULL,
-    [CodePostal] nvarchar(15)  NULL,
-    [Departement] nvarchar(50)  NULL,
-    [NumDepartement] nvarchar(8)  NOT NULL,
+-- Creating table 'Place'
+CREATE TABLE [dbo].[Place] (
+    [IdPlace] int IDENTITY(1,1) NOT NULL,
+    [City] nvarchar(50)  NULL,
+    [PostalCode] nvarchar(15)  NULL,
+    [Department] nvarchar(50)  NULL,
+    [DepartmentNumber] nvarchar(8)  NOT NULL,
     [Region] nvarchar(50)  NULL,
-    [Pays] nvarchar(50)  NOT NULL
+    [County] nvarchar(50)  NOT NULL
 );
 GO
 
--- Creating table 'Evenement'
-CREATE TABLE [dbo].[Evenement] (
-    [IdEvenement] int IDENTITY(1,1) NOT NULL,
-    [IdUtilisateur] int  NOT NULL,
-    [DateDebut] datetime  NOT NULL,
-    [DateFin] datetime  NOT NULL,
-    [NumRue] nvarchar(10)  NOT NULL,
-    [Rue] nvarchar(80)  NOT NULL,
-    [Ville] nvarchar(60)  NOT NULL,
-    [CodePostal] nvarchar(15)  NOT NULL,
-    [Departement] nvarchar(50)  NOT NULL,
-    [NumDepartement] nvarchar(8)  NOT NULL,
+-- Creating table 'Event'
+CREATE TABLE [dbo].[Event] (
+    [IdEvent] int IDENTITY(1,1) NOT NULL,
+    [IdUser] int  NOT NULL,
+    [DateStart] datetime  NOT NULL,
+    [DateEnd] datetime  NOT NULL,
+    [StreetNumber] nvarchar(10)  NOT NULL,
+    [StreetName] nvarchar(80)  NOT NULL,
+    [City] nvarchar(60)  NOT NULL,
+    [PostalCode] nvarchar(15)  NOT NULL,
+    [Department] nvarchar(50)  NOT NULL,
+    [DepartmentNumber] nvarchar(8)  NOT NULL,
     [Region] nvarchar(50)  NOT NULL,
-    [Pays] nvarchar(50)  NOT NULL,
-    [Lien] nvarchar(500)  NULL,
+    [Country] nvarchar(50)  NOT NULL,
+    [Link] nvarchar(500)  NULL,
     [Description] nvarchar(max)  NOT NULL,
-    [NomImage] nvarchar(50)  NULL,
-    [DatePublication] datetime  NOT NULL
+    [PictureName] nvarchar(50)  NULL,
+    [DatePublish] datetime  NOT NULL
 );
 GO
 
--- Creating table 'EvenementPresence'
-CREATE TABLE [dbo].[EvenementPresence] (
-    [IdUtilisateur] int  NOT NULL,
-    [IdEvenement] int  NOT NULL,
-    [Statut] tinyint  NOT NULL
+-- Creating table 'PresenceEvent'
+CREATE TABLE [dbo].[PresenceEvent] (
+    [IdUser] int  NOT NULL,
+    [IdEvent] int  NOT NULL,
+    [Status] tinyint  NOT NULL
 );
 GO
 
--- Creating table 'EcoColocExistante'
-CREATE TABLE [dbo].[EcoColocExistante] (
-    [IdEcoColocExistante] int IDENTITY(1,1) NOT NULL,
-    [IdUtilisateur] int  NOT NULL,
-    [NomEcoColoc] nvarchar(50)  NOT NULL,
-    [NbColocataire] smallint  NOT NULL,
-    [Pays] nvarchar(50)  NOT NULL,
+-- Creating table 'EcoRoommateExisting'
+CREATE TABLE [dbo].[EcoRoommateExisting] (
+    [IdEcoRoommateExisting] int IDENTITY(1,1) NOT NULL,
+    [IdUser] int  NOT NULL,
+    [EcoRoommateName] nvarchar(50)  NOT NULL,
+    [RommateNumber] smallint  NOT NULL,
+    [Country] nvarchar(50)  NOT NULL,
     [Region] nvarchar(50)  NOT NULL,
-    [Departement] nvarchar(50)  NOT NULL,
-    [NumDepartement] nvarchar(8)  NOT NULL,
-    [Ville] nvarchar(50)  NOT NULL,
-    [CodePostal] nvarchar(15)  NOT NULL,
+    [Department] nvarchar(50)  NOT NULL,
+    [DepartmentNumber] nvarchar(8)  NOT NULL,
+    [City] nvarchar(50)  NOT NULL,
+    [PostalCode] nvarchar(15)  NOT NULL,
     [Email] nvarchar(60)  NULL,
     [Description] nvarchar(max)  NOT NULL,
-    [ImplicationEcologique] tinyint  NOT NULL,
-    [TableauEcolo] nvarchar(max)  NOT NULL,
-    [TableauHabitat] nvarchar(max)  NOT NULL
+    [EcoImplication] tinyint  NOT NULL,
+    [TableEco] nvarchar(max)  NOT NULL,
+    [TableHousing] nvarchar(max)  NOT NULL
 );
 GO
 
--- Creating table 'ImageConversationDev'
-CREATE TABLE [dbo].[ImageConversationDev] (
-    [IdImgConversationDev] int IDENTITY(1,1) NOT NULL,
-    [IdConversationDev] int  NOT NULL,
-    [NomImage] nvarchar(50)  NOT NULL
+-- Creating table 'PictureDevConversation'
+CREATE TABLE [dbo].[PictureDevConversation] (
+    [IdPictureDevConversation] int IDENTITY(1,1) NOT NULL,
+    [IdDevConversation] int  NOT NULL,
+    [PictureName] nvarchar(50)  NOT NULL
 );
 GO
 
--- Creating table 'Colocataire'
-CREATE TABLE [dbo].[Colocataire] (
-    [IdColocataire] int IDENTITY(1,1) NOT NULL,
-    [IdEcoColocExistante] int  NOT NULL,
-    [Prenom] nvarchar(50)  NOT NULL,
-    [Nom] nvarchar(50)  NOT NULL,
+-- Creating table 'Roommate'
+CREATE TABLE [dbo].[Roommate] (
+    [IdPeopleEcoRoommateExisting] int IDENTITY(1,1) NOT NULL,
+    [IdEcoRoommateExisting] int  NOT NULL,
+    [FirstName] nvarchar(50)  NOT NULL,
+    [LastName] nvarchar(50)  NOT NULL,
     [Email] nvarchar(60)  NOT NULL,
-    [DateNaissance] nvarchar(10)  NOT NULL,
-    [Civilite] tinyint  NOT NULL
+    [DateBirth] nvarchar(10)  NOT NULL,
+    [Civility] tinyint  NOT NULL
 );
 GO
 
--- Creating table 'ConversationDev'
-CREATE TABLE [dbo].[ConversationDev] (
-    [IdConversationDev] int IDENTITY(1,1) NOT NULL,
+-- Creating table 'DevConversation'
+CREATE TABLE [dbo].[DevConversation] (
+    [IdDevConversation] int IDENTITY(1,1) NOT NULL,
     [Email] nvarchar(max)  NOT NULL,
     [Message] nvarchar(max)  NOT NULL,
-    [DateDernierEnvoi] datetime  NOT NULL,
-    [Vu] tinyint  NOT NULL
+    [DateLastSend] datetime  NOT NULL,
+    [Viewed] tinyint  NOT NULL
 );
 GO
 
--- Creating table 'RechercheColocation'
-CREATE TABLE [dbo].[RechercheColocation] (
-    [IdRechercheColocation] int IDENTITY(1,1) NOT NULL,
-    [IdUtilisateur] int  NOT NULL,
-    [BudgetMax] smallint  NOT NULL,
-    [AlerteParEmail] tinyint  NOT NULL,
-    [CritereRecherche] nvarchar(max)  NOT NULL,
-    [PratiqueEcolo] nvarchar(max)  NOT NULL,
-    [NomPhoto] nvarchar(50)  NOT NULL,
-    [ActivationAnnonce] nvarchar(max)  NOT NULL
+-- Creating table 'ResearchRoommate'
+CREATE TABLE [dbo].[ResearchRoommate] (
+    [IdResearchRoommate] int IDENTITY(1,1) NOT NULL,
+    [IdUser] int  NOT NULL,
+    [MaxBudget] smallint  NOT NULL,
+    [EmailAlert] tinyint  NOT NULL,
+    [SearchCriteria] nvarchar(max)  NOT NULL,
+    [EcoPractice] nvarchar(max)  NOT NULL,
+    [PictureName] nvarchar(50)  NOT NULL,
+    [ActivatedAnnouncement] nvarchar(max)  NOT NULL
 );
 GO
 
 -- Creating table 'Role'
 CREATE TABLE [dbo].[Role] (
     [IdRole] int IDENTITY(1,1) NOT NULL,
-    [NomRole] nvarchar(50)  NOT NULL,
+    [RoleName] nvarchar(50)  NOT NULL,
     [Description] nvarchar(100)  NULL
 );
 GO
 
--- Creating table 'EvenementAssocie'
-CREATE TABLE [dbo].[EvenementAssocie] (
-    [IdEvenement] int  NOT NULL,
-    [IdEvenementAssocie] int  NOT NULL
+-- Creating table 'AssociatedEvent'
+CREATE TABLE [dbo].[AssociatedEvent] (
+    [IdEvent] int  NOT NULL,
+    [IdAssociatedEvent] int  NOT NULL
 );
 GO
 
--- Creating table 'Adhesion'
-CREATE TABLE [dbo].[Adhesion] (
+-- Creating table 'Membership'
+CREATE TABLE [dbo].[Membership] (
     [IdAdhesion] int IDENTITY(1,1) NOT NULL,
-    [MotDePasse] nvarchar(50)  NOT NULL,
-    [Adhesion_Account_Adhesion_IdAccount] int  NOT NULL
+    [Password] nvarchar(50)  NOT NULL,
+    [Membership_Account_Membership_IdAccount] int  NOT NULL
 );
 GO
 
--- Creating table 'ImageEcoColocEx'
-CREATE TABLE [dbo].[ImageEcoColocEx] (
-    [IdImageEcoColocEx] int IDENTITY(1,1) NOT NULL,
-    [IdEcoColocExistante] int  NOT NULL,
-    [NomImage] nvarchar(50)  NOT NULL,
-    [NumOrdre] tinyint  NOT NULL
+-- Creating table 'PictureEcoRoommateEx'
+CREATE TABLE [dbo].[PictureEcoRoommateEx] (
+    [IdPictureEcoRoommateEx] int IDENTITY(1,1) NOT NULL,
+    [IdEcoRoommateExisting] int  NOT NULL,
+    [PictureName] nvarchar(50)  NOT NULL,
+    [OrderNumber] tinyint  NOT NULL
 );
 GO
 
--- Creating table 'ImageProjetCreation'
-CREATE TABLE [dbo].[ImageProjetCreation] (
-    [IdImgProjetCreation] int IDENTITY(1,1) NOT NULL,
+-- Creating table 'PictureCreationProject'
+CREATE TABLE [dbo].[PictureCreationProject] (
+    [IdPictureCreationProject] int IDENTITY(1,1) NOT NULL,
     [IdProjetCreation] int  NOT NULL,
-    [NomImage] nvarchar(50)  NOT NULL,
-    [NumOrdre] tinyint  NOT NULL
+    [PictureName] nvarchar(50)  NOT NULL,
+    [OrderNumber] tinyint  NOT NULL
 );
 GO
 
 -- Creating table 'Account'
 CREATE TABLE [dbo].[Account] (
     [IdAccount] int IDENTITY(1,1) NOT NULL,
-    [DateCreation] datetime  NOT NULL
+    [CreationDate] datetime  NOT NULL,
+    [Activited] bit  NOT NULL
 );
 GO
 
--- Creating table 'Agence'
-CREATE TABLE [dbo].[Agence] (
-    [IdAgence] int IDENTITY(1,1) NOT NULL,
-    [Nom] nvarchar(50)  NOT NULL,
+-- Creating table 'Agency'
+CREATE TABLE [dbo].[Agency] (
+    [IdAgency] int IDENTITY(1,1) NOT NULL,
+    [Name] nvarchar(50)  NOT NULL,
     [Email] nvarchar(60)  NOT NULL,
-    [Telephone] nvarchar(12)  NOT NULL,
-    [NumRue] nvarchar(10)  NOT NULL,
-    [Rue] nvarchar(80)  NOT NULL,
-    [Ville] nvarchar(50)  NOT NULL,
-    [CodePostal] nvarchar(15)  NOT NULL,
-    [Departement] nvarchar(50)  NOT NULL,
-    [NumDepartement] nvarchar(8)  NOT NULL,
+    [Phone] nvarchar(12)  NOT NULL,
+    [StreetNumber] nvarchar(10)  NOT NULL,
+    [Street] nvarchar(80)  NOT NULL,
+    [City] nvarchar(50)  NOT NULL,
+    [PostalCode] nvarchar(15)  NOT NULL,
+    [Department] nvarchar(50)  NOT NULL,
+    [DepartmentNumber] nvarchar(8)  NOT NULL,
     [Region] nvarchar(50)  NOT NULL,
-    [Pays] nvarchar(50)  NOT NULL,
-    [NumSiret] nvarchar(14)  NOT NULL,
-    [FraisAgence] decimal(7,2)  NOT NULL,
+    [County] nvarchar(50)  NOT NULL,
+    [SiretNumber] nvarchar(14)  NOT NULL,
+    [AgencyFees] decimal(7,2)  NOT NULL,
     [Account_IdAccount] int  NOT NULL
 );
 GO
 
--- Creating table 'Utilisateur'
-CREATE TABLE [dbo].[Utilisateur] (
-    [IdUtilisateur] int IDENTITY(1,1) NOT NULL,
+-- Creating table 'User'
+CREATE TABLE [dbo].[User] (
+    [IdUser] int IDENTITY(1,1) NOT NULL,
     [Email] nvarchar(60)  NOT NULL,
-    [Prenom] nvarchar(50)  NOT NULL,
-    [Nom] nvarchar(50)  NOT NULL,
-    [Civilite] tinyint  NOT NULL,
-    [Pays] nvarchar(50)  NOT NULL,
-    [DateNaissance] nvarchar(10)  NOT NULL,
-    [Activite] tinyint  NULL,
-    [CodeTelPays] nvarchar(15)  NOT NULL,
-    [Telephone] nvarchar(12)  NOT NULL,
-    [TypeContact] tinyint  NULL,
-    [DescriptionPersonnalite] nvarchar(500)  NULL,
+    [FirstName] nvarchar(50)  NOT NULL,
+    [LastName] nvarchar(50)  NOT NULL,
+    [Civility] tinyint  NOT NULL,
+    [Country] nvarchar(50)  NOT NULL,
+    [DateBirth] nvarchar(10)  NOT NULL,
+    [Activity] tinyint  NULL,
+    [PhoneCode] nvarchar(15)  NOT NULL,
+    [PhoneNumber] nvarchar(12)  NOT NULL,
+    [ContactType] tinyint  NULL,
+    [PersonnalityDescription] nvarchar(500)  NULL,
     [DateInscription] datetime  NOT NULL,
-    [DateDerniereActivite] datetime  NOT NULL,
-    [ActivationCompte] bit  NOT NULL,
-    [Utilisateur_Account_Utilisateur_IdAccount] int  NOT NULL
+    [DateLastActivity] datetime  NOT NULL,
+    [User_Account_User_IdAccount] int  NOT NULL
 );
 GO
 
--- Creating table 'Lieu_ProjetCreation'
-CREATE TABLE [dbo].[Lieu_ProjetCreation] (
-    [ProjetCreation_IdProjetCreation] int  NOT NULL,
-    [Lieu_IdLieu] int  NOT NULL
+-- Creating table 'Place_CreationProjectAd'
+CREATE TABLE [dbo].[Place_CreationProjectAd] (
+    [CreationProjectAd_IdCreationProject] int  NOT NULL,
+    [Place_IdPlace] int  NOT NULL
 );
 GO
 
--- Creating table 'Lieu_RechercheColoc'
-CREATE TABLE [dbo].[Lieu_RechercheColoc] (
-    [RechercheColocation_IdRechercheColocation] int  NOT NULL,
-    [Lieu_IdLieu] int  NOT NULL
+-- Creating table 'Place_ResearchRoommate'
+CREATE TABLE [dbo].[Place_ResearchRoommate] (
+    [ResearchRoommate_IdResearchRoommate] int  NOT NULL,
+    [Place_IdPlace] int  NOT NULL
 );
 GO
 
@@ -459,70 +459,70 @@ GO
 -- Creating all PRIMARY KEY constraints
 -- --------------------------------------------------
 
--- Creating primary key on [IdAnnonceLocation] in table 'AnnonceLocation'
-ALTER TABLE [dbo].[AnnonceLocation]
-ADD CONSTRAINT [PK_AnnonceLocation]
-    PRIMARY KEY CLUSTERED ([IdAnnonceLocation] ASC);
+-- Creating primary key on [IdRentalAd] in table 'RentalAd'
+ALTER TABLE [dbo].[RentalAd]
+ADD CONSTRAINT [PK_RentalAd]
+    PRIMARY KEY CLUSTERED ([IdRentalAd] ASC);
 GO
 
--- Creating primary key on [IdChambreLocation] in table 'ChambreLocation'
-ALTER TABLE [dbo].[ChambreLocation]
-ADD CONSTRAINT [PK_ChambreLocation]
-    PRIMARY KEY CLUSTERED ([IdChambreLocation] ASC);
+-- Creating primary key on [IdRentalRoom] in table 'RentalRoom'
+ALTER TABLE [dbo].[RentalRoom]
+ADD CONSTRAINT [PK_RentalRoom]
+    PRIMARY KEY CLUSTERED ([IdRentalRoom] ASC);
 GO
 
--- Creating primary key on [IdProjetCreation] in table 'ProjetCreation'
-ALTER TABLE [dbo].[ProjetCreation]
-ADD CONSTRAINT [PK_ProjetCreation]
-    PRIMARY KEY CLUSTERED ([IdProjetCreation] ASC);
+-- Creating primary key on [IdCreationProject] in table 'CreationProjectAd'
+ALTER TABLE [dbo].[CreationProjectAd]
+ADD CONSTRAINT [PK_CreationProjectAd]
+    PRIMARY KEY CLUSTERED ([IdCreationProject] ASC);
 GO
 
--- Creating primary key on [IdLieu] in table 'Lieu'
-ALTER TABLE [dbo].[Lieu]
-ADD CONSTRAINT [PK_Lieu]
-    PRIMARY KEY CLUSTERED ([IdLieu] ASC);
+-- Creating primary key on [IdPlace] in table 'Place'
+ALTER TABLE [dbo].[Place]
+ADD CONSTRAINT [PK_Place]
+    PRIMARY KEY CLUSTERED ([IdPlace] ASC);
 GO
 
--- Creating primary key on [IdEvenement] in table 'Evenement'
-ALTER TABLE [dbo].[Evenement]
-ADD CONSTRAINT [PK_Evenement]
-    PRIMARY KEY CLUSTERED ([IdEvenement] ASC);
+-- Creating primary key on [IdEvent] in table 'Event'
+ALTER TABLE [dbo].[Event]
+ADD CONSTRAINT [PK_Event]
+    PRIMARY KEY CLUSTERED ([IdEvent] ASC);
 GO
 
--- Creating primary key on [IdEvenement], [IdUtilisateur] in table 'EvenementPresence'
-ALTER TABLE [dbo].[EvenementPresence]
-ADD CONSTRAINT [PK_EvenementPresence]
-    PRIMARY KEY CLUSTERED ([IdEvenement], [IdUtilisateur] ASC);
+-- Creating primary key on [IdEvent], [IdUser] in table 'PresenceEvent'
+ALTER TABLE [dbo].[PresenceEvent]
+ADD CONSTRAINT [PK_PresenceEvent]
+    PRIMARY KEY CLUSTERED ([IdEvent], [IdUser] ASC);
 GO
 
--- Creating primary key on [IdEcoColocExistante] in table 'EcoColocExistante'
-ALTER TABLE [dbo].[EcoColocExistante]
-ADD CONSTRAINT [PK_EcoColocExistante]
-    PRIMARY KEY CLUSTERED ([IdEcoColocExistante] ASC);
+-- Creating primary key on [IdEcoRoommateExisting] in table 'EcoRoommateExisting'
+ALTER TABLE [dbo].[EcoRoommateExisting]
+ADD CONSTRAINT [PK_EcoRoommateExisting]
+    PRIMARY KEY CLUSTERED ([IdEcoRoommateExisting] ASC);
 GO
 
--- Creating primary key on [IdImgConversationDev] in table 'ImageConversationDev'
-ALTER TABLE [dbo].[ImageConversationDev]
-ADD CONSTRAINT [PK_ImageConversationDev]
-    PRIMARY KEY CLUSTERED ([IdImgConversationDev] ASC);
+-- Creating primary key on [IdPictureDevConversation] in table 'PictureDevConversation'
+ALTER TABLE [dbo].[PictureDevConversation]
+ADD CONSTRAINT [PK_PictureDevConversation]
+    PRIMARY KEY CLUSTERED ([IdPictureDevConversation] ASC);
 GO
 
--- Creating primary key on [IdColocataire] in table 'Colocataire'
-ALTER TABLE [dbo].[Colocataire]
-ADD CONSTRAINT [PK_Colocataire]
-    PRIMARY KEY CLUSTERED ([IdColocataire] ASC);
+-- Creating primary key on [IdPeopleEcoRoommateExisting] in table 'Roommate'
+ALTER TABLE [dbo].[Roommate]
+ADD CONSTRAINT [PK_Roommate]
+    PRIMARY KEY CLUSTERED ([IdPeopleEcoRoommateExisting] ASC);
 GO
 
--- Creating primary key on [IdConversationDev] in table 'ConversationDev'
-ALTER TABLE [dbo].[ConversationDev]
-ADD CONSTRAINT [PK_ConversationDev]
-    PRIMARY KEY CLUSTERED ([IdConversationDev] ASC);
+-- Creating primary key on [IdDevConversation] in table 'DevConversation'
+ALTER TABLE [dbo].[DevConversation]
+ADD CONSTRAINT [PK_DevConversation]
+    PRIMARY KEY CLUSTERED ([IdDevConversation] ASC);
 GO
 
--- Creating primary key on [IdRechercheColocation] in table 'RechercheColocation'
-ALTER TABLE [dbo].[RechercheColocation]
-ADD CONSTRAINT [PK_RechercheColocation]
-    PRIMARY KEY CLUSTERED ([IdRechercheColocation] ASC);
+-- Creating primary key on [IdResearchRoommate] in table 'ResearchRoommate'
+ALTER TABLE [dbo].[ResearchRoommate]
+ADD CONSTRAINT [PK_ResearchRoommate]
+    PRIMARY KEY CLUSTERED ([IdResearchRoommate] ASC);
 GO
 
 -- Creating primary key on [IdRole] in table 'Role'
@@ -531,28 +531,28 @@ ADD CONSTRAINT [PK_Role]
     PRIMARY KEY CLUSTERED ([IdRole] ASC);
 GO
 
--- Creating primary key on [IdEvenement], [IdEvenementAssocie] in table 'EvenementAssocie'
-ALTER TABLE [dbo].[EvenementAssocie]
-ADD CONSTRAINT [PK_EvenementAssocie]
-    PRIMARY KEY CLUSTERED ([IdEvenement], [IdEvenementAssocie] ASC);
+-- Creating primary key on [IdEvent], [IdAssociatedEvent] in table 'AssociatedEvent'
+ALTER TABLE [dbo].[AssociatedEvent]
+ADD CONSTRAINT [PK_AssociatedEvent]
+    PRIMARY KEY CLUSTERED ([IdEvent], [IdAssociatedEvent] ASC);
 GO
 
--- Creating primary key on [IdAdhesion] in table 'Adhesion'
-ALTER TABLE [dbo].[Adhesion]
-ADD CONSTRAINT [PK_Adhesion]
+-- Creating primary key on [IdAdhesion] in table 'Membership'
+ALTER TABLE [dbo].[Membership]
+ADD CONSTRAINT [PK_Membership]
     PRIMARY KEY CLUSTERED ([IdAdhesion] ASC);
 GO
 
--- Creating primary key on [IdImageEcoColocEx] in table 'ImageEcoColocEx'
-ALTER TABLE [dbo].[ImageEcoColocEx]
-ADD CONSTRAINT [PK_ImageEcoColocEx]
-    PRIMARY KEY CLUSTERED ([IdImageEcoColocEx] ASC);
+-- Creating primary key on [IdPictureEcoRoommateEx] in table 'PictureEcoRoommateEx'
+ALTER TABLE [dbo].[PictureEcoRoommateEx]
+ADD CONSTRAINT [PK_PictureEcoRoommateEx]
+    PRIMARY KEY CLUSTERED ([IdPictureEcoRoommateEx] ASC);
 GO
 
--- Creating primary key on [IdImgProjetCreation] in table 'ImageProjetCreation'
-ALTER TABLE [dbo].[ImageProjetCreation]
-ADD CONSTRAINT [PK_ImageProjetCreation]
-    PRIMARY KEY CLUSTERED ([IdImgProjetCreation] ASC);
+-- Creating primary key on [IdPictureCreationProject] in table 'PictureCreationProject'
+ALTER TABLE [dbo].[PictureCreationProject]
+ADD CONSTRAINT [PK_PictureCreationProject]
+    PRIMARY KEY CLUSTERED ([IdPictureCreationProject] ASC);
 GO
 
 -- Creating primary key on [IdAccount] in table 'Account'
@@ -561,28 +561,28 @@ ADD CONSTRAINT [PK_Account]
     PRIMARY KEY CLUSTERED ([IdAccount] ASC);
 GO
 
--- Creating primary key on [IdAgence] in table 'Agence'
-ALTER TABLE [dbo].[Agence]
-ADD CONSTRAINT [PK_Agence]
-    PRIMARY KEY CLUSTERED ([IdAgence] ASC);
+-- Creating primary key on [IdAgency] in table 'Agency'
+ALTER TABLE [dbo].[Agency]
+ADD CONSTRAINT [PK_Agency]
+    PRIMARY KEY CLUSTERED ([IdAgency] ASC);
 GO
 
--- Creating primary key on [IdUtilisateur] in table 'Utilisateur'
-ALTER TABLE [dbo].[Utilisateur]
-ADD CONSTRAINT [PK_Utilisateur]
-    PRIMARY KEY CLUSTERED ([IdUtilisateur] ASC);
+-- Creating primary key on [IdUser] in table 'User'
+ALTER TABLE [dbo].[User]
+ADD CONSTRAINT [PK_User]
+    PRIMARY KEY CLUSTERED ([IdUser] ASC);
 GO
 
--- Creating primary key on [ProjetCreation_IdProjetCreation], [Lieu_IdLieu] in table 'Lieu_ProjetCreation'
-ALTER TABLE [dbo].[Lieu_ProjetCreation]
-ADD CONSTRAINT [PK_Lieu_ProjetCreation]
-    PRIMARY KEY CLUSTERED ([ProjetCreation_IdProjetCreation], [Lieu_IdLieu] ASC);
+-- Creating primary key on [CreationProjectAd_IdCreationProject], [Place_IdPlace] in table 'Place_CreationProjectAd'
+ALTER TABLE [dbo].[Place_CreationProjectAd]
+ADD CONSTRAINT [PK_Place_CreationProjectAd]
+    PRIMARY KEY CLUSTERED ([CreationProjectAd_IdCreationProject], [Place_IdPlace] ASC);
 GO
 
--- Creating primary key on [RechercheColocation_IdRechercheColocation], [Lieu_IdLieu] in table 'Lieu_RechercheColoc'
-ALTER TABLE [dbo].[Lieu_RechercheColoc]
-ADD CONSTRAINT [PK_Lieu_RechercheColoc]
-    PRIMARY KEY CLUSTERED ([RechercheColocation_IdRechercheColocation], [Lieu_IdLieu] ASC);
+-- Creating primary key on [ResearchRoommate_IdResearchRoommate], [Place_IdPlace] in table 'Place_ResearchRoommate'
+ALTER TABLE [dbo].[Place_ResearchRoommate]
+ADD CONSTRAINT [PK_Place_ResearchRoommate]
+    PRIMARY KEY CLUSTERED ([ResearchRoommate_IdResearchRoommate], [Place_IdPlace] ASC);
 GO
 
 -- Creating primary key on [Account_IdAccount], [Role_IdRole] in table 'Account_Role'
@@ -595,280 +595,280 @@ GO
 -- Creating all FOREIGN KEY constraints
 -- --------------------------------------------------
 
--- Creating foreign key on [IdAnnonceLocation] in table 'ChambreLocation'
-ALTER TABLE [dbo].[ChambreLocation]
-ADD CONSTRAINT [FK_Location_ChambreLocation]
-    FOREIGN KEY ([IdAnnonceLocation])
-    REFERENCES [dbo].[AnnonceLocation]
-        ([IdAnnonceLocation])
+-- Creating foreign key on [IdRentalAd] in table 'RentalRoom'
+ALTER TABLE [dbo].[RentalRoom]
+ADD CONSTRAINT [FK_RentalAd_RentalRoom]
+    FOREIGN KEY ([IdRentalAd])
+    REFERENCES [dbo].[RentalAd]
+        ([IdRentalAd])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
--- Creating non-clustered index for FOREIGN KEY 'FK_Location_ChambreLocation'
-CREATE INDEX [IX_FK_Location_ChambreLocation]
-ON [dbo].[ChambreLocation]
-    ([IdAnnonceLocation]);
+-- Creating non-clustered index for FOREIGN KEY 'FK_RentalAd_RentalRoom'
+CREATE INDEX [IX_FK_RentalAd_RentalRoom]
+ON [dbo].[RentalRoom]
+    ([IdRentalAd]);
 GO
 
--- Creating foreign key on [ProjetCreation_IdProjetCreation] in table 'Lieu_ProjetCreation'
-ALTER TABLE [dbo].[Lieu_ProjetCreation]
-ADD CONSTRAINT [FK_Lieu_ProjetCreation_ProjetCreation]
-    FOREIGN KEY ([ProjetCreation_IdProjetCreation])
-    REFERENCES [dbo].[ProjetCreation]
-        ([IdProjetCreation])
+-- Creating foreign key on [CreationProjectAd_IdCreationProject] in table 'Place_CreationProjectAd'
+ALTER TABLE [dbo].[Place_CreationProjectAd]
+ADD CONSTRAINT [FK_Place_CreationProjectAd_CreationProjectAd]
+    FOREIGN KEY ([CreationProjectAd_IdCreationProject])
+    REFERENCES [dbo].[CreationProjectAd]
+        ([IdCreationProject])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
--- Creating foreign key on [Lieu_IdLieu] in table 'Lieu_ProjetCreation'
-ALTER TABLE [dbo].[Lieu_ProjetCreation]
-ADD CONSTRAINT [FK_Lieu_ProjetCreation_Lieu]
-    FOREIGN KEY ([Lieu_IdLieu])
-    REFERENCES [dbo].[Lieu]
-        ([IdLieu])
+-- Creating foreign key on [Place_IdPlace] in table 'Place_CreationProjectAd'
+ALTER TABLE [dbo].[Place_CreationProjectAd]
+ADD CONSTRAINT [FK_Place_CreationProjectAd_Place]
+    FOREIGN KEY ([Place_IdPlace])
+    REFERENCES [dbo].[Place]
+        ([IdPlace])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
--- Creating non-clustered index for FOREIGN KEY 'FK_Lieu_ProjetCreation_Lieu'
-CREATE INDEX [IX_FK_Lieu_ProjetCreation_Lieu]
-ON [dbo].[Lieu_ProjetCreation]
-    ([Lieu_IdLieu]);
+-- Creating non-clustered index for FOREIGN KEY 'FK_Place_CreationProjectAd_Place'
+CREATE INDEX [IX_FK_Place_CreationProjectAd_Place]
+ON [dbo].[Place_CreationProjectAd]
+    ([Place_IdPlace]);
 GO
 
--- Creating foreign key on [RechercheColocation_IdRechercheColocation] in table 'Lieu_RechercheColoc'
-ALTER TABLE [dbo].[Lieu_RechercheColoc]
-ADD CONSTRAINT [FK_Lieu_RechercheColoc_RechercheColoc]
-    FOREIGN KEY ([RechercheColocation_IdRechercheColocation])
-    REFERENCES [dbo].[RechercheColocation]
-        ([IdRechercheColocation])
+-- Creating foreign key on [ResearchRoommate_IdResearchRoommate] in table 'Place_ResearchRoommate'
+ALTER TABLE [dbo].[Place_ResearchRoommate]
+ADD CONSTRAINT [FK_Place_ResearchRoommate_ResearchRoommate]
+    FOREIGN KEY ([ResearchRoommate_IdResearchRoommate])
+    REFERENCES [dbo].[ResearchRoommate]
+        ([IdResearchRoommate])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
--- Creating foreign key on [Lieu_IdLieu] in table 'Lieu_RechercheColoc'
-ALTER TABLE [dbo].[Lieu_RechercheColoc]
-ADD CONSTRAINT [FK_Lieu_RechercheColoc_Lieu]
-    FOREIGN KEY ([Lieu_IdLieu])
-    REFERENCES [dbo].[Lieu]
-        ([IdLieu])
+-- Creating foreign key on [Place_IdPlace] in table 'Place_ResearchRoommate'
+ALTER TABLE [dbo].[Place_ResearchRoommate]
+ADD CONSTRAINT [FK_Place_ResearchRoommate_Place]
+    FOREIGN KEY ([Place_IdPlace])
+    REFERENCES [dbo].[Place]
+        ([IdPlace])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
--- Creating non-clustered index for FOREIGN KEY 'FK_Lieu_RechercheColoc_Lieu'
-CREATE INDEX [IX_FK_Lieu_RechercheColoc_Lieu]
-ON [dbo].[Lieu_RechercheColoc]
-    ([Lieu_IdLieu]);
+-- Creating non-clustered index for FOREIGN KEY 'FK_Place_ResearchRoommate_Place'
+CREATE INDEX [IX_FK_Place_ResearchRoommate_Place]
+ON [dbo].[Place_ResearchRoommate]
+    ([Place_IdPlace]);
 GO
 
--- Creating foreign key on [IdEvenement] in table 'EvenementPresence'
-ALTER TABLE [dbo].[EvenementPresence]
-ADD CONSTRAINT [FK_Evenement_EvenementPresence]
-    FOREIGN KEY ([IdEvenement])
-    REFERENCES [dbo].[Evenement]
-        ([IdEvenement])
+-- Creating foreign key on [IdEvent] in table 'PresenceEvent'
+ALTER TABLE [dbo].[PresenceEvent]
+ADD CONSTRAINT [FK_Event_PresenceEvent]
+    FOREIGN KEY ([IdEvent])
+    REFERENCES [dbo].[Event]
+        ([IdEvent])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
--- Creating foreign key on [IdEvenement] in table 'EvenementAssocie'
-ALTER TABLE [dbo].[EvenementAssocie]
-ADD CONSTRAINT [FK_Evenement_EvenementAssocie]
-    FOREIGN KEY ([IdEvenement])
-    REFERENCES [dbo].[Evenement]
-        ([IdEvenement])
+-- Creating foreign key on [IdEvent] in table 'AssociatedEvent'
+ALTER TABLE [dbo].[AssociatedEvent]
+ADD CONSTRAINT [FK_Event_AssociatedEvent]
+    FOREIGN KEY ([IdEvent])
+    REFERENCES [dbo].[Event]
+        ([IdEvent])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
--- Creating foreign key on [IdEvenementAssocie] in table 'EvenementAssocie'
-ALTER TABLE [dbo].[EvenementAssocie]
-ADD CONSTRAINT [FK_Evenement_EvenementAssocie1]
-    FOREIGN KEY ([IdEvenementAssocie])
-    REFERENCES [dbo].[Evenement]
-        ([IdEvenement])
+-- Creating foreign key on [IdAssociatedEvent] in table 'AssociatedEvent'
+ALTER TABLE [dbo].[AssociatedEvent]
+ADD CONSTRAINT [FK_Event_AssociatedEvent1]
+    FOREIGN KEY ([IdAssociatedEvent])
+    REFERENCES [dbo].[Event]
+        ([IdEvent])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
--- Creating non-clustered index for FOREIGN KEY 'FK_Evenement_EvenementAssocie1'
-CREATE INDEX [IX_FK_Evenement_EvenementAssocie1]
-ON [dbo].[EvenementAssocie]
-    ([IdEvenementAssocie]);
+-- Creating non-clustered index for FOREIGN KEY 'FK_Event_AssociatedEvent1'
+CREATE INDEX [IX_FK_Event_AssociatedEvent1]
+ON [dbo].[AssociatedEvent]
+    ([IdAssociatedEvent]);
 GO
 
--- Creating foreign key on [IdConversationDev] in table 'ImageConversationDev'
-ALTER TABLE [dbo].[ImageConversationDev]
-ADD CONSTRAINT [FK_ConversationDev_ImageConversationDev]
-    FOREIGN KEY ([IdConversationDev])
-    REFERENCES [dbo].[ConversationDev]
-        ([IdConversationDev])
+-- Creating foreign key on [IdDevConversation] in table 'PictureDevConversation'
+ALTER TABLE [dbo].[PictureDevConversation]
+ADD CONSTRAINT [FK_DevConversation_PictureDevConversation]
+    FOREIGN KEY ([IdDevConversation])
+    REFERENCES [dbo].[DevConversation]
+        ([IdDevConversation])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
--- Creating non-clustered index for FOREIGN KEY 'FK_ConversationDev_ImageConversationDev'
-CREATE INDEX [IX_FK_ConversationDev_ImageConversationDev]
-ON [dbo].[ImageConversationDev]
-    ([IdConversationDev]);
+-- Creating non-clustered index for FOREIGN KEY 'FK_DevConversation_PictureDevConversation'
+CREATE INDEX [IX_FK_DevConversation_PictureDevConversation]
+ON [dbo].[PictureDevConversation]
+    ([IdDevConversation]);
 GO
 
--- Creating foreign key on [IdEcoColocExistante] in table 'ImageEcoColocEx'
-ALTER TABLE [dbo].[ImageEcoColocEx]
-ADD CONSTRAINT [FK_EcoColocExistante_ImageEcoColocEx]
-    FOREIGN KEY ([IdEcoColocExistante])
-    REFERENCES [dbo].[EcoColocExistante]
-        ([IdEcoColocExistante])
+-- Creating foreign key on [IdEcoRoommateExisting] in table 'PictureEcoRoommateEx'
+ALTER TABLE [dbo].[PictureEcoRoommateEx]
+ADD CONSTRAINT [FK_EcoRoommateExisting_PictureEcoRoommateEx]
+    FOREIGN KEY ([IdEcoRoommateExisting])
+    REFERENCES [dbo].[EcoRoommateExisting]
+        ([IdEcoRoommateExisting])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
--- Creating non-clustered index for FOREIGN KEY 'FK_EcoColocExistante_ImageEcoColocEx'
-CREATE INDEX [IX_FK_EcoColocExistante_ImageEcoColocEx]
-ON [dbo].[ImageEcoColocEx]
-    ([IdEcoColocExistante]);
+-- Creating non-clustered index for FOREIGN KEY 'FK_EcoRoommateExisting_PictureEcoRoommateEx'
+CREATE INDEX [IX_FK_EcoRoommateExisting_PictureEcoRoommateEx]
+ON [dbo].[PictureEcoRoommateEx]
+    ([IdEcoRoommateExisting]);
 GO
 
--- Creating foreign key on [IdAccount] in table 'AnnonceLocation'
-ALTER TABLE [dbo].[AnnonceLocation]
-ADD CONSTRAINT [FK_AnnonceLocation_Account]
+-- Creating foreign key on [IdAccount] in table 'RentalAd'
+ALTER TABLE [dbo].[RentalAd]
+ADD CONSTRAINT [FK_RentalAd_Account]
     FOREIGN KEY ([IdAccount])
     REFERENCES [dbo].[Account]
         ([IdAccount])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
--- Creating non-clustered index for FOREIGN KEY 'FK_AnnonceLocation_Account'
-CREATE INDEX [IX_FK_AnnonceLocation_Account]
-ON [dbo].[AnnonceLocation]
+-- Creating non-clustered index for FOREIGN KEY 'FK_RentalAd_Account'
+CREATE INDEX [IX_FK_RentalAd_Account]
+ON [dbo].[RentalAd]
     ([IdAccount]);
 GO
 
--- Creating foreign key on [IdProjetCreation] in table 'ImageProjetCreation'
-ALTER TABLE [dbo].[ImageProjetCreation]
-ADD CONSTRAINT [FK_ProjetCreationImage_ProjetCreation]
+-- Creating foreign key on [IdProjetCreation] in table 'PictureCreationProject'
+ALTER TABLE [dbo].[PictureCreationProject]
+ADD CONSTRAINT [FK_PictureCreationProject_CreationProjectAd]
     FOREIGN KEY ([IdProjetCreation])
-    REFERENCES [dbo].[ProjetCreation]
-        ([IdProjetCreation])
+    REFERENCES [dbo].[CreationProjectAd]
+        ([IdCreationProject])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
--- Creating non-clustered index for FOREIGN KEY 'FK_ProjetCreationImage_ProjetCreation'
-CREATE INDEX [IX_FK_ProjetCreationImage_ProjetCreation]
-ON [dbo].[ImageProjetCreation]
+-- Creating non-clustered index for FOREIGN KEY 'FK_PictureCreationProject_CreationProjectAd'
+CREATE INDEX [IX_FK_PictureCreationProject_CreationProjectAd]
+ON [dbo].[PictureCreationProject]
     ([IdProjetCreation]);
 GO
 
--- Creating foreign key on [IdEcoColocExistante] in table 'Colocataire'
-ALTER TABLE [dbo].[Colocataire]
-ADD CONSTRAINT [FK_EcoColocExistante_Colocataire]
-    FOREIGN KEY ([IdEcoColocExistante])
-    REFERENCES [dbo].[EcoColocExistante]
-        ([IdEcoColocExistante])
+-- Creating foreign key on [IdEcoRoommateExisting] in table 'Roommate'
+ALTER TABLE [dbo].[Roommate]
+ADD CONSTRAINT [FK_EcoRoommateExisting_Roommate]
+    FOREIGN KEY ([IdEcoRoommateExisting])
+    REFERENCES [dbo].[EcoRoommateExisting]
+        ([IdEcoRoommateExisting])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
--- Creating non-clustered index for FOREIGN KEY 'FK_EcoColocExistante_Colocataire'
-CREATE INDEX [IX_FK_EcoColocExistante_Colocataire]
-ON [dbo].[Colocataire]
-    ([IdEcoColocExistante]);
+-- Creating non-clustered index for FOREIGN KEY 'FK_EcoRoommateExisting_Roommate'
+CREATE INDEX [IX_FK_EcoRoommateExisting_Roommate]
+ON [dbo].[Roommate]
+    ([IdEcoRoommateExisting]);
 GO
 
--- Creating foreign key on [IdUtilisateur] in table 'RechercheColocation'
-ALTER TABLE [dbo].[RechercheColocation]
-ADD CONSTRAINT [FK_Utilisateur_RechercheColocation]
-    FOREIGN KEY ([IdUtilisateur])
-    REFERENCES [dbo].[Utilisateur]
-        ([IdUtilisateur])
+-- Creating foreign key on [IdUser] in table 'ResearchRoommate'
+ALTER TABLE [dbo].[ResearchRoommate]
+ADD CONSTRAINT [FK_User_ResearchRoommate]
+    FOREIGN KEY ([IdUser])
+    REFERENCES [dbo].[User]
+        ([IdUser])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
--- Creating non-clustered index for FOREIGN KEY 'FK_Utilisateur_RechercheColocation'
-CREATE INDEX [IX_FK_Utilisateur_RechercheColocation]
-ON [dbo].[RechercheColocation]
-    ([IdUtilisateur]);
+-- Creating non-clustered index for FOREIGN KEY 'FK_User_ResearchRoommate'
+CREATE INDEX [IX_FK_User_ResearchRoommate]
+ON [dbo].[ResearchRoommate]
+    ([IdUser]);
 GO
 
--- Creating foreign key on [IdUtilisateur] in table 'EcoColocExistante'
-ALTER TABLE [dbo].[EcoColocExistante]
-ADD CONSTRAINT [FK_Utilisateur_EcoColocExistante]
-    FOREIGN KEY ([IdUtilisateur])
-    REFERENCES [dbo].[Utilisateur]
-        ([IdUtilisateur])
+-- Creating foreign key on [IdUser] in table 'EcoRoommateExisting'
+ALTER TABLE [dbo].[EcoRoommateExisting]
+ADD CONSTRAINT [FK_User_EcoRoommateExisting]
+    FOREIGN KEY ([IdUser])
+    REFERENCES [dbo].[User]
+        ([IdUser])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
--- Creating non-clustered index for FOREIGN KEY 'FK_Utilisateur_EcoColocExistante'
-CREATE INDEX [IX_FK_Utilisateur_EcoColocExistante]
-ON [dbo].[EcoColocExistante]
-    ([IdUtilisateur]);
+-- Creating non-clustered index for FOREIGN KEY 'FK_User_EcoRoommateExisting'
+CREATE INDEX [IX_FK_User_EcoRoommateExisting]
+ON [dbo].[EcoRoommateExisting]
+    ([IdUser]);
 GO
 
--- Creating foreign key on [IdUtilisateur] in table 'EvenementPresence'
-ALTER TABLE [dbo].[EvenementPresence]
-ADD CONSTRAINT [FK_Utilisateur_EvenementPresence]
-    FOREIGN KEY ([IdUtilisateur])
-    REFERENCES [dbo].[Utilisateur]
-        ([IdUtilisateur])
+-- Creating foreign key on [IdUser] in table 'PresenceEvent'
+ALTER TABLE [dbo].[PresenceEvent]
+ADD CONSTRAINT [FK_User_PresenceEvent]
+    FOREIGN KEY ([IdUser])
+    REFERENCES [dbo].[User]
+        ([IdUser])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
--- Creating non-clustered index for FOREIGN KEY 'FK_Utilisateur_EvenementPresence'
-CREATE INDEX [IX_FK_Utilisateur_EvenementPresence]
-ON [dbo].[EvenementPresence]
-    ([IdUtilisateur]);
+-- Creating non-clustered index for FOREIGN KEY 'FK_User_PresenceEvent'
+CREATE INDEX [IX_FK_User_PresenceEvent]
+ON [dbo].[PresenceEvent]
+    ([IdUser]);
 GO
 
--- Creating foreign key on [IdUtilisateur] in table 'Evenement'
-ALTER TABLE [dbo].[Evenement]
-ADD CONSTRAINT [FK_Utilisateur_Evenement]
-    FOREIGN KEY ([IdUtilisateur])
-    REFERENCES [dbo].[Utilisateur]
-        ([IdUtilisateur])
+-- Creating foreign key on [IdUser] in table 'Event'
+ALTER TABLE [dbo].[Event]
+ADD CONSTRAINT [FK_User_Event]
+    FOREIGN KEY ([IdUser])
+    REFERENCES [dbo].[User]
+        ([IdUser])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
--- Creating non-clustered index for FOREIGN KEY 'FK_Utilisateur_Evenement'
-CREATE INDEX [IX_FK_Utilisateur_Evenement]
-ON [dbo].[Evenement]
-    ([IdUtilisateur]);
+-- Creating non-clustered index for FOREIGN KEY 'FK_User_Event'
+CREATE INDEX [IX_FK_User_Event]
+ON [dbo].[Event]
+    ([IdUser]);
 GO
 
--- Creating foreign key on [Utilisateur_Account_Utilisateur_IdAccount] in table 'Utilisateur'
-ALTER TABLE [dbo].[Utilisateur]
-ADD CONSTRAINT [FK_Utilisateur_Account]
-    FOREIGN KEY ([Utilisateur_Account_Utilisateur_IdAccount])
+-- Creating foreign key on [User_Account_User_IdAccount] in table 'User'
+ALTER TABLE [dbo].[User]
+ADD CONSTRAINT [FK_User_Account]
+    FOREIGN KEY ([User_Account_User_IdAccount])
     REFERENCES [dbo].[Account]
         ([IdAccount])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
--- Creating non-clustered index for FOREIGN KEY 'FK_Utilisateur_Account'
-CREATE INDEX [IX_FK_Utilisateur_Account]
-ON [dbo].[Utilisateur]
-    ([Utilisateur_Account_Utilisateur_IdAccount]);
+-- Creating non-clustered index for FOREIGN KEY 'FK_User_Account'
+CREATE INDEX [IX_FK_User_Account]
+ON [dbo].[User]
+    ([User_Account_User_IdAccount]);
 GO
 
--- Creating foreign key on [Account_IdAccount] in table 'Agence'
-ALTER TABLE [dbo].[Agence]
-ADD CONSTRAINT [FK_Agence_Account]
+-- Creating foreign key on [Account_IdAccount] in table 'Agency'
+ALTER TABLE [dbo].[Agency]
+ADD CONSTRAINT [FK_Agency_Account]
     FOREIGN KEY ([Account_IdAccount])
     REFERENCES [dbo].[Account]
         ([IdAccount])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
--- Creating non-clustered index for FOREIGN KEY 'FK_Agence_Account'
-CREATE INDEX [IX_FK_Agence_Account]
-ON [dbo].[Agence]
+-- Creating non-clustered index for FOREIGN KEY 'FK_Agency_Account'
+CREATE INDEX [IX_FK_Agency_Account]
+ON [dbo].[Agency]
     ([Account_IdAccount]);
 GO
 
--- Creating foreign key on [Adhesion_Account_Adhesion_IdAccount] in table 'Adhesion'
-ALTER TABLE [dbo].[Adhesion]
-ADD CONSTRAINT [FK_Adhesion_Account]
-    FOREIGN KEY ([Adhesion_Account_Adhesion_IdAccount])
+-- Creating foreign key on [Membership_Account_Membership_IdAccount] in table 'Membership'
+ALTER TABLE [dbo].[Membership]
+ADD CONSTRAINT [FK_Membership_Account]
+    FOREIGN KEY ([Membership_Account_Membership_IdAccount])
     REFERENCES [dbo].[Account]
         ([IdAccount])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
--- Creating non-clustered index for FOREIGN KEY 'FK_Adhesion_Account'
-CREATE INDEX [IX_FK_Adhesion_Account]
-ON [dbo].[Adhesion]
-    ([Adhesion_Account_Adhesion_IdAccount]);
+-- Creating non-clustered index for FOREIGN KEY 'FK_Membership_Account'
+CREATE INDEX [IX_FK_Membership_Account]
+ON [dbo].[Membership]
+    ([Membership_Account_Membership_IdAccount]);
 GO
 
 -- Creating foreign key on [Account_IdAccount] in table 'Account_Role'
@@ -895,19 +895,19 @@ ON [dbo].[Account_Role]
     ([Role_IdRole]);
 GO
 
--- Creating foreign key on [IdUtilisateur] in table 'ProjetCreation'
-ALTER TABLE [dbo].[ProjetCreation]
-ADD CONSTRAINT [FK_ProjetCreation_Utilisateur]
-    FOREIGN KEY ([IdUtilisateur])
-    REFERENCES [dbo].[Utilisateur]
-        ([IdUtilisateur])
+-- Creating foreign key on [IdUser] in table 'CreationProjectAd'
+ALTER TABLE [dbo].[CreationProjectAd]
+ADD CONSTRAINT [FK_CreationProjectAd_User]
+    FOREIGN KEY ([IdUser])
+    REFERENCES [dbo].[User]
+        ([IdUser])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
--- Creating non-clustered index for FOREIGN KEY 'FK_ProjetCreation_Utilisateur'
-CREATE INDEX [IX_FK_ProjetCreation_Utilisateur]
-ON [dbo].[ProjetCreation]
-    ([IdUtilisateur]);
+-- Creating non-clustered index for FOREIGN KEY 'FK_CreationProjectAd_User'
+CREATE INDEX [IX_FK_CreationProjectAd_User]
+ON [dbo].[CreationProjectAd]
+    ([IdUser]);
 GO
 
 -- --------------------------------------------------

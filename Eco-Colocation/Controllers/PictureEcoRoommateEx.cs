@@ -16,8 +16,8 @@ namespace Eco_Colocation.Controllers
     {
         public int IdPictureEcoRoommateEx { get; set; }
         public int IdEcoRoommateExisting { get; set; }
-        public string NomImage { get; set; }
-        public byte NumOrdre { get; set; }
+        public string PictureName { get; set; }
+        public byte OrderNumber { get; set; }
     
         public virtual EcoRoommateExisting EcoRoommateExisting { get; set; }
     }
