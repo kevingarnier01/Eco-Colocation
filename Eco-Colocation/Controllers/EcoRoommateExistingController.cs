@@ -3,7 +3,7 @@
 namespace Eco_Colocation.Controllers
 {
     public class EcoRoommateExistingController : Controller
-    {
+	{
         // GET: EcoRoommateExisting
         public ActionResult Index()
         {

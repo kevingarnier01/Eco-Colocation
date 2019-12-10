@@ -10,13 +10,13 @@ namespace Eco_Colocation.ViewModel
             InitData();
         }
 
-        public PersonneModel PersonneModel { get; set; }
+        public AccountModel PersonneModel { get; set; }
 		public List<PeopleSearchingViewModel> LstPeopleSearchingVM { get; set; }
 		public int IdPeopleSearching { get; set; }
 
         public void InitData()
         {
-            PersonneModel = new PersonneModel();
+            PersonneModel = new AccountModel();
 			LstPeopleSearchingVM = new List<PeopleSearchingViewModel>();
 			IdPeopleSearching = new int();
 

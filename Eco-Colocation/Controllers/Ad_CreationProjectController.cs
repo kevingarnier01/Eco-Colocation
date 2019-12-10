@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 
 namespace Eco_Colocation.Controllers
 {
-    public class Ad_CreationProjectController : Controller
-    {
+	public class Ad_CreationProjectController : Controller
+	{
         // GET: Ad_CreationProject
         public ActionResult Index()
         {

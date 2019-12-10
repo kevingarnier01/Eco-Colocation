@@ -1179,7 +1179,7 @@
           <Property Name="CreationDate" Type="DateTime" Nullable="false" />
           <NavigationProperty Name="Membership" Relationship="EcoColocationModel.Membership_Account" FromRole="Account" ToRole="Membership" />
           <NavigationProperty Name="Role" Relationship="EcoColocationModel.Account_Role" FromRole="Account" ToRole="Role" />
-          <Property Name="Activited" Type="Boolean" Nullable="false" DefaultValue="True" />
+          <Property Name="Activated" Type="Boolean" Nullable="false" DefaultValue="True" />
         </EntityType>
         <Association Name="RentalAd_Account">
           <End Type="EcoColocationModel.RentalAd" Role="RentalAd" Multiplicity="*" />
@@ -1543,7 +1543,7 @@
         <MappingFragment StoreEntitySet="Account">
           <ScalarProperty Name="IdAccount" ColumnName="IdAccount" />
           <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
-          <ScalarProperty Name="Activited" ColumnName="Activited" />
+          <ScalarProperty Name="Activated" ColumnName="Activited" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

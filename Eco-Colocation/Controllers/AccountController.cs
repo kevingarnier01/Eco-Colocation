@@ -1,11 +1,22 @@
-﻿using Eco_Colocation.ViewModel;
+﻿using Eco_Colocation.BLL;
+using Eco_Colocation.DAL;
+using Eco_Colocation.ViewModel;
 using System.Web.Mvc;
 using System.Web.Security;
+using Eco_Colocation.Models;
 
 namespace Eco_Colocation.Controllers
 {
-	public class AccountController : Controller
+	public class AccountController : BaseController
 	{
+		private UserManager UserManager { get; set; }
+
+		public AccountController()
+		{
+			UserSql oUserSql = new UserSql(base.WebDbSqlConnectionString);
+			this.UserManager = new UserManager(oUserSql);
+		}
+
 		// GET: Account
 		public ActionResult Index(string urlCurrentPage)
 		{
