@@ -12,7 +12,10 @@
 namespace Eco_Colocation.Controllers
 {
 
-	public partial class Agency
+using System;
+    using System.Collections.Generic;
+    
+public partial class Agency
 {
 
     public int IdAgency { get; set; }

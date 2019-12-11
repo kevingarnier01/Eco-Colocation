@@ -12,40 +12,34 @@
 namespace Eco_Colocation.Controllers
 {
 
-	using System;
-	using System.Collections.Generic;
+using System;
+    using System.Collections.Generic;
+    
+public partial class Account
+{
 
-	public partial class Account
-	{
+    public Account()
+    {
 
-		public Account()
-		{
+        this.Activated = true;
 
-			this.Activated = true;
+        this.RentalAd = new HashSet<RentalAd>();
 
-			this.RentalAd = new HashSet<RentalAd>();
-
-			this.Role = new HashSet<Role>();
-
-		}
+    }
 
 
-		public int IdAccount { get; set; }
+    public int IdAccount { get; set; }
 
-		public System.DateTime CreationDate { get; set; }
+    public System.DateTime Email { get; set; }
 
-		public bool Activated { get; set; }
+    public bool Activated { get; set; }
 
 
 
-		public virtual ICollection<RentalAd> RentalAd { get; set; }
+    public virtual ICollection<RentalAd> RentalAd { get; set; }
 
-		public virtual User User { get; set; }
+    public virtual User User { get; set; }
 
-		public virtual Membership Membership { get; set; }
-
-		public virtual ICollection<Role> Role { get; set; }
-
-	}
+}
 
 }

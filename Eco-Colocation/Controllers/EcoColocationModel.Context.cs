@@ -54,11 +54,7 @@ public partial class EcoColocationModelContainer : DbContext
 
     public DbSet<ResearchRoommate> ResearchRoommate { get; set; }
 
-    public DbSet<Role> Role { get; set; }
-
     public DbSet<AssociatedEvent> AssociatedEvent { get; set; }
-
-    public DbSet<Membership> Membership { get; set; }
 
     public DbSet<PictureEcoRoommateEx> PictureEcoRoommateEx { get; set; }
 

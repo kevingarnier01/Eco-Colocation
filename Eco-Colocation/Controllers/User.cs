@@ -12,10 +12,10 @@
 namespace Eco_Colocation.Controllers
 {
 
-	using System;
-	using System.Collections.Generic;
-
-	public partial class User
+using System;
+    using System.Collections.Generic;
+    
+public partial class User
 {
 
     public User()

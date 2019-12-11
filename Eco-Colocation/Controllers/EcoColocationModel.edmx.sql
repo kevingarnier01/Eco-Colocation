@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 12/09/2019 14:43:00
+-- Date Created: 12/11/2019 16:52:52
 -- Generated from EDMX file: C:\Users\kev-gar\Documents\Projet personnel\Eco-colocation\Application\Développement\Eco-Colocation\Eco-Colocation\Controllers\EcoColocationModel.edmx
 -- --------------------------------------------------
 
@@ -74,15 +74,6 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_Agency_Account]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Agency] DROP CONSTRAINT [FK_Agency_Account];
 GO
-IF OBJECT_ID(N'[dbo].[FK_Membership_Account]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Membership] DROP CONSTRAINT [FK_Membership_Account];
-GO
-IF OBJECT_ID(N'[dbo].[FK_Account_Role_Account]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Account_Role] DROP CONSTRAINT [FK_Account_Role_Account];
-GO
-IF OBJECT_ID(N'[dbo].[FK_Account_Role_Role]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Account_Role] DROP CONSTRAINT [FK_Account_Role_Role];
-GO
 IF OBJECT_ID(N'[dbo].[FK_CreationProjectAd_User]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[CreationProjectAd] DROP CONSTRAINT [FK_CreationProjectAd_User];
 GO
@@ -124,14 +115,8 @@ GO
 IF OBJECT_ID(N'[dbo].[ResearchRoommate]', 'U') IS NOT NULL
     DROP TABLE [dbo].[ResearchRoommate];
 GO
-IF OBJECT_ID(N'[dbo].[Role]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Role];
-GO
 IF OBJECT_ID(N'[dbo].[AssociatedEvent]', 'U') IS NOT NULL
     DROP TABLE [dbo].[AssociatedEvent];
-GO
-IF OBJECT_ID(N'[dbo].[Membership]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Membership];
 GO
 IF OBJECT_ID(N'[dbo].[PictureEcoRoommateEx]', 'U') IS NOT NULL
     DROP TABLE [dbo].[PictureEcoRoommateEx];
@@ -153,9 +138,6 @@ IF OBJECT_ID(N'[dbo].[Place_CreationProjectAd]', 'U') IS NOT NULL
 GO
 IF OBJECT_ID(N'[dbo].[Place_ResearchRoommate]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Place_ResearchRoommate];
-GO
-IF OBJECT_ID(N'[dbo].[Account_Role]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Account_Role];
 GO
 
 -- --------------------------------------------------
@@ -312,7 +294,7 @@ GO
 
 -- Creating table 'Roommate'
 CREATE TABLE [dbo].[Roommate] (
-    [IdPeopleEcoRoommateExisting] int IDENTITY(1,1) NOT NULL,
+    [IdRoommate] int IDENTITY(1,1) NOT NULL,
     [IdEcoRoommateExisting] int  NOT NULL,
     [FirstName] nvarchar(50)  NOT NULL,
     [LastName] nvarchar(50)  NOT NULL,
@@ -345,26 +327,10 @@ CREATE TABLE [dbo].[ResearchRoommate] (
 );
 GO
 
--- Creating table 'Role'
-CREATE TABLE [dbo].[Role] (
-    [IdRole] int IDENTITY(1,1) NOT NULL,
-    [RoleName] nvarchar(50)  NOT NULL,
-    [Description] nvarchar(100)  NULL
-);
-GO
-
 -- Creating table 'AssociatedEvent'
 CREATE TABLE [dbo].[AssociatedEvent] (
     [IdEvent] int  NOT NULL,
     [IdAssociatedEvent] int  NOT NULL
-);
-GO
-
--- Creating table 'Membership'
-CREATE TABLE [dbo].[Membership] (
-    [IdAdhesion] int IDENTITY(1,1) NOT NULL,
-    [Password] nvarchar(50)  NOT NULL,
-    [Membership_Account_Membership_IdAccount] int  NOT NULL
 );
 GO
 
@@ -389,8 +355,8 @@ GO
 -- Creating table 'Account'
 CREATE TABLE [dbo].[Account] (
     [IdAccount] int IDENTITY(1,1) NOT NULL,
-    [CreationDate] datetime  NOT NULL,
-    [Activited] bit  NOT NULL
+    [Email] datetime  NOT NULL,
+    [Activated] bit  NOT NULL
 );
 GO
 
@@ -448,13 +414,6 @@ CREATE TABLE [dbo].[Place_ResearchRoommate] (
 );
 GO
 
--- Creating table 'Account_Role'
-CREATE TABLE [dbo].[Account_Role] (
-    [Account_IdAccount] int  NOT NULL,
-    [Role_IdRole] int  NOT NULL
-);
-GO
-
 -- --------------------------------------------------
 -- Creating all PRIMARY KEY constraints
 -- --------------------------------------------------
@@ -507,10 +466,10 @@ ADD CONSTRAINT [PK_PictureDevConversation]
     PRIMARY KEY CLUSTERED ([IdPictureDevConversation] ASC);
 GO
 
--- Creating primary key on [IdPeopleEcoRoommateExisting] in table 'Roommate'
+-- Creating primary key on [IdRoommate] in table 'Roommate'
 ALTER TABLE [dbo].[Roommate]
 ADD CONSTRAINT [PK_Roommate]
-    PRIMARY KEY CLUSTERED ([IdPeopleEcoRoommateExisting] ASC);
+    PRIMARY KEY CLUSTERED ([IdRoommate] ASC);
 GO
 
 -- Creating primary key on [IdDevConversation] in table 'DevConversation'
@@ -525,22 +484,10 @@ ADD CONSTRAINT [PK_ResearchRoommate]
     PRIMARY KEY CLUSTERED ([IdResearchRoommate] ASC);
 GO
 
--- Creating primary key on [IdRole] in table 'Role'
-ALTER TABLE [dbo].[Role]
-ADD CONSTRAINT [PK_Role]
-    PRIMARY KEY CLUSTERED ([IdRole] ASC);
-GO
-
 -- Creating primary key on [IdEvent], [IdAssociatedEvent] in table 'AssociatedEvent'
 ALTER TABLE [dbo].[AssociatedEvent]
 ADD CONSTRAINT [PK_AssociatedEvent]
     PRIMARY KEY CLUSTERED ([IdEvent], [IdAssociatedEvent] ASC);
-GO
-
--- Creating primary key on [IdAdhesion] in table 'Membership'
-ALTER TABLE [dbo].[Membership]
-ADD CONSTRAINT [PK_Membership]
-    PRIMARY KEY CLUSTERED ([IdAdhesion] ASC);
 GO
 
 -- Creating primary key on [IdPictureEcoRoommateEx] in table 'PictureEcoRoommateEx'
@@ -583,12 +530,6 @@ GO
 ALTER TABLE [dbo].[Place_ResearchRoommate]
 ADD CONSTRAINT [PK_Place_ResearchRoommate]
     PRIMARY KEY CLUSTERED ([ResearchRoommate_IdResearchRoommate], [Place_IdPlace] ASC);
-GO
-
--- Creating primary key on [Account_IdAccount], [Role_IdRole] in table 'Account_Role'
-ALTER TABLE [dbo].[Account_Role]
-ADD CONSTRAINT [PK_Account_Role]
-    PRIMARY KEY CLUSTERED ([Account_IdAccount], [Role_IdRole] ASC);
 GO
 
 -- --------------------------------------------------
@@ -854,45 +795,6 @@ GO
 CREATE INDEX [IX_FK_Agency_Account]
 ON [dbo].[Agency]
     ([Account_IdAccount]);
-GO
-
--- Creating foreign key on [Membership_Account_Membership_IdAccount] in table 'Membership'
-ALTER TABLE [dbo].[Membership]
-ADD CONSTRAINT [FK_Membership_Account]
-    FOREIGN KEY ([Membership_Account_Membership_IdAccount])
-    REFERENCES [dbo].[Account]
-        ([IdAccount])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating non-clustered index for FOREIGN KEY 'FK_Membership_Account'
-CREATE INDEX [IX_FK_Membership_Account]
-ON [dbo].[Membership]
-    ([Membership_Account_Membership_IdAccount]);
-GO
-
--- Creating foreign key on [Account_IdAccount] in table 'Account_Role'
-ALTER TABLE [dbo].[Account_Role]
-ADD CONSTRAINT [FK_Account_Role_Account]
-    FOREIGN KEY ([Account_IdAccount])
-    REFERENCES [dbo].[Account]
-        ([IdAccount])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating foreign key on [Role_IdRole] in table 'Account_Role'
-ALTER TABLE [dbo].[Account_Role]
-ADD CONSTRAINT [FK_Account_Role_Role]
-    FOREIGN KEY ([Role_IdRole])
-    REFERENCES [dbo].[Role]
-        ([IdRole])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating non-clustered index for FOREIGN KEY 'FK_Account_Role_Role'
-CREATE INDEX [IX_FK_Account_Role_Role]
-ON [dbo].[Account_Role]
-    ([Role_IdRole]);
 GO
 
 -- Creating foreign key on [IdUser] in table 'CreationProjectAd'

@@ -3,7 +3,7 @@ using Eco_Colocation.DAL;
 using Eco_Colocation.ViewModel;
 using System.Web.Mvc;
 using System.Web.Security;
-using Eco_Colocation.Models;
+using WebMatrix.WebData;
 
 namespace Eco_Colocation.Controllers
 {
@@ -21,19 +21,20 @@ namespace Eco_Colocation.Controllers
 		public ActionResult Index(string urlCurrentPage)
 		{
 			FormsAuthentication.SetAuthCookie("User", true);
-			//return Redirect(Request.UrlReferrer.PathAndQuery);
-			return Redirect(urlCurrentPage);
-			//if(urlCurrentPage != "")
-			//	return View("~/Views" + urlCurrentPage + ".csthml");
-			//else
 
-			//AllViewModel allViewModel = new AllViewModel();
-			//return View("~/Views/Home/Index.csthml", allViewModel);
+			return Redirect(urlCurrentPage);
 		}
 
 		public ActionResult ModalAccount()
 		{
 			return PartialView();
+		}
+
+		public ActionResult Connection(AccountViewModel accountViewModel)
+		{
+			WebSecurity.InitializeDatabaseConnection("IntializeDbEcoColoc", "Account", "IdAccount", "Email", true);
+
+			return View("~/Views/EcoRoommateHome/EcoRoommateHomeView.cshtml");
 		}
 
 		public ActionResult Deconnection()

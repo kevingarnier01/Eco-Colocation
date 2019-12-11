@@ -12,7 +12,10 @@
 namespace Eco_Colocation.Controllers
 {
 
-	public partial class PictureDevConversation
+using System;
+    using System.Collections.Generic;
+    
+public partial class PictureDevConversation
 {
 
     public int IdPictureDevConversation { get; set; }

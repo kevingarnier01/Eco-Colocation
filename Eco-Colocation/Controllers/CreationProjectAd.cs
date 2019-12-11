@@ -12,10 +12,10 @@
 namespace Eco_Colocation.Controllers
 {
 
-	using System;
-	using System.Collections.Generic;
-
-	public partial class CreationProjectAd
+using System;
+    using System.Collections.Generic;
+    
+public partial class CreationProjectAd
 {
 
     public CreationProjectAd()

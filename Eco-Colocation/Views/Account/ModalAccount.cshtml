@@ -1,4 +1,4 @@
-﻿
+﻿@model Eco_Colocation.ViewModel.AccountViewModel
 @{
 	ViewBag.Title = "ModalAccount";
 }
@@ -8,27 +8,31 @@
 			<div id="divAccesMembre-acc">
 				<h2 class="title centerText">Accès Membre</h2>
 			</div>
-
-			<div class="flex">
-				<div id="divGlobalInput-acc" class="childFlex">
-					<div class="divInputWrite-acc">
-						<div class="div2InputWrite-acc">
-							<i class="fa fa-envelope" aria-hidden="true"></i><input placeholder="Email">
-						</div>
-					</div>
-					<div class="divInputWrite-acc">
-						<div class="div2InputWrite-acc">
-							<i class="fa fa-lock" aria-hidden="true"></i><input placeholder="Mot de passe">
-						</div>
-					</div>
-				</div>
-			</div>
-			<div id="divbtnConnexion-acc">
+			@using (Html.BeginForm("Connection", "Account", FormMethod.Post, new { @id = "accountForm" }))
+			{
 				<div class="flex">
-					<div onclick="redirectAfterConnection()" class="btnGreen childFlex fontFamilyNote" id="btnConnexion-acc">CONNEXION</div>
+					<div id="divGlobalInput-acc" class="childFlex">
+						<div class="divInputWrite-acc">
+							<div class="div2InputWrite-acc">
+								<i class="fa fa-envelope" aria-hidden="true"></i>
+								@Html.TextBoxFor(m => m.AccountBo.UserBo.Email, new { @placeholder = "Email" })
+							</div>
+						</div>
+						<div class="divInputWrite-acc">
+							<div class="div2InputWrite-acc">
+								<i class="fa fa-lock" aria-hidden="true"></i>
+								@Html.TextBoxFor(m => m.AccountBo.MembershipBo.Password, new { @placeholder = "Mot de passe" })
+							</div>
+						</div>
+					</div>
 				</div>
-			</div>
-			<a id="divMdpForget-acc" href="@Url.Action("FindAccountByEmail","Account" ,null)">
+				<div id="divbtnConnexion-acc">
+					<div class="flex">
+						<div onclick="postSubmit('#accountForm')" class="btnGreen childFlex fontFamilyNote" id="btnConnexion-acc">CONNEXION</div>
+					</div>
+				</div>
+			}
+			<a id="divMdpForget-acc" href="@Url.Action("FindAccountByEmail", "Account", null)">
 				<p class="childFlex">[Nom d'utilisateur / Mot de passe] Oublié ?</p>
 			</a>
 			<div id="div1CreateAccount-acc">

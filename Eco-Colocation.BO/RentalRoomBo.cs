@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Eco_Colocation.Models
+namespace Eco_Colocation.BO
 {
 	public class RentalRoomBo
 	{

@@ -473,7 +473,7 @@ function projetCreationPage() {
 	$("#projetCreation").css("display", "block");
 	$("#annonceRubrique2").css("border-bottom", "none");
 	$("#creationRubrique2").css("border-bottom", "3px solid #e9e5c3");
-		
+
 	var url = document.location.href;
 	if (url.indexOf("currentTab") != -1) {
 		url = url.replace("AnnonceLocation", "ProjetCreation");
@@ -482,7 +482,7 @@ function projetCreationPage() {
 	else {
 		window.history.replaceState('data to be passed', 'Title of the page', $('#urlCurrentPage').val() + '/?currentTab=ProjetCreation')
 	}
-	
+
 	$('#currentTab').val("ProjetCreation");
 }
 
@@ -1058,26 +1058,6 @@ function initSlidepicture() {
 		}
 	});
 }
-
-//********* Acccount *************//
-
-function redirectAfterConnection() {
-	$.ajax({
-		url: "/Account/Index",
-		type: 'post',
-		datatype: 'json',
-		//data: $("#form").serialize() + "&urlCurrentPage=" + $('#urlCurrentPage').val(), //A redefinir le vrai id !!!
-		data: "urlCurrentPage=" + $('#urlCurrentPage').val(),
-		success: function (result) {
-			//$('body').html(result);
-			//$('body').css("overflow", "auto");
-			window.history.replaceState('data to be passed', 'Title of the page', $('#urlCurrentPage').val());
-			location.reload();
-		}
-	});
-}
-
-//********* Fin Acccount *************//
 
 function showDivCritereRecherche() {
 	$('#divCritereRecherche-mcar').css('display', 'block')
@@ -2073,4 +2053,18 @@ function copyDivToOtherElement(elementToCut, elementToPast) {
 	//$(elementToCut).remove();
 	$(elementToPast).append(div)
 	//$(elementToCut).fadeIn(0)
+}
+
+//********* formulaire *************//
+
+function postSubmit(idForm) {
+	//if ($(idForm).valid) {
+
+	var dataToPost = $(idForm).serialize()
+	var urlAction = $(idForm).attr("action");
+
+	$.post(urlAction, dataToPost)
+		.done(function (response, status, jqxhr) {
+			alert(response)
+		})
 }

@@ -12,7 +12,10 @@
 namespace Eco_Colocation.Controllers
 {
 
-	public partial class PresenceEvent
+using System;
+    using System.Collections.Generic;
+    
+public partial class PresenceEvent
 {
 
     public int IdUser { get; set; }

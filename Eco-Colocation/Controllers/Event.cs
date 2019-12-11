@@ -11,9 +11,11 @@
 
 namespace Eco_Colocation.Controllers
 {
-	using System.Collections.Generic;
 
-	public partial class Event
+using System;
+    using System.Collections.Generic;
+    
+public partial class Event
 {
 
     public Event()

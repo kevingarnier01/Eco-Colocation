@@ -12,9 +12,10 @@
 namespace Eco_Colocation.Controllers
 {
 
-	using System;
-
-	public partial class RentalRoom
+using System;
+    using System.Collections.Generic;
+    
+public partial class RentalRoom
 {
 
     public int IdRentalRoom { get; set; }

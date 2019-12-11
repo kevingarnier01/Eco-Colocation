@@ -11,9 +11,11 @@
 
 namespace Eco_Colocation.Controllers
 {
-	using System.Collections.Generic;
 
-	public partial class RentalAd
+using System;
+    using System.Collections.Generic;
+    
+public partial class RentalAd
 {
 
     public RentalAd()

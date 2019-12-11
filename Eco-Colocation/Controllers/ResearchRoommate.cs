@@ -11,9 +11,11 @@
 
 namespace Eco_Colocation.Controllers
 {
-	using System.Collections.Generic;
 
-	public partial class ResearchRoommate
+using System;
+    using System.Collections.Generic;
+    
+public partial class ResearchRoommate
 {
 
     public ResearchRoommate()

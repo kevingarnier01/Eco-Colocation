@@ -12,7 +12,10 @@
 namespace Eco_Colocation.Controllers
 {
 
-	public partial class PictureEcoRoommateEx
+using System;
+    using System.Collections.Generic;
+    
+public partial class PictureEcoRoommateEx
 {
 
     public int IdPictureEcoRoommateEx { get; set; }

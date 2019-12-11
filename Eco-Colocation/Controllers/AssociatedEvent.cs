@@ -12,7 +12,10 @@
 namespace Eco_Colocation.Controllers
 {
 
-	public partial class AssociatedEvent
+using System;
+    using System.Collections.Generic;
+    
+public partial class AssociatedEvent
 {
 
     public int IdEvent { get; set; }

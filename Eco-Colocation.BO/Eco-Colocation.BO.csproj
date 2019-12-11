@@ -62,11 +62,5 @@
     <Compile Include="RoommateBo.cs" />
     <Compile Include="UserBo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Eco-Colocation\Eco-Colocation.csproj">
-      <Project>{17518aee-5379-408e-a90c-ac018bddfb24}</Project>
-      <Name>Eco-Colocation</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

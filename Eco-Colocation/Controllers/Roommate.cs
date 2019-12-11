@@ -12,7 +12,10 @@
 namespace Eco_Colocation.Controllers
 {
 
-	public partial class Roommate
+using System;
+    using System.Collections.Generic;
+    
+public partial class Roommate
 {
 
     public int IdRoommate { get; set; }

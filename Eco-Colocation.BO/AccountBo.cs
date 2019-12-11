@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Eco_Colocation.Models
+namespace Eco_Colocation.BO
 {
 	//https://stackoverflow.com/questions/8932193/how-to-add-data-annotation-for-entities-automatically-created-by-data-first
 
