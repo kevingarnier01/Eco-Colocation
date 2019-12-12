@@ -32,7 +32,7 @@ public partial class Event
 
     public int IdEvent { get; set; }
 
-    public int IdUser { get; set; }
+    public int IdPerson { get; set; }
 
     public System.DateTime DateStart { get; set; }
 
@@ -70,7 +70,7 @@ public partial class Event
 
     public virtual ICollection<AssociatedEvent> AssociatedEvent1 { get; set; }
 
-    public virtual User User { get; set; }
+    public virtual Person Person { get; set; }
 
 }
 

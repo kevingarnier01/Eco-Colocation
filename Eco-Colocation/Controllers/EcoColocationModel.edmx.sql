@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 12/11/2019 16:52:52
+-- Date Created: 12/12/2019 12:44:29
 -- Generated from EDMX file: C:\Users\kev-gar\Documents\Projet personnel\Eco-colocation\Application\Développement\Eco-Colocation\Eco-Colocation\Controllers\EcoColocationModel.edmx
 -- --------------------------------------------------
 
@@ -196,7 +196,7 @@ GO
 -- Creating table 'CreationProjectAd'
 CREATE TABLE [dbo].[CreationProjectAd] (
     [IdCreationProject] int IDENTITY(1,1) NOT NULL,
-    [IdUser] int  NOT NULL,
+    [IdPerson] int  NOT NULL,
     [Introduction] nvarchar(100)  NOT NULL,
     [Description] nvarchar(max)  NOT NULL,
     [LandEngagement] tinyint  NULL,
@@ -238,7 +238,7 @@ GO
 -- Creating table 'Event'
 CREATE TABLE [dbo].[Event] (
     [IdEvent] int IDENTITY(1,1) NOT NULL,
-    [IdUser] int  NOT NULL,
+    [IdPerson] int  NOT NULL,
     [DateStart] datetime  NOT NULL,
     [DateEnd] datetime  NOT NULL,
     [StreetNumber] nvarchar(10)  NOT NULL,
@@ -258,7 +258,7 @@ GO
 
 -- Creating table 'PresenceEvent'
 CREATE TABLE [dbo].[PresenceEvent] (
-    [IdUser] int  NOT NULL,
+    [IdPerson] int  NOT NULL,
     [IdEvent] int  NOT NULL,
     [Status] tinyint  NOT NULL
 );
@@ -267,7 +267,7 @@ GO
 -- Creating table 'EcoRoommateExisting'
 CREATE TABLE [dbo].[EcoRoommateExisting] (
     [IdEcoRoommateExisting] int IDENTITY(1,1) NOT NULL,
-    [IdUser] int  NOT NULL,
+    [IdPerson] int  NOT NULL,
     [EcoRoommateName] nvarchar(50)  NOT NULL,
     [RommateNumber] smallint  NOT NULL,
     [Country] nvarchar(50)  NOT NULL,
@@ -317,7 +317,7 @@ GO
 -- Creating table 'ResearchRoommate'
 CREATE TABLE [dbo].[ResearchRoommate] (
     [IdResearchRoommate] int IDENTITY(1,1) NOT NULL,
-    [IdUser] int  NOT NULL,
+    [IdPerson] int  NOT NULL,
     [MaxBudget] smallint  NOT NULL,
     [EmailAlert] tinyint  NOT NULL,
     [SearchCriteria] nvarchar(max)  NOT NULL,
@@ -355,7 +355,7 @@ GO
 -- Creating table 'Account'
 CREATE TABLE [dbo].[Account] (
     [IdAccount] int IDENTITY(1,1) NOT NULL,
-    [Email] datetime  NOT NULL,
+    [Email] nvarchar(60)  NOT NULL,
     [Activated] bit  NOT NULL
 );
 GO
@@ -382,7 +382,7 @@ GO
 
 -- Creating table 'User'
 CREATE TABLE [dbo].[User] (
-    [IdUser] int IDENTITY(1,1) NOT NULL,
+    [IdPerson] int IDENTITY(1,1) NOT NULL,
     [Email] nvarchar(60)  NOT NULL,
     [FirstName] nvarchar(50)  NOT NULL,
     [LastName] nvarchar(50)  NOT NULL,
@@ -396,7 +396,7 @@ CREATE TABLE [dbo].[User] (
     [PersonnalityDescription] nvarchar(500)  NULL,
     [DateInscription] datetime  NOT NULL,
     [DateLastActivity] datetime  NOT NULL,
-    [User_Account_User_IdAccount] int  NOT NULL
+    [Person_Account_Person_IdAccount] int  NOT NULL
 );
 GO
 
@@ -448,10 +448,10 @@ ADD CONSTRAINT [PK_Event]
     PRIMARY KEY CLUSTERED ([IdEvent] ASC);
 GO
 
--- Creating primary key on [IdEvent], [IdUser] in table 'PresenceEvent'
+-- Creating primary key on [IdEvent], [IdPerson] in table 'PresenceEvent'
 ALTER TABLE [dbo].[PresenceEvent]
 ADD CONSTRAINT [PK_PresenceEvent]
-    PRIMARY KEY CLUSTERED ([IdEvent], [IdUser] ASC);
+    PRIMARY KEY CLUSTERED ([IdEvent], [IdPerson] ASC);
 GO
 
 -- Creating primary key on [IdEcoRoommateExisting] in table 'EcoRoommateExisting'
@@ -514,10 +514,10 @@ ADD CONSTRAINT [PK_Agency]
     PRIMARY KEY CLUSTERED ([IdAgency] ASC);
 GO
 
--- Creating primary key on [IdUser] in table 'User'
+-- Creating primary key on [IdPerson] in table 'User'
 ALTER TABLE [dbo].[User]
 ADD CONSTRAINT [PK_User]
-    PRIMARY KEY CLUSTERED ([IdUser] ASC);
+    PRIMARY KEY CLUSTERED ([IdPerson] ASC);
 GO
 
 -- Creating primary key on [CreationProjectAd_IdCreationProject], [Place_IdPlace] in table 'Place_CreationProjectAd'
@@ -707,79 +707,79 @@ ON [dbo].[Roommate]
     ([IdEcoRoommateExisting]);
 GO
 
--- Creating foreign key on [IdUser] in table 'ResearchRoommate'
+-- Creating foreign key on [IdPerson] in table 'ResearchRoommate'
 ALTER TABLE [dbo].[ResearchRoommate]
-ADD CONSTRAINT [FK_User_ResearchRoommate]
-    FOREIGN KEY ([IdUser])
+ADD CONSTRAINT [FK_Person_ResearchRoommate]
+    FOREIGN KEY ([IdPerson])
     REFERENCES [dbo].[User]
-        ([IdUser])
+        ([IdPerson])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
--- Creating non-clustered index for FOREIGN KEY 'FK_User_ResearchRoommate'
-CREATE INDEX [IX_FK_User_ResearchRoommate]
+-- Creating non-clustered index for FOREIGN KEY 'FK_Person_ResearchRoommate'
+CREATE INDEX [IX_FK_Person_ResearchRoommate]
 ON [dbo].[ResearchRoommate]
-    ([IdUser]);
+    ([IdPerson]);
 GO
 
--- Creating foreign key on [IdUser] in table 'EcoRoommateExisting'
+-- Creating foreign key on [IdPerson] in table 'EcoRoommateExisting'
 ALTER TABLE [dbo].[EcoRoommateExisting]
-ADD CONSTRAINT [FK_User_EcoRoommateExisting]
-    FOREIGN KEY ([IdUser])
+ADD CONSTRAINT [FK_Person_EcoRoommateExisting]
+    FOREIGN KEY ([IdPerson])
     REFERENCES [dbo].[User]
-        ([IdUser])
+        ([IdPerson])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
--- Creating non-clustered index for FOREIGN KEY 'FK_User_EcoRoommateExisting'
-CREATE INDEX [IX_FK_User_EcoRoommateExisting]
+-- Creating non-clustered index for FOREIGN KEY 'FK_Person_EcoRoommateExisting'
+CREATE INDEX [IX_FK_Person_EcoRoommateExisting]
 ON [dbo].[EcoRoommateExisting]
-    ([IdUser]);
+    ([IdPerson]);
 GO
 
--- Creating foreign key on [IdUser] in table 'PresenceEvent'
+-- Creating foreign key on [IdPerson] in table 'PresenceEvent'
 ALTER TABLE [dbo].[PresenceEvent]
-ADD CONSTRAINT [FK_User_PresenceEvent]
-    FOREIGN KEY ([IdUser])
+ADD CONSTRAINT [FK_Person_PresenceEvent]
+    FOREIGN KEY ([IdPerson])
     REFERENCES [dbo].[User]
-        ([IdUser])
+        ([IdPerson])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
--- Creating non-clustered index for FOREIGN KEY 'FK_User_PresenceEvent'
-CREATE INDEX [IX_FK_User_PresenceEvent]
+-- Creating non-clustered index for FOREIGN KEY 'FK_Person_PresenceEvent'
+CREATE INDEX [IX_FK_Person_PresenceEvent]
 ON [dbo].[PresenceEvent]
-    ([IdUser]);
+    ([IdPerson]);
 GO
 
--- Creating foreign key on [IdUser] in table 'Event'
+-- Creating foreign key on [IdPerson] in table 'Event'
 ALTER TABLE [dbo].[Event]
-ADD CONSTRAINT [FK_User_Event]
-    FOREIGN KEY ([IdUser])
+ADD CONSTRAINT [FK_Person_Event]
+    FOREIGN KEY ([IdPerson])
     REFERENCES [dbo].[User]
-        ([IdUser])
+        ([IdPerson])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
--- Creating non-clustered index for FOREIGN KEY 'FK_User_Event'
-CREATE INDEX [IX_FK_User_Event]
+-- Creating non-clustered index for FOREIGN KEY 'FK_Person_Event'
+CREATE INDEX [IX_FK_Person_Event]
 ON [dbo].[Event]
-    ([IdUser]);
+    ([IdPerson]);
 GO
 
--- Creating foreign key on [User_Account_User_IdAccount] in table 'User'
+-- Creating foreign key on [Person_Account_Person_IdAccount] in table 'User'
 ALTER TABLE [dbo].[User]
-ADD CONSTRAINT [FK_User_Account]
-    FOREIGN KEY ([User_Account_User_IdAccount])
+ADD CONSTRAINT [FK_Person_Account]
+    FOREIGN KEY ([Person_Account_Person_IdAccount])
     REFERENCES [dbo].[Account]
         ([IdAccount])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
--- Creating non-clustered index for FOREIGN KEY 'FK_User_Account'
-CREATE INDEX [IX_FK_User_Account]
+-- Creating non-clustered index for FOREIGN KEY 'FK_Person_Account'
+CREATE INDEX [IX_FK_Person_Account]
 ON [dbo].[User]
-    ([User_Account_User_IdAccount]);
+    ([Person_Account_Person_IdAccount]);
 GO
 
 -- Creating foreign key on [Account_IdAccount] in table 'Agency'
@@ -797,19 +797,19 @@ ON [dbo].[Agency]
     ([Account_IdAccount]);
 GO
 
--- Creating foreign key on [IdUser] in table 'CreationProjectAd'
+-- Creating foreign key on [IdPerson] in table 'CreationProjectAd'
 ALTER TABLE [dbo].[CreationProjectAd]
 ADD CONSTRAINT [FK_CreationProjectAd_User]
-    FOREIGN KEY ([IdUser])
+    FOREIGN KEY ([IdPerson])
     REFERENCES [dbo].[User]
-        ([IdUser])
+        ([IdPerson])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_CreationProjectAd_User'
 CREATE INDEX [IX_FK_CreationProjectAd_User]
 ON [dbo].[CreationProjectAd]
-    ([IdUser]);
+    ([IdPerson]);
 GO
 
 -- --------------------------------------------------

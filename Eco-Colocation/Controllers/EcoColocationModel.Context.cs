@@ -64,7 +64,7 @@ public partial class EcoColocationModelContainer : DbContext
 
     public DbSet<Agency> Agency { get; set; }
 
-    public DbSet<User> User { get; set; }
+    public DbSet<Person> User { get; set; }
 
 }
 

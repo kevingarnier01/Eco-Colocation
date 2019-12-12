@@ -28,7 +28,7 @@ public partial class CreationProjectAd
 
     public int IdCreationProject { get; set; }
 
-    public int IdUser { get; set; }
+    public int IdPerson { get; set; }
 
     public string Introduction { get; set; }
 

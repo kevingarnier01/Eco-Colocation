@@ -18,7 +18,7 @@ using System;
 public partial class PresenceEvent
 {
 
-    public int IdUser { get; set; }
+    public int IdPerson { get; set; }
 
     public int IdEvent { get; set; }
 
@@ -28,7 +28,7 @@ public partial class PresenceEvent
 
     public virtual Event Event { get; set; }
 
-    public virtual User User { get; set; }
+    public virtual Person Person { get; set; }
 
 }
 

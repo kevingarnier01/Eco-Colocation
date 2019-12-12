@@ -77,24 +77,24 @@
       <End Role="EcoRoommateExisting" EntitySet="EcoRoommateExisting" />
       <End Role="Roommate" EntitySet="Roommate" />
     </AssociationSet>
-    <AssociationSet Name="User_ResearchRoommate" Association="EcoColocationModel.Store.User_ResearchRoommate">
-      <End Role="User" EntitySet="User" />
+    <AssociationSet Name="Person_ResearchRoommate" Association="EcoColocationModel.Store.Person_ResearchRoommate">
+      <End Role="Person" EntitySet="User" />
       <End Role="ResearchRoommate" EntitySet="ResearchRoommate" />
     </AssociationSet>
-    <AssociationSet Name="User_EcoRoommateExisting" Association="EcoColocationModel.Store.User_EcoRoommateExisting">
-      <End Role="User" EntitySet="User" />
+    <AssociationSet Name="Person_EcoRoommateExisting" Association="EcoColocationModel.Store.Person_EcoRoommateExisting">
+      <End Role="Person" EntitySet="User" />
       <End Role="EcoRoommateExisting" EntitySet="EcoRoommateExisting" />
     </AssociationSet>
-    <AssociationSet Name="User_PresenceEvent" Association="EcoColocationModel.Store.User_PresenceEvent">
-      <End Role="User" EntitySet="User" />
+    <AssociationSet Name="Person_PresenceEvent" Association="EcoColocationModel.Store.Person_PresenceEvent">
+      <End Role="Person" EntitySet="User" />
       <End Role="PresenceEvent" EntitySet="PresenceEvent" />
     </AssociationSet>
-    <AssociationSet Name="User_Event" Association="EcoColocationModel.Store.User_Event">
-      <End Role="User" EntitySet="User" />
+    <AssociationSet Name="Person_Event" Association="EcoColocationModel.Store.Person_Event">
+      <End Role="Person" EntitySet="User" />
       <End Role="Event" EntitySet="Event" />
     </AssociationSet>
-    <AssociationSet Name="User_Account" Association="EcoColocationModel.Store.User_Account">
-      <End Role="User" EntitySet="User" />
+    <AssociationSet Name="Person_Account" Association="EcoColocationModel.Store.Person_Account">
+      <End Role="Person" EntitySet="User" />
       <End Role="Account" EntitySet="Account" />
     </AssociationSet>
     <AssociationSet Name="Agency_Account" Association="EcoColocationModel.Store.Agency_Account">
@@ -103,7 +103,7 @@
     </AssociationSet>
     <AssociationSet Name="CreationProjectAd_User" Association="EcoColocationModel.Store.CreationProjectAd_User">
       <End Role="CreationProjectAd" EntitySet="CreationProjectAd" />
-      <End Role="User" EntitySet="User" />
+      <End Role="Person" EntitySet="User" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="RentalAd">
@@ -160,7 +160,7 @@
       <PropertyRef Name="IdCreationProject" />
     </Key>
     <Property Name="IdCreationProject" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="IdUser" Type="int" Nullable="false" />
+    <Property Name="IdPerson" Type="int" Nullable="false" />
     <Property Name="Introduction" Type="nvarchar" Nullable="false" MaxLength="100" />
     <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
     <Property Name="LandEngagement" Type="tinyint" Nullable="true" />
@@ -202,7 +202,7 @@
       <PropertyRef Name="IdEvent" />
     </Key>
     <Property Name="IdEvent" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="IdUser" Type="int" Nullable="false" />
+    <Property Name="IdPerson" Type="int" Nullable="false" />
     <Property Name="DateStart" Type="datetime" Nullable="false" />
     <Property Name="DateEnd" Type="datetime" Nullable="false" />
     <Property Name="StreetNumber" Type="nvarchar" Nullable="false" MaxLength="10" />
@@ -221,9 +221,9 @@
   <EntityType Name="PresenceEvent">
     <Key>
       <PropertyRef Name="IdEvent" />
-      <PropertyRef Name="IdUser" />
+      <PropertyRef Name="IdPerson" />
     </Key>
-    <Property Name="IdUser" Type="int" Nullable="false" />
+    <Property Name="IdPerson" Type="int" Nullable="false" />
     <Property Name="IdEvent" Type="int" Nullable="false" />
     <Property Name="Status" Type="tinyint" Nullable="false" />
   </EntityType>
@@ -232,7 +232,7 @@
       <PropertyRef Name="IdEcoRoommateExisting" />
     </Key>
     <Property Name="IdEcoRoommateExisting" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="IdUser" Type="int" Nullable="false" />
+    <Property Name="IdPerson" Type="int" Nullable="false" />
     <Property Name="EcoRoommateName" Type="nvarchar" Nullable="false" MaxLength="50" />
     <Property Name="RommateNumber" Type="smallint" Nullable="false" />
     <Property Name="Country" Type="nvarchar" Nullable="false" MaxLength="50" />
@@ -282,7 +282,7 @@
       <PropertyRef Name="IdResearchRoommate" />
     </Key>
     <Property Name="IdResearchRoommate" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="IdUser" Type="int" Nullable="false" />
+    <Property Name="IdPerson" Type="int" Nullable="false" />
     <Property Name="MaxBudget" Type="smallint" Nullable="false" />
     <Property Name="EmailAlert" Type="tinyint" Nullable="false" />
     <Property Name="SearchCriteria" Type="nvarchar(max)" Nullable="false" />
@@ -321,7 +321,7 @@
       <PropertyRef Name="IdAccount" />
     </Key>
     <Property Name="IdAccount" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Email" Type="datetime" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" Nullable="false" MaxLength="60" />
     <Property Name="Activated" Type="bit" Nullable="false" DefaultValue="true" />
   </EntityType>
   <EntityType Name="Agency">
@@ -346,9 +346,9 @@
   </EntityType>
   <EntityType Name="User">
     <Key>
-      <PropertyRef Name="IdUser" />
+      <PropertyRef Name="IdPerson" />
     </Key>
-    <Property Name="IdUser" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdPerson" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Email" Type="nvarchar" Nullable="false" MaxLength="60" />
     <Property Name="FirstName" Type="nvarchar" Nullable="false" MaxLength="50" />
     <Property Name="LastName" Type="nvarchar" Nullable="false" MaxLength="50" />
@@ -362,7 +362,7 @@
     <Property Name="PersonnalityDescription" Type="nvarchar" Nullable="true" MaxLength="500" />
     <Property Name="DateInscription" Type="datetime" Nullable="false" />
     <Property Name="DateLastActivity" Type="datetime" Nullable="false" />
-    <Property Name="User_Account_User_IdAccount" Type="int" Nullable="false" />
+    <Property Name="Person_Account_Person_IdAccount" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Place_CreationProjectAd">
     <Key>
@@ -488,63 +488,63 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="User_ResearchRoommate">
-    <End Role="User" Type="EcoColocationModel.Store.User" Multiplicity="1" />
+  <Association Name="Person_ResearchRoommate">
+    <End Role="Person" Type="EcoColocationModel.Store.User" Multiplicity="1" />
     <End Role="ResearchRoommate" Type="EcoColocationModel.Store.ResearchRoommate" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="IdUser" />
+      <Principal Role="Person">
+        <PropertyRef Name="IdPerson" />
       </Principal>
       <Dependent Role="ResearchRoommate">
-        <PropertyRef Name="IdUser" />
+        <PropertyRef Name="IdPerson" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="User_EcoRoommateExisting">
-    <End Role="User" Type="EcoColocationModel.Store.User" Multiplicity="1" />
+  <Association Name="Person_EcoRoommateExisting">
+    <End Role="Person" Type="EcoColocationModel.Store.User" Multiplicity="1" />
     <End Role="EcoRoommateExisting" Type="EcoColocationModel.Store.EcoRoommateExisting" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="IdUser" />
+      <Principal Role="Person">
+        <PropertyRef Name="IdPerson" />
       </Principal>
       <Dependent Role="EcoRoommateExisting">
-        <PropertyRef Name="IdUser" />
+        <PropertyRef Name="IdPerson" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="User_PresenceEvent">
-    <End Role="User" Type="EcoColocationModel.Store.User" Multiplicity="1" />
+  <Association Name="Person_PresenceEvent">
+    <End Role="Person" Type="EcoColocationModel.Store.User" Multiplicity="1" />
     <End Role="PresenceEvent" Type="EcoColocationModel.Store.PresenceEvent" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="IdUser" />
+      <Principal Role="Person">
+        <PropertyRef Name="IdPerson" />
       </Principal>
       <Dependent Role="PresenceEvent">
-        <PropertyRef Name="IdUser" />
+        <PropertyRef Name="IdPerson" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="User_Event">
-    <End Role="User" Type="EcoColocationModel.Store.User" Multiplicity="1" />
+  <Association Name="Person_Event">
+    <End Role="Person" Type="EcoColocationModel.Store.User" Multiplicity="1" />
     <End Role="Event" Type="EcoColocationModel.Store.Event" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="IdUser" />
+      <Principal Role="Person">
+        <PropertyRef Name="IdPerson" />
       </Principal>
       <Dependent Role="Event">
-        <PropertyRef Name="IdUser" />
+        <PropertyRef Name="IdPerson" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="User_Account">
-    <End Role="User" Type="EcoColocationModel.Store.User" Multiplicity="*" />
+  <Association Name="Person_Account">
+    <End Role="Person" Type="EcoColocationModel.Store.User" Multiplicity="*" />
     <End Role="Account" Type="EcoColocationModel.Store.Account" Multiplicity="1" />
     <ReferentialConstraint>
       <Principal Role="Account">
         <PropertyRef Name="IdAccount" />
       </Principal>
-      <Dependent Role="User">
-        <PropertyRef Name="User_Account_User_IdAccount" />
+      <Dependent Role="Person">
+        <PropertyRef Name="Person_Account_Person_IdAccount" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -562,13 +562,13 @@
   </Association>
   <Association Name="CreationProjectAd_User">
     <End Role="CreationProjectAd" Type="EcoColocationModel.Store.CreationProjectAd" Multiplicity="*" />
-    <End Role="User" Type="EcoColocationModel.Store.User" Multiplicity="1" />
+    <End Role="Person" Type="EcoColocationModel.Store.User" Multiplicity="1" />
     <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="IdUser" />
+      <Principal Role="Person">
+        <PropertyRef Name="IdPerson" />
       </Principal>
       <Dependent Role="CreationProjectAd">
-        <PropertyRef Name="IdUser" />
+        <PropertyRef Name="IdPerson" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -685,25 +685,25 @@
             <End Role="Roommate" EntitySet="Roommate" />
           </AssociationSet>
           <EntitySet Name="Agency" EntityType="EcoColocationModel.Agency" />
-          <EntitySet Name="User" EntityType="EcoColocationModel.User" />
-          <AssociationSet Name="User_ResearchRoommate" Association="EcoColocationModel.User_ResearchRoommate">
-            <End Role="User" EntitySet="User" />
+          <EntitySet Name="User" EntityType="EcoColocationModel.Person" />
+          <AssociationSet Name="Person_ResearchRoommate" Association="EcoColocationModel.Person_ResearchRoommate">
+            <End Role="Person" EntitySet="User" />
             <End Role="ResearchRoommate" EntitySet="ResearchRoommate" />
           </AssociationSet>
-          <AssociationSet Name="User_EcoRoommateExisting" Association="EcoColocationModel.User_EcoRoommateExisting">
-            <End Role="User" EntitySet="User" />
+          <AssociationSet Name="Person_EcoRoommateExisting" Association="EcoColocationModel.Person_EcoRoommateExisting">
+            <End Role="Person" EntitySet="User" />
             <End Role="EcoRoommateExisting" EntitySet="EcoRoommateExisting" />
           </AssociationSet>
-          <AssociationSet Name="User_PresenceEvent" Association="EcoColocationModel.User_PresenceEvent">
-            <End Role="User" EntitySet="User" />
+          <AssociationSet Name="Person_PresenceEvent" Association="EcoColocationModel.Person_PresenceEvent">
+            <End Role="Person" EntitySet="User" />
             <End Role="PresenceEvent" EntitySet="PresenceEvent" />
           </AssociationSet>
-          <AssociationSet Name="User_Event" Association="EcoColocationModel.User_Event">
-            <End Role="User" EntitySet="User" />
+          <AssociationSet Name="Person_Event" Association="EcoColocationModel.Person_Event">
+            <End Role="Person" EntitySet="User" />
             <End Role="Event" EntitySet="Event" />
           </AssociationSet>
-          <AssociationSet Name="User_Account" Association="EcoColocationModel.User_Account">
-            <End Role="User" EntitySet="User" />
+          <AssociationSet Name="Person_Account" Association="EcoColocationModel.Person_Account">
+            <End Role="Person" EntitySet="User" />
             <End Role="Account" EntitySet="Account" />
           </AssociationSet>
           <AssociationSet Name="Agency_Account" Association="EcoColocationModel.Agency_Account">
@@ -712,7 +712,7 @@
           </AssociationSet>
           <AssociationSet Name="CreationProjectAd_User" Association="EcoColocationModel.CreationProjectAd_User">
             <End Role="CreationProjectAd" EntitySet="CreationProjectAd" />
-            <End Role="User" EntitySet="User" />
+            <End Role="Person" EntitySet="User" />
           </AssociationSet>
           </EntityContainer>
         <EntityType Name="RentalAd">
@@ -784,7 +784,7 @@
             <PropertyRef Name="IdCreationProject" />
           </Key>
           <Property Name="IdCreationProject" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IdUser" Type="Int32" Nullable="false" />
+          <Property Name="IdPerson" Type="Int32" Nullable="false" />
           <Property Name="Introduction" Type="String" Nullable="false" MaxLength="100" />
           <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" />
           <Property Name="LandEngagement" Type="Byte" Nullable="true" />
@@ -833,7 +833,7 @@
             <PropertyRef Name="IdEvent" />
           </Key>
           <Property Name="IdEvent" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IdUser" Type="Int32" Nullable="false" />
+          <Property Name="IdPerson" Type="Int32" Nullable="false" />
           <Property Name="DateStart" Type="DateTime" Nullable="false" />
           <Property Name="DateEnd" Type="DateTime" Nullable="false" />
           <Property Name="StreetNumber" Type="String" Nullable="false" MaxLength="10" />
@@ -851,25 +851,25 @@
           <NavigationProperty Name="AssociatedEvent1" Relationship="EcoColocationModel.Event_AssociatedEvent1" FromRole="Event" ToRole="AssociatedEvent" />
           <Property Name="PictureName" Type="String" Nullable="true" MaxLength="50" />
           <Property Name="DatePublish" Type="DateTime" Nullable="false" />
-          <NavigationProperty Name="User" Relationship="EcoColocationModel.User_Event" FromRole="Event" ToRole="User" />
+          <NavigationProperty Name="Person" Relationship="EcoColocationModel.Person_Event" FromRole="Event" ToRole="Person" />
         </EntityType>
         <EntityType Name="PresenceEvent">
           <Key>
             <PropertyRef Name="IdEvent" />
-            <PropertyRef Name="IdUser" />
+            <PropertyRef Name="IdPerson" />
           </Key>
           <NavigationProperty Name="Event" Relationship="EcoColocationModel.Event_PresenceEvent" FromRole="PresenceEvent" ToRole="Event" />
-          <Property Name="IdUser" Type="Int32" Nullable="false" />
+          <Property Name="IdPerson" Type="Int32" Nullable="false" />
           <Property Name="IdEvent" Nullable="false" Type="Int32" />
           <Property Name="Status" Nullable="false" Type="Byte" />
-          <NavigationProperty Name="User" Relationship="EcoColocationModel.User_PresenceEvent" FromRole="PresenceEvent" ToRole="User" />
+          <NavigationProperty Name="Person" Relationship="EcoColocationModel.Person_PresenceEvent" FromRole="PresenceEvent" ToRole="Person" />
         </EntityType>
         <EntityType Name="EcoRoommateExisting">
           <Key>
             <PropertyRef Name="IdEcoRoommateExisting" />
           </Key>
           <Property Name="IdEcoRoommateExisting" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IdUser" Type="Int32" Nullable="false" />
+          <Property Name="IdPerson" Type="Int32" Nullable="false" />
           <Property Name="EcoRoommateName" Type="String" Nullable="false" MaxLength="50" />
           <Property Name="RommateNumber" Type="Int16" Nullable="false" />
           <Property Name="Country" Type="String" Nullable="false" MaxLength="50" />
@@ -884,7 +884,7 @@
           <Property Name="TableEco" Type="String" Nullable="false" />
           <Property Name="TableHousing" Type="String" Nullable="false" />
           <NavigationProperty Name="PictureEcoRoommateEx" Relationship="EcoColocationModel.EcoRoommateExisting_PictureEcoRoommateEx" FromRole="EcoRoommateExisting" ToRole="PictureEcoRoommateEx" />
-          <NavigationProperty Name="User" Relationship="EcoColocationModel.User_EcoRoommateExisting" FromRole="EcoRoommateExisting" ToRole="User" />
+          <NavigationProperty Name="Person" Relationship="EcoColocationModel.Person_EcoRoommateExisting" FromRole="EcoRoommateExisting" ToRole="Person" />
         </EntityType>
         <EntityType Name="PictureDevConversation">
           <Key>
@@ -924,7 +924,7 @@
             <PropertyRef Name="IdResearchRoommate" />
           </Key>
           <Property Name="IdResearchRoommate" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IdUser" Type="Int32" Nullable="false" />
+          <Property Name="IdPerson" Type="Int32" Nullable="false" />
           <Property Name="MaxBudget" Type="Int16" Nullable="false" />
           <Property Name="EmailAlert" Type="Byte" Nullable="false" />
           <Property Name="SearchCriteria" Type="String" Nullable="false" MaxLength="Max" />
@@ -932,17 +932,17 @@
           <Property Name="PictureName" Type="String" Nullable="false" MaxLength="50" />
           <NavigationProperty Name="Place" Relationship="EcoColocationModel.Place_ResearchRoommate" FromRole="ResearchRoommate" ToRole="Place" />
           <Property Name="ActivatedAnnouncement" Type="String" Nullable="false" />
-          <NavigationProperty Name="User" Relationship="EcoColocationModel.User_ResearchRoommate" FromRole="ResearchRoommate" ToRole="User" />
+          <NavigationProperty Name="Person" Relationship="EcoColocationModel.Person_ResearchRoommate" FromRole="ResearchRoommate" ToRole="Person" />
         </EntityType>
         <Association Name="Place_ResearchRoommate">
           <End Type="EcoColocationModel.ResearchRoommate" Role="ResearchRoommate" Multiplicity="*" />
           <End Type="EcoColocationModel.Place" Role="Place" Multiplicity="*" />
         </Association>
-        <EntityType Name="User">
+        <EntityType Name="Person">
           <Key>
-            <PropertyRef Name="IdUser" />
+            <PropertyRef Name="IdPerson" />
           </Key>
-          <Property Name="IdUser" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdPerson" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Email" Nullable="false" MaxLength="60" Type="String" />
           <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" />
           <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" />
@@ -956,7 +956,7 @@
           <Property Name="PersonnalityDescription" Type="String" Nullable="true" MaxLength="500" />
           <Property Name="DateInscription" Type="DateTime" Nullable="false" />
           <Property Name="DateLastActivity" Type="DateTime" Nullable="false" />
-          <NavigationProperty Name="CreationProjectAd" Relationship="EcoColocationModel.CreationProjectAd_User" FromRole="User" ToRole="CreationProjectAd" />
+          <NavigationProperty Name="CreationProjectAd" Relationship="EcoColocationModel.CreationProjectAd_User" FromRole="Person" ToRole="CreationProjectAd" />
         </EntityType>
         <Association Name="Event_PresenceEvent">
           <End Type="EcoColocationModel.Event" Multiplicity="1" Role="Event" />
@@ -1074,8 +1074,8 @@
           </Key>
           <Property Name="IdAccount" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="RentalAd" Relationship="EcoColocationModel.RentalAd_Account" FromRole="Account" ToRole="RentalAd" />
-          <NavigationProperty Name="User" Relationship="EcoColocationModel.User_Account" FromRole="Account" ToRole="User" />
-          <Property Name="Email" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="Person" Relationship="EcoColocationModel.Person_Account" FromRole="Account" ToRole="Person" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="60" />
           <Property Name="Activated" Nullable="false" DefaultValue="True" Type="Boolean" />
         </EntityType>
         <Association Name="RentalAd_Account">
@@ -1114,56 +1114,56 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="User_ResearchRoommate">
-          <End Type="EcoColocationModel.User" Role="User" Multiplicity="1" />
+        <Association Name="Person_ResearchRoommate">
+          <End Type="EcoColocationModel.Person" Role="Person" Multiplicity="1" />
           <End Type="EcoColocationModel.ResearchRoommate" Role="ResearchRoommate" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="IdUser" />
+            <Principal Role="Person">
+              <PropertyRef Name="IdPerson" />
             </Principal>
             <Dependent Role="ResearchRoommate">
-              <PropertyRef Name="IdUser" />
+              <PropertyRef Name="IdPerson" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="User_EcoRoommateExisting">
-          <End Type="EcoColocationModel.User" Role="User" Multiplicity="1" />
+        <Association Name="Person_EcoRoommateExisting">
+          <End Type="EcoColocationModel.Person" Role="Person" Multiplicity="1" />
           <End Type="EcoColocationModel.EcoRoommateExisting" Role="EcoRoommateExisting" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="IdUser" />
+            <Principal Role="Person">
+              <PropertyRef Name="IdPerson" />
             </Principal>
             <Dependent Role="EcoRoommateExisting">
-              <PropertyRef Name="IdUser" />
+              <PropertyRef Name="IdPerson" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="User_PresenceEvent">
-          <End Type="EcoColocationModel.User" Role="User" Multiplicity="1" />
+        <Association Name="Person_PresenceEvent">
+          <End Type="EcoColocationModel.Person" Role="Person" Multiplicity="1" />
           <End Type="EcoColocationModel.PresenceEvent" Role="PresenceEvent" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="IdUser" />
+            <Principal Role="Person">
+              <PropertyRef Name="IdPerson" />
             </Principal>
             <Dependent Role="PresenceEvent">
-              <PropertyRef Name="IdUser" />
+              <PropertyRef Name="IdPerson" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="User_Event">
-          <End Type="EcoColocationModel.User" Role="User" Multiplicity="1" />
+        <Association Name="Person_Event">
+          <End Type="EcoColocationModel.Person" Role="Person" Multiplicity="1" />
           <End Type="EcoColocationModel.Event" Role="Event" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="IdUser" />
+            <Principal Role="Person">
+              <PropertyRef Name="IdPerson" />
             </Principal>
             <Dependent Role="Event">
-              <PropertyRef Name="IdUser" />
+              <PropertyRef Name="IdPerson" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="User_Account">
-          <End Type="EcoColocationModel.User" Role="User" Multiplicity="0..1" />
+        <Association Name="Person_Account">
+          <End Type="EcoColocationModel.Person" Role="Person" Multiplicity="0..1" />
           <End Type="EcoColocationModel.Account" Role="Account" Multiplicity="1" />
         </Association>
         <Association Name="Agency_Account">
@@ -1172,13 +1172,13 @@
         </Association>
         <Association Name="CreationProjectAd_User">
           <End Type="EcoColocationModel.CreationProjectAd" Role="CreationProjectAd" Multiplicity="*" />
-          <End Type="EcoColocationModel.User" Role="User" Multiplicity="1" />
+          <End Type="EcoColocationModel.Person" Role="Person" Multiplicity="1" />
           <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="IdUser" />
+            <Principal Role="Person">
+              <PropertyRef Name="IdPerson" />
             </Principal>
             <Dependent Role="CreationProjectAd">
-              <PropertyRef Name="IdUser" />
+              <PropertyRef Name="IdPerson" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1243,7 +1243,7 @@
       <EntityTypeMapping TypeName="IsTypeOf(EcoColocationModel.CreationProjectAd)">
         <MappingFragment StoreEntitySet="CreationProjectAd">
           <ScalarProperty Name="IdCreationProject" ColumnName="IdCreationProject" />
-          <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+          <ScalarProperty Name="IdPerson" ColumnName="IdPerson" />
           <ScalarProperty Name="Introduction" ColumnName="Introduction" />
           <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="LandEngagement" ColumnName="LandEngagement" />
@@ -1287,7 +1287,7 @@
       <EntityTypeMapping TypeName="IsTypeOf(EcoColocationModel.Event)">
         <MappingFragment StoreEntitySet="Event">
           <ScalarProperty Name="IdEvent" ColumnName="IdEvent" />
-          <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+          <ScalarProperty Name="IdPerson" ColumnName="IdPerson" />
           <ScalarProperty Name="DateStart" ColumnName="DateStart" />
           <ScalarProperty Name="DateEnd" ColumnName="DateEnd" />
           <ScalarProperty Name="StreetNumber" ColumnName="StreetNumber" />
@@ -1309,7 +1309,7 @@
       <EntityTypeMapping TypeName="IsTypeOf(EcoColocationModel.PresenceEvent)">
         <MappingFragment StoreEntitySet="PresenceEvent">
           <ScalarProperty Name="IdEvent" ColumnName="IdEvent" />
-          <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+          <ScalarProperty Name="IdPerson" ColumnName="IdPerson" />
           <ScalarProperty Name="Status" ColumnName="Status" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -1318,7 +1318,7 @@
       <EntityTypeMapping TypeName="IsTypeOf(EcoColocationModel.EcoRoommateExisting)">
         <MappingFragment StoreEntitySet="EcoRoommateExisting">
           <ScalarProperty Name="IdEcoRoommateExisting" ColumnName="IdEcoRoommateExisting" />
-          <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+          <ScalarProperty Name="IdPerson" ColumnName="IdPerson" />
           <ScalarProperty Name="EcoRoommateName" ColumnName="EcoRoommateName" />
           <ScalarProperty Name="RommateNumber" ColumnName="RommateNumber" />
           <ScalarProperty Name="Country" ColumnName="Country" />
@@ -1372,7 +1372,7 @@
       <EntityTypeMapping TypeName="IsTypeOf(EcoColocationModel.ResearchRoommate)">
         <MappingFragment StoreEntitySet="ResearchRoommate">
           <ScalarProperty Name="IdResearchRoommate" ColumnName="IdResearchRoommate" />
-          <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+          <ScalarProperty Name="IdPerson" ColumnName="IdPerson" />
           <ScalarProperty Name="MaxBudget" ColumnName="MaxBudget" />
           <ScalarProperty Name="EmailAlert" ColumnName="EmailAlert" />
           <ScalarProperty Name="SearchCriteria" ColumnName="SearchCriteria" />
@@ -1440,9 +1440,9 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="User">
-      <EntityTypeMapping TypeName="IsTypeOf(EcoColocationModel.User)">
+      <EntityTypeMapping TypeName="IsTypeOf(EcoColocationModel.Person)">
         <MappingFragment StoreEntitySet="User">
-          <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+          <ScalarProperty Name="IdPerson" ColumnName="IdPerson" />
           <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="FirstName" ColumnName="FirstName" />
           <ScalarProperty Name="LastName" ColumnName="LastName" />
@@ -1475,12 +1475,12 @@
         <ScalarProperty Name="IdPlace" ColumnName="Place_IdPlace" />
       </EndProperty>
     </AssociationSetMapping>
-    <AssociationSetMapping Name="User_Account" TypeName="EcoColocationModel.User_Account" StoreEntitySet="User">
+    <AssociationSetMapping Name="Person_Account" TypeName="EcoColocationModel.Person_Account" StoreEntitySet="User">
       <EndProperty Name="Account">
-        <ScalarProperty Name="IdAccount" ColumnName="User_Account_User_IdAccount" />
+        <ScalarProperty Name="IdAccount" ColumnName="Person_Account_Person_IdAccount" />
       </EndProperty>
-      <EndProperty Name="User">
-        <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+      <EndProperty Name="Person">
+        <ScalarProperty Name="IdPerson" ColumnName="IdPerson" />
       </EndProperty>
     </AssociationSetMapping>
     <AssociationSetMapping Name="Agency_Account" TypeName="EcoColocationModel.Agency_Account" StoreEntitySet="Agency">

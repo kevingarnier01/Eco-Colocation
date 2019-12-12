@@ -28,7 +28,7 @@ public partial class EcoRoommateExisting
 
     public int IdEcoRoommateExisting { get; set; }
 
-    public int IdUser { get; set; }
+    public int IdPerson { get; set; }
 
     public string EcoRoommateName { get; set; }
 
@@ -60,7 +60,7 @@ public partial class EcoRoommateExisting
 
     public virtual ICollection<PictureEcoRoommateEx> PictureEcoRoommateEx { get; set; }
 
-    public virtual User User { get; set; }
+    public virtual Person Person { get; set; }
 
 }
 

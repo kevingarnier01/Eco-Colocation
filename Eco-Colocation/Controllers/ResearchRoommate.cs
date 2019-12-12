@@ -28,7 +28,7 @@ public partial class ResearchRoommate
 
     public int IdResearchRoommate { get; set; }
 
-    public int IdUser { get; set; }
+    public int IdPerson { get; set; }
 
     public short MaxBudget { get; set; }
 
@@ -46,7 +46,7 @@ public partial class ResearchRoommate
 
     public virtual ICollection<Place> Place { get; set; }
 
-    public virtual User User { get; set; }
+    public virtual Person Person { get; set; }
 
 }
 

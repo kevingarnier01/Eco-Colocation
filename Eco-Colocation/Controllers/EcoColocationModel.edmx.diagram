@@ -19,7 +19,7 @@
         <EntityTypeShape EntityType="EcoColocationModel.DevConversation" Width="1.625" PointX="2.75" PointY="17.5" />
         <EntityTypeShape EntityType="EcoColocationModel.ResearchRoommate" Width="1.875" PointX="15.5" PointY="8.25" />
         <AssociationConnector Association="EcoColocationModel.Place_ResearchRoommate" />
-        <EntityTypeShape EntityType="EcoColocationModel.User" Width="1.625" PointX="11.375" PointY="8.125" />
+        <EntityTypeShape EntityType="EcoColocationModel.Person" Width="1.625" PointX="11.375" PointY="8.125" />
         <AssociationConnector Association="EcoColocationModel.Event_PresenceEvent" />
         <EntityTypeShape EntityType="EcoColocationModel.AssociatedEvent" Width="1.625" PointX="15.875" PointY="3.75" />
         <AssociationConnector Association="EcoColocationModel.Event_AssociatedEvent" />
@@ -33,11 +33,11 @@
         <AssociationConnector Association="EcoColocationModel.RentalAd_Account" />
         <AssociationConnector Association="EcoColocationModel.PictureCreationProject_CreationProjectAd" />
         <AssociationConnector Association="EcoColocationModel.EcoRoommateExisting_Roommate" />
-        <AssociationConnector Association="EcoColocationModel.User_ResearchRoommate" />
-        <AssociationConnector Association="EcoColocationModel.User_EcoRoommateExisting" />
-        <AssociationConnector Association="EcoColocationModel.User_PresenceEvent" />
-        <AssociationConnector Association="EcoColocationModel.User_Event" />
-        <AssociationConnector Association="EcoColocationModel.User_Account" />
+        <AssociationConnector Association="EcoColocationModel.Person_ResearchRoommate" />
+        <AssociationConnector Association="EcoColocationModel.Person_EcoRoommateExisting" />
+        <AssociationConnector Association="EcoColocationModel.Person_PresenceEvent" />
+        <AssociationConnector Association="EcoColocationModel.Person_Event" />
+        <AssociationConnector Association="EcoColocationModel.Person_Account" />
         <AssociationConnector Association="EcoColocationModel.Agency_Account" />
         <AssociationConnector Association="EcoColocationModel.CreationProjectAd_User" />
       </Diagram>

@@ -15,10 +15,10 @@ namespace Eco_Colocation.Controllers
 using System;
     using System.Collections.Generic;
     
-public partial class User
+public partial class Person
 {
 
-    public User()
+    public Person()
     {
 
         this.CreationProjectAd = new HashSet<CreationProjectAd>();
@@ -26,7 +26,7 @@ public partial class User
     }
 
 
-    public int IdUser { get; set; }
+    public int IdPerson { get; set; }
 
     public string Email { get; set; }
 

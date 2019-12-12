@@ -30,7 +30,7 @@ public partial class Account
 
     public int IdAccount { get; set; }
 
-    public System.DateTime Email { get; set; }
+    public string Email { get; set; }
 
     public bool Activated { get; set; }
 
@@ -38,7 +38,7 @@ public partial class Account
 
     public virtual ICollection<RentalAd> RentalAd { get; set; }
 
-    public virtual User User { get; set; }
+    public virtual Person Person { get; set; }
 
 }
 

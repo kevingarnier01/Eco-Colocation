@@ -1,6 +1,7 @@
 ﻿using Eco_Colocation.BLL;
 using Eco_Colocation.DAL;
 using Eco_Colocation.ViewModel;
+using System.Web.Configuration;
 using System.Web.Mvc;
 using System.Web.Security;
 using WebMatrix.WebData;
@@ -32,7 +33,7 @@ namespace Eco_Colocation.Controllers
 
 		public ActionResult Connection(AccountViewModel accountViewModel)
 		{
-			WebSecurity.InitializeDatabaseConnection("IntializeDbEcoColoc", "Account", "IdAccount", "Email", true);
+			WebSecurity.InitializeDatabaseConnection("ConnStringForWebSecurity", "Account", "IdAccount", "Email", true);
 
 			return View("~/Views/EcoRoommateHome/EcoRoommateHomeView.cshtml");
 		}
