@@ -39,7 +39,7 @@
         <AssociationConnector Association="EcoColocationModel.Person_Event" />
         <AssociationConnector Association="EcoColocationModel.Person_Account" />
         <AssociationConnector Association="EcoColocationModel.Agency_Account" />
-        <AssociationConnector Association="EcoColocationModel.CreationProjectAd_User" />
+        <AssociationConnector Association="EcoColocationModel.CreationProjectAd_Person" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

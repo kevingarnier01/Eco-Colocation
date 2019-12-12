@@ -710,7 +710,7 @@
             <End Role="Agency" EntitySet="Agency" />
             <End Role="Account" EntitySet="Account" />
           </AssociationSet>
-          <AssociationSet Name="CreationProjectAd_User" Association="EcoColocationModel.CreationProjectAd_User">
+          <AssociationSet Name="CreationProjectAd_Person" Association="EcoColocationModel.CreationProjectAd_Person">
             <End Role="CreationProjectAd" EntitySet="CreationProjectAd" />
             <End Role="Person" EntitySet="User" />
           </AssociationSet>
@@ -956,7 +956,7 @@
           <Property Name="PersonnalityDescription" Type="String" Nullable="true" MaxLength="500" />
           <Property Name="DateInscription" Type="DateTime" Nullable="false" />
           <Property Name="DateLastActivity" Type="DateTime" Nullable="false" />
-          <NavigationProperty Name="CreationProjectAd" Relationship="EcoColocationModel.CreationProjectAd_User" FromRole="Person" ToRole="CreationProjectAd" />
+          <NavigationProperty Name="CreationProjectAd" Relationship="EcoColocationModel.CreationProjectAd_Person" FromRole="Person" ToRole="CreationProjectAd" />
         </EntityType>
         <Association Name="Event_PresenceEvent">
           <End Type="EcoColocationModel.Event" Multiplicity="1" Role="Event" />
@@ -1170,7 +1170,7 @@
           <End Type="EcoColocationModel.Agency" Role="Agency" Multiplicity="0..1" />
           <End Type="EcoColocationModel.Account" Role="Account" Multiplicity="1" />
         </Association>
-        <Association Name="CreationProjectAd_User">
+        <Association Name="CreationProjectAd_Person">
           <End Type="EcoColocationModel.CreationProjectAd" Role="CreationProjectAd" Multiplicity="*" />
           <End Type="EcoColocationModel.Person" Role="Person" Multiplicity="1" />
           <ReferentialConstraint>

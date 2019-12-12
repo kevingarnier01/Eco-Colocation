@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 12/12/2019 12:44:29
+-- Date Created: 12/12/2019 12:47:25
 -- Generated from EDMX file: C:\Users\kev-gar\Documents\Projet personnel\Eco-colocation\Application\Développement\Eco-Colocation\Eco-Colocation\Controllers\EcoColocationModel.edmx
 -- --------------------------------------------------
 
@@ -56,20 +56,20 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_EcoRoommateExisting_Roommate]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Roommate] DROP CONSTRAINT [FK_EcoRoommateExisting_Roommate];
 GO
-IF OBJECT_ID(N'[dbo].[FK_User_ResearchRoommate]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[ResearchRoommate] DROP CONSTRAINT [FK_User_ResearchRoommate];
+IF OBJECT_ID(N'[dbo].[FK_Person_ResearchRoommate]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ResearchRoommate] DROP CONSTRAINT [FK_Person_ResearchRoommate];
 GO
-IF OBJECT_ID(N'[dbo].[FK_User_EcoRoommateExisting]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[EcoRoommateExisting] DROP CONSTRAINT [FK_User_EcoRoommateExisting];
+IF OBJECT_ID(N'[dbo].[FK_Person_EcoRoommateExisting]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[EcoRoommateExisting] DROP CONSTRAINT [FK_Person_EcoRoommateExisting];
 GO
-IF OBJECT_ID(N'[dbo].[FK_User_PresenceEvent]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[PresenceEvent] DROP CONSTRAINT [FK_User_PresenceEvent];
+IF OBJECT_ID(N'[dbo].[FK_Person_PresenceEvent]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[PresenceEvent] DROP CONSTRAINT [FK_Person_PresenceEvent];
 GO
-IF OBJECT_ID(N'[dbo].[FK_User_Event]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Event] DROP CONSTRAINT [FK_User_Event];
+IF OBJECT_ID(N'[dbo].[FK_Person_Event]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Event] DROP CONSTRAINT [FK_Person_Event];
 GO
-IF OBJECT_ID(N'[dbo].[FK_User_Account]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[User] DROP CONSTRAINT [FK_User_Account];
+IF OBJECT_ID(N'[dbo].[FK_Person_Account]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[User] DROP CONSTRAINT [FK_Person_Account];
 GO
 IF OBJECT_ID(N'[dbo].[FK_Agency_Account]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Agency] DROP CONSTRAINT [FK_Agency_Account];
