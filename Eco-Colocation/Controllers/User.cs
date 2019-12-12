@@ -40,6 +40,8 @@ public partial class User
 
     public virtual Person Person { get; set; }
 
+    public virtual webpages_Membership webpages_Membership { get; set; }
+
 }
 
 }

@@ -4,11 +4,11 @@ namespace Eco_Colocation.ViewModel
 {
 	public class AccountViewModel
 	{
-		public AccountBo AccountBo { get; set; }
+		public UserBo UserBo { get; set; }
 
 		public AccountViewModel()
 		{
-			AccountBo = new AccountBo();
+			UserBo = new UserBo();
 		}
 	}
 }

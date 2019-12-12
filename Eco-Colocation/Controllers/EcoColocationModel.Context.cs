@@ -66,6 +66,8 @@ public partial class EcoColocationModelContainer : DbContext
 
     public DbSet<Person> Person { get; set; }
 
+    public DbSet<webpages_Membership> webpages_Membership { get; set; }
+
 }
 
 }

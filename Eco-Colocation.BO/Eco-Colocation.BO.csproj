@@ -41,7 +41,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AccountBo.cs" />
     <Compile Include="AgencyBo.cs" />
     <Compile Include="AssociatedEventBo.cs" />
     <Compile Include="CreationProjectAdBo.cs" />
@@ -60,7 +59,9 @@
     <Compile Include="ResearchRoommateBo.cs" />
     <Compile Include="RoleBo.cs" />
     <Compile Include="RoommateBo.cs" />
+    <Compile Include="PersonBo.cs" />
     <Compile Include="UserBo.cs" />
+    <Compile Include="webpages_MembershipBo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

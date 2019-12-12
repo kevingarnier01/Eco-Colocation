@@ -1,4 +1,5 @@
 ﻿using Eco_Colocation.BLL;
+using Eco_Colocation.BO;
 using Eco_Colocation.DAL;
 using Eco_Colocation.ViewModel;
 using System.Web.Configuration;
@@ -30,9 +31,24 @@ namespace Eco_Colocation.Controllers
 		{
 			return PartialView();
 		}
+		
+		public ActionResult Inscription()
+		{
+
+			return View();
+		}
 
 		public ActionResult Connection(AccountViewModel accountViewModel)
 		{
+			UserBo userBo = new UserBo();
+			userBo.Email = accountViewModel.UserBo.Email;
+
+			//WebSecurity.CreateUserAndAccount(
+			//			model.UserName,
+			//			model.Password,
+			//			new { FirstName = model.FirstName, LastName = model.LastName, Email = model.Email },
+			//			false
+			//		);
 
 			return View("~/Views/EcoRoommateHome/EcoRoommateHomeView.cshtml");
 		}

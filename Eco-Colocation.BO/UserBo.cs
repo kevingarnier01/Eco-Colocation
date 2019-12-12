@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace Eco_Colocation.BO
 {
@@ -8,41 +7,23 @@ namespace Eco_Colocation.BO
 		public UserBo()
 		{
 
-			this.CreationProjectAdBo = new HashSet<CreationProjectAdBo>();
+			this.Activated = true;
+
+			this.RentalAdBo = new HashSet<RentalAdBo>();
 
 		}
-
 
 		public int IdUser { get; set; }
 
 		public string Email { get; set; }
 
-		public string FirstName { get; set; }
-
-		public string LastName { get; set; }
-
-		public byte Civility { get; set; }
-
-		public string Country { get; set; }
-
-		public string DateBirth { get; set; }
-
-		public Nullable<byte> Activity { get; set; }
-
-		public string PhoneCode { get; set; }
-
-		public string PhoneNumber { get; set; }
-
-		public Nullable<byte> ContactType { get; set; }
-
-		public string PersonnalityDescription { get; set; }
-
-		public System.DateTime DateInscription { get; set; }
-
-		public System.DateTime DateLastActivity { get; set; }
+		public bool Activated { get; set; }
 
 
+		public virtual ICollection<RentalAdBo> RentalAdBo { get; set; }
 
-		public virtual ICollection<CreationProjectAdBo> CreationProjectAdBo { get; set; }
+		public virtual PersonBo PersonBo { get; set; }
+				
+		public virtual webpages_MembershipBo webpages_MembershipBo { get; set; }
 	}
 }

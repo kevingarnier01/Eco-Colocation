@@ -183,6 +183,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EcoColocationModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\EcoColocationModel2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EcoColocationModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\EcoRoommateEventController.cs" />
     <Compile Include="Controllers\EcoRoommateExisting.cs">
       <DependentUpon>EcoColocationModel.tt</DependentUpon>
@@ -225,6 +230,9 @@
       <DependentUpon>EcoColocationModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Controllers\User.cs">
+      <DependentUpon>EcoColocationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\webpages_Membership.cs">
       <DependentUpon>EcoColocationModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
@@ -381,7 +389,7 @@
     <Content Include="bin\roslyn\VBCSCompiler.exe.config" />
     <EntityDeploy Include="Controllers\EcoColocationModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>EcoColocationModel1.Designer.cs</LastGenOutput>
+      <LastGenOutput>EcoColocationModel2.Designer.cs</LastGenOutput>
     </EntityDeploy>
     <Content Include="Controllers\EcoColocationModel.edmx.diagram">
       <DependentUpon>EcoColocationModel.edmx</DependentUpon>

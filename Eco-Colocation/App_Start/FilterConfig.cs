@@ -9,5 +9,5 @@ namespace Eco_Colocation
         {
             filters.Add(new HandleErrorAttribute());
         }
-    }
+	}
 }
