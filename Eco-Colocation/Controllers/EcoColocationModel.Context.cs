@@ -60,11 +60,11 @@ public partial class EcoColocationModelContainer : DbContext
 
     public DbSet<PictureCreationProject> PictureCreationProject { get; set; }
 
-    public DbSet<Account> Account { get; set; }
+    public DbSet<User> User { get; set; }
 
     public DbSet<Agency> Agency { get; set; }
 
-    public DbSet<Person> User { get; set; }
+    public DbSet<Person> Person { get; set; }
 
 }
 

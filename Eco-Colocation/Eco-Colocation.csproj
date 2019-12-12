@@ -147,9 +147,6 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\_Enums.cs" />
-    <Compile Include="Controllers\Account.cs">
-      <DependentUpon>EcoColocationModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\Ad_CreationProjectController.cs" />
     <Compile Include="Controllers\Ad_RentalController.cs" />
@@ -225,6 +222,9 @@
       <DependentUpon>EcoColocationModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Controllers\Roommate.cs">
+      <DependentUpon>EcoColocationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\User.cs">
       <DependentUpon>EcoColocationModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
@@ -792,7 +792,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Eco-Colocation.BLL\Eco-Colocation.BLL.csproj">
-      <Project>{8E90BE0A-D70F-48F9-8EB7-032646342391}</Project>
+      <Project>{ed646839-adc4-41e9-ac34-40b03dbe2155}</Project>
       <Name>Eco-Colocation.BLL</Name>
     </ProjectReference>
     <ProjectReference Include="..\Eco-Colocation.BO\Eco-Colocation.BO.csproj">
@@ -800,7 +800,7 @@
       <Name>Eco-Colocation.BO</Name>
     </ProjectReference>
     <ProjectReference Include="..\Eco-Colocation.DAL\Eco-Colocation.DAL.csproj">
-      <Project>{E9E67F35-04C0-4917-9E79-B561AB3E26F3}</Project>
+      <Project>{8df0b8ab-f8ba-476d-bb09-f575031bc031}</Project>
       <Name>Eco-Colocation.DAL</Name>
     </ProjectReference>
   </ItemGroup>

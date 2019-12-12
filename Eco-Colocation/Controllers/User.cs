@@ -15,10 +15,10 @@ namespace Eco_Colocation.Controllers
 using System;
     using System.Collections.Generic;
     
-public partial class Account
+public partial class User
 {
 
-    public Account()
+    public User()
     {
 
         this.Activated = true;
@@ -28,7 +28,7 @@ public partial class Account
     }
 
 
-    public int IdAccount { get; set; }
+    public int IdUser { get; set; }
 
     public string Email { get; set; }
 

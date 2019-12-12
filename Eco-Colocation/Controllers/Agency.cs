@@ -48,7 +48,7 @@ public partial class Agency
 
 
 
-    public virtual Account Account { get; set; }
+    public virtual User User { get; set; }
 
 }
 

@@ -28,7 +28,7 @@ public partial class RentalAd
 
     public int IdRentalAd { get; set; }
 
-    public int IdAccount { get; set; }
+    public int IdUser { get; set; }
 
     public string Introduction { get; set; }
 
@@ -88,7 +88,7 @@ public partial class RentalAd
 
     public virtual ICollection<RentalRoom> RentalRoom { get; set; }
 
-    public virtual Account Account { get; set; }
+    public virtual User User { get; set; }
 
 }
 

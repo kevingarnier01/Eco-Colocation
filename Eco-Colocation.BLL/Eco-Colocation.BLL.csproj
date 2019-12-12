@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8E90BE0A-D70F-48F9-8EB7-032646342391}</ProjectGuid>
+    <ProjectGuid>{ED646839-ADC4-41E9-AC34-40B03DBE2155}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Eco_Colocation.BLL</RootNamespace>
@@ -41,13 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Eco-Colocation.DAL\Eco-Colocation.DAL.csproj">
-      <Project>{E9E67F35-04C0-4917-9E79-B561AB3E26F3}</Project>
+      <Project>{8df0b8ab-f8ba-476d-bb09-f575031bc031}</Project>
       <Name>Eco-Colocation.DAL</Name>
     </ProjectReference>
   </ItemGroup>

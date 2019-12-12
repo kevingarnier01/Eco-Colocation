@@ -33,7 +33,6 @@ namespace Eco_Colocation.Controllers
 
 		public ActionResult Connection(AccountViewModel accountViewModel)
 		{
-			WebSecurity.InitializeDatabaseConnection("ConnStringForWebSecurity", "Account", "IdAccount", "Email", true);
 
 			return View("~/Views/EcoRoommateHome/EcoRoommateHomeView.cshtml");
 		}

@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 12/12/2019 12:47:25
+-- Date Created: 12/12/2019 15:08:12
 -- Generated from EDMX file: C:\Users\kev-gar\Documents\Projet personnel\Eco-colocation\Application\Développement\Eco-Colocation\Eco-Colocation\Controllers\EcoColocationModel.edmx
 -- --------------------------------------------------
 
@@ -47,8 +47,8 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_EcoRoommateExisting_PictureEcoRoommateEx]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[PictureEcoRoommateEx] DROP CONSTRAINT [FK_EcoRoommateExisting_PictureEcoRoommateEx];
 GO
-IF OBJECT_ID(N'[dbo].[FK_RentalAd_Account]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[RentalAd] DROP CONSTRAINT [FK_RentalAd_Account];
+IF OBJECT_ID(N'[dbo].[FK_RentalAd_User]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[RentalAd] DROP CONSTRAINT [FK_RentalAd_User];
 GO
 IF OBJECT_ID(N'[dbo].[FK_PictureCreationProject_CreationProjectAd]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[PictureCreationProject] DROP CONSTRAINT [FK_PictureCreationProject_CreationProjectAd];
@@ -68,14 +68,14 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_Person_Event]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Event] DROP CONSTRAINT [FK_Person_Event];
 GO
-IF OBJECT_ID(N'[dbo].[FK_Person_Account]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[User] DROP CONSTRAINT [FK_Person_Account];
+IF OBJECT_ID(N'[dbo].[FK_Person_User]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Person] DROP CONSTRAINT [FK_Person_User];
 GO
-IF OBJECT_ID(N'[dbo].[FK_Agency_Account]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Agency] DROP CONSTRAINT [FK_Agency_Account];
+IF OBJECT_ID(N'[dbo].[FK_Agency_User]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Agency] DROP CONSTRAINT [FK_Agency_User];
 GO
-IF OBJECT_ID(N'[dbo].[FK_CreationProjectAd_User]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[CreationProjectAd] DROP CONSTRAINT [FK_CreationProjectAd_User];
+IF OBJECT_ID(N'[dbo].[FK_CreationProjectAd_Person]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[CreationProjectAd] DROP CONSTRAINT [FK_CreationProjectAd_Person];
 GO
 
 -- --------------------------------------------------
@@ -124,14 +124,14 @@ GO
 IF OBJECT_ID(N'[dbo].[PictureCreationProject]', 'U') IS NOT NULL
     DROP TABLE [dbo].[PictureCreationProject];
 GO
-IF OBJECT_ID(N'[dbo].[Account]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Account];
+IF OBJECT_ID(N'[dbo].[User]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[User];
 GO
 IF OBJECT_ID(N'[dbo].[Agency]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Agency];
 GO
-IF OBJECT_ID(N'[dbo].[User]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[User];
+IF OBJECT_ID(N'[dbo].[Person]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Person];
 GO
 IF OBJECT_ID(N'[dbo].[Place_CreationProjectAd]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Place_CreationProjectAd];
@@ -147,7 +147,7 @@ GO
 -- Creating table 'RentalAd'
 CREATE TABLE [dbo].[RentalAd] (
     [IdRentalAd] int IDENTITY(1,1) NOT NULL,
-    [IdAccount] int  NOT NULL,
+    [IdUser] int  NOT NULL,
     [Introduction] nvarchar(110)  NOT NULL,
     [Description] nvarchar(max)  NOT NULL,
     [Street] nvarchar(80)  NOT NULL,
@@ -352,9 +352,9 @@ CREATE TABLE [dbo].[PictureCreationProject] (
 );
 GO
 
--- Creating table 'Account'
-CREATE TABLE [dbo].[Account] (
-    [IdAccount] int IDENTITY(1,1) NOT NULL,
+-- Creating table 'User'
+CREATE TABLE [dbo].[User] (
+    [IdUser] int IDENTITY(1,1) NOT NULL,
     [Email] nvarchar(60)  NOT NULL,
     [Activated] bit  NOT NULL
 );
@@ -376,12 +376,12 @@ CREATE TABLE [dbo].[Agency] (
     [County] nvarchar(50)  NOT NULL,
     [SiretNumber] nvarchar(14)  NOT NULL,
     [AgencyFees] decimal(7,2)  NOT NULL,
-    [Account_IdAccount] int  NOT NULL
+    [User_IdUser] int  NOT NULL
 );
 GO
 
--- Creating table 'User'
-CREATE TABLE [dbo].[User] (
+-- Creating table 'Person'
+CREATE TABLE [dbo].[Person] (
     [IdPerson] int IDENTITY(1,1) NOT NULL,
     [Email] nvarchar(60)  NOT NULL,
     [FirstName] nvarchar(50)  NOT NULL,
@@ -396,7 +396,7 @@ CREATE TABLE [dbo].[User] (
     [PersonnalityDescription] nvarchar(500)  NULL,
     [DateInscription] datetime  NOT NULL,
     [DateLastActivity] datetime  NOT NULL,
-    [Person_Account_Person_IdAccount] int  NOT NULL
+    [Person_User_Person_IdUser] int  NOT NULL
 );
 GO
 
@@ -502,10 +502,10 @@ ADD CONSTRAINT [PK_PictureCreationProject]
     PRIMARY KEY CLUSTERED ([IdPictureCreationProject] ASC);
 GO
 
--- Creating primary key on [IdAccount] in table 'Account'
-ALTER TABLE [dbo].[Account]
-ADD CONSTRAINT [PK_Account]
-    PRIMARY KEY CLUSTERED ([IdAccount] ASC);
+-- Creating primary key on [IdUser] in table 'User'
+ALTER TABLE [dbo].[User]
+ADD CONSTRAINT [PK_User]
+    PRIMARY KEY CLUSTERED ([IdUser] ASC);
 GO
 
 -- Creating primary key on [IdAgency] in table 'Agency'
@@ -514,9 +514,9 @@ ADD CONSTRAINT [PK_Agency]
     PRIMARY KEY CLUSTERED ([IdAgency] ASC);
 GO
 
--- Creating primary key on [IdPerson] in table 'User'
-ALTER TABLE [dbo].[User]
-ADD CONSTRAINT [PK_User]
+-- Creating primary key on [IdPerson] in table 'Person'
+ALTER TABLE [dbo].[Person]
+ADD CONSTRAINT [PK_Person]
     PRIMARY KEY CLUSTERED ([IdPerson] ASC);
 GO
 
@@ -662,19 +662,19 @@ ON [dbo].[PictureEcoRoommateEx]
     ([IdEcoRoommateExisting]);
 GO
 
--- Creating foreign key on [IdAccount] in table 'RentalAd'
+-- Creating foreign key on [IdUser] in table 'RentalAd'
 ALTER TABLE [dbo].[RentalAd]
-ADD CONSTRAINT [FK_RentalAd_Account]
-    FOREIGN KEY ([IdAccount])
-    REFERENCES [dbo].[Account]
-        ([IdAccount])
+ADD CONSTRAINT [FK_RentalAd_User]
+    FOREIGN KEY ([IdUser])
+    REFERENCES [dbo].[User]
+        ([IdUser])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
--- Creating non-clustered index for FOREIGN KEY 'FK_RentalAd_Account'
-CREATE INDEX [IX_FK_RentalAd_Account]
+-- Creating non-clustered index for FOREIGN KEY 'FK_RentalAd_User'
+CREATE INDEX [IX_FK_RentalAd_User]
 ON [dbo].[RentalAd]
-    ([IdAccount]);
+    ([IdUser]);
 GO
 
 -- Creating foreign key on [IdProjetCreation] in table 'PictureCreationProject'
@@ -711,7 +711,7 @@ GO
 ALTER TABLE [dbo].[ResearchRoommate]
 ADD CONSTRAINT [FK_Person_ResearchRoommate]
     FOREIGN KEY ([IdPerson])
-    REFERENCES [dbo].[User]
+    REFERENCES [dbo].[Person]
         ([IdPerson])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
@@ -726,7 +726,7 @@ GO
 ALTER TABLE [dbo].[EcoRoommateExisting]
 ADD CONSTRAINT [FK_Person_EcoRoommateExisting]
     FOREIGN KEY ([IdPerson])
-    REFERENCES [dbo].[User]
+    REFERENCES [dbo].[Person]
         ([IdPerson])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
@@ -741,7 +741,7 @@ GO
 ALTER TABLE [dbo].[PresenceEvent]
 ADD CONSTRAINT [FK_Person_PresenceEvent]
     FOREIGN KEY ([IdPerson])
-    REFERENCES [dbo].[User]
+    REFERENCES [dbo].[Person]
         ([IdPerson])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
@@ -756,7 +756,7 @@ GO
 ALTER TABLE [dbo].[Event]
 ADD CONSTRAINT [FK_Person_Event]
     FOREIGN KEY ([IdPerson])
-    REFERENCES [dbo].[User]
+    REFERENCES [dbo].[Person]
         ([IdPerson])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
@@ -767,47 +767,47 @@ ON [dbo].[Event]
     ([IdPerson]);
 GO
 
--- Creating foreign key on [Person_Account_Person_IdAccount] in table 'User'
-ALTER TABLE [dbo].[User]
-ADD CONSTRAINT [FK_Person_Account]
-    FOREIGN KEY ([Person_Account_Person_IdAccount])
-    REFERENCES [dbo].[Account]
-        ([IdAccount])
+-- Creating foreign key on [Person_User_Person_IdUser] in table 'Person'
+ALTER TABLE [dbo].[Person]
+ADD CONSTRAINT [FK_Person_User]
+    FOREIGN KEY ([Person_User_Person_IdUser])
+    REFERENCES [dbo].[User]
+        ([IdUser])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
--- Creating non-clustered index for FOREIGN KEY 'FK_Person_Account'
-CREATE INDEX [IX_FK_Person_Account]
-ON [dbo].[User]
-    ([Person_Account_Person_IdAccount]);
+-- Creating non-clustered index for FOREIGN KEY 'FK_Person_User'
+CREATE INDEX [IX_FK_Person_User]
+ON [dbo].[Person]
+    ([Person_User_Person_IdUser]);
 GO
 
--- Creating foreign key on [Account_IdAccount] in table 'Agency'
+-- Creating foreign key on [User_IdUser] in table 'Agency'
 ALTER TABLE [dbo].[Agency]
-ADD CONSTRAINT [FK_Agency_Account]
-    FOREIGN KEY ([Account_IdAccount])
-    REFERENCES [dbo].[Account]
-        ([IdAccount])
+ADD CONSTRAINT [FK_Agency_User]
+    FOREIGN KEY ([User_IdUser])
+    REFERENCES [dbo].[User]
+        ([IdUser])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
--- Creating non-clustered index for FOREIGN KEY 'FK_Agency_Account'
-CREATE INDEX [IX_FK_Agency_Account]
+-- Creating non-clustered index for FOREIGN KEY 'FK_Agency_User'
+CREATE INDEX [IX_FK_Agency_User]
 ON [dbo].[Agency]
-    ([Account_IdAccount]);
+    ([User_IdUser]);
 GO
 
 -- Creating foreign key on [IdPerson] in table 'CreationProjectAd'
 ALTER TABLE [dbo].[CreationProjectAd]
-ADD CONSTRAINT [FK_CreationProjectAd_User]
+ADD CONSTRAINT [FK_CreationProjectAd_Person]
     FOREIGN KEY ([IdPerson])
-    REFERENCES [dbo].[User]
+    REFERENCES [dbo].[Person]
         ([IdPerson])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
--- Creating non-clustered index for FOREIGN KEY 'FK_CreationProjectAd_User'
-CREATE INDEX [IX_FK_CreationProjectAd_User]
+-- Creating non-clustered index for FOREIGN KEY 'FK_CreationProjectAd_Person'
+CREATE INDEX [IX_FK_CreationProjectAd_Person]
 ON [dbo].[CreationProjectAd]
     ([IdPerson]);
 GO

@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E9E67F35-04C0-4917-9E79-B561AB3E26F3}</ProjectGuid>
+    <ProjectGuid>{8DF0B8AB-F8BA-476D-BB09-F575031BC031}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Eco_Colocation.DAL</RootNamespace>
@@ -31,17 +31,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ABLib">
-      <HintPath>..\Eco-Colocation\bin\ABLib.dll</HintPath>
-    </Reference>
-    <Reference Include="ABLib.BO">
-      <HintPath>..\Eco-Colocation\bin\ABLib.BO.dll</HintPath>
-    </Reference>
     <Reference Include="ABLib.DAL.Sql">
       <HintPath>..\Eco-Colocation\bin\ABLib.DAL.Sql.dll</HintPath>
-    </Reference>
-    <Reference Include="ABLib.IDAL">
-      <HintPath>..\Eco-Colocation\bin\ABLib.IDAL.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -53,8 +44,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserSql.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

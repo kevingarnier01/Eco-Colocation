@@ -29,16 +29,16 @@
         <AssociationConnector Association="EcoColocationModel.EcoRoommateExisting_PictureEcoRoommateEx" />
         <EntityTypeShape EntityType="EcoColocationModel.PictureCreationProject" Width="1.5" PointX="19.625" PointY="15.625" />
         <EntityTypeShape EntityType="EcoColocationModel.Agency" Width="1.5" PointX="9.25" PointY="9.625" />
-        <EntityTypeShape EntityType="EcoColocationModel.Account" Width="1.5" PointX="9.25" PointY="14.375" />
-        <AssociationConnector Association="EcoColocationModel.RentalAd_Account" />
+        <EntityTypeShape EntityType="EcoColocationModel.User" Width="1.5" PointX="9.25" PointY="14.375" />
+        <AssociationConnector Association="EcoColocationModel.RentalAd_User" />
         <AssociationConnector Association="EcoColocationModel.PictureCreationProject_CreationProjectAd" />
         <AssociationConnector Association="EcoColocationModel.EcoRoommateExisting_Roommate" />
         <AssociationConnector Association="EcoColocationModel.Person_ResearchRoommate" />
         <AssociationConnector Association="EcoColocationModel.Person_EcoRoommateExisting" />
         <AssociationConnector Association="EcoColocationModel.Person_PresenceEvent" />
         <AssociationConnector Association="EcoColocationModel.Person_Event" />
-        <AssociationConnector Association="EcoColocationModel.Person_Account" />
-        <AssociationConnector Association="EcoColocationModel.Agency_Account" />
+        <AssociationConnector Association="EcoColocationModel.Person_User" />
+        <AssociationConnector Association="EcoColocationModel.Agency_User" />
         <AssociationConnector Association="EcoColocationModel.CreationProjectAd_Person" />
       </Diagram>
     </edmx:Diagrams>
