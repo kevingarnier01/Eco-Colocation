@@ -17,6 +17,8 @@ namespace Eco_Colocation.BO
 		public int PasswordFailuresSinceLastSuccess { get; set; }
 
 		public string Password { get; set; }
+		
+		public string PasswordConfirm { get; set; }
 
 		public Nullable<System.DateTime> PasswordChangedDate { get; set; }
 

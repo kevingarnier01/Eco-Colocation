@@ -31,7 +31,7 @@
 		public decimal AgencyFees { get; set; }
 
 
-		public virtual AccountBo AccountBo { get; set; }
+		public virtual UserBo UserBo { get; set; }
 
 	}
 }

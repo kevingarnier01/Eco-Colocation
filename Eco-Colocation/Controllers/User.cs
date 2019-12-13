@@ -32,6 +32,8 @@ public partial class User
 
     public string Email { get; set; }
 
+    public byte TypeUser { get; set; }
+
     public bool Activated { get; set; }
 
 

@@ -4,385 +4,408 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl" Alias="Self" Namespace="EcoColocationModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012">
+    <Schema Namespace="EcoColocationModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityContainer Name="EcoColocationModelStoreContainer">
-    <EntitySet Name="RentalAd" EntityType="EcoColocationModel.Store.RentalAd" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="RentalRoom" EntityType="EcoColocationModel.Store.RentalRoom" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="CreationProjectAd" EntityType="EcoColocationModel.Store.CreationProjectAd" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Place" EntityType="EcoColocationModel.Store.Place" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Event" EntityType="EcoColocationModel.Store.Event" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="PresenceEvent" EntityType="EcoColocationModel.Store.PresenceEvent" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="EcoRoommateExisting" EntityType="EcoColocationModel.Store.EcoRoommateExisting" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="PictureDevConversation" EntityType="EcoColocationModel.Store.PictureDevConversation" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Roommate" EntityType="EcoColocationModel.Store.Roommate" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="DevConversation" EntityType="EcoColocationModel.Store.DevConversation" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="ResearchRoommate" EntityType="EcoColocationModel.Store.ResearchRoommate" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="AssociatedEvent" EntityType="EcoColocationModel.Store.AssociatedEvent" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="PictureEcoRoommateEx" EntityType="EcoColocationModel.Store.PictureEcoRoommateEx" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="PictureCreationProject" EntityType="EcoColocationModel.Store.PictureCreationProject" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="User" EntityType="EcoColocationModel.Store.User" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Agency" EntityType="EcoColocationModel.Store.Agency" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Person" EntityType="EcoColocationModel.Store.Person" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Place_CreationProjectAd" EntityType="EcoColocationModel.Store.Place_CreationProjectAd" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Place_ResearchRoommate" EntityType="EcoColocationModel.Store.Place_ResearchRoommate" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RentalAd" EntityType="EcoColocationModel.Store.RentalAd" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RentalRoom" EntityType="EcoColocationModel.Store.RentalRoom" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CreationProjectAd" EntityType="EcoColocationModel.Store.CreationProjectAd" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Place" EntityType="EcoColocationModel.Store.Place" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Event" EntityType="EcoColocationModel.Store.Event" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PresenceEvent" EntityType="EcoColocationModel.Store.PresenceEvent" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EcoRoommateExisting" EntityType="EcoColocationModel.Store.EcoRoommateExisting" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PictureDevConversation" EntityType="EcoColocationModel.Store.PictureDevConversation" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Roommate" EntityType="EcoColocationModel.Store.Roommate" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DevConversation" EntityType="EcoColocationModel.Store.DevConversation" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ResearchRoommate" EntityType="EcoColocationModel.Store.ResearchRoommate" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="AssociatedEvent" EntityType="EcoColocationModel.Store.AssociatedEvent" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PictureEcoRoommateEx" EntityType="EcoColocationModel.Store.PictureEcoRoommateEx" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PictureCreationProject" EntityType="EcoColocationModel.Store.PictureCreationProject" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="User" EntityType="EcoColocationModel.Store.User" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Agency" EntityType="EcoColocationModel.Store.Agency" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Person" EntityType="EcoColocationModel.Store.Person" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="webpages_Membership" EntityType="EcoColocationModel.Store.webpages_Membership" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Place_CreationProjectAd" EntityType="EcoColocationModel.Store.Place_CreationProjectAd" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Place_ResearchRoommate" EntityType="EcoColocationModel.Store.Place_ResearchRoommate" store:Type="Tables" Schema="dbo" />
     <AssociationSet Name="RentalAd_RentalRoom" Association="EcoColocationModel.Store.RentalAd_RentalRoom">
-      <End EntitySet="RentalAd" Role="RentalAd" />
-      <End EntitySet="RentalRoom" Role="RentalRoom" />
+      <End Role="RentalAd" EntitySet="RentalAd" />
+      <End Role="RentalRoom" EntitySet="RentalRoom" />
     </AssociationSet>
     <AssociationSet Name="FK_Place_CreationProjectAd_CreationProjectAd" Association="EcoColocationModel.Store.FK_Place_CreationProjectAd_CreationProjectAd">
-      <End EntitySet="CreationProjectAd" Role="CreationProjectAd" />
-      <End EntitySet="Place_CreationProjectAd" Role="Place_CreationProjectAd" />
+      <End Role="CreationProjectAd" EntitySet="CreationProjectAd" />
+      <End Role="Place_CreationProjectAd" EntitySet="Place_CreationProjectAd" />
     </AssociationSet>
     <AssociationSet Name="FK_Place_CreationProjectAd_Place" Association="EcoColocationModel.Store.FK_Place_CreationProjectAd_Place">
-      <End EntitySet="Place" Role="Place" />
-      <End EntitySet="Place_CreationProjectAd" Role="Place_CreationProjectAd" />
+      <End Role="Place" EntitySet="Place" />
+      <End Role="Place_CreationProjectAd" EntitySet="Place_CreationProjectAd" />
     </AssociationSet>
     <AssociationSet Name="FK_Place_ResearchRoommate_ResearchRoommate" Association="EcoColocationModel.Store.FK_Place_ResearchRoommate_ResearchRoommate">
-      <End EntitySet="ResearchRoommate" Role="ResearchRoommate" />
-      <End EntitySet="Place_ResearchRoommate" Role="Place_ResearchRoommate" />
+      <End Role="ResearchRoommate" EntitySet="ResearchRoommate" />
+      <End Role="Place_ResearchRoommate" EntitySet="Place_ResearchRoommate" />
     </AssociationSet>
     <AssociationSet Name="FK_Place_ResearchRoommate_Place" Association="EcoColocationModel.Store.FK_Place_ResearchRoommate_Place">
-      <End EntitySet="Place" Role="Place" />
-      <End EntitySet="Place_ResearchRoommate" Role="Place_ResearchRoommate" />
+      <End Role="Place" EntitySet="Place" />
+      <End Role="Place_ResearchRoommate" EntitySet="Place_ResearchRoommate" />
     </AssociationSet>
     <AssociationSet Name="Event_PresenceEvent" Association="EcoColocationModel.Store.Event_PresenceEvent">
-      <End EntitySet="Event" Role="Event" />
-      <End EntitySet="PresenceEvent" Role="PresenceEvent" />
+      <End Role="Event" EntitySet="Event" />
+      <End Role="PresenceEvent" EntitySet="PresenceEvent" />
     </AssociationSet>
     <AssociationSet Name="Event_AssociatedEvent" Association="EcoColocationModel.Store.Event_AssociatedEvent">
-      <End EntitySet="Event" Role="Event" />
-      <End EntitySet="AssociatedEvent" Role="AssociatedEvent" />
+      <End Role="Event" EntitySet="Event" />
+      <End Role="AssociatedEvent" EntitySet="AssociatedEvent" />
     </AssociationSet>
     <AssociationSet Name="Event_AssociatedEvent1" Association="EcoColocationModel.Store.Event_AssociatedEvent1">
-      <End EntitySet="Event" Role="Event" />
-      <End EntitySet="AssociatedEvent" Role="AssociatedEvent" />
+      <End Role="Event" EntitySet="Event" />
+      <End Role="AssociatedEvent" EntitySet="AssociatedEvent" />
     </AssociationSet>
     <AssociationSet Name="DevConversation_PictureDevConversation" Association="EcoColocationModel.Store.DevConversation_PictureDevConversation">
-      <End EntitySet="DevConversation" Role="DevConversation" />
-      <End EntitySet="PictureDevConversation" Role="PictureDevConversation" />
+      <End Role="DevConversation" EntitySet="DevConversation" />
+      <End Role="PictureDevConversation" EntitySet="PictureDevConversation" />
     </AssociationSet>
     <AssociationSet Name="EcoRoommateExisting_PictureEcoRoommateEx" Association="EcoColocationModel.Store.EcoRoommateExisting_PictureEcoRoommateEx">
-      <End EntitySet="EcoRoommateExisting" Role="EcoRoommateExisting" />
-      <End EntitySet="PictureEcoRoommateEx" Role="PictureEcoRoommateEx" />
+      <End Role="EcoRoommateExisting" EntitySet="EcoRoommateExisting" />
+      <End Role="PictureEcoRoommateEx" EntitySet="PictureEcoRoommateEx" />
     </AssociationSet>
     <AssociationSet Name="RentalAd_User" Association="EcoColocationModel.Store.RentalAd_User">
-      <End EntitySet="RentalAd" Role="RentalAd" />
-      <End EntitySet="User" Role="User" />
+      <End Role="RentalAd" EntitySet="RentalAd" />
+      <End Role="User" EntitySet="User" />
     </AssociationSet>
     <AssociationSet Name="PictureCreationProject_CreationProjectAd" Association="EcoColocationModel.Store.PictureCreationProject_CreationProjectAd">
-      <End EntitySet="CreationProjectAd" Role="CreationProjectAd" />
-      <End EntitySet="PictureCreationProject" Role="PictureCreationProject" />
+      <End Role="CreationProjectAd" EntitySet="CreationProjectAd" />
+      <End Role="PictureCreationProject" EntitySet="PictureCreationProject" />
     </AssociationSet>
     <AssociationSet Name="EcoRoommateExisting_Roommate" Association="EcoColocationModel.Store.EcoRoommateExisting_Roommate">
-      <End EntitySet="EcoRoommateExisting" Role="EcoRoommateExisting" />
-      <End EntitySet="Roommate" Role="Roommate" />
+      <End Role="EcoRoommateExisting" EntitySet="EcoRoommateExisting" />
+      <End Role="Roommate" EntitySet="Roommate" />
     </AssociationSet>
     <AssociationSet Name="Person_ResearchRoommate" Association="EcoColocationModel.Store.Person_ResearchRoommate">
-      <End EntitySet="Person" Role="Person" />
-      <End EntitySet="ResearchRoommate" Role="ResearchRoommate" />
+      <End Role="Person" EntitySet="Person" />
+      <End Role="ResearchRoommate" EntitySet="ResearchRoommate" />
     </AssociationSet>
     <AssociationSet Name="Person_EcoRoommateExisting" Association="EcoColocationModel.Store.Person_EcoRoommateExisting">
-      <End EntitySet="Person" Role="Person" />
-      <End EntitySet="EcoRoommateExisting" Role="EcoRoommateExisting" />
+      <End Role="Person" EntitySet="Person" />
+      <End Role="EcoRoommateExisting" EntitySet="EcoRoommateExisting" />
     </AssociationSet>
     <AssociationSet Name="Person_PresenceEvent" Association="EcoColocationModel.Store.Person_PresenceEvent">
-      <End EntitySet="Person" Role="Person" />
-      <End EntitySet="PresenceEvent" Role="PresenceEvent" />
+      <End Role="Person" EntitySet="Person" />
+      <End Role="PresenceEvent" EntitySet="PresenceEvent" />
     </AssociationSet>
     <AssociationSet Name="Person_Event" Association="EcoColocationModel.Store.Person_Event">
-      <End EntitySet="Person" Role="Person" />
-      <End EntitySet="Event" Role="Event" />
+      <End Role="Person" EntitySet="Person" />
+      <End Role="Event" EntitySet="Event" />
     </AssociationSet>
     <AssociationSet Name="Person_User" Association="EcoColocationModel.Store.Person_User">
-      <End EntitySet="Person" Role="Person" />
-      <End EntitySet="User" Role="User" />
+      <End Role="Person" EntitySet="Person" />
+      <End Role="User" EntitySet="User" />
     </AssociationSet>
     <AssociationSet Name="Agency_User" Association="EcoColocationModel.Store.Agency_User">
-      <End EntitySet="Agency" Role="Agency" />
-      <End EntitySet="User" Role="User" />
+      <End Role="Agency" EntitySet="Agency" />
+      <End Role="User" EntitySet="User" />
     </AssociationSet>
     <AssociationSet Name="CreationProjectAd_Person" Association="EcoColocationModel.Store.CreationProjectAd_Person">
-      <End EntitySet="CreationProjectAd" Role="CreationProjectAd" />
-      <End EntitySet="Person" Role="Person" />
+      <End Role="CreationProjectAd" EntitySet="CreationProjectAd" />
+      <End Role="Person" EntitySet="Person" />
+    </AssociationSet>
+    <AssociationSet Name="webpages_Membership_User" Association="EcoColocationModel.Store.webpages_Membership_User">
+      <End Role="webpages_Membership" EntitySet="webpages_Membership" />
+      <End Role="User" EntitySet="User" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="RentalAd">
     <Key>
       <PropertyRef Name="IdRentalAd" />
     </Key>
-    <Property Name="IdRentalAd" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
-    <Property Name="IdUser" Nullable="false" Type="int" />
-    <Property Name="Introduction" Nullable="false" MaxLength="110" Type="nvarchar" />
-    <Property Name="Description" Nullable="false" Type="nvarchar(max)" />
-    <Property Name="Street" Nullable="false" MaxLength="80" Type="nvarchar" />
-    <Property Name="City" Nullable="false" MaxLength="50" Type="nvarchar" />
-    <Property Name="PostalCode" Nullable="false" MaxLength="15" Type="nvarchar" />
-    <Property Name="Department" Nullable="false" MaxLength="50" Type="nvarchar" />
-    <Property Name="DepartmentNumber" Nullable="false" MaxLength="8" Type="nvarchar" />
-    <Property Name="Region" Nullable="false" MaxLength="50" Type="nvarchar" />
-    <Property Name="Country" Nullable="false" MaxLength="50" Type="nvarchar" />
-    <Property Name="Latitude" Nullable="false" Precision="9" Scale="6" Type="decimal" />
-    <Property Name="Longitude" Nullable="false" Precision="9" Scale="6" Type="decimal" />
-    <Property Name="HousingType" Nullable="false" Type="tinyint" />
-    <Property Name="HousingImplantation" Nullable="false" Type="tinyint" />
-    <Property Name="HousingSurface" Nullable="false" Type="smallint" />
-    <Property Name="LandSurface" Nullable="false" Type="int" />
-    <Property Name="HousingPieceNumber" Nullable="false" Type="smallint" />
-    <Property Name="RoommateNumberStaying" Nullable="false" Type="smallint" />
-    <Property Name="RoommateNumberResearched" Nullable="false" Type="smallint" />
-    <Property Name="AccessHandicapped" Nullable="false" Type="bit" />
-    <Property Name="AccesPublicTransport" Nullable="false" Type="bit" />
-    <Property Name="AccesInfoSup" Nullable="true" MaxLength="100" Type="nvarchar" />
-    <Property Name="TolerationAlcoholConsommation" Nullable="false" Type="bit" />
-    <Property Name="TolerationSmoker" Nullable="false" Type="bit" />
-    <Property Name="TolerationPets" Nullable="false" Type="bit" />
-    <Property Name="TolerationInfoSup" Nullable="true" MaxLength="100" Type="nvarchar" />
-    <Property Name="DatePublish" Nullable="false" Type="datetime" />
-    <Property Name="ActivatedAnnouncement" Nullable="false" Type="bit" />
+    <Property Name="IdRentalAd" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdUser" Type="int" Nullable="false" />
+    <Property Name="Introduction" Type="nvarchar" Nullable="false" MaxLength="110" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Street" Type="nvarchar" Nullable="false" MaxLength="80" />
+    <Property Name="City" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="PostalCode" Type="nvarchar" Nullable="false" MaxLength="15" />
+    <Property Name="Department" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="DepartmentNumber" Type="nvarchar" Nullable="false" MaxLength="8" />
+    <Property Name="Region" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Country" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Latitude" Type="decimal" Nullable="false" Precision="9" Scale="6" />
+    <Property Name="Longitude" Type="decimal" Nullable="false" Precision="9" Scale="6" />
+    <Property Name="HousingType" Type="tinyint" Nullable="false" />
+    <Property Name="HousingImplantation" Type="tinyint" Nullable="false" />
+    <Property Name="HousingSurface" Type="smallint" Nullable="false" />
+    <Property Name="LandSurface" Type="int" Nullable="false" />
+    <Property Name="HousingPieceNumber" Type="smallint" Nullable="false" />
+    <Property Name="RoommateNumberStaying" Type="smallint" Nullable="false" />
+    <Property Name="RoommateNumberResearched" Type="smallint" Nullable="false" />
+    <Property Name="AccessHandicapped" Type="bit" Nullable="false" />
+    <Property Name="AccesPublicTransport" Type="bit" Nullable="false" />
+    <Property Name="AccesInfoSup" Type="nvarchar" Nullable="true" MaxLength="100" />
+    <Property Name="TolerationAlcoholConsommation" Type="bit" Nullable="false" />
+    <Property Name="TolerationSmoker" Type="bit" Nullable="false" />
+    <Property Name="TolerationPets" Type="bit" Nullable="false" />
+    <Property Name="TolerationInfoSup" Type="nvarchar" Nullable="true" MaxLength="100" />
+    <Property Name="DatePublish" Type="datetime" Nullable="false" />
+    <Property Name="ActivatedAnnouncement" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="RentalRoom">
     <Key>
       <PropertyRef Name="IdRentalRoom" />
     </Key>
-    <Property Name="IdRentalRoom" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
-    <Property Name="IdRentalAd" Nullable="false" Type="int" />
-    <Property Name="RentPrice" Nullable="false" Precision="7" Scale="2" Type="decimal" />
-    <Property Name="Charges" Nullable="false" Precision="7" Scale="2" Type="decimal" />
-    <Property Name="ChargesDetail" Nullable="false" MaxLength="100" Type="nvarchar" />
-    <Property Name="Caution" Nullable="true" Precision="7" Scale="2" Type="decimal" />
-    <Property Name="Surface" Nullable="false" Type="smallint" />
-    <Property Name="Furnished" Nullable="false" Type="bit" />
-    <Property Name="AvalaibleDate" Nullable="false" Type="datetime" />
-    <Property Name="AvalaibleEndDate" Nullable="true" Type="datetime" />
+    <Property Name="IdRentalRoom" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdRentalAd" Type="int" Nullable="false" />
+    <Property Name="RentPrice" Type="decimal" Nullable="false" Precision="7" Scale="2" />
+    <Property Name="Charges" Type="decimal" Nullable="false" Precision="7" Scale="2" />
+    <Property Name="ChargesDetail" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Caution" Type="decimal" Nullable="true" Precision="7" Scale="2" />
+    <Property Name="Surface" Type="smallint" Nullable="false" />
+    <Property Name="Furnished" Type="bit" Nullable="false" />
+    <Property Name="AvalaibleDate" Type="datetime" Nullable="false" />
+    <Property Name="AvalaibleEndDate" Type="datetime" Nullable="true" />
   </EntityType>
   <EntityType Name="CreationProjectAd">
     <Key>
       <PropertyRef Name="IdCreationProject" />
     </Key>
-    <Property Name="IdCreationProject" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
-    <Property Name="IdPerson" Nullable="false" Type="int" />
-    <Property Name="Introduction" Nullable="false" MaxLength="100" Type="nvarchar" />
-    <Property Name="Description" Nullable="false" Type="nvarchar(max)" />
-    <Property Name="LandEngagement" Nullable="true" Type="tinyint" />
-    <Property Name="LandMaxSurface" Nullable="true" Type="int" />
-    <Property Name="LandMaxPrice" Nullable="true" Type="int" />
-    <Property Name="HousingEngagement" Nullable="false" Type="tinyint" />
-    <Property Name="HousingType" Nullable="false" Type="tinyint" />
-    <Property Name="HousingImplantation" Nullable="false" Type="tinyint" />
-    <Property Name="HousingMaxSurface" Nullable="false" Type="smallint" />
-    <Property Name="HousingMaxPrice" Nullable="true" Type="int" />
-    <Property Name="HousingMaxRent" Nullable="true" Type="smallint" />
-    <Property Name="HousingMaxPriceBuilt" Nullable="true" Type="int" />
-    <Property Name="TotalNumberPerson" Nullable="false" Type="smallint" />
-    <Property Name="NbPersonToBuyLand" Nullable="true" Type="smallint" />
-    <Property Name="NbPersonToBuyHousing" Nullable="true" Type="smallint" />
-    <Property Name="NbPersonToRentHousing" Nullable="true" Type="smallint" />
-    <Property Name="AccesPublicTransport" Nullable="false" Type="tinyint" />
-    <Property Name="AccesInfoSup" Nullable="true" MaxLength="100" Type="nvarchar" />
-    <Property Name="TolerationAlcoholConsommation" Nullable="false" Type="bit" />
-    <Property Name="TolerationSmoker" Nullable="false" Type="bit" />
-    <Property Name="TolerationPets" Nullable="false" Type="bit" />
-    <Property Name="TolerationInfoSup" Nullable="true" MaxLength="100" Type="nvarchar" />
-    <Property Name="ActivatedAnnouncement" Nullable="false" Type="nvarchar(max)" />
+    <Property Name="IdCreationProject" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdPerson" Type="int" Nullable="false" />
+    <Property Name="Introduction" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LandEngagement" Type="tinyint" Nullable="true" />
+    <Property Name="LandMaxSurface" Type="int" Nullable="true" />
+    <Property Name="LandMaxPrice" Type="int" Nullable="true" />
+    <Property Name="HousingEngagement" Type="tinyint" Nullable="false" />
+    <Property Name="HousingType" Type="tinyint" Nullable="false" />
+    <Property Name="HousingImplantation" Type="tinyint" Nullable="false" />
+    <Property Name="HousingMaxSurface" Type="smallint" Nullable="false" />
+    <Property Name="HousingMaxPrice" Type="int" Nullable="true" />
+    <Property Name="HousingMaxRent" Type="smallint" Nullable="true" />
+    <Property Name="HousingMaxPriceBuilt" Type="int" Nullable="true" />
+    <Property Name="TotalNumberPerson" Type="smallint" Nullable="false" />
+    <Property Name="NbPersonToBuyLand" Type="smallint" Nullable="true" />
+    <Property Name="NbPersonToBuyHousing" Type="smallint" Nullable="true" />
+    <Property Name="NbPersonToRentHousing" Type="smallint" Nullable="true" />
+    <Property Name="AccesPublicTransport" Type="tinyint" Nullable="false" />
+    <Property Name="AccesInfoSup" Type="nvarchar" Nullable="true" MaxLength="100" />
+    <Property Name="TolerationAlcoholConsommation" Type="bit" Nullable="false" />
+    <Property Name="TolerationSmoker" Type="bit" Nullable="false" />
+    <Property Name="TolerationPets" Type="bit" Nullable="false" />
+    <Property Name="TolerationInfoSup" Type="nvarchar" Nullable="true" MaxLength="100" />
+    <Property Name="ActivatedAnnouncement" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="Place">
     <Key>
       <PropertyRef Name="IdPlace" />
     </Key>
-    <Property Name="IdPlace" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
-    <Property Name="City" Nullable="true" MaxLength="50" Type="nvarchar" />
-    <Property Name="PostalCode" Nullable="true" MaxLength="15" Type="nvarchar" />
-    <Property Name="Department" Nullable="true" MaxLength="50" Type="nvarchar" />
-    <Property Name="DepartmentNumber" Nullable="false" MaxLength="8" Type="nvarchar" />
-    <Property Name="Region" Nullable="true" MaxLength="50" Type="nvarchar" />
-    <Property Name="County" Nullable="false" MaxLength="50" Type="nvarchar" />
+    <Property Name="IdPlace" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="City" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="PostalCode" Type="nvarchar" Nullable="true" MaxLength="15" />
+    <Property Name="Department" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="DepartmentNumber" Type="nvarchar" Nullable="false" MaxLength="8" />
+    <Property Name="Region" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="County" Type="nvarchar" Nullable="false" MaxLength="50" />
   </EntityType>
   <EntityType Name="Event">
     <Key>
       <PropertyRef Name="IdEvent" />
     </Key>
-    <Property Name="IdEvent" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
-    <Property Name="IdPerson" Nullable="false" Type="int" />
-    <Property Name="DateStart" Nullable="false" Type="datetime" />
-    <Property Name="DateEnd" Nullable="false" Type="datetime" />
-    <Property Name="StreetNumber" Nullable="false" MaxLength="10" Type="nvarchar" />
-    <Property Name="StreetName" Nullable="false" MaxLength="80" Type="nvarchar" />
-    <Property Name="City" Nullable="false" MaxLength="60" Type="nvarchar" />
-    <Property Name="PostalCode" Nullable="false" MaxLength="15" Type="nvarchar" />
-    <Property Name="Department" Nullable="false" MaxLength="50" Type="nvarchar" />
-    <Property Name="DepartmentNumber" Nullable="false" MaxLength="8" Type="nvarchar" />
-    <Property Name="Region" Nullable="false" MaxLength="50" Type="nvarchar" />
-    <Property Name="Country" Nullable="false" MaxLength="50" Type="nvarchar" />
-    <Property Name="Link" Nullable="true" MaxLength="500" Type="nvarchar" />
-    <Property Name="Description" Nullable="false" Type="nvarchar(max)" />
-    <Property Name="PictureName" Nullable="true" MaxLength="50" Type="nvarchar" />
-    <Property Name="DatePublish" Nullable="false" Type="datetime" />
+    <Property Name="IdEvent" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdPerson" Type="int" Nullable="false" />
+    <Property Name="DateStart" Type="datetime" Nullable="false" />
+    <Property Name="DateEnd" Type="datetime" Nullable="false" />
+    <Property Name="StreetNumber" Type="nvarchar" Nullable="false" MaxLength="10" />
+    <Property Name="StreetName" Type="nvarchar" Nullable="false" MaxLength="80" />
+    <Property Name="City" Type="nvarchar" Nullable="false" MaxLength="60" />
+    <Property Name="PostalCode" Type="nvarchar" Nullable="false" MaxLength="15" />
+    <Property Name="Department" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="DepartmentNumber" Type="nvarchar" Nullable="false" MaxLength="8" />
+    <Property Name="Region" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Country" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Link" Type="nvarchar" Nullable="true" MaxLength="500" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PictureName" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="DatePublish" Type="datetime" Nullable="false" />
   </EntityType>
   <EntityType Name="PresenceEvent">
     <Key>
       <PropertyRef Name="IdEvent" />
       <PropertyRef Name="IdPerson" />
     </Key>
-    <Property Name="IdPerson" Nullable="false" Type="int" />
-    <Property Name="IdEvent" Nullable="false" Type="int" />
-    <Property Name="Status" Nullable="false" Type="tinyint" />
+    <Property Name="IdPerson" Type="int" Nullable="false" />
+    <Property Name="IdEvent" Type="int" Nullable="false" />
+    <Property Name="Status" Type="tinyint" Nullable="false" />
   </EntityType>
   <EntityType Name="EcoRoommateExisting">
     <Key>
       <PropertyRef Name="IdEcoRoommateExisting" />
     </Key>
-    <Property Name="IdEcoRoommateExisting" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
-    <Property Name="IdPerson" Nullable="false" Type="int" />
-    <Property Name="EcoRoommateName" Nullable="false" MaxLength="50" Type="nvarchar" />
-    <Property Name="RommateNumber" Nullable="false" Type="smallint" />
-    <Property Name="Country" Nullable="false" MaxLength="50" Type="nvarchar" />
-    <Property Name="Region" Nullable="false" MaxLength="50" Type="nvarchar" />
-    <Property Name="Department" Nullable="false" MaxLength="50" Type="nvarchar" />
-    <Property Name="DepartmentNumber" Nullable="false" MaxLength="8" Type="nvarchar" />
-    <Property Name="City" Nullable="false" MaxLength="50" Type="nvarchar" />
-    <Property Name="PostalCode" Nullable="false" MaxLength="15" Type="nvarchar" />
-    <Property Name="Email" Nullable="true" MaxLength="60" Type="nvarchar" />
-    <Property Name="Description" Nullable="false" Type="nvarchar(max)" />
-    <Property Name="EcoImplication" Nullable="false" Type="tinyint" />
-    <Property Name="TableEco" Nullable="false" Type="nvarchar(max)" />
-    <Property Name="TableHousing" Nullable="false" Type="nvarchar(max)" />
+    <Property Name="IdEcoRoommateExisting" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdPerson" Type="int" Nullable="false" />
+    <Property Name="EcoRoommateName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="RommateNumber" Type="smallint" Nullable="false" />
+    <Property Name="Country" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Region" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Department" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="DepartmentNumber" Type="nvarchar" Nullable="false" MaxLength="8" />
+    <Property Name="City" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="PostalCode" Type="nvarchar" Nullable="false" MaxLength="15" />
+    <Property Name="Email" Type="nvarchar" Nullable="true" MaxLength="60" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="EcoImplication" Type="tinyint" Nullable="false" />
+    <Property Name="TableEco" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="TableHousing" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="PictureDevConversation">
     <Key>
       <PropertyRef Name="IdPictureDevConversation" />
     </Key>
-    <Property Name="IdPictureDevConversation" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
-    <Property Name="IdDevConversation" Nullable="false" Type="int" />
-    <Property Name="PictureName" Nullable="false" MaxLength="50" Type="nvarchar" />
+    <Property Name="IdPictureDevConversation" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdDevConversation" Type="int" Nullable="false" />
+    <Property Name="PictureName" Type="nvarchar" Nullable="false" MaxLength="50" />
   </EntityType>
   <EntityType Name="Roommate">
     <Key>
       <PropertyRef Name="IdRoommate" />
     </Key>
-    <Property Name="IdRoommate" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
-    <Property Name="IdEcoRoommateExisting" Nullable="false" Type="int" />
-    <Property Name="FirstName" Nullable="false" MaxLength="50" Type="nvarchar" />
-    <Property Name="LastName" Nullable="false" MaxLength="50" Type="nvarchar" />
-    <Property Name="Email" Nullable="false" MaxLength="60" Type="nvarchar" />
-    <Property Name="DateBirth" Nullable="false" MaxLength="10" Type="nvarchar" />
-    <Property Name="Civility" Nullable="false" Type="tinyint" />
+    <Property Name="IdRoommate" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdEcoRoommateExisting" Type="int" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="LastName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" Nullable="false" MaxLength="60" />
+    <Property Name="DateBirth" Type="nvarchar" Nullable="false" MaxLength="10" />
+    <Property Name="Civility" Type="tinyint" Nullable="false" />
   </EntityType>
   <EntityType Name="DevConversation">
     <Key>
       <PropertyRef Name="IdDevConversation" />
     </Key>
-    <Property Name="IdDevConversation" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
-    <Property Name="Email" Nullable="false" Type="nvarchar(max)" />
-    <Property Name="Message" Nullable="false" Type="nvarchar(max)" />
-    <Property Name="DateLastSend" Nullable="false" Type="datetime" />
-    <Property Name="Viewed" Nullable="false" DefaultValue="0" Type="tinyint" />
+    <Property Name="IdDevConversation" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Message" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DateLastSend" Type="datetime" Nullable="false" />
+    <Property Name="Viewed" Type="tinyint" Nullable="false" DefaultValue="0" />
   </EntityType>
   <EntityType Name="ResearchRoommate">
     <Key>
       <PropertyRef Name="IdResearchRoommate" />
     </Key>
-    <Property Name="IdResearchRoommate" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
-    <Property Name="IdPerson" Nullable="false" Type="int" />
-    <Property Name="MaxBudget" Nullable="false" Type="smallint" />
-    <Property Name="EmailAlert" Nullable="false" Type="tinyint" />
-    <Property Name="SearchCriteria" Nullable="false" Type="nvarchar(max)" />
-    <Property Name="EcoPractice" Nullable="false" Type="nvarchar(max)" />
-    <Property Name="PictureName" Nullable="false" MaxLength="50" Type="nvarchar" />
-    <Property Name="ActivatedAnnouncement" Nullable="false" Type="nvarchar(max)" />
+    <Property Name="IdResearchRoommate" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdPerson" Type="int" Nullable="false" />
+    <Property Name="MaxBudget" Type="smallint" Nullable="false" />
+    <Property Name="EmailAlert" Type="tinyint" Nullable="false" />
+    <Property Name="SearchCriteria" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="EcoPractice" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PictureName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="ActivatedAnnouncement" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="AssociatedEvent">
     <Key>
       <PropertyRef Name="IdEvent" />
       <PropertyRef Name="IdAssociatedEvent" />
     </Key>
-    <Property Name="IdEvent" Nullable="false" Type="int" />
-    <Property Name="IdAssociatedEvent" Nullable="false" Type="int" />
+    <Property Name="IdEvent" Type="int" Nullable="false" />
+    <Property Name="IdAssociatedEvent" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="PictureEcoRoommateEx">
     <Key>
       <PropertyRef Name="IdPictureEcoRoommateEx" />
     </Key>
-    <Property Name="IdPictureEcoRoommateEx" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
-    <Property Name="IdEcoRoommateExisting" Nullable="false" Type="int" />
-    <Property Name="PictureName" Nullable="false" MaxLength="50" Type="nvarchar" />
-    <Property Name="OrderNumber" Nullable="false" Type="tinyint" />
+    <Property Name="IdPictureEcoRoommateEx" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdEcoRoommateExisting" Type="int" Nullable="false" />
+    <Property Name="PictureName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="OrderNumber" Type="tinyint" Nullable="false" />
   </EntityType>
   <EntityType Name="PictureCreationProject">
     <Key>
       <PropertyRef Name="IdPictureCreationProject" />
     </Key>
-    <Property Name="IdPictureCreationProject" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
-    <Property Name="IdProjetCreation" Nullable="false" Type="int" />
-    <Property Name="PictureName" Nullable="false" MaxLength="50" Type="nvarchar" />
-    <Property Name="OrderNumber" Nullable="false" Type="tinyint" />
+    <Property Name="IdPictureCreationProject" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdProjetCreation" Type="int" Nullable="false" />
+    <Property Name="PictureName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="OrderNumber" Type="tinyint" Nullable="false" />
   </EntityType>
   <EntityType Name="User">
     <Key>
       <PropertyRef Name="IdUser" />
     </Key>
-    <Property Name="IdUser" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
-    <Property Name="Email" Nullable="false" MaxLength="60" Type="nvarchar" />
-    <Property Name="Activated" Nullable="false" DefaultValue="true" Type="bit" />
+    <Property Name="IdUser" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" Nullable="false" MaxLength="60" />
+    <Property Name="TypeUser" Type="tinyint" Nullable="false" />
+    <Property Name="Activated" Type="bit" Nullable="false" DefaultValue="true" />
   </EntityType>
   <EntityType Name="Agency">
     <Key>
       <PropertyRef Name="IdAgency" />
     </Key>
-    <Property Name="IdAgency" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
-    <Property Name="Name" Nullable="false" MaxLength="50" Type="nvarchar" />
-    <Property Name="Email" Nullable="false" MaxLength="60" Type="nvarchar" />
-    <Property Name="Phone" Nullable="false" MaxLength="12" Type="nvarchar" />
-    <Property Name="StreetNumber" Nullable="false" MaxLength="10" Type="nvarchar" />
-    <Property Name="Street" Nullable="false" MaxLength="80" Type="nvarchar" />
-    <Property Name="City" Nullable="false" MaxLength="50" Type="nvarchar" />
-    <Property Name="PostalCode" Nullable="false" MaxLength="15" Type="nvarchar" />
-    <Property Name="Department" Nullable="false" MaxLength="50" Type="nvarchar" />
-    <Property Name="DepartmentNumber" Nullable="false" MaxLength="8" Type="nvarchar" />
-    <Property Name="Region" Nullable="false" MaxLength="50" Type="nvarchar" />
-    <Property Name="County" Nullable="false" MaxLength="50" Type="nvarchar" />
-    <Property Name="SiretNumber" Nullable="false" MaxLength="14" Type="nvarchar" />
-    <Property Name="AgencyFees" Nullable="false" Precision="7" Scale="2" Type="decimal" />
-    <Property Name="User_IdUser" Nullable="false" Type="int" />
+    <Property Name="IdAgency" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" Nullable="false" MaxLength="60" />
+    <Property Name="Phone" Type="nvarchar" Nullable="false" MaxLength="12" />
+    <Property Name="StreetNumber" Type="nvarchar" Nullable="false" MaxLength="10" />
+    <Property Name="Street" Type="nvarchar" Nullable="false" MaxLength="80" />
+    <Property Name="City" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="PostalCode" Type="nvarchar" Nullable="false" MaxLength="15" />
+    <Property Name="Department" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="DepartmentNumber" Type="nvarchar" Nullable="false" MaxLength="8" />
+    <Property Name="Region" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="County" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="SiretNumber" Type="nvarchar" Nullable="false" MaxLength="14" />
+    <Property Name="AgencyFees" Type="decimal" Nullable="false" Precision="7" Scale="2" />
+    <Property Name="User_IdUser" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Person">
     <Key>
       <PropertyRef Name="IdPerson" />
     </Key>
-    <Property Name="IdPerson" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
-    <Property Name="Email" Nullable="false" MaxLength="60" Type="nvarchar" />
-    <Property Name="FirstName" Nullable="false" MaxLength="50" Type="nvarchar" />
-    <Property Name="LastName" Nullable="false" MaxLength="50" Type="nvarchar" />
-    <Property Name="Civility" Nullable="false" Type="tinyint" />
-    <Property Name="Country" Nullable="false" MaxLength="50" Type="nvarchar" />
-    <Property Name="DateBirth" Nullable="false" MaxLength="10" Type="nvarchar" />
-    <Property Name="Activity" Nullable="true" Type="tinyint" />
-    <Property Name="PhoneCode" Nullable="false" MaxLength="15" Type="nvarchar" />
-    <Property Name="PhoneNumber" Nullable="false" MaxLength="12" Type="nvarchar" />
-    <Property Name="ContactType" Nullable="true" Type="tinyint" />
-    <Property Name="PersonnalityDescription" Nullable="true" MaxLength="500" Type="nvarchar" />
-    <Property Name="DateInscription" Nullable="false" Type="datetime" />
-    <Property Name="DateLastActivity" Nullable="false" Type="datetime" />
-    <Property Name="Person_User_Person_IdUser" Nullable="false" Type="int" />
+    <Property Name="IdPerson" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" Nullable="false" MaxLength="60" />
+    <Property Name="FirstName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="LastName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Civility" Type="tinyint" Nullable="false" />
+    <Property Name="Country" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="DateBirth" Type="nvarchar" Nullable="false" MaxLength="10" />
+    <Property Name="Activity" Type="tinyint" Nullable="true" />
+    <Property Name="PhoneCode" Type="nvarchar" Nullable="false" MaxLength="15" />
+    <Property Name="PhoneNumber" Type="nvarchar" Nullable="false" MaxLength="12" />
+    <Property Name="ContactType" Type="tinyint" Nullable="true" />
+    <Property Name="PersonnalityDescription" Type="nvarchar" Nullable="true" MaxLength="500" />
+    <Property Name="DateInscription" Type="datetime" Nullable="false" />
+    <Property Name="DateLastActivity" Type="datetime" Nullable="false" />
+    <Property Name="Person_User_Person_IdUser" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="webpages_Membership">
+    <Key>
+      <PropertyRef Name="IdMembership" />
+    </Key>
+    <Property Name="IdMembership" Type="int" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="true" />
+    <Property Name="ConfirmationToken" Type="nvarchar" Nullable="true" MaxLength="128" />
+    <Property Name="IsConfirmed" Type="bit" Nullable="true" />
+    <Property Name="LastPasswordFailureDate" Type="datetime" Nullable="true" />
+    <Property Name="PasswordFailuresSinceLastSuccess" Type="int" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="PasswordChangedDate" Type="datetime" Nullable="true" />
+    <Property Name="PasswordSalt" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="PasswordVerificationToken" Type="nvarchar" Nullable="true" MaxLength="128" />
+    <Property Name="PasswordVerificationTokenExpirationDate" Type="datetime" Nullable="true" />
+    <Property Name="User_IdUser" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Place_CreationProjectAd">
     <Key>
       <PropertyRef Name="CreationProjectAd_IdCreationProject" />
       <PropertyRef Name="Place_IdPlace" />
     </Key>
-    <Property Name="CreationProjectAd_IdCreationProject" Nullable="false" Type="int" />
-    <Property Name="Place_IdPlace" Nullable="false" Type="int" />
+    <Property Name="CreationProjectAd_IdCreationProject" Type="int" Nullable="false" />
+    <Property Name="Place_IdPlace" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Place_ResearchRoommate">
     <Key>
       <PropertyRef Name="ResearchRoommate_IdResearchRoommate" />
       <PropertyRef Name="Place_IdPlace" />
     </Key>
-    <Property Name="ResearchRoommate_IdResearchRoommate" Nullable="false" Type="int" />
-    <Property Name="Place_IdPlace" Nullable="false" Type="int" />
+    <Property Name="ResearchRoommate_IdResearchRoommate" Type="int" Nullable="false" />
+    <Property Name="Place_IdPlace" Type="int" Nullable="false" />
   </EntityType>
   <Association Name="RentalAd_RentalRoom">
-    <End Type="EcoColocationModel.Store.RentalAd" Multiplicity="1" Role="RentalAd" />
-    <End Type="EcoColocationModel.Store.RentalRoom" Multiplicity="*" Role="RentalRoom" />
+    <End Role="RentalAd" Type="EcoColocationModel.Store.RentalAd" Multiplicity="1" />
+    <End Role="RentalRoom" Type="EcoColocationModel.Store.RentalRoom" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="RentalAd">
         <PropertyRef Name="IdRentalAd" />
@@ -393,8 +416,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="Event_PresenceEvent">
-    <End Type="EcoColocationModel.Store.Event" Multiplicity="1" Role="Event" />
-    <End Type="EcoColocationModel.Store.PresenceEvent" Multiplicity="*" Role="PresenceEvent" />
+    <End Role="Event" Type="EcoColocationModel.Store.Event" Multiplicity="1" />
+    <End Role="PresenceEvent" Type="EcoColocationModel.Store.PresenceEvent" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Event">
         <PropertyRef Name="IdEvent" />
@@ -405,8 +428,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="Event_AssociatedEvent">
-    <End Type="EcoColocationModel.Store.Event" Multiplicity="1" Role="Event" />
-    <End Type="EcoColocationModel.Store.AssociatedEvent" Multiplicity="*" Role="AssociatedEvent" />
+    <End Role="Event" Type="EcoColocationModel.Store.Event" Multiplicity="1" />
+    <End Role="AssociatedEvent" Type="EcoColocationModel.Store.AssociatedEvent" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Event">
         <PropertyRef Name="IdEvent" />
@@ -417,8 +440,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="Event_AssociatedEvent1">
-    <End Type="EcoColocationModel.Store.Event" Multiplicity="1" Role="Event" />
-    <End Type="EcoColocationModel.Store.AssociatedEvent" Multiplicity="*" Role="AssociatedEvent" />
+    <End Role="Event" Type="EcoColocationModel.Store.Event" Multiplicity="1" />
+    <End Role="AssociatedEvent" Type="EcoColocationModel.Store.AssociatedEvent" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Event">
         <PropertyRef Name="IdEvent" />
@@ -429,8 +452,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="DevConversation_PictureDevConversation">
-    <End Type="EcoColocationModel.Store.DevConversation" Multiplicity="1" Role="DevConversation" />
-    <End Type="EcoColocationModel.Store.PictureDevConversation" Multiplicity="*" Role="PictureDevConversation" />
+    <End Role="DevConversation" Type="EcoColocationModel.Store.DevConversation" Multiplicity="1" />
+    <End Role="PictureDevConversation" Type="EcoColocationModel.Store.PictureDevConversation" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="DevConversation">
         <PropertyRef Name="IdDevConversation" />
@@ -441,8 +464,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="EcoRoommateExisting_PictureEcoRoommateEx">
-    <End Type="EcoColocationModel.Store.EcoRoommateExisting" Multiplicity="1" Role="EcoRoommateExisting" />
-    <End Type="EcoColocationModel.Store.PictureEcoRoommateEx" Multiplicity="*" Role="PictureEcoRoommateEx" />
+    <End Role="EcoRoommateExisting" Type="EcoColocationModel.Store.EcoRoommateExisting" Multiplicity="1" />
+    <End Role="PictureEcoRoommateEx" Type="EcoColocationModel.Store.PictureEcoRoommateEx" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="EcoRoommateExisting">
         <PropertyRef Name="IdEcoRoommateExisting" />
@@ -453,8 +476,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="RentalAd_User">
-    <End Type="EcoColocationModel.Store.RentalAd" Multiplicity="*" Role="RentalAd" />
-    <End Type="EcoColocationModel.Store.User" Multiplicity="1" Role="User" />
+    <End Role="RentalAd" Type="EcoColocationModel.Store.RentalAd" Multiplicity="*" />
+    <End Role="User" Type="EcoColocationModel.Store.User" Multiplicity="1" />
     <ReferentialConstraint>
       <Principal Role="User">
         <PropertyRef Name="IdUser" />
@@ -465,8 +488,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="PictureCreationProject_CreationProjectAd">
-    <End Type="EcoColocationModel.Store.CreationProjectAd" Multiplicity="1" Role="CreationProjectAd" />
-    <End Type="EcoColocationModel.Store.PictureCreationProject" Multiplicity="*" Role="PictureCreationProject" />
+    <End Role="CreationProjectAd" Type="EcoColocationModel.Store.CreationProjectAd" Multiplicity="1" />
+    <End Role="PictureCreationProject" Type="EcoColocationModel.Store.PictureCreationProject" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="CreationProjectAd">
         <PropertyRef Name="IdCreationProject" />
@@ -477,8 +500,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="EcoRoommateExisting_Roommate">
-    <End Type="EcoColocationModel.Store.EcoRoommateExisting" Multiplicity="1" Role="EcoRoommateExisting" />
-    <End Type="EcoColocationModel.Store.Roommate" Multiplicity="*" Role="Roommate" />
+    <End Role="EcoRoommateExisting" Type="EcoColocationModel.Store.EcoRoommateExisting" Multiplicity="1" />
+    <End Role="Roommate" Type="EcoColocationModel.Store.Roommate" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="EcoRoommateExisting">
         <PropertyRef Name="IdEcoRoommateExisting" />
@@ -489,8 +512,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="Person_ResearchRoommate">
-    <End Type="EcoColocationModel.Store.Person" Multiplicity="1" Role="Person" />
-    <End Type="EcoColocationModel.Store.ResearchRoommate" Multiplicity="*" Role="ResearchRoommate" />
+    <End Role="Person" Type="EcoColocationModel.Store.Person" Multiplicity="1" />
+    <End Role="ResearchRoommate" Type="EcoColocationModel.Store.ResearchRoommate" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Person">
         <PropertyRef Name="IdPerson" />
@@ -501,8 +524,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="Person_EcoRoommateExisting">
-    <End Type="EcoColocationModel.Store.Person" Multiplicity="1" Role="Person" />
-    <End Type="EcoColocationModel.Store.EcoRoommateExisting" Multiplicity="*" Role="EcoRoommateExisting" />
+    <End Role="Person" Type="EcoColocationModel.Store.Person" Multiplicity="1" />
+    <End Role="EcoRoommateExisting" Type="EcoColocationModel.Store.EcoRoommateExisting" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Person">
         <PropertyRef Name="IdPerson" />
@@ -513,8 +536,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="Person_PresenceEvent">
-    <End Type="EcoColocationModel.Store.Person" Multiplicity="1" Role="Person" />
-    <End Type="EcoColocationModel.Store.PresenceEvent" Multiplicity="*" Role="PresenceEvent" />
+    <End Role="Person" Type="EcoColocationModel.Store.Person" Multiplicity="1" />
+    <End Role="PresenceEvent" Type="EcoColocationModel.Store.PresenceEvent" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Person">
         <PropertyRef Name="IdPerson" />
@@ -525,8 +548,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="Person_Event">
-    <End Type="EcoColocationModel.Store.Person" Multiplicity="1" Role="Person" />
-    <End Type="EcoColocationModel.Store.Event" Multiplicity="*" Role="Event" />
+    <End Role="Person" Type="EcoColocationModel.Store.Person" Multiplicity="1" />
+    <End Role="Event" Type="EcoColocationModel.Store.Event" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Person">
         <PropertyRef Name="IdPerson" />
@@ -537,8 +560,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="Person_User">
-    <End Type="EcoColocationModel.Store.Person" Multiplicity="*" Role="Person" />
-    <End Type="EcoColocationModel.Store.User" Multiplicity="1" Role="User" />
+    <End Role="Person" Type="EcoColocationModel.Store.Person" Multiplicity="*" />
+    <End Role="User" Type="EcoColocationModel.Store.User" Multiplicity="1" />
     <ReferentialConstraint>
       <Principal Role="User">
         <PropertyRef Name="IdUser" />
@@ -549,8 +572,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="Agency_User">
-    <End Type="EcoColocationModel.Store.Agency" Multiplicity="*" Role="Agency" />
-    <End Type="EcoColocationModel.Store.User" Multiplicity="1" Role="User" />
+    <End Role="Agency" Type="EcoColocationModel.Store.Agency" Multiplicity="*" />
+    <End Role="User" Type="EcoColocationModel.Store.User" Multiplicity="1" />
     <ReferentialConstraint>
       <Principal Role="User">
         <PropertyRef Name="IdUser" />
@@ -561,8 +584,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="CreationProjectAd_Person">
-    <End Type="EcoColocationModel.Store.CreationProjectAd" Multiplicity="*" Role="CreationProjectAd" />
-    <End Type="EcoColocationModel.Store.Person" Multiplicity="1" Role="Person" />
+    <End Role="CreationProjectAd" Type="EcoColocationModel.Store.CreationProjectAd" Multiplicity="*" />
+    <End Role="Person" Type="EcoColocationModel.Store.Person" Multiplicity="1" />
     <ReferentialConstraint>
       <Principal Role="Person">
         <PropertyRef Name="IdPerson" />
@@ -572,9 +595,21 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="webpages_Membership_User">
+    <End Role="webpages_Membership" Type="EcoColocationModel.Store.webpages_Membership" Multiplicity="*" />
+    <End Role="User" Type="EcoColocationModel.Store.User" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="IdUser" />
+      </Principal>
+      <Dependent Role="webpages_Membership">
+        <PropertyRef Name="User_IdUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Place_CreationProjectAd_CreationProjectAd">
-    <End Type="EcoColocationModel.Store.CreationProjectAd" Multiplicity="1" Role="CreationProjectAd" />
-    <End Type="EcoColocationModel.Store.Place_CreationProjectAd" Multiplicity="*" Role="Place_CreationProjectAd" />
+    <End Role="CreationProjectAd" Type="EcoColocationModel.Store.CreationProjectAd" Multiplicity="1" />
+    <End Role="Place_CreationProjectAd" Type="EcoColocationModel.Store.Place_CreationProjectAd" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="CreationProjectAd">
         <PropertyRef Name="IdCreationProject" />
@@ -585,8 +620,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Place_CreationProjectAd_Place">
-    <End Type="EcoColocationModel.Store.Place_CreationProjectAd" Multiplicity="*" Role="Place_CreationProjectAd" />
-    <End Type="EcoColocationModel.Store.Place" Multiplicity="1" Role="Place" />
+    <End Role="Place_CreationProjectAd" Type="EcoColocationModel.Store.Place_CreationProjectAd" Multiplicity="*" />
+    <End Role="Place" Type="EcoColocationModel.Store.Place" Multiplicity="1" />
     <ReferentialConstraint>
       <Principal Role="Place">
         <PropertyRef Name="IdPlace" />
@@ -597,8 +632,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Place_ResearchRoommate_ResearchRoommate">
-    <End Type="EcoColocationModel.Store.ResearchRoommate" Multiplicity="1" Role="ResearchRoommate" />
-    <End Type="EcoColocationModel.Store.Place_ResearchRoommate" Multiplicity="*" Role="Place_ResearchRoommate" />
+    <End Role="ResearchRoommate" Type="EcoColocationModel.Store.ResearchRoommate" Multiplicity="1" />
+    <End Role="Place_ResearchRoommate" Type="EcoColocationModel.Store.Place_ResearchRoommate" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="ResearchRoommate">
         <PropertyRef Name="IdResearchRoommate" />
@@ -609,8 +644,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Place_ResearchRoommate_Place">
-    <End Type="EcoColocationModel.Store.Place_ResearchRoommate" Multiplicity="*" Role="Place_ResearchRoommate" />
-    <End Type="EcoColocationModel.Store.Place" Multiplicity="1" Role="Place" />
+    <End Role="Place_ResearchRoommate" Type="EcoColocationModel.Store.Place_ResearchRoommate" Multiplicity="*" />
+    <End Role="Place" Type="EcoColocationModel.Store.Place" Multiplicity="1" />
     <ReferentialConstraint>
       <Principal Role="Place">
         <PropertyRef Name="IdPlace" />
@@ -1081,6 +1116,7 @@
           <NavigationProperty Name="RentalAd" Relationship="EcoColocationModel.RentalAd_User" FromRole="User" ToRole="RentalAd" />
           <NavigationProperty Name="Person" Relationship="EcoColocationModel.Person_User" FromRole="User" ToRole="Person" />
           <Property Name="Email" Type="String" Nullable="false" MaxLength="60" />
+          <Property Name="TypeUser" Type="Byte" Nullable="false" />
           <Property Name="Activated" Nullable="false" DefaultValue="True" Type="Boolean" />
           <NavigationProperty Name="webpages_Membership" Relationship="EcoColocationModel.webpages_Membership_User" FromRole="User" ToRole="webpages_Membership" />
         </EntityType>
@@ -1190,9 +1226,9 @@
         </Association>
         <EntityType Name="webpages_Membership">
           <Key>
-            <PropertyRef Name="UserId" />
+            <PropertyRef Name="IdMembership" />
           </Key>
-          <Property Name="UserId" Nullable="false" Type="Int32" />
+          <Property Name="IdMembership" Nullable="false" Type="Int32" />
           <Property Name="CreateDate" Type="DateTime" Precision="3" />
           <Property Name="ConfirmationToken" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="IsConfirmed" Type="Boolean" />
@@ -1442,6 +1478,7 @@
         <MappingFragment StoreEntitySet="User">
           <ScalarProperty Name="IdUser" ColumnName="IdUser" />
           <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="TypeUser" ColumnName="TypeUser" />
           <ScalarProperty Name="Activated" ColumnName="Activated" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -1486,6 +1523,23 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="webpages_Membership">
+      <EntityTypeMapping TypeName="IsTypeOf(EcoColocationModel.webpages_Membership)">
+        <MappingFragment StoreEntitySet="webpages_Membership">
+          <ScalarProperty Name="IdMembership" ColumnName="IdMembership" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="ConfirmationToken" ColumnName="ConfirmationToken" />
+          <ScalarProperty Name="IsConfirmed" ColumnName="IsConfirmed" />
+          <ScalarProperty Name="LastPasswordFailureDate" ColumnName="LastPasswordFailureDate" />
+          <ScalarProperty Name="PasswordFailuresSinceLastSuccess" ColumnName="PasswordFailuresSinceLastSuccess" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="PasswordChangedDate" ColumnName="PasswordChangedDate" />
+          <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
+          <ScalarProperty Name="PasswordVerificationToken" ColumnName="PasswordVerificationToken" />
+          <ScalarProperty Name="PasswordVerificationTokenExpirationDate" ColumnName="PasswordVerificationTokenExpirationDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <AssociationSetMapping Name="Place_CreationProjectAd" TypeName="EcoColocationModel.Place_CreationProjectAd" StoreEntitySet="Place_CreationProjectAd">
       <EndProperty Name="CreationProjectAd">
         <ScalarProperty Name="IdCreationProject" ColumnName="CreationProjectAd_IdCreationProject" />
@@ -1516,6 +1570,14 @@
       </EndProperty>
       <EndProperty Name="Agency">
         <ScalarProperty Name="IdAgency" ColumnName="IdAgency" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="webpages_Membership_User" TypeName="EcoColocationModel.webpages_Membership_User" StoreEntitySet="webpages_Membership">
+      <EndProperty Name="User">
+        <ScalarProperty Name="IdUser" ColumnName="User_IdUser" />
+      </EndProperty>
+      <EndProperty Name="webpages_Membership">
+        <ScalarProperty Name="IdMembership" ColumnName="IdMembership" />
       </EndProperty>
     </AssociationSetMapping>
   </EntityContainerMapping>

@@ -38,7 +38,7 @@ namespace Eco_Colocation
 			public SimpleMembershipInitializer()
 			{
 				if (!WebSecurity.Initialized)
-					WebSecurity.InitializeDatabaseConnection("ConnStringForWebSecurity", "User", "IdUser", "Email", false);
+					WebSecurity.InitializeDatabaseConnection("ConnStringForWebSecurity", "User", "IdUser", "Email", true);
 			}
 		}
 	}

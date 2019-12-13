@@ -1,8 +1,8 @@
 ﻿
 @{
+	ViewBag.Operation = @ViewData["operation"];
 	ViewBag.Title = "AddUpd_ModalCreationProjectAd";
 }
-
 <div class="underModal col-sm-12 col-xs-12">
 	<div id="modalCreationProjet-ColocAnnounce" class="reelModal">
 		<div style="margin-bottom: 30px;">
@@ -12,13 +12,17 @@
 			}
 			else
 			{
-				if (@ViewData["modalByInscription"] == null)
+				if (@ViewData["operation"] == null)
 				{
 					<h2 class="title centerText">Creer un projet de création</h2>
 				}
-				else
+				else if (ViewBag.Operation == "subscribe")
 				{
 					<h2 class="title centerText">Publier votre projet de création en vous inscrivant</h2>
+				}
+				else if (ViewBag.Operation == "update")
+				{
+					<h2 class="title centerText">Modifier votre projet de création</h2>
 				}
 			}
 		</div>
@@ -149,7 +153,6 @@
 						</div>
 						<div id="div10-1-adresseLog-ca" class="col-sm-8 col-xs-12">
 							<div id="div10-2-adresseLog-ca" style="position:relative">
-
 								<div class="divResearchLocation flex">
 									<div class="flex">
 										<div class="childFlex">
@@ -570,16 +573,21 @@
 					</p>
 				</div>
 				@Html.Partial("~/Views/Account/PersonalDataForm.cshtml")
-
-				@if (ViewData["modalByInscription"] == null)
+				@if (ViewData["operation"] == null)
 				{
 					@Html.Partial("~/Views/Account/ButtonsCreateAccount.cshtml")
 				}
-				else
+				else if (ViewBag.Operation == "subscribe")
 				{
 					@Html.Partial("~/Views/Account/PasswordDiv.cshtml")
 					<div class="flex" id="divInscriptionButtons-mcar">
 						<div class="childFlex btnGreen">Valider</div>
+					</div>
+				}
+				else if (ViewBag.Operation == "update")
+				{
+					<div class="flex" id="divInscriptionButtons-mcar">
+						<div class="childFlex btnGreen">Mettre à jour</div>
 					</div>
 				}
 			</div>
@@ -589,7 +597,6 @@
 		<a href="#close-modal" rel="modal:close"><i class="fas fa-times close-modal"></i></a>
 	</div>
 </div>
-
 <script type="text/javascript">
 	$(document).ready(function () {
 		//ModalProjetCreation. Can use enter button to valid one of location place
@@ -601,10 +608,10 @@
 			}
 		});
 
-		var modalByInscription = ("@ViewData["modalByInscription"]" != "") ? "&modalByInscription=true" : "";
+		var operation = ("@ViewData["operation"]" != "") ? "&operation=true" : "";
 		var researchType = ($("#researchType").val() != "") ? "&researchType=" + $("#researchType").val() : "";
 		window.history.replaceState('data to be passed', 'Title of the page',
-			'/Modal/AddUpd_ModalCreationProjectAd/?targetCity=' + "@ViewData["targetCity"]" + "&urlCurrentPage=" + $('#urlCurrentPage').val() + researchType + modalByInscription);
+			'/Modal/AddUpd_ModalCreationProjectAd/?targetCity=' + "@ViewData["targetCity"]" + "&urlCurrentPage=" + $('#urlCurrentPage').val() + researchType + operation);
 
 		triggerBtnOnOffOnTerain_mpc();
 		initButtonOnOff();
@@ -623,5 +630,4 @@
 		});
 	});
 </script>
-
 

@@ -18,11 +18,11 @@ namespace Eco_Colocation.Controllers
 			return PartialView();
 		}
 
-		public ActionResult AddUpd_ModalRentalAd(string modalByInscription)
+		public ActionResult AddUpd_ModalRentalAd(string operation)
 		{
-			if (modalByInscription != null)
+			if (operation != null)
 			{
-				ViewData["modalByInscription"] = modalByInscription;
+				ViewData["operation"] = operation;
 			}
 
 			ViewData["targetCity"] = "Rennes";

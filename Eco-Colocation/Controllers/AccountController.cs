@@ -3,6 +3,7 @@ using Eco_Colocation.BO;
 using Eco_Colocation.DAL;
 using Eco_Colocation.ViewModel;
 using System.Web.Configuration;
+using System.Web.ModelBinding;
 using System.Web.Mvc;
 using System.Web.Security;
 using WebMatrix.WebData;
@@ -31,24 +32,29 @@ namespace Eco_Colocation.Controllers
 		{
 			return PartialView();
 		}
-		
-		public ActionResult Inscription()
+
+		public ActionResult Inscription(UserBo userBo)
 		{
+			if (ModelState.IsValid) { 
+
+			WebSecurity.CreateUserAndAccount(
+						userBo.Email,
+						userBo.webpages_MembershipBo.Password,
+						new
+						{
+							TypeUser = 1,
+							Activated = 1
+						},
+						false
+					);
+
+			}
 
 			return View();
 		}
 
 		public ActionResult Connection(AccountViewModel accountViewModel)
 		{
-			UserBo userBo = new UserBo();
-			userBo.Email = accountViewModel.UserBo.Email;
-
-			//WebSecurity.CreateUserAndAccount(
-			//			model.UserName,
-			//			model.Password,
-			//			new { FirstName = model.FirstName, LastName = model.LastName, Email = model.Email },
-			//			false
-			//		);
 
 			return View("~/Views/EcoRoommateHome/EcoRoommateHomeView.cshtml");
 		}
@@ -68,9 +74,18 @@ namespace Eco_Colocation.Controllers
 			return PartialView();
 		}
 
+		public ActionResult AddUpd_ModalPeopleSearch(string operation)
+		{
+			ViewData["operation"] = operation;
+
+			return PartialView();
+		}
+
 		public ActionResult ModalCreateEmptyAccount()
 		{
-			return PartialView();
+			UserBo userBo = new UserBo();
+
+			return PartialView(userBo);
 		}
 
 		public ActionResult FindAccountByEmail()

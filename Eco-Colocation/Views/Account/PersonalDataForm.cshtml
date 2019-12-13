@@ -1,4 +1,4 @@
-﻿
+﻿@model Eco_Colocation.BO.UserBo
 @{
 	ViewBag.Title = "PersonalDataForm";
 }
@@ -18,12 +18,14 @@
 				</div>
 				<div class="col-sm-6">
 					<label class="lbl-mcar">Nom *</label>
-					<input type="text" placeholder="Entrez votre nom" class="input-mcar">
+					@*<input type="text" placeholder="Entrez votre nom" class="input-mcar">*@
+					@Html.TextBoxFor(m => m.PersonBo.LastName, new { @placeholder = "Entrez votre nom", @class = "input-mcar" })
 					<div class="lineinput-mcar"></div>
 				</div>
 				<div class="col-sm-6">
 					<label class="lbl-mcar">Prénom *</label>
-					<input type="text" placeholder="Entrez votre prénom" class="input-mcar">
+					@*<input type="text" placeholder="Entrez votre prénom" class="input-mcar">*@
+					@Html.TextBoxFor(m => m.PersonBo.FirstName, new { @placeholder = "Entrez votre prénom", @class = "input-mcar" })
 					<div class="lineinput-mcar"></div>
 				</div>
 				<div class="col-sm-6" id="civiliteDiv-mcar">
@@ -37,7 +39,7 @@
 				</div>
 				<div class="col-sm-6">
 					<label class="lbl-mcar">Date de naissance *</label>
-					<input type="date" class="input-mcar">
+					@Html.TextBoxFor(m => m.PersonBo.DateBirth, new { @type = "date", @class = "input-mcar" })
 					<div class="lineinput-mcar"></div>
 				</div>
 				<div class="col-sm-6">
@@ -254,10 +256,10 @@
 						<option value="4">Sans activité</option>
 						<option value="5">Autre</option>
 					</select>
+					@*@Html.DropDownListFor(m => m.PersonBo.Activity, new SelectList(IEnumerable { } }), new { @class="form-control select-mcar" })*@
 					<div class="lineinput-mcar"></div>
 				</div>
 				<div id="extraElement-pdf">
-
 				</div>
 			</div>
 		</div>
@@ -275,40 +277,33 @@
 				<div class="overflow">
 					<div class="col-sm-6">
 						<label class="lbl-mcar">Email *</label>
-						<input type="email" placeholder="Entrez votre email" class="input-mcar" id="emailInp-pdf">
+						@Html.TextBoxFor(m => m.Email, new { @id = "emailInp-pdf", @type = "email", @placeholder = "Entrez votre email", @class = "input-mcar" })
 						<div class="lineinput-mcar"></div>
 					</div><div class="col-sm-6">
 						<label class="lbl-mcar">Téléphone *</label>
-						<input type="tel" placeholder="+33 xxxxxxxxx" class="input-mcar" maxlength="13">
+						@Html.TextBoxFor(m => m.PersonBo.PhoneNumber, new { @type = "tel", @placeholder = "+33 xxxxxxxxx", @class="input-mcar", @maxlength="13" })
 						<div class="lineinput-mcar"></div>
 					</div>
-					@*<select>
-							@foreach (Eco_Colocation.App_Start._Enums.Pays indicatif in Enum.GetValues(typeof(Eco_Colocation.App_Start._Enums.Pays)))
-							{
-								<option value="@((Int16)indicatif)">@((Int16)indicatif)</option>
-							}
-						</select>*@
 				</div>
 				<div id="wayToBeContact-pdf">
-					<h4 class="centerText" style="margin-bottom: 15px;">
-						Comment souhaitez-vous être contacté ?
-					</h4>
+					<h4 class="centerText" style="margin-bottom: 15px;">Comment souhaitez-vous être contacté ?</h4>
 					<div>
 						<div class="flex">
 							<div class="childFlex">
-								<input id="chkPhone-mlca" type="radio" name="radioContact">
+								@Html.TextBoxFor(m => m.PersonBo.ContactType, new { @id = "chkPhone-mlca", @type = "radio", @name = "radioContact", value = Eco_Colocation.App_Start._Enums.ContactType.Phone })
 								<label for="chkPhone-mlca">Rendre visible que le numéro de téléphone</label>
 							</div>
 						</div>
 						<div class="flex">
 							<div class="childFlex">
 								<input id="chkEmail-mlca" type="radio" name="radioContact">
+								@Html.TextBoxFor(m => m.PersonBo.ContactType, new { @id = "chkEmail-mlca", @type = "radio", @name = "radioContact", value = Eco_Colocation.App_Start._Enums.ContactType.Email })
 								<label for="chkEmail-mlca">Rendre visible que l'adresse email</label>
 							</div>
 						</div>
 						<div class="flex">
 							<div class="childFlex">
-								<input id="chkBoth-mlca" type="radio" name="radioContact">
+								@Html.TextBoxFor(m => m.PersonBo.ContactType, new { @id = "chkBoth-mlca", @type = "radio", @name = "radioContact", value = Eco_Colocation.App_Start._Enums.ContactType.Both })
 								<label for="chkBoth-mlca">Les deux</label>
 							</div>
 						</div>

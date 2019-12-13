@@ -14,7 +14,7 @@ namespace Eco_Colocation.BO
 
 		public int IdRentalAd { get; set; }
 
-		public int IdAccount { get; set; }
+		public int IdUser { get; set; }
 
 		public string Introduction { get; set; }
 
@@ -73,6 +73,6 @@ namespace Eco_Colocation.BO
 
 		public virtual ICollection<RentalRoomBo> RentalRoomBo { get; set; }
 
-		public virtual AccountBo AccountBo { get; set; }
+		public virtual UserBo UserBo { get; set; }
 	}
 }

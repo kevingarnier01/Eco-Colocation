@@ -11,11 +11,15 @@ namespace Eco_Colocation.BO
 
 			this.RentalAdBo = new HashSet<RentalAdBo>();
 
+			this.webpages_MembershipBo = new webpages_MembershipBo();
+
 		}
 
 		public int IdUser { get; set; }
 
 		public string Email { get; set; }
+
+		public byte TypeUser { get; set; }
 
 		public bool Activated { get; set; }
 

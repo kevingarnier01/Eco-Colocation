@@ -1,8 +1,8 @@
 ﻿
 @{
+	ViewBag.Operation = @ViewData["operation"];
 	ViewBag.Title = "AddUpd_ModalRentalAd";
 }
-
 <div class="underModal col-sm-12 col-xs-12">
 	<div id="modalLocation-ColocAnnounce" class="reelModal">
 		<div id="div-title-ca">
@@ -12,13 +12,17 @@
 			}
 			else
 			{
-				if (@ViewData["modalByInscription"] == null)
+				if (@ViewData["operation"] == null)
 				{
 					<h2 class="title centerText">Création d'une annonce de location</h2>
 				}
-				else
+				else if (ViewBag.Operation == "subscribe")
 				{
 					<h2 class="title centerText">Créez votre annonce de location en vous inscrivant</h2>
+				}
+				else if (ViewBag.Operation == "update")
+				{
+					<h2 class="title centerText">Modifier votre annonce de location</h2>
 				}
 			}
 		</div>
@@ -565,15 +569,21 @@
 					</p>
 				</div>
 				@Html.Partial("~/Views/Account/PersonalDataForm.cshtml")
-				@if (ViewData["modalByInscription"] == null)
+				@if (ViewData["operation"] == null)
 				{
 					@Html.Partial("~/Views/Account/ButtonsCreateAccount.cshtml")
 				}
-				else
+				else if (ViewBag.Operation == "subscribe")
 				{
 					@Html.Partial("~/Views/Account/PasswordDiv.cshtml")
 					<div class="flex" id="divInscriptionButtons-mcar">
 						<div class="childFlex btnGreen">Valider</div>
+					</div>
+				}
+				else if (ViewBag.Operation == "update")
+				{
+					<div class="flex" id="divInscriptionButtons-mcar">
+						<div class="childFlex btnGreen">Mettre à jour</div>
 					</div>
 				}
 			</div>
@@ -583,14 +593,13 @@
 		<a href="#close-modal" rel="modal:close" onclick="autoCompletePrepend()"><i class="fas fa-times close-modal"></i></a>
 	</div>
 </div>
-
 <script language="text/javascript">
 	$(document).ready(function () {
-		var modalByInscription = ("@ViewData["modalByInscription"]" != "") ? "&modalByInscription=true" : "";
+		var operation = ("@ViewData["operation"]" != "") ? "&operation=true" : "";
 		var researchType = ($("#researchType").val() != "") ? "&researchType=" + $("#researchType").val() : "";
-		
+
 		window.history.replaceState('data to be passed', 'Title of the page',
-			'/Modal/AddUpd_ModalRentalAd/?targetCity=' + "@ViewData["targetCity"]" + "&urlCurrentPage=" + $('#urlCurrentPage').val() + researchType + modalByInscription);
+			'/Modal/AddUpd_ModalRentalAd/?targetCity=' + "@ViewData["targetCity"]" + "&urlCurrentPage=" + $('#urlCurrentPage').val() + researchType + operation);
 
 		loadAccountConnexionToFinishOperation();
 		triggerBtnOnOffOnAgence();

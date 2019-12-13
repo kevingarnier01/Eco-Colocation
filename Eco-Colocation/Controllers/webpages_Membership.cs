@@ -18,7 +18,7 @@ using System;
 public partial class webpages_Membership
 {
 
-    public int UserId { get; set; }
+    public int IdMembership { get; set; }
 
     public Nullable<System.DateTime> CreateDate { get; set; }
 

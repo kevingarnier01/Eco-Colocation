@@ -103,11 +103,11 @@ namespace Eco_Colocation.Controllers
 		}
 
 		[HttpGet]
-		public ActionResult AddUpd_ModalRentalAd(string targetCity, string urlCurrentPage, string researchType, string modalByInscription)
+		public ActionResult AddUpd_ModalRentalAd(string targetCity, string urlCurrentPage, string researchType, string operation)
 		{
 			AllViewModel allViewModel = new AllViewModel();
 
-			if (modalByInscription == "true")
+			if (operation == "subscribe")
 			{
 				return ModalInscription();
 			}
@@ -116,7 +116,7 @@ namespace Eco_Colocation.Controllers
 
 			string currentTab = "AnnonceLocation";
 
-			if (urlCurrentPage.Length != 0 && modalByInscription == null)
+			if (urlCurrentPage.Length != 0 && operation == null)
 			{
 				return Redirect(urlCurrentPage + "/?currentTab=" + currentTab + "&researchType=" + researchType);
 			}
@@ -146,11 +146,11 @@ namespace Eco_Colocation.Controllers
 		}
 
 		[HttpGet]
-		public ActionResult AddUpd_ModalCreationProjectAd(string targetCity, string urlCurrentPage, string researchType, string modalByInscription)
+		public ActionResult AddUpd_ModalCreationProjectAd(string targetCity, string urlCurrentPage, string researchType, string operation)
 		{
 			AllViewModel allViewModel = new AllViewModel();
 
-			if (modalByInscription == "true")
+			if (operation == "true")
 			{
 				return ModalInscription();
 			}

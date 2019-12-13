@@ -10,11 +10,11 @@ namespace Eco_Colocation.Controllers
             return View();
         }
 
-		public ActionResult AddUpd_ModalCreationProjectAd(string modalByInscription)
+		public ActionResult AddUpd_ModalCreationProjectAd(string operation)
 		{
-			if (modalByInscription != null)
+			if (operation != null)
 			{
-				ViewData["modalByInscription"] = modalByInscription;
+				ViewData["operation"] = operation;
 			}
 
 			return PartialView();

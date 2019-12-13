@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 12/12/2019 15:08:12
+-- Date Created: 12/13/2019 16:23:53
 -- Generated from EDMX file: C:\Users\kev-gar\Documents\Projet personnel\Eco-colocation\Application\Développement\Eco-Colocation\Eco-Colocation\Controllers\EcoColocationModel.edmx
 -- --------------------------------------------------
 
@@ -77,6 +77,9 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_CreationProjectAd_Person]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[CreationProjectAd] DROP CONSTRAINT [FK_CreationProjectAd_Person];
 GO
+IF OBJECT_ID(N'[dbo].[FK_webpages_Membership_User]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[webpages_Membership] DROP CONSTRAINT [FK_webpages_Membership_User];
+GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
@@ -132,6 +135,9 @@ IF OBJECT_ID(N'[dbo].[Agency]', 'U') IS NOT NULL
 GO
 IF OBJECT_ID(N'[dbo].[Person]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Person];
+GO
+IF OBJECT_ID(N'[dbo].[webpages_Membership]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[webpages_Membership];
 GO
 IF OBJECT_ID(N'[dbo].[Place_CreationProjectAd]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Place_CreationProjectAd];
@@ -356,6 +362,7 @@ GO
 CREATE TABLE [dbo].[User] (
     [IdUser] int IDENTITY(1,1) NOT NULL,
     [Email] nvarchar(60)  NOT NULL,
+    [TypeUser] tinyint  NOT NULL,
     [Activated] bit  NOT NULL
 );
 GO
@@ -397,6 +404,23 @@ CREATE TABLE [dbo].[Person] (
     [DateInscription] datetime  NOT NULL,
     [DateLastActivity] datetime  NOT NULL,
     [Person_User_Person_IdUser] int  NOT NULL
+);
+GO
+
+-- Creating table 'webpages_Membership'
+CREATE TABLE [dbo].[webpages_Membership] (
+    [IdMembership] int  NOT NULL,
+    [CreateDate] datetime  NULL,
+    [ConfirmationToken] nvarchar(128)  NULL,
+    [IsConfirmed] bit  NULL,
+    [LastPasswordFailureDate] datetime  NULL,
+    [PasswordFailuresSinceLastSuccess] int  NOT NULL,
+    [Password] nvarchar(128)  NOT NULL,
+    [PasswordChangedDate] datetime  NULL,
+    [PasswordSalt] nvarchar(128)  NOT NULL,
+    [PasswordVerificationToken] nvarchar(128)  NULL,
+    [PasswordVerificationTokenExpirationDate] datetime  NULL,
+    [User_IdUser] int  NOT NULL
 );
 GO
 
@@ -518,6 +542,12 @@ GO
 ALTER TABLE [dbo].[Person]
 ADD CONSTRAINT [PK_Person]
     PRIMARY KEY CLUSTERED ([IdPerson] ASC);
+GO
+
+-- Creating primary key on [IdMembership] in table 'webpages_Membership'
+ALTER TABLE [dbo].[webpages_Membership]
+ADD CONSTRAINT [PK_webpages_Membership]
+    PRIMARY KEY CLUSTERED ([IdMembership] ASC);
 GO
 
 -- Creating primary key on [CreationProjectAd_IdCreationProject], [Place_IdPlace] in table 'Place_CreationProjectAd'
@@ -810,6 +840,21 @@ GO
 CREATE INDEX [IX_FK_CreationProjectAd_Person]
 ON [dbo].[CreationProjectAd]
     ([IdPerson]);
+GO
+
+-- Creating foreign key on [User_IdUser] in table 'webpages_Membership'
+ALTER TABLE [dbo].[webpages_Membership]
+ADD CONSTRAINT [FK_webpages_Membership_User]
+    FOREIGN KEY ([User_IdUser])
+    REFERENCES [dbo].[User]
+        ([IdUser])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_webpages_Membership_User'
+CREATE INDEX [IX_FK_webpages_Membership_User]
+ON [dbo].[webpages_Membership]
+    ([User_IdUser]);
 GO
 
 -- --------------------------------------------------

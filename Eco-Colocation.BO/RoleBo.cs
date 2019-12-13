@@ -7,7 +7,7 @@ namespace Eco_Colocation.BO
 		public RoleBo()
 		{
 
-			this.AccountBo = new HashSet<AccountBo>();
+			this.UserBo = new HashSet<UserBo>();
 
 		}
 
@@ -19,6 +19,6 @@ namespace Eco_Colocation.BO
 
 
 
-		public virtual ICollection<AccountBo> AccountBo { get; set; }
+		public virtual ICollection<UserBo> UserBo { get; set; }
 	}
 }
