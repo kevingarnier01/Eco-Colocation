@@ -74,9 +74,9 @@
 
 		@if (Model != null)
 		{
-			foreach (var peopleSearching in Model?.PeopleSearchingViewModel?.LstPeopleSearchingVM)
+			foreach (var peopleSearching in Model?.PeopleSearchingVM?.LstPeopleSearchingVM)
 			{
-				Model.PeopleSearchingViewModel.IdPeopleSearching = peopleSearching.IdPeopleSearching;
+				Model.PeopleSearchingVM.IdPeopleSearching = peopleSearching.IdPeopleSearching;
 				@Html.Partial("~/Views/PeopleSearching/HtmlAnnoncePeople.cshtml", Model)
 			}
 		}

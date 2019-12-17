@@ -4005,7 +4005,13 @@ d5-description-mpc {
 	margin-top: 10px;
 	width: 125px;
 	background-color: #a9b309;
+	padding: 0;
 }
+
+	#btnOthersSubscribe-mca a {
+		width: 100%;
+		text-align: center;
+	} 
 
 .linkProposeEcoColoc-mca {
 	display: block;

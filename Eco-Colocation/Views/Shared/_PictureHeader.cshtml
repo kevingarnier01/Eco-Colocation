@@ -12,7 +12,7 @@
 						<input id="btnCherche" type="button" value="Je recherche une éco-colocation" onclick="selectSwitcher(this);">
 						<input id="btnProposition" type="button" value="Je propose une éco-colocation" onclick="selectSwitcher(this);">
 					</div>
-					@Html.HiddenFor(m => Model.EcoRoommateHome.TypeRecherche, new { @id = "typeRecherche", @value = "ah" })
+					@Html.HiddenFor(m => Model.EcoRoommateVM.TypeRecherche, new { @id = "typeRecherche", @value = "ah" })
 					@*<input id="typeRecherche" name="@Model.EcoRoommateHomeModel.TypeRecherche" type="hidden" value="@ViewData["currentTab"]">*@
 					<div class="input-group flex overflow" id="adv-search">
 						<div class="flex">

@@ -6,11 +6,15 @@ namespace Eco_Colocation.ViewModel
     {
 		public List<PeopleSearchingViewModel> LstPeopleSearchingVM { get; set; }
 		public int IdPeopleSearching { get; set; }
-
-		public PeopleSearchingViewModel()
+		
+		public PeopleSearchingViewModel() { }
+		public PeopleSearchingViewModel(bool init)
 		{
-			LstPeopleSearchingVM = new List<PeopleSearchingViewModel>();
-			IdPeopleSearching = new int();
+			if (init == true)
+			{
+				LstPeopleSearchingVM = new List<PeopleSearchingViewModel>();
+				IdPeopleSearching = new int();
+			}
 		}
-    }
+	}
 }

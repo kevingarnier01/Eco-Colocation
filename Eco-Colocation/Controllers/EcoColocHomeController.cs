@@ -8,13 +8,15 @@ namespace Eco_Colocation.Controllers
 		public ActionResult EcoRoommateHomeView()
 		{
 			AllViewModel allViewModel = new AllViewModel();
-			allViewModel.PeopleSearchingViewModel = new PeopleSearchingViewModel();
+
+			PeopleSearchingViewModel peopleSearching = new PeopleSearchingViewModel(true);
+			allViewModel.PeopleSearchingVM = peopleSearching;
 
 			for (int i = 0; i < 6; i++)
 			{
-				PeopleSearchingViewModel peopleSearching = new PeopleSearchingViewModel();
+				peopleSearching = new PeopleSearchingViewModel(true);
 				peopleSearching.IdPeopleSearching = i;
-				allViewModel.PeopleSearchingViewModel.LstPeopleSearchingVM.Add(peopleSearching);
+				allViewModel.PeopleSearchingVM.LstPeopleSearchingVM.Add(peopleSearching);
 			}
 
 			return View(allViewModel);
@@ -24,19 +26,19 @@ namespace Eco_Colocation.Controllers
 		{
 			TempData["allViewModel"] = allViewModel;
 
-			return RedirectToAction("CommonAd", new { researchType = allViewModel.EcoRoommateHome.TypeRecherche });
+			return RedirectToAction("CommonAd", new { researchType = allViewModel.EcoRoommateVM.TypeRecherche });
 		}
 
 		public ActionResult CommonAd(string currentTab, string researchType)
 		{
 			AllViewModel allViewModel = new AllViewModel();
-			allViewModel.PeopleSearchingViewModel = new PeopleSearchingViewModel();
+			allViewModel.PeopleSearchingVM = new PeopleSearchingViewModel(true);
 
-			PeopleSearchingViewModel peopleSearching = new PeopleSearchingViewModel();
+			PeopleSearchingViewModel peopleSearching = new PeopleSearchingViewModel(true);
 			for (int i = 0; i < 6; i++)
 			{
 				peopleSearching.IdPeopleSearching = i;
-				allViewModel.PeopleSearchingViewModel.LstPeopleSearchingVM.Add(peopleSearching);
+				allViewModel.PeopleSearchingVM.LstPeopleSearchingVM.Add(peopleSearching);
 			}
 
 			if (currentTab != null && currentTab.Length != 0)

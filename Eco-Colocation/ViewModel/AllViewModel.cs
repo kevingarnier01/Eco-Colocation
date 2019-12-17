@@ -1,21 +1,11 @@
-﻿
-
-namespace Eco_Colocation.ViewModel
+﻿namespace Eco_Colocation.ViewModel
 {
 	public class AllViewModel
 	{
-		public AllViewModel()
-		{
-			InitData();
-		}
+		public EcoRoommateHomeViewModel EcoRoommateVM { get; set; }
+		public PeopleSearchingViewModel PeopleSearchingVM { get; set; }
+		public AccountViewModel AccountVM { get; set; }
 
-		public EcoRoommateHomeModel EcoRoommateHome { get; set; }
-		public PeopleSearchingViewModel PeopleSearchingViewModel { get; set; }
-
-		public void InitData()
-		{
-			EcoRoommateHome = new EcoRoommateHomeModel();
-			PeopleSearchingViewModel = new PeopleSearchingViewModel();
-		}
+		public AllViewModel() { }
 	}
 }

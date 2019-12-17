@@ -1,9 +1,6 @@
 ﻿using Eco_Colocation.BLL;
-using Eco_Colocation.BO;
 using Eco_Colocation.DAL;
 using Eco_Colocation.ViewModel;
-using System.Web.Configuration;
-using System.Web.ModelBinding;
 using System.Web.Mvc;
 using System.Web.Security;
 using WebMatrix.WebData;
@@ -33,21 +30,20 @@ namespace Eco_Colocation.Controllers
 			return PartialView();
 		}
 
-		public ActionResult Inscription(UserBo userBo)
+		public ActionResult Inscription(AllViewModel allVM)
 		{
-			if (ModelState.IsValid) { 
-
-			WebSecurity.CreateUserAndAccount(
-						userBo.Email,
-						userBo.webpages_MembershipBo.Password,
-						new
-						{
-							TypeUser = 1,
-							Activated = 1
-						},
-						false
-					);
-
+			if (ModelState.IsValid)
+			{
+				WebSecurity.CreateUserAndAccount(
+							allVM.AccountVM.UserBo.Email,
+							allVM.AccountVM.UserBo.MembershipBo.Password,
+							new
+							{
+								TypeUser = 1,
+								Activated = 1
+							},
+							false
+						);
 			}
 
 			return View();
@@ -83,9 +79,10 @@ namespace Eco_Colocation.Controllers
 
 		public ActionResult ModalCreateEmptyAccount()
 		{
-			UserBo userBo = new UserBo();
+			AllViewModel allVM = new AllViewModel();
+			allVM.AccountVM = new AccountViewModel(true);
 
-			return PartialView(userBo);
+			return PartialView(allVM);
 		}
 
 		public ActionResult FindAccountByEmail()

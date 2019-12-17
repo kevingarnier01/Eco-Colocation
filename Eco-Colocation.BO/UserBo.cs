@@ -11,7 +11,9 @@ namespace Eco_Colocation.BO
 
 			this.RentalAdBo = new HashSet<RentalAdBo>();
 
-			this.webpages_MembershipBo = new webpages_MembershipBo();
+			this.MembershipBo = new MembershipBo();
+
+			this.PersonBo = new PersonBo();
 
 		}
 
@@ -28,6 +30,6 @@ namespace Eco_Colocation.BO
 
 		public virtual PersonBo PersonBo { get; set; }
 				
-		public virtual webpages_MembershipBo webpages_MembershipBo { get; set; }
+		public virtual MembershipBo MembershipBo { get; set; }
 	}
 }

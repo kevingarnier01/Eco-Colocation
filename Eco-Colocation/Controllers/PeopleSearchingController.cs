@@ -11,15 +11,15 @@ namespace Eco_Colocation.Controllers
 		public ActionResult PeopleSearchingView()
 		{
 			AllViewModel allVM = new AllViewModel();
-			allVM.PeopleSearchingViewModel = new PeopleSearchingViewModel();
-			allVM.PeopleSearchingViewModel.LstPeopleSearchingVM = new List<PeopleSearchingViewModel>();
+			allVM.PeopleSearchingVM = new PeopleSearchingViewModel(true);
+			allVM.PeopleSearchingVM.LstPeopleSearchingVM = new List<PeopleSearchingViewModel>();
 			
-			PeopleSearchingViewModel peopleSearchingVM2 = new PeopleSearchingViewModel();
+			PeopleSearchingViewModel peopleSearchingVM2 = new PeopleSearchingViewModel(true);
 
 			for (int i = 0; i < 6; i++)
 			{
 				peopleSearchingVM2.IdPeopleSearching = i;
-				allVM.PeopleSearchingViewModel.LstPeopleSearchingVM.Add(peopleSearchingVM2);
+				allVM.PeopleSearchingVM.LstPeopleSearchingVM.Add(peopleSearchingVM2);
 			}
 
 			return View(allVM);
@@ -49,12 +49,12 @@ namespace Eco_Colocation.Controllers
 		public ActionResult HtmlAnnoncePeople()
 		{
 			AllViewModel allVM = new AllViewModel();
-			allVM.PeopleSearchingViewModel = new PeopleSearchingViewModel();
+			allVM.PeopleSearchingVM = new PeopleSearchingViewModel(true);
 
 			Random rnd = new Random();
 			int id = rnd.Next(100, 200);
 
-			allVM.PeopleSearchingViewModel.IdPeopleSearching = id;
+			allVM.PeopleSearchingVM.IdPeopleSearching = id;
 
 			return PartialView(allVM);
 		}

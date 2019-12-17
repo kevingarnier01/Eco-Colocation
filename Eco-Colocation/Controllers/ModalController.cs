@@ -45,14 +45,14 @@ namespace Eco_Colocation.Controllers
 			TempData["idModalToTrigger"] = "#peopleSearchingLink-" + idModal;
 
 			AllViewModel allViewModel = new AllViewModel();
-			allViewModel.PeopleSearchingViewModel = new PeopleSearchingViewModel();
+			allViewModel.PeopleSearchingVM = new PeopleSearchingViewModel(true);
 
 
-			PeopleSearchingViewModel peopleSearching = new PeopleSearchingViewModel();
+			PeopleSearchingViewModel peopleSearching = new PeopleSearchingViewModel(true);
 			for (int i = 0; i < 6; i++)
 			{
 				peopleSearching.IdPeopleSearching = i;
-				allViewModel.PeopleSearchingViewModel.LstPeopleSearchingVM.Add(peopleSearching);
+				allViewModel.PeopleSearchingVM.LstPeopleSearchingVM.Add(peopleSearching);
 			}
 
 			return View("~/Views/PeopleSearching/PeopleSearchingView.cshtml", allViewModel);
