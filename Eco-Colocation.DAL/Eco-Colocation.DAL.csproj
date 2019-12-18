@@ -44,6 +44,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AgencySql.cs" />
+    <Compile Include="AssociatedEventSql.cs" />
+    <Compile Include="CreationProjectAdSql.cs" />
+    <Compile Include="DevConversationSql.cs" />
+    <Compile Include="EcoRoommateExistingSql.cs" />
+    <Compile Include="EventSql.cs" />
+    <Compile Include="MembershipSql.cs" />
+    <Compile Include="PersonSql.cs" />
+    <Compile Include="PictureCreationProjectSql.cs" />
+    <Compile Include="PictureDevConversationSql.cs" />
+    <Compile Include="PictureEcoRoommateExSql.cs" />
+    <Compile Include="PlaceSql.cs" />
+    <Compile Include="PresenceEventSql.cs" />
+    <Compile Include="RentalAdSql.cs" />
+    <Compile Include="RentalRoomSql.cs" />
+    <Compile Include="ResearchRoommateSql.cs" />
+    <Compile Include="RoleSql.cs" />
+    <Compile Include="RoommateSql.cs" />
     <Compile Include="UserSql.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

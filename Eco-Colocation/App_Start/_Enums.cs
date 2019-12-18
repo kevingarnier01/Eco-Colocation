@@ -26,5 +26,13 @@
 			Monsieur = 2,
 			Neutre = 0
 		}
+
+		public enum ScoopResearch : int
+		{
+			Commune = 1,
+			Departement = 2,
+			Region = 3,
+			Pays = 4
+		}
 	}
 }

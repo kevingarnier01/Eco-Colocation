@@ -29,7 +29,7 @@ namespace Eco_Colocation.Controllers
 			return RedirectToAction("CommonAd", new { researchType = allViewModel.EcoRoommateVM.TypeRecherche });
 		}
 
-		public ActionResult CommonAd(string currentTab, string researchType)
+		public ActionResult CommonAd(string currentTab, string researchType, string operation)
 		{
 			AllViewModel allViewModel = new AllViewModel();
 			allViewModel.PeopleSearchingVM = new PeopleSearchingViewModel(true);
@@ -51,6 +51,8 @@ namespace Eco_Colocation.Controllers
 			}
 			
 			ViewData["researchType"] = (researchType != null) ? researchType : "searching";
+
+			ViewData["operation"] = (operation != null) ? operation : "operation";
 
 			return View("~/Views/Ad_Common/RubriqueAd.cshtml", allViewModel);
 		}

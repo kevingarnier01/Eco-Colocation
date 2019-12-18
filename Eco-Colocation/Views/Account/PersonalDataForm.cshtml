@@ -2,6 +2,11 @@
 @{
 	ViewBag.Title = "PersonalDataForm";
 
+	if (Model.AccountVM == null)
+	{
+		Model.AccountVM = new Eco_Colocation.ViewModel.AccountViewModel(true);
+	}
+
 	Model.AccountVM.InitLst();
 }
 <div id="personalDataForm">
@@ -20,13 +25,11 @@
 				</div>
 				<div class="col-sm-6">
 					<label class="lbl-mcar">Nom *</label>
-					@*<input type="text" placeholder="Entrez votre nom" class="input-mcar">*@
 					@Html.TextBoxFor(m => m.AccountVM.UserBo.PersonBo.LastName, new { @placeholder = "Entrez votre nom", @class = "input-mcar" })
 					<div class="lineinput-mcar"></div>
 				</div>
 				<div class="col-sm-6">
 					<label class="lbl-mcar">Prénom *</label>
-					@*<input type="text" placeholder="Entrez votre prénom" class="input-mcar">*@
 					@Html.TextBoxFor(m => m.AccountVM.UserBo.PersonBo.FirstName, new { @placeholder = "Entrez votre prénom", @class = "input-mcar" })
 					<div class="lineinput-mcar"></div>
 				</div>
@@ -90,7 +93,6 @@
 						</div>
 						<div class="flex">
 							<div class="childFlex">
-								<input id="chkEmail-mlca" type="radio" name="radioContact">
 								@Html.TextBoxFor(m => m.AccountVM.UserBo.PersonBo.ContactType, new { @id = "chkEmail-mlca", @type = "radio", @name = "radioContact", value = Eco_Colocation.App_Start._Enums.ContactType.Email })
 								<label for="chkEmail-mlca">Rendre visible que l'adresse email</label>
 							</div>
@@ -107,3 +109,9 @@
 		</div>
 	</div>
 </div>
+
+<script type="text/javascript">
+	$(document).on('input', '#emailInp-pdf', function (e) {
+		copyEmailToUserAuthentification("#emailInp-pdf", "#UserNameInpt-pd")
+	});
+</script>

@@ -1,4 +1,4 @@
-﻿@model Eco_Colocation.BO.UserBo
+﻿@model Eco_Colocation.ViewModel.AllViewModel
 @{
 	ViewBag.Title = "ButtonsCreateAccount";
 }
@@ -7,30 +7,11 @@
 	<div id="divbtnCreate-mbca" class="childFlex">
 		<div class="div2InscriptionBtn-mcar" id="div2InscriptionBtnMail-mcar" onclick="openDivElement('#createProfilWindow')">
 			<i class="iconInscriptionBtn-mcar fas fa-user-circle"></i>
-			<p class="textInscriptionBtn-mcar">Finaliser l'opération en s'inscrivant</p>
+			<p class="textInscriptionBtn-mcar">Finaliser l'opération en s'inscirvant</p>
 		</div>
 		<div id="createProfilWindow">
 			<div id="divCreateProfil-mcar">
-				<div class="flex">
-					<div class="col-xs-10 sousDivCreateProfil-mcar">
-						<label class="lbl-mcar">Utilisateur</label>
-						@Html.TextBoxFor(m => m.Email, new { @id = "emailInp-bca", @type = "email", @placeholder = "Votre adresse email...", @class = "input-mcar", @disabled = "disabled" })
-					</div>
-				</div>
-				<div class="flex">
-					<div class="col-xs-10 sousDivCreateProfil-mcar">
-						<label class="lbl-mcar">Mot de passe</label>
-						@Html.TextBoxFor(m => m.webpages_MembershipBo.Password, new { @type = "password", @placeholder = "Entrez un mot de passe", @class = "input-mcar" })
-						<div class="lineinput-mcar"></div>
-					</div>
-				</div>
-				<div class="flex">
-					<div class="col-xs-10 sousDivCreateProfil-mcar">
-						<label class="lbl-mcar">Mot de passe</label>
-						@Html.TextBoxFor(m => m.webpages_MembershipBo.PasswordConfirm, new { @type = "password", @placeholder = "Confirmez le mot de passe", @class = "input-mcar" })
-						<div class="lineinput-mcar"></div>
-					</div>
-				</div>
+				@Html.Partial("~/Views/Account/PasswordDiv.cshtml", Model)
 				<div class="col-xs-12" id="divBtnCreateProfil-mcar">
 					<div id="btnCreateProfil-mcar">Valider</div>
 				</div>
@@ -39,7 +20,7 @@
 		<div class="childFlex">
 			<div class="div2InscriptionBtn-mcar" id="div2ConnectionWithAccount-mcar" onclick="openDivElement('#connectProfilWindow')">
 				<i class="iconInscriptionBtnByAccount-mcar fas fa-sign-in-alt"></i>
-				<p class="textInscriptionBtnByAccount-mcar">Finaliser l'opération en se connectant</p>
+				<p id="btnByConnection-bca" class="textInscriptionBtnByAccount-mcar">Finaliser l'opération en se connectant</p>
 			</div>
 			<div id="connectProfilWindow">
 				<div id="divCreateProfil-mcar" class="divAccountInscription-bca"></div>
@@ -51,4 +32,9 @@
 	$("#div2CreateAccount-acc").remove();
 
 	$(".divAccountInscription-bca").load("/Account/ModalAccount #account");
+	
+	$("#passwordDiv").replaceWith($("#contenuPasswordDiv").html());
+	$(".divPassw").css("margin", "auto");
+	$("#msgMdpInfo-pd").css("text-align", "center")
+	
 </script>

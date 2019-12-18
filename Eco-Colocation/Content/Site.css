@@ -377,6 +377,10 @@ a, p h1, h2, h3, h4, h5, h6, input, textarea, label, span, div, table {
 	font-family: Noteworthy
 }
 
+	input[type="submit"] {
+		border: inherit;
+	}
+
 /*** Attribute CSS style ***/
 .flex {
 	display: flex;
@@ -4011,7 +4015,7 @@ d5-description-mpc {
 	#btnOthersSubscribe-mca a {
 		width: 100%;
 		text-align: center;
-	} 
+	}
 
 .linkProposeEcoColoc-mca {
 	display: block;

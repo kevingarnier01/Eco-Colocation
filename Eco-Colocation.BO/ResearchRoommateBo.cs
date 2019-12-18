@@ -16,7 +16,7 @@ namespace Eco_Colocation.BO
 
 		public int IdUser { get; set; }
 
-		public short MaxBudget { get; set; }
+		public short? MaxBudget { get; set; }
 
 		public byte EmailAlert { get; set; }
 

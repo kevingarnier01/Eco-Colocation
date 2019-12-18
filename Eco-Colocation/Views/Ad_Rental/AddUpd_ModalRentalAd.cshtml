@@ -16,7 +16,7 @@
 				{
 					<h2 class="title centerText">Création d'une annonce de location</h2>
 				}
-				else if (ViewBag.Operation == "subscribe")
+				else if (ViewBag.Operation == "Subscribe")
 				{
 					<h2 class="title centerText">Créez votre annonce de location en vous inscrivant</h2>
 				}
@@ -573,7 +573,7 @@
 				{
 					@Html.Partial("~/Views/Account/ButtonsCreateAccount.cshtml")
 				}
-				else if (ViewBag.Operation == "subscribe")
+				else if (ViewBag.Operation == "Subscribe")
 				{
 					@Html.Partial("~/Views/Account/PasswordDiv.cshtml")
 					<div class="flex" id="divInscriptionButtons-mcar">
@@ -595,7 +595,7 @@
 </div>
 <script language="text/javascript">
 	$(document).ready(function () {
-		var operation = ("@ViewData["operation"]" != "") ? "&operation=true" : "";
+		var operation = ("@ViewData["operation"]" != "") ? "&operation=@ViewData["operation"]" : "";
 		var researchType = ($("#researchType").val() != "") ? "&researchType=" + $("#researchType").val() : "";
 
 		window.history.replaceState('data to be passed', 'Title of the page',
@@ -611,7 +611,7 @@
 		$(".textInfoIfAccountExist-pdf").fadeIn(0)
 
 		$(document).on('input', '#emailInp-pdf', function (e) {
-			copyEmailToUserAuthentification("#emailInp-pdf", "#emailInpt-pd")
+			copyEmailToUserAuthentification("#emailInp-pdf", "#UserNameInpt-pd")
 			copyEmailToUserAuthentification("#emailInp-pdf", "#emailInp-bca")
 		});
 	});

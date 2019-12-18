@@ -107,7 +107,7 @@ namespace Eco_Colocation.Controllers
 		{
 			AllViewModel allViewModel = new AllViewModel();
 
-			if (operation == "subscribe")
+			if (operation == "Subscribe")
 			{
 				return ModalInscription();
 			}
@@ -116,9 +116,9 @@ namespace Eco_Colocation.Controllers
 
 			string currentTab = "AnnonceLocation";
 
-			if (urlCurrentPage.Length != 0 && operation == null)
+			if (urlCurrentPage.Length != 0)
 			{
-				return Redirect(urlCurrentPage + "/?currentTab=" + currentTab + "&researchType=" + researchType);
+				return Redirect(urlCurrentPage + "/?currentTab=" + currentTab + "&researchType=" + researchType + "&operation=" + operation);
 			}
 			else
 			{

@@ -1586,7 +1586,7 @@ function typeOfResearchLocation(item, elementToChange) {
 		$(elementToChange).removeAttr("disabled")
 	}
 	else if (item.value == "france") {
-		$(elementToChange).attr("placeholder", "Dans toute la France")
+		$(elementToChange).attr("placeholder", "Dans Tous le pays")
 		$(elementToChange).attr("disabled", "true")
 	}
 	else {
@@ -2067,4 +2067,16 @@ function postSubmit(idForm) {
 		.done(function (response, status, jqxhr) {
 			alert(response)
 		})
+}
+
+function addInputActionToConnectionButton() {
+	setTimeout(function () {
+		var btnByInscription = "<input type='submit' name='action:Valid_AddAndSubscribe' id='btnCreateProfil-mcar' value='Valider' />"
+		$('#btnCreateProfil-mcar').replaceWith(btnByInscription);
+
+		var btnByConnect = "<input type='submit' name='action:Valid_AddAndConnect' class='btnGreen childFlex fontFamilyNote' id='btnConnexion-acc' value='Connexion'/>"
+		$('#btnConnexion-acc').replaceWith(btnByConnect);
+		
+		$("#accountForm").replaceWith($("#accountForm").html())
+	}, 1000)
 }

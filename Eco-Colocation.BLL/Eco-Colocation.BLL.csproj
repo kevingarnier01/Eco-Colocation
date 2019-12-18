@@ -41,6 +41,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AgencyManager.cs" />
+    <Compile Include="AssociatedEventManager.cs" />
+    <Compile Include="CreationProjectManager.cs" />
+    <Compile Include="DevConversationManager.cs" />
+    <Compile Include="EcoRoommateExistingManager.cs" />
+    <Compile Include="EventManager.cs" />
+    <Compile Include="MembershipManager.cs" />
+    <Compile Include="PersonManager.cs" />
+    <Compile Include="PictureCreationProjectManager.cs" />
+    <Compile Include="PictureDevConversationManager.cs" />
+    <Compile Include="PictureEcoRoommateExManager.cs" />
+    <Compile Include="PlaceManager.cs" />
+    <Compile Include="PresenceEventManager.cs" />
+    <Compile Include="RentalAdManager.cs" />
+    <Compile Include="RentalRoomManager.cs" />
+    <Compile Include="ResearchRoommateManager.cs" />
+    <Compile Include="RoleManager.cs" />
+    <Compile Include="RoommateManager.cs" />
     <Compile Include="UserManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

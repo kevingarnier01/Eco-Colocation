@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using Eco_Colocation.ViewModel;
+using System.Web.Mvc;
 
 namespace Eco_Colocation.Controllers
 {
@@ -27,7 +28,9 @@ namespace Eco_Colocation.Controllers
 
 			ViewData["targetCity"] = "Rennes";
 
-			return PartialView();
+			AllViewModel AllViewModel = new AllViewModel();
+
+			return PartialView(AllViewModel);
 		}
 
 		public ActionResult Del_MsgModalRentalAd()

@@ -1,18 +1,12 @@
-﻿using System.Collections.Generic;
-
-namespace Eco_Colocation.BO
+﻿namespace Eco_Colocation.BO
 {
 	public class PlaceBo
 	{
 		public PlaceBo()
 		{
-
-			this.CreationProjectAdBo = new HashSet<CreationProjectAdBo>();
-
-			this.ResearchRoommateBo = new HashSet<ResearchRoommateBo>();
-
+			ResearchRoommateBo = new ResearchRoommateBo();
+			CreationProjectAdBo = new CreationProjectAdBo();
 		}
-
 
 		public int IdPlace { get; set; }
 
@@ -28,10 +22,11 @@ namespace Eco_Colocation.BO
 
 		public string County { get; set; }
 
+		public byte ScopeResearch { get; set; }
 
 
-		public virtual ICollection<CreationProjectAdBo> CreationProjectAdBo { get; set; }
+		public virtual CreationProjectAdBo CreationProjectAdBo { get; set; }
 
-		public virtual ICollection<ResearchRoommateBo> ResearchRoommateBo { get; set; }
+		public virtual ResearchRoommateBo ResearchRoommateBo { get; set; }
 	}
 }

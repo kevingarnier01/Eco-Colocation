@@ -50,6 +50,7 @@
     <Compile Include="DevConversationBo.cs" />
     <Compile Include="EcoRoommateExistingBo.cs" />
     <Compile Include="EventBo.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="MembershipBo.cs" />
     <Compile Include="PictureCreationProjectBo.cs" />
     <Compile Include="PictureDevConversationBo.cs" />

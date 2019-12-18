@@ -1,6 +1,8 @@
-﻿@model Eco_Colocation.ViewModel.AccountViewModel
+﻿@model Eco_Colocation.ViewModel.AllViewModel
 @{
 	ViewBag.Title = "ModalAccount";
+
+	Model.AccountVM = new Eco_Colocation.ViewModel.AccountViewModel(true);
 }
 <div class="underModal col-sm-12 col-xs-12">
 	<div id="modalAccount" class="reelModal">
@@ -15,19 +17,19 @@
 						<div class="divInputWrite-acc">
 							<div class="div2InputWrite-acc">
 								<i class="fa fa-envelope" aria-hidden="true"></i>
-								@Html.TextBoxFor(m => m.UserBo.PersonBo.Email, new { @placeholder = "Email" })
+								@Html.TextBoxFor(m => m.AccountVM.UserBo.PersonBo.Email, new { @placeholder = "Email" })
 							</div>
 						</div>
 						<div class="divInputWrite-acc">
 							<div class="div2InputWrite-acc">
 								<i class="fa fa-lock" aria-hidden="true"></i>
-								@Html.TextBoxFor(m => m.UserBo.webpages_MembershipBo.Password, new { @placeholder = "Mot de passe" })
+								@Html.TextBoxFor(m => m.AccountVM.UserBo.MembershipBo.Password, new { @placeholder = "Mot de passe" })
 							</div>
 						</div>
 					</div>
 				</div>
 				<div id="divbtnConnexion-acc">
-					<div class="flex">
+					<div class="flex" id="contentConnect-ma">
 						<div onclick="postSubmit('#accountForm')" class="btnGreen childFlex fontFamilyNote" id="btnConnexion-acc">CONNEXION</div>
 					</div>
 				</div>

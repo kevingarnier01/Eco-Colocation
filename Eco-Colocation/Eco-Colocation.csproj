@@ -199,6 +199,7 @@
       <DependentUpon>EcoColocationModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Controllers\ModalController.cs" />
+    <Compile Include="Controllers\_MultipleButtonAttribute.cs" />
     <Compile Include="Controllers\PeopleSearchingController.cs" />
     <Compile Include="Controllers\Person.cs">
       <DependentUpon>EcoColocationModel.tt</DependentUpon>

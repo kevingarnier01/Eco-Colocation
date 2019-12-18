@@ -27,7 +27,9 @@ namespace Eco_Colocation.Controllers
 
 		public ActionResult ModalAccount()
 		{
-			return PartialView();
+			AllViewModel allViewModel = new AllViewModel();
+
+			return PartialView(allViewModel);
 		}
 
 		public ActionResult Inscription(AllViewModel allVM)
@@ -35,7 +37,7 @@ namespace Eco_Colocation.Controllers
 			if (ModelState.IsValid)
 			{
 				WebSecurity.CreateUserAndAccount(
-							allVM.AccountVM.UserBo.Email,
+							allVM.AccountVM.UserBo.UserName,
 							allVM.AccountVM.UserBo.MembershipBo.Password,
 							new
 							{
@@ -51,6 +53,7 @@ namespace Eco_Colocation.Controllers
 
 		public ActionResult Connection(AccountViewModel accountViewModel)
 		{
+			FormsAuthentication.SetAuthCookie("User", true);
 
 			return View("~/Views/EcoRoommateHome/EcoRoommateHomeView.cshtml");
 		}

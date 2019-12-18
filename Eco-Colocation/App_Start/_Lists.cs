@@ -1,7 +1,6 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Text;
 using System.Web.Mvc;
@@ -13,6 +12,24 @@ namespace Eco_Colocation.App_Start
 		public string Text { get; set; }
 		public int Value { get; set; }
 
+		// --------------
+		// -------------- CommunSection --------------
+		// --------------
+
+		public SelectList ScoopResearchLst()
+		{
+			return new SelectList(new[]
+					   {
+						   new _Lists { Text = "Communes", Value = (int)_Enums.ScoopResearch.Commune},
+						   new _Lists { Text = "Départements", Value = (int)_Enums.ScoopResearch.Departement },
+						   new _Lists { Text = "Régions", Value = (int)_Enums.ScoopResearch.Region },
+						   new _Lists { Text = "Tous le pays", Value = (int)_Enums.ScoopResearch.Pays },
+					   }, "Text", "Value");
+		}
+
+		// --------------
+		// -------------- Account --------------
+		// --------------
 		public SelectList ActivityLst()
 		{
 			return new SelectList(new[]

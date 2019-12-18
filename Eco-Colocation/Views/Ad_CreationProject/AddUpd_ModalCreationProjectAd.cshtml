@@ -16,7 +16,7 @@
 				{
 					<h2 class="title centerText">Creer un projet de création</h2>
 				}
-				else if (ViewBag.Operation == "subscribe")
+				else if (ViewBag.Operation == "Subscribe")
 				{
 					<h2 class="title centerText">Publier votre projet de création en vous inscrivant</h2>
 				}
@@ -160,7 +160,7 @@
 												<option value="communes" selected="">Communes</option>
 												<option value="departements">Départements</option>
 												<option value="regions">Régions</option>
-												<option value="france">Toute la France</option>
+												<option value="france">Tous le pays</option>
 											</select>
 										</div>
 									</div>
@@ -577,7 +577,7 @@
 				{
 					@Html.Partial("~/Views/Account/ButtonsCreateAccount.cshtml")
 				}
-				else if (ViewBag.Operation == "subscribe")
+				else if (ViewBag.Operation == "Subscribe")
 				{
 					@Html.Partial("~/Views/Account/PasswordDiv.cshtml")
 					<div class="flex" id="divInscriptionButtons-mcar">
@@ -625,7 +625,7 @@
 		initSlidepicture()
 
 		$(document).on('input', '#emailInp-pdf', function (e) {
-			copyEmailToUserAuthentification("#emailInp-pdf", "#emailInpt-pd")
+			copyEmailToUserAuthentification("#emailInp-pdf", "#UserNameInpt-pd")
 			copyEmailToUserAuthentification("#emailInp-pdf", "#emailInp-bca")
 		});
 	});

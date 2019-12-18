@@ -24,27 +24,17 @@
     <EntitySet Name="Agency" EntityType="EcoColocationModel.Store.Agency" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Person" EntityType="EcoColocationModel.Store.Person" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="webpages_Membership" EntityType="EcoColocationModel.Store.webpages_Membership" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Place_CreationProjectAd" EntityType="EcoColocationModel.Store.Place_CreationProjectAd" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Place_ResearchRoommate" EntityType="EcoColocationModel.Store.Place_ResearchRoommate" store:Type="Tables" Schema="dbo" />
     <AssociationSet Name="RentalAd_RentalRoom" Association="EcoColocationModel.Store.RentalAd_RentalRoom">
       <End Role="RentalAd" EntitySet="RentalAd" />
       <End Role="RentalRoom" EntitySet="RentalRoom" />
     </AssociationSet>
-    <AssociationSet Name="FK_Place_CreationProjectAd_CreationProjectAd" Association="EcoColocationModel.Store.FK_Place_CreationProjectAd_CreationProjectAd">
+    <AssociationSet Name="Place_CreationProjectAd" Association="EcoColocationModel.Store.Place_CreationProjectAd">
       <End Role="CreationProjectAd" EntitySet="CreationProjectAd" />
-      <End Role="Place_CreationProjectAd" EntitySet="Place_CreationProjectAd" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Place_CreationProjectAd_Place" Association="EcoColocationModel.Store.FK_Place_CreationProjectAd_Place">
       <End Role="Place" EntitySet="Place" />
-      <End Role="Place_CreationProjectAd" EntitySet="Place_CreationProjectAd" />
     </AssociationSet>
-    <AssociationSet Name="FK_Place_ResearchRoommate_ResearchRoommate" Association="EcoColocationModel.Store.FK_Place_ResearchRoommate_ResearchRoommate">
+    <AssociationSet Name="Place_ResearchRoommate" Association="EcoColocationModel.Store.Place_ResearchRoommate">
       <End Role="ResearchRoommate" EntitySet="ResearchRoommate" />
-      <End Role="Place_ResearchRoommate" EntitySet="Place_ResearchRoommate" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Place_ResearchRoommate_Place" Association="EcoColocationModel.Store.FK_Place_ResearchRoommate_Place">
       <End Role="Place" EntitySet="Place" />
-      <End Role="Place_ResearchRoommate" EntitySet="Place_ResearchRoommate" />
     </AssociationSet>
     <AssociationSet Name="Event_PresenceEvent" Association="EcoColocationModel.Store.Event_PresenceEvent">
       <End Role="Event" EntitySet="Event" />
@@ -198,9 +188,12 @@
     <Property Name="City" Type="nvarchar" Nullable="true" MaxLength="50" />
     <Property Name="PostalCode" Type="nvarchar" Nullable="true" MaxLength="15" />
     <Property Name="Department" Type="nvarchar" Nullable="true" MaxLength="50" />
-    <Property Name="DepartmentNumber" Type="nvarchar" Nullable="false" MaxLength="8" />
+    <Property Name="DepartmentNumber" Type="nvarchar" Nullable="true" MaxLength="8" />
     <Property Name="Region" Type="nvarchar" Nullable="true" MaxLength="50" />
     <Property Name="County" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="ScopeResearch" Type="tinyint" Nullable="false" />
+    <Property Name="CreationProjectAd_IdCreationProject" Type="int" Nullable="false" />
+    <Property Name="ResearchRoommate_IdResearchRoommate" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Event">
     <Key>
@@ -326,7 +319,7 @@
       <PropertyRef Name="IdUser" />
     </Key>
     <Property Name="IdUser" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Email" Type="nvarchar" Nullable="false" MaxLength="60" />
+    <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="60" />
     <Property Name="TypeUser" Type="tinyint" Nullable="false" />
     <Property Name="Activated" Type="bit" Nullable="false" DefaultValue="true" />
   </EntityType>
@@ -387,22 +380,6 @@
     <Property Name="PasswordVerificationTokenExpirationDate" Type="datetime" Nullable="true" />
     <Property Name="User_IdUser" Type="int" Nullable="false" />
   </EntityType>
-  <EntityType Name="Place_CreationProjectAd">
-    <Key>
-      <PropertyRef Name="CreationProjectAd_IdCreationProject" />
-      <PropertyRef Name="Place_IdPlace" />
-    </Key>
-    <Property Name="CreationProjectAd_IdCreationProject" Type="int" Nullable="false" />
-    <Property Name="Place_IdPlace" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Place_ResearchRoommate">
-    <Key>
-      <PropertyRef Name="ResearchRoommate_IdResearchRoommate" />
-      <PropertyRef Name="Place_IdPlace" />
-    </Key>
-    <Property Name="ResearchRoommate_IdResearchRoommate" Type="int" Nullable="false" />
-    <Property Name="Place_IdPlace" Type="int" Nullable="false" />
-  </EntityType>
   <Association Name="RentalAd_RentalRoom">
     <End Role="RentalAd" Type="EcoColocationModel.Store.RentalAd" Multiplicity="1" />
     <End Role="RentalRoom" Type="EcoColocationModel.Store.RentalRoom" Multiplicity="*" />
@@ -412,6 +389,30 @@
       </Principal>
       <Dependent Role="RentalRoom">
         <PropertyRef Name="IdRentalAd" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Place_CreationProjectAd">
+    <End Role="CreationProjectAd" Type="EcoColocationModel.Store.CreationProjectAd" Multiplicity="1" />
+    <End Role="Place" Type="EcoColocationModel.Store.Place" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CreationProjectAd">
+        <PropertyRef Name="IdCreationProject" />
+      </Principal>
+      <Dependent Role="Place">
+        <PropertyRef Name="CreationProjectAd_IdCreationProject" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Place_ResearchRoommate">
+    <End Role="ResearchRoommate" Type="EcoColocationModel.Store.ResearchRoommate" Multiplicity="1" />
+    <End Role="Place" Type="EcoColocationModel.Store.Place" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ResearchRoommate">
+        <PropertyRef Name="IdResearchRoommate" />
+      </Principal>
+      <Dependent Role="Place">
+        <PropertyRef Name="ResearchRoommate_IdResearchRoommate" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -604,54 +605,6 @@
       </Principal>
       <Dependent Role="webpages_Membership">
         <PropertyRef Name="User_IdUser" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Place_CreationProjectAd_CreationProjectAd">
-    <End Role="CreationProjectAd" Type="EcoColocationModel.Store.CreationProjectAd" Multiplicity="1" />
-    <End Role="Place_CreationProjectAd" Type="EcoColocationModel.Store.Place_CreationProjectAd" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="CreationProjectAd">
-        <PropertyRef Name="IdCreationProject" />
-      </Principal>
-      <Dependent Role="Place_CreationProjectAd">
-        <PropertyRef Name="CreationProjectAd_IdCreationProject" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Place_CreationProjectAd_Place">
-    <End Role="Place_CreationProjectAd" Type="EcoColocationModel.Store.Place_CreationProjectAd" Multiplicity="*" />
-    <End Role="Place" Type="EcoColocationModel.Store.Place" Multiplicity="1" />
-    <ReferentialConstraint>
-      <Principal Role="Place">
-        <PropertyRef Name="IdPlace" />
-      </Principal>
-      <Dependent Role="Place_CreationProjectAd">
-        <PropertyRef Name="Place_IdPlace" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Place_ResearchRoommate_ResearchRoommate">
-    <End Role="ResearchRoommate" Type="EcoColocationModel.Store.ResearchRoommate" Multiplicity="1" />
-    <End Role="Place_ResearchRoommate" Type="EcoColocationModel.Store.Place_ResearchRoommate" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="ResearchRoommate">
-        <PropertyRef Name="IdResearchRoommate" />
-      </Principal>
-      <Dependent Role="Place_ResearchRoommate">
-        <PropertyRef Name="ResearchRoommate_IdResearchRoommate" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Place_ResearchRoommate_Place">
-    <End Role="Place_ResearchRoommate" Type="EcoColocationModel.Store.Place_ResearchRoommate" Multiplicity="*" />
-    <End Role="Place" Type="EcoColocationModel.Store.Place" Multiplicity="1" />
-    <ReferentialConstraint>
-      <Principal Role="Place">
-        <PropertyRef Name="IdPlace" />
-      </Principal>
-      <Dependent Role="Place_ResearchRoommate">
-        <PropertyRef Name="Place_IdPlace" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -858,14 +811,15 @@
           <Property Name="City" Type="String" Nullable="true" MaxLength="50" />
           <Property Name="PostalCode" Type="String" Nullable="true" MaxLength="15" />
           <Property Name="Department" Type="String" Nullable="true" MaxLength="50" />
-          <Property Name="DepartmentNumber" Type="String" Nullable="false" MaxLength="8" />
+          <Property Name="DepartmentNumber" Type="String" Nullable="true" MaxLength="8" />
           <Property Name="Region" Type="String" Nullable="true" MaxLength="50" />
           <NavigationProperty Name="CreationProjectAd" Relationship="EcoColocationModel.Place_CreationProjectAd" FromRole="Place" ToRole="CreationProjectAd" />
           <Property Name="County" Type="String" Nullable="false" MaxLength="50" />
           <NavigationProperty Name="ResearchRoommate" Relationship="EcoColocationModel.Place_ResearchRoommate" FromRole="Place" ToRole="ResearchRoommate" />
+          <Property Name="ScopeResearch" Type="Byte" Nullable="false" />
         </EntityType>
         <Association Name="Place_CreationProjectAd">
-          <End Type="EcoColocationModel.CreationProjectAd" Role="CreationProjectAd" Multiplicity="*" />
+          <End Type="EcoColocationModel.CreationProjectAd" Role="CreationProjectAd" Multiplicity="1" />
           <End Type="EcoColocationModel.Place" Role="Place" Multiplicity="*" />
         </Association>
         <EntityType Name="Event">
@@ -975,7 +929,7 @@
           <NavigationProperty Name="Person" Relationship="EcoColocationModel.Person_ResearchRoommate" FromRole="ResearchRoommate" ToRole="Person" />
         </EntityType>
         <Association Name="Place_ResearchRoommate">
-          <End Type="EcoColocationModel.ResearchRoommate" Role="ResearchRoommate" Multiplicity="*" />
+          <End Type="EcoColocationModel.ResearchRoommate" Role="ResearchRoommate" Multiplicity="1" />
           <End Type="EcoColocationModel.Place" Role="Place" Multiplicity="*" />
         </Association>
         <EntityType Name="Person">
@@ -1115,7 +1069,7 @@
           <Property Name="IdUser" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="RentalAd" Relationship="EcoColocationModel.RentalAd_User" FromRole="User" ToRole="RentalAd" />
           <NavigationProperty Name="Person" Relationship="EcoColocationModel.Person_User" FromRole="User" ToRole="Person" />
-          <Property Name="Email" Type="String" Nullable="false" MaxLength="60" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="60" />
           <Property Name="TypeUser" Type="Byte" Nullable="false" />
           <Property Name="Activated" Nullable="false" DefaultValue="True" Type="Boolean" />
           <NavigationProperty Name="webpages_Membership" Relationship="EcoColocationModel.webpages_Membership_User" FromRole="User" ToRole="webpages_Membership" />
@@ -1343,6 +1297,7 @@
           <ScalarProperty Name="DepartmentNumber" ColumnName="DepartmentNumber" />
           <ScalarProperty Name="Region" ColumnName="Region" />
           <ScalarProperty Name="County" ColumnName="County" />
+          <ScalarProperty Name="ScopeResearch" ColumnName="ScopeResearch" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -1477,7 +1432,7 @@
       <EntityTypeMapping TypeName="IsTypeOf(EcoColocationModel.User)">
         <MappingFragment StoreEntitySet="User">
           <ScalarProperty Name="IdUser" ColumnName="IdUser" />
-          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
           <ScalarProperty Name="TypeUser" ColumnName="TypeUser" />
           <ScalarProperty Name="Activated" ColumnName="Activated" />
         </MappingFragment>
@@ -1540,20 +1495,20 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <AssociationSetMapping Name="Place_CreationProjectAd" TypeName="EcoColocationModel.Place_CreationProjectAd" StoreEntitySet="Place_CreationProjectAd">
+    <AssociationSetMapping Name="Place_CreationProjectAd" TypeName="EcoColocationModel.Place_CreationProjectAd" StoreEntitySet="Place">
       <EndProperty Name="CreationProjectAd">
         <ScalarProperty Name="IdCreationProject" ColumnName="CreationProjectAd_IdCreationProject" />
       </EndProperty>
       <EndProperty Name="Place">
-        <ScalarProperty Name="IdPlace" ColumnName="Place_IdPlace" />
+        <ScalarProperty Name="IdPlace" ColumnName="IdPlace" />
       </EndProperty>
     </AssociationSetMapping>
-    <AssociationSetMapping Name="Place_ResearchRoommate" TypeName="EcoColocationModel.Place_ResearchRoommate" StoreEntitySet="Place_ResearchRoommate">
+    <AssociationSetMapping Name="Place_ResearchRoommate" TypeName="EcoColocationModel.Place_ResearchRoommate" StoreEntitySet="Place">
       <EndProperty Name="ResearchRoommate">
         <ScalarProperty Name="IdResearchRoommate" ColumnName="ResearchRoommate_IdResearchRoommate" />
       </EndProperty>
       <EndProperty Name="Place">
-        <ScalarProperty Name="IdPlace" ColumnName="Place_IdPlace" />
+        <ScalarProperty Name="IdPlace" ColumnName="IdPlace" />
       </EndProperty>
     </AssociationSetMapping>
     <AssociationSetMapping Name="Person_User" TypeName="EcoColocationModel.Person_User" StoreEntitySet="Person">

@@ -13,7 +13,7 @@ namespace Eco_Colocation.Controllers
 			AllViewModel allVM = new AllViewModel();
 			allVM.PeopleSearchingVM = new PeopleSearchingViewModel(true);
 			allVM.PeopleSearchingVM.LstPeopleSearchingVM = new List<PeopleSearchingViewModel>();
-			
+
 			PeopleSearchingViewModel peopleSearchingVM2 = new PeopleSearchingViewModel(true);
 
 			for (int i = 0; i < 6; i++)
@@ -35,7 +35,37 @@ namespace Eco_Colocation.Controllers
 				ViewData["operation"] = operation;
 			}
 
-			return PartialView();
+			AllViewModel allViewModel = new AllViewModel();
+
+			return PartialView(allViewModel);
+		}
+
+		[HttpPost]
+		[MultiButton(Name = "action", Argument = "Valid_Add")]
+		public ActionResult Valid_Add(AllViewModel AllVM)
+		{
+			return View("");
+		}
+
+		[HttpPost]
+		[MultiButton(Name = "action", Argument = "Valid_AddAndSubscribe")]
+		public ActionResult Valid_AddAndSubscribe(AllViewModel AllVM)
+		{
+			return View("");
+		}
+
+		[HttpPost]
+		[MultiButton(Name = "action", Argument = "Valid_AddAndConnect")]
+		public ActionResult Valid_AddAndConnect(AllViewModel AllVM)
+		{
+			return View("");
+		}
+
+	   [HttpPost]
+		[MultiButton(Name = "action", Argument = "Valid_Update")]
+		public ActionResult Valid_Update(AllViewModel AllVM)
+		{
+			return View("");
 		}
 
 		public ActionResult Read_ModalPeopleSearch(string idModal)
@@ -45,7 +75,7 @@ namespace Eco_Colocation.Controllers
 
 			return PartialView();
 		}
-		
+
 		public ActionResult HtmlAnnoncePeople()
 		{
 			AllViewModel allVM = new AllViewModel();
@@ -57,6 +87,11 @@ namespace Eco_Colocation.Controllers
 			allVM.PeopleSearchingVM.IdPeopleSearching = id;
 
 			return PartialView(allVM);
+		}	
+
+		public bool Add(PeopleSearchingViewModel PeopleSearchingVM)
+		{
+			return true;
 		}
 	}
 }

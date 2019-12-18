@@ -18,16 +18,6 @@ using System;
 public partial class Place
 {
 
-    public Place()
-    {
-
-        this.CreationProjectAd = new HashSet<CreationProjectAd>();
-
-        this.ResearchRoommate = new HashSet<ResearchRoommate>();
-
-    }
-
-
     public int IdPlace { get; set; }
 
     public string City { get; set; }
@@ -42,11 +32,13 @@ public partial class Place
 
     public string County { get; set; }
 
+    public byte ScopeResearch { get; set; }
 
 
-    public virtual ICollection<CreationProjectAd> CreationProjectAd { get; set; }
 
-    public virtual ICollection<ResearchRoommate> ResearchRoommate { get; set; }
+    public virtual CreationProjectAd CreationProjectAd { get; set; }
+
+    public virtual ResearchRoommate ResearchRoommate { get; set; }
 
 }
 

@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 12/13/2019 16:23:53
+-- Date Created: 12/18/2019 13:15:50
 -- Generated from EDMX file: C:\Users\kev-gar\Documents\Projet personnel\Eco-colocation\Application\Développement\Eco-Colocation\Eco-Colocation\Controllers\EcoColocationModel.edmx
 -- --------------------------------------------------
 
@@ -235,9 +235,12 @@ CREATE TABLE [dbo].[Place] (
     [City] nvarchar(50)  NULL,
     [PostalCode] nvarchar(15)  NULL,
     [Department] nvarchar(50)  NULL,
-    [DepartmentNumber] nvarchar(8)  NOT NULL,
+    [DepartmentNumber] nvarchar(8)  NULL,
     [Region] nvarchar(50)  NULL,
-    [County] nvarchar(50)  NOT NULL
+    [County] nvarchar(50)  NOT NULL,
+    [ScopeResearch] tinyint  NOT NULL,
+    [CreationProjectAd_IdCreationProject] int  NOT NULL,
+    [ResearchRoommate_IdResearchRoommate] int  NOT NULL
 );
 GO
 
@@ -361,7 +364,7 @@ GO
 -- Creating table 'User'
 CREATE TABLE [dbo].[User] (
     [IdUser] int IDENTITY(1,1) NOT NULL,
-    [Email] nvarchar(60)  NOT NULL,
+    [UserName] nvarchar(60)  NOT NULL,
     [TypeUser] tinyint  NOT NULL,
     [Activated] bit  NOT NULL
 );
@@ -421,20 +424,6 @@ CREATE TABLE [dbo].[webpages_Membership] (
     [PasswordVerificationToken] nvarchar(128)  NULL,
     [PasswordVerificationTokenExpirationDate] datetime  NULL,
     [User_IdUser] int  NOT NULL
-);
-GO
-
--- Creating table 'Place_CreationProjectAd'
-CREATE TABLE [dbo].[Place_CreationProjectAd] (
-    [CreationProjectAd_IdCreationProject] int  NOT NULL,
-    [Place_IdPlace] int  NOT NULL
-);
-GO
-
--- Creating table 'Place_ResearchRoommate'
-CREATE TABLE [dbo].[Place_ResearchRoommate] (
-    [ResearchRoommate_IdResearchRoommate] int  NOT NULL,
-    [Place_IdPlace] int  NOT NULL
 );
 GO
 
@@ -550,18 +539,6 @@ ADD CONSTRAINT [PK_webpages_Membership]
     PRIMARY KEY CLUSTERED ([IdMembership] ASC);
 GO
 
--- Creating primary key on [CreationProjectAd_IdCreationProject], [Place_IdPlace] in table 'Place_CreationProjectAd'
-ALTER TABLE [dbo].[Place_CreationProjectAd]
-ADD CONSTRAINT [PK_Place_CreationProjectAd]
-    PRIMARY KEY CLUSTERED ([CreationProjectAd_IdCreationProject], [Place_IdPlace] ASC);
-GO
-
--- Creating primary key on [ResearchRoommate_IdResearchRoommate], [Place_IdPlace] in table 'Place_ResearchRoommate'
-ALTER TABLE [dbo].[Place_ResearchRoommate]
-ADD CONSTRAINT [PK_Place_ResearchRoommate]
-    PRIMARY KEY CLUSTERED ([ResearchRoommate_IdResearchRoommate], [Place_IdPlace] ASC);
-GO
-
 -- --------------------------------------------------
 -- Creating all FOREIGN KEY constraints
 -- --------------------------------------------------
@@ -581,52 +558,34 @@ ON [dbo].[RentalRoom]
     ([IdRentalAd]);
 GO
 
--- Creating foreign key on [CreationProjectAd_IdCreationProject] in table 'Place_CreationProjectAd'
-ALTER TABLE [dbo].[Place_CreationProjectAd]
-ADD CONSTRAINT [FK_Place_CreationProjectAd_CreationProjectAd]
+-- Creating foreign key on [CreationProjectAd_IdCreationProject] in table 'Place'
+ALTER TABLE [dbo].[Place]
+ADD CONSTRAINT [FK_Place_CreationProjectAd]
     FOREIGN KEY ([CreationProjectAd_IdCreationProject])
     REFERENCES [dbo].[CreationProjectAd]
         ([IdCreationProject])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
--- Creating foreign key on [Place_IdPlace] in table 'Place_CreationProjectAd'
-ALTER TABLE [dbo].[Place_CreationProjectAd]
-ADD CONSTRAINT [FK_Place_CreationProjectAd_Place]
-    FOREIGN KEY ([Place_IdPlace])
-    REFERENCES [dbo].[Place]
-        ([IdPlace])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
+-- Creating non-clustered index for FOREIGN KEY 'FK_Place_CreationProjectAd'
+CREATE INDEX [IX_FK_Place_CreationProjectAd]
+ON [dbo].[Place]
+    ([CreationProjectAd_IdCreationProject]);
 GO
 
--- Creating non-clustered index for FOREIGN KEY 'FK_Place_CreationProjectAd_Place'
-CREATE INDEX [IX_FK_Place_CreationProjectAd_Place]
-ON [dbo].[Place_CreationProjectAd]
-    ([Place_IdPlace]);
-GO
-
--- Creating foreign key on [ResearchRoommate_IdResearchRoommate] in table 'Place_ResearchRoommate'
-ALTER TABLE [dbo].[Place_ResearchRoommate]
-ADD CONSTRAINT [FK_Place_ResearchRoommate_ResearchRoommate]
+-- Creating foreign key on [ResearchRoommate_IdResearchRoommate] in table 'Place'
+ALTER TABLE [dbo].[Place]
+ADD CONSTRAINT [FK_Place_ResearchRoommate]
     FOREIGN KEY ([ResearchRoommate_IdResearchRoommate])
     REFERENCES [dbo].[ResearchRoommate]
         ([IdResearchRoommate])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
--- Creating foreign key on [Place_IdPlace] in table 'Place_ResearchRoommate'
-ALTER TABLE [dbo].[Place_ResearchRoommate]
-ADD CONSTRAINT [FK_Place_ResearchRoommate_Place]
-    FOREIGN KEY ([Place_IdPlace])
-    REFERENCES [dbo].[Place]
-        ([IdPlace])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating non-clustered index for FOREIGN KEY 'FK_Place_ResearchRoommate_Place'
-CREATE INDEX [IX_FK_Place_ResearchRoommate_Place]
-ON [dbo].[Place_ResearchRoommate]
-    ([Place_IdPlace]);
+-- Creating non-clustered index for FOREIGN KEY 'FK_Place_ResearchRoommate'
+CREATE INDEX [IX_FK_Place_ResearchRoommate]
+ON [dbo].[Place]
+    ([ResearchRoommate_IdResearchRoommate]);
 GO
 
 -- Creating foreign key on [IdEvent] in table 'PresenceEvent'
