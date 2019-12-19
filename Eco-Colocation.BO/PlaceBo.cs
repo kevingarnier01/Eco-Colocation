@@ -24,6 +24,8 @@
 
 		public byte ScopeResearch { get; set; }
 
+		public string EntirePlaceName { get; set; }
+
 
 		public virtual CreationProjectAdBo CreationProjectAdBo { get; set; }
 

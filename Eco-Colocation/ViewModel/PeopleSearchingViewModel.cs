@@ -12,6 +12,7 @@ namespace Eco_Colocation.ViewModel
 		public List<PeopleSearchingViewModel> LstPeopleSearchingVM { get; set; }
 		public int IdPeopleSearching { get; set; }
 		public SelectList ScoopResearchLst { get; set; }
+		public List<PlaceBo> LstPlaceBo { get; set; }
 
 		public PeopleSearchingViewModel() { }
 		public PeopleSearchingViewModel(bool init)

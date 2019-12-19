@@ -25,8 +25,8 @@ namespace Eco_Colocation.BO
 		public string EcoPractice { get; set; }
 
 		public string PictureName { get; set; }
-
-		public string ActivatedAnnouncement { get; set; }
+		
+		public bool ActivatedAnnouncement { get; set; }
 
 
 

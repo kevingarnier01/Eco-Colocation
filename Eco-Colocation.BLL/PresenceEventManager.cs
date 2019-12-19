@@ -1,12 +1,12 @@
-﻿namespace Eco_Colocation.BLL
+﻿using Eco_Colocation.DAL;
+
+namespace Eco_Colocation.BLL
 {
 	public class PresenceEventManager
 	{
 		#region Properties
 
- //  'PresenceEventSql' 
 		private PresenceEventSql PresenceEventSql { get; set; }
- //  'PresenceEventSql' 
 
 		#endregion
 

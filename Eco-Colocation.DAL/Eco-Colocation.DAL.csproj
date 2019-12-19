@@ -31,6 +31,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ABLib, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Eco-Colocation\bin\ABLib.dll</HintPath>
+    </Reference>
     <Reference Include="ABLib.DAL.Sql">
       <HintPath>..\Eco-Colocation\bin\ABLib.DAL.Sql.dll</HintPath>
     </Reference>
@@ -64,6 +68,12 @@
     <Compile Include="RoommateSql.cs" />
     <Compile Include="UserSql.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Eco-Colocation.BO\Eco-Colocation.BO.csproj">
+      <Project>{63297482-8029-4af7-94d0-d0c1e12ed770}</Project>
+      <Name>Eco-Colocation.BO</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

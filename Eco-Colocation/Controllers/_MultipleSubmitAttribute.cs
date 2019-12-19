@@ -6,7 +6,7 @@ namespace Eco_Colocation.Controllers
 {
 	//https://stackoverflow.com/questions/442704/how-do-you-handle-multiple-submit-buttons-in-asp-net-mvc-framework?answertab=oldest#tab-top
 	[AttributeUsage(AttributeTargets.Method, AllowMultiple = false, Inherited = true)]
-	public class MultiButtonAttribute : ActionNameSelectorAttribute
+	public class MultiSubmitAttributeAttribute : ActionNameSelectorAttribute
 	{
 		public string Name { get; set; }
 		public string Argument { get; set; }

@@ -12,26 +12,20 @@ namespace Eco_Colocation.BLL
 		#region Properties
 
  //  'AssocietedEventSql' 
-		private AssocietedEventSql AssocietedEventSql { get; set; }
+		private AssociatedEventSql AssocietedEventSql { get; set; }
  //  'AssocietedEventSql' 
 
 		#endregion
 
 		#region Initialization
 
- //  'AssocietedEventSql' 
-#pragma warning disable CS1520 // La méthode doit avoir un type de retour
-		public AssocietedEventManager(AssocietedEventSql poAssocietedEventSql)
-#pragma warning restore CS1520 // La méthode doit avoir un type de retour
- //  'AssocietedEventSql' 
+		public AssociatedEventManager(AssociatedEventSql poAssocietedEventSql)
 			: this()
 		{
 			this.AssocietedEventSql = poAssocietedEventSql;
 		}
 
-#pragma warning disable CS1520 // La méthode doit avoir un type de retour
-		private AssocietedEventManager()
-#pragma warning restore CS1520 // La méthode doit avoir un type de retour
+		private AssociatedEventManager()
 		{
 			this.InitData();
 		}

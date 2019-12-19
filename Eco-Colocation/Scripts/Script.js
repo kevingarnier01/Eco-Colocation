@@ -608,45 +608,7 @@ function chooseAddr(lat1, lng1) {
 //Garder cette fonction en commentaire - cette utilisation concerne nominatim.openstreetmap.org 
 //(Si algolia ne fonctionne plus, utiliser lui)
 
-var compteurPlaceItem = 100;
-function addNewPlaceItem(ui, inputId, identityPage) {
-	var locationNameSelected = ui.item.value;
-
-	var htmlPlace =
-		(identityPage != "ph") ?
-			'<div id="place' + identityPage + compteurPlaceItem + '" class="divPlace">'
-			: '<div id="place' + identityPage + compteurPlaceItem + '" class="divPlace divPlace-ph">'
-	htmlPlace +=
-		'<p class="placeName" title="' + locationNameSelected + '">' + locationNameSelected + '</p>' +
-		'<div class="crossPlace"><i onclick="deletePlace(place' + identityPage + compteurPlaceItem + ', \'' + identityPage + '\')" class="fas fa-times crossPlace"></i></div>' +
-		'</div>';
-
-	$("#place-" + identityPage).append(htmlPlace);
-
-	if ($("#placeSaved-" + identityPage).css('display') == 'none')
-		$("#placeSaved-" + identityPage).css('display', 'block');
-
-	setTimeout(function () {
-		$(inputId).val("");
-	}, 10)
-
-	compteurPlaceItem++;
-}
-
-function deletePlace(element, identityPage) {
-	$(element).remove();
-
-	if ($('#placeSaved-' + identityPage + ' .divPlace').length == 0) {
-		$("#placeSaved-" + identityPage).css('display', 'none');
-		if (identityPage == "ph" || identityPage == "car" || identityPage == "mpc") {
-			$('#inputSearchPlace-' + identityPage).val("")
-			$('#typeResearchSct-' + identityPage).removeAttr('disabled')
-		}
-	}
-}
-
-function getLstAutoCompletion(arr, inputId, typeResearch) {
-
+function getLstAutoCompletion(arr, input, typeResearch) {
 	if (arr.length != null) {
 		arr.features = arr;
 	}
@@ -695,42 +657,102 @@ function getLstAutoCompletion(arr, inputId, typeResearch) {
 					"<i class='iconAutoComplete fas fa-map-marker-alt'></i>") +
 					"<strong id='txtLabelAutoCompletion'>" + label + "</strong>" +
 					"<p id='txtContextAutoCompletion'>" + context + "</p>",
-				value: label + " " + context
+				value: label + " " + context,
+				json: arr.features[i].properties
 			}
-
-			//if (i == 0 && $('#listAutoCompletePlaceHidden').length != 0 && arr.features[0] == 1) {
-			//	$('#listAutoCompletePlaceHidden').val() = availableTags[i];
-			//}
 		}
 
-		$(inputId).autocomplete({
+		$(input).autocomplete({
 			source: function (request, response) {
 				response(availableTags);
 			},
 			autoFocus: true,
 			html: 'html',
 			select: function (event, ui) {
-				if (inputId.id == "inpMultiPlace-al") {
-					addNewPlaceItem(ui, inputId, "al");
-				}
-				else if (inputId.id == "inputSearchPlace-ph") {
-					addNewPlaceItem(ui, inputId, "ph");
-				}
-				else if (inputId.id == "inputSearchPlace-mpc") {
-					addNewPlaceItem(ui, inputId, "mpc")
-				}
-				else if (inputId.id == "inputSearchPlace-car") {
-					addNewPlaceItem(ui, inputId, "car")
-				}
 				saveValueSelected(event, ui, this)
+				if (input.id == "inpMultiPlace-al") {
+					addNewPlaceItem(ui, input, "al");
+				}
+				else if (input.id == "inputSearchPlace-ph") {
+					addNewPlaceItem(ui, input, "ph");
+				}
+				else if (input.id == "inputSearchPlace-mpc") {
+					addNewPlaceItem(ui, input, "mpc")
+				}
+				else if (input.id == "inputSearchPlace-car") {
+					addNewPlaceItem(ui, input, "car")
+				}
 			}
 		});
 	}
 }
 
+function addNewPlaceItem(ui, input, identityPage) {
+	var compteurPlaceItem = Math.floor(100000 + Math.random() * 900000);
+	var inputId = "#" + $(input).attr("id");
+
+	var locationNameSelected = ui.item.value;
+
+	var htmlPlace =
+		(identityPage != "ph") ?
+			'<div id="place' + identityPage + compteurPlaceItem + '" class="divPlace">'
+			: '<div id="place' + identityPage + compteurPlaceItem + '" class="divPlace divPlace-ph">'
+
+	var paramDeletePlace = "place" + identityPage + compteurPlaceItem + ",'" + identityPage + "','" + compteurPlaceItem + "','" + inputId + "'"
+	htmlPlace +=
+		'<p class="placeName" title="' + locationNameSelected + '">' + locationNameSelected + '</p>' +
+		'<div class="crossPlace"><i onclick="deletePlace(' + paramDeletePlace + ')" class="fas fa-times crossPlace"></i></div>' +
+		'</div>';
+
+	$("#place-" + identityPage).append(htmlPlace);
+
+	//Mettre le même id à l'input hidden associé
+	$(inputId + " + .divInputPlaceHidden input:last-child").attr("id", "inputPlaceHidden" + compteurPlaceItem);
+
+	if ($("#placeSaved-" + identityPage).css('display') == 'none')
+		$("#placeSaved-" + identityPage).css('display', 'block');
+
+	setTimeout(function () {
+		$(input).val("");
+	}, 10)
+
+	compteurPlaceItem++;
+}
+
+function deletePlace(element, identityPage, compteurId, inputId) {
+	//Supprime le input hidden associé
+	$(inputId + " + .divInputPlaceHidden #inputPlaceHidden" + compteurId).remove();
+	//Remet les helper dans l'ordre à partir de 0
+	var nbInputPlaceHidden = $(inputId + " + .divInputPlaceHidden .inputPlaceHidden").length;
+	for (var i = 0; i < nbInputPlaceHidden; i++) {
+		inputSelect = $(inputId + " + .divInputPlaceHidden .inputPlaceHidden")[i];
+		var inputName = inputSelect.name;
+		inputSelect.name = inputName.replace(/[0-9]+/, i);
+	}
+
+	$(element).remove();
+
+	if ($('#placeSaved-' + identityPage + ' .divPlace').length == 0) {
+		$("#placeSaved-" + identityPage).css('display', 'none');
+		if (identityPage == "ph" || identityPage == "car" || identityPage == "mpc") {
+			$('#inputSearchPlace-' + identityPage).val("")
+			$('#typeResearchSct-' + identityPage).removeAttr('disabled')
+		}
+	}
+}
+
 function saveValueSelected(event, ui, input) {
-	var selectedObj = ui.item;
-	$("#" + input.id + "Hidden").val(selectedObj.value)
+	var selectedObj = ui.item.json;
+
+	var inputId = "#" + $(input).attr("id");
+	var numberCurrentInput = $(inputId + " + .divInputPlaceHidden input").length;
+	var htmlInput = $(inputId + " + .divInputPlaceHidden input")[0].outerHTML
+	$(inputId + " + .divInputPlaceHidden").append(htmlInput);
+	var newInput = $(inputId + " + .divInputPlaceHidden input:last-child")
+	var inputName = newInput.attr("name")
+	newInput.attr("name", inputName.replace("-1", numberCurrentInput - 1))
+	newInput.attr("class", "inputPlaceHidden")
+	newInput.val(JSON.stringify(selectedObj))
 }
 
 function addr_searchCity(inputId) {
@@ -937,7 +959,7 @@ function openSecondModal() {
 function showfile(elementIdToAppend) {
 	$('body').addClass('waiting');
 
-	var file = document.querySelector('input[name="filePicture-mcar"]').files[0];
+	var file = document.querySelector('input[class="filePicture-mcar"]').files[0];
 	var reader = new FileReader();
 
 	reader.addEventListener("load", function () {
@@ -2076,7 +2098,7 @@ function addInputActionToConnectionButton() {
 
 		var btnByConnect = "<input type='submit' name='action:Valid_AddAndConnect' class='btnGreen childFlex fontFamilyNote' id='btnConnexion-acc' value='Connexion'/>"
 		$('#btnConnexion-acc').replaceWith(btnByConnect);
-		
+
 		$("#accountForm").replaceWith($("#accountForm").html())
 	}, 1000)
 }

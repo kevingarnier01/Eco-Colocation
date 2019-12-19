@@ -7,9 +7,7 @@ namespace Eco_Colocation.BO
 	{
 		public CreationProjectAdBo()
 		{
-
 			this.PlaceBo = new HashSet<PlaceBo>();
-
 		}
 
 

@@ -925,7 +925,7 @@
           <Property Name="EcoPractice" Type="String" Nullable="false" MaxLength="Max" />
           <Property Name="PictureName" Type="String" Nullable="false" MaxLength="50" />
           <NavigationProperty Name="Place" Relationship="EcoColocationModel.Place_ResearchRoommate" FromRole="ResearchRoommate" ToRole="Place" />
-          <Property Name="ActivatedAnnouncement" Type="String" Nullable="false" />
+          <Property Name="ActivatedAnnouncement" Type="Boolean" Nullable="false" DefaultValue="true" />
           <NavigationProperty Name="Person" Relationship="EcoColocationModel.Person_ResearchRoommate" FromRole="ResearchRoommate" ToRole="Person" />
         </EntityType>
         <Association Name="Place_ResearchRoommate">

@@ -21,6 +21,8 @@ public partial class ResearchRoommate
     public ResearchRoommate()
     {
 
+        this.ActivatedAnnouncement = true;
+
         this.Place = new HashSet<Place>();
 
     }
@@ -40,7 +42,7 @@ public partial class ResearchRoommate
 
     public string PictureName { get; set; }
 
-    public string ActivatedAnnouncement { get; set; }
+    public bool ActivatedAnnouncement { get; set; }
 
 
 

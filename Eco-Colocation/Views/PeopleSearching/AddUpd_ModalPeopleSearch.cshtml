@@ -84,10 +84,14 @@
 												 })
 										</div>
 									</div>
-									<input id="inputSearchPlace-car" oninput="addr_searchCity(this);checkToDisableLstOrNot(this, '#typeResearchSct-car')" type="text"
+									<input id="inputSearchPlace-car" oninput="addr_searchCity(this, 'inputEntirePlaceName-mps');checkToDisableLstOrNot(this, '#typeResearchSct-car')" type="text"
 										   class="form-control inputSearchPlace" placeholder="Veuillez indiquer la commune concernée&nbsp;*">
+									<div class="divInputPlaceHidden displayNone">
+										@Html.TextBoxFor(m => Model.PeopleSearchingVM.LstPlaceBo[-1].EntirePlaceName, new { @type = "hidden" })
+										@*Dans ce div la function jquery saveValueSelected va recreer d'autre html helper pour chaque nouvelle localisation *@
+									</div>
 								</div>
-								<input id="inputSearchPlace-mpcHidden" name="inputSearchPlace-mpcHidden" type="hidden">
+								@*<input id="inputSearchPlace-mpcHidden" name="inputSearchPlace-mpcHidden" type="hidden">*@
 								<div class="listAutoCompleteToModal"></div>
 								<div id="placeSaved-car" class="placeSaved">
 									<div id="place-car" class="place">
@@ -96,7 +100,7 @@
 								<div id="div10-3-adresseLog-ca" class="flex col-sm-12">
 									<div id="div10-4-adresseLog-ca" class="col-sm-2"></div>
 									<i class="fas fa-info" id="iconPlace-ca"></i>
-									<p class="col-sm-12" style="margin: auto;">Il vous est possible d'indiquer plusieurs lieux concernant votre projet de création d'éco-colocation</p>
+									<p class="col-sm-12 autoMargin">Il vous est possible d'indiquer plusieurs lieux concernant votre projet de création d'éco-colocation</p>
 								</div>
 							</div>
 						</div>
@@ -151,7 +155,7 @@
 						</div>
 						<div class="col-sm-12" id="divCritereRecherche-mcar">
 							<label class="lbl-mcar" id="lblCritereRecherche-mcar">Information sur vos critères de recherche&nbsp;*</label>
-							@Html.TextAreaFor(m => m.PeopleSearchingVM.PlaceBo.ResearchRoommateBo.EcoPractice, new
+							@Html.TextAreaFor(m => m.PeopleSearchingVM.PlaceBo.ResearchRoommateBo.SearchCriteria, new
 							   {
 								   @class = "txtareaDesc-mcar input-mcar",
 								   @placeholder = "Présenter le type d'éco-colocation recherchée..."
@@ -161,8 +165,6 @@
 								   @class = "txtareaDesc-mcar input-mcar",
 								   @placeholder = "Présenter les pratiques écologiques envisagées..."
 							   })
-							@*<textarea class="txtareaDesc-mcar input-mcar" placeholder="Présenter le type d'éco-colocation recherchée..."></textarea>
-								<textarea class="txtareaDesc-mcar input-mcar" placeholder="Présenter les pratiques écologiques envisagées..."></textarea>*@
 						</div>
 					</div>
 				</div>
@@ -185,12 +187,11 @@
 						</div>
 						<div id="divGlobalBtnUplFile-mcar">
 							<label id="btnUplFile-mcar" for="file-upload">Ajouter une photo de vous</label>
-							@*<input id="file-upload" type="file" name="filePicture-mcar" onchange="showfile('divResultFilesUpl-mcar')">*@
 							@Html.TextBoxFor(m => m.PeopleSearchingVM.PlaceBo.ResearchRoommateBo.PictureName, new
 							   {
 								   @id = "file-upload",
 								   @type = "file",
-								   @name = "filePicture-mcar",
+								   @class = "filePicture-mcar",
 								   @onchange = "showfile('divResultFilesUpl-mcar')"
 							   })
 						</div>
@@ -206,20 +207,18 @@
 			</div>
 			@if (ViewBag.operation == "Update")
 			{
-			<div class="flex">
-				@*<a href="@Url.Action("EcoRoommateHomeView", "EcoRoommateHome", null)" class="btnGreen flex childFlex">Mettre à jour</a>*@
-				<input type="submit" name="action:Valid_Update" class="childFlex btnGreen" value="Mettre à jour" />
-			</div>
+				<div class="flex">
+					<input type="submit" name="action:Valid_Update" class="childFlex btnGreen" value="Mettre à jour" />
+				</div>
 			}
 			@if (!User.Identity.IsAuthenticated)
 			{
 				if (ViewBag.operation == "Subscribe")
 				{
 					@Html.Partial("~/Views/Account/PasswordDiv.cshtml", Model)
-				<div class="flex" id="divInscriptionButtons-mcar">
-					@*<div class="childFlex btnGreen">Publier et m'inscrire</div>*@
-					<input type="submit" name="action:Valid_AddAndSubscribe" class="childFlex btnGreen" value="Publier et m'inscrire" />
-				</div>
+					<div class="flex" id="divInscriptionButtons-mcar">
+						<input type="submit" name="action:Valid_AddAndSubscribe" class="childFlex btnGreen" value="Publier et m'inscrire" />
+					</div>
 				}
 				else if (ViewBag.operation != "Update")
 				{

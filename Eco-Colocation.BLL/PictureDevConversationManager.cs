@@ -6,20 +6,16 @@ namespace Eco_Colocation.BLL
 	{
 		#region Properties
 
- //  'AssocietedEventSql' 
-		private AssocietedEventSql AssocietedEventSql { get; set; }
- //  'AssocietedEventSql' 
+		private AssociatedEventSql AssocietedEventSql { get; set; }
 
 		#endregion
 
 		#region Initialization
 
- //  'AssocietedEventSql' 
-		public PictureDevConversationManager(AssocietedEventSql poAssocietedEventSql)
- //  'AssocietedEventSql' 
+		public PictureDevConversationManager(AssociatedEventSql poAssociatedEventSql)
 			: this()
 		{
-			this.AssocietedEventSql = poAssocietedEventSql;
+			this.AssocietedEventSql = poAssociatedEventSql;
 		}
 
 		private PictureDevConversationManager()

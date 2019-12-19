@@ -5,20 +5,16 @@ namespace Eco_Colocation.BLL
 	{
 		#region Properties
 
- //  'CreationProjectSql' 
-		private CreationProjectSql CreationProjectSql { get; set; }
- //  'CreationProjectSql' 
+		private CreationProjectAdSql CreationProjectAdSql { get; set; }
 
 		#endregion
 
 		#region Initialization
 
- //  'CreationProjectSql' 
-		public CreationProjectManager(CreationProjectSql poCreationProjectSql)
- //  'CreationProjectSql' 
+		public CreationProjectManager(CreationProjectAdSql poCreationProjectAdSql)
 			: this()
 		{
-			this.CreationProjectSql = poCreationProjectSql;
+			this.CreationProjectAdSql = poCreationProjectAdSql;
 		}
 
 		private CreationProjectManager()
@@ -28,7 +24,7 @@ namespace Eco_Colocation.BLL
 
 		private void InitData()
 		{
-			this.CreationProjectSql = null;
+			this.CreationProjectAdSql = null;
 		}
 
 		#endregion

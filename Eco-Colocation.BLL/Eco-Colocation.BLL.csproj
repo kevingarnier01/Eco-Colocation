@@ -63,6 +63,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Eco-Colocation.BO\Eco-Colocation.BO.csproj">
+      <Project>{63297482-8029-4af7-94d0-d0c1e12ed770}</Project>
+      <Name>Eco-Colocation.BO</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Eco-Colocation.DAL\Eco-Colocation.DAL.csproj">
       <Project>{8df0b8ab-f8ba-476d-bb09-f575031bc031}</Project>
       <Name>Eco-Colocation.DAL</Name>

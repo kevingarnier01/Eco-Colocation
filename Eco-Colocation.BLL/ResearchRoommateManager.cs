@@ -1,4 +1,5 @@
-﻿using Eco_Colocation.DAL;
+﻿using Eco_Colocation.BO;
+using Eco_Colocation.DAL;
 
 namespace Eco_Colocation.BLL
 {
@@ -14,9 +15,7 @@ namespace Eco_Colocation.BLL
 
 		#region Initialization
 
-		//  'ResearchRoommateSql' 
 		public ResearchRoommateManager(ResearchRoommateSql poResearchRoommateSql)
-			//  'ResearchRoommateSql' 
 			: this()
 		{
 			this.ResearchRoommateSql = poResearchRoommateSql;
@@ -30,6 +29,20 @@ namespace Eco_Colocation.BLL
 		private void InitData()
 		{
 			this.ResearchRoommateSql = null;
+		}
+
+		#endregion
+
+		#region Methods
+
+		public int Add(ResearchRoommateBo researchRoommateBo)
+		{
+			if (this.ResearchRoommateSql == null)
+				return 0;
+			else
+			{
+				return this.ResearchRoommateSql.Add(researchRoommateBo);
+			}
 		}
 
 		#endregion

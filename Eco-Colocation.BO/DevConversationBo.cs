@@ -6,11 +6,9 @@ namespace Eco_Colocation.BO
 	{
 		public DevConversationBo()
 		{
-
 			this.Viewed = 0;
 
 			this.PictureDevConversationBo = new HashSet<PictureDevConversationBo>();
-
 		}
 
 

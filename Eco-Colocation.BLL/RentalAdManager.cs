@@ -1,4 +1,6 @@
-﻿namespace Eco_Colocation.BLL
+﻿using Eco_Colocation.DAL;
+
+namespace Eco_Colocation.BLL
 {
 	public class RentalAdManager
 	{
@@ -12,9 +14,7 @@
 
 		#region Initialization
 
- //  'RentalAdSql' 
 		public RentalAdManager(RentalAdSql poRentalAdSql)
- //  'RentalAdSql' 
 			: this()
 		{
 			this.RentalAdSql = poRentalAdSql;

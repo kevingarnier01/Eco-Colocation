@@ -1,12 +1,25 @@
-﻿using Eco_Colocation.ViewModel;
+﻿using Eco_Colocation.BLL;
+using Eco_Colocation.BO;
+using Eco_Colocation.DAL;
+using Eco_Colocation.ViewModel;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
 
 namespace Eco_Colocation.Controllers
 {
-	public class PeopleSearchingController : Controller
+	public class PeopleSearchingController : BaseController
 	{
+		private ResearchRoommateManager researchRoommateManager { get; set; }
+
+		public PeopleSearchingController()
+		{
+			ResearchRoommateSql researchRoommateSql = new ResearchRoommateSql(base.WebDbSqlConnectionString);
+			this.researchRoommateManager = new ResearchRoommateManager(researchRoommateSql);
+		}
+
 		// GET: PeopleSearching
 		public ActionResult PeopleSearchingView()
 		{
@@ -41,28 +54,30 @@ namespace Eco_Colocation.Controllers
 		}
 
 		[HttpPost]
-		[MultiButton(Name = "action", Argument = "Valid_Add")]
+		[MultiSubmitAttribute(Name = "action", Argument = "Valid_Add")]
 		public ActionResult Valid_Add(AllViewModel AllVM)
 		{
 			return View("");
 		}
 
 		[HttpPost]
-		[MultiButton(Name = "action", Argument = "Valid_AddAndSubscribe")]
+		[MultiSubmitAttribute(Name = "action", Argument = "Valid_AddAndSubscribe")]
 		public ActionResult Valid_AddAndSubscribe(AllViewModel AllVM)
 		{
+			Add(AllVM.PeopleSearchingVM);
+
 			return View("");
 		}
 
 		[HttpPost]
-		[MultiButton(Name = "action", Argument = "Valid_AddAndConnect")]
+		[MultiSubmitAttribute(Name = "action", Argument = "Valid_AddAndConnect")]
 		public ActionResult Valid_AddAndConnect(AllViewModel AllVM)
 		{
 			return View("");
 		}
 
 	   [HttpPost]
-		[MultiButton(Name = "action", Argument = "Valid_Update")]
+		[MultiSubmitAttribute(Name = "action", Argument = "Valid_Update")]
 		public ActionResult Valid_Update(AllViewModel AllVM)
 		{
 			return View("");
@@ -89,8 +104,22 @@ namespace Eco_Colocation.Controllers
 			return PartialView(allVM);
 		}	
 
-		public bool Add(PeopleSearchingViewModel PeopleSearchingVM)
+		public bool Add(PeopleSearchingViewModel peopleSearchingVM)
 		{
+			JObject place = JsonConvert.DeserializeObject<JObject>(peopleSearchingVM.LstPlaceBo[0].EntirePlaceName);
+			var c = place["label"].ToString();			
+
+			PlaceBo placeBo = new PlaceBo();
+			placeBo.City = place["label"].ToString();
+			placeBo.PostalCode = place["postcode"].ToString();
+			var context = place["context"].ToString().Split(',');
+			placeBo.DepartmentNumber = context[0];
+			placeBo.Department = context[1];
+			placeBo.Region = context[2];
+			placeBo.County = "France";
+						
+			researchRoommateManager.Add(peopleSearchingVM.PlaceBo.ResearchRoommateBo);
+
 			return true;
 		}
 	}

@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 12/18/2019 13:15:50
+-- Date Created: 12/19/2019 17:58:59
 -- Generated from EDMX file: C:\Users\kev-gar\Documents\Projet personnel\Eco-colocation\Application\Développement\Eco-Colocation\Eco-Colocation\Controllers\EcoColocationModel.edmx
 -- --------------------------------------------------
 
@@ -20,17 +20,11 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_RentalAd_RentalRoom]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[RentalRoom] DROP CONSTRAINT [FK_RentalAd_RentalRoom];
 GO
-IF OBJECT_ID(N'[dbo].[FK_Place_CreationProjectAd_CreationProjectAd]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Place_CreationProjectAd] DROP CONSTRAINT [FK_Place_CreationProjectAd_CreationProjectAd];
+IF OBJECT_ID(N'[dbo].[FK_Place_CreationProjectAd]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Place] DROP CONSTRAINT [FK_Place_CreationProjectAd];
 GO
-IF OBJECT_ID(N'[dbo].[FK_Place_CreationProjectAd_Place]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Place_CreationProjectAd] DROP CONSTRAINT [FK_Place_CreationProjectAd_Place];
-GO
-IF OBJECT_ID(N'[dbo].[FK_Place_ResearchRoommate_ResearchRoommate]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Place_ResearchRoommate] DROP CONSTRAINT [FK_Place_ResearchRoommate_ResearchRoommate];
-GO
-IF OBJECT_ID(N'[dbo].[FK_Place_ResearchRoommate_Place]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Place_ResearchRoommate] DROP CONSTRAINT [FK_Place_ResearchRoommate_Place];
+IF OBJECT_ID(N'[dbo].[FK_Place_ResearchRoommate]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Place] DROP CONSTRAINT [FK_Place_ResearchRoommate];
 GO
 IF OBJECT_ID(N'[dbo].[FK_Event_PresenceEvent]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[PresenceEvent] DROP CONSTRAINT [FK_Event_PresenceEvent];
@@ -138,12 +132,6 @@ IF OBJECT_ID(N'[dbo].[Person]', 'U') IS NOT NULL
 GO
 IF OBJECT_ID(N'[dbo].[webpages_Membership]', 'U') IS NOT NULL
     DROP TABLE [dbo].[webpages_Membership];
-GO
-IF OBJECT_ID(N'[dbo].[Place_CreationProjectAd]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Place_CreationProjectAd];
-GO
-IF OBJECT_ID(N'[dbo].[Place_ResearchRoommate]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Place_ResearchRoommate];
 GO
 
 -- --------------------------------------------------
@@ -332,7 +320,7 @@ CREATE TABLE [dbo].[ResearchRoommate] (
     [SearchCriteria] nvarchar(max)  NOT NULL,
     [EcoPractice] nvarchar(max)  NOT NULL,
     [PictureName] nvarchar(50)  NOT NULL,
-    [ActivatedAnnouncement] nvarchar(max)  NOT NULL
+    [ActivatedAnnouncement] bit  NOT NULL
 );
 GO
 
