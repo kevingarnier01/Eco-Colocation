@@ -3,7 +3,7 @@ namespace Eco_Colocation.BO
 {
 	public class PresenceEventBo
 	{
-		public int IdUser { get; set; }
+		public int IdPerson { get; set; }
 
 		public int IdEvent { get; set; }
 
@@ -13,6 +13,6 @@ namespace Eco_Colocation.BO
 
 		public virtual EventBo EventBo { get; set; }
 
-		public virtual UserBo UserBo { get; set; }
+		public virtual PersonBo PersonBo { get; set; }
 	}
 }

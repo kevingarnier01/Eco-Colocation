@@ -76,12 +76,12 @@
 									<div class="flex">
 										<div class="childFlex">
 											@Html.DropDownListFor(m => Model.PeopleSearchingVM.PlaceBo.ScopeResearch,
-												 new SelectList(Model.PeopleSearchingVM.ScoopResearchLst, "Text", "Value"), new
-												 {
-													 @id = "typeResearchSct-car",
-													 @class = "form-control typeResearchSct",
-													 @onchange = "typeOfResearchLocation(this, '#inputSearchPlace-car')"
-												 })
+												  new SelectList(Model.PeopleSearchingVM.ScoopResearchLst, "Text", "Value"), new
+												  {
+													  @id = "typeResearchSct-car",
+													  @class = "form-control typeResearchSct",
+													  @onchange = "typeOfResearchLocation(this, '#inputSearchPlace-car')"
+												  })
 										</div>
 									</div>
 									<input id="inputSearchPlace-car" oninput="addr_searchCity(this, 'inputEntirePlaceName-mps');checkToDisableLstOrNot(this, '#typeResearchSct-car')" type="text"

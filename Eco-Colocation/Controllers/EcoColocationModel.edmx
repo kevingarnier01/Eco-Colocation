@@ -286,7 +286,7 @@
     <Property Name="SearchCriteria" Type="nvarchar(max)" Nullable="false" />
     <Property Name="EcoPractice" Type="nvarchar(max)" Nullable="false" />
     <Property Name="PictureName" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="ActivatedAnnouncement" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ActivatedAnnouncement" Type="bit" Nullable="false" DefaultValue="true" />
   </EntityType>
   <EntityType Name="AssociatedEvent">
     <Key>

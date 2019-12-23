@@ -52,7 +52,7 @@ namespace Eco_Colocation.DAL
 					ecoRoommateExistingBo = new EcoRoommateExistingBo
 					{
 						IdEcoRoommateExisting = ABLib.Databases.GetInt32(dr, "IdEcoRoommateExisting"),
-						IdUser = ABLib.Databases.GetInt32(dr, "IdUser"),
+						IdPerson = ABLib.Databases.GetInt32(dr, "IdPerson"),
 						EcoRoommateName = ABLib.Databases.GetString(dr, "EcoRoommateName"),
 						RommateNumber = ABLib.Databases.GetInt16(dr, "RommateNumber"),
 						Country = ABLib.Databases.GetString(dr, "Country"),

@@ -35,6 +35,23 @@ namespace Eco_Colocation.DAL
 
 		#region Methods
 
+		public int Add(PlaceBo placeBo)
+		{
+			ABLib.DAL.Sql.SqlParametersCollection oSqlParameters = new ABLib.DAL.Sql.SqlParametersCollection();
+			oSqlParameters.AddIdOut("IdPlace");
+			oSqlParameters.Add("City", placeBo.City, SqlDbType.NVarChar);
+			oSqlParameters.Add("PostalCode", placeBo.PostalCode, SqlDbType.NVarChar);
+			oSqlParameters.Add("Department", placeBo.Department, SqlDbType.NVarChar);
+			oSqlParameters.Add("DepartmentNumber", placeBo.DepartmentNumber, SqlDbType.NVarChar);
+			oSqlParameters.Add("Region", placeBo.Region, SqlDbType.NVarChar);
+			oSqlParameters.Add("County", placeBo.County, SqlDbType.NVarChar);
+			oSqlParameters.Add("ScopeResearch", placeBo.ScopeResearch, SqlDbType.TinyInt);
+
+			this.SqlDbStoredProcedureDAL.Add(placeBo, "IdPlace", 0, "Place_Add", oSqlParameters);
+
+			return placeBo.IdPlace;
+		}
+
 		#endregion
 
 		#region Fill

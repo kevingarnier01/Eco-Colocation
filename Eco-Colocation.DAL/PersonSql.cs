@@ -51,7 +51,7 @@ namespace Eco_Colocation.DAL
 				{
 					personBo = new PersonBo
 					{
-						IdUser = ABLib.Databases.GetInt32(dr, "IdUser"),
+						IdPerson = ABLib.Databases.GetInt32(dr, "IdPerson"),
 						Email = ABLib.Databases.GetString(dr, "Email"),
 						FirstName = ABLib.Databases.GetString(dr, "FirstName"),
 						LastName = ABLib.Databases.GetString(dr, "LastName"),

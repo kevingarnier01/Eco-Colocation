@@ -51,7 +51,7 @@ namespace Eco_Colocation.DAL
 				{
 					presenceEventBo = new PresenceEventBo
 					{
-						IdUser = ABLib.Databases.GetInt32(dr, "IdUser"),
+						IdPerson = ABLib.Databases.GetInt32(dr, "IdPerson"),
 						IdEvent = ABLib.Databases.GetInt32(dr, "IdEvent"),
 						Status = ABLib.Databases.GetByte(dr, "Status")
 					};

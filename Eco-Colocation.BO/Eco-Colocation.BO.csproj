@@ -61,7 +61,6 @@
     <Compile Include="RentalAdBo.cs" />
     <Compile Include="RentalRoomBo.cs" />
     <Compile Include="ResearchRoommateBo.cs" />
-    <Compile Include="RoleBo.cs" />
     <Compile Include="RoommateBo.cs" />
     <Compile Include="PersonBo.cs" />
     <Compile Include="UserBo.cs" />

@@ -14,7 +14,7 @@ namespace Eco_Colocation.Controllers
 		// GET: Base
 		public BaseController()
 		{
-			this.WebDbSqlConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["EcoColocationModelContainer"].ConnectionString;
+			this.WebDbSqlConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["ConnStringDb"].ConnectionString;
         }
     }
 }

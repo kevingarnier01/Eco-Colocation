@@ -13,7 +13,7 @@ namespace Eco_Colocation.BO
 
 		public int IdEcoRoommateExisting { get; set; }
 
-		public int IdUser { get; set; }
+		public int IdPerson { get; set; }
 
 		public string EcoRoommateName { get; set; }
 
@@ -42,9 +42,9 @@ namespace Eco_Colocation.BO
 		public string TableHousing { get; set; }
 
 
-
+		
 		public virtual ICollection<PictureEcoRoommateExBo> PictureEcoRoommateExBo { get; set; }
 
-		public virtual UserBo UserBo { get; set; }
+		public virtual PersonBo PersonBo { get; set; }
 	}
 }

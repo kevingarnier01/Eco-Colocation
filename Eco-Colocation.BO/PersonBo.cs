@@ -12,7 +12,7 @@ namespace Eco_Colocation.BO
 
 		}
 
-		public int IdUser { get; set; }
+		public int IdPerson { get; set; }
 
 		public string Email { get; set; }
 

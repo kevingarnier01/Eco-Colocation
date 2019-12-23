@@ -13,11 +13,15 @@ namespace Eco_Colocation.Controllers
 	public class PeopleSearchingController : BaseController
 	{
 		private ResearchRoommateManager researchRoommateManager { get; set; }
+		private PlaceManager placeManager { get; set; }
 
 		public PeopleSearchingController()
 		{
 			ResearchRoommateSql researchRoommateSql = new ResearchRoommateSql(base.WebDbSqlConnectionString);
 			this.researchRoommateManager = new ResearchRoommateManager(researchRoommateSql);
+
+			PlaceSql placeSql = new PlaceSql(base.WebDbSqlConnectionString);
+			this.placeManager = new PlaceManager(placeSql);
 		}
 
 		// GET: PeopleSearching
@@ -76,7 +80,7 @@ namespace Eco_Colocation.Controllers
 			return View("");
 		}
 
-	   [HttpPost]
+		[HttpPost]
 		[MultiSubmitAttribute(Name = "action", Argument = "Valid_Update")]
 		public ActionResult Valid_Update(AllViewModel AllVM)
 		{
@@ -102,22 +106,27 @@ namespace Eco_Colocation.Controllers
 			allVM.PeopleSearchingVM.IdPeopleSearching = id;
 
 			return PartialView(allVM);
-		}	
+		}
 
 		public bool Add(PeopleSearchingViewModel peopleSearchingVM)
 		{
-			JObject place = JsonConvert.DeserializeObject<JObject>(peopleSearchingVM.LstPlaceBo[0].EntirePlaceName);
-			var c = place["label"].ToString();			
+			for (int i = 0; i < peopleSearchingVM.LstPlaceBo.Count; i++)
+			{
+				JObject place = JsonConvert.DeserializeObject<JObject>(peopleSearchingVM.LstPlaceBo[i].EntirePlaceName);
+				
+				PlaceBo placeBo = new PlaceBo();
+				placeBo.City = place["label"].ToString();
+				placeBo.PostalCode = place["postcode"].ToString();
+				var context = place["context"].ToString().Split(',');
+				placeBo.DepartmentNumber = context[0];
+				placeBo.Department = context[1];
+				placeBo.Region = context[2];
+				placeBo.County = "France";
+				placeBo.ScopeResearch = peopleSearchingVM.PlaceBo.ScopeResearch;
 
-			PlaceBo placeBo = new PlaceBo();
-			placeBo.City = place["label"].ToString();
-			placeBo.PostalCode = place["postcode"].ToString();
-			var context = place["context"].ToString().Split(',');
-			placeBo.DepartmentNumber = context[0];
-			placeBo.Department = context[1];
-			placeBo.Region = context[2];
-			placeBo.County = "France";
-						
+				placeManager.Add(placeBo);
+			}
+
 			researchRoommateManager.Add(peopleSearchingVM.PlaceBo.ResearchRoommateBo);
 
 			return true;

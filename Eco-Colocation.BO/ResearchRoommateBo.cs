@@ -14,7 +14,7 @@ namespace Eco_Colocation.BO
 
 		public int IdResearchRoommate { get; set; }
 
-		public int IdUser { get; set; }
+		public int IdPerson { get; set; }
 
 		public short? MaxBudget { get; set; }
 
@@ -25,13 +25,13 @@ namespace Eco_Colocation.BO
 		public string EcoPractice { get; set; }
 
 		public string PictureName { get; set; }
-		
+
 		public bool ActivatedAnnouncement { get; set; }
 
 
 
 		public virtual ICollection<PlaceBo> PlaceBo { get; set; }
 
-		public virtual UserBo UserBo { get; set; }
+		public virtual PersonBo PersonBo { get; set; }
 	}
 }

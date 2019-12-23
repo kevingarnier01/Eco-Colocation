@@ -39,13 +39,13 @@ namespace Eco_Colocation.DAL
 		{
 			ABLib.DAL.Sql.SqlParametersCollection oSqlParameters = new ABLib.DAL.Sql.SqlParametersCollection();
 			oSqlParameters.AddIdOut("IdResearchRoommate");
-			oSqlParameters.Add("IdUser", researchRoommateBo.IdUser, SqlDbType.Int);
+			oSqlParameters.Add("IdPerson", researchRoommateBo.IdPerson, SqlDbType.Int);
 			oSqlParameters.Add("MaxBudget", researchRoommateBo.MaxBudget, SqlDbType.SmallInt);
 			oSqlParameters.Add("EmailAlert", researchRoommateBo.EmailAlert, SqlDbType.TinyInt);
 			oSqlParameters.Add("SearchCriteria", researchRoommateBo.SearchCriteria, SqlDbType.NVarChar);
 			oSqlParameters.Add("EcoPractice", researchRoommateBo.EcoPractice, SqlDbType.NVarChar);
 			oSqlParameters.Add("PictureName", researchRoommateBo.PictureName, SqlDbType.NVarChar);
-			oSqlParameters.Add("ActivatedAnnouncement", researchRoommateBo.ActivatedAnnouncement, SqlDbType.NVarChar);
+			oSqlParameters.Add("ActivatedAnnouncement", researchRoommateBo.ActivatedAnnouncement, SqlDbType.Bit);
 
 			this.SqlDbStoredProcedureDAL.Add(researchRoommateBo, "IdResearchRoommate", 0, "ResearchRoommate_Add", oSqlParameters);
 
@@ -69,7 +69,7 @@ namespace Eco_Colocation.DAL
 					researchRoommateBo = new ResearchRoommateBo
 					{
 						IdResearchRoommate = ABLib.Databases.GetInt32(dr, "IdResearchRoommate"),
-						IdUser = ABLib.Databases.GetInt32(dr, "IdUser"),
+						IdPerson = ABLib.Databases.GetInt32(dr, "IdPerson"),
 						MaxBudget = ABLib.Databases.GetInt16(dr, "MaxBudget"),
 						EmailAlert = ABLib.Databases.GetByte(dr, "EmailAlert"),
 						SearchCriteria = ABLib.Databases.GetString(dr, "SearchCriteria"),

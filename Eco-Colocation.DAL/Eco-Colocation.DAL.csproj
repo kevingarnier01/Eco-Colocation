@@ -64,7 +64,6 @@
     <Compile Include="RentalAdSql.cs" />
     <Compile Include="RentalRoomSql.cs" />
     <Compile Include="ResearchRoommateSql.cs" />
-    <Compile Include="RoleSql.cs" />
     <Compile Include="RoommateSql.cs" />
     <Compile Include="UserSql.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

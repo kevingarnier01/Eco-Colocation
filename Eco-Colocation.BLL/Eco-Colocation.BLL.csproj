@@ -57,7 +57,6 @@
     <Compile Include="RentalAdManager.cs" />
     <Compile Include="RentalRoomManager.cs" />
     <Compile Include="ResearchRoommateManager.cs" />
-    <Compile Include="RoleManager.cs" />
     <Compile Include="RoommateManager.cs" />
     <Compile Include="UserManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

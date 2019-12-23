@@ -1,9 +1,5 @@
-﻿using Eco_Colocation.DAL;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Eco_Colocation.BO;
+using Eco_Colocation.DAL;
 
 namespace Eco_Colocation.BLL
 {
@@ -11,15 +7,28 @@ namespace Eco_Colocation.BLL
 	{
 		#region Properties
 
- //  'PlaceSql' 
 		private PlaceSql PlaceSql { get; set; }
- //  'PlaceSql' 
 
 		#endregion
 
+		#region Methodes
+
+		public int Add(PlaceBo placeBo)
+		{
+			if (this.PlaceSql == null)
+				return 0;
+			else
+			{
+				return this.PlaceSql.Add(placeBo);
+			}
+		}
+
+		#endregion
+
+
 		#region Initialization
 
- //  'PlaceSql' 
+		//  'PlaceSql' 
 		public PlaceManager(PlaceSql poPlaceSql)
  //  'PlaceSql' 
 			: this()
