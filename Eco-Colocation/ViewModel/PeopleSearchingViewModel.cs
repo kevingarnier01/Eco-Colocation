@@ -8,6 +8,7 @@ namespace Eco_Colocation.ViewModel
 	public class PeopleSearchingViewModel
     {
 		public PlaceBo PlaceBo { get; set; }
+		public ResearchRoommateBo ResearchRoommateBo { get; set; }
 
 		public List<PeopleSearchingViewModel> LstPeopleSearchingVM { get; set; }
 		public int IdPeopleSearching { get; set; }
@@ -19,7 +20,8 @@ namespace Eco_Colocation.ViewModel
 		{
 			if (init == true)
 			{
-				PlaceBo = new PlaceBo();
+				PlaceBo = new PlaceBo(true);
+				ResearchRoommateBo = new ResearchRoommateBo(true);
 
 				LstPeopleSearchingVM = new List<PeopleSearchingViewModel>();
 				IdPeopleSearching = new int();

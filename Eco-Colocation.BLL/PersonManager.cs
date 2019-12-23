@@ -1,9 +1,5 @@
-﻿using Eco_Colocation.DAL;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Eco_Colocation.BO;
+using Eco_Colocation.DAL;
 
 namespace Eco_Colocation.BLL
 {
@@ -11,9 +7,7 @@ namespace Eco_Colocation.BLL
 	{
 		#region Properties
 
- //  'PersonSql' 
 		private PersonSql PersonSql { get; set; }
- //  'PersonSql' 
 
 		#endregion
 
@@ -35,6 +29,20 @@ namespace Eco_Colocation.BLL
 		private void InitData()
 		{
 			this.PersonSql = null;
+		}
+
+		#endregion
+
+		#region Methodes
+
+		public int Add(PersonBo personBo, int idUser)
+		{
+			if (this.PersonSql == null)
+				return 0;
+			else
+			{
+				return this.PersonSql.Add(personBo, idUser);
+			}
 		}
 
 		#endregion

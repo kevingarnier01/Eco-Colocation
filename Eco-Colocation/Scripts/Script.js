@@ -658,7 +658,7 @@ function getLstAutoCompletion(arr, input, typeResearch) {
 					"<strong id='txtLabelAutoCompletion'>" + label + "</strong>" +
 					"<p id='txtContextAutoCompletion'>" + context + "</p>",
 				value: label + " " + context,
-				json: arr.features[i].properties
+				json: (arr.features[i].properties != null) ? arr.features[i].properties : arr.features[i]
 			}
 		}
 
@@ -1592,22 +1592,22 @@ function getOtherMarkerFromThisNewPlace(ui) {
 }
 
 function typeOfResearchLocation(item, elementToChange) {
-	if (item.value == "communes") {
+	if (item.value == 1) {
 		$(elementToChange).attr("placeholder", "Veuillez indiquer la commune concernée *")
 		$(elementToChange).attr("oninput", "addr_searchCity(this);checkToDisableLstOrNot(this, '#" + $(item).attr('id') + "')")
 		$(elementToChange).removeAttr("disabled")
 	}
-	else if (item.value == "departements") {
+	else if (item.value == 2) {
 		$(elementToChange).attr("placeholder", "Veuillez indiquer le département concerné *")
 		$(elementToChange).attr("oninput", "addr_searchDepartement(this);checkToDisableLstOrNot(this, '#" + $(item).attr('id') + "')")
 		$(elementToChange).removeAttr("disabled")
 	}
-	else if (item.value == "regions") {
+	else if (item.value == 3) {
 		$(elementToChange).attr("placeholder", "Veuillez indiquer la région concernée *")
 		$(elementToChange).attr("oninput", "addr_searchRegion(this);checkToDisableLstOrNot(this, '#" + $(item).attr('id') + "')")
 		$(elementToChange).removeAttr("disabled")
 	}
-	else if (item.value == "france") {
+	else if (item.value == 4) {
 		$(elementToChange).attr("placeholder", "Dans Tous le pays")
 		$(elementToChange).attr("disabled", "true")
 	}

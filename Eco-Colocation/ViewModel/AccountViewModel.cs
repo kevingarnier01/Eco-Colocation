@@ -1,4 +1,5 @@
 ﻿using Eco_Colocation.App_Start;
+using Eco_Colocation.BO;
 using System.Web.Mvc;
 namespace Eco_Colocation.ViewModel
 
@@ -9,16 +10,17 @@ namespace Eco_Colocation.ViewModel
 		public SelectList ActivityLst { get; set; }
 		public SelectList CiviliteLst { get; set; }
 		public SelectList CountryLst { get; set; }
+		public SelectList PhoneCodeLst { get; set; }
 
 		//Model
-		public BO.UserBo UserBo { get; set; }
+		public UserBo UserBo { get; set; }
 
 		public AccountViewModel() { }
 		public AccountViewModel(bool init)
 		{
-			if (init == true)
+			if (init)
 			{
-				UserBo = new BO.UserBo();
+				UserBo = new UserBo(true);
 			}
 		}
 
@@ -28,6 +30,7 @@ namespace Eco_Colocation.ViewModel
 			ActivityLst = _Lists.ActivityLst();
 			CiviliteLst = _Lists.CivilityLst();
 			CountryLst = _Lists.CountryLst();
+			PhoneCodeLst = _Lists.PhoneCodeLst();
 		}
 	}
 }

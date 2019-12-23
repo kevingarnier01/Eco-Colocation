@@ -3,6 +3,15 @@ namespace Eco_Colocation.BO
 {
 	public class PictureEcoRoommateExBo
 	{
+		public PictureEcoRoommateExBo() { }
+
+		public PictureEcoRoommateExBo(bool init)
+		{
+			if (init)
+			{
+			}
+		}
+
 		public int IdPictureEcoRoommateEx { get; set; }
 
 		public int IdEcoRoommateExisting { get; set; }
@@ -10,7 +19,5 @@ namespace Eco_Colocation.BO
 		public string PictureName { get; set; }
 
 		public byte OrderNumber { get; set; }
-
-		public virtual EcoRoommateExistingBo EcoRoommateExistingBo { get; set; }
 	}
 }

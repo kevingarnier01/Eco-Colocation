@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 12/19/2019 17:58:59
+-- Date Created: 12/23/2019 18:48:31
 -- Generated from EDMX file: C:\Users\kev-gar\Documents\Projet personnel\Eco-colocation\Application\Développement\Eco-Colocation\Eco-Colocation\Controllers\EcoColocationModel.edmx
 -- --------------------------------------------------
 
@@ -44,12 +44,6 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_RentalAd_User]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[RentalAd] DROP CONSTRAINT [FK_RentalAd_User];
 GO
-IF OBJECT_ID(N'[dbo].[FK_PictureCreationProject_CreationProjectAd]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[PictureCreationProject] DROP CONSTRAINT [FK_PictureCreationProject_CreationProjectAd];
-GO
-IF OBJECT_ID(N'[dbo].[FK_EcoRoommateExisting_Roommate]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Roommate] DROP CONSTRAINT [FK_EcoRoommateExisting_Roommate];
-GO
 IF OBJECT_ID(N'[dbo].[FK_Person_ResearchRoommate]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[ResearchRoommate] DROP CONSTRAINT [FK_Person_ResearchRoommate];
 GO
@@ -62,17 +56,23 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_Person_Event]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Event] DROP CONSTRAINT [FK_Person_Event];
 GO
-IF OBJECT_ID(N'[dbo].[FK_Person_User]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Person] DROP CONSTRAINT [FK_Person_User];
-GO
-IF OBJECT_ID(N'[dbo].[FK_Agency_User]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Agency] DROP CONSTRAINT [FK_Agency_User];
-GO
-IF OBJECT_ID(N'[dbo].[FK_CreationProjectAd_Person]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[CreationProjectAd] DROP CONSTRAINT [FK_CreationProjectAd_Person];
-GO
 IF OBJECT_ID(N'[dbo].[FK_webpages_Membership_User]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[webpages_Membership] DROP CONSTRAINT [FK_webpages_Membership_User];
+GO
+IF OBJECT_ID(N'[dbo].[FK_User_Person]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Person] DROP CONSTRAINT [FK_User_Person];
+GO
+IF OBJECT_ID(N'[dbo].[FK_User_Agency]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Agency] DROP CONSTRAINT [FK_User_Agency];
+GO
+IF OBJECT_ID(N'[dbo].[FK_CreationProjectAd_PictureCreationProject]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[PictureCreationProject] DROP CONSTRAINT [FK_CreationProjectAd_PictureCreationProject];
+GO
+IF OBJECT_ID(N'[dbo].[FK_EcoRoommateExistingRoommate]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Roommate] DROP CONSTRAINT [FK_EcoRoommateExistingRoommate];
+GO
+IF OBJECT_ID(N'[dbo].[FK_CreationProjectAdPerson]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[CreationProjectAd] DROP CONSTRAINT [FK_CreationProjectAdPerson];
 GO
 
 -- --------------------------------------------------
@@ -225,10 +225,10 @@ CREATE TABLE [dbo].[Place] (
     [Department] nvarchar(50)  NULL,
     [DepartmentNumber] nvarchar(8)  NULL,
     [Region] nvarchar(50)  NULL,
-    [County] nvarchar(50)  NOT NULL,
+    [Country] nvarchar(50)  NOT NULL,
     [ScopeResearch] tinyint  NOT NULL,
-    [CreationProjectAd_IdCreationProject] int  NOT NULL,
-    [ResearchRoommate_IdResearchRoommate] int  NOT NULL
+    [Place_CreationProjectAd_Place_IdCreationProject] int  NOT NULL,
+    [Place_ResearchRoommate_Place_IdResearchRoommate] int  NOT NULL
 );
 GO
 
@@ -343,7 +343,7 @@ GO
 -- Creating table 'PictureCreationProject'
 CREATE TABLE [dbo].[PictureCreationProject] (
     [IdPictureCreationProject] int IDENTITY(1,1) NOT NULL,
-    [IdProjetCreation] int  NOT NULL,
+    [IdCreationProject] int  NOT NULL,
     [PictureName] nvarchar(50)  NOT NULL,
     [OrderNumber] tinyint  NOT NULL
 );
@@ -374,7 +374,7 @@ CREATE TABLE [dbo].[Agency] (
     [County] nvarchar(50)  NOT NULL,
     [SiretNumber] nvarchar(14)  NOT NULL,
     [AgencyFees] decimal(7,2)  NOT NULL,
-    [User_IdUser] int  NOT NULL
+    [User_Agency_Agency_IdUser] int  NOT NULL
 );
 GO
 
@@ -386,15 +386,15 @@ CREATE TABLE [dbo].[Person] (
     [LastName] nvarchar(50)  NOT NULL,
     [Civility] tinyint  NOT NULL,
     [Country] nvarchar(50)  NOT NULL,
-    [DateBirth] nvarchar(10)  NOT NULL,
-    [Activity] tinyint  NULL,
+    [DateBirth] datetime  NOT NULL,
+    [Activity] tinyint  NOT NULL,
     [PhoneCode] nvarchar(15)  NOT NULL,
     [PhoneNumber] nvarchar(12)  NOT NULL,
-    [ContactType] tinyint  NULL,
-    [PersonnalityDescription] nvarchar(500)  NULL,
+    [ContactType] tinyint  NOT NULL,
+    [PersonnalityDescription] nvarchar(500)  NOT NULL,
     [DateInscription] datetime  NOT NULL,
     [DateLastActivity] datetime  NOT NULL,
-    [Person_User_Person_IdUser] int  NOT NULL
+    [User_Person_Person_IdUser] int  NOT NULL
 );
 GO
 
@@ -411,7 +411,7 @@ CREATE TABLE [dbo].[webpages_Membership] (
     [PasswordSalt] nvarchar(128)  NOT NULL,
     [PasswordVerificationToken] nvarchar(128)  NULL,
     [PasswordVerificationTokenExpirationDate] datetime  NULL,
-    [User_IdUser] int  NOT NULL
+    [webpages_Membership_User_webpages_Membership_IdUser] int  NOT NULL
 );
 GO
 
@@ -546,10 +546,10 @@ ON [dbo].[RentalRoom]
     ([IdRentalAd]);
 GO
 
--- Creating foreign key on [CreationProjectAd_IdCreationProject] in table 'Place'
+-- Creating foreign key on [Place_CreationProjectAd_Place_IdCreationProject] in table 'Place'
 ALTER TABLE [dbo].[Place]
 ADD CONSTRAINT [FK_Place_CreationProjectAd]
-    FOREIGN KEY ([CreationProjectAd_IdCreationProject])
+    FOREIGN KEY ([Place_CreationProjectAd_Place_IdCreationProject])
     REFERENCES [dbo].[CreationProjectAd]
         ([IdCreationProject])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
@@ -558,13 +558,13 @@ GO
 -- Creating non-clustered index for FOREIGN KEY 'FK_Place_CreationProjectAd'
 CREATE INDEX [IX_FK_Place_CreationProjectAd]
 ON [dbo].[Place]
-    ([CreationProjectAd_IdCreationProject]);
+    ([Place_CreationProjectAd_Place_IdCreationProject]);
 GO
 
--- Creating foreign key on [ResearchRoommate_IdResearchRoommate] in table 'Place'
+-- Creating foreign key on [Place_ResearchRoommate_Place_IdResearchRoommate] in table 'Place'
 ALTER TABLE [dbo].[Place]
 ADD CONSTRAINT [FK_Place_ResearchRoommate]
-    FOREIGN KEY ([ResearchRoommate_IdResearchRoommate])
+    FOREIGN KEY ([Place_ResearchRoommate_Place_IdResearchRoommate])
     REFERENCES [dbo].[ResearchRoommate]
         ([IdResearchRoommate])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
@@ -573,7 +573,7 @@ GO
 -- Creating non-clustered index for FOREIGN KEY 'FK_Place_ResearchRoommate'
 CREATE INDEX [IX_FK_Place_ResearchRoommate]
 ON [dbo].[Place]
-    ([ResearchRoommate_IdResearchRoommate]);
+    ([Place_ResearchRoommate_Place_IdResearchRoommate]);
 GO
 
 -- Creating foreign key on [IdEvent] in table 'PresenceEvent'
@@ -654,36 +654,6 @@ ON [dbo].[RentalAd]
     ([IdUser]);
 GO
 
--- Creating foreign key on [IdProjetCreation] in table 'PictureCreationProject'
-ALTER TABLE [dbo].[PictureCreationProject]
-ADD CONSTRAINT [FK_PictureCreationProject_CreationProjectAd]
-    FOREIGN KEY ([IdProjetCreation])
-    REFERENCES [dbo].[CreationProjectAd]
-        ([IdCreationProject])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating non-clustered index for FOREIGN KEY 'FK_PictureCreationProject_CreationProjectAd'
-CREATE INDEX [IX_FK_PictureCreationProject_CreationProjectAd]
-ON [dbo].[PictureCreationProject]
-    ([IdProjetCreation]);
-GO
-
--- Creating foreign key on [IdEcoRoommateExisting] in table 'Roommate'
-ALTER TABLE [dbo].[Roommate]
-ADD CONSTRAINT [FK_EcoRoommateExisting_Roommate]
-    FOREIGN KEY ([IdEcoRoommateExisting])
-    REFERENCES [dbo].[EcoRoommateExisting]
-        ([IdEcoRoommateExisting])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating non-clustered index for FOREIGN KEY 'FK_EcoRoommateExisting_Roommate'
-CREATE INDEX [IX_FK_EcoRoommateExisting_Roommate]
-ON [dbo].[Roommate]
-    ([IdEcoRoommateExisting]);
-GO
-
 -- Creating foreign key on [IdPerson] in table 'ResearchRoommate'
 ALTER TABLE [dbo].[ResearchRoommate]
 ADD CONSTRAINT [FK_Person_ResearchRoommate]
@@ -744,55 +714,10 @@ ON [dbo].[Event]
     ([IdPerson]);
 GO
 
--- Creating foreign key on [Person_User_Person_IdUser] in table 'Person'
-ALTER TABLE [dbo].[Person]
-ADD CONSTRAINT [FK_Person_User]
-    FOREIGN KEY ([Person_User_Person_IdUser])
-    REFERENCES [dbo].[User]
-        ([IdUser])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating non-clustered index for FOREIGN KEY 'FK_Person_User'
-CREATE INDEX [IX_FK_Person_User]
-ON [dbo].[Person]
-    ([Person_User_Person_IdUser]);
-GO
-
--- Creating foreign key on [User_IdUser] in table 'Agency'
-ALTER TABLE [dbo].[Agency]
-ADD CONSTRAINT [FK_Agency_User]
-    FOREIGN KEY ([User_IdUser])
-    REFERENCES [dbo].[User]
-        ([IdUser])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating non-clustered index for FOREIGN KEY 'FK_Agency_User'
-CREATE INDEX [IX_FK_Agency_User]
-ON [dbo].[Agency]
-    ([User_IdUser]);
-GO
-
--- Creating foreign key on [IdPerson] in table 'CreationProjectAd'
-ALTER TABLE [dbo].[CreationProjectAd]
-ADD CONSTRAINT [FK_CreationProjectAd_Person]
-    FOREIGN KEY ([IdPerson])
-    REFERENCES [dbo].[Person]
-        ([IdPerson])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating non-clustered index for FOREIGN KEY 'FK_CreationProjectAd_Person'
-CREATE INDEX [IX_FK_CreationProjectAd_Person]
-ON [dbo].[CreationProjectAd]
-    ([IdPerson]);
-GO
-
--- Creating foreign key on [User_IdUser] in table 'webpages_Membership'
+-- Creating foreign key on [webpages_Membership_User_webpages_Membership_IdUser] in table 'webpages_Membership'
 ALTER TABLE [dbo].[webpages_Membership]
 ADD CONSTRAINT [FK_webpages_Membership_User]
-    FOREIGN KEY ([User_IdUser])
+    FOREIGN KEY ([webpages_Membership_User_webpages_Membership_IdUser])
     REFERENCES [dbo].[User]
         ([IdUser])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
@@ -801,7 +726,82 @@ GO
 -- Creating non-clustered index for FOREIGN KEY 'FK_webpages_Membership_User'
 CREATE INDEX [IX_FK_webpages_Membership_User]
 ON [dbo].[webpages_Membership]
-    ([User_IdUser]);
+    ([webpages_Membership_User_webpages_Membership_IdUser]);
+GO
+
+-- Creating foreign key on [User_Person_Person_IdUser] in table 'Person'
+ALTER TABLE [dbo].[Person]
+ADD CONSTRAINT [FK_User_Person]
+    FOREIGN KEY ([User_Person_Person_IdUser])
+    REFERENCES [dbo].[User]
+        ([IdUser])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_User_Person'
+CREATE INDEX [IX_FK_User_Person]
+ON [dbo].[Person]
+    ([User_Person_Person_IdUser]);
+GO
+
+-- Creating foreign key on [User_Agency_Agency_IdUser] in table 'Agency'
+ALTER TABLE [dbo].[Agency]
+ADD CONSTRAINT [FK_User_Agency]
+    FOREIGN KEY ([User_Agency_Agency_IdUser])
+    REFERENCES [dbo].[User]
+        ([IdUser])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_User_Agency'
+CREATE INDEX [IX_FK_User_Agency]
+ON [dbo].[Agency]
+    ([User_Agency_Agency_IdUser]);
+GO
+
+-- Creating foreign key on [IdCreationProject] in table 'PictureCreationProject'
+ALTER TABLE [dbo].[PictureCreationProject]
+ADD CONSTRAINT [FK_CreationProjectAd_PictureCreationProject]
+    FOREIGN KEY ([IdCreationProject])
+    REFERENCES [dbo].[CreationProjectAd]
+        ([IdCreationProject])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_CreationProjectAd_PictureCreationProject'
+CREATE INDEX [IX_FK_CreationProjectAd_PictureCreationProject]
+ON [dbo].[PictureCreationProject]
+    ([IdCreationProject]);
+GO
+
+-- Creating foreign key on [IdEcoRoommateExisting] in table 'Roommate'
+ALTER TABLE [dbo].[Roommate]
+ADD CONSTRAINT [FK_EcoRoommateExistingRoommate]
+    FOREIGN KEY ([IdEcoRoommateExisting])
+    REFERENCES [dbo].[EcoRoommateExisting]
+        ([IdEcoRoommateExisting])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_EcoRoommateExistingRoommate'
+CREATE INDEX [IX_FK_EcoRoommateExistingRoommate]
+ON [dbo].[Roommate]
+    ([IdEcoRoommateExisting]);
+GO
+
+-- Creating foreign key on [IdPerson] in table 'CreationProjectAd'
+ALTER TABLE [dbo].[CreationProjectAd]
+ADD CONSTRAINT [FK_CreationProjectAdPerson]
+    FOREIGN KEY ([IdPerson])
+    REFERENCES [dbo].[Person]
+        ([IdPerson])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_CreationProjectAdPerson'
+CREATE INDEX [IX_FK_CreationProjectAdPerson]
+ON [dbo].[CreationProjectAd]
+    ([IdPerson]);
 GO
 
 -- --------------------------------------------------

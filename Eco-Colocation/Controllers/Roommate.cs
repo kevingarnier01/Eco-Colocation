@@ -32,10 +32,6 @@ public partial class Roommate
 
     public byte Civility { get; set; }
 
-
-
-    public virtual EcoRoommateExisting EcoRoommateExisting { get; set; }
-
 }
 
 }

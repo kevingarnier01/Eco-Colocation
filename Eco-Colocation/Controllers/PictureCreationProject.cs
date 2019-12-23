@@ -20,15 +20,11 @@ public partial class PictureCreationProject
 
     public int IdPictureCreationProject { get; set; }
 
-    public int IdProjetCreation { get; set; }
+    public int IdCreationProject { get; set; }
 
     public string PictureName { get; set; }
 
     public byte OrderNumber { get; set; }
-
-
-
-    public virtual CreationProjectAd CreationProjectAd { get; set; }
 
 }
 

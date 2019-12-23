@@ -4,11 +4,19 @@ namespace Eco_Colocation.BO
 {
 	public class ResearchRoommateBo
 	{
-		public ResearchRoommateBo()
+		public ResearchRoommateBo() { }
+
+		public ResearchRoommateBo(bool init)
 		{
+			if (init)
+			{
 
-			this.PlaceBo = new HashSet<PlaceBo>();
+				this.PlaceBo = new HashSet<PlaceBo>();
 
+				this.PersonBo = new PersonBo(true);
+
+				this.EmailAlert = 1;
+			}
 		}
 
 

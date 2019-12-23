@@ -44,7 +44,7 @@ namespace Eco_Colocation.DAL
 			oSqlParameters.Add("Department", placeBo.Department, SqlDbType.NVarChar);
 			oSqlParameters.Add("DepartmentNumber", placeBo.DepartmentNumber, SqlDbType.NVarChar);
 			oSqlParameters.Add("Region", placeBo.Region, SqlDbType.NVarChar);
-			oSqlParameters.Add("County", placeBo.County, SqlDbType.NVarChar);
+			oSqlParameters.Add("County", placeBo.Country, SqlDbType.NVarChar);
 			oSqlParameters.Add("ScopeResearch", placeBo.ScopeResearch, SqlDbType.TinyInt);
 
 			this.SqlDbStoredProcedureDAL.Add(placeBo, "IdPlace", 0, "Place_Add", oSqlParameters);
@@ -74,7 +74,7 @@ namespace Eco_Colocation.DAL
 						Department = ABLib.Databases.GetString(dr, "Department"),
 						DepartmentNumber = ABLib.Databases.GetString(dr, "DepartmentNumber"),
 						Region = ABLib.Databases.GetString(dr, "Region"),
-						County = ABLib.Databases.GetString(dr, "County"),
+						Country = ABLib.Databases.GetString(dr, "County"),
 						ScopeResearch = ABLib.Databases.GetByte(dr, "ScopeResearch")
 					};
 

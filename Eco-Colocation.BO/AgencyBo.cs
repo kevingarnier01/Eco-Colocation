@@ -2,6 +2,15 @@
 {
 	public class AgencyBo
 	{
+		public AgencyBo() { }
+
+		public AgencyBo(bool init)
+		{
+			if (init)
+			{
+			}
+		}
+
 		public int IdAgency { get; set; }
 
 		public string Name { get; set; }
@@ -29,9 +38,6 @@
 		public string SiretNumber { get; set; }
 
 		public decimal AgencyFees { get; set; }
-
-
-		public virtual UserBo UserBo { get; set; }
 
 	}
 }

@@ -5,9 +5,18 @@ namespace Eco_Colocation.BO
 {
 	public class CreationProjectAdBo
 	{
-		public CreationProjectAdBo()
+		public CreationProjectAdBo() { }
+
+		public CreationProjectAdBo(bool init)
 		{
-			this.PlaceBo = new HashSet<PlaceBo>();
+			if (init)
+			{
+				this.PlaceBo = new HashSet<PlaceBo>();
+
+				this.PictureCreationProjectBo = new HashSet<PictureCreationProjectBo>();
+
+				PersonBo = new PersonBo(true);
+			}
 		}
 
 
@@ -64,5 +73,9 @@ namespace Eco_Colocation.BO
 
 
 		public virtual ICollection<PlaceBo> PlaceBo { get; set; }
+
+		public virtual ICollection<PictureCreationProjectBo> PictureCreationProjectBo { get; set; }
+
+		public virtual PersonBo PersonBo { get; set; }
 	}
 }

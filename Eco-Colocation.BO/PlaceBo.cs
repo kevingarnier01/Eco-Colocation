@@ -2,10 +2,15 @@
 {
 	public class PlaceBo
 	{
-		public PlaceBo()
+		public PlaceBo() { }
+
+		public PlaceBo(bool init)
 		{
-			ResearchRoommateBo = new ResearchRoommateBo();
-			CreationProjectAdBo = new CreationProjectAdBo();
+			if (init)
+			{
+				ScopeResearch = 1;
+				Country = "France";
+			}
 		}
 
 		public int IdPlace { get; set; }
@@ -20,15 +25,10 @@
 
 		public string Region { get; set; }
 
-		public string County { get; set; }
+		public string Country { get; set; }
 
 		public byte ScopeResearch { get; set; }
 
 		public string EntirePlaceName { get; set; }
-
-
-		public virtual CreationProjectAdBo CreationProjectAdBo { get; set; }
-
-		public virtual ResearchRoommateBo ResearchRoommateBo { get; set; }
 	}
 }

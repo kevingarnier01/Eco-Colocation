@@ -4,11 +4,16 @@ namespace Eco_Colocation.BO
 {
 	public class DevConversationBo
 	{
-		public DevConversationBo()
-		{
-			this.Viewed = 0;
+		public DevConversationBo() { }
 
-			this.PictureDevConversationBo = new HashSet<PictureDevConversationBo>();
+		public DevConversationBo(bool init)
+		{
+			if (init)
+			{
+				this.Viewed = 0;
+
+				this.PictureDevConversationBo = new HashSet<PictureDevConversationBo>();
+			}
 		}
 
 

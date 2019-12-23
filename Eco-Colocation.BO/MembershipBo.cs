@@ -5,6 +5,15 @@ namespace Eco_Colocation.BO
 {
 	public class MembershipBo
 	{
+		public MembershipBo() { }
+
+		public MembershipBo(bool init)
+		{
+			if (init)
+			{
+			}
+		}
+
 		public int UserId { get; set; }
 
 		public Nullable<System.DateTime> CreateDate { get; set; }
@@ -28,8 +37,5 @@ namespace Eco_Colocation.BO
 		public string PasswordVerificationToken { get; set; }
 
 		public Nullable<System.DateTime> PasswordVerificationTokenExpirationDate { get; set; }
-
-
-		public virtual UserBo UserBo { get; set; }
 	}
 }

@@ -18,14 +18,6 @@ using System;
 public partial class Person
 {
 
-    public Person()
-    {
-
-        this.CreationProjectAd = new HashSet<CreationProjectAd>();
-
-    }
-
-
     public int IdPerson { get; set; }
 
     public string Email { get; set; }
@@ -38,25 +30,21 @@ public partial class Person
 
     public string Country { get; set; }
 
-    public string DateBirth { get; set; }
+    public System.DateTime DateBirth { get; set; }
 
-    public Nullable<byte> Activity { get; set; }
+    public byte Activity { get; set; }
 
     public string PhoneCode { get; set; }
 
     public string PhoneNumber { get; set; }
 
-    public Nullable<byte> ContactType { get; set; }
+    public byte ContactType { get; set; }
 
     public string PersonnalityDescription { get; set; }
 
     public System.DateTime DateInscription { get; set; }
 
     public System.DateTime DateLastActivity { get; set; }
-
-
-
-    public virtual ICollection<CreationProjectAd> CreationProjectAd { get; set; }
 
 }
 

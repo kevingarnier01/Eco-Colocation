@@ -68,6 +68,9 @@ namespace Eco_Colocation.Controllers
 		[MultiSubmitAttribute(Name = "action", Argument = "Valid_AddAndSubscribe")]
 		public ActionResult Valid_AddAndSubscribe(AllViewModel AllVM)
 		{
+			AccountController accountController = new AccountController();
+			 accountController._Inscription(AllVM);
+
 			Add(AllVM.PeopleSearchingVM);
 
 			return View("");
@@ -114,20 +117,20 @@ namespace Eco_Colocation.Controllers
 			{
 				JObject place = JsonConvert.DeserializeObject<JObject>(peopleSearchingVM.LstPlaceBo[i].EntirePlaceName);
 				
-				PlaceBo placeBo = new PlaceBo();
+				PlaceBo placeBo = new PlaceBo(true);
 				placeBo.City = place["label"].ToString();
 				placeBo.PostalCode = place["postcode"].ToString();
 				var context = place["context"].ToString().Split(',');
 				placeBo.DepartmentNumber = context[0];
 				placeBo.Department = context[1];
 				placeBo.Region = context[2];
-				placeBo.County = "France";
+				//placeBo.Country;
 				placeBo.ScopeResearch = peopleSearchingVM.PlaceBo.ScopeResearch;
 
 				placeManager.Add(placeBo);
 			}
 
-			researchRoommateManager.Add(peopleSearchingVM.PlaceBo.ResearchRoommateBo);
+			researchRoommateManager.Add(peopleSearchingVM.ResearchRoommateBo);
 
 			return true;
 		}

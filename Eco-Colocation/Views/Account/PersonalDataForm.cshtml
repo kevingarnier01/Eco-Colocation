@@ -35,8 +35,8 @@
 				</div>
 				<div class="col-sm-6" id="civiliteDiv-mcar">
 					<label class="lbl-mcar">Civilité *</label>
-					@Html.DropDownListFor(m => Model.AccountVM.UserBo.PersonBo.Activity,
-						new SelectList(Model.AccountVM.CiviliteLst, "Text", "Value"), new { @class = "form-control select-mcar" })
+					@Html.DropDownListFor(m => Model.AccountVM.UserBo.PersonBo.Civility,
+						new SelectList(Model.AccountVM.CiviliteLst, "Value", "Text", null), new { @class = "form-control select-mcar" })
 					<div class="lineinput-mcar"></div>
 				</div>
 				<div class="col-sm-6">
@@ -46,14 +46,14 @@
 				</div>
 				<div class="col-sm-6">
 					<label class="lbl-mcar">Pays *</label>
-					@Html.DropDownListFor(m => Model.AccountVM.UserBo.PersonBo.Activity,
-						new SelectList(Model.AccountVM.CountryLst, "Text", "Value"), new { @class = "form-control select-mcar" })
+					@Html.DropDownListFor(m => Model.AccountVM.UserBo.PersonBo.Country,
+						new SelectList(Model.AccountVM.CountryLst, "Text", "Text", null), new { @class = "form-control select-mcar" })
 					<div class="lineinput-mcar"></div>
 				</div>
 				<div class="col-sm-6">
 					<label class="lbl-mcar">Activités *</label>
 					@Html.DropDownListFor(m => Model.AccountVM.UserBo.PersonBo.Activity,
-						new SelectList(Model.AccountVM.ActivityLst, "Text", "Value"), new { @class="form-control select-mcar" })
+						new SelectList(Model.AccountVM.ActivityLst, "Value", "Text", null), new { @class="form-control select-mcar" })
 					<div class="lineinput-mcar"></div>
 				</div>
 				<div id="extraElement-pdf">
@@ -76,10 +76,26 @@
 						<label class="lbl-mcar">Email *</label>
 						@Html.TextBoxFor(m => m.AccountVM.UserBo.PersonBo.Email, new { @id = "emailInp-pdf", @type = "email", @placeholder = "Entrez votre email", @class = "input-mcar" })
 						<div class="lineinput-mcar"></div>
-					</div><div class="col-sm-6">
+					</div>
+					@*<div class="col-sm-6">
 						<label class="lbl-mcar">Téléphone *</label>
 						@Html.TextBoxFor(m => m.AccountVM.UserBo.PersonBo.PhoneNumber, new { @type = "tel", @placeholder = "+33 xxxxxxxxx", @class = "input-mcar", @maxlength = "13" })
 						<div class="lineinput-mcar"></div>
+					</div>*@
+					<div class="col-sm-6">
+						<label class="lbl-mcar">Téléphone *</label>
+						<div class="flex" id="divTelephone-pdf">
+							@Html.DropDownListFor(m => Model.AccountVM.UserBo.PersonBo.PhoneCode,
+								new SelectList(Model.AccountVM.PhoneCodeLst, "Text", "Text", null), new
+								{
+									@id = "phoneCodelst-pdf",
+									@class = "form-control select-mcar autoMargin",
+								})
+							<div id="divNumberPhone-pdf">
+								@Html.TextBoxFor(m => m.AccountVM.UserBo.PersonBo.PhoneNumber, new { @type = "tel", @placeholder = "Entrez votre numéro", @class = "input-mcar", @maxlength = "13" })
+								<div class="lineinput-mcar autoMargin"></div>
+							</div>
+						</div>
 					</div>
 				</div>
 				<div id="wayToBeContact-pdf">
@@ -87,19 +103,19 @@
 					<div>
 						<div class="flex">
 							<div class="childFlex">
-								@Html.TextBoxFor(m => m.AccountVM.UserBo.PersonBo.ContactType, new { @id = "chkPhone-mlca", @type = "radio", @name = "radioContact", value = Eco_Colocation.App_Start._Enums.ContactType.Phone })
+								@Html.TextBoxFor(m => m.AccountVM.UserBo.PersonBo.ContactType, ((int)Eco_Colocation.App_Start._Enums.ContactType.Phone).ToString(), new { @id = "chkPhone-mlca", @type = "radio", @name = "radioContact" })
 								<label for="chkPhone-mlca">Rendre visible que le numéro de téléphone</label>
 							</div>
 						</div>
 						<div class="flex">
 							<div class="childFlex">
-								@Html.TextBoxFor(m => m.AccountVM.UserBo.PersonBo.ContactType, new { @id = "chkEmail-mlca", @type = "radio", @name = "radioContact", value = Eco_Colocation.App_Start._Enums.ContactType.Email })
+								@Html.TextBoxFor(m => m.AccountVM.UserBo.PersonBo.ContactType, ((int)Eco_Colocation.App_Start._Enums.ContactType.Email).ToString(), new { @id = "chkEmail-mlca", @type = "radio", @name = "radioContact" })
 								<label for="chkEmail-mlca">Rendre visible que l'adresse email</label>
 							</div>
 						</div>
 						<div class="flex">
 							<div class="childFlex">
-								@Html.TextBoxFor(m => m.AccountVM.UserBo.PersonBo.ContactType, new { @id = "chkBoth-mlca", @type = "radio", @name = "radioContact", value = Eco_Colocation.App_Start._Enums.ContactType.Both })
+								@Html.TextBoxFor(m => m.AccountVM.UserBo.PersonBo.ContactType, ((int)Eco_Colocation.App_Start._Enums.ContactType.Both).ToString(), new { @id = "chkBoth-mlca", @type = "radio", @name = "radioContact" })
 								<label for="chkBoth-mlca">Les deux</label>
 							</div>
 						</div>

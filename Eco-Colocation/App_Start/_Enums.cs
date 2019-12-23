@@ -2,6 +2,18 @@
 {
 	public class _Enums
 	{
+		// ****
+		// **** User **** //
+		// ****
+		public enum TypeUser : int
+		{
+			Agence = 1,
+			Person = 2
+		}
+
+		// ****
+		// **** Person **** //
+		// ****
 		public enum ContactType : int
 		{
 			Both = 0,
@@ -26,6 +38,10 @@
 			Monsieur = 2,
 			Neutre = 0
 		}
+
+		// ****
+		// **** Place **** //
+		// ****
 
 		public enum ScoopResearch : int
 		{

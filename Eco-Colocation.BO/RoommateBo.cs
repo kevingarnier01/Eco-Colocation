@@ -2,6 +2,16 @@
 {
 	public class RoommateBo
 	{
+		public RoommateBo() { }
+
+		public RoommateBo(bool init)
+		{
+			if (init)
+			{
+
+			}
+		}
+
 		public int IdRoommate { get; set; }
 
 		public int IdEcoRoommateExisting { get; set; }
@@ -15,8 +25,5 @@
 		public string DateBirth { get; set; }
 
 		public byte Civility { get; set; }
-		
-
-		public virtual EcoRoommateExistingBo EcoRoommateExistingBo { get; set; }
 	}
 }

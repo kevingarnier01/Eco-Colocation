@@ -1,20 +1,22 @@
-﻿using System.Collections.Generic;
-
-namespace Eco_Colocation.BO
+﻿namespace Eco_Colocation.BO
 {
 	public class UserBo
 	{
-		public UserBo()
+		public UserBo(){}
+		public UserBo(bool init)
 		{
+			if (init)
+			{
+				this.Activated = true;
 
-			this.Activated = true;
+				this.MembershipBo = new MembershipBo(true);
 
-			this.RentalAdBo = new HashSet<RentalAdBo>();
+				PersonBo = new PersonBo(true);
 
-			this.MembershipBo = new MembershipBo();
+				AgencyBo = new AgencyBo(true);
 
-			this.PersonBo = new PersonBo();
-
+				TypeUser = 2;
+			}
 		}
 
 		public int IdUser { get; set; }
@@ -26,10 +28,10 @@ namespace Eco_Colocation.BO
 		public bool Activated { get; set; }
 
 
-		public virtual ICollection<RentalAdBo> RentalAdBo { get; set; }
-
 		public virtual PersonBo PersonBo { get; set; }
-				
+
+		public virtual AgencyBo AgencyBo { get; set; }
+
 		public virtual MembershipBo MembershipBo { get; set; }
 	}
 }

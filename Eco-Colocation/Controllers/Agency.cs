@@ -46,10 +46,6 @@ public partial class Agency
 
     public decimal AgencyFees { get; set; }
 
-
-
-    public virtual User User { get; set; }
-
 }
 
 }

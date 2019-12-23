@@ -30,15 +30,9 @@ public partial class Place
 
     public string Region { get; set; }
 
-    public string County { get; set; }
+    public string Country { get; set; }
 
     public byte ScopeResearch { get; set; }
-
-
-
-    public virtual CreationProjectAd CreationProjectAd { get; set; }
-
-    public virtual ResearchRoommate ResearchRoommate { get; set; }
 
 }
 

@@ -40,10 +40,6 @@ public partial class webpages_Membership
 
     public Nullable<System.DateTime> PasswordVerificationTokenExpirationDate { get; set; }
 
-
-
-    public virtual User User { get; set; }
-
 }
 
 }

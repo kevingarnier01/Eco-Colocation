@@ -4,17 +4,22 @@ using Eco_Colocation.ViewModel;
 using System.Web.Mvc;
 using System.Web.Security;
 using WebMatrix.WebData;
+using static Eco_Colocation.App_Start._Enums;
 
 namespace Eco_Colocation.Controllers
 {
 	public class AccountController : BaseController
 	{
 		private UserManager UserManager { get; set; }
+		private PersonManager PersonManager { get; set; }
 
 		public AccountController()
 		{
-			UserSql oUserSql = new UserSql(base.WebDbSqlConnectionString);
-			this.UserManager = new UserManager(oUserSql);
+			UserSql userSql = new UserSql(base.WebDbSqlConnectionString);
+			PersonSql personSql = new PersonSql(base.WebDbSqlConnectionString);
+
+			this.UserManager = new UserManager(userSql);
+			this.PersonManager = new PersonManager(personSql);
 		}
 
 		// GET: Account
@@ -34,6 +39,15 @@ namespace Eco_Colocation.Controllers
 
 		public ActionResult Inscription(AllViewModel allVM)
 		{
+			_Inscription(allVM);
+
+			return View();
+		}
+
+		public int _Inscription(AllViewModel allVM)
+		{
+			int idUser = 0;
+
 			if (ModelState.IsValid)
 			{
 				WebSecurity.CreateUserAndAccount(
@@ -46,9 +60,16 @@ namespace Eco_Colocation.Controllers
 							},
 							false
 						);
+				
+				allVM.AccountVM.UserBo.IdUser = WebSecurity.GetUserId(allVM.AccountVM.UserBo.UserName);
+
+				if (allVM.AccountVM.UserBo.TypeUser != (int)TypeUser.Agence)
+				{
+					PersonManager.Add(allVM.AccountVM.UserBo.PersonBo, allVM.AccountVM.UserBo.IdUser);
+				}
 			}
 
-			return View();
+				return idUser;
 		}
 
 		public ActionResult Connection(AccountViewModel accountViewModel)

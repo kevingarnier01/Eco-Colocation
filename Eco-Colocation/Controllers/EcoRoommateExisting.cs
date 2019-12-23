@@ -23,6 +23,8 @@ public partial class EcoRoommateExisting
 
         this.PictureEcoRoommateEx = new HashSet<PictureEcoRoommateEx>();
 
+        this.Roommate = new HashSet<Roommate>();
+
     }
 
 
@@ -61,6 +63,8 @@ public partial class EcoRoommateExisting
     public virtual ICollection<PictureEcoRoommateEx> PictureEcoRoommateEx { get; set; }
 
     public virtual Person Person { get; set; }
+
+    public virtual ICollection<Roommate> Roommate { get; set; }
 
 }
 

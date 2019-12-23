@@ -35,6 +35,30 @@ namespace Eco_Colocation.DAL
 
 		#region Methods
 
+		public int Add(PersonBo personBo, int idUser)
+		{
+			ABLib.DAL.Sql.SqlParametersCollection oSqlParameters = new ABLib.DAL.Sql.SqlParametersCollection();
+			oSqlParameters.AddIdOut("IdPerson");
+			oSqlParameters.Add("IdUser", idUser, SqlDbType.Int);
+			oSqlParameters.Add("Email", personBo.Email, SqlDbType.NVarChar);
+			oSqlParameters.Add("FirstName", personBo.FirstName, SqlDbType.NVarChar);
+			oSqlParameters.Add("LastName", personBo.LastName, SqlDbType.NVarChar);
+			oSqlParameters.Add("Civility", personBo.Civility, SqlDbType.TinyInt);
+			oSqlParameters.Add("Country", personBo.Country, SqlDbType.NVarChar);
+			oSqlParameters.Add("DateBirth", personBo.DateBirth, SqlDbType.Date);
+			oSqlParameters.Add("Activity", personBo.Activity, SqlDbType.TinyInt);
+			oSqlParameters.Add("PhoneCode", personBo.PhoneCode, SqlDbType.NVarChar);
+			oSqlParameters.Add("PhoneNumber", personBo.PhoneNumber, SqlDbType.NVarChar);
+			oSqlParameters.Add("ContactType", personBo.ContactType, SqlDbType.TinyInt);
+			oSqlParameters.Add("PersonnalityDescription", personBo.PersonnalityDescription, SqlDbType.NVarChar);
+			oSqlParameters.Add("DateInscription", DateTime.Now, SqlDbType.DateTime);
+			oSqlParameters.Add("DateLastActivity", DateTime.Now, SqlDbType.DateTime);
+
+			this.SqlDbStoredProcedureDAL.Add(personBo, "IdPerson", 0, "Person_Add", oSqlParameters);
+
+			return personBo.IdPerson;
+		}
+
 		#endregion
 
 		#region Fill
@@ -57,7 +81,7 @@ namespace Eco_Colocation.DAL
 						LastName = ABLib.Databases.GetString(dr, "LastName"),
 						Civility = ABLib.Databases.GetByte(dr, "Civility"),
 						Country = ABLib.Databases.GetString(dr, "Country"),
-						DateBirth = ABLib.Databases.GetString(dr, "DateBirth"),
+						DateBirth = ABLib.Databases.GetDateTime(dr, "DateBirth"),
 						Activity = ABLib.Databases.GetByte(dr, "Activity"),
 						PhoneCode = ABLib.Databases.GetString(dr, "PhoneCode"),
 						PhoneNumber = ABLib.Databases.GetString(dr, "PhoneNumber"),

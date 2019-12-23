@@ -19,7 +19,7 @@
         <EntityTypeShape EntityType="EcoColocationModel.DevConversation" Width="1.625" PointX="2.75" PointY="17.5" />
         <EntityTypeShape EntityType="EcoColocationModel.ResearchRoommate" Width="1.875" PointX="15.5" PointY="8.25" />
         <AssociationConnector Association="EcoColocationModel.Place_ResearchRoommate" />
-        <EntityTypeShape EntityType="EcoColocationModel.Person" Width="1.625" PointX="11.375" PointY="8.125" />
+        <EntityTypeShape EntityType="EcoColocationModel.Person" Width="1.625" PointX="11.375" PointY="8.5" />
         <AssociationConnector Association="EcoColocationModel.Event_PresenceEvent" />
         <EntityTypeShape EntityType="EcoColocationModel.AssociatedEvent" Width="1.625" PointX="15.875" PointY="3.75" />
         <AssociationConnector Association="EcoColocationModel.Event_AssociatedEvent" />
@@ -31,17 +31,18 @@
         <EntityTypeShape EntityType="EcoColocationModel.Agency" Width="1.5" PointX="9.25" PointY="9.625" />
         <EntityTypeShape EntityType="EcoColocationModel.User" Width="1.5" PointX="9.25" PointY="14.375" />
         <AssociationConnector Association="EcoColocationModel.RentalAd_User" />
-        <AssociationConnector Association="EcoColocationModel.PictureCreationProject_CreationProjectAd" />
-        <AssociationConnector Association="EcoColocationModel.EcoRoommateExisting_Roommate" />
         <AssociationConnector Association="EcoColocationModel.Person_ResearchRoommate" />
         <AssociationConnector Association="EcoColocationModel.Person_EcoRoommateExisting" />
         <AssociationConnector Association="EcoColocationModel.Person_PresenceEvent" />
         <AssociationConnector Association="EcoColocationModel.Person_Event" />
-        <AssociationConnector Association="EcoColocationModel.Person_User" ></AssociationConnector>
-        <AssociationConnector Association="EcoColocationModel.Agency_User" />
-        <AssociationConnector Association="EcoColocationModel.CreationProjectAd_Person" />
         <EntityTypeShape EntityType="EcoColocationModel.webpages_Membership" Width="1.5" PointX="11.375" PointY="16.125" />
         <AssociationConnector Association="EcoColocationModel.webpages_Membership_User" />
+        <AssociationConnector Association="EcoColocationModel.User_Person" />
+        <AssociationConnector Association="EcoColocationModel.User_Agency" />
+        <AssociationConnector Association="EcoColocationModel.CreationProjectAd_PictureCreationProject" />
+        <AssociationConnector Association="EcoColocationModel.EcoRoommateExistingRoommate" />
+        <AssociationConnector Association="EcoColocationModel.CreationProjectAdPerson" ManuallyRouted="false" >
+        </AssociationConnector>
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

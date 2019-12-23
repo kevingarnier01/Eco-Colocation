@@ -26,10 +26,6 @@ public partial class PictureEcoRoommateEx
 
     public byte OrderNumber { get; set; }
 
-
-
-    public virtual EcoRoommateExisting EcoRoommateExisting { get; set; }
-
 }
 
 }

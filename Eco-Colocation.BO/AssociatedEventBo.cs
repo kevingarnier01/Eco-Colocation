@@ -2,6 +2,15 @@
 {
 	public class AssociatedEventBo
 	{
+		public AssociatedEventBo() { }
+
+		public AssociatedEventBo(bool init)
+		{
+			if (init)
+			{
+			}
+		}
+
 		public int IdEvent { get; set; }
 
 		public int IdAssociatedEvent { get; set; }

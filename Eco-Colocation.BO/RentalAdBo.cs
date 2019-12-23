@@ -4,11 +4,16 @@ namespace Eco_Colocation.BO
 {
 	public class RentalAdBo
 	{
-		public RentalAdBo()
+		public RentalAdBo() { }
+
+		public RentalAdBo(bool init)
 		{
+			if (init)
+			{
+				this.RentalRoomBo = new HashSet<RentalRoomBo>();
 
-			this.RentalRoomBo = new HashSet<RentalRoomBo>();
-
+				UserBo = new UserBo(true);
+			}
 		}
 
 

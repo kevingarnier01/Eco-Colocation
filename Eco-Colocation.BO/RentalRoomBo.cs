@@ -4,6 +4,15 @@ namespace Eco_Colocation.BO
 {
 	public class RentalRoomBo
 	{
+		public RentalRoomBo() { }
+
+		public RentalRoomBo(bool init)
+		{
+			if (init)
+			{
+			}
+		}
+
 		public int IdRentalRoom { get; set; }
 
 		public int IdRentalAd { get; set; }
@@ -23,9 +32,5 @@ namespace Eco_Colocation.BO
 		public System.DateTime AvalaibleDate { get; set; }
 
 		public Nullable<DateTime> AvalaibleEndDate { get; set; }
-
-
-
-		public virtual RentalAdBo RentalAdBo { get; set; }
 	}
 }

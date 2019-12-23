@@ -24,10 +24,6 @@ public partial class PictureDevConversation
 
     public string PictureName { get; set; }
 
-
-
-    public virtual DevConversation DevConversation { get; set; }
-
 }
 
 }

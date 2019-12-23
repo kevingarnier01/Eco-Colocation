@@ -4499,6 +4499,19 @@ d5-description-mpc {
 	font-size: 15px;
 	display: none;
 }
+
+#phoneCodelst-pdf {
+	width: 60px;
+	font-size: 11px;
+}
+
+#divNumberPhone-pdf {
+	margin-left: 10px;
+}
+
+#divTelephone-pdf {
+	margin-bottom: 25px;
+}
 /*** Fin PersonnalData ***/
 
 #modalCAPropose {

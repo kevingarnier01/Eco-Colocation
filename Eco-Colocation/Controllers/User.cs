@@ -23,8 +23,6 @@ public partial class User
 
         this.Activated = true;
 
-        this.RentalAd = new HashSet<RentalAd>();
-
     }
 
 
@@ -38,11 +36,11 @@ public partial class User
 
 
 
-    public virtual ICollection<RentalAd> RentalAd { get; set; }
+    public virtual webpages_Membership webpages_Membership { get; set; }
 
     public virtual Person Person { get; set; }
 
-    public virtual webpages_Membership webpages_Membership { get; set; }
+    public virtual Agency Agency { get; set; }
 
 }
 

@@ -4,15 +4,20 @@ namespace Eco_Colocation.BO
 {
 	public class EventBo
 	{
-		public EventBo()
+		public EventBo() { }
+
+		public EventBo(bool init)
 		{
+			if (init)
+			{
+				this.PresenceEventBo = new HashSet<PresenceEventBo>();
 
-			this.PresenceEventBo = new HashSet<PresenceEventBo>();
+				this.AssociatedEventBo = new HashSet<AssociatedEventBo>();
 
-			this.AssociatedEventBo = new HashSet<AssociatedEventBo>();
+				this.AssociatedEvent1Bo = new HashSet<AssociatedEventBo>();
 
-			this.AssociatedEvent1Bo = new HashSet<AssociatedEventBo>();
-
+				PersonBo = new PersonBo(true);
+			}
 		}
 
 
@@ -56,6 +61,6 @@ namespace Eco_Colocation.BO
 
 		public virtual ICollection<AssociatedEventBo> AssociatedEvent1Bo { get; set; }
 
-		public virtual UserBo UserBo { get; set; }
+		public virtual PersonBo PersonBo { get; set; }
 	}
 }

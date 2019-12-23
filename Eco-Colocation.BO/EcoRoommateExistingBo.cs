@@ -4,10 +4,18 @@ namespace Eco_Colocation.BO
 {
 	public class EcoRoommateExistingBo
 	{
-		public EcoRoommateExistingBo()
-		{
+		public EcoRoommateExistingBo() { }
 
-			this.PictureEcoRoommateExBo = new HashSet<PictureEcoRoommateExBo>();
+		public EcoRoommateExistingBo(bool init)
+		{
+			if (init)
+			{
+				this.PictureEcoRoommateExBo = new HashSet<PictureEcoRoommateExBo>();
+
+				this.RoommateBo = new HashSet<RoommateBo>();
+
+				PersonBo = new PersonBo(true);
+			}
 		}
 
 
@@ -42,9 +50,11 @@ namespace Eco_Colocation.BO
 		public string TableHousing { get; set; }
 
 
-		
+
 		public virtual ICollection<PictureEcoRoommateExBo> PictureEcoRoommateExBo { get; set; }
 
 		public virtual PersonBo PersonBo { get; set; }
+
+		public virtual ICollection<RoommateBo> RoommateBo { get; set; }
 	}
 }

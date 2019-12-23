@@ -38,10 +38,6 @@ public partial class RentalRoom
 
     public Nullable<System.DateTime> AvalaibleEndDate { get; set; }
 
-
-
-    public virtual RentalAd RentalAd { get; set; }
-
 }
 
 }

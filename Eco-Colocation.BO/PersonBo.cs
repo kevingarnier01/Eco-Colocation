@@ -1,15 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace Eco_Colocation.BO
 {
 	public class PersonBo
 	{
-		public PersonBo()
+		public PersonBo() { }
+
+		public PersonBo(bool init)
 		{
-
-			this.CreationProjectAdBo = new HashSet<CreationProjectAdBo>();
-
+			if (init)
+			{
+				Civility = 1;
+				Country = "France";
+				PhoneCode = "+33";
+				ContactType = 0;
+			}
 		}
 
 		public int IdPerson { get; set; }
@@ -24,24 +29,20 @@ namespace Eco_Colocation.BO
 
 		public string Country { get; set; }
 
-		public string DateBirth { get; set; }
+		public System.DateTime DateBirth { get; set; }
 
-		public Nullable<byte> Activity { get; set; }
+		public byte Activity { get; set; }
 
 		public string PhoneCode { get; set; }
 
 		public string PhoneNumber { get; set; }
 
-		public Nullable<byte> ContactType { get; set; }
+		public byte ContactType { get; set; }
 
 		public string PersonnalityDescription { get; set; }
 
 		public System.DateTime DateInscription { get; set; }
 
 		public System.DateTime DateLastActivity { get; set; }
-
-
-
-		public virtual ICollection<CreationProjectAdBo> CreationProjectAdBo { get; set; }
 	}
 }
