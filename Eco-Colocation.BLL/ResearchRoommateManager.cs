@@ -35,13 +35,13 @@ namespace Eco_Colocation.BLL
 
 		#region Methods
 
-		public int Add(ResearchRoommateBo researchRoommateBo)
+		public int Add(ResearchRoommateBo researchRoommateBo, int idPerson)
 		{
 			if (this.ResearchRoommateSql == null)
 				return 0;
 			else
 			{
-				return this.ResearchRoommateSql.Add(researchRoommateBo);
+				return this.ResearchRoommateSql.Add(researchRoommateBo, idPerson);
 			}
 		}
 

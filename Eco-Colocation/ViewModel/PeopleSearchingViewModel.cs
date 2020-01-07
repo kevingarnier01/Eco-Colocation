@@ -12,7 +12,7 @@ namespace Eco_Colocation.ViewModel
 
 		public List<PeopleSearchingViewModel> LstPeopleSearchingVM { get; set; }
 		public int IdPeopleSearching { get; set; }
-		public SelectList ScoopResearchLst { get; set; }
+		public SelectList ScopeResearchLst { get; set; }
 		public List<PlaceBo> LstPlaceBo { get; set; }
 
 		public PeopleSearchingViewModel() { }
@@ -31,7 +31,7 @@ namespace Eco_Colocation.ViewModel
 		public void InitLst()
 		{
 			_Lists _Lists = new _Lists();
-			ScoopResearchLst = _Lists.ScoopResearchLst();
+			ScopeResearchLst = _Lists.ScoopResearchLst();
 		}
 	}
 }

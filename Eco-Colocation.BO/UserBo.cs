@@ -9,8 +9,6 @@
 			{
 				this.Activated = true;
 
-				this.MembershipBo = new MembershipBo(true);
-
 				PersonBo = new PersonBo(true);
 
 				AgencyBo = new AgencyBo(true);
@@ -22,6 +20,10 @@
 		public int IdUser { get; set; }
 
 		public string UserName { get; set; }
+		
+		public string Password { get; set; }
+
+		public string PasswordConfirm { get; set; }
 
 		public byte TypeUser { get; set; }
 
@@ -31,7 +33,5 @@
 		public virtual PersonBo PersonBo { get; set; }
 
 		public virtual AgencyBo AgencyBo { get; set; }
-
-		public virtual MembershipBo MembershipBo { get; set; }
 	}
 }

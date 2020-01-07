@@ -47,7 +47,6 @@
     <Compile Include="DevConversationManager.cs" />
     <Compile Include="EcoRoommateExistingManager.cs" />
     <Compile Include="EventManager.cs" />
-    <Compile Include="MembershipManager.cs" />
     <Compile Include="PersonManager.cs" />
     <Compile Include="PictureCreationProjectManager.cs" />
     <Compile Include="PictureDevConversationManager.cs" />

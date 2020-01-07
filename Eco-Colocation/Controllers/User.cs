@@ -36,8 +36,6 @@ public partial class User
 
 
 
-    public virtual webpages_Membership webpages_Membership { get; set; }
-
     public virtual Person Person { get; set; }
 
     public virtual Agency Agency { get; set; }

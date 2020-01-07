@@ -75,13 +75,15 @@
 								<div class="divResearchLocation flex">
 									<div class="flex">
 										<div class="childFlex">
-											@Html.DropDownListFor(m => Model.PeopleSearchingVM.PlaceBo.ScopeResearch,
-												 new SelectList(Model.PeopleSearchingVM.ScoopResearchLst, "Value", "Text", null), new
+											@Html.DropDownListFor(m => m.PeopleSearchingVM.PlaceBo.ScopeResearch,
+												 new SelectList(Model.PeopleSearchingVM.ScopeResearchLst, "Value", "Text", null), new
 												 {
 													 @id = "typeResearchSct-car",
 													 @class = "form-control typeResearchSct",
-													 @onchange = "typeOfResearchLocation(this, '#inputSearchPlace-car')"
+													 @onchange = "typeOfResearchLocation(this, '#inputSearchPlace-car');" +
+																 "addValueToHiddenElement(this, '#hiddenTypeResearchSct-car')"
 												 })
+											@Html.HiddenFor(m => m.PeopleSearchingVM.PlaceBo.ScopeResearch, new { @id = "hiddenTypeResearchSct-car" })
 										</div>
 									</div>
 									<input id="inputSearchPlace-car" oninput="addr_searchCity(this, 'inputEntirePlaceName-mps');checkToDisableLstOrNot(this, '#typeResearchSct-car')" type="text"

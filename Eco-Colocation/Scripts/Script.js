@@ -2102,3 +2102,8 @@ function addInputActionToConnectionButton() {
 		$("#accountForm").replaceWith($("#accountForm").html())
 	}, 1000)
 }
+
+function addValueToHiddenElement(valueElement, hiddenElement) {
+	var value = $(valueElement).val()
+	$(hiddenElement).val(value);
+}

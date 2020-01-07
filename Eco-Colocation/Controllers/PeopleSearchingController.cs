@@ -69,9 +69,9 @@ namespace Eco_Colocation.Controllers
 		public ActionResult Valid_AddAndSubscribe(AllViewModel AllVM)
 		{
 			AccountController accountController = new AccountController();
-			 accountController._Inscription(AllVM);
+			int idPerson = accountController._Inscription(AllVM);
 
-			Add(AllVM.PeopleSearchingVM);
+			Add(AllVM.PeopleSearchingVM, idPerson);
 
 			return View("");
 		}
@@ -111,26 +111,37 @@ namespace Eco_Colocation.Controllers
 			return PartialView(allVM);
 		}
 
-		public bool Add(PeopleSearchingViewModel peopleSearchingVM)
+		public bool Add(PeopleSearchingViewModel peopleSearchingVM, int idPerson)
 		{
+			int idResearchRoommate = researchRoommateManager.Add(peopleSearchingVM.ResearchRoommateBo, idPerson);
+			
 			for (int i = 0; i < peopleSearchingVM.LstPlaceBo.Count; i++)
-			{
+			{				
 				JObject place = JsonConvert.DeserializeObject<JObject>(peopleSearchingVM.LstPlaceBo[i].EntirePlaceName);
-				
+
 				PlaceBo placeBo = new PlaceBo(true);
-				placeBo.City = place["label"].ToString();
-				placeBo.PostalCode = place["postcode"].ToString();
-				var context = place["context"].ToString().Split(',');
-				placeBo.DepartmentNumber = context[0];
-				placeBo.Department = context[1];
-				placeBo.Region = context[2];
-				//placeBo.Country;
+				if(peopleSearchingVM.PlaceBo.ScopeResearch == 2 || peopleSearchingVM.PlaceBo.ScopeResearch == 3)
+				{
+					placeBo.Department = (string)place["nom"];
+					placeBo.DepartmentNumber = (string)place["code"];
+				}
+				else { 
+				placeBo.City = (string)place["label"];
+				placeBo.PostalCode = (string)place["postcode"];
+				var context = ((string)place["context"]);
+					if (context != null)
+					{
+						context.Split(',');
+						placeBo.DepartmentNumber = context[0].ToString();
+						placeBo.Department = context[1].ToString();
+						placeBo.Region = context[2].ToString();
+						//placeBo.Country;
+					}
+				}
 				placeBo.ScopeResearch = peopleSearchingVM.PlaceBo.ScopeResearch;
-
-				placeManager.Add(placeBo);
+								
+				int idPlace = placeManager.Add(placeBo, idResearchRoommate, 0);
 			}
-
-			researchRoommateManager.Add(peopleSearchingVM.ResearchRoommateBo);
 
 			return true;
 		}

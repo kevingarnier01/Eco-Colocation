@@ -13,13 +13,13 @@ namespace Eco_Colocation.BLL
 
 		#region Methodes
 
-		public int Add(PlaceBo placeBo)
+		public int Add(PlaceBo placeBo, int idResearchRoommate, int idCreationProject)
 		{
 			if (this.PlaceSql == null)
 				return 0;
 			else
 			{
-				return this.PlaceSql.Add(placeBo);
+				return this.PlaceSql.Add(placeBo, idResearchRoommate, idCreationProject);
 			}
 		}
 

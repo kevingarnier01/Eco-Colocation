@@ -46,9 +46,9 @@ public partial class ResearchRoommate
 
 
 
-    public virtual ICollection<Place> Place { get; set; }
-
     public virtual Person Person { get; set; }
+
+    public virtual ICollection<Place> Place { get; set; }
 
 }
 

@@ -35,11 +35,11 @@ namespace Eco_Colocation.DAL
 
 		#region Methods
 			   
-		public int Add(ResearchRoommateBo researchRoommateBo)
+		public int Add(ResearchRoommateBo researchRoommateBo, int idPerson)
 		{
 			ABLib.DAL.Sql.SqlParametersCollection oSqlParameters = new ABLib.DAL.Sql.SqlParametersCollection();
 			oSqlParameters.AddIdOut("IdResearchRoommate");
-			oSqlParameters.Add("IdPerson", researchRoommateBo.IdPerson, SqlDbType.Int);
+			oSqlParameters.Add("IdPerson", idPerson, SqlDbType.Int);
 			oSqlParameters.Add("MaxBudget", researchRoommateBo.MaxBudget, SqlDbType.SmallInt);
 			oSqlParameters.Add("EmailAlert", researchRoommateBo.EmailAlert, SqlDbType.TinyInt);
 			oSqlParameters.Add("SearchCriteria", researchRoommateBo.SearchCriteria, SqlDbType.NVarChar);

@@ -54,7 +54,6 @@
     <Compile Include="DevConversationSql.cs" />
     <Compile Include="EcoRoommateExistingSql.cs" />
     <Compile Include="EventSql.cs" />
-    <Compile Include="MembershipSql.cs" />
     <Compile Include="PersonSql.cs" />
     <Compile Include="PictureCreationProjectSql.cs" />
     <Compile Include="PictureDevConversationSql.cs" />

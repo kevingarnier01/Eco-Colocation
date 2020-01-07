@@ -35,18 +35,19 @@ namespace Eco_Colocation.DAL
 
 		#region Methods
 
-		public int Add(PlaceBo placeBo)
+		public int Add(PlaceBo placeBo, int idResearchRoommate, int idCreationProject)
 		{
 			ABLib.DAL.Sql.SqlParametersCollection oSqlParameters = new ABLib.DAL.Sql.SqlParametersCollection();
 			oSqlParameters.AddIdOut("IdPlace");
+			oSqlParameters.Add("IdResearchRoommate", (idResearchRoommate == 0) ? null : idResearchRoommate.ToString(), SqlDbType.NVarChar);
+			oSqlParameters.Add("IdCreationProject", (idCreationProject == 0) ? null : idCreationProject.ToString(), SqlDbType.NVarChar);
 			oSqlParameters.Add("City", placeBo.City, SqlDbType.NVarChar);
 			oSqlParameters.Add("PostalCode", placeBo.PostalCode, SqlDbType.NVarChar);
 			oSqlParameters.Add("Department", placeBo.Department, SqlDbType.NVarChar);
 			oSqlParameters.Add("DepartmentNumber", placeBo.DepartmentNumber, SqlDbType.NVarChar);
 			oSqlParameters.Add("Region", placeBo.Region, SqlDbType.NVarChar);
-			oSqlParameters.Add("County", placeBo.Country, SqlDbType.NVarChar);
+			oSqlParameters.Add("Country", placeBo.Country, SqlDbType.NVarChar);
 			oSqlParameters.Add("ScopeResearch", placeBo.ScopeResearch, SqlDbType.TinyInt);
-
 			this.SqlDbStoredProcedureDAL.Add(placeBo, "IdPlace", 0, "Place_Add", oSqlParameters);
 
 			return placeBo.IdPlace;
@@ -69,6 +70,8 @@ namespace Eco_Colocation.DAL
 					placeBo = new PlaceBo
 					{
 						IdPlace = ABLib.Databases.GetInt32(dr, "IdPlace"),
+						IdResearchRoommate = ABLib.Databases.GetInt32(dr, "IdResearchRoommate"),
+						IdCreationProject = ABLib.Databases.GetInt32(dr, "IdCreationProject"),
 						City = ABLib.Databases.GetString(dr, "City"),
 						PostalCode = ABLib.Databases.GetString(dr, "PostalCode"),
 						Department = ABLib.Databases.GetString(dr, "Department"),

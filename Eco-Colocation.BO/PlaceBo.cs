@@ -1,4 +1,6 @@
-﻿namespace Eco_Colocation.BO
+﻿using System;
+
+namespace Eco_Colocation.BO
 {
 	public class PlaceBo
 	{
@@ -14,6 +16,10 @@
 		}
 
 		public int IdPlace { get; set; }
+
+		public Nullable<int> IdResearchRoommate { get; set; }
+
+		public Nullable<int> IdCreationProject { get; set; }
 
 		public string City { get; set; }
 

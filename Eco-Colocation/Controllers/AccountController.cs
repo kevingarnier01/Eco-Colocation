@@ -46,13 +46,13 @@ namespace Eco_Colocation.Controllers
 
 		public int _Inscription(AllViewModel allVM)
 		{
-			int idUser = 0;
+			int idPerson = 0;
 
 			if (ModelState.IsValid)
 			{
 				WebSecurity.CreateUserAndAccount(
 							allVM.AccountVM.UserBo.UserName,
-							allVM.AccountVM.UserBo.MembershipBo.Password,
+							allVM.AccountVM.UserBo.Password,
 							new
 							{
 								TypeUser = 1,
@@ -65,11 +65,11 @@ namespace Eco_Colocation.Controllers
 
 				if (allVM.AccountVM.UserBo.TypeUser != (int)TypeUser.Agence)
 				{
-					PersonManager.Add(allVM.AccountVM.UserBo.PersonBo, allVM.AccountVM.UserBo.IdUser);
+					idPerson = PersonManager.Add(allVM.AccountVM.UserBo.PersonBo, allVM.AccountVM.UserBo.IdUser);
 				}
 			}
 
-				return idUser;
+				return idPerson;
 		}
 
 		public ActionResult Connection(AccountViewModel accountViewModel)

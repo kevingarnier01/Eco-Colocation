@@ -20,6 +20,10 @@ public partial class Place
 
     public int IdPlace { get; set; }
 
+    public Nullable<int> IdResearchRoommate { get; set; }
+
+    public Nullable<int> IdCreationProject { get; set; }
+
     public string City { get; set; }
 
     public string PostalCode { get; set; }

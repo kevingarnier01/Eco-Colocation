@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 12/23/2019 18:48:31
+-- Date Created: 01/07/2020 11:43:18
 -- Generated from EDMX file: C:\Users\kev-gar\Documents\Projet personnel\Eco-colocation\Application\Développement\Eco-Colocation\Eco-Colocation\Controllers\EcoColocationModel.edmx
 -- --------------------------------------------------
 
@@ -19,12 +19,6 @@ GO
 
 IF OBJECT_ID(N'[dbo].[FK_RentalAd_RentalRoom]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[RentalRoom] DROP CONSTRAINT [FK_RentalAd_RentalRoom];
-GO
-IF OBJECT_ID(N'[dbo].[FK_Place_CreationProjectAd]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Place] DROP CONSTRAINT [FK_Place_CreationProjectAd];
-GO
-IF OBJECT_ID(N'[dbo].[FK_Place_ResearchRoommate]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Place] DROP CONSTRAINT [FK_Place_ResearchRoommate];
 GO
 IF OBJECT_ID(N'[dbo].[FK_Event_PresenceEvent]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[PresenceEvent] DROP CONSTRAINT [FK_Event_PresenceEvent];
@@ -56,9 +50,6 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_Person_Event]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Event] DROP CONSTRAINT [FK_Person_Event];
 GO
-IF OBJECT_ID(N'[dbo].[FK_webpages_Membership_User]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[webpages_Membership] DROP CONSTRAINT [FK_webpages_Membership_User];
-GO
 IF OBJECT_ID(N'[dbo].[FK_User_Person]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Person] DROP CONSTRAINT [FK_User_Person];
 GO
@@ -73,6 +64,12 @@ IF OBJECT_ID(N'[dbo].[FK_EcoRoommateExistingRoommate]', 'F') IS NOT NULL
 GO
 IF OBJECT_ID(N'[dbo].[FK_CreationProjectAdPerson]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[CreationProjectAd] DROP CONSTRAINT [FK_CreationProjectAdPerson];
+GO
+IF OBJECT_ID(N'[dbo].[FK_PlaceResearchRoommate]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Place] DROP CONSTRAINT [FK_PlaceResearchRoommate];
+GO
+IF OBJECT_ID(N'[dbo].[FK_PlaceCreationProjectAd]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Place] DROP CONSTRAINT [FK_PlaceCreationProjectAd];
 GO
 
 -- --------------------------------------------------
@@ -129,9 +126,6 @@ IF OBJECT_ID(N'[dbo].[Agency]', 'U') IS NOT NULL
 GO
 IF OBJECT_ID(N'[dbo].[Person]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Person];
-GO
-IF OBJECT_ID(N'[dbo].[webpages_Membership]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[webpages_Membership];
 GO
 
 -- --------------------------------------------------
@@ -220,15 +214,15 @@ GO
 -- Creating table 'Place'
 CREATE TABLE [dbo].[Place] (
     [IdPlace] int IDENTITY(1,1) NOT NULL,
+    [IdResearchRoommate] int  NULL,
+    [IdCreationProject] int  NULL,
     [City] nvarchar(50)  NULL,
     [PostalCode] nvarchar(15)  NULL,
     [Department] nvarchar(50)  NULL,
     [DepartmentNumber] nvarchar(8)  NULL,
     [Region] nvarchar(50)  NULL,
     [Country] nvarchar(50)  NOT NULL,
-    [ScopeResearch] tinyint  NOT NULL,
-    [Place_CreationProjectAd_Place_IdCreationProject] int  NOT NULL,
-    [Place_ResearchRoommate_Place_IdResearchRoommate] int  NOT NULL
+    [ScopeResearch] tinyint  NOT NULL
 );
 GO
 
@@ -398,23 +392,6 @@ CREATE TABLE [dbo].[Person] (
 );
 GO
 
--- Creating table 'webpages_Membership'
-CREATE TABLE [dbo].[webpages_Membership] (
-    [IdMembership] int  NOT NULL,
-    [CreateDate] datetime  NULL,
-    [ConfirmationToken] nvarchar(128)  NULL,
-    [IsConfirmed] bit  NULL,
-    [LastPasswordFailureDate] datetime  NULL,
-    [PasswordFailuresSinceLastSuccess] int  NOT NULL,
-    [Password] nvarchar(128)  NOT NULL,
-    [PasswordChangedDate] datetime  NULL,
-    [PasswordSalt] nvarchar(128)  NOT NULL,
-    [PasswordVerificationToken] nvarchar(128)  NULL,
-    [PasswordVerificationTokenExpirationDate] datetime  NULL,
-    [webpages_Membership_User_webpages_Membership_IdUser] int  NOT NULL
-);
-GO
-
 -- --------------------------------------------------
 -- Creating all PRIMARY KEY constraints
 -- --------------------------------------------------
@@ -521,12 +498,6 @@ ADD CONSTRAINT [PK_Person]
     PRIMARY KEY CLUSTERED ([IdPerson] ASC);
 GO
 
--- Creating primary key on [IdMembership] in table 'webpages_Membership'
-ALTER TABLE [dbo].[webpages_Membership]
-ADD CONSTRAINT [PK_webpages_Membership]
-    PRIMARY KEY CLUSTERED ([IdMembership] ASC);
-GO
-
 -- --------------------------------------------------
 -- Creating all FOREIGN KEY constraints
 -- --------------------------------------------------
@@ -544,36 +515,6 @@ GO
 CREATE INDEX [IX_FK_RentalAd_RentalRoom]
 ON [dbo].[RentalRoom]
     ([IdRentalAd]);
-GO
-
--- Creating foreign key on [Place_CreationProjectAd_Place_IdCreationProject] in table 'Place'
-ALTER TABLE [dbo].[Place]
-ADD CONSTRAINT [FK_Place_CreationProjectAd]
-    FOREIGN KEY ([Place_CreationProjectAd_Place_IdCreationProject])
-    REFERENCES [dbo].[CreationProjectAd]
-        ([IdCreationProject])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating non-clustered index for FOREIGN KEY 'FK_Place_CreationProjectAd'
-CREATE INDEX [IX_FK_Place_CreationProjectAd]
-ON [dbo].[Place]
-    ([Place_CreationProjectAd_Place_IdCreationProject]);
-GO
-
--- Creating foreign key on [Place_ResearchRoommate_Place_IdResearchRoommate] in table 'Place'
-ALTER TABLE [dbo].[Place]
-ADD CONSTRAINT [FK_Place_ResearchRoommate]
-    FOREIGN KEY ([Place_ResearchRoommate_Place_IdResearchRoommate])
-    REFERENCES [dbo].[ResearchRoommate]
-        ([IdResearchRoommate])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating non-clustered index for FOREIGN KEY 'FK_Place_ResearchRoommate'
-CREATE INDEX [IX_FK_Place_ResearchRoommate]
-ON [dbo].[Place]
-    ([Place_ResearchRoommate_Place_IdResearchRoommate]);
 GO
 
 -- Creating foreign key on [IdEvent] in table 'PresenceEvent'
@@ -714,21 +655,6 @@ ON [dbo].[Event]
     ([IdPerson]);
 GO
 
--- Creating foreign key on [webpages_Membership_User_webpages_Membership_IdUser] in table 'webpages_Membership'
-ALTER TABLE [dbo].[webpages_Membership]
-ADD CONSTRAINT [FK_webpages_Membership_User]
-    FOREIGN KEY ([webpages_Membership_User_webpages_Membership_IdUser])
-    REFERENCES [dbo].[User]
-        ([IdUser])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating non-clustered index for FOREIGN KEY 'FK_webpages_Membership_User'
-CREATE INDEX [IX_FK_webpages_Membership_User]
-ON [dbo].[webpages_Membership]
-    ([webpages_Membership_User_webpages_Membership_IdUser]);
-GO
-
 -- Creating foreign key on [User_Person_Person_IdUser] in table 'Person'
 ALTER TABLE [dbo].[Person]
 ADD CONSTRAINT [FK_User_Person]
@@ -802,6 +728,36 @@ GO
 CREATE INDEX [IX_FK_CreationProjectAdPerson]
 ON [dbo].[CreationProjectAd]
     ([IdPerson]);
+GO
+
+-- Creating foreign key on [IdResearchRoommate] in table 'Place'
+ALTER TABLE [dbo].[Place]
+ADD CONSTRAINT [FK_PlaceResearchRoommate]
+    FOREIGN KEY ([IdResearchRoommate])
+    REFERENCES [dbo].[ResearchRoommate]
+        ([IdResearchRoommate])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_PlaceResearchRoommate'
+CREATE INDEX [IX_FK_PlaceResearchRoommate]
+ON [dbo].[Place]
+    ([IdResearchRoommate]);
+GO
+
+-- Creating foreign key on [IdCreationProject] in table 'Place'
+ALTER TABLE [dbo].[Place]
+ADD CONSTRAINT [FK_PlaceCreationProjectAd]
+    FOREIGN KEY ([IdCreationProject])
+    REFERENCES [dbo].[CreationProjectAd]
+        ([IdCreationProject])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_PlaceCreationProjectAd'
+CREATE INDEX [IX_FK_PlaceCreationProjectAd]
+ON [dbo].[Place]
+    ([IdCreationProject]);
 GO
 
 -- --------------------------------------------------

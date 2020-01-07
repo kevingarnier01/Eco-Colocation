@@ -234,9 +234,6 @@
     <Compile Include="Controllers\User.cs">
       <DependentUpon>EcoColocationModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Controllers\webpages_Membership.cs">
-      <DependentUpon>EcoColocationModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

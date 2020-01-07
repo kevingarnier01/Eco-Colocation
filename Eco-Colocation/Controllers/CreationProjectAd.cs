@@ -21,9 +21,9 @@ public partial class CreationProjectAd
     public CreationProjectAd()
     {
 
-        this.Place = new HashSet<Place>();
-
         this.PictureCreationProject = new HashSet<PictureCreationProject>();
+
+        this.Place = new HashSet<Place>();
 
     }
 
@@ -80,11 +80,11 @@ public partial class CreationProjectAd
 
 
 
-    public virtual ICollection<Place> Place { get; set; }
-
     public virtual ICollection<PictureCreationProject> PictureCreationProject { get; set; }
 
     public virtual Person Person { get; set; }
+
+    public virtual ICollection<Place> Place { get; set; }
 
 }
 
