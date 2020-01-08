@@ -1,4 +1,6 @@
-﻿namespace Eco_Colocation.BO
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Eco_Colocation.BO
 {
 	public class AgencyBo
 	{
@@ -15,6 +17,8 @@
 
 		public string Name { get; set; }
 
+		[Required(ErrorMessage = "L'email doit être saisi")]
+		[StringLength(60, ErrorMessage = "L'email excède le nombre de caractère maximum.")]
 		public string Email { get; set; }
 
 		public string Phone { get; set; }

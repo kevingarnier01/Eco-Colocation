@@ -68,10 +68,22 @@ namespace Eco_Colocation.Controllers
 		[MultiSubmitAttribute(Name = "action", Argument = "Valid_AddAndSubscribe")]
 		public ActionResult Valid_AddAndSubscribe(AllViewModel AllVM)
 		{
-			AccountController accountController = new AccountController();
-			int idPerson = accountController._Inscription(AllVM);
+			if (ModelState.IsValid)
+			{
 
-			Add(AllVM.PeopleSearchingVM, idPerson);
+				AccountController accountController = new AccountController();
+				int idPerson = accountController._Inscription(AllVM);
+
+				Add(AllVM.PeopleSearchingVM, idPerson);
+			}
+			else
+			{
+				//TempData["idModalToTrigger"] = "#addSearchingAnnonceLink-ps";
+
+				//return PartialView("~/Views/EcoRoommateHome/EcoRoommateHomeView.cshtml", AllVM);
+
+				return PartialView("~/Views/PeopleSearching/AddUpd_ModalPeopleSearch.cshtml", AllVM);
+			}
 
 			return View("");
 		}

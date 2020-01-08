@@ -9,7 +9,7 @@
 	Model.PeopleSearchingVM.InitLst();
 }
 
-@using (Html.BeginForm())
+@using (Html.BeginForm(null, null, FormMethod.Post, new { @id="addUpdPeopleSearchForm" }))
 {
 	<div class="underModal col-sm-12 col-xs-12">
 		<div id="addUpd_ModalPeopleSearch" class="reelModal">
@@ -66,6 +66,7 @@
 									   @type = "number",
 									   @class = "input-mcar"
 								   })
+								@Html.ValidationMessageFor(m => Model.PeopleSearchingVM.ResearchRoommateBo.MaxBudget)
 								<div class="lineinput-mcar"></div>
 								<div id="euroSignBudgetMax-mcar">€</div>
 							</div>
@@ -219,7 +220,7 @@
 				{
 					@Html.Partial("~/Views/Account/PasswordDiv.cshtml", Model)
 					<div class="flex" id="divInscriptionButtons-mcar">
-						<input type="submit" name="action:Valid_AddAndSubscribe" class="childFlex btnGreen" value="Publier et m'inscrire" />
+						<input type="submit" @*rel="modal:open" onclick="openSecondModal()"*@ name="action:Valid_AddAndSubscribe" class="childFlex btnGreen" value="Publier et m'inscrire" />
 					</div>
 				}
 				else if (ViewBag.operation != "Update")
@@ -272,4 +273,6 @@
 	if (operation == "") {
 		addInputActionToConnectionButton()
 	}
+
+	submitFormAndOpenModal();
 </script>

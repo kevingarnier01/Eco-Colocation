@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace Eco_Colocation.BO
 {
@@ -33,8 +34,10 @@ namespace Eco_Colocation.BO
 
 		public string Country { get; set; }
 
+		[Required(ErrorMessage = "Le type de zone géographique pour l'adresse doit être selectionné")]
 		public byte ScopeResearch { get; set; }
 
+		[Required(ErrorMessage = "L'adresse doit être saisie ou selectionnée lors de l'auto-completion")]
 		public string EntirePlaceName { get; set; }
 	}
 }

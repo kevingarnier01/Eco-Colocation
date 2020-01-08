@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 01/07/2020 11:43:18
+-- Date Created: 01/08/2020 11:06:28
 -- Generated from EDMX file: C:\Users\kev-gar\Documents\Projet personnel\Eco-colocation\Application\Développement\Eco-Colocation\Eco-Colocation\Controllers\EcoColocationModel.edmx
 -- --------------------------------------------------
 
@@ -290,7 +290,7 @@ CREATE TABLE [dbo].[Roommate] (
     [FirstName] nvarchar(50)  NOT NULL,
     [LastName] nvarchar(50)  NOT NULL,
     [Email] nvarchar(60)  NOT NULL,
-    [DateBirth] nvarchar(10)  NOT NULL,
+    [DateBorn] nvarchar(10)  NOT NULL,
     [Civility] tinyint  NOT NULL
 );
 GO
@@ -380,7 +380,7 @@ CREATE TABLE [dbo].[Person] (
     [LastName] nvarchar(50)  NOT NULL,
     [Civility] tinyint  NOT NULL,
     [Country] nvarchar(50)  NOT NULL,
-    [DateBirth] datetime  NOT NULL,
+    [DateBorn] datetime  NOT NULL,
     [Activity] tinyint  NOT NULL,
     [PhoneCode] nvarchar(15)  NOT NULL,
     [PhoneNumber] nvarchar(12)  NOT NULL,

@@ -22,7 +22,7 @@
 
 		public string Email { get; set; }
 
-		public string DateBirth { get; set; }
+		public string DateBorn { get; set; }
 
 		public byte Civility { get; set; }
 	}

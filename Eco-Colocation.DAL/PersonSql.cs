@@ -45,7 +45,7 @@ namespace Eco_Colocation.DAL
 			oSqlParameters.Add("LastName", personBo.LastName, SqlDbType.NVarChar);
 			oSqlParameters.Add("Civility", personBo.Civility, SqlDbType.TinyInt);
 			oSqlParameters.Add("Country", personBo.Country, SqlDbType.NVarChar);
-			oSqlParameters.Add("DateBirth", personBo.DateBirth, SqlDbType.Date);
+			oSqlParameters.Add("DateBorn", personBo.DateBorn, SqlDbType.Date);
 			oSqlParameters.Add("Activity", personBo.Activity, SqlDbType.TinyInt);
 			oSqlParameters.Add("PhoneCode", personBo.PhoneCode, SqlDbType.NVarChar);
 			oSqlParameters.Add("PhoneNumber", personBo.PhoneNumber, SqlDbType.NVarChar);
@@ -81,7 +81,7 @@ namespace Eco_Colocation.DAL
 						LastName = ABLib.Databases.GetString(dr, "LastName"),
 						Civility = ABLib.Databases.GetByte(dr, "Civility"),
 						Country = ABLib.Databases.GetString(dr, "Country"),
-						DateBirth = ABLib.Databases.GetDateTime(dr, "DateBirth"),
+						DateBorn = ABLib.Databases.GetDateTime(dr, "DateBorn"),
 						Activity = ABLib.Databases.GetByte(dr, "Activity"),
 						PhoneCode = ABLib.Databases.GetString(dr, "PhoneCode"),
 						PhoneNumber = ABLib.Databases.GetString(dr, "PhoneNumber"),

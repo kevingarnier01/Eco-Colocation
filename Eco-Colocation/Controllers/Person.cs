@@ -30,7 +30,7 @@ public partial class Person
 
     public string Country { get; set; }
 
-    public System.DateTime DateBirth { get; set; }
+    public System.DateTime DateBorn { get; set; }
 
     public byte Activity { get; set; }
 

@@ -2107,3 +2107,22 @@ function addValueToHiddenElement(valueElement, hiddenElement) {
 	var value = $(valueElement).val()
 	$(hiddenElement).val(value);
 }
+
+function submitFormAndOpenModal() {
+	//$('#addUpdPeopleSearchForm').submit(
+	//	function () {
+	//		debugger;
+	//		$('.modal').modal();
+	//		openSecondModal();
+	//	});
+
+	$('#addUpdPeopleSearchForm').submit(function (event) {
+		event.preventDefault();
+		//this.blur(); // Manually remove focus from clicked link.
+		var a = $(this).attr('action');
+		$.get(a, function (html) {
+			debugger;
+			$(html).appendTo('body').modal();
+		});
+	});
+}

@@ -56,7 +56,7 @@ namespace Eco_Colocation.DAL
 						FirstName = ABLib.Databases.GetString(dr, "FirstName"),
 						LastName = ABLib.Databases.GetString(dr, "LastName"),
 						Email = ABLib.Databases.GetString(dr, "Email"),
-						DateBirth = ABLib.Databases.GetString(dr, "DateBirth"),
+						DateBorn = ABLib.Databases.GetString(dr, "DateBorn"),
 						Civility = ABLib.Databases.GetByte(dr, "Civility")
 					};
 

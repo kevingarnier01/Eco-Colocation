@@ -12,26 +12,26 @@
 namespace Eco_Colocation.Controllers
 {
 
-using System;
-    using System.Collections.Generic;
-    
-public partial class Roommate
-{
+	using System;
+	using System.Collections.Generic;
 
-    public int IdRoommate { get; set; }
+	public partial class Roommate
+	{
 
-    public int IdEcoRoommateExisting { get; set; }
+		public int IdRoommate { get; set; }
 
-    public string FirstName { get; set; }
+		public int IdEcoRoommateExisting { get; set; }
 
-    public string LastName { get; set; }
+		public string FirstName { get; set; }
 
-    public string Email { get; set; }
+		public string LastName { get; set; }
 
-    public string DateBirth { get; set; }
+		public string Email { get; set; }
 
-    public byte Civility { get; set; }
+		public string DateBorn { get; set; }
 
-}
+		public byte Civility { get; set; }
+
+	}
 
 }

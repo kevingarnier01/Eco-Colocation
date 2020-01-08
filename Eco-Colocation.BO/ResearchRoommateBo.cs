@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Eco_Colocation.BO
 {
@@ -23,13 +24,16 @@ namespace Eco_Colocation.BO
 		public int IdResearchRoommate { get; set; }
 
 		public int IdPerson { get; set; }
-
+				
+		[Required(ErrorMessage = "Le budget max doit être saisi")]
+		[Range(0, 10000, ErrorMessage = "Le budget max doit être entre 0 et 10 000 €")]
 		public short? MaxBudget { get; set; }
 
 		public byte EmailAlert { get; set; }
-
+		
+		[Required(ErrorMessage = "Les critères de recherche doivent être saisi")]
 		public string SearchCriteria { get; set; }
-
+		
 		public string EcoPractice { get; set; }
 
 		public string PictureName { get; set; }
