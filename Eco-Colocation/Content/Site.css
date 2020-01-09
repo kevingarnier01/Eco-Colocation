@@ -634,6 +634,12 @@ select:-moz-focusring {
 	width: 100%
 }
 
+/* Html helper error */
+.field-validation-error {
+	color: rgba(255, 0, 0, 0.75);
+	display: list-item;
+}
+
 /* leaflet */
 .leaflet-popup-content-wrapper {
 	overflow: auto !important;

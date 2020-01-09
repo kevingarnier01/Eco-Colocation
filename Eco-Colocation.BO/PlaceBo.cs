@@ -34,10 +34,10 @@ namespace Eco_Colocation.BO
 
 		public string Country { get; set; }
 
-		[Required(ErrorMessage = "Le type de zone géographique pour l'adresse doit être selectionné")]
+		[Required(ErrorMessage = "Le type de zone géographique pour l'adresse doit être renseigné")]
 		public byte ScopeResearch { get; set; }
 
-		[Required(ErrorMessage = "L'adresse doit être saisie ou selectionnée lors de l'auto-completion")]
+		[Required(ErrorMessage = "L'adresse doit être selectionnée parmit la liste sugèrée")]
 		public string EntirePlaceName { get; set; }
 	}
 }

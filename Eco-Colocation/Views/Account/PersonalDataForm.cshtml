@@ -20,47 +20,57 @@
 				</div>
 			</div>
 			<div class="col-sm-8 divRightSideEncadrer-mcar">
-				<div class="col-sm-12">
-					<p class="centerText textInfoIfAccountExist-pdf">Les informations ci-dessous sont à saisir si vous n’avez pas encore de compte.</p>
+				<div class="flex">
+					<div class="childFlex">
+						@Html.ValidationMessageFor(m => m.AccountVM.UserBo.PersonBo.LastName)
+						@Html.ValidationMessageFor(m => m.AccountVM.UserBo.PersonBo.FirstName)
+						@Html.ValidationMessageFor(m => m.AccountVM.UserBo.PersonBo.Civility)
+						@Html.ValidationMessageFor(m => m.AccountVM.UserBo.PersonBo.DateBorn)
+						@Html.ValidationMessageFor(m => m.AccountVM.UserBo.PersonBo.Country)
+					</div>
 				</div>
-				<div class="col-sm-6">
-					<label class="lbl-mcar">Nom *</label>
-					@Html.TextBoxFor(m => m.AccountVM.UserBo.PersonBo.LastName, new { @placeholder = "Entrez votre nom", @class = "input-mcar" })
-					<div class="lineinput-mcar"></div>
-				</div>
-				<div class="col-sm-6">
-					<label class="lbl-mcar">Prénom *</label>
-					@Html.TextBoxFor(m => m.AccountVM.UserBo.PersonBo.FirstName, new { @placeholder = "Entrez votre prénom", @class = "input-mcar" })
-					<div class="lineinput-mcar"></div>
-				</div>
-				<div class="col-sm-6" id="civiliteDiv-mcar">
-					<label class="lbl-mcar">Civilité *</label>
-					@Html.DropDownListFor(m => Model.AccountVM.UserBo.PersonBo.Civility,
-						new SelectList(Model.AccountVM.CiviliteLst, "Value", "Text", null), new { @class = "form-control select-mcar" })
-					<div class="lineinput-mcar"></div>
-				</div>
-				<div class="col-sm-6">
-					<label class="lbl-mcar">Date de naissance *</label>
-					@Html.TextBoxFor(m => m.AccountVM.UserBo.PersonBo.DateBorn, new { @type = "date", @class = "input-mcar" })
-					<div class="lineinput-mcar"></div>
-				</div>
-				<div class="col-sm-6">
-					<label class="lbl-mcar">Pays *</label>
-					@Html.DropDownListFor(m => Model.AccountVM.UserBo.PersonBo.Country,
-						new SelectList(Model.AccountVM.CountryLst, "Text", "Text", null), new { @class = "form-control select-mcar" })
-					<div class="lineinput-mcar"></div>
-				</div>
-				<div class="col-sm-6">
-					<label class="lbl-mcar">Activités *</label>
-					@Html.DropDownListFor(m => Model.AccountVM.UserBo.PersonBo.Activity,
-						new SelectList(Model.AccountVM.ActivityLst, "Value", "Text", null), new { @class="form-control select-mcar" })
-					<div class="lineinput-mcar"></div>
-				</div>
-				<div id="extraElement-pdf">
+						<div class="col-sm-12">
+							<p class="centerText textInfoIfAccountExist-pdf">Les informations ci-dessous sont à saisir si vous n’avez pas encore de compte.</p>
+						</div>
+						<div class="col-sm-6">
+							<label class="lbl-mcar">Nom *</label>
+							@Html.TextBoxFor(m => m.AccountVM.UserBo.PersonBo.LastName, new { @placeholder = "Entrez votre nom", @class = "input-mcar" })
+							<div class="lineinput-mcar"></div>
+						</div>
+						<div class="col-sm-6">
+							<label class="lbl-mcar">Prénom *</label>
+							@Html.TextBoxFor(m => m.AccountVM.UserBo.PersonBo.FirstName, new { @placeholder = "Entrez votre prénom", @class = "input-mcar" })
+							<div class="lineinput-mcar"></div>
+						</div>
+						<div class="col-sm-6" id="civiliteDiv-mcar">
+							<label class="lbl-mcar">Civilité *</label>
+							@Html.DropDownListFor(m => Model.AccountVM.UserBo.PersonBo.Civility,
+								new SelectList(Model.AccountVM.CiviliteLst, "Value", "Text", null), new { @class = "form-control select-mcar" })
+							<div class="lineinput-mcar"></div>
+						</div>
+						<div class="col-sm-6">
+							<label class="lbl-mcar">Date de naissance *</label>
+							@Html.TextBoxFor(m => m.AccountVM.UserBo.PersonBo.DateBorn, new { @type = "date", @class = "input-mcar" })
+							<div class="lineinput-mcar"></div>
+						</div>
+						<div class="col-sm-6">
+							<label class="lbl-mcar">Pays *</label>
+							@Html.DropDownListFor(m => Model.AccountVM.UserBo.PersonBo.Country,
+								new SelectList(Model.AccountVM.CountryLst, "Text", "Text", null), new { @class = "form-control select-mcar" })
+							<div class="lineinput-mcar"></div>
+						</div>
+						<div class="col-sm-6">
+							@Html.ValidationMessageFor(m => m.AccountVM.UserBo.PersonBo.Activity)
+							<label class="lbl-mcar">Activités *</label>
+							@Html.DropDownListFor(m => Model.AccountVM.UserBo.PersonBo.Activity,
+								new SelectList(Model.AccountVM.ActivityLst, "Value", "Text", null), new { @class="form-control select-mcar" })
+							<div class="lineinput-mcar"></div>
+						</div>
+						<div id="extraElement-pdf">
+						</div>
+					</div>
 				</div>
 			</div>
-		</div>
-	</div>
 	<div class="divEncadrer-mcar" id="divContactInfo-mcar">
 		<div class="encadrer-mcar  col-sm-11 col-xs-12">
 			<div class="col-sm-4 divLeftSideEncadrer-mcar divImgLogo-mcar">
@@ -72,16 +82,23 @@
 			</div>
 			<div class="col-sm-8 divRightSideEncadrer-mcar">
 				<div class="overflow">
+					<div class="flex">
+						<div class="childFlex">
+							@Html.ValidationMessageFor(m => m.AccountVM.UserBo.PersonBo.Email)
+							@Html.ValidationMessageFor(m => m.AccountVM.UserBo.PersonBo.PhoneCode)
+							@Html.ValidationMessageFor(m => m.AccountVM.UserBo.PersonBo.PhoneNumber)
+						</div>
+					</div>
 					<div class="col-sm-6">
 						<label class="lbl-mcar">Email *</label>
 						@Html.TextBoxFor(m => m.AccountVM.UserBo.PersonBo.Email, new { @id = "emailInp-pdf", @type = "email", @placeholder = "Entrez votre email", @class = "input-mcar" })
 						<div class="lineinput-mcar"></div>
 					</div>
 					@*<div class="col-sm-6">
-						<label class="lbl-mcar">Téléphone *</label>
-						@Html.TextBoxFor(m => m.AccountVM.UserBo.PersonBo.PhoneNumber, new { @type = "tel", @placeholder = "+33 xxxxxxxxx", @class = "input-mcar", @maxlength = "13" })
-						<div class="lineinput-mcar"></div>
-					</div>*@
+			<label class="lbl-mcar">Téléphone *</label>
+			@Html.TextBoxFor(m => m.AccountVM.UserBo.PersonBo.PhoneNumber, new { @type = "tel", @placeholder = "+33 xxxxxxxxx", @class = "input-mcar", @maxlength = "13" })
+			<div class="lineinput-mcar"></div>
+		</div>*@
 					<div class="col-sm-6">
 						<label class="lbl-mcar">Téléphone *</label>
 						<div class="flex" id="divTelephone-pdf">
@@ -101,6 +118,7 @@
 				<div id="wayToBeContact-pdf">
 					<h4 class="centerText" style="margin-bottom: 15px;">Comment souhaitez-vous être contacté ?</h4>
 					<div>
+						@Html.ValidationMessageFor(m => m.AccountVM.UserBo.PersonBo.ContactType)
 						<div class="flex">
 							<div class="childFlex">
 								@Html.TextBoxFor(m => m.AccountVM.UserBo.PersonBo.ContactType, ((int)Eco_Colocation.App_Start._Enums.ContactType.Phone).ToString(), new { @id = "chkPhone-mlca", @type = "radio", @name = "radioContact" })

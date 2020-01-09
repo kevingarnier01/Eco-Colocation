@@ -64,8 +64,8 @@ namespace Eco_Colocation.Controllers
 			return View("");
 		}
 
-		[HttpPost]
-		[MultiSubmitAttribute(Name = "action", Argument = "Valid_AddAndSubscribe")]
+		//[HttpPost]
+		//[MultiSubmitAttribute(Name = "action", Argument = "Valid_AddAndSubscribe")]
 		public ActionResult Valid_AddAndSubscribe(AllViewModel AllVM)
 		{
 			if (ModelState.IsValid)
@@ -78,9 +78,7 @@ namespace Eco_Colocation.Controllers
 			}
 			else
 			{
-				//TempData["idModalToTrigger"] = "#addSearchingAnnonceLink-ps";
-
-				//return PartialView("~/Views/EcoRoommateHome/EcoRoommateHomeView.cshtml", AllVM);
+				ViewData["operation"] = "Subscribe";
 
 				return PartialView("~/Views/PeopleSearching/AddUpd_ModalPeopleSearch.cshtml", AllVM);
 			}

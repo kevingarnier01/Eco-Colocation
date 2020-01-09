@@ -2108,21 +2108,24 @@ function addValueToHiddenElement(valueElement, hiddenElement) {
 	$(hiddenElement).val(value);
 }
 
-function submitFormAndOpenModal() {
-	//$('#addUpdPeopleSearchForm').submit(
-	//	function () {
-	//		debugger;
-	//		$('.modal').modal();
-	//		openSecondModal();
-	//	});
+function submitForm() {
+	$("input:submit").click(function (e) {
+		e.preventDefault();
+		var url = $(this).attr("data-url-jquerySubmit");
 
-	$('#addUpdPeopleSearchForm').submit(function (event) {
-		event.preventDefault();
-		//this.blur(); // Manually remove focus from clicked link.
-		var a = $(this).attr('action');
-		$.get(a, function (html) {
-			debugger;
-			$(html).appendTo('body').modal();
-		});
-	});
+		$.post(url, $('#addUpdPeopleSearchForm').serialize(), function (html) {
+			openSecondModal();
+			$("#addUpdPeopleSearchForm").replaceWith(html)
+		})
+	})
+
+	//$('#addUpdPeopleSearchForm').submit(function (event) {
+	//	event.preventDefault();
+	//	//this.blur(); // Manually remove focus from clicked link.
+	//	var a = $(this).attr('action');
+	//	debugger;
+	//	$.post(a, function (html) {
+	//		$(html).appendTo('body').modal();
+	//	});
+	//});
 }
