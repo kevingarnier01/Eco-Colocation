@@ -31,17 +31,16 @@ namespace Eco_Colocation.BO
 
 		public byte EmailAlert { get; set; }
 		
-		[Required(ErrorMessage = "Les critères de recherche doivent être renseignés")]
+		[Required(ErrorMessage = "Le type d'éco-colocation recherché doivent être renseignés")]
 		public string SearchCriteria { get; set; }
 
 		[Required(ErrorMessage = "Les pratiques écologiques doivent être renseignées")]
 		public string EcoPractice { get; set; }
-
+		
+		[StringLength(50, ErrorMessage = "Le nom de la photo excède le nombre de caractère maximum.")]
 		public string PictureName { get; set; }
 
 		public bool ActivatedAnnouncement { get; set; }
-
-
 
 		public virtual ICollection<PlaceBo> PlaceBo { get; set; }
 

@@ -70,7 +70,6 @@ namespace Eco_Colocation.Controllers
 		{
 			if (ModelState.IsValid)
 			{
-
 				AccountController accountController = new AccountController();
 				int idPerson = accountController._Inscription(AllVM);
 
@@ -127,7 +126,7 @@ namespace Eco_Colocation.Controllers
 			
 			for (int i = 0; i < peopleSearchingVM.LstPlaceBo.Count; i++)
 			{				
-				JObject place = JsonConvert.DeserializeObject<JObject>(peopleSearchingVM.LstPlaceBo[i].EntirePlaceName);
+				JObject place = JsonConvert.DeserializeObject<JObject>(peopleSearchingVM.LstPlaceBo[i].JsonDataPlace);
 
 				PlaceBo placeBo = new PlaceBo(true);
 				if(peopleSearchingVM.PlaceBo.ScopeResearch == 2 || peopleSearchingVM.PlaceBo.ScopeResearch == 3)

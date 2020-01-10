@@ -118,7 +118,6 @@
 				<div id="wayToBeContact-pdf">
 					<h4 class="centerText" style="margin-bottom: 15px;">Comment souhaitez-vous être contacté ?</h4>
 					<div>
-						@Html.ValidationMessageFor(m => m.AccountVM.UserBo.PersonBo.ContactType)
 						<div class="flex">
 							<div class="childFlex">
 								@Html.TextBoxFor(m => m.AccountVM.UserBo.PersonBo.ContactType, ((int)Eco_Colocation.App_Start._Enums.ContactType.Phone).ToString(), new { @id = "chkPhone-mlca", @type = "radio", @name = "radioContact" })
@@ -133,7 +132,7 @@
 						</div>
 						<div class="flex">
 							<div class="childFlex">
-								@Html.TextBoxFor(m => m.AccountVM.UserBo.PersonBo.ContactType, ((int)Eco_Colocation.App_Start._Enums.ContactType.Both).ToString(), new { @id = "chkBoth-mlca", @type = "radio", @name = "radioContact" })
+								@Html.TextBoxFor(m => m.AccountVM.UserBo.PersonBo.ContactType, ((int)Eco_Colocation.App_Start._Enums.ContactType.Both).ToString(), new { @id = "chkBoth-mlca", @type = "radio", @name = "radioContact", @checked="" })
 								<label for="chkBoth-mlca">Les deux</label>
 							</div>
 						</div>

@@ -59,7 +59,7 @@
 							<div class="childFlex">
 								@Html.ValidationMessageFor(m => m.PeopleSearchingVM.ResearchRoommateBo.MaxBudget)
 								@Html.ValidationMessageFor(m => m.PeopleSearchingVM.PlaceBo.ScopeResearch)
-								@Html.ValidationMessageFor(m => m.PeopleSearchingVM.PlaceBo.EntirePlaceName)
+								@Html.ValidationMessageFor(m => m.PeopleSearchingVM.PlaceBo.JsonDataPlace)
 							</div>
 						</div>
 						<div class="col-sm-12">
@@ -93,19 +93,64 @@
 											@Html.HiddenFor(m => m.PeopleSearchingVM.PlaceBo.ScopeResearch, new { @id = "hiddenTypeResearchSct-car" })
 										</div>
 									</div>
-									<input id="inputSearchPlace-car" oninput="addr_searchCity(this, 'inputEntirePlaceName-mps');checkToDisableLstOrNot(this, '#typeResearchSct-car')" type="text"
+									<input id="inputSearchPlace-car" oninput="addr_searchCity(this, 'inputJsonDataPlace-mps');checkToDisableLstOrNot(this, '#typeResearchSct-car')" type="text"
 										   class="form-control inputSearchPlace" placeholder="Veuillez indiquer la commune concernée&nbsp;*" />
 									<div class="divInputPlaceHidden displayNone">
-										@*Dans ce div la function jquery saveValueSelected va recreer d'autre html helper pour chaque nouvelle localisation *@
-										@Html.TextBoxFor(m => Model.PeopleSearchingVM.LstPlaceBo[-1].EntirePlaceName, new { @type = "hidden" })
+										@* Dans ce div la function jquery saveValueSelected va recreer d'autre html helper pour chaque nouvelle localisation *@
+										@* Ce Html Helper à l'index -1 est donc le modèle html reférent*@
+										<div class="divInputJsonDataPlace">
+											@Html.TextBoxFor(m => Model.PeopleSearchingVM.LstPlaceBoReferent[-1].JsonDataPlace, new { @type = "hidden", @class = "hiddenInpJsonDataPlace" })
+											@for (int i = 0; i < Model.PeopleSearchingVM.LstPlaceBo?.Count; i++)
+											{
+												@Html.TextBoxFor(m => Model.PeopleSearchingVM.LstPlaceBo[i].JsonDataPlace, new { @type = "hidden", @id = "inputPlaceHidden" + Model.PeopleSearchingVM.LstPlaceBo[i].IdPlace, @class = "inputPlaceHidden" })
+											}
+										</div>
+										<div class="divInputFullPlaceName">
+											@Html.TextBoxFor(m => Model.PeopleSearchingVM.LstPlaceBoReferent[-1].FullPlaceName, new { @type = "hidden", @class = "hiddenInpFullPlaceName" })
+											@for (int i = 0; i < Model.PeopleSearchingVM.LstPlaceBo?.Count; i++)
+											{
+												@Html.TextBoxFor(m => Model.PeopleSearchingVM.LstPlaceBo[i].FullPlaceName, new { @type = "hidden", @id = "inputPlaceHidden" + Model.PeopleSearchingVM.LstPlaceBo[i].IdPlace, @class = "inputPlaceHidden" })
+											}
+										</div>
+										<div class="divInputPlaceId">
+											@Html.TextBoxFor(m => Model.PeopleSearchingVM.LstPlaceBoReferent[-1].IdPlace, new { @type = "hidden", @class = "hiddenInpPlaceId" })
+											@for (int i = 0; i < Model.PeopleSearchingVM.LstPlaceBo?.Count; i++)
+											{
+												@Html.TextBoxFor(m => Model.PeopleSearchingVM.LstPlaceBo[i].IdPlace, new { @type = "hidden", @id = "inputPlaceHidden" + Model.PeopleSearchingVM.LstPlaceBo[i].IdPlace, @class = "inputPlaceHidden" })
+											}
+										</div>
 									</div>
 								</div>
 								@*<input id="inputSearchPlace-mpcHidden" name="inputSearchPlace-mpcHidden" type="hidden">*@
 								<div class="listAutoCompleteToModal"></div>
-								<div id="placeSaved-car" class="placeSaved">
-									<div id="place-car" class="place">
+
+								@if (Model.PeopleSearchingVM.LstPlaceBo != null && Model.PeopleSearchingVM.LstPlaceBo?.Count != 0)
+								{
+									<div class="divInputPlaceVisible-car">
+										<div id="placeSaved-car" class="placeSaved" style="display:block">
+											<div id="place-car" class="place">
+												@for (int i = 0; i < Model.PeopleSearchingVM.LstPlaceBo?.Count; i++)
+												{
+													<div id="placecar-@Model.PeopleSearchingVM.LstPlaceBo[i].IdPlace" class="divPlace">
+														@*<p class="placeName" title="Rennes 35, Ille-et-Vilaine, Bretagne">Rennes 35, Ille-et-Vilaine, Bretagne</p>*@
+														@Html.TextBoxFor(m => m.PeopleSearchingVM.LstPlaceBo[i].FullPlaceName, new { @title = "{0}", @class = "placeName" })
+														<div class="crossPlace">
+															<i onclick="deletePlace('placecar-@Model.PeopleSearchingVM.LstPlaceBo[i].IdPlace','car','@Model.PeopleSearchingVM.LstPlaceBo[i].IdPlace','#inputSearchPlace-car')" class="fas fa-times crossPlace"></i>
+														</div>
+													</div>
+												}
+											</div>
+										</div>
 									</div>
-								</div>
+								}
+								else
+								{
+									<div id="placeSaved-car" class="placeSaved">
+										<div id="place-car" class="place">
+										</div>
+									</div>
+								}
+
 								<div id="div10-3-adresseLog-ca" class="flex col-sm-12">
 									<div id="div10-4-adresseLog-ca" class="col-sm-2"></div>
 									<i class="fas fa-info" id="iconPlace-ca"></i>
@@ -175,7 +220,7 @@
 							@Html.TextAreaFor(m => m.PeopleSearchingVM.ResearchRoommateBo.SearchCriteria, new
 							   {
 								   @class = "txtareaDesc-mcar input-mcar",
-								   @placeholder = "Présenter le type d'éco-colocation recherchée..."
+								   @placeholder = "Présenter le type d'éco-colocation recherché..."
 							   })
 
 							@Html.TextAreaFor(m => m.PeopleSearchingVM.ResearchRoommateBo.EcoPractice, new
@@ -197,15 +242,15 @@
 						</div>
 					</div>
 					<div class="col-sm-8 divRightSideEncadrer-mcar">
-						<div class="flex">
-							<div class="childFlex">
-								@Html.ValidationMessageFor(m => m.PeopleSearchingVM.ResearchRoommateBo.PictureName)
-							</div>
-						</div>
 						<div id="divGlobalMsgPhoto-mcar">
 							<i class="fas fa-info" id="iconMsgPhoto-mcar"></i>
 							<div>
 								<p>Les profils accompagnées d'une photo sont 7 fois plus consultés que les autres.</p>
+							</div>
+						</div>
+						<div class="flex">
+							<div class="childFlex">
+								@Html.ValidationMessageFor(m => m.PeopleSearchingVM.ResearchRoommateBo.PictureName)
 							</div>
 						</div>
 						<div id="divGlobalBtnUplFile-mcar">

@@ -38,6 +38,8 @@ namespace Eco_Colocation.BO
 		public byte ScopeResearch { get; set; }
 
 		[Required(ErrorMessage = "L'adresse doit être selectionnée parmit la liste sugèrée")]
-		public string EntirePlaceName { get; set; }
+		public string JsonDataPlace { get; set; }
+		
+		public string FullPlaceName { get; set; }
 	}
 }

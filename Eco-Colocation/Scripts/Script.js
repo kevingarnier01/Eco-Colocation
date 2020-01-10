@@ -669,36 +669,45 @@ function getLstAutoCompletion(arr, input, typeResearch) {
 			autoFocus: true,
 			html: 'html',
 			select: function (event, ui) {
-				saveValueSelected(event, ui, this)
-				if (input.id == "inpMultiPlace-al") {
-					addNewPlaceItem(ui, input, "al");
+				var compteurPlaceItem = Math.floor(100000 + Math.random() * 900000);
+				var inputId = "#" + $(input).attr("id")
+				var nbPlacePresent = $(inputId + " + .divInputPlaceHidden input").length;
+
+				if (nbPlacePresent < 10) {
+					saveValueSelected(event, ui, this, compteurPlaceItem)
+					if (input.id == "inpMultiPlace-al") {
+						addNewPlaceItem(ui, input, "al", compteurPlaceItem);
+					}
+					else if (input.id == "inputSearchPlace-ph") {
+						addNewPlaceItem(ui, input, "ph", compteurPlaceItem);
+					}
+					else if (input.id == "inputSearchPlace-mpc") {
+						addNewPlaceItem(ui, input, "mpc", compteurPlaceItem)
+					}
+					else if (input.id == "inputSearchPlace-car") {
+						addNewPlaceItem(ui, input, "car", compteurPlaceItem)
+					}
 				}
-				else if (input.id == "inputSearchPlace-ph") {
-					addNewPlaceItem(ui, input, "ph");
-				}
-				else if (input.id == "inputSearchPlace-mpc") {
-					addNewPlaceItem(ui, input, "mpc")
-				}
-				else if (input.id == "inputSearchPlace-car") {
-					addNewPlaceItem(ui, input, "car")
+				else {
+					$(".inputSearchPlace").val("");
+					alert("Impossible d'ajouter d'autre lieu car le nombre à atteint la limite maximum.")
 				}
 			}
 		});
 	}
 }
 
-function addNewPlaceItem(ui, input, identityPage) {
-	var compteurPlaceItem = Math.floor(100000 + Math.random() * 900000);
+function addNewPlaceItem(ui, input, identityPage, compteurPlaceItem ) {
 	var inputId = "#" + $(input).attr("id");
 
 	var locationNameSelected = ui.item.value;
 
 	var htmlPlace =
 		(identityPage != "ph") ?
-			'<div id="place' + identityPage + compteurPlaceItem + '" class="divPlace">'
-			: '<div id="place' + identityPage + compteurPlaceItem + '" class="divPlace divPlace-ph">'
+			'<div id="place' + identityPage + '-' + compteurPlaceItem + '" class="divPlace">'
+			: '<div id="place' + identityPage + '-' + compteurPlaceItem + '" class="divPlace divPlace-ph">'
 
-	var paramDeletePlace = "place" + identityPage + compteurPlaceItem + ",'" + identityPage + "','" + compteurPlaceItem + "','" + inputId + "'"
+	var paramDeletePlace = "'place" + identityPage + '-' + compteurPlaceItem + "','" + identityPage + "','" + compteurPlaceItem + "','" + inputId + "'"
 	htmlPlace +=
 		'<p class="placeName" title="' + locationNameSelected + '">' + locationNameSelected + '</p>' +
 		'<div class="crossPlace"><i onclick="deletePlace(' + paramDeletePlace + ')" class="fas fa-times crossPlace"></i></div>' +
@@ -719,18 +728,46 @@ function addNewPlaceItem(ui, input, identityPage) {
 	compteurPlaceItem++;
 }
 
-function deletePlace(element, identityPage, compteurId, inputId) {
-	//Supprime le input hidden associé
+function deletePlace(idElement, identityPage, compteurId, inputId) {
+	//Supprime l'input hidden associé
 	$(inputId + " + .divInputPlaceHidden #inputPlaceHidden" + compteurId).remove();
-	//Remet les helper dans l'ordre à partir de 0
-	var nbInputPlaceHidden = $(inputId + " + .divInputPlaceHidden .inputPlaceHidden").length;
-	for (var i = 0; i < nbInputPlaceHidden; i++) {
-		inputSelect = $(inputId + " + .divInputPlaceHidden .inputPlaceHidden")[i];
+
+	//--- Remet les helper dans l'ordre à partir de 0 ---
+	
+	//Pour divInputJsonDataPlace (InputHidden)
+	var nbInputJsonDataPlace = $(inputId + " + .divInputPlaceHidden .divInputJsonDataPlace .inputPlaceHidden").length;
+	for (var i = 0; i < nbInputJsonDataPlace; i++) {
+		inputSelect = $(inputId + " + .divInputPlaceHidden .divInputJsonDataPlace .inputPlaceHidden")[i];
+		var inputName = inputSelect.name;
+		inputSelect.name = inputName.replace(/[0-9]+/, i);
+	}
+	//Pour divInputFullPlaceName (InputHidden)
+	var nbInputFullPlaceName = $(inputId + " + .divInputPlaceHidden .divInputFullPlaceName .inputPlaceHidden").length;
+	for (var i = 0; i < nbInputFullPlaceName; i++) {
+		inputSelect = $(inputId + " + .divInputPlaceHidden .divInputFullPlaceName .inputPlaceHidden")[i];
 		var inputName = inputSelect.name;
 		inputSelect.name = inputName.replace(/[0-9]+/, i);
 	}
 
-	$(element).remove();
+	//Pour divInputPlaceId (InputHidden)
+	var nbInputFullPlaceName = $(inputId + " + .divInputPlaceHidden .divInputPlaceId .inputPlaceHidden").length;
+	for (var i = 0; i < nbInputFullPlaceName; i++) {
+		inputSelect = $(inputId + " + .divInputPlaceHidden .divInputPlaceId .inputPlaceHidden")[i];
+		var inputName = inputSelect.name;
+		inputSelect.name = inputName.replace(/[0-9]+/, i);
+	}
+
+	//Supprimer également l'element visible
+	$("#" + idElement).remove();
+
+	//Pour les input visibles restants, on remet aussi les helpers dans l'ordre
+	var nbInputPlaceId = $(".divInputPlaceVisible-" + identityPage + " input").length;
+	debugger;
+	for (var i = 0; i < nbInputPlaceId; i++) {
+		inputSelect = $(".divInputPlaceVisible-" + identityPage + " input")[i];
+		var inputName = inputSelect.name;
+		inputSelect.name = inputName.replace(/[0-9]+/, i);
+	}
 
 	if ($('#placeSaved-' + identityPage + ' .divPlace').length == 0) {
 		$("#placeSaved-" + identityPage).css('display', 'none');
@@ -741,18 +778,40 @@ function deletePlace(element, identityPage, compteurId, inputId) {
 	}
 }
 
-function saveValueSelected(event, ui, input) {
+function saveValueSelected(event, ui, input, compteurPlaceItem) {
 	var selectedObj = ui.item.json;
 
 	var inputId = "#" + $(input).attr("id");
-	var numberCurrentInput = $(inputId + " + .divInputPlaceHidden input").length;
-	var htmlInput = $(inputId + " + .divInputPlaceHidden input")[0].outerHTML
-	$(inputId + " + .divInputPlaceHidden").append(htmlInput);
-	var newInput = $(inputId + " + .divInputPlaceHidden input:last-child")
+
+	//JsonDataPlace -> Les données jsons lié au lieu
+	var numberInputJsonDataPlace = $(inputId + " + .divInputPlaceHidden .divInputJsonDataPlace input").length;
+	var htmlInput = $(inputId + " + .divInputPlaceHidden .divInputJsonDataPlace .hiddenInpJsonDataPlace")[0].outerHTML
+	$(inputId + " + .divInputPlaceHidden .divInputJsonDataPlace").append(htmlInput);
+	var newInput = $(inputId + " + .divInputPlaceHidden .divInputJsonDataPlace input:last-child")
 	var inputName = newInput.attr("name")
-	newInput.attr("name", inputName.replace("-1", numberCurrentInput - 1))
+	newInput.attr("name", inputName.replace("Referent", "").replace("-1", numberInputJsonDataPlace - 1))
 	newInput.attr("class", "inputPlaceHidden")
 	newInput.val(JSON.stringify(selectedObj))
+
+	//FullPlaceName -> La chaine complete du lieu selectionné
+	var numberInputFullPlaceName = $(inputId + " + .divInputPlaceHidden .divInputFullPlaceName input").length;
+	var htmlInputFPN = $(inputId + " + .divInputPlaceHidden .divInputFullPlaceName .hiddenInpFullPlaceName")[0].outerHTML
+	$(inputId + " + .divInputPlaceHidden .divInputFullPlaceName").append(htmlInputFPN);
+	var newInputFPN = $(inputId + " + .divInputPlaceHidden .divInputFullPlaceName input:last-child")
+	var inputNameFPN = newInputFPN.attr("name")
+	newInputFPN.attr("name", inputNameFPN.replace("Referent", "").replace("-1", numberInputFullPlaceName - 1))
+	newInputFPN.attr("class", "inputPlaceHidden")
+	newInputFPN.val(ui.item.value)
+
+	//IdPlace 
+	var numberInputIdPlace = $(inputId + " + .divInputPlaceHidden .divInputPlaceId input").length;
+	var htmlInputPlaceId = $(inputId + " + .divInputPlaceHidden .divInputPlaceId .hiddenInpPlaceId")[0].outerHTML
+	$(inputId + " + .divInputPlaceHidden .divInputPlaceId").append(htmlInputPlaceId);
+	var newInputPlaceId = $(inputId + " + .divInputPlaceHidden .divInputPlaceId input:last-child")
+	var inputNamePlaceId = newInputPlaceId.attr("name")
+	newInputPlaceId.attr("name", inputNamePlaceId.replace("Referent", "").replace("-1", numberInputIdPlace - 1))
+	newInputPlaceId.attr("class", "inputPlaceHidden")
+	newInputPlaceId.val(compteurPlaceItem)
 }
 
 function addr_searchCity(inputId) {
@@ -2114,18 +2173,7 @@ function submitForm() {
 		var url = $(this).attr("data-url-jquerySubmit");
 
 		$.post(url, $('#addUpdPeopleSearchForm').serialize(), function (html) {
-			openSecondModal();
 			$("#addUpdPeopleSearchForm").replaceWith(html)
 		})
 	})
-
-	//$('#addUpdPeopleSearchForm').submit(function (event) {
-	//	event.preventDefault();
-	//	//this.blur(); // Manually remove focus from clicked link.
-	//	var a = $(this).attr('action');
-	//	debugger;
-	//	$.post(a, function (html) {
-	//		$(html).appendTo('body').modal();
-	//	});
-	//});
 }

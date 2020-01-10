@@ -638,6 +638,7 @@ select:-moz-focusring {
 .field-validation-error {
 	color: rgba(255, 0, 0, 0.75);
 	display: list-item;
+	margin-bottom: 5px;
 }
 
 /* leaflet */
@@ -1105,7 +1106,8 @@ select#typeResearchSct-ph:focus {
 	max-width: 97%;
 	font-weight: normal;
 	color: #666;
-	margin-right: 3px
+	margin-right: 3px;
+	border: none;
 }
 
 .crossPlace {

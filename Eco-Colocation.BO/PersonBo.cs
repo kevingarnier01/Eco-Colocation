@@ -25,31 +25,29 @@ namespace Eco_Colocation.BO
 		[StringLength(60, ErrorMessage = "L'email excède le nombre de caractère maximum.")]
 		public string Email { get; set; }
 
-		[Required(ErrorMessage = "Le prénom doit être saisi")]
+		[Required(ErrorMessage = "Le prénom doit être renseigné")]
 		public string FirstName { get; set; }
 
 		[Required(ErrorMessage = "Le nom doit être renseigné")]
 		public string LastName { get; set; }
 
-		[Required(ErrorMessage = "La civilité doit être renseignée")]
 		public byte Civility { get; set; }
 
-		[Required(ErrorMessage = "Le pays doit être renseigné")]
 		public string Country { get; set; }
 
 		[Required(ErrorMessage = "La date de naissance doit être renseignée")]
+		[DataType(DataType.Date, ErrorMessage = "La date de naissance n'est pas valide")]
+		[DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
 		public System.DateTime DateBorn { get; set; }
 
-		[Required(ErrorMessage = "L'activité doit être renseigné")]
 		public byte Activity { get; set; }
 
-		[Required(ErrorMessage = "L'indicatif téléphonique doit être renseigné")]
 		public string PhoneCode { get; set; }
 
 		[Required(ErrorMessage = "Le numéro de téléphone doit être renseigné")]
 		public string PhoneNumber { get; set; }
 
-		[Required(ErrorMessage = "Le type de contact possible doit être renseigné")]
+		[Required(ErrorMessage = "Le mode de contact doit être renseigné")]
 		public byte ContactType { get; set; }
 
 		[Required(ErrorMessage = "La description de votre personnalité doit être renseignée")]
