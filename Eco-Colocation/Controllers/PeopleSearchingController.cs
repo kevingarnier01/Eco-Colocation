@@ -137,13 +137,12 @@ namespace Eco_Colocation.Controllers
 				else { 
 				placeBo.City = (string)place["label"];
 				placeBo.PostalCode = (string)place["postcode"];
-				var context = ((string)place["context"]);
+				string[] context = place["context"].ToString().Split(',');
 					if (context != null)
 					{
-						context.Split(',');
-						placeBo.DepartmentNumber = context[0].ToString();
-						placeBo.Department = context[1].ToString();
-						placeBo.Region = context[2].ToString();
+						placeBo.DepartmentNumber = context[0];
+						placeBo.Department = context[1];
+						placeBo.Region = context[2];
 						//placeBo.Country;
 					}
 				}
