@@ -59,7 +59,8 @@
 							<div class="childFlex">
 								@Html.ValidationMessageFor(m => m.PeopleSearchingVM.ResearchRoommateBo.MaxBudget)
 								@Html.ValidationMessageFor(m => m.PeopleSearchingVM.PlaceBo.ScopeResearch)
-								@Html.ValidationMessageFor(m => m.PeopleSearchingVM.PlaceBo.JsonDataPlace)
+								@Html.ValidationMessageFor(m => m.PeopleSearchingVM.LstPlaceBo)
+
 							</div>
 						</div>
 						<div class="col-sm-12">
@@ -163,7 +164,7 @@
 							<div class="flex">
 								<div class="childFlex">
 									<p class="onoff">
-										@Html.TextBoxFor(m => m.PeopleSearchingVM.ResearchRoommateBo.EmailAlert, new { type = "checkbox", @id = "email-car" })
+										@Html.TextBoxFor(m => m.PeopleSearchingVM.ResearchRoommateBo.EmailAlert, new { type = "checkbox", @id = "email-car", @checked = "" })
 										<label for="email-car"></label>
 									</p>
 								</div>
@@ -340,5 +341,5 @@
 		addInputActionToConnectionButton()
 	}
 
-	submitForm();
+	triggerSubmitForm("#addUpdPeopleSearchForm");
 </script>

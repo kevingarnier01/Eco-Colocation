@@ -697,7 +697,7 @@ function getLstAutoCompletion(arr, input, typeResearch) {
 	}
 }
 
-function addNewPlaceItem(ui, input, identityPage, compteurPlaceItem ) {
+function addNewPlaceItem(ui, input, identityPage, compteurPlaceItem) {
 	var inputId = "#" + $(input).attr("id");
 
 	var locationNameSelected = ui.item.value;
@@ -733,7 +733,7 @@ function deletePlace(idElement, identityPage, compteurId, inputId) {
 	$(inputId + " + .divInputPlaceHidden #inputPlaceHidden" + compteurId).remove();
 
 	//--- Remet les helper dans l'ordre à partir de 0 ---
-	
+
 	//Pour divInputJsonDataPlace (InputHidden)
 	var nbInputJsonDataPlace = $(inputId + " + .divInputPlaceHidden .divInputJsonDataPlace .inputPlaceHidden").length;
 	for (var i = 0; i < nbInputJsonDataPlace; i++) {
@@ -1722,27 +1722,29 @@ function loadAccountConnexionToFinishOperation() {
 }
 
 function triggerBtnOnOffOnAgence() {
+	setTimeout(function () {
+		if ($("#agence-cb").val() == 0) {
+			$('#nomAgence-mlca').attr('disabled', 'true')
+			$('#numSiret-mlca').attr('disabled', 'true')
+			$('#fraisAgence-mlca').attr('disabled', 'true')
+			$('#numRueAgence-ml').attr('disabled', 'true')
+			$('#inputSearchPlaceAgence-ml').attr('disabled', 'true')
+
+			$("#divPersonnaliteInfo-mcar").fadeIn("slow");
+		}
+		else {
+			$('#nomAgence-mlca').removeAttr('disabled')
+			$('#numSiret-mlca').removeAttr('disabled')
+			$('#fraisAgence-mlca').removeAttr('disabled')
+			$('#numRueAgence-ml').removeAttr('disabled')
+			$('#inputSearchPlaceAgence-ml').removeAttr('disabled')
+
+			$("#divPersonnaliteInfo-mcar").fadeOut("slow");
+		}
+	}, 250);
+
 	$("#agence-cb").click(function (e) {
-		setTimeout(function () {
-			if ($("#agence-cb").val() == 0) {
-				$('#nomAgence-mlca').attr('disabled', 'true')
-				$('#numSiret-mlca').attr('disabled', 'true')
-				$('#fraisAgence-mlca').attr('disabled', 'true')
-				$('#numRueAgence-ml').attr('disabled', 'true')
-				$('#inputSearchPlaceAgence-ml').attr('disabled', 'true')
-
-				$("#divPersonnaliteInfo-mcar").fadeIn("slow");
-			}
-			else {
-				$('#nomAgence-mlca').removeAttr('disabled')
-				$('#numSiret-mlca').removeAttr('disabled')
-				$('#fraisAgence-mlca').removeAttr('disabled')
-				$('#numRueAgence-ml').removeAttr('disabled')
-				$('#inputSearchPlaceAgence-ml').removeAttr('disabled')
-
-				$("#divPersonnaliteInfo-mcar").fadeOut("slow");
-			}
-		}, 250);
+		triggerBtnOnOffOnAgence();
 	});
 }
 
@@ -1771,19 +1773,19 @@ function triggerBtnOnOffOnTerain_mpc() {
 }
 
 function initButtonOnOff() {
-	for (var i = 0; i < $('.onoff input').length; i++) {
-		var elementId = "#" + $('.onoff input')[i].id;
-		if ($(elementId).attr('value') == '0') {
-			$(elementId).click()
+	for (var i = 0; i < $('.onoff input').length; i++) {		
+		var currentElement = $(".onoff input")[i];
+		if (currentElement.value == 0) {
+			$(".onoff input + label")[i].click()
 		}
 	}
 
 	$(".onoff input").click(function (e) {
 		if ($(this).attr('value') == '0') {
-			$(this).val("1")
+			$(this).val("1");
 		}
 		else {
-			$(this).val("0")
+			$(this).val("0");
 		}
 	})
 }
@@ -2167,13 +2169,13 @@ function addValueToHiddenElement(valueElement, hiddenElement) {
 	$(hiddenElement).val(value);
 }
 
-function submitForm() {
+function triggerSubmitForm(idForm) {
 	$("input:submit").click(function (e) {
 		e.preventDefault();
 		var url = $(this).attr("data-url-jquerySubmit");
 
-		$.post(url, $('#addUpdPeopleSearchForm').serialize(), function (html) {
-			$("#addUpdPeopleSearchForm").replaceWith(html)
+		$.post(url, $(idForm).serialize(), function (html) {
+			$(idForm).replaceWith(html)
 		})
 	})
 }

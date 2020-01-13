@@ -30,7 +30,7 @@ namespace Eco_Colocation.BO
 		public short? MaxBudget { get; set; }
 
 		public byte EmailAlert { get; set; }
-		
+
 		[Required(ErrorMessage = "Le type d'éco-colocation recherché doivent être renseignés")]
 		public string SearchCriteria { get; set; }
 

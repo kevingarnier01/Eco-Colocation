@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 01/08/2020 11:06:28
+-- Date Created: 01/13/2020 16:32:55
 -- Generated from EDMX file: C:\Users\kev-gar\Documents\Projet personnel\Eco-colocation\Application\Développement\Eco-Colocation\Eco-Colocation\Controllers\EcoColocationModel.edmx
 -- --------------------------------------------------
 
@@ -313,7 +313,7 @@ CREATE TABLE [dbo].[ResearchRoommate] (
     [EmailAlert] tinyint  NOT NULL,
     [SearchCriteria] nvarchar(max)  NOT NULL,
     [EcoPractice] nvarchar(max)  NOT NULL,
-    [PictureName] nvarchar(50)  NOT NULL,
+    [PictureName] nvarchar(50)  NULL,
     [ActivatedAnnouncement] bit  NOT NULL
 );
 GO

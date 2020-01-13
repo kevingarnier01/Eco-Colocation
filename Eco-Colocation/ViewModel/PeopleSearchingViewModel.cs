@@ -13,7 +13,10 @@ namespace Eco_Colocation.ViewModel
 		public List<PeopleSearchingViewModel> LstPeopleSearchingVM { get; set; }
 		public int IdPeopleSearching { get; set; }
 		public SelectList ScopeResearchLst { get; set; }
+
+		[RequiredListMinItems(1, ErrorMessage = "Aucun lieu n'a été renseigné.")]
 		public List<PlaceBo> LstPlaceBo { get; set; }
+
 		public List<PlaceBo> LstPlaceBoReferent { get; set; }
 
 		public PeopleSearchingViewModel() { }
@@ -25,6 +28,7 @@ namespace Eco_Colocation.ViewModel
 				ResearchRoommateBo = new ResearchRoommateBo(true);
 
 				LstPeopleSearchingVM = new List<PeopleSearchingViewModel>();
+				LstPlaceBo = new List<PlaceBo>();
 				IdPeopleSearching = new int();
 			}
 		}

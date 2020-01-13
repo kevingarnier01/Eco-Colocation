@@ -45,7 +45,7 @@ namespace Eco_Colocation.DAL
 			oSqlParameters.Add("SearchCriteria", researchRoommateBo.SearchCriteria, SqlDbType.NVarChar);
 			oSqlParameters.Add("EcoPractice", researchRoommateBo.EcoPractice, SqlDbType.NVarChar);
 			oSqlParameters.Add("PictureName", researchRoommateBo.PictureName, SqlDbType.NVarChar);
-			oSqlParameters.Add("ActivatedAnnouncement", researchRoommateBo.ActivatedAnnouncement, SqlDbType.Bit);
+			oSqlParameters.Add("ActivatedAnnouncement", 1, SqlDbType.Bit);
 
 			this.SqlDbStoredProcedureDAL.Add(researchRoommateBo, "IdResearchRoommate", 0, "ResearchRoommate_Add", oSqlParameters);
 

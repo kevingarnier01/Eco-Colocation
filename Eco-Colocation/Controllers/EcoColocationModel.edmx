@@ -280,7 +280,7 @@
     <Property Name="EmailAlert" Type="tinyint" Nullable="false" />
     <Property Name="SearchCriteria" Type="nvarchar(max)" Nullable="false" />
     <Property Name="EcoPractice" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="PictureName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="PictureName" Type="nvarchar" Nullable="true" MaxLength="50" />
     <Property Name="ActivatedAnnouncement" Type="bit" Nullable="false" DefaultValue="true" />
   </EntityType>
   <EntityType Name="AssociatedEvent">
@@ -880,7 +880,7 @@
           <Property Name="EmailAlert" Type="Byte" Nullable="false" />
           <Property Name="SearchCriteria" Type="String" Nullable="false" MaxLength="Max" />
           <Property Name="EcoPractice" Type="String" Nullable="false" MaxLength="Max" />
-          <Property Name="PictureName" Type="String" Nullable="false" MaxLength="50" />
+          <Property Name="PictureName" Type="String" Nullable="true" MaxLength="50" />
           <Property Name="ActivatedAnnouncement" Type="Boolean" Nullable="false" DefaultValue="true" />
           <NavigationProperty Name="Person" Relationship="EcoColocationModel.Person_ResearchRoommate" FromRole="ResearchRoommate" ToRole="Person" />
           <NavigationProperty Name="Place" Relationship="EcoColocationModel.PlaceResearchRoommate" FromRole="ResearchRoommate" ToRole="Place" />

@@ -36,8 +36,7 @@ namespace Eco_Colocation.BO
 
 		[Required(ErrorMessage = "Le type de zone géographique pour l'adresse doit être renseigné")]
 		public byte ScopeResearch { get; set; }
-
-		[Required(ErrorMessage = "L'adresse doit être selectionnée parmit la liste sugèrée")]
+				
 		public string JsonDataPlace { get; set; }
 		
 		public string FullPlaceName { get; set; }

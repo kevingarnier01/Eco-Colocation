@@ -271,7 +271,7 @@ select {
 		width: 100%;
 		height: 100%;
 		cursor: pointer;
-		background: #C4D102;
+		background: #f15d5d;
 		border-radius: 5px;
 		font-weight: bold;
 		color: #FFF;
@@ -286,7 +286,7 @@ select {
 	}
 
 		.onoff label:after {
-			content: 'OUI';
+			content: 'NON';
 			display: block;
 			position: absolute;
 			top: 0px;
@@ -319,12 +319,12 @@ select {
 		}
 
 	.onoff input:checked + label {
-		background: #f15d5d;
+		background: #C4D102;
 		text-indent: 8px;
 	}
 
 		.onoff input:checked + label:after {
-			content: 'NON';
+			content: 'OUI';
 			color: white;
 		}
 

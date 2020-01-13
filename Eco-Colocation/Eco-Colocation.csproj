@@ -148,6 +148,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\_Lists.cs" />
     <Compile Include="App_Start\_Enums.cs" />
+    <Compile Include="App_Start\_DataAnnotation.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\Ad_CreationProjectController.cs" />
     <Compile Include="Controllers\Ad_RentalController.cs" />
