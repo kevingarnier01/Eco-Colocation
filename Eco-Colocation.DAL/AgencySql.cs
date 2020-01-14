@@ -53,8 +53,7 @@ namespace Eco_Colocation.DAL
 					{
 						IdAgency = ABLib.Databases.GetInt32(dr, "IdAgency"),
 						Name = ABLib.Databases.GetString(dr, "Name"),
-						Email = ABLib.Databases.GetString(dr, "Email"),
-						Phone = ABLib.Databases.GetString(dr, "Phone"),
+						PhoneNumber = ABLib.Databases.GetString(dr, "PhoneNumber"),
 						StreetNumber = ABLib.Databases.GetString(dr, "StreetNumber"),
 						Street = ABLib.Databases.GetString(dr, "Street"),
 						City = ABLib.Databases.GetString(dr, "City"),

@@ -50,26 +50,39 @@ namespace Eco_Colocation.Controllers
 
 			if (ModelState.IsValid)
 			{
-				WebSecurity.CreateUserAndAccount(
-							allVM.AccountVM.UserBo.UserName,
-							allVM.AccountVM.UserBo.Password,
-							new
-							{
-								TypeUser = 1,
-								Activated = 1
-							},
-							false
-						);
-				
-				allVM.AccountVM.UserBo.IdUser = WebSecurity.GetUserId(allVM.AccountVM.UserBo.UserName);
+				bool userExist = WebSecurity.UserExists(allVM.AccountVM.UserBo.UserName);
 
-				if (allVM.AccountVM.UserBo.TypeUser != (int)TypeUser.Agence)
+				if (userExist == false)
 				{
-					idPerson = PersonManager.Add(allVM.AccountVM.UserBo.PersonBo, allVM.AccountVM.UserBo.IdUser);
+					WebSecurity.CreateUserAndAccount(
+								allVM.AccountVM.UserBo.UserName,
+								allVM.AccountVM.UserBo.Password,
+								new
+								{
+									TypeUser = 1,
+									Activated = 1
+								},
+								false
+							);
+
+					allVM.AccountVM.UserBo.IdUser = WebSecurity.GetUserId(allVM.AccountVM.UserBo.UserName);
+
+					if (allVM.AccountVM.UserBo.TypeUser != (int)TypeUser.Agence)
+					{
+						idPerson = PersonManager.Add(allVM.AccountVM.UserBo.PersonBo, allVM.AccountVM.UserBo.IdUser);
+					}
+					
+					if (idPerson != 0)
+						Connection(allVM.AccountVM);
+				}
+				else
+				{
+					ModelState.AddModelError("Email", "Cet utilisateur existe déja. S'il vous plait entrez un email différent.");
 				}
 			}
 
-				return idPerson;
+
+			return idPerson;
 		}
 
 		public ActionResult Connection(AccountViewModel accountViewModel)

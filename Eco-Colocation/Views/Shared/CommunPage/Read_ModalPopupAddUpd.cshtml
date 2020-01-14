@@ -1,0 +1,26 @@
+﻿
+@{
+	ViewBag.Title = "Read_ModalPopupAddUpd";
+	ViewBag.TitlePopup = ViewData["titlePopup"];
+	ViewBag.TextPopup = ViewData["textPopup"];
+}
+
+<div class="underModal col-sm-12 col-xs-12">
+	<div id="modalPopupMessage" class="reelModal">
+		<div class="flex">
+			<div class="childFlex">
+				<h2 class="title">@ViewBag.TitlePopup</h2>
+			</div>
+		</div>
+		<div class="flex">
+			<div class="childFlex">
+				<p>@ViewBag.TextPopup</p>
+			</div>
+		</div>
+		<div class="flex">
+			<div class="childFlex">
+				<a href="@Url.Action("EcoRoommateHomeView", "EcoRoommateHome", null)" id="btnBackHome-mpm" class="btn">Retour à l'accueil</a>
+			</div>
+		</div>
+	</div>
+</div>

@@ -148,7 +148,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\_Lists.cs" />
     <Compile Include="App_Start\_Enums.cs" />
-    <Compile Include="App_Start\_DataAnnotation.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\Ad_CreationProjectController.cs" />
     <Compile Include="Controllers\Ad_RentalController.cs" />
@@ -195,7 +194,7 @@
       <DependentUpon>EcoColocationModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Controllers\EcoRoommateExistingController.cs" />
-    <Compile Include="Controllers\EcoColocHomeController.cs" />
+    <Compile Include="Controllers\EcoRoommateHomeController.cs" />
     <Compile Include="Controllers\Event.cs">
       <DependentUpon>EcoColocationModel.tt</DependentUpon>
     </Compile>
@@ -777,6 +776,7 @@
     <Content Include="Views\Ad_CreationProject\Del_MsgModalCreationProjectAd.cshtml" />
     <Content Include="Views\Ad_CreationProject\AddUpd_ModalCreationProjectAd.cshtml" />
     <Content Include="Views\Ad_Common\RubriqueAd.cshtml" />
+    <Content Include="Views\Shared\CommunPage\Read_ModalPopupAddUpd.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -2,26 +2,6 @@
 $(document).ready(function () {
 	//eventCloseOrNotModal();
 
-	//permet de correctement fermer le modal lors du click a l'exterieur
-	//$(document).on('mouseleave', '.reelModal', function () {
-	//	//eventCloseOrNotModal()
-	//});
-
-	//$(document).on('mouseenter', '.reelModal', function () {
-	//	$('body').css('overflow', 'hidden');
-	//	$('.modal').on('click', '.underModal', function (e) {
-	//		$('.jquery-modal').css('display', 'block');
-	//		$('body').css('overflow', 'hidden');
-	//	});
-	//	$(document).on('click', '.modal', function (e) {
-	//		$('.jquery-modal').css('display', 'block');
-	//		if (!closeModalHasBeenClicked) {
-	//			$('body').css('overflow', 'hidden');
-	//		}
-	//	});
-	//});
-	//if ($('.blockerCenterToHideWindows').css('display') == 'none') {
-
 	//Si le button close-modal à été cliqué, alors nous l'indiquons et l'evenement au dessus  (click sur modal)
 	//se charge de ne pas faire disparaitre le scroll bar du body
 	$(document).on('click', '.close-modal, .closeModal', function (e) {
@@ -31,11 +11,6 @@ $(document).ready(function () {
 		//closemodalhasbeenclicked = true;
 
 		updateUrlModalAfterClosing();
-
-		//// entre les deux : ouvre l'evenement click du modal //
-		//settimeout(function () {
-		//	closemodalhasbeenclicked = false; //puis réinitialise la variable à false
-		//}, 1000)
 	});
 	// Fin modal //	
 
@@ -138,19 +113,6 @@ $(document).ready(function () {
 });
 
 /***** Permet de ne plus pouvoir ouvrir le modal sur un autre onglet *****/
-//function stopNewTabOppening() {
-//	$('a').each(function () {
-//		if ($(this).attr('rel')) {
-//			var href = $(this).attr('href');
-//			$(this).removeAttr('href');
-//			//$(this).attr('onclick', "forceToOpenModalOnlyInThisTab()");
-//			if (!$(this).attr('jshref')) {
-//				$(this).attr('jshref', href); //add new attribte
-//			}
-//		}
-//	});
-//}
-
 function forceToOpenModalOnlyInThisTab() {
 	$('a').each(function () {
 		if ($(this).attr('rel')) {
@@ -173,31 +135,6 @@ function forceToOpenModalOnlyInThisTab() {
 	});
 }
 /***** Fin = Permet de ne plus pouvoir ouvrir le modal sur un autre onglet *****/
-
-//function eventCloseOrNotModal() {
-//	$('.modal').on('click', '.underModal', function (e) {
-//		$('.jquery-modal').css('display', 'none');
-//		$('body').css('overflow', 'auto');
-//		setTimeout(function () {
-//			if ($('.jquery-modal').css('display') == 'none') {
-//				$(".ui-autocomplete").prependTo("body");
-//				$('.jquery-modal').remove();
-//				updateUrlModalAfterClosing();
-//			}
-//		}, 50)
-//	});
-//	$(document).on('click', '.modal', function (e) {
-//		$('.jquery-modal').css('display', 'none');
-//		$('body').css('overflow', 'auto');
-//		setTimeout(function () {
-//			if ($('.jquery-modal').css('display') == 'none') {
-//				$(".ui-autocomplete").prependTo("body");
-//				$('.jquery-modal').remove();
-//				updateUrlModalAfterClosing();
-//			}
-//		}, 50)
-//	});
-//}
 
 //change de l'url quand le modal se ferme
 function updateUrlModalAfterClosing() {
@@ -674,7 +611,7 @@ function getLstAutoCompletion(arr, input, typeResearch) {
 				var nbPlacePresent = $(inputId + " + .divInputPlaceHidden input").length;
 
 				if (nbPlacePresent < 10) {
-					saveValueSelected(event, ui, this, compteurPlaceItem)
+					saveValueSelected(ui, this, compteurPlaceItem)
 					if (input.id == "inpMultiPlace-al") {
 						addNewPlaceItem(ui, input, "al", compteurPlaceItem);
 					}
@@ -700,7 +637,12 @@ function getLstAutoCompletion(arr, input, typeResearch) {
 function addNewPlaceItem(ui, input, identityPage, compteurPlaceItem) {
 	var inputId = "#" + $(input).attr("id");
 
-	var locationNameSelected = ui.item.value;
+	if (ui != null) {
+		var locationNameSelected = ui.item.value;
+	}
+	else {
+		var locationNameSelected = "France"
+	}
 
 	var htmlPlace =
 		(identityPage != "ph") ?
@@ -762,7 +704,7 @@ function deletePlace(idElement, identityPage, compteurId, inputId) {
 
 	//Pour les input visibles restants, on remet aussi les helpers dans l'ordre
 	var nbInputPlaceId = $(".divInputPlaceVisible-" + identityPage + " input").length;
-	debugger;
+
 	for (var i = 0; i < nbInputPlaceId; i++) {
 		inputSelect = $(".divInputPlaceVisible-" + identityPage + " input")[i];
 		var inputName = inputSelect.name;
@@ -774,12 +716,20 @@ function deletePlace(idElement, identityPage, compteurId, inputId) {
 		if (identityPage == "ph" || identityPage == "car" || identityPage == "mpc") {
 			$('#inputSearchPlace-' + identityPage).val("")
 			$('#typeResearchSct-' + identityPage).removeAttr('disabled')
+			$('#inputSearchPlace-' + identityPage).removeAttr('disabled')
 		}
 	}
 }
 
-function saveValueSelected(event, ui, input, compteurPlaceItem) {
-	var selectedObj = ui.item.json;
+function saveValueSelected(ui, input, compteurPlaceItem) {
+	if (ui != null) {
+		var selectedObj = ui.item.json;
+		var itemValue = ui.item.value;
+	}
+	else {
+		var selectedObj = "France";
+		var itemValue = "France"
+	}
 
 	var inputId = "#" + $(input).attr("id");
 
@@ -801,7 +751,7 @@ function saveValueSelected(event, ui, input, compteurPlaceItem) {
 	var inputNameFPN = newInputFPN.attr("name")
 	newInputFPN.attr("name", inputNameFPN.replace("Referent", "").replace("-1", numberInputFullPlaceName - 1))
 	newInputFPN.attr("class", "inputPlaceHidden")
-	newInputFPN.val(ui.item.value)
+	newInputFPN.val(itemValue)
 
 	//IdPlace 
 	var numberInputIdPlace = $(inputId + " + .divInputPlaceHidden .divInputPlaceId input").length;
@@ -914,41 +864,6 @@ function initHtmlTagToAutoComplete() {
 }
 
 
-//Autocompletion avec algolia
-//Si probleme utiliser l'api gratuit de valentin Eni : https://api-adresse.data.gouv.fr/search/
-//https://notemoncoin.renard-valentin.fr/
-//function initAutoComplete(elementId) {
-//	var placesAutocomplete = places({
-//		appId: 'plG5RW55OE5Z',
-//		apiKey: '093af2800668c4b5a7d69e84e6a36b65',
-//		container: document.querySelector(elementId)
-//	});
-
-//	placesAutocomplete.on('change', function resultSelected(e) {
-//		$(".adresseVille").val(e.suggestion.name || '');
-//		$(".adresseRegion").val(e.suggestion.administrative || '');
-//		$(".adressePays").val(e.suggestion.country || '');
-//		$(".adresseLatLng").val(e.suggestion.latlng.lat + "," + e.suggestion.latlng.lng || '');
-//	});
-//}
-
-// Permet d'avoir toujours la list autocompletion gouv qui reste ouverte (permet de travailler sur le css en debug)
-
-//var availableTags = [
-//	{ label: 'Apple1', value: 'ValApple1' },
-//	{ label: '<strong>Apple </strong> 2', value: 'ValApple2' },
-//	{ label: 'Apple3', value: 'ValApple3' }
-//]; $(".inputSearchPlace").autocomplete({
-//	source: availableTags,
-
-//	close: function (event, ui) {
-//		val = $(".inputSearchPlace").val();
-//		$(".inputSearchPlace").autocomplete("search", val); //keep autocomplete open by 
-
-//		$(".inputSearchPlace").focus();
-//		return false;
-//	}
-//});
 // -------------- Fin nominatim.openstreetmap.org  ---------------
 
 function checkToDisableLstOrNot(element, lstElement) {
@@ -956,7 +871,9 @@ function checkToDisableLstOrNot(element, lstElement) {
 		$(lstElement).attr('disabled', 'true')
 	}
 	else {
-		$(lstElement).removeAttr('disabled')
+		if ($(".divPlace").length == 0) {
+			$(lstElement).removeAttr('disabled')
+		}
 	}
 }
 
@@ -1650,7 +1567,7 @@ function getOtherMarkerFromThisNewPlace(ui) {
 
 }
 
-function typeOfResearchLocation(item, elementToChange) {
+function typeOfResearchLocation(item, elementToChange, inputSearchPlace, identityPage) {
 	if (item.value == 1) {
 		$(elementToChange).attr("placeholder", "Veuillez indiquer la commune concernée *")
 		$(elementToChange).attr("oninput", "addr_searchCity(this);checkToDisableLstOrNot(this, '#" + $(item).attr('id') + "')")
@@ -1667,8 +1584,15 @@ function typeOfResearchLocation(item, elementToChange) {
 		$(elementToChange).removeAttr("disabled")
 	}
 	else if (item.value == 4) {
-		$(elementToChange).attr("placeholder", "Dans Tous le pays")
+		$(elementToChange).attr("placeholder", "Dans toute la France")
 		$(elementToChange).attr("disabled", "true")
+		$(item).attr('disabled', 'true')
+
+		if ($(".placeName[value='France']").length == 0) {
+			var compteurPlaceItem = Math.floor(100000 + Math.random() * 900000);
+			saveValueSelected(null, $(inputSearchPlace), compteurPlaceItem);
+			addNewPlaceItem(null, $(inputSearchPlace), identityPage, compteurPlaceItem);
+		}
 	}
 	else {
 		$(elementToChange).attr("placeholder", "Veuillez indiquer la commune concernée *")
@@ -1773,7 +1697,7 @@ function triggerBtnOnOffOnTerain_mpc() {
 }
 
 function initButtonOnOff() {
-	for (var i = 0; i < $('.onoff input').length; i++) {		
+	for (var i = 0; i < $('.onoff input').length; i++) {
 		var currentElement = $(".onoff input")[i];
 		if (currentElement.value == 0) {
 			$(".onoff input + label")[i].click()
@@ -2106,13 +2030,6 @@ function sendMsgToEmail(idElementPopUp) {
 	}, 5000)
 }
 
-function copyEmailToUserAuthentification(emailElement, elementDestination) {
-	if ($(elementDestination).length != 0) {
-		var emailElement = $(emailElement).val();
-		$(elementDestination).val(emailElement);
-	}
-}
-
 function inputNumber() {
 	$(document).on('keypress', '.decimal', function (e) {
 		if (e.which != 44 && e.which != 46 && e.which < 48 || e.which > 57) {
@@ -2178,4 +2095,13 @@ function triggerSubmitForm(idForm) {
 			$(idForm).replaceWith(html)
 		})
 	})
+}
+
+function initTypeResearchSct() {
+	//Permet que le placeholder de l'inputPlace pour qu'il soit cohérent avec l'item selectionné de la liste
+	$("#typeResearchSct-car").change();
+	//si l'utilisateur avait saisi des lieux
+	if ($("#place-car .placeName").length != 0) {
+		$("#divResearchLocation-mps #typeResearchSct-car").attr('disabled', 'true'); //Alors garder la liste disabled
+	}
 }

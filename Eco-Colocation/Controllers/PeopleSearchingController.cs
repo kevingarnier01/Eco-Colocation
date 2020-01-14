@@ -7,6 +7,7 @@ using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
+using static Eco_Colocation.App_Start._Enums;
 
 namespace Eco_Colocation.Controllers
 {
@@ -72,17 +73,20 @@ namespace Eco_Colocation.Controllers
 			{
 				AccountController accountController = new AccountController();
 				int idPerson = accountController._Inscription(AllVM);
+				if (idPerson != 0 && ModelState.IsValid)
+				{
+					Add(AllVM.PeopleSearchingVM, idPerson);
 
-				Add(AllVM.PeopleSearchingVM, idPerson);
+					ViewData["titlePopup"] = "Inscription et publication d'une annonce";
+					ViewData["textPopup"] = "Votre inscription et votre annonce de recherche ont bien été réalisées.";
+
+					return PartialView("~/Views/Shared/CommunPage/Read_ModalPopupAddUpd.cshtml");
+				}
 			}
-			else
-			{
-				ViewData["operation"] = "Subscribe";
 
-				return PartialView("~/Views/PeopleSearching/AddUpd_ModalPeopleSearch.cshtml", AllVM);
-			}
-
-			return View("");
+			@ViewData["ModalState"] = false;
+			ViewData["operation"] = "Subscribe";
+			return PartialView("~/Views/PeopleSearching/AddUpd_ModalPeopleSearch.cshtml", AllVM);
 		}
 
 		[HttpPost]
@@ -123,31 +127,36 @@ namespace Eco_Colocation.Controllers
 		public bool Add(PeopleSearchingViewModel peopleSearchingVM, int idPerson)
 		{
 			int idResearchRoommate = researchRoommateManager.Add(peopleSearchingVM.ResearchRoommateBo, idPerson);
-			
+
 			for (int i = 0; i < peopleSearchingVM.LstPlaceBo.Count; i++)
-			{				
+			{
 				JObject place = JsonConvert.DeserializeObject<JObject>(peopleSearchingVM.LstPlaceBo[i].JsonDataPlace);
 
 				PlaceBo placeBo = new PlaceBo(true);
-				if(peopleSearchingVM.PlaceBo.ScopeResearch == 2 || peopleSearchingVM.PlaceBo.ScopeResearch == 3)
+				if (peopleSearchingVM.PlaceBo.ScopeResearch == (int)ScoopResearch.Commune)
 				{
-					placeBo.Department = (string)place["nom"];
-					placeBo.DepartmentNumber = (string)place["code"];
-				}
-				else { 
-				placeBo.City = (string)place["label"];
-				placeBo.PostalCode = (string)place["postcode"];
-				string[] context = place["context"].ToString().Split(',');
+					placeBo.City = (string)place["label"];
+					placeBo.PostalCode = (string)place["postcode"];
+					string[] context = place["context"].ToString().Split(',');
 					if (context != null)
 					{
 						placeBo.DepartmentNumber = context[0];
 						placeBo.Department = context[1];
 						placeBo.Region = context[2];
-						//placeBo.Country;
 					}
 				}
+				else if (peopleSearchingVM.PlaceBo.ScopeResearch == (int)ScoopResearch.Departement)
+				{
+					placeBo.Department = (string)place["nom"];
+					placeBo.DepartmentNumber = (string)place["code"];
+				}
+				else if (peopleSearchingVM.PlaceBo.ScopeResearch == (int)ScoopResearch.Region)
+				{
+					placeBo.Region = (string)place["nom"];
+				}
+
 				placeBo.ScopeResearch = peopleSearchingVM.PlaceBo.ScopeResearch;
-								
+
 				int idPlace = placeManager.Add(placeBo, idResearchRoommate, 0);
 			}
 

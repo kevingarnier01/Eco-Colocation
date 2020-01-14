@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Eco_Colocation.BO.Data;
+using System.ComponentModel.DataAnnotations;
 
 namespace Eco_Colocation.BO
 {
@@ -23,14 +24,21 @@ namespace Eco_Colocation.BO
 
 		[Required(ErrorMessage = "Le nom d'utilisateur doit être renseigné.")]
 		[StringLength(60, ErrorMessage = "L'email excède le nombre de caractère maximum.")]
+		[DataType(DataType.EmailAddress)]
+		[EmailAddress]
+		[EmailUserUnique(ErrorMessage = "L'email saisi est déja associé à un compte utilisateur.")]
+		//[Remote("EmailValidation", "Account", ErrorMessage = "{0} already has an account, please enter a different email address.")]
 		public string UserName { get; set; }
 
 		[Required(ErrorMessage = "Le mot de passe doit être renseigné.")]
-		[StringLength(40, ErrorMessage = "La confirmation du mot de passe excède le nombre de caractère maximum.")]
+		[StringLength(20, ErrorMessage = "La confirmation du mot de passe excède le nombre de caractère maximum.")]
+		[DataType(DataType.Password)]
 		public string Password { get; set; }
 
 		[Required(ErrorMessage = "La confirmation du mot de passe doit être renseignée.")]
-		[StringLength(40, ErrorMessage = "La confirmation du mot de passe excède le nombre de caractère maximum.")]
+		[StringLength(20, ErrorMessage = "La confirmation du mot de passe excède le nombre de caractère maximum.")]
+		[Compare("Password", ErrorMessage = "La confirmation du mot de passe n'est pas valide.")]
+		[DataType(DataType.Password)]
 		public string PasswordConfirm { get; set; }
 		
 		public byte TypeUser { get; set; }

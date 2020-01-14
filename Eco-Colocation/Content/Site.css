@@ -4156,7 +4156,8 @@ d5-description-mpc {
 	font-size: 15px;
 	line-height: 1.2;
 	padding: 0 5px;
-	padding-bottom: 13px;
+	padding-top: 3px;
+	padding-bottom: 10px;
 	width: 100%;
 	/*color: #999999;*/
 	color: #6b6a6a;
@@ -4518,7 +4519,7 @@ d5-description-mpc {
 }
 
 #divTelephone-pdf {
-	margin-bottom: 25px;
+	margin-bottom: 33px;
 }
 /*** Fin PersonnalData ***/
 
@@ -6986,3 +6987,18 @@ input.radioFibreEco-ayer {
 	margin-bottom: 10px;
 }
 /**** Fin PasswordDiv ****/
+
+/********* Shared/CommunPage **********/
+/**** Read_modalPopupMessage ****/
+#modalPopupMessage {
+	overflow: auto;
+	width: 600px;
+	padding: 15px;
+	position: relative;
+}
+
+#btnBackHome-mpm {
+	box-shadow: 0 0 3px 0 black;
+	border-radius: 3px;
+	margin-top: 20px;
+}

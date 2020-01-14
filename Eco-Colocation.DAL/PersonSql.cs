@@ -40,7 +40,6 @@ namespace Eco_Colocation.DAL
 			ABLib.DAL.Sql.SqlParametersCollection oSqlParameters = new ABLib.DAL.Sql.SqlParametersCollection();
 			oSqlParameters.AddIdOut("IdPerson");
 			oSqlParameters.Add("IdUser", idUser, SqlDbType.Int);
-			oSqlParameters.Add("Email", personBo.Email, SqlDbType.NVarChar);
 			oSqlParameters.Add("FirstName", personBo.FirstName, SqlDbType.NVarChar);
 			oSqlParameters.Add("LastName", personBo.LastName, SqlDbType.NVarChar);
 			oSqlParameters.Add("Civility", personBo.Civility, SqlDbType.TinyInt);
@@ -76,7 +75,6 @@ namespace Eco_Colocation.DAL
 					personBo = new PersonBo
 					{
 						IdPerson = ABLib.Databases.GetInt32(dr, "IdPerson"),
-						Email = ABLib.Databases.GetString(dr, "Email"),
 						FirstName = ABLib.Databases.GetString(dr, "FirstName"),
 						LastName = ABLib.Databases.GetString(dr, "LastName"),
 						Civility = ABLib.Databases.GetByte(dr, "Civility"),

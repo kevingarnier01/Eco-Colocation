@@ -25,7 +25,7 @@ namespace Eco_Colocation.App_Start
 						   new _Lists { Text = "Communes", Value = (int)_Enums.ScoopResearch.Commune},
 						   new _Lists { Text = "Départements", Value = (int)_Enums.ScoopResearch.Departement },
 						   new _Lists { Text = "Régions", Value = (int)_Enums.ScoopResearch.Region },
-						   new _Lists { Text = "Tous le pays", Value = (int)_Enums.ScoopResearch.Pays },
+						   new _Lists { Text = "Toute la France", Value = (int)_Enums.ScoopResearch.Pays },
 					   }, "Value", "Text", null);
 		}
 

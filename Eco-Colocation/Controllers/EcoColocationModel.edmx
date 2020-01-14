@@ -324,8 +324,7 @@
     </Key>
     <Property Name="IdAgency" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="Email" Type="nvarchar" Nullable="false" MaxLength="60" />
-    <Property Name="Phone" Type="nvarchar" Nullable="false" MaxLength="12" />
+    <Property Name="PhoneNumber" Type="nvarchar" Nullable="false" MaxLength="12" />
     <Property Name="StreetNumber" Type="nvarchar" Nullable="false" MaxLength="10" />
     <Property Name="Street" Type="nvarchar" Nullable="false" MaxLength="80" />
     <Property Name="City" Type="nvarchar" Nullable="false" MaxLength="50" />
@@ -343,7 +342,6 @@
       <PropertyRef Name="IdPerson" />
     </Key>
     <Property Name="IdPerson" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Email" Type="nvarchar" Nullable="false" MaxLength="60" />
     <Property Name="FirstName" Type="nvarchar" Nullable="false" MaxLength="50" />
     <Property Name="LastName" Type="nvarchar" Nullable="false" MaxLength="50" />
     <Property Name="Civility" Type="tinyint" Nullable="false" />
@@ -890,7 +888,6 @@
             <PropertyRef Name="IdPerson" />
           </Key>
           <Property Name="IdPerson" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Email" Nullable="false" MaxLength="60" Type="String" />
           <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" />
           <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" />
           <Property Name="Civility" Type="Byte" Nullable="false" />
@@ -998,8 +995,7 @@
           </Key>
           <Property Name="IdAgency" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Nullable="false" Type="String" MaxLength="50" />
-          <Property Name="Email" Nullable="false" Type="String" MaxLength="60" />
-          <Property Name="Phone" Nullable="false" Type="String" MaxLength="12" />
+          <Property Name="PhoneNumber" Nullable="false" Type="String" MaxLength="12" />
           <Property Name="StreetNumber" Type="String" Nullable="false" MaxLength="10" />
           <Property Name="Street" Type="String" Nullable="false" MaxLength="80" />
           <Property Name="City" Type="String" Nullable="false" MaxLength="50" />
@@ -1396,8 +1392,7 @@
         <MappingFragment StoreEntitySet="Agency">
           <ScalarProperty Name="IdAgency" ColumnName="IdAgency" />
           <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Email" ColumnName="Email" />
-          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
           <ScalarProperty Name="StreetNumber" ColumnName="StreetNumber" />
           <ScalarProperty Name="Street" ColumnName="Street" />
           <ScalarProperty Name="City" ColumnName="City" />
@@ -1415,7 +1410,6 @@
       <EntityTypeMapping TypeName="IsTypeOf(EcoColocationModel.Person)">
         <MappingFragment StoreEntitySet="Person">
           <ScalarProperty Name="IdPerson" ColumnName="IdPerson" />
-          <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="FirstName" ColumnName="FirstName" />
           <ScalarProperty Name="LastName" ColumnName="LastName" />
           <ScalarProperty Name="Civility" ColumnName="Civility" />

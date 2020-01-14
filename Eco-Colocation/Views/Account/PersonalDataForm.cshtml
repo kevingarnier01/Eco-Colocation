@@ -84,33 +84,24 @@
 				<div class="overflow">
 					<div class="flex">
 						<div class="childFlex">
-							@Html.ValidationMessageFor(m => m.AccountVM.UserBo.PersonBo.Email)
 							@Html.ValidationMessageFor(m => m.AccountVM.UserBo.PersonBo.PhoneCode)
 							@Html.ValidationMessageFor(m => m.AccountVM.UserBo.PersonBo.PhoneNumber)
 						</div>
 					</div>
-					<div class="col-sm-6">
-						<label class="lbl-mcar">Email *</label>
-						@Html.TextBoxFor(m => m.AccountVM.UserBo.PersonBo.Email, new { @id = "emailInp-pdf", @type = "email", @placeholder = "Entrez votre email", @class = "input-mcar" })
-						<div class="lineinput-mcar"></div>
-					</div>
-					@*<div class="col-sm-6">
-			<label class="lbl-mcar">Téléphone *</label>
-			@Html.TextBoxFor(m => m.AccountVM.UserBo.PersonBo.PhoneNumber, new { @type = "tel", @placeholder = "+33 xxxxxxxxx", @class = "input-mcar", @maxlength = "13" })
-			<div class="lineinput-mcar"></div>
-		</div>*@
-					<div class="col-sm-6">
-						<label class="lbl-mcar">Téléphone *</label>
-						<div class="flex" id="divTelephone-pdf">
-							@Html.DropDownListFor(m => Model.AccountVM.UserBo.PersonBo.PhoneCode,
-								new SelectList(Model.AccountVM.PhoneCodeLst, "Text", "Text", null), new
-								{
-									@id = "phoneCodelst-pdf",
-									@class = "form-control select-mcar autoMargin",
-								})
-							<div id="divNumberPhone-pdf">
-								@Html.TextBoxFor(m => m.AccountVM.UserBo.PersonBo.PhoneNumber, new { @type = "tel", @placeholder = "Entrez votre numéro", @class = "input-mcar decimal", @maxlength = "13" })
-								<div class="lineinput-mcar autoMargin"></div>
+					<div class="flex">
+						<div class="col-sm-6 childFlex">
+							<label class="lbl-mcar">Téléphone *</label>
+							<div class="flex" id="divTelephone-pdf">
+								@Html.DropDownListFor(m => Model.AccountVM.UserBo.PersonBo.PhoneCode,
+									new SelectList(Model.AccountVM.PhoneCodeLst, "Text", "Text", null), new
+									{
+										@id = "phoneCodelst-pdf",
+										@class = "form-control select-mcar autoMargin",
+									})
+								<div id="divNumberPhone-pdf">
+									@Html.TextBoxFor(m => m.AccountVM.UserBo.PersonBo.PhoneNumber, new { @type = "tel", @placeholder = "Entrez votre numéro", @class = "input-mcar decimal", @maxlength = "13" })
+									<div class="lineinput-mcar autoMargin"></div>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -142,9 +133,3 @@
 		</div>
 	</div>
 </div>
-
-<script type="text/javascript">
-	$(document).on('input', '#emailInp-pdf', function (e) {
-		copyEmailToUserAuthentification("#emailInp-pdf", "#UserNameInpt-pd")
-	});
-</script>

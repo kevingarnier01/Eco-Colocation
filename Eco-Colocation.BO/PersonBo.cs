@@ -19,16 +19,13 @@ namespace Eco_Colocation.BO
 		}
 
 		public int IdPerson { get; set; }
-
-		[EmailAddress(ErrorMessage = "L'email n'est pas valide")]
-		[Required(ErrorMessage = "L'email doit être renseigné")]
-		[StringLength(60, ErrorMessage = "L'email excède le nombre de caractère maximum.")]
-		public string Email { get; set; }
-
+		
 		[Required(ErrorMessage = "Le prénom doit être renseigné")]
+		[DataType(DataType.Text)]
 		public string FirstName { get; set; }
 
 		[Required(ErrorMessage = "Le nom doit être renseigné")]
+		[DataType(DataType.Text)]
 		public string LastName { get; set; }
 
 		public byte Civility { get; set; }
@@ -45,12 +42,14 @@ namespace Eco_Colocation.BO
 		public string PhoneCode { get; set; }
 
 		[Required(ErrorMessage = "Le numéro de téléphone doit être renseigné")]
+		[DataType(DataType.PhoneNumber)]
 		public string PhoneNumber { get; set; }
 
 		[Required(ErrorMessage = "Le mode de contact doit être renseigné")]
 		public byte ContactType { get; set; }
 
 		[Required(ErrorMessage = "La description de votre personnalité doit être renseignée")]
+		[DataType(DataType.Text)]
 		public string PersonnalityDescription { get; set; }
 
 		public System.DateTime DateInscription { get; set; }

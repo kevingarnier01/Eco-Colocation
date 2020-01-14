@@ -16,12 +16,8 @@ namespace Eco_Colocation.BO
 		public int IdAgency { get; set; }
 
 		public string Name { get; set; }
-
-		[Required(ErrorMessage = "L'email doit être saisi")]
-		[StringLength(60, ErrorMessage = "L'email excède le nombre de caractère maximum.")]
-		public string Email { get; set; }
-
-		public string Phone { get; set; }
+		
+		public string PhoneNumber { get; set; }
 
 		public string StreetNumber { get; set; }
 
@@ -29,6 +25,7 @@ namespace Eco_Colocation.BO
 
 		public string City { get; set; }
 
+		[DataType(DataType.PostalCode)]
 		public string PostalCode { get; set; }
 
 		public string Department { get; set; }

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Eco_Colocation.BO
 {
@@ -45,6 +46,7 @@ namespace Eco_Colocation.BO
 
 		public string Country { get; set; }
 
+		[DataType(DataType.Url)]
 		public string Link { get; set; }
 
 		public string Description { get; set; }

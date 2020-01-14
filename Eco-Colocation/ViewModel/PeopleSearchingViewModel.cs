@@ -1,5 +1,6 @@
 ﻿using Eco_Colocation.App_Start;
 using Eco_Colocation.BO;
+using Eco_Colocation.BO.Data;
 using System.Collections.Generic;
 using System.Web.Mvc;
 
@@ -14,7 +15,7 @@ namespace Eco_Colocation.ViewModel
 		public int IdPeopleSearching { get; set; }
 		public SelectList ScopeResearchLst { get; set; }
 
-		[RequiredListMinItems(1, ErrorMessage = "Aucun lieu n'a été renseigné.")]
+		[ListMinItems(1, ErrorMessage = "Aucun lieu n'a été renseigné.")]
 		public List<PlaceBo> LstPlaceBo { get; set; }
 
 		public List<PlaceBo> LstPlaceBoReferent { get; set; }

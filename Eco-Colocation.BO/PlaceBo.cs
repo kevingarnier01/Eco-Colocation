@@ -24,6 +24,7 @@ namespace Eco_Colocation.BO
 
 		public string City { get; set; }
 
+		[DataType(DataType.PostalCode)]
 		public string PostalCode { get; set; }
 
 		public string Department { get; set; }

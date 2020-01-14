@@ -610,9 +610,9 @@
 
 		$(".textInfoIfAccountExist-pdf").fadeIn(0)
 
-		$(document).on('input', '#emailInp-pdf', function (e) {
-			copyEmailToUserAuthentification("#emailInp-pdf", "#UserNameInpt-pd")
-			copyEmailToUserAuthentification("#emailInp-pdf", "#emailInp-bca")
-		});
+		//Quand le modalstate n'est pas valide
+		if ("@ViewBag.ModalState" == "False") {
+			initTypeResearchSct();
+		}
 	});
 </script>

@@ -43,11 +43,15 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="WebMatrix.WebData">
+      <HintPath>..\Eco-Colocation\bin\WebMatrix.WebData.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AgencyBo.cs" />
     <Compile Include="AssociatedEventBo.cs" />
     <Compile Include="CreationProjectAdBo.cs" />
+    <Compile Include="Data\DataAnnotation.cs" />
     <Compile Include="DevConversationBo.cs" />
     <Compile Include="EcoRoommateExistingBo.cs" />
     <Compile Include="EventBo.cs" />

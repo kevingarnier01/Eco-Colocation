@@ -1,16 +1,17 @@
 ﻿using System.Collections;
 using System.ComponentModel.DataAnnotations;
+using WebMatrix.WebData;
 
-namespace Eco_Colocation.App_Start
+namespace Eco_Colocation.BO.Data
 {
-	public class RequiredListMinItems : ValidationAttribute
+	public class ListMinItems : ValidationAttribute
 	{
 		private readonly int _minElements;
 		/// <summary>
 		/// Obligation d'avoir un nombre minimum d'item dans une lsite
 		/// </summary>
 		/// <param name="minElements">Nombre d'item minimum</param>
-		public RequiredListMinItems(int minElements)
+		public ListMinItems(int minElements)
 		{
 			_minElements = minElements;
 		}
@@ -21,6 +22,24 @@ namespace Eco_Colocation.App_Start
 			if (list != null)
 			{
 				return list.Count >= _minElements;
+			}
+			return false;
+		}
+	}
+
+	public class EmailUserUnique : ValidationAttribute
+	{
+		public override bool IsValid(object value)
+		{
+			var email = value as string;
+
+			if (email != null)
+			{
+				bool userExists = WebSecurity.UserExists(email);
+				if (userExists)
+					return false;
+				else
+					return true;
 			}
 			return false;
 		}
