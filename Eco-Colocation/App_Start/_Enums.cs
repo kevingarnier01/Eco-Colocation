@@ -50,5 +50,21 @@
 			Region = 3,
 			Pays = 4
 		}
+
+		// --------------
+		// -------------- RentalAd --------------
+		// --------------
+		public enum HousingType : int
+		{
+			HabitatInsolite = 1,
+			Appartement = 2,
+			Maison = 3
+		}
+
+		public enum HousingImplantation : int
+		{
+			Campagne = 1,
+			VilleCommune = 2,
+		}
 	}
 }

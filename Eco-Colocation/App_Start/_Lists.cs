@@ -86,7 +86,6 @@ namespace Eco_Colocation.App_Start
 
 		public SelectList PhoneCodeLst()
 		{
-
 			string url = "https://restcountries.eu/rest/v2/all";
 
 			WebClient WebClient = new WebClient();
@@ -121,6 +120,28 @@ namespace Eco_Colocation.App_Start
 			SelectList phoneCodeLst = new SelectList(lst, "Value", "Text", null);
 
 			return phoneCodeLst;
+		}
+
+		// --------------
+		// -------------- RentalAd --------------
+		// --------------
+		public SelectList HousingTypeLst()
+		{
+			return new SelectList(new[]
+					   {
+						   new _Lists { Text = "Habitat insolite", Value = (int)_Enums.HousingType.HabitatInsolite},
+						   new _Lists { Text = "Appartement", Value = (int)_Enums.HousingType.Appartement },
+						   new _Lists { Text = "Maison", Value = (int)_Enums.HousingType.Maison },
+					   }, "Value", "Text", null);
+		}
+
+		public SelectList HousingImplantationLst()
+		{
+			return new SelectList(new[]
+					   {
+						   new _Lists { Text = "Campagne", Value = (int)_Enums.HousingImplantation.Campagne},
+						   new _Lists { Text = "Ville/commune", Value = (int)_Enums.HousingImplantation.VilleCommune },
+					   }, "Value", "Text", null);
 		}
 	}
 }

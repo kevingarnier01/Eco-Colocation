@@ -31,12 +31,12 @@ namespace Eco_Colocation.BO
 		public string UserName { get; set; }
 
 		[Required(ErrorMessage = "Le mot de passe doit être renseigné.")]
-		[StringLength(20, ErrorMessage = "La confirmation du mot de passe excède le nombre de caractère maximum.")]
+		[StringLength(20, ErrorMessage = "Le mot de passe doit être comprit entre 8 et 20 caractère.", MinimumLength = 8)]
 		[DataType(DataType.Password)]
+		[RegularExpression(@"[^\w\d]*(([0-9]+.*[A-Za-z]+.*)|[A-Za-z]+.*([0-9]+.*))", ErrorMessage = "Le mot de passe doit comporter des chiffres et des lettres")]
 		public string Password { get; set; }
 
 		[Required(ErrorMessage = "La confirmation du mot de passe doit être renseignée.")]
-		[StringLength(20, ErrorMessage = "La confirmation du mot de passe excède le nombre de caractère maximum.")]
 		[Compare("Password", ErrorMessage = "La confirmation du mot de passe n'est pas valide.")]
 		[DataType(DataType.Password)]
 		public string PasswordConfirm { get; set; }

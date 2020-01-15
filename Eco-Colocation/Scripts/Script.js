@@ -1871,9 +1871,11 @@ function removePictureConvDev(element) {
 function changeEndOfDispoVisibility(elementCheck, elementToMove) {
 	if ($(elementCheck).prop('checked')) {
 		$(elementToMove).fadeIn("slow");
+		$(elementToMove + " input").removeAttr("disabled")
 	}
 	else {
 		$(elementToMove).fadeOut("slow");
+		$(elementToMove + " input").attr("disabled", "true")
 	}
 }
 
@@ -2018,16 +2020,28 @@ function checkIfOperationRealized_sp(typeOperation, idAnnonce) {
 }
 
 function sendMsgToEmail(idElementPopUp) {
-	$("#loadSendMsg-pvm").css("animation", "loadSendMsg 1s")
-	$("#loadSendMsg-pvm").css("animation-iteration-count", "infinite")
-	$("#loadSendMsg-pvm").fadeIn("slow");
-	$("#divInput-pvml input, #partialViewMessage textarea").val("")
+	showWaitingIcon("#btnSendMsg-pvm")
 	$(idElementPopUp).css("display", "flex").hide().fadeIn(2000);
 
 	setTimeout(function () {
 		$(idElementPopUp).fadeOut(2000);
-		$("#loadSendMsg-pvm").fadeOut(1000);
+		hiddenWaitingIcon();
 	}, 5000)
+}
+
+function showWaitingIcon(destinationTag) {
+	var existing = $(destinationTag + " .waitingIcon").length;
+	if (existing == 0) {
+	var waitingIcon = '<i class="fas fa-spinner waitingIcon"></i>';
+		$(destinationTag).append(waitingIcon)
+	}
+	$(destinationTag + " .waitingIcon").css("animation", "loadSendMsg 1s")
+	$(destinationTag + " .waitingIcon").css("animation-iteration-count", "infinite")
+	$(destinationTag + " .waitingIcon").fadeIn("slow");
+}
+
+function hiddenWaitingIcon() {
+	$(".waitingIcon").fadeOut(1000);
 }
 
 function inputNumber() {
@@ -2088,11 +2102,15 @@ function addValueToHiddenElement(valueElement, hiddenElement) {
 
 function triggerSubmitForm(idForm) {
 	$("input:submit").click(function (e) {
+		$("body").css("cursor", "progress");
+		//showWaitingIcon($("input:submit");
 		e.preventDefault();
 		var url = $(this).attr("data-url-jquerySubmit");
 
 		$.post(url, $(idForm).serialize(), function (html) {
-			$(idForm).replaceWith(html)
+			$(idForm).replaceWith(html);
+			$("body").css("cursor", "default");
+			hiddenWaitingIcon();
 		})
 	})
 }

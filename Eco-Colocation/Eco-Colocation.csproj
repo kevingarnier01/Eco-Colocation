@@ -239,6 +239,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModel\AccountViewModel.cs" />
+    <Compile Include="ViewModel\AdRentalViewModal.cs" />
     <Compile Include="ViewModel\AllViewModel.cs" />
     <Compile Include="ViewModel\EcoRoommateEventViewModel.cs" />
     <Compile Include="ViewModel\EcoColocHomeViewModel.cs" />

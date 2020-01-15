@@ -103,7 +103,7 @@
     <Property Name="IdRentalAd" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="IdUser" Type="int" Nullable="false" />
     <Property Name="Introduction" Type="nvarchar" Nullable="false" MaxLength="110" />
-    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="3500" />
     <Property Name="Street" Type="nvarchar" Nullable="false" MaxLength="80" />
     <Property Name="City" Type="nvarchar" Nullable="false" MaxLength="50" />
     <Property Name="PostalCode" Type="nvarchar" Nullable="false" MaxLength="15" />
@@ -152,7 +152,7 @@
     <Property Name="IdCreationProject" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="IdPerson" Type="int" Nullable="false" />
     <Property Name="Introduction" Type="nvarchar" Nullable="false" MaxLength="100" />
-    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="3500" />
     <Property Name="LandEngagement" Type="tinyint" Nullable="true" />
     <Property Name="LandMaxSurface" Type="int" Nullable="true" />
     <Property Name="LandMaxPrice" Type="int" Nullable="true" />
@@ -173,7 +173,7 @@
     <Property Name="TolerationSmoker" Type="bit" Nullable="false" />
     <Property Name="TolerationPets" Type="bit" Nullable="false" />
     <Property Name="TolerationInfoSup" Type="nvarchar" Nullable="true" MaxLength="100" />
-    <Property Name="ActivatedAnnouncement" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ActivatedAnnouncement" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="Place">
     <Key>
@@ -207,7 +207,7 @@
     <Property Name="Region" Type="nvarchar" Nullable="false" MaxLength="50" />
     <Property Name="Country" Type="nvarchar" Nullable="false" MaxLength="50" />
     <Property Name="Link" Type="nvarchar" Nullable="true" MaxLength="500" />
-    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="3500" />
     <Property Name="PictureName" Type="nvarchar" Nullable="true" MaxLength="50" />
     <Property Name="DatePublish" Type="datetime" Nullable="false" />
   </EntityType>
@@ -235,10 +235,10 @@
     <Property Name="City" Type="nvarchar" Nullable="false" MaxLength="50" />
     <Property Name="PostalCode" Type="nvarchar" Nullable="false" MaxLength="15" />
     <Property Name="Email" Type="nvarchar" Nullable="true" MaxLength="60" />
-    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="3500" />
     <Property Name="EcoImplication" Type="tinyint" Nullable="false" />
-    <Property Name="TableEco" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="TableHousing" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="TableEco" Type="nvarchar" Nullable="false" MaxLength="3500" />
+    <Property Name="TableHousing" Type="nvarchar" Nullable="false" MaxLength="3500" />
   </EntityType>
   <EntityType Name="PictureDevConversation">
     <Key>
@@ -265,8 +265,8 @@
       <PropertyRef Name="IdDevConversation" />
     </Key>
     <Property Name="IdDevConversation" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Message" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" Nullable="false" MaxLength="60" />
+    <Property Name="Message" Type="nvarchar" Nullable="false" MaxLength="3500" />
     <Property Name="DateLastSend" Type="datetime" Nullable="false" />
     <Property Name="Viewed" Type="tinyint" Nullable="false" DefaultValue="0" />
   </EntityType>
@@ -278,8 +278,8 @@
     <Property Name="IdPerson" Type="int" Nullable="false" />
     <Property Name="MaxBudget" Type="smallint" Nullable="false" />
     <Property Name="EmailAlert" Type="tinyint" Nullable="false" />
-    <Property Name="SearchCriteria" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="EcoPractice" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SearchCriteria" Type="nvarchar" Nullable="false" MaxLength="3500" />
+    <Property Name="EcoPractice" Type="nvarchar" Nullable="false" MaxLength="3500" />
     <Property Name="PictureName" Type="nvarchar" Nullable="true" MaxLength="50" />
     <Property Name="ActivatedAnnouncement" Type="bit" Nullable="false" DefaultValue="true" />
   </EntityType>
@@ -674,7 +674,7 @@
           <Property Name="IdRentalAd" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IdUser" Type="Int32" Nullable="false" />
           <Property Name="Introduction" Type="String" Nullable="false" MaxLength="110" />
-          <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="3500" />
           <Property Name="Street" Type="String" Nullable="false" MaxLength="80" />
           <Property Name="City" Type="String" Nullable="false" MaxLength="50" />
           <Property Name="PostalCode" Type="String" Nullable="false" MaxLength="15" />
@@ -737,7 +737,7 @@
           <Property Name="IdCreationProject" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IdPerson" Type="Int32" Nullable="false" />
           <Property Name="Introduction" Type="String" Nullable="false" MaxLength="100" />
-          <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="3500" />
           <Property Name="LandEngagement" Type="Byte" Nullable="true" />
           <Property Name="LandMaxSurface" Type="Int32" Nullable="true" />
           <Property Name="LandMaxPrice" Type="Int32" Nullable="true" />
@@ -758,7 +758,7 @@
           <Property Name="TolerationSmoker" Type="Boolean" Nullable="false" />
           <Property Name="TolerationPets" Type="Boolean" Nullable="false" />
           <Property Name="TolerationInfoSup" Type="String" Nullable="true" MaxLength="100" />
-          <Property Name="ActivatedAnnouncement" Type="String" Nullable="false" />
+          <Property Name="ActivatedAnnouncement" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="PictureCreationProject" Relationship="EcoColocationModel.CreationProjectAd_PictureCreationProject" FromRole="CreationProjectAd" ToRole="PictureCreationProject" />
           <NavigationProperty Name="Person" Relationship="EcoColocationModel.CreationProjectAdPerson" FromRole="CreationProjectAd" ToRole="Person" />
           <NavigationProperty Name="Place" Relationship="EcoColocationModel.PlaceCreationProjectAd" FromRole="CreationProjectAd" ToRole="Place" />
@@ -795,7 +795,7 @@
           <Property Name="Region" Type="String" Nullable="false" MaxLength="50" />
           <Property Name="Country" Type="String" Nullable="false" MaxLength="50" />
           <Property Name="Link" Type="String" Nullable="true" MaxLength="500" />
-          <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="3500" />
           <NavigationProperty Name="PresenceEvent" Relationship="EcoColocationModel.Event_PresenceEvent" FromRole="Event" ToRole="PresenceEvent" />
           <NavigationProperty Name="AssociatedEvent" Relationship="EcoColocationModel.Event_AssociatedEvent" FromRole="Event" ToRole="AssociatedEvent" />
           <NavigationProperty Name="AssociatedEvent1" Relationship="EcoColocationModel.Event_AssociatedEvent1" FromRole="Event" ToRole="AssociatedEvent" />
@@ -829,10 +829,10 @@
           <Property Name="City" Type="String" Nullable="false" MaxLength="50" />
           <Property Name="PostalCode" Type="String" Nullable="false" MaxLength="15" />
           <Property Name="Email" Type="String" Nullable="true" MaxLength="60" />
-          <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="3500" />
           <Property Name="EcoImplication" Type="Byte" Nullable="false" />
-          <Property Name="TableEco" Type="String" Nullable="false" />
-          <Property Name="TableHousing" Type="String" Nullable="false" />
+          <Property Name="TableEco" Type="String" Nullable="false" MaxLength="3500" />
+          <Property Name="TableHousing" Type="String" Nullable="false" MaxLength="3500" />
           <NavigationProperty Name="PictureEcoRoommateEx" Relationship="EcoColocationModel.EcoRoommateExisting_PictureEcoRoommateEx" FromRole="EcoRoommateExisting" ToRole="PictureEcoRoommateEx" />
           <NavigationProperty Name="Person" Relationship="EcoColocationModel.Person_EcoRoommateExisting" FromRole="EcoRoommateExisting" ToRole="Person" />
           <NavigationProperty Name="Roommate" Relationship="EcoColocationModel.EcoRoommateExistingRoommate" FromRole="EcoRoommateExisting" ToRole="Roommate" />
@@ -862,8 +862,8 @@
             <PropertyRef Name="IdDevConversation" />
           </Key>
           <Property Name="IdDevConversation" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Email" Type="String" Nullable="false" />
-          <Property Name="Message" Type="String" Nullable="false" MaxLength="Max" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="60" />
+          <Property Name="Message" Type="String" Nullable="false" MaxLength="3500" />
           <NavigationProperty Name="PictureDevConversation" Relationship="EcoColocationModel.DevConversation_PictureDevConversation" FromRole="DevConversation" ToRole="PictureDevConversation" />
           <Property Name="DateLastSend" Type="DateTime" Nullable="false" />
           <Property Name="Viewed" Type="Byte" Nullable="false" DefaultValue="0" />
@@ -876,8 +876,8 @@
           <Property Name="IdPerson" Type="Int32" Nullable="false" />
           <Property Name="MaxBudget" Type="Int16" Nullable="false" />
           <Property Name="EmailAlert" Type="Byte" Nullable="false" />
-          <Property Name="SearchCriteria" Type="String" Nullable="false" MaxLength="Max" />
-          <Property Name="EcoPractice" Type="String" Nullable="false" MaxLength="Max" />
+          <Property Name="SearchCriteria" Type="String" Nullable="false" MaxLength="3500" />
+          <Property Name="EcoPractice" Type="String" Nullable="false" MaxLength="3500" />
           <Property Name="PictureName" Type="String" Nullable="true" MaxLength="50" />
           <Property Name="ActivatedAnnouncement" Type="Boolean" Nullable="false" DefaultValue="true" />
           <NavigationProperty Name="Person" Relationship="EcoColocationModel.Person_ResearchRoommate" FromRole="ResearchRoommate" ToRole="Person" />

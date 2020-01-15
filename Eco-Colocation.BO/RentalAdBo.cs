@@ -10,7 +10,7 @@ namespace Eco_Colocation.BO
 		{
 			if (init)
 			{
-				this.RentalRoomBo = new HashSet<RentalRoomBo>();
+				this.RentalRoomBo = new List<RentalRoomBo>();
 
 				UserBo = new UserBo(true);
 			}
@@ -76,7 +76,7 @@ namespace Eco_Colocation.BO
 		public bool ActivatedAnnouncement { get; set; }
 
 
-		public virtual ICollection<RentalRoomBo> RentalRoomBo { get; set; }
+		public virtual List<RentalRoomBo> RentalRoomBo { get; set; }
 
 		public virtual UserBo UserBo { get; set; }
 	}

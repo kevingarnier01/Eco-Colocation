@@ -76,7 +76,7 @@ public partial class CreationProjectAd
 
     public string TolerationInfoSup { get; set; }
 
-    public string ActivatedAnnouncement { get; set; }
+    public bool ActivatedAnnouncement { get; set; }
 
 
 

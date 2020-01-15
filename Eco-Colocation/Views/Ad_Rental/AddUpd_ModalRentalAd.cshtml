@@ -1,8 +1,14 @@
-﻿
+﻿@model Eco_Colocation.ViewModel.AllViewModel
 @{
 	ViewBag.Operation = @ViewData["operation"];
 	ViewBag.Title = "AddUpd_ModalRentalAd";
+
+	if (Model.AdRentalVM == null)
+		Model.AdRentalVM = new Eco_Colocation.ViewModel.AdRentalViewModal(true);
+
+	Model.AdRentalVM.InitLst();
 }
+
 <div class="underModal col-sm-12 col-xs-12">
 	<div id="modalLocation-ColocAnnounce" class="reelModal">
 		<div id="div-title-ca">
@@ -166,6 +172,9 @@
 							<p class="underTitle centerText titleshowUserDesc">Aperçu du rendu final de votre description</p>
 							<div class="divTextshowUserDesc">
 								<input type="text" placeholder="Rendu de votre description en attente..." disabled="" id="textShowUserDesc-ayer" class="textShowUserDesc">
+								@*@Html.TextBoxFor(m => m.AdRentalVM.RentalAdBo.Description, new {
+							   @placeholder = "Rendu de votre description en attente...", @disabled = "",
+							   @id = "textShowUserDesc-ayer", @class = "textShowUserDesc" })*@
 								<div>
 									<p id="introAnnonce-mlResult" class="inpDescAnnonceResult titleDescAnnonceResult centerText"></p>
 									<p id="descPersonneRecherche-mlResult" class="inpDescAnnonceResult"></p>
@@ -193,19 +202,8 @@
 						</div>
 						<div id="div10-1-adresseLog-ca" class="col-sm-8 col-xs-12">
 							<div id="div10-2-adresseLog-ca">
-								@*<input id="inputAddresseMap-ML" type="text" oninput="addr_search('inputAddresseMap-ML','listAutoCompletePlaceML');" list="listAutoCompletePlaceML" class="inputAdresseLog-ca">
-									<datalist id="listAutoCompletePlaceML"></datalist>*@
-								@*<input type="search" id="address-input-ml" class="address-input"
-									placeholder="Localisation de l'endroit" />*@
 								<input id="inputSearchPlace-ml" oninput="addr_searchStreet(this);" type="text" class="inputSearchPlace form-control" placeholder="Entrez l'adresse de votre colocation*">
 								<div class="listAutoCompleteToModal"></div>
-								@*@for (int i = 0; i < 4; i++)
-									{
-										@Html.Hidden("adresseVille", null, new { @class = "addresseVille" + i })
-										@Html.Hidden("adresseRegion", null, new { @class = "adresseRegion" + i })
-										@Html.Hidden("adressePays", null, new { @class = "adressePays" + i })
-										@Html.Hidden("adresseLatLng", null, new { @class = "adresseLatLng" + i })
-									}*@
 								<div id="div10-3-adresseLog-ca" class="flex col-sm-12 textInfoAdresse-ca">
 									<div id="div10-4-adresseLog-ca" class="col-sm-2"></div>
 									<i class="fas fa-info" id="iconPlace-ca"></i>
@@ -248,7 +246,10 @@
 											</td>
 											<td class="col-xs-6">
 												<div class="flex">
-													<input id="Loyer" name="Loyer" type="number" value="" class="inputtable-ca decimal" min="0">
+													@*<input id="Loyer" name="Loyer" type="number" value="" class="inputtable-ca decimal" min="0">*@
+													@Html.TextBoxFor(m => m.AdRentalVM.RentalAdBo.RentalRoomBo[0].RentPrice, new {
+												   @id = "Loyer", @name = "Loyer", @type = "number", @value = "",
+												   @class = "inputtable-ca decimal", @min = "0" })
 													<p class="centerText signInputPropose-ml">€</p>
 												</div>
 											</td>
@@ -257,7 +258,10 @@
 											<td class="col-xs-6"><label for="Charges">Charges *</label></td>
 											<td class="col-xs-6">
 												<div class="flex">
-													<input id="Charges" name="Charges" type="number" value="" class="inputtable-ca decimal" min="0">
+													@*<input id="Charges" name="Charges" type="number" value="" class="inputtable-ca decimal" min="0">*@
+													@Html.TextBoxFor(m => m.AdRentalVM.RentalAdBo.RentalRoomBo[0].Charges, new {
+												   @id = "Charges", @name = "Charges", @type = "number",
+												   @value = "", @class = "inputtable-ca decimal", @min = "0" })
 													<p class="centerText signInputPropose-ml">€</p>
 												</div>
 											</td>
@@ -266,7 +270,10 @@
 											<td class="col-xs-6"><label for="ChargesDesc">Détail des charges *</label></td>
 											<td class="col-xs-6">
 												<div class="flex">
-													<textarea id="ChargesDesc" name="Charges" type="text" value="" class="inputtable-ca"></textarea>
+													@*<textarea id="ChargesDesc" name="Charges" type="text" value="" class="inputtable-ca"></textarea>*@
+													@Html.TextAreaFor(m => m.AdRentalVM.RentalAdBo.RentalRoomBo[0].ChargesDetail, new {
+												   @id = "ChargesDesc", @name = "Charges", @type = "text",
+												   @value = "", @class = "inputtable-ca" })
 												</div>
 											</td>
 										</tr>
@@ -274,7 +281,10 @@
 											<td class="col-xs-6"><label for="Caution">Caution</label></td>
 											<td class="col-xs-6">
 												<div class="flex">
-													<input id="Caution" name="Caution" type="number" value="" class="inputtable-ca decimal" min="0">
+													@*<input id="Caution" name="Caution" type="number" value="" class="inputtable-ca decimal" min="0">*@
+													@Html.TextBoxFor(m => m.AdRentalVM.RentalAdBo.RentalRoomBo[0].Caution, new {
+												   @id = "Caution", @name = "Caution", @type = "number",
+												   @value = "", @class = "inputtable-ca decimal", @min = "0" })
 													<p class="centerText signInputPropose-ml">€</p>
 												</div>
 											</td>
@@ -283,7 +293,9 @@
 											<td class="col-xs-6"><label for="Superficie">Superficie *</label></td>
 											<td class="col-xs-6">
 												<div class="flex">
-													<input id="Superficie" name="Superficie" type="number" class="inputtable-ca" min="0">
+													@*<input id="Superficie" name="Superficie" type="number" class="inputtable-ca" min="0">*@
+													@Html.TextBoxFor(m => m.AdRentalVM.RentalAdBo.RentalRoomBo[0].Surface, new {
+												   @id = "Superficie", @name = "Superficie", @type = "number", @class = "inputtable-ca", @min = "0" })
 													<p class="centerText signInputPropose-ml">m²</p>
 												</div>
 											</td>
@@ -292,7 +304,9 @@
 											<td class="col-xs-6"><label>Meublée*</label></td>
 											<td class="paddingTd">
 												<p class="onoff">
-													<input type="checkbox" value="1" id="meuble-cb" checked>
+													@*<input type="checkbox" value="1" id="meuble-cb" checked>*@
+													@Html.TextBoxFor(m => m.AdRentalVM.RentalAdBo.RentalRoomBo[0].Furnished, new {
+												   @type = "checkbox", @value = "1", @id = "meuble-cb", @checked = "" })
 													<label for="meuble-cb"></label>
 												</p>
 											</td>
@@ -307,11 +321,17 @@
 												</div>
 												<div id="divDateDispo-mlca">
 													<label for="dateDispo-mlca">Date de la disponibilité *</label>
-													<input id="dateDispo-mlca" name="Disponibilite" type="date" class="inputtable-ca inputtableDate-ca">
+													@*<input id="dateDispo-mlca" name="Disponibilite" type="date" class="inputtable-ca inputtableDate-ca">*@
+													@Html.TextBoxFor(m => m.AdRentalVM.RentalAdBo.RentalRoomBo[0].AvalaibleDate, new {
+														@id = "dateDispo-mlca", @name = "Disponibilite", @type = "date",
+														@class ="inputtable-ca inputtableDate-ca" })
 												</div>
 												<div id="divEndDispo-mlca" class="divEndDispo-mlca">
 													<label for="dateEndDispo-mlca">Fin de la disponibilité *</label>
-													<input id="dateEndDispo-mlca" name="Disponibilite" type="date" class="inputtable-ca inputtableDate-ca">
+													@*<input id="dateEndDispo-mlca" name="Disponibilite" type="date" class="inputtable-ca inputtableDate-ca">*@
+													@Html.TextBoxFor(m => m.AdRentalVM.RentalAdBo.RentalRoomBo[0].AvalaibleEndDate, new {
+														@id = "dateDispo-mlca", @name = "Disponibilite", @type = "date",
+														@class ="inputtable-ca inputtableDate-ca" })
 												</div>
 											</td>
 										</tr>
@@ -338,20 +358,30 @@
 										<tr>
 											<td class="col-xs-6"><label for="Type">Type de logement *</label></td>
 											<td class="col-xs-6">
-												<select class="form-control" id="Type">
+												@*<select class="form-control" id="Type">
 													<option value="1">Habitat insolite</option>
 													<option value="2">Appartement</option>
-													<option value="2">Maison</option>
-												</select>
+													<option value="3">Maison</option>
+												</select>*@
+												@Html.DropDownListFor(m => m.AdRentalVM.RentalAdBo.HousingType,
+												 new SelectList(Model.AdRentalVM.HousingTypeLst, "Value", "Text", null), new
+												 {
+													 @class="form-control"
+												 })
 											</td>
 										</tr>
 										<tr>
 											<td class="col-xs-6"><label for="Implantation">Implantation *</label></td>
 											<td class="col-xs-6">
-												<select class="form-control" id="Implantation">
+												@*<select class="form-control" id="Implantation">
 													<option value="1">Campagne</option>
 													<option value="2">Ville/commune</option>
-												</select>
+												</select>*@
+												@Html.DropDownListFor(m => m.AdRentalVM.RentalAdBo.HousingImplantation,
+												 new SelectList(Model.AdRentalVM.HousingImplantationLst, "Value", "Text", null), new
+												 {
+													 @class="form-control"
+												 })
 											</td>
 										</tr>
 										<tr>
@@ -492,61 +522,64 @@
 							</div>
 						</div>
 					</div>
-					<div class="div20-descInform-ca">
-						<div class="div2-1-descInform-ca">
-							<div class="col-sm-4 div2-2-descInform-ca">
-								<div class="div2-3-descInform-ca" style="width: 60px;">
-									<div class="div2-4-descInform-ca">
-										<div class="flex">
-											<i class="fas fa-user-tag childFlex icon-ca"></i>
+					@if (!User.Identity.IsAuthenticated)
+					{
+						<div class="div20-descInform-ca">
+							<div class="div2-1-descInform-ca">
+								<div class="col-sm-4 div2-2-descInform-ca">
+									<div class="div2-3-descInform-ca" style="width: 60px;">
+										<div class="div2-4-descInform-ca">
+											<div class="flex">
+												<i class="fas fa-user-tag childFlex icon-ca"></i>
+											</div>
+											<p class="txtIcon-ca">AGENCE</p>
 										</div>
-										<p class="txtIcon-ca">AGENCE</p>
 									</div>
 								</div>
-							</div>
-							<div class="col-sm-8">
-								<table class="table table-striped">
-									<tbody>
-										<tr>
-											<td class="col-xs-6"><label>Êtes-vous une agence ? *</label></td>
-											<td class="paddingTd">
-												<p class="onoff">
-													<input type="checkbox" value="0" id="agence-cb" checked>
-													<label for="agence-cb"></label>
-												</p>
-											</td>
-										</tr>
-										<tr>
-											<td class="col-xs-6"><label>Nom de l'agence *</label></td>
-											<td class="paddingTd">
-												<input id="nomAgence-mlca" name="nomAgence" type="text" value="" class="inputtable-ca">
-											</td>
-										</tr>
-										<tr>
-											<td class="col-xs-6"><label>Numéro de siret *</label></td>
-											<td class="paddingTd">
-												<input id="numSiret-mlca" name="SiretNumber" type="text" value="" class="inputtable-ca">
-											</td>
-										</tr>
-										<tr>
-											<td class="col-xs-6"><label>Frais d'agence *</label></td>
-											<td class="flex paddingTd" style="border: none;">
-												<input id="fraisAgence-mlca" name="fraisAgence" type="number" min="0" value="" class="inputtable-ca decimal">
-												<p class="centerText signInputPropose-ml">€</p>
-											</td>
-										</tr>
-										<tr>
-											<td><label>Adresse * </label></td>
-											<td>
-												<input type="text" placeholder="N° Rue" class="inputStyle" id="numRueAgence-ml">
-												<input id="inputSearchPlaceAgence-ml" oninput="addr_searchStreet(this);" type="text" class="inputSearchPlace form-control inputStyle" placeholder="Entrez l'adresse de votre agence">
-											</td>
-										</tr>
-									</tbody>
-								</table>
+								<div class="col-sm-8">
+									<table class="table table-striped">
+										<tbody>
+											<tr>
+												<td class="col-xs-6"><label>Êtes-vous une agence ? *</label></td>
+												<td class="paddingTd">
+													<p class="onoff">
+														<input type="checkbox" value="0" id="agence-cb" checked>
+														<label for="agence-cb"></label>
+													</p>
+												</td>
+											</tr>
+											<tr>
+												<td class="col-xs-6"><label>Nom de l'agence *</label></td>
+												<td class="paddingTd">
+													<input id="nomAgence-mlca" name="nomAgence" type="text" value="" class="inputtable-ca">
+												</td>
+											</tr>
+											<tr>
+												<td class="col-xs-6"><label>Numéro de siret *</label></td>
+												<td class="paddingTd">
+													<input id="numSiret-mlca" name="SiretNumber" type="text" value="" class="inputtable-ca">
+												</td>
+											</tr>
+											<tr>
+												<td class="col-xs-6"><label>Frais d'agence *</label></td>
+												<td class="flex paddingTd" style="border: none;">
+													<input id="fraisAgence-mlca" name="fraisAgence" type="number" min="0" value="" class="inputtable-ca decimal">
+													<p class="centerText signInputPropose-ml">€</p>
+												</td>
+											</tr>
+											<tr>
+												<td><label>Adresse * </label></td>
+												<td>
+													<input type="text" placeholder="N° Rue" class="inputStyle" id="numRueAgence-ml">
+													<input id="inputSearchPlaceAgence-ml" oninput="addr_searchStreet(this);" type="text" class="inputSearchPlace form-control inputStyle" placeholder="Entrez l'adresse de votre agence">
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
 							</div>
 						</div>
-					</div>
+					}
 				</div>
 			</div>
 		</div>

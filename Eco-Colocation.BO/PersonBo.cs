@@ -22,10 +22,12 @@ namespace Eco_Colocation.BO
 		
 		[Required(ErrorMessage = "Le prénom doit être renseigné")]
 		[DataType(DataType.Text)]
+		[MaxLength(50, ErrorMessage = "Le prénom ne peut excéder 50 caractères")]
 		public string FirstName { get; set; }
 
 		[Required(ErrorMessage = "Le nom doit être renseigné")]
 		[DataType(DataType.Text)]
+		[MaxLength(50, ErrorMessage = "Le nom ne peut excéder 50 caractères")]
 		public string LastName { get; set; }
 
 		public byte Civility { get; set; }
@@ -43,6 +45,7 @@ namespace Eco_Colocation.BO
 
 		[Required(ErrorMessage = "Le numéro de téléphone doit être renseigné")]
 		[DataType(DataType.PhoneNumber)]
+		[MaxLength(12, ErrorMessage = "Le numéro de téléphone ne peut excéder 12 chiffres")]
 		public string PhoneNumber { get; set; }
 
 		[Required(ErrorMessage = "Le mode de contact doit être renseigné")]
@@ -50,6 +53,7 @@ namespace Eco_Colocation.BO
 
 		[Required(ErrorMessage = "La description de votre personnalité doit être renseignée")]
 		[DataType(DataType.Text)]
+		[MaxLength(500, ErrorMessage = "La description de votre personnalité ne peut excéder 500 caractères")]
 		public string PersonnalityDescription { get; set; }
 
 		public System.DateTime DateInscription { get; set; }

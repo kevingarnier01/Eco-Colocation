@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 01/14/2020 14:20:01
+-- Date Created: 01/15/2020 10:12:48
 -- Generated from EDMX file: C:\Users\kev-gar\Documents\Projet personnel\Eco-colocation\Application\Développement\Eco-Colocation\Eco-Colocation\Controllers\EcoColocationModel.edmx
 -- --------------------------------------------------
 
@@ -137,7 +137,7 @@ CREATE TABLE [dbo].[RentalAd] (
     [IdRentalAd] int IDENTITY(1,1) NOT NULL,
     [IdUser] int  NOT NULL,
     [Introduction] nvarchar(110)  NOT NULL,
-    [Description] nvarchar(max)  NOT NULL,
+    [Description] nvarchar(3500)  NOT NULL,
     [Street] nvarchar(80)  NOT NULL,
     [City] nvarchar(50)  NOT NULL,
     [PostalCode] nvarchar(15)  NOT NULL,
@@ -186,7 +186,7 @@ CREATE TABLE [dbo].[CreationProjectAd] (
     [IdCreationProject] int IDENTITY(1,1) NOT NULL,
     [IdPerson] int  NOT NULL,
     [Introduction] nvarchar(100)  NOT NULL,
-    [Description] nvarchar(max)  NOT NULL,
+    [Description] nvarchar(3500)  NOT NULL,
     [LandEngagement] tinyint  NULL,
     [LandMaxSurface] int  NULL,
     [LandMaxPrice] int  NULL,
@@ -207,7 +207,7 @@ CREATE TABLE [dbo].[CreationProjectAd] (
     [TolerationSmoker] bit  NOT NULL,
     [TolerationPets] bit  NOT NULL,
     [TolerationInfoSup] nvarchar(100)  NULL,
-    [ActivatedAnnouncement] nvarchar(max)  NOT NULL
+    [ActivatedAnnouncement] bit  NOT NULL
 );
 GO
 
@@ -241,7 +241,7 @@ CREATE TABLE [dbo].[Event] (
     [Region] nvarchar(50)  NOT NULL,
     [Country] nvarchar(50)  NOT NULL,
     [Link] nvarchar(500)  NULL,
-    [Description] nvarchar(max)  NOT NULL,
+    [Description] nvarchar(3500)  NOT NULL,
     [PictureName] nvarchar(50)  NULL,
     [DatePublish] datetime  NOT NULL
 );
@@ -268,10 +268,10 @@ CREATE TABLE [dbo].[EcoRoommateExisting] (
     [City] nvarchar(50)  NOT NULL,
     [PostalCode] nvarchar(15)  NOT NULL,
     [Email] nvarchar(60)  NULL,
-    [Description] nvarchar(max)  NOT NULL,
+    [Description] nvarchar(3500)  NOT NULL,
     [EcoImplication] tinyint  NOT NULL,
-    [TableEco] nvarchar(max)  NOT NULL,
-    [TableHousing] nvarchar(max)  NOT NULL
+    [TableEco] nvarchar(3500)  NOT NULL,
+    [TableHousing] nvarchar(3500)  NOT NULL
 );
 GO
 
@@ -298,8 +298,8 @@ GO
 -- Creating table 'DevConversation'
 CREATE TABLE [dbo].[DevConversation] (
     [IdDevConversation] int IDENTITY(1,1) NOT NULL,
-    [Email] nvarchar(max)  NOT NULL,
-    [Message] nvarchar(max)  NOT NULL,
+    [Email] nvarchar(60)  NOT NULL,
+    [Message] nvarchar(3500)  NOT NULL,
     [DateLastSend] datetime  NOT NULL,
     [Viewed] tinyint  NOT NULL
 );
@@ -311,8 +311,8 @@ CREATE TABLE [dbo].[ResearchRoommate] (
     [IdPerson] int  NOT NULL,
     [MaxBudget] smallint  NOT NULL,
     [EmailAlert] tinyint  NOT NULL,
-    [SearchCriteria] nvarchar(max)  NOT NULL,
-    [EcoPractice] nvarchar(max)  NOT NULL,
+    [SearchCriteria] nvarchar(3500)  NOT NULL,
+    [EcoPractice] nvarchar(3500)  NOT NULL,
     [PictureName] nvarchar(50)  NULL,
     [ActivatedAnnouncement] bit  NOT NULL
 );

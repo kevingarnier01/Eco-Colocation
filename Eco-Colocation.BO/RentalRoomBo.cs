@@ -17,15 +17,15 @@ namespace Eco_Colocation.BO
 
 		public int IdRentalAd { get; set; }
 
-		public decimal RentPrice { get; set; }
+		public decimal? RentPrice { get; set; }
 
-		public decimal Charges { get; set; }
+		public decimal? Charges { get; set; }
 
 		public string ChargesDetail { get; set; }
 
 		public Nullable<decimal> Caution { get; set; }
 
-		public short Surface { get; set; }
+		public short? Surface { get; set; }
 
 		public bool Furnished { get; set; }
 

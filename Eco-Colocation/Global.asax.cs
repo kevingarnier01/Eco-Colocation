@@ -27,11 +27,13 @@ namespace Eco_Colocation
 		protected void Application_Error(object sender, EventArgs e)
 		{
 			Exception ex = Server.GetLastError();
-			if (ex is HttpException && ((HttpException)ex).GetHttpCode() == 500)
-			{
-				Response.Redirect("~/Views/Shared/Error.cshtml");
-			}
+			//if (ex is HttpException && ((HttpException)ex).GetHttpCode() == 500)
+			//{
+			//	Response.Redirect("~/Views/Shared/Error.cshtml");
+			//}
 		}
+
+
 
 		public class SimpleMembershipInitializer
 		{

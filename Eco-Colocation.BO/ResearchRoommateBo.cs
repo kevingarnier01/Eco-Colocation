@@ -32,12 +32,14 @@ namespace Eco_Colocation.BO
 		public byte EmailAlert { get; set; }
 
 		[Required(ErrorMessage = "Le type d'éco-colocation recherché doivent être renseignés")]
+		[MaxLength(3500, ErrorMessage = "Le type d'éco-colocation recherché ne peut excéder 3500 caractère. {0} {1}")]
 		public string SearchCriteria { get; set; }
 
 		[Required(ErrorMessage = "Les pratiques écologiques doivent être renseignées")]
+		[MaxLength(3500, ErrorMessage = "Vos pratiques écologiqes ne peuvent excéder 3500 caractère. {0} {1}")]
 		public string EcoPractice { get; set; }
 		
-		[StringLength(50, ErrorMessage = "Le nom de la photo excède le nombre de caractère maximum.")]
+		[StringLength(50, ErrorMessage = "Le nom de la photo ne peut excéder 50 caractères.")]
 		public string PictureName { get; set; }
 
 		public bool ActivatedAnnouncement { get; set; }
