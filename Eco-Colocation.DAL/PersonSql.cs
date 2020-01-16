@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 
 namespace Eco_Colocation.DAL
 {
@@ -56,6 +57,16 @@ namespace Eco_Colocation.DAL
 			this.SqlDbStoredProcedureDAL.Add(personBo, "IdPerson", 0, "Person_Add", oSqlParameters);
 
 			return personBo.IdPerson;
+		}
+
+		public PersonBo GetByUserId(int idUser)
+		{
+			ABLib.DAL.Sql.SqlParametersCollection oSqlParameters = new ABLib.DAL.Sql.SqlParametersCollection();
+			oSqlParameters.Add("IdUser", idUser, SqlDbType.Int);
+			
+			PersonBo personBo = this.FillLst(this.SqlDbStoredProcedureDAL.ExecWithResultDt("Person_GetByUderId", oSqlParameters)).FirstOrDefault();
+
+			return personBo;
 		}
 
 		#endregion

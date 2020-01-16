@@ -45,6 +45,16 @@ namespace Eco_Colocation.BLL
 			}
 		}
 
+		public PersonBo GetByUserId(int idUser)
+		{
+			if (this.PersonSql == null)
+				return null;
+			else
+			{
+				return this.PersonSql.GetByUserId(idUser);
+			}
+		}
+
 		#endregion
 	}
 }

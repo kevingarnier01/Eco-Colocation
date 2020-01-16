@@ -275,15 +275,10 @@
 					</ul>
 				</div>
 			</div>
-			@if (ViewBag.operation == "Update")
+
+			@if (!User.Identity.IsAuthenticated) // Utilisateur non connecté
 			{
-				<div class="flex">
-					<input type="submit" name="action:Valid_Update" class="childFlex btnGreen" value="Mettre à jour" />
-				</div>
-			}
-			@if (!User.Identity.IsAuthenticated)
-			{
-				if (ViewBag.operation == "Subscribe")
+				if (ViewBag.operation == "Subscribe") //Creer une annonce et un compte
 				{
 					@Html.Partial("~/Views/Account/PasswordDiv.cshtml", Model)
 					<div class="flex" id="divInscriptionButtons-mcar">
@@ -291,19 +286,27 @@
 						<input type="submit" data-url-jquerySubmit="/PeopleSearching/Valid_AddAndSubscribe" class="childFlex btnGreen" value="Publier et m'inscrire" />
 					</div>
 				}
-				else if (ViewBag.operation != "Update")
+				else if (ViewBag.operation != "Subscribe") //Creer une annonce en se connectant ou en s'inscrivant
 				{
 					<div id="divInscriptionButtons-mcar">
 						@Html.Partial("~/Views/Account/ButtonsCreateAccount.cshtml", Model)
 					</div>
 				}
 			}
-			else
+			else //Utilisateur connecté
 			{
-				if (ViewBag.operation != "Update")
+				if (ViewBag.operation == "Update") //Souhaite mettre à jour son annonce
+				{
+					<div class="flex">
+						@*<input type="submit" name="action:Valid_Update" class="childFlex btnGreen" value="Mettre à jour" />*@
+						<input type="submit" data-url-jquerySubmit="/PeopleSearching/Valid_Update" class="childFlex btnGreen" value="Mettre à jour" />
+					</div>
+				}
+				if (ViewBag.operation != "Update") //Souhaite creer une annonce
 				{
 					<div class="flex" id="divInscriptionButtons-mcar">
-						<input type="submit" name="action:Valid_Add" class="childFlex btnGreen" value="Ajouter mon annonce" />
+						@*<input type="submit" name="action:Valid_Add" class="childFlex btnGreen" value="Ajouter mon annonce" />*@
+						<input type="submit" data-url-jquerySubmit="/PeopleSearching/Valid_AddToUser" class="childFlex btnGreen" value="Ajouter mon annonce" />
 					</div>
 				}
 			}
@@ -317,6 +320,7 @@
 	initSlidepicture();
 	showDivCritereRecherche();
 	initButtonOnOff();
+	triggerSubmitForm("#addUpdPeopleSearchForm");
 
 	$('#descTextAnnonceLocationDataPersonnal').detach().prependTo('#extraElement-pdf');
 
@@ -332,12 +336,10 @@
 		window.history.replaceState('data to be passed', 'Title of the page',
 			"/Modal/AddUpd_ModalPeopleSearch?urlCurrentPage=" + $('#urlCurrentPage').val());
 	}
-
+		
 	if (operation == "") {
-		addInputActionToConnectionButton()
+		modifySubmitAction_mps()
 	}
-
-	triggerSubmitForm("#addUpdPeopleSearchForm");
 
 	//Quand le modalstate n'est pas valide
 	if ("@ViewBag.ModalState" == "False") {

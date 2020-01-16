@@ -14,7 +14,7 @@ namespace Eco_Colocation.BO
 
 				this.PlaceBo = new HashSet<PlaceBo>();
 
-				this.PersonBo = new PersonBo(true);
+				//this.PersonBo = new PersonBo(true);
 
 				this.EmailAlert = 1;
 			}

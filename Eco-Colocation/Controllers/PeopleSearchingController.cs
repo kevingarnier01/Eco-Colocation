@@ -7,6 +7,7 @@ using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
+using System.Web.Security;
 using static Eco_Colocation.App_Start._Enums;
 
 namespace Eco_Colocation.Controllers
@@ -15,6 +16,7 @@ namespace Eco_Colocation.Controllers
 	{
 		private ResearchRoommateManager researchRoommateManager { get; set; }
 		private PlaceManager placeManager { get; set; }
+		private PersonManager personManager { get; set; }
 
 		public PeopleSearchingController()
 		{
@@ -23,6 +25,9 @@ namespace Eco_Colocation.Controllers
 
 			PlaceSql placeSql = new PlaceSql(base.WebDbSqlConnectionString);
 			this.placeManager = new PlaceManager(placeSql);
+
+			PersonSql personSql = new PersonSql(base.WebDbSqlConnectionString);
+			this.personManager = new PersonManager(personSql);
 		}
 
 		// GET: PeopleSearching
@@ -57,14 +62,7 @@ namespace Eco_Colocation.Controllers
 
 			return PartialView(allViewModel);
 		}
-
-		[HttpPost]
-		[MultiSubmitAttribute(Name = "action", Argument = "Valid_Add")]
-		public ActionResult Valid_Add(AllViewModel AllVM)
-		{
-			return View("");
-		}
-
+		
 		//[HttpPost]
 		//[MultiSubmitAttribute(Name = "action", Argument = "Valid_AddAndSubscribe")]
 		public ActionResult Valid_AddAndSubscribe(AllViewModel AllVM)
@@ -73,6 +71,7 @@ namespace Eco_Colocation.Controllers
 			{
 				AccountController accountController = new AccountController();
 				int idPerson = accountController._Inscription(AllVM);
+
 				if (idPerson != 0 && ModelState.IsValid)
 				{
 					Add(AllVM.PeopleSearchingVM, idPerson);
@@ -89,13 +88,35 @@ namespace Eco_Colocation.Controllers
 			return PartialView("~/Views/PeopleSearching/AddUpd_ModalPeopleSearch.cshtml", AllVM);
 		}
 
-		[HttpPost]
-		[MultiSubmitAttribute(Name = "action", Argument = "Valid_AddAndConnect")]
-		public ActionResult Valid_AddAndConnect(AllViewModel AllVM)
+		public ActionResult Valid_AddToUser(AllViewModel AllVM)
 		{
-			return View("");
+			if (ModelState.IsValid)
+			{
+				FormsAuthenticationTicket ticket = (HttpContext.User.Identity as FormsIdentity).Ticket;
+				int idUser = Convert.ToInt32(ticket.UserData);
+				PersonBo personBo = personManager.GetByUserId(idUser);
+
+				if (personBo.IdPerson != 0 && ModelState.IsValid)
+				{
+					Add(AllVM.PeopleSearchingVM, personBo.IdPerson);
+
+					ViewData["titlePopup"] = "Publication d'une annonce de recherche";
+					ViewData["textPopup"] = "Votre annonce de recherche a bien été créée.";
+
+					return PartialView("~/Views/Shared/CommunPage/Read_ModalPopupAddUpd.cshtml");
+				}
+			}
+
+			@ViewData["ModalState"] = false;
+			ViewData["operation"] = "Subscribe";
+			return PartialView("~/Views/PeopleSearching/AddUpd_ModalPeopleSearch.cshtml", AllVM);
 		}
 
+		public ActionResult Valid_AddAndConnect(AllViewModel AllVM)
+		{
+			return View();
+		}
+		
 		[HttpPost]
 		[MultiSubmitAttribute(Name = "action", Argument = "Valid_Update")]
 		public ActionResult Valid_Update(AllViewModel AllVM)
@@ -124,7 +145,7 @@ namespace Eco_Colocation.Controllers
 			return PartialView(allVM);
 		}
 
-		public bool Add(PeopleSearchingViewModel peopleSearchingVM, int idPerson)
+		public void Add(PeopleSearchingViewModel peopleSearchingVM, int idPerson)
 		{
 			int idResearchRoommate = researchRoommateManager.Add(peopleSearchingVM.ResearchRoommateBo, idPerson);
 
@@ -159,8 +180,6 @@ namespace Eco_Colocation.Controllers
 
 				int idPlace = placeManager.Add(placeBo, idResearchRoommate, 0);
 			}
-
-			return true;
 		}
 	}
 }

@@ -2079,16 +2079,16 @@ function postSubmit(idForm) {
 
 	$.post(urlAction, dataToPost)
 		.done(function (response, status, jqxhr) {
-			alert(response)
+			alert("Ok. Recharger manuellement la page.");
 		})
 }
 
-function addInputActionToConnectionButton() {
+function modifySubmitAction_mps() {
 	setTimeout(function () {
-		var btnByInscription = "<input type='submit' name='action:Valid_AddAndSubscribe' id='btnCreateProfil-mcar' value='Valider' />"
+		var btnByInscription = "<input type='submit' data-url-jquerySubmit='PeopleSearching/Valid_AddAndSubscribe' id='btnCreateProfil-mcar' value='Valider' />"
 		$('#btnCreateProfil-mcar').replaceWith(btnByInscription);
 
-		var btnByConnect = "<input type='submit' name='action:Valid_AddAndConnect' class='btnGreen childFlex fontFamilyNote' id='btnConnexion-acc' value='Connexion'/>"
+		var btnByConnect = "<input type='submit' data-url-jquerySubmit='PeopleSearching/Valid_AddAndConnect' class='btnGreen childFlex fontFamilyNote' id='btnConnexion-acc' value='Connexion'/>"
 		$('#btnConnexion-acc').replaceWith(btnByConnect);
 
 		$("#accountForm").replaceWith($("#accountForm").html())

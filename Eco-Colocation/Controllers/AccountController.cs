@@ -1,6 +1,8 @@
 ﻿using Eco_Colocation.BLL;
 using Eco_Colocation.DAL;
 using Eco_Colocation.ViewModel;
+using System;
+using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 using WebMatrix.WebData;
@@ -71,9 +73,9 @@ namespace Eco_Colocation.Controllers
 					{
 						idPerson = PersonManager.Add(allVM.AccountVM.UserBo.PersonBo, allVM.AccountVM.UserBo.IdUser);
 					}
-					
+
 					if (idPerson != 0)
-						Connection(allVM.AccountVM);
+						Connection(allVM);
 				}
 				else
 				{
@@ -85,11 +87,36 @@ namespace Eco_Colocation.Controllers
 			return idPerson;
 		}
 
-		public ActionResult Connection(AccountViewModel accountViewModel)
+		public ActionResult Connection(AllViewModel AllViewModel)
 		{
-			FormsAuthentication.SetAuthCookie("User", true);
+			//FormsAuthentication.SetAuthCookie("User", true);
+			AllViewModel.AccountVM.UserBo.IdUser = WebSecurity.GetUserId(AllViewModel.AccountVM.UserBo.UserName);
+			if (AllViewModel.AccountVM.UserBo.IdUser != 0)
+			{
+				string username = "User";
+				bool isPersistent = false;
+				FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(
+				  1,
+				  "User",
+				  DateTime.Now,
+				  DateTime.Now.AddMinutes(30),
+				  isPersistent,
+				  Convert.ToString(AllViewModel.AccountVM.UserBo.IdUser),
+				  FormsAuthentication.FormsCookiePath);
 
-			return View("~/Views/EcoRoommateHome/EcoRoommateHomeView.cshtml");
+				// Encrypt the ticket.
+				string encTicket = FormsAuthentication.Encrypt(ticket);
+
+				// Create the cookie.
+				Response.Cookies.Add(new HttpCookie(FormsAuthentication.FormsCookieName, encTicket));
+
+				var a = FormsAuthentication.GetRedirectUrl(username, isPersistent);
+
+				// Redirect back to original URL.
+				return Redirect(FormsAuthentication.GetRedirectUrl(username, isPersistent));
+			}
+			return View();
+			//return View("~/Views/EcoRoommateHome/EcoRoommateHomeView.cshtml");
 		}
 
 		public ActionResult Deconnection()
