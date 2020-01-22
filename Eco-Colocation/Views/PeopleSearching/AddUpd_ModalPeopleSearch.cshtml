@@ -133,13 +133,19 @@
 											<div id="place-car" class="place">
 												@for (int i = 0; i < Model.PeopleSearchingVM.LstPlaceBo?.Count; i++)
 												{
-													<div id="placecar-@Model.PeopleSearchingVM.LstPlaceBo[i].IdPlace" class="divPlace">
-														@*<p class="placeName" title="Rennes 35, Ille-et-Vilaine, Bretagne">Rennes 35, Ille-et-Vilaine, Bretagne</p>*@
-														@Html.TextBoxFor(m => m.PeopleSearchingVM.LstPlaceBo[i].FullPlaceName, new { @title = "{0}", @class = "placeName" })
-														<div class="crossPlace">
-															<i onclick="deletePlace('placecar-@Model.PeopleSearchingVM.LstPlaceBo[i].IdPlace','car','@Model.PeopleSearchingVM.LstPlaceBo[i].IdPlace','#inputSearchPlace-car')" class="fas fa-times crossPlace"></i>
-														</div>
+												<div id="placecar-@Model.PeopleSearchingVM.LstPlaceBo[i].IdPlace" class="divPlace">
+													@*<p class="placeName" title="Rennes 35, Ille-et-Vilaine, Bretagne">Rennes 35, Ille-et-Vilaine, Bretagne</p>*@
+													@*@Html.TextBoxFor(m => m.PeopleSearchingVM.LstPlaceBo[i].FullPlaceName, new {  @class = "placeName" })*@
+
+													@Html.TextBoxFor(m => m.PeopleSearchingVM.LstPlaceBo[i].City, new { @class = "placeName" })
+													@Html.TextBoxFor(m => m.PeopleSearchingVM.LstPlaceBo[i].DepartmentNumber, new { @class = "placeName" })
+													@Html.TextBoxFor(m => m.PeopleSearchingVM.LstPlaceBo[i].Department, new { @class = "placeName" })
+													@Html.TextBoxFor(m => m.PeopleSearchingVM.LstPlaceBo[i].Region, new { @class = "placeName" })
+													@Html.TextBoxFor(m => m.PeopleSearchingVM.LstPlaceBo[i].Country, new { @class = "placeName" })
+													<div class="crossPlace">
+														<i onclick="deletePlace('placecar-@Model.PeopleSearchingVM.LstPlaceBo[i].IdPlace','car','@Model.PeopleSearchingVM.LstPlaceBo[i].IdPlace','#inputSearchPlace-car')" class="fas fa-times crossPlace"></i>
 													</div>
+												</div>
 												}
 											</div>
 										</div>

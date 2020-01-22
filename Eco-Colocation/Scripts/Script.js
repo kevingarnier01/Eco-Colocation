@@ -638,36 +638,50 @@ function addNewPlaceItem(ui, input, identityPage, compteurPlaceItem) {
 	var inputId = "#" + $(input).attr("id");
 
 	if (ui != null) {
+		var json = JSON.stringify(ui.item.json);
 		var locationNameSelected = ui.item.value;
 	}
 	else {
 		var locationNameSelected = "France"
 	}
 
-	var htmlPlace =
-		(identityPage != "ph") ?
-			'<div id="place' + identityPage + '-' + compteurPlaceItem + '" class="divPlace">'
-			: '<div id="place' + identityPage + '-' + compteurPlaceItem + '" class="divPlace divPlace-ph">'
+	var typeResearch = $('.typeResearchSct').val();
 
-	var paramDeletePlace = "'place" + identityPage + '-' + compteurPlaceItem + "','" + identityPage + "','" + compteurPlaceItem + "','" + inputId + "'"
-	htmlPlace +=
-		'<p class="placeName" title="' + locationNameSelected + '">' + locationNameSelected + '</p>' +
-		'<div class="crossPlace"><i onclick="deletePlace(' + paramDeletePlace + ')" class="fas fa-times crossPlace"></i></div>' +
-		'</div>';
+	$.ajax({
+		type: "POST",
+		url: "/PeopleSearching/DisplayInputSearchPlace",
+		data: "{ jsonDataPlace: '" + json + "', scopeResearch: '" + 1 + "'}",
+		success: function (html) {
+			var htmlPlace = $(html).find(".divPlace");
+			$("#place-" + identityPage).append(htmlPlace);
+		},
+		contentType: 'application/json'
+	});
 
-	$("#place-" + identityPage).append(htmlPlace);
+	//var htmlPlace =
+	//	(identityPage != "ph") ?
+	//		'<div id="place' + identityPage + '-' + compteurPlaceItem + '" class="divPlace">'
+	//		: '<div id="place' + identityPage + '-' + compteurPlaceItem + '" class="divPlace divPlace-ph">'
 
-	//Mettre le même id à l'input hidden associé
-	$(inputId + " + .divInputPlaceHidden input:last-child").attr("id", "inputPlaceHidden" + compteurPlaceItem);
+	//var paramDeletePlace = "'place" + identityPage + '-' + compteurPlaceItem + "','" + identityPage + "','" + compteurPlaceItem + "','" + inputId + "'"
+	//htmlPlace +=
+	//	'<p class="placeName" title="' + locationNameSelected + '">' + locationNameSelected + '</p>' +
+	//	'<div class="crossPlace"><i onclick="deletePlace(' + paramDeletePlace + ')" class="fas fa-times crossPlace"></i></div>' +
+	//	'</div>';
 
-	if ($("#placeSaved-" + identityPage).css('display') == 'none')
-		$("#placeSaved-" + identityPage).css('display', 'block');
+	//$("#place-" + identityPage).append(htmlPlace);
 
-	setTimeout(function () {
-		$(input).val("");
-	}, 10)
+//Mettre le même id à l'input hidden associé
+$(inputId + " + .divInputPlaceHidden input:last-child").attr("id", "inputPlaceHidden" + compteurPlaceItem);
 
-	compteurPlaceItem++;
+if ($("#placeSaved-" + identityPage).css('display') == 'none')
+	$("#placeSaved-" + identityPage).css('display', 'block');
+
+setTimeout(function () {
+	$(input).val("");
+}, 10)
+
+compteurPlaceItem++;
 }
 
 function deletePlace(idElement, identityPage, compteurId, inputId) {
@@ -2032,7 +2046,7 @@ function sendMsgToEmail(idElementPopUp) {
 function showWaitingIcon(destinationTag) {
 	var existing = $(destinationTag + " .waitingIcon").length;
 	if (existing == 0) {
-	var waitingIcon = '<i class="fas fa-spinner waitingIcon"></i>';
+		var waitingIcon = '<i class="fas fa-spinner waitingIcon"></i>';
 		$(destinationTag).append(waitingIcon)
 	}
 	$(destinationTag + " .waitingIcon").css("animation", "loadSendMsg 1s")
@@ -2088,7 +2102,7 @@ function modifySubmitAction_mps() {
 		var btnByInscription = "<input type='submit' data-url-jquerySubmit='PeopleSearching/Valid_AddAndSubscribe' id='btnCreateProfil-mcar' value='Valider' />"
 		$('#btnCreateProfil-mcar').replaceWith(btnByInscription);
 
-		var btnByConnect = "<input type='submit' data-url-jquerySubmit='PeopleSearching/Valid_AddAndConnect' class='btnGreen childFlex fontFamilyNote' id='btnConnexion-acc' value='Connexion'/>"
+		var btnByConnect = "<input type='submit' data-url-jquerySubmit='PeopleSearching/Valid_AddToUser' class='btnGreen childFlex fontFamilyNote' id='btnConnexion-acc' value='Connexion'/>"
 		$('#btnConnexion-acc').replaceWith(btnByConnect);
 
 		$("#accountForm").replaceWith($("#accountForm").html())
@@ -2103,7 +2117,8 @@ function addValueToHiddenElement(valueElement, hiddenElement) {
 function triggerSubmitForm(idForm) {
 	$("input:submit").click(function (e) {
 		$("body").css("cursor", "progress");
-		//showWaitingIcon($("input:submit");
+
+		//($("input:submit");
 		e.preventDefault();
 		var url = $(this).attr("data-url-jquerySubmit");
 

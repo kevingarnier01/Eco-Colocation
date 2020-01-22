@@ -5,7 +5,7 @@ namespace Eco_Colocation.BO
 {
 	public class UserBo
 	{
-		public UserBo(){}
+		public UserBo(){ PersonBo = new PersonBo(true); }
 		public UserBo(bool init)
 		{
 			if (init)

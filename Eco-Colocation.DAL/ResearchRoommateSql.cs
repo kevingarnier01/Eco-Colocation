@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 
 namespace Eco_Colocation.DAL
 {
@@ -50,6 +51,33 @@ namespace Eco_Colocation.DAL
 			this.SqlDbStoredProcedureDAL.Add(researchRoommateBo, "IdResearchRoommate", 0, "ResearchRoommate_Add", oSqlParameters);
 
 			return researchRoommateBo.IdResearchRoommate;
+		}
+
+		public int Upd(ResearchRoommateBo researchRoommateBo, int idPerson)
+		{
+			ABLib.DAL.Sql.SqlParametersCollection oSqlParameters = new ABLib.DAL.Sql.SqlParametersCollection();
+			oSqlParameters.AddIdOut("IdResearchRoommate");
+			oSqlParameters.Add("IdPerson", idPerson, SqlDbType.Int);
+			oSqlParameters.Add("MaxBudget", researchRoommateBo.MaxBudget, SqlDbType.SmallInt);
+			oSqlParameters.Add("EmailAlert", researchRoommateBo.EmailAlert, SqlDbType.TinyInt);
+			oSqlParameters.Add("SearchCriteria", researchRoommateBo.SearchCriteria, SqlDbType.NVarChar);
+			oSqlParameters.Add("EcoPractice", researchRoommateBo.EcoPractice, SqlDbType.NVarChar);
+			oSqlParameters.Add("PictureName", researchRoommateBo.PictureName, SqlDbType.NVarChar);
+			oSqlParameters.Add("ActivatedAnnouncement", 1, SqlDbType.Bit);
+
+			this.SqlDbStoredProcedureDAL.Add(researchRoommateBo, "IdResearchRoommate", 0, "ResearchRoommate_Upd", oSqlParameters);
+
+			return researchRoommateBo.IdResearchRoommate;
+		}
+
+		public ResearchRoommateBo GetByPersonId(int idPerson)
+		{
+			ABLib.DAL.Sql.SqlParametersCollection oSqlParameters = new ABLib.DAL.Sql.SqlParametersCollection();
+			oSqlParameters.Add("IdPerson", idPerson, SqlDbType.Int);
+
+			ResearchRoommateBo researchRoommateBo = this.FillLst(this.SqlDbStoredProcedureDAL.ExecWithResultDt("ResearchRoommate_GetByPersonId", oSqlParameters)).FirstOrDefault();
+
+			return researchRoommateBo;
 		}
 
 		#endregion

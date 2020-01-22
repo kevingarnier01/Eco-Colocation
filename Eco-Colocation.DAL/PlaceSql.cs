@@ -53,6 +53,32 @@ namespace Eco_Colocation.DAL
 			return placeBo.IdPlace;
 		}
 
+		public bool Upd(PlaceBo placeBo, int idResearchRoommate, int idCreationProject)
+		{
+			ABLib.DAL.Sql.SqlParametersCollection oSqlParameters = new ABLib.DAL.Sql.SqlParametersCollection();
+			oSqlParameters.Add("IdResearchRoommate", (idResearchRoommate == 0) ? null : idResearchRoommate.ToString(), SqlDbType.NVarChar);
+			oSqlParameters.Add("IdCreationProject", (idCreationProject == 0) ? null : idCreationProject.ToString(), SqlDbType.NVarChar);
+			oSqlParameters.Add("City", placeBo.City, SqlDbType.NVarChar);
+			oSqlParameters.Add("PostalCode", placeBo.PostalCode, SqlDbType.NVarChar);
+			oSqlParameters.Add("Department", placeBo.Department, SqlDbType.NVarChar);
+			oSqlParameters.Add("DepartmentNumber", placeBo.DepartmentNumber, SqlDbType.NVarChar);
+			oSqlParameters.Add("Region", placeBo.Region, SqlDbType.NVarChar);
+			oSqlParameters.Add("Country", placeBo.Country, SqlDbType.NVarChar);
+			oSqlParameters.Add("ScopeResearch", placeBo.ScopeResearch, SqlDbType.TinyInt);
+
+			return this.SqlDbStoredProcedureDAL.ExecWithTryCatch("Place_Upd", oSqlParameters);
+		}
+
+		public List<PlaceBo> GetByResearchRoommateId(int idResearchRoommate)
+		{
+			ABLib.DAL.Sql.SqlParametersCollection oSqlParameters = new ABLib.DAL.Sql.SqlParametersCollection();
+			oSqlParameters.Add("IdResearchRoommate", idResearchRoommate, SqlDbType.Int);
+
+			List<PlaceBo> lstPlaceBo = this.FillLst(this.SqlDbStoredProcedureDAL.ExecWithResultDt("Place_GetLstByResearchRoommateId", oSqlParameters));
+
+			return lstPlaceBo;
+		}
+
 		#endregion
 
 		#region Fill

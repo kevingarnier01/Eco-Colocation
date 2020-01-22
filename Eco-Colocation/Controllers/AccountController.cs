@@ -129,6 +129,12 @@ namespace Eco_Colocation.Controllers
 			//return View("~/Views/Home/Index.csthml");
 		}
 
+		public int GetIdUserFromCookieConnection(HttpContextBase httpContext)
+		{
+			FormsAuthenticationTicket ticket = (httpContext.User.Identity as FormsIdentity).Ticket;
+			return Convert.ToInt32(ticket.UserData);
+		}
+
 		public ActionResult ModalInscriptionWay()
 		{
 			return PartialView();

@@ -2,6 +2,17 @@
 {
 	public class _Enums
 	{
+		/// <summary>
+		/// Utiliser pour savoir si c'est un ajout d'annonce avec ou sans inscription ou si c'est une modification
+		/// </summary>
+		public enum TypeOperation : int
+		{
+			AddAndSubscribe = 1,
+			AddToUser = 2,
+			Add = 3,
+			Update = 4
+		}
+
 		// ****
 		// **** User **** //
 		// ****

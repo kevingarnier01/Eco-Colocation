@@ -1,4 +1,5 @@
-﻿using Eco_Colocation.BLL;
+﻿using Eco_Colocation.App_Start;
+using Eco_Colocation.BLL;
 using Eco_Colocation.BO;
 using Eco_Colocation.DAL;
 using Eco_Colocation.ViewModel;
@@ -47,6 +48,17 @@ namespace Eco_Colocation.Controllers
 
 			return View(allVM);
 		}
+			   
+		public ActionResult DisplayInputSearchPlace(string jsonDataPlace, string scopeResearch)
+		{
+			PlaceBo placeBo = new _InputSearchPlace().GetObjectFromPlaceJson(jsonDataPlace, Convert.ToInt32(scopeResearch));
+
+			AllViewModel allViewModel = new AllViewModel();
+			allViewModel.PeopleSearchingVM = new PeopleSearchingViewModel(true);
+			allViewModel.PeopleSearchingVM.LstPlaceBo.Add(placeBo);
+
+			return View("~/Views/PeopleSearching/AddUpd_ModalPeopleSearch.cshtml", allViewModel);
+		}
 
 		public ActionResult AddUpd_ModalPeopleSearch(string operation, string idModal)
 		{
@@ -60,11 +72,21 @@ namespace Eco_Colocation.Controllers
 
 			AllViewModel allViewModel = new AllViewModel();
 
+			if (operation == "Update")
+			{
+				allViewModel = GetDataUser();
+			}
+
 			return PartialView(allViewModel);
 		}
-		
+
 		//[HttpPost]
 		//[MultiSubmitAttribute(Name = "action", Argument = "Valid_AddAndSubscribe")]
+		/// <summary>
+		/// Creation d'un compte en plus d'une annonce de recherche
+		/// </summary>
+		/// <param name="AllVM"></param>
+		/// <returns></returns>
 		public ActionResult Valid_AddAndSubscribe(AllViewModel AllVM)
 		{
 			if (ModelState.IsValid)
@@ -74,7 +96,7 @@ namespace Eco_Colocation.Controllers
 
 				if (idPerson != 0 && ModelState.IsValid)
 				{
-					Add(AllVM.PeopleSearchingVM, idPerson);
+					AddOrUpdate(AllVM.PeopleSearchingVM, idPerson, (int)TypeOperation.Add);
 
 					ViewData["titlePopup"] = "Inscription et publication d'une annonce";
 					ViewData["textPopup"] = "Votre inscription et votre annonce de recherche ont bien été réalisées.";
@@ -88,17 +110,22 @@ namespace Eco_Colocation.Controllers
 			return PartialView("~/Views/PeopleSearching/AddUpd_ModalPeopleSearch.cshtml", AllVM);
 		}
 
+		/// <summary>
+		/// L'utilisteur à déja un compte et souhaite creer une annonce de recherche
+		/// </summary>
+		/// <param name="AllVM"></param>
+		/// <returns></returns>
 		public ActionResult Valid_AddToUser(AllViewModel AllVM)
 		{
+			//Probleme, le modelState recupere les nom & prénom 
 			if (ModelState.IsValid)
 			{
-				FormsAuthenticationTicket ticket = (HttpContext.User.Identity as FormsIdentity).Ticket;
-				int idUser = Convert.ToInt32(ticket.UserData);
+				int idUser = new AccountController().GetIdUserFromCookieConnection(HttpContext);
 				PersonBo personBo = personManager.GetByUserId(idUser);
 
 				if (personBo.IdPerson != 0 && ModelState.IsValid)
 				{
-					Add(AllVM.PeopleSearchingVM, personBo.IdPerson);
+					AddOrUpdate(AllVM.PeopleSearchingVM, personBo.IdPerson, (int)TypeOperation.Add);
 
 					ViewData["titlePopup"] = "Publication d'une annonce de recherche";
 					ViewData["textPopup"] = "Votre annonce de recherche a bien été créée.";
@@ -112,16 +139,35 @@ namespace Eco_Colocation.Controllers
 			return PartialView("~/Views/PeopleSearching/AddUpd_ModalPeopleSearch.cshtml", AllVM);
 		}
 
-		public ActionResult Valid_AddAndConnect(AllViewModel AllVM)
-		{
-			return View();
-		}
-		
-		[HttpPost]
-		[MultiSubmitAttribute(Name = "action", Argument = "Valid_Update")]
+		//[HttpPost]
+		//[MultiSubmitAttribute(Name = "action", Argument = "Valid_Update")]
+		/// <summary>
+		/// L'utilisateur souhaite mettre à jour son annonce de recherche
+		/// </summary>
+		/// <param name="AllVM"></param>
+		/// <returns></returns>
 		public ActionResult Valid_Update(AllViewModel AllVM)
 		{
-			return View("");
+			if (ModelState.IsValid)
+			{
+				FormsAuthenticationTicket ticket = (HttpContext.User.Identity as FormsIdentity).Ticket;
+				int idUser = Convert.ToInt32(ticket.UserData);
+				PersonBo personBo = personManager.GetByUserId(idUser);
+
+				if (personBo.IdPerson != 0 && ModelState.IsValid)
+				{
+					AddOrUpdate(AllVM.PeopleSearchingVM, personBo.IdPerson, (int)TypeOperation.Update);
+
+					ViewData["titlePopup"] = "Publication d'une annonce de recherche";
+					ViewData["textPopup"] = "Votre annonce de recherche a bien été créée.";
+
+					return PartialView("~/Views/Shared/CommunPage/Read_ModalPopupAddUpd.cshtml");
+				}
+			}
+
+			@ViewData["ModalState"] = false;
+			ViewData["operation"] = "Subscribe";
+			return PartialView("~/Views/PeopleSearching/AddUpd_ModalPeopleSearch.cshtml", AllVM);
 		}
 
 		public ActionResult Read_ModalPeopleSearch(string idModal)
@@ -145,41 +191,44 @@ namespace Eco_Colocation.Controllers
 			return PartialView(allVM);
 		}
 
-		public void Add(PeopleSearchingViewModel peopleSearchingVM, int idPerson)
+		public void AddOrUpdate(PeopleSearchingViewModel peopleSearchingVM, int idPerson, int operation)
 		{
-			int idResearchRoommate = researchRoommateManager.Add(peopleSearchingVM.ResearchRoommateBo, idPerson);
+			int idResearchRoommate = 0;
+
+			if (operation == (int)TypeOperation.Add)
+				idResearchRoommate = researchRoommateManager.Add(peopleSearchingVM.ResearchRoommateBo, idPerson);
+			else if (operation == (int)TypeOperation.Update)
+				idResearchRoommate = researchRoommateManager.Upd(peopleSearchingVM.ResearchRoommateBo, idPerson);
 
 			for (int i = 0; i < peopleSearchingVM.LstPlaceBo.Count; i++)
 			{
-				JObject place = JsonConvert.DeserializeObject<JObject>(peopleSearchingVM.LstPlaceBo[i].JsonDataPlace);
-
-				PlaceBo placeBo = new PlaceBo(true);
-				if (peopleSearchingVM.PlaceBo.ScopeResearch == (int)ScoopResearch.Commune)
-				{
-					placeBo.City = (string)place["label"];
-					placeBo.PostalCode = (string)place["postcode"];
-					string[] context = place["context"].ToString().Split(',');
-					if (context != null)
-					{
-						placeBo.DepartmentNumber = context[0];
-						placeBo.Department = context[1];
-						placeBo.Region = context[2];
-					}
-				}
-				else if (peopleSearchingVM.PlaceBo.ScopeResearch == (int)ScoopResearch.Departement)
-				{
-					placeBo.Department = (string)place["nom"];
-					placeBo.DepartmentNumber = (string)place["code"];
-				}
-				else if (peopleSearchingVM.PlaceBo.ScopeResearch == (int)ScoopResearch.Region)
-				{
-					placeBo.Region = (string)place["nom"];
-				}
+				PlaceBo placeBo = new _InputSearchPlace().GetObjectFromPlaceJson(peopleSearchingVM.LstPlaceBo[i].JsonDataPlace, peopleSearchingVM.PlaceBo.ScopeResearch);
 
 				placeBo.ScopeResearch = peopleSearchingVM.PlaceBo.ScopeResearch;
 
-				int idPlace = placeManager.Add(placeBo, idResearchRoommate, 0);
+				if (operation == (int)TypeOperation.Add)
+				{
+					int idPlace = placeManager.Add(placeBo, idResearchRoommate, 0);
+				}
+				else if (operation == (int)TypeOperation.Update)
+				{
+					bool valid = placeManager.Upd(placeBo, idResearchRoommate, 0);
+				}
 			}
+		}
+
+		public AllViewModel GetDataUser()
+		{
+			int idUser = new AccountController().GetIdUserFromCookieConnection(HttpContext);
+			PersonBo personBo = personManager.GetByUserId(idUser);
+
+			AllViewModel allViewModel = new AllViewModel();
+			allViewModel.PeopleSearchingVM = new PeopleSearchingViewModel();
+
+			allViewModel.PeopleSearchingVM.ResearchRoommateBo = researchRoommateManager.GetByPersonId(personBo.IdPerson);
+			allViewModel.PeopleSearchingVM.LstPlaceBo = placeManager.GetByResearchRoommateId(allViewModel.PeopleSearchingVM.ResearchRoommateBo.IdResearchRoommate);
+
+			return allViewModel;
 		}
 	}
 }

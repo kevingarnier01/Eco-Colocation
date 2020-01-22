@@ -15,6 +15,8 @@ namespace Eco_Colocation.BO
 				Country = "France";
 				PhoneCode = "+33";
 				ContactType = 0;
+				FirstName = String.Empty;
+				LastName = String.Empty;
 			}
 		}
 
