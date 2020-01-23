@@ -51,7 +51,10 @@ namespace Eco_Colocation.Controllers
 			   
 		public ActionResult DisplayInputSearchPlace(string jsonDataPlace, string scopeResearch)
 		{
-			PlaceBo placeBo = new _InputSearchPlace().GetObjectFromPlaceJson(jsonDataPlace, Convert.ToInt32(scopeResearch));
+			_InputSearchPlace inputSearchPlace = new _InputSearchPlace();
+
+			PlaceBo placeBo = inputSearchPlace.GetObjectFromPlaceJson(jsonDataPlace, Convert.ToInt32(scopeResearch));
+			placeBo = inputSearchPlace.GetFullPlaceName(placeBo);
 
 			AllViewModel allViewModel = new AllViewModel();
 			allViewModel.PeopleSearchingVM = new PeopleSearchingViewModel(true);

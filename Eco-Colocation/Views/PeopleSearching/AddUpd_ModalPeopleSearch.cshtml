@@ -97,33 +97,7 @@
 									</div>
 									<input id="inputSearchPlace-car" oninput="addr_searchCity(this, 'inputJsonDataPlace-mps');checkToDisableLstOrNot(this, '#typeResearchSct-car')" type="text"
 										   class="form-control inputSearchPlace" placeholder="Veuillez indiquer la commune concernée&nbsp;*" />
-									<div class="divInputPlaceHidden displayNone">
-										@* Dans ce div la function jquery saveValueSelected va recreer d'autre html helper pour chaque nouvelle localisation *@
-										@* Ce Html Helper à l'index -1 est donc le modèle html reférent*@
-										<div class="divInputJsonDataPlace" id="divInputJsonDataPlace-mps">
-											@Html.TextBoxFor(m => Model.PeopleSearchingVM.LstPlaceBoReferent[-1].JsonDataPlace, new { @type = "hidden", @class = "hiddenInpJsonDataPlace" })
-											@for (int i = 0; i < Model.PeopleSearchingVM.LstPlaceBo?.Count; i++)
-											{
-												@Html.TextBoxFor(m => Model.PeopleSearchingVM.LstPlaceBo[i].JsonDataPlace, new { @type = "hidden", @id = "inputPlaceHidden" + Model.PeopleSearchingVM.LstPlaceBo[i].IdPlace, @class = "inputPlaceHidden" })
-											}
-										</div>
-										<div class="divInputFullPlaceName">
-											@Html.TextBoxFor(m => Model.PeopleSearchingVM.LstPlaceBoReferent[-1].FullPlaceName, new { @type = "hidden", @class = "hiddenInpFullPlaceName" })
-											@for (int i = 0; i < Model.PeopleSearchingVM.LstPlaceBo?.Count; i++)
-											{
-												@Html.TextBoxFor(m => Model.PeopleSearchingVM.LstPlaceBo[i].FullPlaceName, new { @type = "hidden", @id = "inputPlaceHidden" + Model.PeopleSearchingVM.LstPlaceBo[i].IdPlace, @class = "inputPlaceHidden" })
-											}
-										</div>
-										<div class="divInputPlaceId">
-											@Html.TextBoxFor(m => Model.PeopleSearchingVM.LstPlaceBoReferent[-1].IdPlace, new { @type = "hidden", @class = "hiddenInpPlaceId" })
-											@for (int i = 0; i < Model.PeopleSearchingVM.LstPlaceBo?.Count; i++)
-											{
-												@Html.TextBoxFor(m => Model.PeopleSearchingVM.LstPlaceBo[i].IdPlace, new { @type = "hidden", @id = "inputPlaceHidden" + Model.PeopleSearchingVM.LstPlaceBo[i].IdPlace, @class = "inputPlaceHidden" })
-											}
-										</div>
-									</div>
 								</div>
-								@*<input id="inputSearchPlace-mpcHidden" name="inputSearchPlace-mpcHidden" type="hidden">*@
 								<div class="listAutoCompleteToModal"></div>
 
 								@if (Model.PeopleSearchingVM.LstPlaceBo != null && Model.PeopleSearchingVM.LstPlaceBo?.Count != 0)
@@ -133,19 +107,20 @@
 											<div id="place-car" class="place">
 												@for (int i = 0; i < Model.PeopleSearchingVM.LstPlaceBo?.Count; i++)
 												{
-												<div id="placecar-@Model.PeopleSearchingVM.LstPlaceBo[i].IdPlace" class="divPlace">
-													@*<p class="placeName" title="Rennes 35, Ille-et-Vilaine, Bretagne">Rennes 35, Ille-et-Vilaine, Bretagne</p>*@
-													@*@Html.TextBoxFor(m => m.PeopleSearchingVM.LstPlaceBo[i].FullPlaceName, new {  @class = "placeName" })*@
+													<div id="placecar-@i" class="divPlace">
 
-													@Html.TextBoxFor(m => m.PeopleSearchingVM.LstPlaceBo[i].City, new { @class = "placeName" })
-													@Html.TextBoxFor(m => m.PeopleSearchingVM.LstPlaceBo[i].DepartmentNumber, new { @class = "placeName" })
-													@Html.TextBoxFor(m => m.PeopleSearchingVM.LstPlaceBo[i].Department, new { @class = "placeName" })
-													@Html.TextBoxFor(m => m.PeopleSearchingVM.LstPlaceBo[i].Region, new { @class = "placeName" })
-													@Html.TextBoxFor(m => m.PeopleSearchingVM.LstPlaceBo[i].Country, new { @class = "placeName" })
-													<div class="crossPlace">
-														<i onclick="deletePlace('placecar-@Model.PeopleSearchingVM.LstPlaceBo[i].IdPlace','car','@Model.PeopleSearchingVM.LstPlaceBo[i].IdPlace','#inputSearchPlace-car')" class="fas fa-times crossPlace"></i>
+														@Html.HiddenFor(m => m.PeopleSearchingVM.LstPlaceBo[i].IdPlace, new { @class = "placeName" })
+														@Html.HiddenFor(m => m.PeopleSearchingVM.LstPlaceBo[i].City, new { @class = "placeName" })
+														@Html.HiddenFor(m => m.PeopleSearchingVM.LstPlaceBo[i].DepartmentNumber, new { @class = "placeName" })
+														@Html.HiddenFor(m => m.PeopleSearchingVM.LstPlaceBo[i].Department, new { @class = "placeName" })
+														@Html.HiddenFor(m => m.PeopleSearchingVM.LstPlaceBo[i].Region, new { @class = "placeName" })
+														@Html.HiddenFor(m => m.PeopleSearchingVM.LstPlaceBo[i].Country, new { @class = "placeName" })
+
+														@Html.TextBoxFor(m => m.PeopleSearchingVM.LstPlaceBo[i].FullPlaceName, new { @class = "placeName fullPlaceName", @title = Model.PeopleSearchingVM.LstPlaceBo[i].FullPlaceName })
+														<div class="crossPlace">
+															<i onclick="deletePlace('placecar-@i','car')" class="fas fa-times crossPlace"></i>
+														</div>
 													</div>
-												</div>
 												}
 											</div>
 										</div>
@@ -342,7 +317,7 @@
 		window.history.replaceState('data to be passed', 'Title of the page',
 			"/Modal/AddUpd_ModalPeopleSearch?urlCurrentPage=" + $('#urlCurrentPage').val());
 	}
-		
+
 	if (operation == "") {
 		modifySubmitAction_mps()
 	}

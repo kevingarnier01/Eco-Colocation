@@ -110,6 +110,13 @@ $(document).ready(function () {
 			$(e.target).attr("autocomplete", "nope" + randomNumber)
 		}
 	})
+
+	$(document).on("change", "select", function (e) {
+		var newValue = e.target.value;
+		$("#" + e.target.id + " option").removeAttr("selected")
+		$("#" + e.target.id + " option[value=" + newValue + "]").attr("selected", true);
+		$("#" + e.target.id).val(newValue)
+	})
 });
 
 /***** Permet de ne plus pouvoir ouvrir le modal sur un autre onglet *****/
@@ -606,125 +613,93 @@ function getLstAutoCompletion(arr, input, typeResearch) {
 			autoFocus: true,
 			html: 'html',
 			select: function (event, ui) {
-				var compteurPlaceItem = Math.floor(100000 + Math.random() * 900000);
 				var inputId = "#" + $(input).attr("id")
-				var nbPlacePresent = $(inputId + " + .divInputPlaceHidden input").length;
+
+				var identityPage = inputId.substring(inputId.lastIndexOf('-') + 1);
+				var nbPlacePresent = $("#placeSaved-" + identityPage + " .divPlace").length;
 
 				if (nbPlacePresent < 10) {
-					saveValueSelected(ui, this, compteurPlaceItem)
 					if (input.id == "inpMultiPlace-al") {
-						addNewPlaceItem(ui, input, "al", compteurPlaceItem);
+						addNewPlaceItem(ui, input, "al");
 					}
 					else if (input.id == "inputSearchPlace-ph") {
-						addNewPlaceItem(ui, input, "ph", compteurPlaceItem);
+						addNewPlaceItem(ui, input, "ph");
 					}
 					else if (input.id == "inputSearchPlace-mpc") {
-						addNewPlaceItem(ui, input, "mpc", compteurPlaceItem)
+						addNewPlaceItem(ui, input, "mpc")
 					}
 					else if (input.id == "inputSearchPlace-car") {
-						addNewPlaceItem(ui, input, "car", compteurPlaceItem)
+						addNewPlaceItem(ui, input, "car")
 					}
 				}
 				else {
-					$(".inputSearchPlace").val("");
 					alert("Impossible d'ajouter d'autre lieu car le nombre à atteint la limite maximum.")
+					setTimeout(function () {
+						$(".inputSearchPlace").val("");
+					}, 10)
 				}
 			}
 		});
 	}
 }
 
-function addNewPlaceItem(ui, input, identityPage, compteurPlaceItem) {
-	var inputId = "#" + $(input).attr("id");
-
+function addNewPlaceItem(ui, input, identityPage) {
+	
 	if (ui != null) {
 		var json = JSON.stringify(ui.item.json);
-		var locationNameSelected = ui.item.value;
+
+		var typeResearch = $('#typeResearchSct-' + identityPage).val();
+		$.ajax({
+			type: "POST",
+			url: "/PeopleSearching/DisplayInputSearchPlace",
+			data: "{ jsonDataPlace: '" + json + "', scopeResearch: '" + typeResearch + "'}",
+			success: function (html) {
+				var htmlPlace = $(html).find(".divPlace").prop('outerHTML');
+
+				//Remplace les index
+				var nbPlaceAdded = $('#placeSaved-' + identityPage + ' .fullPlaceName').length
+				htmlPlace = htmlPlace.replace(/\[0\]/g, "[" + nbPlaceAdded + "]");
+				htmlPlace = htmlPlace.replace(new RegExp("place" + identityPage + "-0", "g"), "place" + identityPage + "-" + nbPlaceAdded);
+
+				$("#place-" + identityPage).append(htmlPlace);
+			},
+			contentType: 'application/json'
+		});
 	}
 	else {
 		var locationNameSelected = "France"
-	}
 
-	var typeResearch = $('.typeResearchSct').val();
+		htmlPlace =
+		'<p class="placeName" title="' + locationNameSelected + '">' + locationNameSelected + '</p>' +
+		'<div class="crossPlace"><i onclick="deletePlace(' + paramDeletePlace + ')" class="fas fa-times crossPlace"></i></div>' +
+			'</div>';
+		
+		$("#place-" + identityPage).append(htmlPlace);
+	}	
+	
+	if ($("#placeSaved-" + identityPage).css('display') == 'none')
+		$("#placeSaved-" + identityPage).css('display', 'block');
 
-	$.ajax({
-		type: "POST",
-		url: "/PeopleSearching/DisplayInputSearchPlace",
-		data: "{ jsonDataPlace: '" + json + "', scopeResearch: '" + 1 + "'}",
-		success: function (html) {
-			var htmlPlace = $(html).find(".divPlace");
-			$("#place-" + identityPage).append(htmlPlace);
-		},
-		contentType: 'application/json'
-	});
-
-	//var htmlPlace =
-	//	(identityPage != "ph") ?
-	//		'<div id="place' + identityPage + '-' + compteurPlaceItem + '" class="divPlace">'
-	//		: '<div id="place' + identityPage + '-' + compteurPlaceItem + '" class="divPlace divPlace-ph">'
-
-	//var paramDeletePlace = "'place" + identityPage + '-' + compteurPlaceItem + "','" + identityPage + "','" + compteurPlaceItem + "','" + inputId + "'"
-	//htmlPlace +=
-	//	'<p class="placeName" title="' + locationNameSelected + '">' + locationNameSelected + '</p>' +
-	//	'<div class="crossPlace"><i onclick="deletePlace(' + paramDeletePlace + ')" class="fas fa-times crossPlace"></i></div>' +
-	//	'</div>';
-
-	//$("#place-" + identityPage).append(htmlPlace);
-
-//Mettre le même id à l'input hidden associé
-$(inputId + " + .divInputPlaceHidden input:last-child").attr("id", "inputPlaceHidden" + compteurPlaceItem);
-
-if ($("#placeSaved-" + identityPage).css('display') == 'none')
-	$("#placeSaved-" + identityPage).css('display', 'block');
-
-setTimeout(function () {
-	$(input).val("");
-}, 10)
-
-compteurPlaceItem++;
+	setTimeout(function () {
+		$(input).val("");
+	}, 10)
 }
 
-function deletePlace(idElement, identityPage, compteurId, inputId) {
-	//Supprime l'input hidden associé
-	$(inputId + " + .divInputPlaceHidden #inputPlaceHidden" + compteurId).remove();
-
-	//--- Remet les helper dans l'ordre à partir de 0 ---
-
-	//Pour divInputJsonDataPlace (InputHidden)
-	var nbInputJsonDataPlace = $(inputId + " + .divInputPlaceHidden .divInputJsonDataPlace .inputPlaceHidden").length;
-	for (var i = 0; i < nbInputJsonDataPlace; i++) {
-		inputSelect = $(inputId + " + .divInputPlaceHidden .divInputJsonDataPlace .inputPlaceHidden")[i];
-		var inputName = inputSelect.name;
-		inputSelect.name = inputName.replace(/[0-9]+/, i);
-	}
-	//Pour divInputFullPlaceName (InputHidden)
-	var nbInputFullPlaceName = $(inputId + " + .divInputPlaceHidden .divInputFullPlaceName .inputPlaceHidden").length;
-	for (var i = 0; i < nbInputFullPlaceName; i++) {
-		inputSelect = $(inputId + " + .divInputPlaceHidden .divInputFullPlaceName .inputPlaceHidden")[i];
-		var inputName = inputSelect.name;
-		inputSelect.name = inputName.replace(/[0-9]+/, i);
-	}
-
-	//Pour divInputPlaceId (InputHidden)
-	var nbInputFullPlaceName = $(inputId + " + .divInputPlaceHidden .divInputPlaceId .inputPlaceHidden").length;
-	for (var i = 0; i < nbInputFullPlaceName; i++) {
-		inputSelect = $(inputId + " + .divInputPlaceHidden .divInputPlaceId .inputPlaceHidden")[i];
-		var inputName = inputSelect.name;
-		inputSelect.name = inputName.replace(/[0-9]+/, i);
-	}
+function deletePlace(idElement, identityPage) {
 
 	//Supprimer également l'element visible
 	$("#" + idElement).remove();
 
-	//Pour les input visibles restants, on remet aussi les helpers dans l'ordre
-	var nbInputPlaceId = $(".divInputPlaceVisible-" + identityPage + " input").length;
-
-	for (var i = 0; i < nbInputPlaceId; i++) {
-		inputSelect = $(".divInputPlaceVisible-" + identityPage + " input")[i];
-		var inputName = inputSelect.name;
-		inputSelect.name = inputName.replace(/[0-9]+/, i);
+	var nbPlaceAdded = $(".divPlace").length;
+	for (var i = 0; i < nbPlaceAdded; i++) {
+		var nbInput = $("#placeSaved-" + identityPage + " .divPlace:eq(" + i + ") input").length;
+		for (var j = 0; j < nbInput; j++) {
+			var inputSelect = $("#placeSaved-" + identityPage + " .divPlace:eq(" + i + ") input:eq(" + j + ")");
+			var inputName = inputSelect.attr("name");
+			inputSelect.attr("name", inputName.replace(/[0-9]+/, i));			
+		}
 	}
-
+		
 	if ($('#placeSaved-' + identityPage + ' .divPlace').length == 0) {
 		$("#placeSaved-" + identityPage).css('display', 'none');
 		if (identityPage == "ph" || identityPage == "car" || identityPage == "mpc") {
@@ -733,49 +708,6 @@ function deletePlace(idElement, identityPage, compteurId, inputId) {
 			$('#inputSearchPlace-' + identityPage).removeAttr('disabled')
 		}
 	}
-}
-
-function saveValueSelected(ui, input, compteurPlaceItem) {
-	if (ui != null) {
-		var selectedObj = ui.item.json;
-		var itemValue = ui.item.value;
-	}
-	else {
-		var selectedObj = "France";
-		var itemValue = "France"
-	}
-
-	var inputId = "#" + $(input).attr("id");
-
-	//JsonDataPlace -> Les données jsons lié au lieu
-	var numberInputJsonDataPlace = $(inputId + " + .divInputPlaceHidden .divInputJsonDataPlace input").length;
-	var htmlInput = $(inputId + " + .divInputPlaceHidden .divInputJsonDataPlace .hiddenInpJsonDataPlace")[0].outerHTML
-	$(inputId + " + .divInputPlaceHidden .divInputJsonDataPlace").append(htmlInput);
-	var newInput = $(inputId + " + .divInputPlaceHidden .divInputJsonDataPlace input:last-child")
-	var inputName = newInput.attr("name")
-	newInput.attr("name", inputName.replace("Referent", "").replace("-1", numberInputJsonDataPlace - 1))
-	newInput.attr("class", "inputPlaceHidden")
-	newInput.val(JSON.stringify(selectedObj))
-
-	//FullPlaceName -> La chaine complete du lieu selectionné
-	var numberInputFullPlaceName = $(inputId + " + .divInputPlaceHidden .divInputFullPlaceName input").length;
-	var htmlInputFPN = $(inputId + " + .divInputPlaceHidden .divInputFullPlaceName .hiddenInpFullPlaceName")[0].outerHTML
-	$(inputId + " + .divInputPlaceHidden .divInputFullPlaceName").append(htmlInputFPN);
-	var newInputFPN = $(inputId + " + .divInputPlaceHidden .divInputFullPlaceName input:last-child")
-	var inputNameFPN = newInputFPN.attr("name")
-	newInputFPN.attr("name", inputNameFPN.replace("Referent", "").replace("-1", numberInputFullPlaceName - 1))
-	newInputFPN.attr("class", "inputPlaceHidden")
-	newInputFPN.val(itemValue)
-
-	//IdPlace 
-	var numberInputIdPlace = $(inputId + " + .divInputPlaceHidden .divInputPlaceId input").length;
-	var htmlInputPlaceId = $(inputId + " + .divInputPlaceHidden .divInputPlaceId .hiddenInpPlaceId")[0].outerHTML
-	$(inputId + " + .divInputPlaceHidden .divInputPlaceId").append(htmlInputPlaceId);
-	var newInputPlaceId = $(inputId + " + .divInputPlaceHidden .divInputPlaceId input:last-child")
-	var inputNamePlaceId = newInputPlaceId.attr("name")
-	newInputPlaceId.attr("name", inputNamePlaceId.replace("Referent", "").replace("-1", numberInputIdPlace - 1))
-	newInputPlaceId.attr("class", "inputPlaceHidden")
-	newInputPlaceId.val(compteurPlaceItem)
 }
 
 function addr_searchCity(inputId) {
@@ -1603,9 +1535,7 @@ function typeOfResearchLocation(item, elementToChange, inputSearchPlace, identit
 		$(item).attr('disabled', 'true')
 
 		if ($(".placeName[value='France']").length == 0) {
-			var compteurPlaceItem = Math.floor(100000 + Math.random() * 900000);
-			saveValueSelected(null, $(inputSearchPlace), compteurPlaceItem);
-			addNewPlaceItem(null, $(inputSearchPlace), identityPage, compteurPlaceItem);
+			addNewPlaceItem(null, $(inputSearchPlace), identityPage);
 		}
 	}
 	else {

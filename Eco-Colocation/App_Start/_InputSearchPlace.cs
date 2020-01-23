@@ -32,6 +32,26 @@ namespace Eco_Colocation.App_Start
 			else if (ScopeResearch == (int)ScoopResearch.Region)
 			{
 				placeBo.Region = (string)place["nom"];
+
+				
+			}
+
+			return placeBo;
+		}
+
+		public PlaceBo GetFullPlaceName(PlaceBo placeBo)
+		{
+			if (placeBo.ScopeResearch == (int)ScoopResearch.Commune)
+			{
+				placeBo.FullPlaceName = placeBo.City + ", " + placeBo.DepartmentNumber + " - " + placeBo.Department + ", " + placeBo.Region + ", " + placeBo.Country;
+			}
+			else if (placeBo.ScopeResearch == (int)ScoopResearch.Departement)
+			{
+				placeBo.FullPlaceName = placeBo.DepartmentNumber + " - " + placeBo.Department + ", " + placeBo.Country;
+			}
+			else if (placeBo.ScopeResearch == (int)ScoopResearch.Region)
+			{
+				placeBo.FullPlaceName = placeBo.Region + ", " + placeBo.Country;
 			}
 
 			return placeBo;

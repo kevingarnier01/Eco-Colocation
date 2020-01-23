@@ -3362,6 +3362,10 @@ d5-description-mpc {
 	max-width: 100%;
 }
 
+	.divPlace p {
+		flex-flow: nowrap;
+	}
+
 .crossPlace {
 	margin-left: auto;
 	padding-left: 3px;
