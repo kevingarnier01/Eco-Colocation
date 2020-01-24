@@ -7,6 +7,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 using static Eco_Colocation.App_Start._Enums;
@@ -51,6 +52,8 @@ namespace Eco_Colocation.Controllers
 			   
 		public ActionResult DisplayInputSearchPlace(string jsonDataPlace, string scopeResearch)
 		{
+			jsonDataPlace = HttpUtility.UrlDecode(jsonDataPlace, System.Text.Encoding.Default);
+
 			_InputSearchPlace inputSearchPlace = new _InputSearchPlace();
 
 			PlaceBo placeBo = inputSearchPlace.GetObjectFromPlaceJson(jsonDataPlace, Convert.ToInt32(scopeResearch));
@@ -205,17 +208,13 @@ namespace Eco_Colocation.Controllers
 
 			for (int i = 0; i < peopleSearchingVM.LstPlaceBo.Count; i++)
 			{
-				PlaceBo placeBo = new _InputSearchPlace().GetObjectFromPlaceJson(peopleSearchingVM.LstPlaceBo[i].JsonDataPlace, peopleSearchingVM.PlaceBo.ScopeResearch);
-
-				placeBo.ScopeResearch = peopleSearchingVM.PlaceBo.ScopeResearch;
-
 				if (operation == (int)TypeOperation.Add)
 				{
-					int idPlace = placeManager.Add(placeBo, idResearchRoommate, 0);
+					int idPlace = placeManager.Add(peopleSearchingVM.LstPlaceBo[i], idResearchRoommate, 0);
 				}
 				else if (operation == (int)TypeOperation.Update)
 				{
-					bool valid = placeManager.Upd(placeBo, idResearchRoommate, 0);
+					bool valid = placeManager.Upd(peopleSearchingVM.PlaceBo, idResearchRoommate, 0);
 				}
 			}
 		}

@@ -644,15 +644,18 @@ function getLstAutoCompletion(arr, input, typeResearch) {
 }
 
 function addNewPlaceItem(ui, input, identityPage) {
-	
+	$("body").css("cursor", "progress");
+	$("#inputSearchPlace-" + identityPage).css("cursor", "progress");
+
 	if (ui != null) {
 		var json = JSON.stringify(ui.item.json);
 
 		var typeResearch = $('#typeResearchSct-' + identityPage).val();
+
 		$.ajax({
 			type: "POST",
 			url: "/PeopleSearching/DisplayInputSearchPlace",
-			data: "{ jsonDataPlace: '" + json + "', scopeResearch: '" + typeResearch + "'}",
+			data: "{ jsonDataPlace: '" + escape(json) + "', scopeResearch: '" + typeResearch + "'}",
 			success: function (html) {
 				var htmlPlace = $(html).find(".divPlace").prop('outerHTML');
 
@@ -662,6 +665,10 @@ function addNewPlaceItem(ui, input, identityPage) {
 				htmlPlace = htmlPlace.replace(new RegExp("place" + identityPage + "-0", "g"), "place" + identityPage + "-" + nbPlaceAdded);
 
 				$("#place-" + identityPage).append(htmlPlace);
+
+				$("body").css("cursor", "");
+				$("#inputSearchPlace-" + identityPage).css("cursor", "");
+				hiddenWaitingIcon();
 			},
 			contentType: 'application/json'
 		});
@@ -670,13 +677,15 @@ function addNewPlaceItem(ui, input, identityPage) {
 		var locationNameSelected = "France"
 
 		htmlPlace =
-		'<p class="placeName" title="' + locationNameSelected + '">' + locationNameSelected + '</p>' +
-		'<div class="crossPlace"><i onclick="deletePlace(' + paramDeletePlace + ')" class="fas fa-times crossPlace"></i></div>' +
+			'<p class="placeName" title="' + locationNameSelected + '">' + locationNameSelected + '</p>' +
+			'<div class="crossPlace"><i onclick="deletePlace(' + paramDeletePlace + ')" class="fas fa-times crossPlace"></i></div>' +
 			'</div>';
-		
+
 		$("#place-" + identityPage).append(htmlPlace);
-	}	
-	
+	}
+
+
+
 	if ($("#placeSaved-" + identityPage).css('display') == 'none')
 		$("#placeSaved-" + identityPage).css('display', 'block');
 
@@ -692,14 +701,20 @@ function deletePlace(idElement, identityPage) {
 
 	var nbPlaceAdded = $(".divPlace").length;
 	for (var i = 0; i < nbPlaceAdded; i++) {
+		//Remet les valeur "place...-.." dans l'ordre
+		var htmlDivPlace = $("#placeSaved-" + identityPage + " .divPlace:eq(" + i + ")").prop('outerHTML');
+		htmlDivPlace = htmlDivPlace.replace(new RegExp("place" + identityPage + "\-[0-9]*", "g"), "place" + identityPage + "-" + i)
+		$("#placeSaved-" + identityPage + " .divPlace:eq(" + i + ")").replaceWith(htmlDivPlace);
+
 		var nbInput = $("#placeSaved-" + identityPage + " .divPlace:eq(" + i + ") input").length;
 		for (var j = 0; j < nbInput; j++) {
+			//Change les index des htmlheper [...] -> [NewNumber]
 			var inputSelect = $("#placeSaved-" + identityPage + " .divPlace:eq(" + i + ") input:eq(" + j + ")");
 			var inputName = inputSelect.attr("name");
-			inputSelect.attr("name", inputName.replace(/[0-9]+/, i));			
+			inputSelect.attr("name", inputName.replace(/[0-9]+/, i));
 		}
 	}
-		
+
 	if ($('#placeSaved-' + identityPage + ' .divPlace').length == 0) {
 		$("#placeSaved-" + identityPage).css('display', 'none');
 		if (identityPage == "ph" || identityPage == "car" || identityPage == "mpc") {
@@ -751,6 +766,16 @@ function addr_search(url, inputId, typeResearch) {
 		if (this.readyState == 4 && this.status == 200) {
 			var myArr = JSON.parse(this.responseText);
 			getLstAutoCompletion(myArr, inputId, typeResearch);
+
+			$(".ui-autocomplete").fadeOut(0);
+			if ($('.listAutoCompleteToModal').length != 0 && myArr.features.length != 0) {
+				$(".listAutoCompleteToModal").fadeIn(0);
+				$(".ui-autocomplete").prependTo(".listAutoCompleteToModal")
+				i = 1;
+			}
+			else {
+				$(".listAutoCompleteToModal").fadeOut(0);
+			}
 		}
 	};
 	//Permet de contourner l'attribute autoCompelte off qui ne fonctionne pas sur otut les navigateurs.
@@ -761,11 +786,6 @@ function addr_search(url, inputId, typeResearch) {
 
 	xmlhttp.open("GET", url, true);
 	xmlhttp.send();
-
-	if ($('.listAutoCompleteToModal').length != 0) {
-		$(".ui-autocomplete").prependTo(".listAutoCompleteToModal")
-		i = 1;
-	}
 }
 
 function autoCompletePrepend() {
@@ -1964,7 +1984,7 @@ function checkIfOperationRealized_sp(typeOperation, idAnnonce) {
 }
 
 function sendMsgToEmail(idElementPopUp) {
-	showWaitingIcon("#btnSendMsg-pvm")
+	showWaitingIcon("#btnSendMsg-pvm", 14)
 	$(idElementPopUp).css("display", "flex").hide().fadeIn(2000);
 
 	setTimeout(function () {
@@ -1973,19 +1993,20 @@ function sendMsgToEmail(idElementPopUp) {
 	}, 5000)
 }
 
-function showWaitingIcon(destinationTag) {
+function showWaitingIcon(destinationTag, iconSize) {
 	var existing = $(destinationTag + " .waitingIcon").length;
 	if (existing == 0) {
 		var waitingIcon = '<i class="fas fa-spinner waitingIcon"></i>';
 		$(destinationTag).append(waitingIcon)
 	}
+	$(destinationTag + " .waitingIcon").css("font-size", iconSize)
 	$(destinationTag + " .waitingIcon").css("animation", "loadSendMsg 1s")
 	$(destinationTag + " .waitingIcon").css("animation-iteration-count", "infinite")
 	$(destinationTag + " .waitingIcon").fadeIn("slow");
 }
 
 function hiddenWaitingIcon() {
-	$(".waitingIcon").fadeOut(1000);
+	$(".waitingIcon").fadeOut(0);
 }
 
 function inputNumber() {
@@ -2048,7 +2069,6 @@ function triggerSubmitForm(idForm) {
 	$("input:submit").click(function (e) {
 		$("body").css("cursor", "progress");
 
-		//($("input:submit");
 		e.preventDefault();
 		var url = $(this).attr("data-url-jquerySubmit");
 
@@ -2057,6 +2077,10 @@ function triggerSubmitForm(idForm) {
 			$("body").css("cursor", "default");
 			hiddenWaitingIcon();
 		})
+
+		setTimeout(function () { 
+			$("body").css("cursor", "default");
+		}, 5000)
 	})
 }
 

@@ -74,8 +74,8 @@ namespace Eco_Colocation.Controllers
 						idPerson = PersonManager.Add(allVM.AccountVM.UserBo.PersonBo, allVM.AccountVM.UserBo.IdUser);
 					}
 
-					if (idPerson != 0)
-						Connection(allVM);
+					//if (idPerson != 0)
+					//	Connection(allVM);
 				}
 				else
 				{
@@ -87,36 +87,37 @@ namespace Eco_Colocation.Controllers
 			return idPerson;
 		}
 
+		[HttpPost]
 		public ActionResult Connection(AllViewModel AllViewModel)
 		{
-			//FormsAuthentication.SetAuthCookie("User", true);
-			AllViewModel.AccountVM.UserBo.IdUser = WebSecurity.GetUserId(AllViewModel.AccountVM.UserBo.UserName);
-			if (AllViewModel.AccountVM.UserBo.IdUser != 0)
+			if (ModelState.IsValid)
 			{
-				string username = "User";
-				bool isPersistent = false;
-				FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(
-				  1,
-				  "User",
-				  DateTime.Now,
-				  DateTime.Now.AddMinutes(30),
-				  isPersistent,
-				  Convert.ToString(AllViewModel.AccountVM.UserBo.IdUser),
-				  FormsAuthentication.FormsCookiePath);
+				//FormsAuthentication.SetAuthCookie("User", true);
+				AllViewModel.AccountVM.UserBo.IdUser = WebSecurity.GetUserId(AllViewModel.AccountVM.UserBo.UserName);
+				if (AllViewModel.AccountVM.UserBo.IdUser != 0)
+				{
+					string username = "User";
+					bool isPersistent = false;
+					FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(
+					  1,
+					  "User",
+					  DateTime.Now,
+					  DateTime.Now.AddMinutes(30),
+					  isPersistent,
+					  Convert.ToString(AllViewModel.AccountVM.UserBo.IdUser),
+					  FormsAuthentication.FormsCookiePath);
 
-				// Encrypt the ticket.
-				string encTicket = FormsAuthentication.Encrypt(ticket);
+					// Encrypt the ticket.
+					string encTicket = FormsAuthentication.Encrypt(ticket);
 
-				// Create the cookie.
-				Response.Cookies.Add(new HttpCookie(FormsAuthentication.FormsCookieName, encTicket));
+					// Create the cookie.
+					Response.Cookies.Add(new HttpCookie(FormsAuthentication.FormsCookieName, encTicket));
 
-				var a = FormsAuthentication.GetRedirectUrl(username, isPersistent);
-
-				// Redirect back to original URL.
-				return Redirect(FormsAuthentication.GetRedirectUrl(username, isPersistent));
+					// Redirect back to original URL.
+					return Redirect(FormsAuthentication.GetRedirectUrl(username, isPersistent));
+				}
 			}
-			return View();
-			//return View("~/Views/EcoRoommateHome/EcoRoommateHomeView.cshtml");
+			return PartialView("~/Views/Account/ModalAccount.cshtml", new AllViewModel());
 		}
 
 		public ActionResult Deconnection()

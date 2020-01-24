@@ -19,9 +19,9 @@ namespace Eco_Colocation.App_Start
 				string[] context = place["context"].ToString().Split(',');
 				if (context != null)
 				{
-					placeBo.DepartmentNumber = context[0];
-					placeBo.Department = context[1];
-					placeBo.Region = context[2];
+					placeBo.DepartmentNumber = (context.Length >= 1) ? context[0] : "";
+					placeBo.Department = (context.Length >= 2) ? context[1] : "";
+					placeBo.Region = (context.Length >= 3) ? context[2] : "";
 				}
 			}
 			else if (ScopeResearch == (int)ScoopResearch.Departement)

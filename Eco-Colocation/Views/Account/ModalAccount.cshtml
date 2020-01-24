@@ -4,16 +4,23 @@
 
 	Model.AccountVM = new Eco_Colocation.ViewModel.AccountViewModel(true);
 }
-<div class="underModal col-sm-12 col-xs-12">
-	<div id="modalAccount" class="reelModal">
-		<div id="account">
-			<div id="divAccesMembre-acc">
-				<h2 class="title centerText">Accès Membre</h2>
-			</div>
-			@using (Html.BeginForm("Connection", "Account", FormMethod.Post, new { @id = "accountForm" }))
-			{
+
+@using (Html.BeginForm("Connection", "Account", FormMethod.Post, new { @id = "accountForm" }))
+{
+	<div class="underModal col-sm-12 col-xs-12">
+		<div id="modalAccount" class="reelModal">
+			<div id="account">
+				<div id="divAccesMembre-acc">
+					<h2 class="title centerText">Accès Membre</h2>
+				</div>
 				<div class="flex">
 					<div id="divGlobalInput-acc" class="childFlex">
+						<div class="flex">
+							<div class="childFlex">
+								@Html.ValidationMessageFor(m => m.AccountVM.UserBo.UserName)
+								@Html.ValidationMessageFor(m => m.AccountVM.UserBo.Password)
+							</div>
+						</div>
 						<div class="divInputWrite-acc">
 							<div class="div2InputWrite-acc">
 								<i class="fa fa-envelope" aria-hidden="true"></i>
@@ -30,28 +37,30 @@
 				</div>
 				<div id="divbtnConnexion-acc">
 					<div class="flex" id="contentConnect-ma">
-						<div onclick="postSubmit('#accountForm')" class="btnGreen childFlex fontFamilyNote" id="btnConnexion-acc">CONNEXION</div>
+						@*<div onclick="postSubmit('#accountForm')" class="btnGreen childFlex fontFamilyNote" id="btnConnexion-acc">CONNEXION</div>*@
+						<input data-url-jquerySubmit="/Account/Connection" class="btnGreen childFlex fontFamilyNote" id="btnConnexion-acc" type="submit" value="CONNEXION" />
 					</div>
 				</div>
-			}
-			<a id="divMdpForget-acc" href="@Url.Action("FindAccountByEmail", "Account", null)">
-				<p class="childFlex">[Nom d'utilisateur / Mot de passe] Oublié ?</p>
-			</a>
-			<div id="div1CreateAccount-acc">
-				<div id="div2CreateAccount-acc">
-					<a href="@Url.Action("ModalInscriptionWay", "Account", null)" rel="modal:open" onclick="openSecondModal()">
-						<p>Creer un compte</p><i class="fas fa-long-arrow-alt-right"></i>
-					</a>
+				<a id="divMdpForget-acc" href="@Url.Action("FindAccountByEmail", "Account", null)">
+					<p class="childFlex">[Nom d'utilisateur / Mot de passe] Oublié ?</p>
+				</a>
+				<div id="div1CreateAccount-acc">
+					<div id="div2CreateAccount-acc">
+						<a href="@Url.Action("ModalInscriptionWay", "Account", null)" rel="modal:open" onclick="openSecondModal()">
+							<p>Creer un compte</p><i class="fas fa-long-arrow-alt-right"></i>
+						</a>
+					</div>
 				</div>
 			</div>
 		</div>
+		<div class="divCloseModal">
+			<a href="#close-modal" rel="modal:close"><i class="fas fa-times close-modal"></i></a>
+		</div>
 	</div>
-	<div class="divCloseModal">
-		<a href="#close-modal" rel="modal:close"><i class="fas fa-times close-modal"></i></a>
-	</div>
-</div>
+}
 <script language="javascript">
 	$(document).ready(function () {
 		window.history.replaceState('data to be passed', 'Title of the page', '/Modal/ModalConnection');
+		triggerSubmitForm("#accountForm");
 	});
 </script>
